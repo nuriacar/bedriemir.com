@@ -1,0 +1,85 @@
+// JavaScript Document pencere›smi.js
+
+/* <! [CDATA[  */
+
+
+function nodEkleMesaj(pencere, metin, renk) {
+	var text0 = '', span0 = new Object(), belge = new Object();
+
+	span0 = pencere.document.createElement("span");
+	text0 = pencere.document.createTextNode(metin + '  ');
+	span0.appendChild(text0);
+	span0.style.color = renk;
+	belge = pencere.document.getElementsByTagName("body").item(0);
+	belge.appendChild(span0);
+
+}
+
+
+
+function nodEkle(pencere, metin, sonuÁ) {
+	var aÁ˝klama = '', p0 = new Object(), span0 = new Object(), belge = new Object();
+	p0 = pencere.document.createElement("p");
+	aÁ˝klama = pencere.document.createTextNode(metin);
+	p0.appendChild(aÁ˝klama);
+
+	span0 = pencere.document.createElement("span");
+	aÁ˝klama = pencere.document.createTextNode(pencere.name);
+	span0.style.color = 'red';
+	span0.appendChild(aÁ˝klama);
+
+	p0.appendChild(span0);
+
+	belge = pencere.document.getElementsByTagName("body").item(0);
+	belge.appendChild(p0);
+
+}
+
+function isimYaz(pRef) {
+	var mesaj1 = 'Bu ›sim,';
+	var mesaj2 = 'GeÁerli Pencerenin («erÁevenin) Yeni';
+	var mesaj3 = '›smini';
+	var mesaj4 = 'Belirtmektedir.';
+	var iÁerik = pRef.document.getElementsByTagName("p");
+	if(iÁerik.length === 0) {
+		nodEkle(pRef, 'Pencere ›smi = ', pRef.name);
+		nodEkleMesaj(pRef, mesaj1, "green");
+		nodEkleMesaj(pRef, mesaj2, "blue");
+		nodEkleMesaj(pRef, mesaj3, "indianred");
+		nodEkleMesaj(pRef, mesaj4, "red");
+	}
+
+}
+
+
+function pencereAÁ(isim) {
+	var penRef = null;
+
+	penRef = window.open('', isim, 'left=50,top=200,width=600,' +
+	                     'height=180,toolbar=yes,scrollbars=no');
+
+	return penRef;
+
+}
+
+function isimDei˛tir() {
+	var pencereRef = null, ÁerÁeve›smi = '', bilgi = [];
+
+	bilgi = document.getElementsByTagName('input');
+	ÁerÁeve›smi = bilgi[2].value;
+
+	pencereRef = pencereAÁ(ÁerÁeve›smi);
+	isimYaz(pencereRef);
+	pencereRef.focus();    /* AÁ˝k pencere nesne ˆrneini yeniden ilgi oda˝na getir. */
+}
+
+
+function ba˛lat() {
+	var veri = document.getElementsByTagName('input');
+	veri[3].onclick = isimDei˛tir;
+}
+
+
+sayfaY¸klendiktenSonra«al˝˛t˝r(ba˛lat);
+
+/* ]] > */

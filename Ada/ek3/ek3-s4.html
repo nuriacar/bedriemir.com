@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:08 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/ek3/ek3-s4.html"> 
+    <meta charset="utf-8">
+    <title>Ek 3 Sayfa 1</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial">
+<meta name="Description" content="Ada Tutorial in Turkish Language ">
+    <meta name="Keywords" content="Ada Tutorial Turkish">
+    <meta name="Abstract" content="Ada Turkish Tutorial">
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Distribution" content="Local">
+    <meta name="Robots" content="Index">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+    <link href="../css/Adastyle.css" rel="stylesheet"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="ek3-s5.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Ek3
+		</p>
+		<p class="chapter">Sayılabilir Veri Tipleri İçin Öntanımlı Giriş/Çıkış Prosedürleri</p>
+		<p class="chapter">(Standart Giriş/Çıkış Ortamı Uygulamaları)</p>
+		<p class="pagenum">
+			Ek-3  Sayfa 4
+		</p>
+		<p class="title-left" id="intro">Ada.Text_IO Öntanımlı Paketinde
+			Sayılabilir Veri Tiplerinin Giriş/Çıkış Prosedürlerinin Tanıtımı
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> Annex AQ.10.1 deki
+			generik Ada.Text_IO_Enumeration_IO paketindeki, Sayılabilir (Enumeration) tipte veriler için,
+			giriş/çıkış prosedürleri, aşağıda görüldüğü gibi, öntanımlı olarak verilmiştir:
+		</p>
+	<div class="Examples-Maroon">
+		<p>-- Generic package for Input-Output of Enumeration Types <br />
+			<b>generic</b> <br />
+			<span class="pl-25"><b>type</b></span> Enum <b>is</b> (<>); <br />
+		<b>package</b> Enumeration_IO <b>is</b> </p>
+			<p>Default_Width : Field := 0;
+			</p>
+			<p>Default_Setting : Type_Set := Upper_Case;
+			</p>
+		<p>procedure Get(File : <b>in</b> File_Type;
+		</p>
+			<p><span class="pl-50">Item</span> : <b>out</b> Enum);
+			</p>
+		<p>procedure Get(Item : <b>out</b> Enum);
+		</p>
+		<p>procedure Put(File : <b>in</b> File_Type;
+		</p>
+			<p><span class="pl-50">Item</span> : <b>in</b> Enum;</p>
+			<p> <span class="pl-50">Width</span> : <b>in</b> Field := Default_Width;</p>
+			<p> <span class="pl-50">Set</span> : <b>in</b> Type_Set := Default_Setting);</p>
+		<p> <b>procedure</b> Put(Item : <b>in</b> Enum;</p>
+			<p> <span class="pl-50">Width</span> : <b>in</b> Field := Default_Width;</p>
+		<p> <span class="pl-50">set</span> : <b>in</b> Type_Set := Default_Setting);</p>
+		<p> <b>procedure</b> Get(From : <b>in</b> String;</p>
+			<p> <span class="pl-50">Item</span> : <b>out</b> Enum;</p>
+		<p> <span class="pl-50">Last</span> : <b>out</b> Positive);</p>
+		<p> <b>procedure</b> Put(To : <b>out</b> String;</p>
+			<p> <span class="pl-50">Item</span> : <b>in</b> Enum;</p>
+			<p> <span class="pl-50">Set</span> : <b>in</b> Type_Set := Default_Setting);</p>
+		<p> <b>end</b> Enumeration_IO; </p>
+	</div>
+		<p class="indent">
+			Bu aşamada, sadece standart giriş/çıkış (ekran) giriş/çıkış prosedürlerini uygulayacağız. 
+			Ekran giriş/çıkış prosedürleri, giriş için Get, çıkış için Put prosedürleridir. Aşağıdaki
+			<a href="../uygulamalar/e3_s4_uyg_1.html">uygulama</a> ile bu giriş çıkışların nasıl 
+			çalıştığını gösterelim :
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO; 
+<span class="keyw-25">procedure</span> e3_s4_uyg_1 <span class="keyw">is</span>
+<span class="keyw-25">type</span> Renkler <span 
+			class="keyw">is</span> (KAHVERENGİ, KIRMIZI, YEŞİL, SARI, TURUNCU, MAVİ, PORTAKAL, HAKİ, BEYAZ, SİYAH);
+<span class="keyw-50">package</span> Enum_IO <span class="keyw">is new</span> Ada.Text_IO.Enumeration_IO (Renkler);
+<span class="keyw-50">Renk</span> : Renkler;
+<span class="keyw-25">begin</span>
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Lütfen Renkler Kategorisinde Tanımlı Renklerden Birini Giriniz !&quot;</span>);
+<span class="pl-50">Ada.Text_IO.New_Line;</span>
+<span class="pl-50">Enum_IO.Get(Item =&gt; Renk);</span>
+<span class="pl-50">Ada.Text_IO.Put(Item =&gt;</span> <span class="str">&quot;Girilen Renk : &quot;</span>);</span>
+<span class="pl-50">Enum_IO.Put(Item =&gt; Renk , set =&gt; Ada.Text_IO.Type_Set'First);</span>
+<span class="keyw-25">end</span> e3_s4_uyg_1;
+		</pre>
+	<p class="nonindent">
+			Bu programın sonucu,
+	</p>
+		<p class="green">
+			<span class="pl-50">SARI</span> <br />
+			<span class="pl-50">Girilen Renk : sari</span>
+		</p>
+		<p class="nonindent">
+			olmaktadır.
+		</p>
+		<p class="indent">
+			Program ilk olarak Renkler sayılabilir veri tipinin tanıtımı ile başlamaktadır. Bunan sonra, 
+			Ada.Text_IO.Enumeration_IO generik sayılabilir veri giriş/çıkış öntanımlı paketinin, Renkler veri tipi
+			özel anlık örneklemesi (instantaniation) yapılmakta ve Enum_IO non-generik giriş/çıkış paketi
+			tanımlanmaktadır. Son olarak Renk adında, Renkler veri tipinden bir değişken tanımlanmaktadır.
+		</p>
+		<p class="indent">
+			Program başlayınca, lilk olarak Renk değişkeni için konsoldan bir değer okutulmaktadır. Renk değişkeni,
+			Renkler olarak tanımlanmış sayılabilir veri tipindedir. Renkler veri tipi, tüm sayılabilir veri tipleri gibi
+			alttan ve üstten sınırlı ayrık, skaler bir veri tipidir. Bu veri tipinden bir değişkene yasal olarak sadece
+			tanım aralığında bulunan bir değer atanabilir, Aksi halde hata oluşur. Bundan sonra okununan değer,
+			Renkler veri tipi için spesifik Enum_IO paketinden yararlanılarak görüntülenmektedir. Bu paketin Put
+			prosedürünün Type_Set  argümanı, Ada.Text_IO program paketinde tanımlıdır. Program başlangıcında, 
+			Ada.Text_Io dan yararlanılacağı <span class="keyw">with</span> Ada.Text_IO; bildirimi ile bildirilmiş
+			fakat bu paketin içinden çalışılacağı <span class="keyw">use</span> Ada.Text_IO; bildirimi 
+			ile yapılmadığından, ADA.Text_IO öntanımlı paketinde tanımlı olan Type_Set değişkenini, tanımlı olduğu ve 
+			bu programın kullanımına açık olan Ada.Text_IO.Type_Set'First şeklindeki tam nitelikli (Fully Qualifed) 
+			şekliyle belirtilmiştir. Eğer <span class="keyw">use</span> Ada.Text_IO; bildirimi yapılmış olsaydı,
+			paketin içinden çalışır gibi olacağımızdan, Ada.Text_IO öntanımlı giriş/çıkış paketinde tanımlı olan,
+			Type_Set sayılabilir veri tipi görünür olacak ve çağırmak için tam nitelendirmeğe gerek olmayacaktı.
+		</p>
+		<p class="indent">
+			Yukarıdaki programda olduğu gibi, bir prosedürün birlikte çalışıp, içiçe çalışmadığı bir paketin
+			metotlarını çağırırken, tam nitelikli isimlerin kullanımı, biraz uzun ve belki de göze hoş 
+			görünmeyebilecek program satırlarına neden olabilir.Eğer <span class="keyw">use</span>
+			bilidirimi de yapılsa idi, bu satır,
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span 
+			class="keyw">use</span> Ada.Text_IO;<span class="keyw"></span>
+
+<span class="keyw">procedure</span> e3_s4_uyg_1 <span 
+			class="keyw">is</span>
+
+<span class="pl-50">Enum_IO.Put(Item =&gt; Renk , set =&gt;Type_Set'First);</span>
+
+<span class="keyw-25">end</span> e3_s4_uyg_1;
+		</pre>
+		<p class="nonindent">
+			olacaktı. Bu çözüm ile tam nitelikli isimlerin kullanımına gerek olmamakta fakat, 
+			tüm paket için <span class="keyw">use</span> bildirimi, isim uzayı kirlenmesine neden
+			olabileceğından sağlık verilmemektedir. Prosedürlerde, paketler için <span 
+			class="keyw">use</span> bildiriminin aşırı kullanımı isim uzayı
+			(namespace) kirlenmesine yol açar ve sağlık verilmez. Burada anahtar sözcük, aşırı sözcüğüdür.
+			Eğer, birden fazla paket <span class="keyw">use</span> bildirimi ile içinden çalışılmaya açılırsa, 
+			bir tür büyük bir program alanı açılmış olur. Bu paketlerde aynı adı taşıyan metotlar varsa,
+			derleyici, hangi paketin metodunun çağrıldığını, metodun argümanlarını inceleyerek anlamaya çalışacaktır.
+			Bu da zaman ve uğraşı anlamına gelmektedir. Eğer derleyici metodun hangi paketten gelmesi
+			gerektiğini ayırt edemez ise, bunu çelişki sayarak programı hata mesajı ile kesecektir. Eğer içinde
+			çağrılacak paketlerde aynı isimli metotlar veya alt paketler yoksa, bu sakınca olmayacaktır. Yine de
+			burada oldğu gibi, en küçük bir birliktelik olayında bie isim çakışmaları yaşanabilir. Örnek olarak,
+			burada hem Ada.Text_IO hem de Enum_IO paketinde Get ve Put metotları bulunmaktadır. 
+			Burada <span class="keyw">use</span> bildirimi kullanılırsa isim çakışması yaşanacağı
+			açıktır. Aslında bu gibi küçük ve açık olaylarda, derleyici için bu çakışma hiçbir sakınca yaratmayabilir.
+			Yine de, derleyicinin rahat çalışması için bu gibi, isim uzayı kirlenmelerine yol açmamak gerekir. 
+			O zaman öyle bir çözüm bulunmalı ki, hem çağırma için tam nitelikli isimler kullanımına gerek olmasın, 
+			hem de, isim uzayı kirlenmesi oluşmasın. Bu biraz sıradışı çözüm aşağıdaki 
+			<a href="http://en.wikibooks.org/wiki/Ada_Programming/Packages">literatürde</a> 
+			önerilmiştir. Bu yöntem aşağıdaki <a href="../uygulamalar/e3_s4_uyg_2.html">uygulamada</a> 
+			görülmektedir:
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO; 
+<span class="keyw-25">procedure</span> e3_s4_uyg_2 <span class="keyw">is</span>
+<span class="keyw-50">type</span> Renkler <span 
+			class="keyw">is</span> (kahverengı, kirmizi, yeşıl, sari, turuncu, mavı, portakal, hakı, beyaz, sıyah);
+<span class="keyw-50">package</span> Enum_IO <span class="keyw">is new</span> Ada.Text_IO.Enumeration_IO (Renkler);
+<span class="keyw-50">Renk</span> : Renkler;
+<span class="pl-50">Büyük_Harf</span> : Ada.Text_IO.Type_Set := Ada.Text_IO.Type_Set'Last;
+<span class="keyw-50">use type</span> Ada.Text_IO.Type_Set;
+<span class="keyw-25">begin</span>
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Lütfen Renkler Kategorisinde Tanımlı Renklerden Birini Giriniz (Lütfen Sadece Büyük Harfler Kullanınız !)  :   &quot;</span>);
+<span class="pl-50">Ada.Text_IO.New_Line;</span>
+<span class="pl-50">Enum_IO.Get(Item =&gt; Renk);</span>
+<span class="pl-50">Ada.Text_IO.Put(Item =&gt;</span> <span class="str">&quot;Girilen Renk : &quot;</span>);</span>
+<span class="pl-50">Enum_IO.Put(Item =&gt; Renk , set = Büyük_Harf;</span>
+<span class="keyw-25">end</span> e3_s4_uyg_2;
+		</pre>
+		<p class="nonindent">
+			Bu programın sonucu,
+		</p>
+		<p class="green pl-50">
+			Lütfen Renkler Kategorisinde Tanımlı Renklerden Birini Giriniz 
+			(Lütfen Sadece Büyük Harfler Kullanınız !)  :   KIRMIZI
+		</p>
+		<p class="green pl-50">
+			Girilen Renk : KIRMIZI
+		</p>
+		<p class="nonindent">
+			olmaktadır.
+		</p>
+		<p class="indent">
+			Program içinde, Büyük harflerle tanıtılmış olan SARI elemanı, Türkçenin Ada derleyicisinde 
+			Büyük harf/ Küçük Harf değişiminin yanlış gerçekleştirildiği i, ı, İ ve I harflerini içeren bir 
+			değer olduğundan, küçük harflerle yazdırılması sari gibi anlamsız bir sonuç vermiştir. 
+			Ada derleyicisi için, sari sarI, SARI, Sari vb yazılışlar aynı değişkeni 
+			işaret etmektedir. Bu nedenle, doğru yanıt alınması için iki yöntem uygulanabilir. 
+			Bunlardan ilki, ikinci programda olduğu gibi, bu harfleri içeren tanıtıcıların tanımlandıkları 
+			karakter büyüklüğü ile çağrılmaları yöntemidir. Bu yöntem, tanıtımda sıradışı bir karakter 
+			girişi gerektirmez fakat, elamanların doğru çağrılması için, mutlaka 
+			tanıtıldıklaraı karakter büyüklüğü ile çağrılmaları gerekir. İkinci yöntem daha esnektir 
+			fakat tanıtım sırasında biraz sıradışı karakterler kullanımını gerekir. Örnek olarak küçük 
+			harflerlerle çağrılacaksa mersin, büyük harflerle çağrılacaksa mersın yazmak gerekir. 
+			Yine aynı şekilde, küçük harflerlerle çağrılacaksa sarı, büyük harflerle
+			çağrılacaksa sari yazmak gerekir.
+		</p>
+		<p class="indent">
+			Sayılabilir tipte veriler istenirse imaj nitelikleinden yararlanılarak, Ada.Text_IO 
+			öntanımlı paketinden yararlanılarak da görüntülenebilirler. Bu konuda  bir uygulama, <a href="../b4/b4-s1.html">b4-s1.htm</a>
+			sayfasında görülebilir.
+		</p>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:14 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

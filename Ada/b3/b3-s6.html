@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:49 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s6.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 6</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s5.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s7.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 6
+		</p>
+		<p class="subheading" id="float-attrs">3.3.3.1 - Float Veri Tipine Uygulanabilen Nitelikler (Devam)</p>
+
+		<p class="indent">
+			Öntanımlı Float, Long_Float ve Long_Long_Float gerçek sayı veri tipleri, 
+			skaler veri tipleri olduklarından, bunlara bir sonraki değer (S'Succ) ve bir
+			önceki değer (S'Pred) nitelikleri uygulanabilir bu niteliklerin gerçek sayılar
+			için tanımları aşağıda görüldüğü gibidir. 
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Succ</span> : <span class="pl-15">Her</span> 
+					gerçek sayı alt tipinin S'Succ niteliği aşağıdaki fonksiyonu belirtir :</li>
+		</ul>
+		<pre class="app-25">
+<span class="pl-150"><span class="keyw">function</span></span> S'Succ (Arg : S'Base)
+<span class="pl-175"><span class="keyw">return</span></span> S'Base
+		</pre>
+		<ul class="listNoMarker">
+			<li><span class="pl-100">Bu</span> fonksiyon, argümandan sonraki ilk 
+					makine sayısını döndürür.</li>
+			<li><span class="pl-100">Eğer</span> böyle bir sayı yoksa, kapsam aşımı 
+					hatası (Constraint_Error) oluşur.</li>
+		</ul>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Pred</span> : <span class="pl-15">Her</span> 
+					gerçek sayı alt tipinin S'Succ niteliği aşağıdaki fonksiyonu belirtir :</li>
+		</ul>
+		<pre class="app-25">
+<span class="pl-150"><span class="keyw">function</span></span> S'Pred (Arg : S'Base)
+<span class="pl-175"><span class="keyw">return</span></span> S'Base
+		</pre>
+		<ul class="listNoMarker">
+			<li><span class="pl-100">Bu</span> fonksiyon, argümandan önceki ilk 
+					makine sayısını döndürür.</li>
+			<li><span class="pl-100">Eğer</span> böyle bir sayı yoksa, kapsam aşımı 
+					hatası (Constraint_Error) oluşur.</li>
+		</ul>
+		<p class="indent">
+			 Aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_4.html">prosedürde</a>, 
+			Float veri tipinden değerlerin bir önceki ve bir sonraki makine sayıları 
+			araştırılmş ve Float veri tipi üzerine bilgi edinilmeye çalışılmıştır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_1_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>F_In_Out<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Float_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>Text_IO<span class="S0"> </span><span class="S1">renames</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Float Değeri Giriniz : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_in_Out<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>F<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Girilen Float Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>F<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Önceki Makine Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Pred<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Alt Eşik : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>F<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span>Float<span class="S4">'</span>Pred<span class="S4">(</span>F<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Sonraki Makine Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Succ<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Üst Eşik : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Float<span class="S4">'</span>Succ<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span>F<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Ortalama Fark : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ortalama<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S1">abs</span><span class="S4">(</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S4">)</span><span class="S0"> </span><span class="S4">/</span><span class="S3">2.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Ortalama Gerçekleşen % Duyarlık (%Bağıl Hata) : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S3">100.0</span><span class="S0"> </span><span class="S4">/</span>F<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_4<span class="S4">;</span></pre>
+		<div class="sayfaortala">
+			<table width="80%" border="1" id="kapsam" class="tablo1">
+				<caption class="captionred ">
+						Öntanımlı Gerçek Sayı Veri Tiplerinin Karakteristikleri
+				</caption>
+				<colgroup>
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4 st1">
+						<th>Girilen Float Değeri</th>
+						<th>Önceki Makine Değeri</th>
+						<th>Alt Eşik</th>
+						<th>Sonraki Makine Değeri</th>
+						<th>Üst Eşik</th>
+						<th>Ortalama Fark</th>
+						<th>Ortalama Gerçekleşen % Duyarlık (%Bağıl Hata)</th>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345600E+00</td>
+						<td class="sayfaortala">1.12345588E+00</td>
+						<td class="sayfaortala">1.19209290E-7</td>
+						<td class="sayfaortala">1.12345612E+00</td>
+						<td class="sayfaortala">1.19209290E-7</td>
+						<td class="sayfaortala"> 1.19209290E-7</td>
+						<td class="sayfaortala">1.1E-5</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345600E+15</td>
+						<td class="sayfaortala">1.12345594E+15</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">1.12345607E+15</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">6.0E-6</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345602E+32</td>
+						<td class="sayfaortala">1.12345592E+32</td>
+						<td class="sayfaortala">9.67140656E+24</td>
+						<td class="sayfaortala">1.12345612E+32</td>
+						<td class="sayfaortala">9.67140656E+24</td>
+						<td class="sayfaortala"> 9.67140656E+24</td>
+						<td class="sayfaortala">8.6E-6</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			Yukarıdaki tablodan ilk görülen gerçek, veri olarak klavyeden girilen değerlerin
+			makinede işlenirken değiştirilmesi ve makine sayısı adı verilen yeni bir değere 
+			dönüştürülmesidir. Gerçek sayı veri tipleri, makine sayılarının birbirini izledği, skaler,
+			ayrık ve sayılabilir veriler olarak düşünülebiir. Bu verilerin önceki ve sonraki değerinin
+			olması implisit sayılabilirliğin göstergesidir. Gerçek sayı verileri küçükten büyüğe
+			doğru dizilirler fakat tamsayı değerleri gibi monotonik olarak artmazlar. Biribirini izleyen
+			iki gerçek sayı verisi arasındaki farka eşik adı verilir. Gerçek sayıların eşik değerleri
+			küçük değerlerde küçük, büyük değerlerde büyük olarak gerçekleşir. Bu gerçek, tablodaki 
+			sonuçlardan açıkça gözlenmektedir. Gerçek bir sayı verisinin (bir önceki veya bir sonraki
+			veri ile arasındaki fark)/(gerçek sayı verisi) oranı küçük veya büyük değerlerde yaklaşık 
+			sabit olarak gerçekleşmektedir. Bu yüzden gerçek sayılar sabit duyarlıklı, fakat değişken 
+			aralıklı veriler olarak düşünülebilir. Oysa biraz ileride göreceğimiz. sabit ondalıklı sayılarda
+			eşik sabit, duyarlık değişkendir. Bu yüzden gerçek sayı tipleri matematiksel hesaplara
+			daha uygun iken, sabit ondalıklı tipler muhasebe ile ilgili hesaplara daha uygundur.
+		</p>
+		<p class="indent">
+			Bir Float değerinin üst veya alt bitişik (adjacent) makine sayısı, S'Adjacent nitelik değeri
+			ile de sorgulanabilir. Bu niteliğin tanımı aşağıda görülmektedir:
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Adjacent</span> : <span class="pl-15">Aşağıda 
+			spesifikasyonu verilen fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-150">function</span> S'Adjacent (X  : T; Towards : T)</li>
+			<li><span class="keyw-175">return</span> T</li>
+			<li><span class="pl-100">Eğe Towards formal parametresinin değeri X ise, X değerini,</span></li>
+			<li><span class="pl-100">Yoksa, </span>Towards yönünde T tipinin X formal 
+			parametesine bitişik makine sayısını döndürür.</li>
+			<li><span class="pl-100">Eğer</span> sonuç S alt tipinin temal kapsam aralığının (S'Base) 
+			dışında ise, Constraint_Error oluşur.</li>
+			<li><span class="pl-100">Bu</span> fonksiyonun değeri 0 olduğunda, eğer S'Signed_Zeros 
+			True ise , 0 değeri X argümanının işaretini alır.</li>
+			<li><span class="pl-100">Eğer</span> Towards formal parametresi = ise, işaretinin sonuca 
+			bir etkisi yoktur.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen <a href="../uygulamalar/b3_3_3_1_uyg_5.html">program</a> uygulanabilir:
+		</p>
+		<pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_5<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">1.12345600E+15</span><span class="S4">;</span><span class="S0"> </span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Yön</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S4">-</span><span class="S3">2.0</span><span class="S4">;</span><span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comm">-- yön Aşağıya Doğru !
+</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">66</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Machine<span class="S4">(</span>A<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"A Değişkeninin Verilen Yönde Adjacent Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Adjacent<span class="S4">(</span>A<span class="S4">,</span><span class="S11">Yön</span><span class="S4">),</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> &nbsp;</span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_5<span class="S4">;</span>
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green">A Değişkeninin Değeri :                                          1.12345600E+15</span>
+<span class="pl-25 green">A Değişkeninin Verilen Yönde Adjacent Değeri:        1.12345594E+15</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_5.html">prosedürde</a>, kullanılan
+			veri, yukarıdaki tablonun ikinci satırındaki değer ile aynıdır. Her iki programın verdiği 
+			alt bitişik makine sayısı sonuçları da aynı olmaktadır.
+		</p>
+		<p class="indent">
+			Float veri tipi gibi gerçek sayı veri tiplerinin değerlerini tavan değerlerine yükseltmek veya
+			tavan değerlerine indirmek için, S'Floor, S'Ceiling ve S'Truncation niteliklerinden yararlanılabilir.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Floor</span> : <span class="pl-15">Aşağıda spesifikasyonu 
+					verilen fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-150">function</span> S'Floor (X  : T)</li>
+			<li><span class="keyw-175">return</span> T</li>
+			<li><span class="pl-100">Bu</span> fonksiyon, X değerinden küçük veya eşit, en büyük (en pozitif) ger&ccedil;ek sayı değerini verir.</li>
+			<li><span class="pl-100">Bu</span> fonksiyonun değeri 0 olduğunda, X argümanının işaretini alır. Bunun 
+					dışındaki = sonuçları pozitif 0 değerleridir.</li>
+		</ul>
+		<p class="indent">
+			S'Floor niteliği, gerçek sayı değerini, pozitif değerler için sıfıra en yakın, negatif değerler için, 
+			sıfıra en uzak en yakın ger&ccedil;ek sayıya dönüştürür. Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_6.html">prosedür</a> uygulanabilir:
+	</p>
+		<pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_6<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">23.8</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>B<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S4">-</span><span class="S3">4.6</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>A<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;A Değişkeninin Floor &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Floor<span class="S4">(</span>A<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"B Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>B<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;B Değişkeninin Floor &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Floor<span class="S4">(</span>B<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_6<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">A Değişkeninin Değeri :  2.38000E+01   A Değişkeninin Floor  Değeri:  2.30000E+01</span>
+
+<span class="pl-25 green">B Değişkeninin Değeri : -4.60000E+00   B Değişkeninin Floor  Değeri: -5.00000E+00</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Gerçek Sayı tipleri gibi skaler tiplerin nesnelrine uygulanabilen, S'Ceiling (tavan) niteliği,
+			uygulandıpğı ondalıklı değeri, pozitif değerler için sıfıra en uzak ( en pozitif) (en yüksek), 
+			(tavan) bitişik ger&ccedil;ek sayı değerine, negatif sayılar için, sıfıra en yakın (en pozitif) (en yüksek), 
+			(tavan) bitişik ger&ccedil;ek sayı değerine indirger. S'Ceiling niteliğinin tanımı aşağıda verilmiştir.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Ceiling</span> : <span class="pl-15">Aşağıda spesifikasyonu 
+						verilen fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-150">function</span> S'Ceiling (X  : T)</li>
+			<li><span class="keyw-175">return</span> T</li>
+			<li><span class="pl-100">Bu</span> fonksiyon, X değerinden küçük veya eşit, en büyük (en pozitif) ger&ccedil;ek sayı değerini verir.</li>
+			<li><span class="pl-100">Bu</span> fonksiyonun değeri 0 olduğunda, X argümanının işaretini alır. Bunun dışındaki = sonuçları 
+						pozitif 0 değerleridir.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_7.html">program</a> uygulanabilir:
+		</p>
+<pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_7<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">8.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>B<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S4">-</span><span class="S3">8.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>A<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;A Değişkeninin Ceiling &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Ceiling<span class="S4">(</span>A<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"B Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>B<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;B Değişkeninin Ceiling &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Ceiling<span class="S4">(</span>B<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_7<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">A Değişkeninin Değeri :  8.50000E+00   A Değişkeninin Ceiling  Değeri:  9.00000E+00</span>
+
+<span class="pl-25 green">B Değişkeninin Değeri : -8.50000E+00   B Değişkeninin Ceiling  Değeri: -8.00000E+00</span>
+
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Negatif sayılar için tavan değeri, sıfıra en yakın değerdir, yani -9.0&lt; - 8.5 &lt; -8.0 &lt; 0 olduğundan tavan 
+			ger&ccedil;ek sayı değeri -8.0 değeri doğrudur.
+		</p>
+		<p class=" indent">
+			Gerçek sayılar için, truncation niteliği, pozitif sayılar için, bir alt (taban) tamsayı sıfır ile doldurulmuş
+			ondalıklı kısmı, negatif sayılar için ise bir alt tamsayı kısmı ve sıfır ile doldurulmuş ondalık kısımlı bir gerçek
+			sayı değerini döndürür. Truncation niteliği, aşağıda belitilen spesifikasyon ile hesaplanır.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Truncation</span> : <span class="pl-15">Aşağıda spesifikasyonu verilen 
+			fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-150">function</span> S'Truncation (X  : T)</li>
+			<li><span class="keyw-175">return</span> T</li>
+			<li><span class="pl-100">Bu</span> fonksiyon, X değerini eğer değer negatif ise sayısal 
+			olarak bir üst ger&ccedil;ek sayı (tavan) karşılığına, </li>
+			<li><span class="pl-100">diğer</span> durumlarda bir alt ger&ccedil;ek sayı (taban) karşılığına getirir. </li>
+			<li><span class="pl-100">Burada</span> sıfıra uzaklık veya yakınlık değil, önemli olan 
+						mutlak rakkamlardır. </li>
+			<li><span class="pl-100">Yani, sayının ondalıklı kısmı</span> kesilir ve yerine 0 lar doldurulur. </li>
+			<li><span class="pl-100">Örnek</span> olarak -8.5 değeri -8.0 e (tavan) , 8.5 ise 8.0 e (taban)  eşitlenir.</li>
+			<li><span class="pl-100">Sonuç</span> 0 olduğunda, eğer Float'Signed_Zeros True ise, 
+			verinin değerini alır.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen <a href="../uygulamalar/b3_3_3_1_uyg_8.html">program</a> uygulanabilir:
+</p>
+		<pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_8<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">8.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>B<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S4">-</span><span class="S3">8.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>A<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;A Değişkeninin Truncation &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Truncation<span class="S4">(</span>A<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"B Değişkeninin Değeri : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>B<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;B Değişkeninin Truncation &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Truncation<span class="S4">(</span>B<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_8<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">A Değişkeninin Değeri :  8.50000E+00   A Değişkeninin Truncation  Değeri:  8.00000E+00</span>
+
+<span class="pl-25 green">B Değişkeninin Değeri : -8.50000E+00   B Değişkeninin Truncation  Değeri: -8.00000E+00</span>
+
+
+olmaktadır. 
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_8.html">prosedürde</a>, görüldüğü gibi,
+			Truncation niteliği, gerçek sayı verisinin tamsayı kısmını esas almakta ve işaret ne olursa olsun,
+			geri döndürülen gerçek sayı değeri, verinin işareti, verinin tamsayı kısmı ile sıfırdan oluşan ondalık 
+			kısmından oluşmaktadır.
+		</p>
+		<p class="indent">
+			Bundan sonra incelenecek olan S'Copy_Sign niteliği, ilginç bir niteliktir. Skaler bir değerin arkadaşı
+			olarak başka bir skaler değer belirtilir ve Değerin işareti arkadaşının değeri ile aynı olur. 
+			Bu niteliğin açıklaması aşağıda verilmektedir. 
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Copy_Sign</span> : <span class="pl-15">Aşağıda spesifikasyonu 
+						verilen fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-75">function</span> S'Copy_Sign (Value, Sign  : T)</li>
+			<li><span class="keyw-100">return</span> T</li>
+			<li><span class="pl-100">Eğer</span> Value formal parametresinin değeri sıfırdan farklı ise, fonsiyon bu değeri,</li>
+			<li><span class="pl-100">Sign</span> argümanın (formal parametre ile eş anlamlı) işareti ile, yoksa 0 döndürür.</li>
+			<li><span class="pl-100">Eğer</span> sonuç S alt tipinin temal kapsam aralığının (S'Base) dışında ise, Constraint_Error oluşur.</li>
+			<li><span class="pl-100">Sonuç</span> 0 olduğunda, eğer Float'Signed_Zeros True ise, Sign argümanının işaretini alır.</li>
+		</ul>
+		<p class="indent">
+			Aşağıda görülen <a href="../uygulamalar/b3_3_3_1_uyg_9.html">prosedürde</a> bu niteliğin değeri sorgulanmaktadır.
+</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_9<span class="S0"> </span><span class="S1">is</span>
+
+<span class ="pl-25">A</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">34.85734</span><span class="S4">;</span>
+
+<span class ="pl-25">B</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S4">-</span><span class="S3">1.00</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class ="pl-25">Ada</span><span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S0"> &nbsp;</span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>A<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> &nbsp;</span><span class="S7">" &nbsp;&nbsp;A Değişkeninin Copy_Sign &nbsp;Değeri: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>Float<span class="S4">'</span>Copy_Sign<span class="S4">(</span>A<span class="S4">,</span><span class="S0"> </span>B<span class="S4">)));</span>
+
+<span class ="pl-25">Ada</span><span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"A Değişkeninin Değeri : "</span><span class="S0"> &nbsp;</span><span class="S4">&amp;</span><span class="S0"> </span>Float<span class="S4">'</span>Image<span class="S4">(</span>A<span class="S4">));</span><span class="S0"> </span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_9<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">A Değişkeninin Değeri :  3.48573E+01   A Değişkeninin Copy_Sign  Değeri: -3.48573E+01</span>
+
+<span class="pl-25 green">A Değişkeninin Değeri :  3.48573E+01</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_9.html">prosedürün</a> sonuçlarında dikkat edilecek önemli
+			bir nokta bulunmaktadır. Dikkat edilirse, A değişkeninin başlangıç değeri değişmemekte ve program sonuna kadar
+			geçerli değer olarak kalmaktadır. Bu değer artı 34.8573 değeridir. Float'Copy_Sign (A , B) niteliğinin değeri 
+			bu nitelik tanımına uygun veriler uygulandığında geri döndürülen değerdir. Bu değerin A değişkenin değeri ile bir ilgisi yoktur. Bir değişkenin değeri, açık (explicit) olarak değiştirilerek geçerli değeri değiştirilebilir. Eğer, 
+			nitelik sonucunun aynı zamanda A değerinin de değerini değiştirmesi istenirse,
+	</p>
+		<pre class="app-25">
+<span class="pl-25">A</span> := Float'Copy_Sign(A , B);
+		</pre>
+		<p class="nonindent">
+			şeklinde tahrip edici bir atama yapılmalıdır. Bu atama ile A değişkenin eski değeri kaybolur, yerine yeni
+			değer atanır ve bu atamadan sonra, artık A değerinin yeni değeri geçerii olur.
+		</p>
+		<p class="indent">
+			Gerçek sayı değerleri en yakın tamsayı karşılıklarına yuvarlatılabilir. Bu işem için, tanımları aşağıda
+			yapılmış olan S'Rouding, S'unbiased_Rounding niteliklerinden yararlanılabilir. S'Machine_Rounding
+			niteliği, çalışılan sistemde hangi yuvarlatma yönteminin uygulanmakta olduğu üzerine fikir vermektedir.
+		</p>
+		<p class="indent">
+			Yuvarlatma işlemi için seçilebilecek ilk nitelik, 
+		</p>
+<ul class="listNoMarker">
+			<li><span class="red">S'Rounding</span> : <span class="pl-15">Aşağıda spesifikasyonu verilen 
+</span></li>
+			<li><span class="keyw-75">function</span> S'Rounding (X  : T)</li>
+			<li><span class="keyw-100">return</span> T</li>
+			<li>Bu fonksiyon, X değerine en yakın tamsayı karşılığına yuvarlatır. Değer tam aralığın ortasında 
+</li>
+			<li>Sonuç 0 olduğunda, eğer Float'Signed_Zeros True ise, verinin değerini alır.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_10.html">program</a> uygulanabilir:
+	</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_10<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">12.555</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S0"> </span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değerinin Yuvarlatılmış Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Rounding<span class="S4">(</span><span class="S11">Gerçek_Sayı</span><span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_10<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S0"></span></span>
+Bu programın sonucu,
+
+<span class="pl-25 green">Gerçek Sayı Değeri : 12.56</span>
+
+<span class="pl-25 green">Gerçek Sayı Değerinin Yuvarlatılmış Değeri : 13.00</span>
+
+olmaktadır.
+		</pre>
+	<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_10.html">prosedürde</a>, alınan sonuçlardan birisi, 12.555 olan
+			bir gerçek sayı değerinin 2 ondalık duyarlıkta gösterilmek istenmesi sonucunda, iki ondalıığa yuvarlatılırken, 
+			12.56 ya yani en yakın çift sayıya yuvarlatılıyor. Bunu not edelim. Prosedür sonucu 12.56 değerini, 13.00 olarak
+			yuvarlıyor. !3.00 sıfıra en uzak tamsayı karşılığı olduğundan, prosedür sonucu Rounding fonksiyonu tanımı ile uyumludur.
+</p>
+		<p class="nonindent">
+			Gerçek sayıların yuvarlatılması için uygulanabilecek diğer metot, Unbiased_Rounding metodudur. Bu metodun tanımı,
+			aşağıda görülmektedir :
+		</p>
+<ul class="listNoMarker">
+			<li><span class="red">S'Unbiased_Rounding</span> : <span class="pl-15">Aşağıda spesifikasyonu verilen 
+</span></li>
+			<li><span class="keyw-75">function</span> S'Unbiased_Rounding (X  : T)</li>
+			<li><span class="keyw-100">return</span> T</li>
+			<li>Bu fonksiyon, X değerine en yakın tamsayı karşılığına yuvarlatır. Değer tam aralığın ortasında ise, 
+çift sayı olan tamsayı karşılığına yuvarlatılır.</li>
+			<li>Sonuç 0 olduğunda, eğer Float'Signed_Zeros True ise, verinin değerini alır.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_11.html">program</a> uygulanabilir:
+	</p>
+		<pre class="app-25">
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_11<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">12.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S0"> </span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değerinin Yuvarlatılmış Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Unbiased_Rounding<span class="S4">(</span><span class="S11">Gerçek_Sayı</span><span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Yuvarlatma Metodu Unbiased_Rounding)"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_11<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+Bu programın sonucu,
+
+<span class="pl-25 green">Gerçek Sayı Değeri : 12.5</span>
+
+<span class="pl-25 green">
+Gerçek Sayı Değerinin Yuvarlatılmış Değeri : 12.00      (Yuvarlatma Metodu Unbiased_Rounding)</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_11.html">prosedürde</a>, 12.5 ' en yakın çift tamsayı 12 olduğundan
+			yuvarlatma 12 'ye doğru gerçekleştirilmiştir. Unbiased_Rounding fonksiyonu tipinde yuvarlatma, en değerli yuvarlatma
+			yöntemidir, çünkü sayıların bir yöne yığılmasını (kayma) (bias) önlemek için en geçerli yöntemdir. Ne var ki bu yöntemin el ile
+			sürekli uygulanması, emek yoğun bir işlem olduğundan, uygulanma şansı az olabilmektedir. Ada programlama sisteminde
+			hangi yuvarlatma yönteminin uygulanacağı yerleşime bağlı bırakılmıştır. Çalışılan sistemde uygulanan yuvarlatma yöntemi, 
+			aşağıda spesifikasyonu (argümanları ve geri döndürülen değerin veri tipi) açıklanan S'Mahine_Rounding niteliğinin 
+			çalışma yönteminin sınanması ile kolaylıkla anlaşılır.
+</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Machine_Rounding</span> : <span class="pl-15">Aşağıda spesifikasyonu verilen 
+			fonksiyonla hesaplanır:</span></li>
+			<li><span class="keyw-75">function</span> S'Machine_Rounding (X  : T)</li>
+			<li><span class="keyw-100">return</span> T</li>
+			<li>Bu fonksiyon, X değerine en yakın tamsayı karşılığına yuvarlatır. Değer tam aralığın ortasında ise, 
+			hangi eşiğe yuvarlatılacağı açıkça belirtilmemiştir.</li>
+			<li>Sonuç 0 olduğunda, eğer Float'Signed_Zeros True ise, verinin değerini alır.</li>
+			<li>Bu fonksiyon, makinenin gerçekleştirebileceği en etkin yuvarlatma yöntemine erişim olanağı sağlar.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_12.html">prosedür</a> uygulanabilir:
+	</p>
+		<pre class="app-25">
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_12<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">12.5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S0"> </span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Gerçek_Sayı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Gerçek Sayı Değerinin Yuvarlatılmış Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Unbiased_Rounding<span class="S4">(</span><span class="S11">Gerçek_Sayı</span><span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Yuvarlatma Metodu Machine_Rounding)"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_12<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+Bu programın sonucu,
+
+<span class="pl-25 green">Gerçek Sayı Değeri : 12.5</span>
+
+<span class="pl-25 green">
+Gerçek Sayı Değerinin Yuvarlatılmış Değeri : 13.00      (Yuvarlatma Metodu Machine_Rounding)</span>
+
+olmaktadır.
+		</pre>
+		<p class="nonindent">
+			Bu değerler, Rounding fonksiyonun döndürdüğü değerlerle aynı olduğundan, makinenin uyguladığı
+			yuvarlatma metodunun Rounding metodu olduğu düşünülebilir. 
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge">&nbsp;</li>
+			<li id="sayfa"><a href="b3-s5.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1">&nbsp;</li>
+			<li id="kodlama"><a href="b3-s7.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama">&nbsp;</li>
+	</ul>
+		
+	</li></ul></body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:58 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

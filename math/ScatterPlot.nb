@@ -1,0 +1,4289 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    180741,       4281]
+NotebookOptionsPosition[    167193,       4076]
+NotebookOutlinePosition[    167587,       4092]
+CellTagsIndexPosition[    167544,       4089]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Plot Examples-2
+Scatter Graphs\
+\>", "Chapter",
+ CellChangeTimes->{{3.7638329767037706`*^9, 3.7638330000772624`*^9}, {
+   3.764246005964684*^9, 3.7642460143818665`*^9}, {3.7649181458353558`*^9, 
+   3.764918160046224*^9}, {3.764977619030768*^9, 3.7649776492430973`*^9}, {
+   3.7650250050376773`*^9, 3.76502503272836*^9}, 
+   3.7670951034721003`*^9},ExpressionUUID->"2d0dccfa-3022-4aa8-a51e-\
+2521fe290591"],
+
+Cell["\<\
+Scatter graphs are data collected pointwise. They can be collected by direct \
+observations or from mathematical relations including randomly generated data.\
+\>", "Text",
+ CellChangeTimes->{{3.765025040423579*^9, 
+  3.76502521346146*^9}},ExpressionUUID->"b17de6cd-43b5-4b1d-9646-\
+280b4ca3f496"],
+
+Cell["\<\
+We will begin by sequential data. These data come one by one, that is one \
+point after a previous one. Suppose you measure the viscosity of a mixture \
+every after rise of two degrees beginning from an inital of 18 \[Degree]C . \
+The observed viscosity value is measured after the exact temperature \
+equilibrium of the mixture and heating medium and it is known that the \
+viscosity is stable infinitesimally at a given constant temperature. The \
+collected data will be as,\
+\>", "Text",
+ CellChangeTimes->{{3.7650252209198236`*^9, 3.76502547052162*^9}, {
+   3.7650272184084525`*^9, 3.765027243058117*^9}, {3.765027285008638*^9, 
+   3.765027336236676*^9}, {3.7650274656328335`*^9, 3.765027479341095*^9}, 
+   3.765027524333662*^9, {3.7650276275367737`*^9, 
+   3.7650278555483923`*^9}},ExpressionUUID->"9b05547e-b472-4f21-8611-\
+9da2932796b4"],
+
+Cell[TextData[Cell[BoxData[GridBox[{
+   {
+    RowBox[{"Temperature", " ", 
+     RowBox[{"(", "\[Degree]C", ")"}]}], 
+    RowBox[{
+     RowBox[{"Nr", ".", " ", "of"}], " ", "Observation", " ", 
+     RowBox[{"(", "n", ")"}]}], 
+    RowBox[{"Observed", " ", "value", " ", "of", " ", "the", " ", 
+     RowBox[{"viscosity", "."}]}]},
+   {
+    RowBox[{"15", " ", 
+     RowBox[{"(", "initial", ")"}]}], "1", "2.16"},
+   {"17", "2", "3.86"},
+   {"19", "3", "5.23"},
+   {"21", "4", "6.11"},
+   {"23", "5", "7.82"},
+   {"25", "6", "9.28"},
+   {"27", "7", "13.88"},
+   {"29", "8", "23.77"},
+   {"31", "9", "28.18"}
+  },
+  GridBoxDividers->{
+   "Columns" -> {{True}}, "ColumnsIndexed" -> {}, "Rows" -> {{True}}, 
+    "RowsIndexed" -> \
+{}}]],ExpressionUUID->"64a68aeb-d022-4ee3-a6fe-85f5240b4ebf"]], "Text",
+ CellChangeTimes->{{3.765025526316609*^9, 3.7650258052777534`*^9}, {
+  3.765026288685811*^9, 3.765026288685811*^9}, {3.765027501685849*^9, 
+  3.7650276087160254`*^9}, {3.765028013147976*^9, 3.765028013147976*^9}, {
+  3.7650315377666626`*^9, 3.765031538213705*^9}, {3.765031578756291*^9, 
+  3.7650316200176353`*^9}, {3.765031663192959*^9, 3.765031744044942*^9}},
+ TextAlignment->Center,ExpressionUUID->"a4e03d1f-8de7-41a1-8f72-aa0f7585e04d"],
+
+Cell["\<\
+Since, number of observation is a direct informant of the equilibrium \
+temperature, we can satisfy with only two values,\
+\>", "Text",
+ CellChangeTimes->{{3.765025859445179*^9, 3.7650260305324135`*^9}, 
+   3.7650260896336465`*^9, {3.765027887516369*^9, 
+   3.765027911624751*^9}},ExpressionUUID->"e577754f-713c-4fe4-822f-\
+6d77d6f9e0c6"],
+
+Cell[CellGroupData[{
+
+Cell["Number of observation,", "Item",
+ CellChangeTimes->{{3.7650260803447895`*^9, 
+  3.7650261051771016`*^9}},ExpressionUUID->"9001b1a7-cf0d-48c5-9935-\
+af0f33839d30"],
+
+Cell["Observed value of the viscosity.", "Item",
+ CellChangeTimes->{{3.7650260803447895`*^9, 3.7650261453363843`*^9}, {
+  3.7650279430251293`*^9, 
+  3.7650279735576878`*^9}},ExpressionUUID->"99aaa158-60af-40c4-b4a3-\
+a4def8030929"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    StyleBox[
+     RowBox[{
+      RowBox[{"Nr", ".", " ", "of"}], " ", "Observation"}],
+     FontColor->GrayLevel[0]], 
+    RowBox[{"Observed", " ", "value", " ", "of", " ", "the", " ", 
+     RowBox[{"viscosity", "."}]}]},
+   {"1", "2.16"},
+   {"2", "3.86"},
+   {"3", "5.23"},
+   {"4", "6.11"},
+   {"5", "7.82"},
+   {"6", "9.28"},
+   {"7", "13.88"},
+   {"8", "23.77"},
+   {"9", "28.18"}
+  },
+  GridBoxDividers->{
+   "Columns" -> {{True}}, "ColumnsIndexed" -> {}, "Rows" -> {{True}}, 
+    "RowsIndexed" -> {}}]], "Text",
+ CellChangeTimes->{
+  3.7650262169657*^9, {3.7650262745229025`*^9, 3.7650262935098224`*^9}, {
+   3.7650279844055247`*^9, 3.7650279982664385`*^9}},
+ TextAlignment->Center,ExpressionUUID->"ec380923-8f0c-44a3-9cfe-a3f0a7dce789"],
+
+Cell["\<\
+If we wish to plot Nr of Observation versus observed value, we do not need to \
+provide a {temperature, observed value of the viscosity} data doublet. A data \
+doublet {nr. of observation , observed value of the viscosity}  may suffice.  \
+Number of observation will be the abcissa of the point (x) and the observed \
+value of the viscosity will be the ordinate value.(y).\
+\>", "Text",
+ CellChangeTimes->{{3.765026336645423*^9, 3.765026665500389*^9}, {
+  3.765031791981862*^9, 
+  3.765032148076895*^9}},ExpressionUUID->"4d9a17c5-92a9-4bc8-9473-\
+2d7fdec8ba2f"],
+
+Cell["\<\
+We ought to provide only a one dimensional sequential data list (a simple \
+Mathematica list), the number of observation will be automatically generated \
+by Mathematica as the ordinal numbers of the entered data. In computer \
+science it is called the \[OpenCurlyDoubleQuote]index\[CloseCurlyDoubleQuote] \
+of the the elements of a given list. In Mathematica list indexes are \
+beginning by 1 and increasing by 1 up to the end of the entered data. One may \
+access the the elements of a defined list referring the index value of a \
+given element.\
+\>", "Text",
+ CellChangeTimes->{{3.7650266865858517`*^9, 3.765026889260295*^9}, {
+  3.7650321955281515`*^9, 3.7650321978245354`*^9}, {3.7657643885717564`*^9, 
+  3.765764544750981*^9}, {3.7657645815954485`*^9, 3.765764591253434*^9}, {
+  3.7657646241170807`*^9, 3.765764814780294*^9}, {3.765764950485598*^9, 
+  3.765765074941174*^9}},ExpressionUUID->"5df07aff-5cfb-441a-afa9-\
+9e7dd873c012"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "2.16", ",", "3.86", ",", "5.23", ",", "6.11", ",", "7.82", ",", "9.28", 
+     ",", "13.88", ",", "23.77", ",", "28.18"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7650268331687737`*^9, 3.76502684395436*^9}, {
+  3.7650269097175055`*^9, 3.7650269730178194`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"de5642bc-1bfc-4f67-aee3-209300328490"],
+
+Cell["This list, Now we can plot this sequential data,", "Text",
+ CellChangeTimes->{{3.765026989364942*^9, 3.7650270128413215`*^9}, {
+  3.7657651053108006`*^9, 
+  3.7657651570876217`*^9}},ExpressionUUID->"395b924b-7754-4cac-9acd-\
+0924d9fcd441"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"p1", "=", 
+  RowBox[{"ListPlot", "[", "data", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765027020932685*^9, 3.7650270323779397`*^9}, {
+  3.7658163648575478`*^9, 3.7658163679197907`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"2647366a-382d-4330-9221-78116a4d8663"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{1., 2.16}, {2., 3.86}, {3., 5.23}, {4., 6.11}, {5., 7.82}, {
+      6., 9.28}, {7., 13.88}, {8., 23.77}, {9., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 9.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7650270350563765`*^9, 3.765734103927044*^9, 
+  3.7658070437705445`*^9, 3.7658152541472297`*^9, 3.7658163689422054`*^9, 
+  3.765816613936659*^9, 3.7658257988285627`*^9, 3.7658532455694337`*^9, 
+  3.765856271544417*^9, 3.7658563235605774`*^9, 3.7658579159942713`*^9, 
+  3.7658773668952007`*^9, 3.765877991248985*^9, 3.766081385315034*^9, 
+  3.767063564097282*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"aefcc003-d5ed-4a44-ab78-8d15aef142de"]
+}, Open  ]],
+
+Cell["\<\
+In obtained plot, abcissa values were assigned in situ, according to the \
+order of the entered data in the list named (data). The first of these values \
+(elements of the list) which may also be interpreted as a vector ( the \
+computer name for the one dimensional sequential data) or a set is the \
+observed value of the viscosities at the experiment\
+\>", "Text",
+ CellChangeTimes->{{3.765028096552121*^9, 3.76502850180848*^9}, {
+  3.7650322485724063`*^9, 3.7650323061404905`*^9}, {3.765806194489023*^9, 
+  3.765806225189438*^9}},ExpressionUUID->"69f4a819-872a-4697-a7be-\
+83ade9f349ee"],
+
+Cell["\<\
+The observed value of the viscosity in the initial temperature is,\
+\>", "Text",
+ CellChangeTimes->{{3.765029680557223*^9, 3.7650297410643826`*^9}, {
+  3.7650323639690976`*^9, 
+  3.765032379916609*^9}},ExpressionUUID->"80505cb3-aa99-4635-bd61-\
+fd1bf4eff2ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7650297446553946`*^9, 3.765029758322268*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"9a7cb73f-4e73-44de-bb07-b2b5233b64ad"],
+
+Cell[BoxData["2.16`"], "Output",
+ CellChangeTimes->{3.765029760535636*^9, 3.765734103955008*^9, 
+  3.7658070438974705`*^9, 3.765815254231168*^9, 3.7658166139666414`*^9, 
+  3.7658257988635426`*^9, 3.765853245678748*^9, 3.765856271563406*^9, 
+  3.765856323578566*^9, 3.7658579160142593`*^9, 3.7658773669371657`*^9, 
+  3.7658779912669764`*^9, 3.7660813853539934`*^9, 3.767063564121232*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"4a09b8e1-8371-4fbf-98d4-76db843e4926"]
+}, Open  ]],
+
+Cell["The 9 th. observation is,", "Text",
+ CellChangeTimes->{{3.7650297765477896`*^9, 3.7650298183235044`*^9}, 
+   3.7650298851169443`*^9},ExpressionUUID->"69cf004c-b7c5-475d-9798-\
+7a2b4b1397a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "[", 
+  RowBox[{"[", "9", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7650298237022114`*^9, 3.765029830986288*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"82fe6f4a-0fce-47be-8525-f89911f3f5b5"],
+
+Cell[BoxData["28.18`"], "Output",
+ CellChangeTimes->{3.7650298325370893`*^9, 3.765734103981976*^9, 
+  3.765807043923542*^9, 3.765815254256152*^9, 3.7658166139896293`*^9, 
+  3.7658257988915267`*^9, 3.765853245694373*^9, 3.7658562715794134`*^9, 
+  3.7658563235945582`*^9, 3.7658579160372467`*^9, 3.7658773669541545`*^9, 
+  3.7658779912849655`*^9, 3.766081385392984*^9, 3.767063564141229*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"ad51da5c-429c-468e-81a6-10b3c8d4ce54"]
+}, Open  ]],
+
+Cell["\<\
+We have regular increase in temperature during the experiment, that means we \
+can develop a relation calculating the temperatures for each entry of \
+viscosity data to experiment list.\
+\>", "Text",
+ CellChangeTimes->{{3.7650298495382724`*^9, 3.7650299000366993`*^9}, 
+   3.7650299496763177`*^9, {3.7658070669362855`*^9, 3.7658071971616783`*^9}, {
+   3.765807240948597*^9, 
+   3.765807362096204*^9}},ExpressionUUID->"8c723c57-ad0a-4f7d-b885-\
+c96b7599f72b"],
+
+Cell["\<\
+The first entry is the viscosity at the initial temperature 15 (\[Degree]C)\
+\>", "Text",
+ CellChangeTimes->{{3.7658073886519904`*^9, 
+  3.7658074372991796`*^9}},ExpressionUUID->"a99d50f5-2a5c-48df-9fc7-\
+db97e03b8031"],
+
+Cell["Let us assign n for the index of the viscosity value.", "Text",
+ CellChangeTimes->{{3.7658075639076023`*^9, 
+  3.7658076222521806`*^9}},ExpressionUUID->"25fdf8c0-a79f-469a-bd63-\
+564f876caed5"],
+
+Cell["\<\
+For the first entry point n = 1 and t = 15 (\[Degree]C) = 15 + n-1 = 15 (\
+\[Degree]C)  or 15 + 2 (n-1) = 15 + 1 (1-1) = 15 + 0 = 15 (\[Degree]C)\
+\>", "Text",
+ CellChangeTimes->{{3.765807656014841*^9, 3.765807722200325*^9}, {
+   3.765807895212202*^9, 3.765807983859103*^9}, {3.765808255517644*^9, 
+   3.7658083102540846`*^9}, 
+   3.7658084176264153`*^9},ExpressionUUID->"f4c95302-7e57-4b88-992e-\
+7b8c17506578"],
+
+Cell["\<\
+For the second entry point n = 2 and t = 15 + 2 (\[Degree]C) = 15 + 2 (n-1) = \
+15 + 2 (2-1) = 15 + 2 = 17 (\[Degree]C)\
+\>", "Text",
+ CellChangeTimes->{{3.7658077619355803`*^9, 3.765807788537341*^9}, {
+   3.7658080502131095`*^9, 3.765808238964614*^9}, 
+   3.7658084562285023`*^9},ExpressionUUID->"2480d870-6a9c-42dc-bf9a-\
+ff19609fad66"],
+
+Cell[".....", "Text",
+ CellChangeTimes->{{3.7658083522396994`*^9, 
+  3.765808353007145*^9}},ExpressionUUID->"2de09c54-68d7-46ff-ad26-\
+54e20a4bc404"],
+
+Cell["\<\
+For the ninth entry point n = 9 and t = 15 + 2 (n-1) = 15 + 2 (9-1) = 15 + 2\
+\[Times]8 = 15 + 16 = 31 (\[Degree]C)\
+\>", "Text",
+ CellChangeTimes->{{3.7658077619355803`*^9, 3.765807788537341*^9}, {
+  3.7658080502131095`*^9, 3.765808238964614*^9}, {3.7658083637503815`*^9, 
+  3.7658084116107655`*^9}, {3.7658084771173944`*^9, 3.7658084873999605`*^9}, {
+  3.765808579805138*^9, 
+  3.765808603432051*^9}},ExpressionUUID->"65900a39-1fe4-4726-9a42-\
+e17216ceac15"],
+
+Cell["\<\
+Since the initial temperature and the temrature step are constants, we can \
+define a more general relation valid for either different initial temperatues \
+and the temperature increase steps. \
+\>", "Text",
+ CellChangeTimes->{{3.765808757866371*^9, 
+  3.765808943562086*^9}},ExpressionUUID->"e8606648-5d05-4c1d-8c6c-\
+dba35681f1f4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"initialTemp", " ", "=", " ", "15"}], ";", " ", 
+  RowBox[{"tempStep", "=", " ", "2"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7658090060618887`*^9, 3.76580901867177*^9}, {
+  3.765809072512835*^9, 3.7658091147283063`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"e0237111-a50e-49fc-a1af-21489ced063b"],
+
+Cell["\<\
+We can devise a user defined function for this entry point / temperature \
+relation. The variable n will be defined as the index (ordinal number) of the \
+data set.\
+\>", "Text",
+ CellChangeTimes->{{3.7658086587930274`*^9, 3.765808719847864*^9}, {
+  3.7658244038258553`*^9, 
+  3.765824479639349*^9}},ExpressionUUID->"a54d1746-b643-49aa-8742-\
+5c7a63dc1aeb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"F", "[", "n_", "]"}], " ", "=", " ", 
+  RowBox[{"initialTemp", " ", "+", " ", 
+   RowBox[{"tempStep", 
+    RowBox[{"(", 
+     RowBox[{"n", "-", "1"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.765808730440217*^9, 3.765808745191537*^9}, {
+  3.7658091949243126`*^9, 3.7658092747565823`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"e310dbc2-bb1f-491a-b5f4-8dffbf1757c4"],
+
+Cell[BoxData[
+ RowBox[{"15", "+", 
+  RowBox[{"2", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", "n"}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.7658092934480667`*^9, 3.765815254314127*^9, 
+  3.7658166140346036`*^9, 3.7658257989434977`*^9, 3.765853245725621*^9, 
+  3.76585627160839*^9, 3.7658563236205425`*^9, 3.765857916067229*^9, 
+  3.765877367009123*^9, 3.7658779913139486`*^9, 3.766081385466941*^9, 
+  3.767063564185205*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"207f36be-ca0c-499e-8b67-a5114f7438e7"]
+}, Open  ]],
+
+Cell["\<\
+We can determine the temperatures for each determined value of viscosity in \
+our experiment.\
+\>", "Text",
+ CellChangeTimes->{{3.7658093108954487`*^9, 3.7658093152423058`*^9}, {
+   3.765809390226088*^9, 3.765809457953104*^9}, 
+   3.76581569848106*^9},ExpressionUUID->"5de105b6-e983-4d9d-bf59-\
+05d18e19daea"],
+
+Cell["\<\
+list = Table[iteratedValue , {iterator, initial value of the iterator , end \
+value of the iterator , (increase / decrease) value of the iterator}]\
+\>", "Text",
+ CellChangeTimes->{{3.7658245604639745`*^9, 3.76582474719985*^9}, {
+  3.7658247843915143`*^9, 3.765824805643323*^9}, {3.7658529966998434`*^9, 
+  3.765852997872041*^9}},ExpressionUUID->"03bd2d3f-1b78-41c9-bbb5-\
+df8e90e7b16d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temperature", " ", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{"x", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "initialTemp", ",", 
+      RowBox[{"F", "[", 
+       RowBox[{"Length", "[", "data", "]"}], "]"}], ",", "tempStep"}], 
+     "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7658094646512594`*^9, 3.765809554567237*^9}, {
+  3.7658096472981787`*^9, 3.7658096621464415`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"77b7162e-6c6b-4fe6-89e0-1d336c596f76"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", "27", ",",
+    "29", ",", "31"}], "}"}]], "Output",
+ CellChangeTimes->{3.7658095569774942`*^9, 3.7658152543391037`*^9, 
+  3.7658166140595884`*^9, 3.7658257989744787`*^9, 3.7658532457412453`*^9, 
+  3.7658562716243725`*^9, 3.765856323641531*^9, 3.765857916085219*^9, 
+  3.765877367027113*^9, 3.765877991330939*^9, 3.7660813855408936`*^9, 
+  3.767063564205201*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"a6eba1ed-fe12-4640-8bec-e8b9281026bb"]
+}, Open  ]],
+
+Cell["\<\
+Now, we are in position to be able to plot the temperature of each entry \
+point :\
+\>", "Text",
+ CellChangeTimes->{{3.7658157733193474`*^9, 
+  3.7658158143903866`*^9}},ExpressionUUID->"1bac5891-7d5f-4e19-8214-\
+93a8aa41c31e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"p2", "=", 
+  RowBox[{"ListPlot", "[", "temperature", "]"}]}]], "Input",
+ CellChangeTimes->{3.7658158269600544`*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"8fb4850c-0f23-41ec-8142-19a1a74263d0"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{1., 15.}, {2., 17.}, {3., 19.}, {4., 21.}, {5., 23.}, {6., 
+      25.}, {7., 27.}, {8., 29.}, {9., 31.}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 9.}, {0, 31.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.765815864299703*^9, 3.7658166141155562`*^9, 
+  3.7658257990184536`*^9, 3.7658532457881308`*^9, 3.7658562716573524`*^9, 
+  3.7658563236935005`*^9, 3.7658579161221976`*^9, 3.7658773670720882`*^9, 
+  3.7658779913729324`*^9, 3.766081385617855*^9, 3.767063564245262*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"0209f38e-6537-45a7-8c3a-eeb32617fa60"]
+}, Open  ]],
+
+Cell["\<\
+Temperaature is changing step by step from the initial to the final stage of \
+the experiment. We call this \[OpenCurlyDoubleQuote]The Viscosity Chart of a \
+Given Substance by Discrete Steps of Temperature\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.7658158725289955`*^9, 
+  3.7658160959638042`*^9}},ExpressionUUID->"b9e2ea48-882b-4687-b731-\
+57c3667f1cd3"],
+
+Cell["\<\
+Observed viscosity values are stored in the list \[OpenCurlyDoubleQuote]data\
+\[CloseCurlyDoubleQuote] and plotted above as p1. The temperature values of \
+these experiment is stored in the list \[OpenCurlyDoubleQuote]temperature\
+\[CloseCurlyDoubleQuote] and plotted above as p2. We can plot them side by \
+side or in one single plot.\
+\>", "Text",
+ CellChangeTimes->{{3.7658161785354357`*^9, 3.7658163045201616`*^9}, 
+   3.765824840211492*^9, 3.7658530292662497`*^9, {3.765853069339292*^9, 
+   3.7658530776023083`*^9}, {3.7658532738247895`*^9, 
+   3.765853275402979*^9}},ExpressionUUID->"e55ca9f3-12e6-4a4c-8c0f-\
+708888f060a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsRow", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"p1", ",", "p2"}], "}"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7658531431425114`*^9, 3.7658532201119075`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"689b60c5-aa33-4418-9919-f2f2b33fc30e"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[{{}, {{}, 
+        {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+         0.012833333333333334`], AbsoluteThickness[1.6], 
+         PointBox[{{1., 2.16}, {2., 3.86}, {3., 5.23}, {4., 6.11}, {5., 
+          7.82}, {6., 9.28}, {7., 13.88}, {8., 23.77}, {9., 
+          28.18}}]}, {}}, {}, {}, {}, {}},
+      AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+      Axes->{True, True},
+      AxesLabel->{None, None},
+      AxesOrigin->{0., 0},
+      DisplayFunction->Identity,
+      Frame->{{False, False}, {False, False}},
+      FrameLabel->{{None, None}, {None, None}},
+      FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+      GridLines->{None, None},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->All,
+      Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& )}},
+      PlotRange->{{0., 9.}, {0, 28.18}},
+      PlotRangeClipping->True,
+      PlotRangePadding->{{
+         Scaled[0.02], 
+         Scaled[0.02]}, {
+         Scaled[0.02], 
+         Scaled[0.05]}},
+      Ticks->{Automatic, Automatic}], {192., -116.80842387373012}, 
+     ImageScaled[{0.5, 0.5}], {360., 222.49223594996212}], InsetBox[
+     GraphicsBox[{{}, {{}, 
+        {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+         0.012833333333333334`], AbsoluteThickness[1.6], 
+         PointBox[{{1., 15.}, {2., 17.}, {3., 19.}, {4., 21.}, {5., 23.}, {6.,
+           25.}, {7., 27.}, {8., 29.}, {9., 31.}}]}, {}}, {}, {}, {}, {}},
+      AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+      Axes->{True, True},
+      AxesLabel->{None, None},
+      AxesOrigin->{0., 0},
+      DisplayFunction->Identity,
+      Frame->{{False, False}, {False, False}},
+      FrameLabel->{{None, None}, {None, None}},
+      FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+      GridLines->{None, None},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->All,
+      Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& )}},
+      PlotRange->{{0., 9.}, {0, 31.}},
+      PlotRangeClipping->True,
+      PlotRangePadding->{{
+         Scaled[0.02], 
+         Scaled[0.02]}, {
+         Scaled[0.02], 
+         Scaled[0.05]}},
+      Ticks->{Automatic, Automatic}], {576., -116.80842387373012}, 
+     ImageScaled[{0.5, 0.5}], {360., 222.49223594996212}]}, {}},
+  ContentSelectable->True,
+  ImageSize->Large,
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.7658531950289583`*^9, 3.765853245944356*^9}, 
+   3.7658562716933327`*^9, 3.765856323719486*^9, 3.765857916158177*^9, 
+   3.7658773671940184`*^9, 3.7658779914169073`*^9, 3.766081386006633*^9, 
+   3.767063564353175*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"d8047618-9f67-4fea-9e03-9b76f4b1135b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"p1", ",", "p2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7655932563074484`*^9, 3.765593271649633*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"15f60983-387d-4419-9213-aea4f901701f"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {{}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      PointBox[{{1., 2.16}, {2., 3.86}, {3., 5.23}, {4., 6.11}, {5., 7.82}, {
+       6., 9.28}, {7., 13.88}, {8., 23.77}, {9., 
+       28.18}}]}, {}}, {}, {}, {}, {}}, {{}, {{}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      PointBox[{{1., 15.}, {2., 17.}, {3., 19.}, {4., 21.}, {5., 23.}, {6., 
+       25.}, {7., 27.}, {8., 29.}, {9., 31.}}]}, {}}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 9.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7658163400197973`*^9, 3.765816375925201*^9, 
+  3.765816614141541*^9, 3.765825799048436*^9, 3.765853245959979*^9, 
+  3.7658562717243223`*^9, 3.765856323747471*^9, 3.7658579161891594`*^9, 
+  3.7658773672240014`*^9, 3.7658779914428754`*^9, 3.7660813860675864`*^9, 
+  3.7670635643851547`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"af3adb26-5dfa-4db5-a755-fb8dc5b9f072"]
+}, Open  ]],
+
+Cell["\<\
+Surely a more conveniant plot may be a (temperature / viscosity) plot. This \
+can be obtained by providing dual data coordinates for each point  (x , y) . \
+The first of these values will be the abcissa value (x) and the second will \
+be the ordinate value (y).\
+\>", "Text",
+ CellChangeTimes->{{3.765032635273737*^9, 3.765032888760608*^9}, {
+  3.7650331499838133`*^9, 3.7650331661199255`*^9}, {3.7656296354283504`*^9, 
+  3.7656296486637535`*^9}, {3.7658248572237325`*^9, 3.76582487963489*^9}, {
+  3.765853312560136*^9, 
+  3.765853321192161*^9}},ExpressionUUID->"fb967f72-d698-44f9-a991-\
+ac5e924773b8"],
+
+Cell["\<\
+Before going any farther, we should discuss about the constitution of the \
+list \[OpenCurlyDoubleQuote]temperature\[CloseCurlyDoubleQuote]. The elements \
+of temperature list are calculated using the special deterministic user \
+defined relation of the temperature values for each experiment step. This is \
+more or less an unusual case. Most usual cases is recording viscosity values \
+at different, unpredictable but constant experimental temperature values.\
+\>", "Text",
+ CellChangeTimes->{{3.765873836593416*^9, 3.765874011681975*^9}, {
+   3.7658740721942616`*^9, 3.7658741196360435`*^9}, {3.765874170903633*^9, 
+   3.76587417999242*^9}, 3.76587421327733*^9, {3.765878077126738*^9, 
+   3.7658780837819157`*^9}},ExpressionUUID->"7da9b59d-46d7-4b19-bc97-\
+c1a17ccbd4fb"],
+
+Cell["\<\
+For each experiment, there is two possibilities of providing records for the \
+evalution with Mathematica. The first of the possibilities is to devise two \
+lists \[OpenCurlyDoubleQuote]temperature\[CloseCurlyDoubleQuote] and \
+\[OpenCurlyDoubleQuote]viscosity\[CloseCurlyDoubleQuote] for each experiment. \
+The other way is entering each data doublet as sublists in each experiment. \
+Both ways are possible and feasible in Mathematica.   \
+\>", "Text",
+ CellChangeTimes->{{3.7658742395112743`*^9, 3.7658744052761817`*^9}, {
+  3.765874540168809*^9, 
+  3.7658747452081714`*^9}},ExpressionUUID->"e38cd0c6-fd84-4108-b810-\
+1430abfb3cbd"],
+
+Cell["\<\
+We will begin by providing two different lists for each experiment. The first \
+list will be list named \[OpenCurlyDoubleQuote]temperature\
+\[CloseCurlyDoubleQuote] and bear the experiment temperatures for each \
+experiment set. The other list may be named as \[OpenCurlyDoubleQuote]data\
+\[CloseCurlyDoubleQuote] and and his elements will be observed viscosity \
+values for a given temperature. The list may or may not have any special \
+ordering and may be entered freely one after another. The only requirement is \
+to enter corresponding experimental data in the same order in two lists. That \
+is, entry one should be some temperature of the experiment step in one list \
+and the observed viscosity value at same temperature in the other list. Same \
+should be the entry two and its successors. The number of the elements (Size) \
+of the two sets will be same, since there is only one entry of temperature, \
+corresponding a distinct reading of viscosity. This is the system which we \
+have applied in entering the elements of \
+``temperature\[CloseCurlyDoubleQuote] and ``data\[CloseCurlyDoubleQuote] \
+lists in our example.\
+\>", "Text",
+ CellChangeTimes->{{3.7658748669483337`*^9, 3.765875046808152*^9}, {
+  3.7658750817011375`*^9, 3.765875156196401*^9}, {3.7658752119803996`*^9, 
+  3.765875294671962*^9}, {3.7658753520870233`*^9, 3.7658753546035805`*^9}, {
+  3.765875408679571*^9, 3.7658754217750463`*^9}, {3.765876029864216*^9, 
+  3.765876031038531*^9}, {3.765876069143671*^9, 
+  3.765876262340839*^9}},ExpressionUUID->"6586bfcf-46cd-4691-abe6-\
+980517254e03"],
+
+Cell["\<\
+When we have two lists for any experiment set, as \
+\[OpenCurlyDoubleQuote]temperature\[CloseCurlyDoubleQuote] and \
+\[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote], in our example, we have \
+two ways for assembling these two lists into one single list for a given \
+experiment set in Mathematica.  \
+\>", "Text",
+ CellChangeTimes->{{3.7656166100253506`*^9, 3.7656167467399225`*^9}, {
+  3.7656266812209234`*^9, 3.7656266964731693`*^9}, {3.765629669271926*^9, 
+  3.7656296848879633`*^9}, {3.765875471105747*^9, 
+  3.765875753417801*^9}},ExpressionUUID->"24063ee0-75a7-452b-b83e-\
+01497d4f2854"],
+
+Cell["\<\
+We can make data doublets with Mathematica, by applying Matrix transposition :\
+\>", "Text",
+ CellChangeTimes->{{3.765875762339675*^9, 
+  3.765875806450369*^9}},ExpressionUUID->"e5df3c27-c7dc-4453-863a-\
+8d1b4e59ee44"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data1", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"temperature", ",", "data"}], "}"}], "\[Transpose]"}]}]], "Input",
+ CellChangeTimes->{{3.765629731079441*^9, 3.7656298101240826`*^9}, {
+  3.765629840364727*^9, 3.7656298736126437`*^9}, {3.765629907365261*^9, 
+  3.765629918334977*^9}, {3.765629951385995*^9, 3.7656299771592026`*^9}, {
+  3.765630016488639*^9, 3.765630018896248*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"104423ab-e64f-4853-8838-9858d707fe83"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"15", ",", "2.16`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"17", ",", "3.86`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"19", ",", "5.23`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"21", ",", "6.11`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23", ",", "7.82`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25", ",", "9.28`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"27", ",", "13.88`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"29", ",", "23.77`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"31", ",", "28.18`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.765629857821697*^9, 3.7656298754336014`*^9}, 
+   3.7656299217440095`*^9, {3.7656299672219057`*^9, 3.7656299797867327`*^9}, 
+   3.7656300628850093`*^9, 3.765639887303585*^9, 3.765695704059929*^9, 
+   3.7658166141805215`*^9, 3.765825799074421*^9, 3.765853245975614*^9, 
+   3.7658562717443027`*^9, 3.765856323766459*^9, 3.7658579162141447`*^9, 
+   3.7658767121208763`*^9, 3.765877367245988*^9, 3.7658779914668617`*^9, 
+   3.7660813861385555`*^9, 3.7670635644051623`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"62c676fc-87a3-4b9d-8f60-00cb474df197"]
+}, Open  ]],
+
+Cell["\<\
+The other way is using Mathematica\[CloseCurlyQuote]s Table [ ] function. \
+This may be achieved as :\
+\>", "Text",
+ CellChangeTimes->{{3.765854882032539*^9, 3.7658548954158764`*^9}, {
+  3.765875839599354*^9, 3.765875889025998*^9}, {3.765876326260171*^9, 
+  3.7658763271046925`*^9}},ExpressionUUID->"53652ee9-b91e-4590-a10b-\
+852a717673d0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data2", " ", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"temperature", "[", 
+       RowBox[{"[", "x", "]"}], "]"}], ",", 
+      RowBox[{"data", "[", 
+       RowBox[{"[", "x", "]"}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "1", ",", 
+      RowBox[{"Length", "[", "data", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7658545413619704`*^9, 3.765854638294363*^9}, {
+  3.7658546691006913`*^9, 3.7658547567084336`*^9}, {3.7658548225276747`*^9, 
+  3.765854853591854*^9}, {3.7658736423718367`*^9, 3.76587367583664*^9}, {
+  3.765876477697296*^9, 3.7658764848621845`*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"f7ae7970-8651-4b57-b04d-27af6a6f1f54"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"15", ",", "2.16`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"17", ",", "3.86`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"19", ",", "5.23`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"21", ",", "6.11`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23", ",", "7.82`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25", ",", "9.28`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"27", ",", "13.88`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"29", ",", "23.77`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"31", ",", "28.18`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.765854569843701*^9, 3.7658547086360354`*^9, 3.765854764094224*^9, {
+   3.7658548310457993`*^9, 3.7658548552738876`*^9}, 3.7658562717632923`*^9, 
+   3.7658563237824507`*^9, 3.7658579162341337`*^9, 3.7658736816513023`*^9, 
+   3.7658764897174063`*^9, 3.7658767073105726`*^9, 3.765877367265976*^9, 
+   3.7658779914858503`*^9, 3.766081386217504*^9, 3.767063564425145*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"75aa27df-a381-4b24-b753-535bb580fba3"]
+}, Open  ]],
+
+Cell["\<\
+That is it! We have obtained a data set consisting temperature/ viscosity \
+data ready to be plotted.\
+\>", "Text",
+ CellChangeTimes->{{3.765630112735387*^9, 3.7656305460346937`*^9}, {
+  3.76580655277781*^9, 3.765806555033499*^9}, {3.765824958594592*^9, 
+  3.7658249939423027`*^9}, {3.765825050894631*^9, 3.7658251085665445`*^9}, {
+  3.765876548891453*^9, 
+  3.765876570364135*^9}},ExpressionUUID->"29587c09-74af-4623-92ed-\
+7e922851c4a9"],
+
+Cell["\<\
+ Generally the common way of providing a temperature / viscosity data,  is to \
+enter {temperatue, viscosity} data by hand as a sublists of the experience \
+list :\
+\>", "Text",
+ CellChangeTimes->{{3.7658766066713066`*^9, 3.7658766090719433`*^9}, {
+  3.7658767543385954`*^9, 
+  3.765876806737534*^9}},ExpressionUUID->"ec9c01b0-9ec8-4cf7-8a76-\
+18153cd3d167"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data3", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"15", ",", "2.16"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"17", ",", "3.86"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"19", ",", "5.23"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"21", ",", "6.11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"23", ",", "7.82"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"25", ",", "9.28"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"27", ",", "13.88"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"29", ",", "23.77"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"31", ",", "28.18"}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.765032898422722*^9, 3.7650331014146695`*^9}, {
+   3.765626954713951*^9, 3.7656269573684397`*^9}, {3.7658766199386964`*^9, 
+   3.7658766344393764`*^9}, 3.765876695252491*^9},
+ CellLabel->"In[17]:=",ExpressionUUID->"cfba6608-cefc-4624-9b43-0024d6259ba6"],
+
+Cell["\<\
+According the explanations above, these three lists are the same and consist \
+the unique \[OpenCurlyDoubleQuote]experienceSet\[CloseCurlyDoubleQuote] :\
+\>", "Text",
+ CellChangeTimes->{{3.765627171220687*^9, 3.7656271815247726`*^9}, {
+  3.765627235124008*^9, 3.7656272572832956`*^9}, {3.7658559012058744`*^9, 
+  3.7658560971304736`*^9}, {3.765876661041129*^9, 3.7658766621614733`*^9}, {
+  3.765876943619011*^9, 
+  3.7658769443655815`*^9}},ExpressionUUID->"2110b828-0fa8-4290-950b-\
+956f11d676f5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data1", " ", "\[Equal]", " ", "data2", " ", "\[Equal]", " ", 
+  "data3"}]], "Input",
+ CellChangeTimes->{{3.765627264402221*^9, 3.7656272708245173`*^9}, {
+  3.7656273050498743`*^9, 3.765627309776161*^9}, {3.7658766774107256`*^9, 
+  3.7658766822699394`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"54769368-1029-4cc6-81d5-40356c0b29b4"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.765856271793274*^9, 3.765856323811434*^9, 
+  3.765857916266115*^9, 3.7658767210716777`*^9, 3.7658773672969594`*^9, 
+  3.765877991517831*^9, 3.766081386263489*^9, 3.7670635644611363`*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"96c8ef22-519e-4085-8794-998210a94d14"]
+}, Open  ]],
+
+Cell["\<\
+The combined list will be named as experienceSet for given experiment. The \
+experience set will be unique, regardless of his elements are entered by \
+hand, found by calculation or assembled from two independent sets. \
+\>", "Text",
+ CellChangeTimes->{
+  3.765877063098469*^9},ExpressionUUID->"3862c3e0-5c01-41fd-be55-\
+992f5037a925"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"experienceSet", "=", " ", "data1"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7658561390064516`*^9, 3.765856150942602*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"5023a8ea-e6f5-47d2-aba0-f8311f6b21ec"],
+
+Cell["\<\
+We can plot either data1 , data2 , data3 or experienceSet, the result will be \
+the same :\
+\>", "Text",
+ CellChangeTimes->{{3.7656273330717907`*^9, 3.765627408135724*^9}, {
+   3.7656305997298737`*^9, 3.7656306065509596`*^9}, 3.7658562360258045`*^9, 
+   3.765876874584613*^9, {3.7658769051450825`*^9, 3.7658769143587956`*^9}, {
+   3.7658769790866623`*^9, 
+   3.765876996170863*^9}},ExpressionUUID->"ef8e0b7d-4f63-42f7-8222-\
+49962d1284f7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", "experienceSet", "]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.765626962993199*^9, 3.765626963399972*^9}, {3.7658251490143547`*^9, 
+   3.7658251512310743`*^9}, {3.765825182105358*^9, 3.76582530426328*^9}, 
+   3.7658562478180285`*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"e7752529-1c1a-49ed-89d4-7ee2fe05d6cd"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7650331330813203`*^9, 3.765301752156219*^9, 3.7653031476294355`*^9, 
+   3.7653032733295636`*^9, 3.76530358560106*^9, 3.7655922517890596`*^9, 
+   3.7656151137807136`*^9, 3.7656269962101336`*^9, 3.7656398874045467`*^9, 
+   3.7656957041388903`*^9, 3.765816614277463*^9, 3.765825155294738*^9, 
+   3.765825199222539*^9, {3.7658252705826006`*^9, 3.7658253078672123`*^9}, 
+   3.7658257991733646`*^9, 3.7658532460849705`*^9, 3.7658562718492584`*^9, 
+   3.765856323863404*^9, 3.7658579163220825`*^9, 3.7658773675388217`*^9, 
+   3.7658779915807943`*^9, 3.7660813863594327`*^9, 3.767063564521124*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"8099da1b-380b-4e59-ba64-61b1126c5b86"]
+}, Open  ]],
+
+Cell["\<\
+This is more informative as a graph of the experimentation of course, but \
+also it is a very primitive plot that should be enhanced for attaining a \
+publishable quality.\
+\>", "Text",
+ CellChangeTimes->{{3.7650332740891466`*^9, 3.765033460799938*^9}, {
+  3.765627423103117*^9, 3.765627444212001*^9}, {3.765630634066168*^9, 
+  3.765630641106127*^9}, {3.765825385313783*^9, 
+  3.765825390410859*^9}},ExpressionUUID->"e1bdf413-36d4-40db-b055-\
+c4e780fc1265"],
+
+Cell["\<\
+First we will enclose the graph in a frame. This is nearly compulsory for \
+producing quality graphs with Mathematica.\
+\>", "Text",
+ CellChangeTimes->{{3.765041667520417*^9, 3.7650417572159123`*^9}, 
+   3.7656307194331703`*^9, {3.7658254433784733`*^9, 
+   3.7658254506902795`*^9}},ExpressionUUID->"95a61c8e-ff26-4206-9f73-\
+8fce79e640c1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
+  RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, 3.7656270166893797`*^9, 
+   3.765856286991556*^9},
+ CellLabel->"In[21]:=",ExpressionUUID->"d4ba4025-1e5d-4175-a238-14ccfbba73de"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7650419061453085`*^9, 3.765301752208235*^9, 
+  3.7653031476853952`*^9, 3.765303273395567*^9, 3.7653035856530924`*^9, 
+  3.765592251825039*^9, 3.765615113815694*^9, 3.765626996259118*^9, 
+  3.765639887456497*^9, 3.7656957041878552`*^9, 3.7658166143224373`*^9, 
+  3.765825799224335*^9, 3.76585324611623*^9, 3.765856271884223*^9, 
+  3.7658563238983836`*^9, 3.7658579163651514`*^9, 3.765877367601783*^9, 
+  3.765877991641759*^9, 3.7660813864054103`*^9, 3.7670635645691214`*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"b15c0141-429c-4d98-bead-69a70e265bc1"]
+}, Open  ]],
+
+Cell["\<\
+Then we will decide for a size of plot. This can be achived with dragging \
+from the edges with  the mouse. But ImageSize option is also works fine.\
+\>", "Text",
+ CellChangeTimes->{{3.765041957936034*^9, 
+  3.765042080368291*^9}},ExpressionUUID->"1608e2a2-2f75-4569-a786-\
+5f1301785971"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->{581., Automatic},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7650419061453085`*^9},
+ CellLabel->
+  "Out[365]=",ExpressionUUID->"2dcdc5e7-a4ad-4751-97aa-dce256c47ca7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "\[Rule]", "600"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, 3.7658562948160677`*^9, {3.7658577803190465`*^9, 
+   3.7658577811645613`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"66d54b5a-dee6-4fa3-9e88-b24a0e89ae10"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7650421551745067`*^9, 3.7650421659601445`*^9}, 
+   3.7653017522831173`*^9, 3.7653031477413716`*^9, 3.7653032734485083`*^9, 
+   3.7653035857079973`*^9, 3.765592251862018*^9, 3.7656151138486614`*^9, 
+   3.765626996315075*^9, 3.765639887509467*^9, 3.765695704236826*^9, 
+   3.7658166143744073`*^9, 3.765825799273307*^9, 3.765853246178726*^9, 
+   3.7658562719291973`*^9, 3.7658563239353623`*^9, 3.765857783375293*^9, 
+   3.7658579164150295`*^9, 3.7658773676697445`*^9, 3.7658779917047234`*^9, 
+   3.76608138647237*^9, 3.767063564621108*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"06d5415b-78d7-4448-976e-0634f6a0b8b1"]
+}, Open  ]],
+
+Cell["\<\
+We will give a name for the plot with PlotLabel rule of Mathematica : \
+\>", "Text",
+ CellChangeTimes->{{3.7650422073036685`*^9, 3.7650422372039003`*^9}, {
+  3.7656307661253724`*^9, 
+  3.7656308225739727`*^9}},ExpressionUUID->"a94aa034-327e-44e2-b75a-\
+1dc70823003f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", 
+    "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\""}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, {3.765042298924406*^9, 3.765042312419561*^9}, {
+   3.7650424205606875`*^9, 3.7650425110621824`*^9}, 3.7658562957765164`*^9, {
+   3.765857789973508*^9, 3.7658577911408377`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"685e2e67-69c6-4f0b-871f-b0d3dbbdc980"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.765042488849472*^9, 3.7650425147215366`*^9}, 
+   3.7653017523370867`*^9, 3.765303147797328*^9, 3.765303273499468*^9, 
+   3.7653035857609572`*^9, 3.7655922519249797`*^9, 3.76561511388266*^9, 
+   3.765626996360065*^9, 3.765639887564477*^9, 3.765695704304788*^9, 
+   3.765816614464356*^9, 3.765825799329275*^9, 3.765853246209962*^9, 
+   3.7658562719671755`*^9, 3.7658563239703426`*^9, 3.7658577924001155`*^9, 
+   3.765857916465001*^9, 3.7658773677247133`*^9, 3.765877991759693*^9, 
+   3.7660813865263367`*^9, 3.7670635646890783`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"ab30ec63-bc96-47a4-bdbd-c90886da98ea"]
+}, Open  ]],
+
+Cell["\<\
+Open Mathematica Documents and search the options for the PlotLabel rule, \
+That may be done by Style [ ] function of the Mathematica\
+\>", "Text",
+ CellChangeTimes->{{3.7652838854358625`*^9, 3.7652839447489767`*^9}, {
+  3.7653014044079933`*^9, 3.765301409423109*^9}, {3.7656308530015116`*^9, 
+  3.765630950145752*^9}},ExpressionUUID->"2709cbd5-089a-43ab-a82a-\
+e51415227954"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, {3.765042298924406*^9, 3.765042312419561*^9}, {
+   3.7650424205606875`*^9, 3.7650425110621824`*^9}, {3.7653015672948704`*^9, 
+   3.7653016824680305`*^9}, 3.7658562963841677`*^9, {3.765857797650103*^9, 
+   3.7658577985325975`*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"9a76ce67-10a5-4544-acee-92f111b11492"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.765301692553269*^9, 3.7653017524030495`*^9, 
+  3.7653031478503094`*^9, 3.765303273552459*^9, 3.765303585817936*^9, 
+  3.7655922520019536`*^9, 3.7656151139196205`*^9, 3.7656269964420004`*^9, 
+  3.7656398876214027`*^9, 3.765695704350761*^9, 3.76581661452632*^9, 
+  3.765825799382245*^9, 3.7658532462883005`*^9, 3.7658562720041633`*^9, 
+  3.765856324006322*^9, 3.7658577997199163`*^9, 3.765857916515972*^9, 
+  3.765877367863634*^9, 3.7658779918246565`*^9, 3.766081386598282*^9, 
+  3.7670635647650604`*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"7302e12f-c299-4467-9722-d83653dd6c80"]
+}, Open  ]],
+
+Cell["\<\
+About PointSize,
+PointSize is an important option for setting a point size relevant to the \
+size of the graph.\
+\>", "Text",
+ CellChangeTimes->{{3.765301807999262*^9, 3.765301824075076*^9}, 
+   3.7653021112628884`*^9, {3.7653021665922556`*^9, 3.765302228590816*^9}, {
+   3.765303419775857*^9, 3.765303421263994*^9}, {3.7656312837053037`*^9, 
+   3.765631293136896*^9}},ExpressionUUID->"7e2e01b4-6511-43c1-9f1b-\
+6198bc82cad8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, {3.765042298924406*^9, 3.765042312419561*^9}, {
+   3.7650424205606875`*^9, 3.7650425110621824`*^9}, {3.7653015672948704`*^9, 
+   3.7653016824680305`*^9}, {3.76530197316485*^9, 3.7653020014556603`*^9}, {
+   3.765302031959223*^9, 3.7653020487116575`*^9}, {3.765302089753183*^9, 
+   3.765302094823284*^9}, 3.7653021261893625`*^9, {3.7653022486293697`*^9, 
+   3.7653023842638187`*^9}, {3.765302549457382*^9, 3.7653026897192106`*^9}, {
+   3.7653027451115465`*^9, 3.7653028071440797`*^9}, {3.76530290406867*^9, 
+   3.7653029069480143`*^9}, {3.7653029684218845`*^9, 
+   3.7653029882485495`*^9}, {3.7653030991981115`*^9, 3.765303107753229*^9}, {
+   3.7653031892376375`*^9, 3.765303198056596*^9}, {3.7653032431768017`*^9, 
+   3.765303253737764*^9}, {3.7653033662434473`*^9, 3.7653034055649686`*^9}, {
+   3.765303441641354*^9, 3.7653034994333067`*^9}, {3.7653035463495045`*^9, 
+   3.7653035608132167`*^9}, {3.765303636323063*^9, 3.7653036637103944`*^9}, {
+   3.765303710906413*^9, 3.76530372776079*^9}, 3.7653037741492586`*^9, {
+   3.765303814398262*^9, 3.765304040352078*^9}, {3.7653040840351057`*^9, 
+   3.765304088457577*^9}, {3.7653041706136293`*^9, 3.7653042968894215`*^9}, 
+   3.7658562967049837`*^9, {3.7658578044582157`*^9, 3.765857805336694*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"9c6ea409-e8fc-4abd-860d-20e416e7260c"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[1, 0, 0], PointSize[0.02], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7653042086488843`*^9, 3.7653042700477796`*^9}, 
+   3.7655922521438537`*^9, 3.765615113964596*^9, 3.765626996487974*^9, 
+   3.7656398877063537`*^9, 3.765695704386741*^9, 3.7658166145802894`*^9, 
+   3.7658257994282184`*^9, 3.765853246350794*^9, 3.7658562720431395`*^9, 
+   3.7658563240403023`*^9, 3.7658578065230255`*^9, 3.765857916564943*^9, 
+   3.765877367909608*^9, 3.76587799214647*^9, 3.766081386658261*^9, 
+   3.767063564893957*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"6845ff9c-44ea-4075-a69a-478442c2863c"]
+}, Open  ]],
+
+Cell["We can change plot markers :", "Text",
+ CellChangeTimes->{{3.7656313543257704`*^9, 
+  3.7656313702406545`*^9}},ExpressionUUID->"6d09a38d-e35a-49f4-a6f2-\
+1e3af3e7484a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"PointSize", "[", "20", "]"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotMarkers", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<x\>\"", ",", "Red", ",", " ", 
+       RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", " ", 
+       RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, {3.765042298924406*^9, 3.765042312419561*^9}, {
+   3.7650424205606875`*^9, 3.7650425110621824`*^9}, {3.7653015672948704`*^9, 
+   3.7653016824680305`*^9}, {3.76530197316485*^9, 3.7653020014556603`*^9}, {
+   3.765302031959223*^9, 3.7653020487116575`*^9}, {3.765302089753183*^9, 
+   3.765302094823284*^9}, 3.7653021261893625`*^9, {3.7653022486293697`*^9, 
+   3.7653023842638187`*^9}, {3.765302549457382*^9, 3.7653026897192106`*^9}, {
+   3.7653027451115465`*^9, 3.7653028071440797`*^9}, {3.765303291865967*^9, 
+   3.765303293393094*^9}, {3.765631388747014*^9, 3.765631595385413*^9}, 
+   3.765856296960837*^9, 3.7658578408653126`*^9},
+ CellLabel->"In[26]:=",ExpressionUUID->"4cbefb39-9ade-4ede-8645-f3f0229ee6a8"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"x\"\>",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontFamily->"Segoe UI",
+        FontSize->22,
+        FontColor->RGBColor[1, 0, 0]], {0., 0.}], {{{15., 2.16}}, {{17., 
+      3.86}}, {{19., 5.23}}, {{21., 6.11}}, {{23., 7.82}}, {{25., 9.28}}, {{
+      27., 13.88}}, {{29., 23.77}}, {{31., 28.18}}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7656315215568*^9, 3.7656315983297367`*^9}, 
+   3.7656398877553387`*^9, 3.765695704428717*^9, 3.7658166146622424`*^9, 
+   3.7658257994821873`*^9, 3.7658532463976603`*^9, 3.765856272081108*^9, 
+   3.7658563240742826`*^9, 3.765857916614913*^9, 3.7658773679515834`*^9, 
+   3.765877992188446*^9, 3.766081386770197*^9, 3.767063564953928*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"4de76bf5-43b5-4c80-b6b5-9054258b7395"]
+}, Open  ]],
+
+Cell["\<\
+Now we\[CloseCurlyQuote]ll define the frame for our taste, (Frame blue at x \
+and orange at y axis, no frame at right and top)\
+\>", "Text",
+ CellChangeTimes->{{3.7656316493284626`*^9, 3.7656317157923203`*^9}, {
+  3.765638716204088*^9, 
+  3.7656387896798854`*^9}},ExpressionUUID->"fc26d0cc-b9f6-433f-8870-\
+662a922484e8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", 
+         RowBox[{"{", "None", "}"}]}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765033117405176*^9, 3.7650331306959567`*^9}, {
+   3.7650418843926926`*^9, 3.7650419017033997`*^9}, {3.76504214054505*^9, 
+   3.7650421644693985`*^9}, {3.765042298924406*^9, 3.765042312419561*^9}, {
+   3.7650424205606875`*^9, 3.7650425110621824`*^9}, {3.7653015672948704`*^9, 
+   3.7653016824680305`*^9}, {3.76530197316485*^9, 3.7653020014556603`*^9}, {
+   3.765302031959223*^9, 3.7653020487116575`*^9}, {3.765302089753183*^9, 
+   3.765302094823284*^9}, 3.7653021261893625`*^9, {3.7653022486293697`*^9, 
+   3.7653023842638187`*^9}, {3.765302549457382*^9, 3.7653026897192106`*^9}, {
+   3.7653027451115465`*^9, 3.7653028071440797`*^9}, {3.76530290406867*^9, 
+   3.7653029069480143`*^9}, {3.7653029684218845`*^9, 
+   3.7653029882485495`*^9}, {3.7653030991981115`*^9, 3.765303107753229*^9}, {
+   3.7653031892376375`*^9, 3.765303198056596*^9}, {3.7653032431768017`*^9, 
+   3.765303253737764*^9}, {3.7653033662434473`*^9, 3.7653034055649686`*^9}, {
+   3.765303441641354*^9, 3.7653034994333067`*^9}, {3.7653035463495045`*^9, 
+   3.7653035608132167`*^9}, {3.765303636323063*^9, 3.7653036637103944`*^9}, {
+   3.765303710906413*^9, 3.76530372776079*^9}, 3.7653037741492586`*^9, {
+   3.765303814398262*^9, 3.765304040352078*^9}, {3.7653040840351057`*^9, 
+   3.765304088457577*^9}, {3.7653041706136293`*^9, 3.7653042968894215`*^9}, {
+   3.765638338817789*^9, 3.7656383453610315`*^9}, 3.765638377613511*^9, {
+   3.765638424894362*^9, 3.765638484461155*^9}, {3.7656385329653015`*^9, 
+   3.7656386637442026`*^9}, 3.7658562972256837`*^9, 3.7658578421765604`*^9},
+ CellLabel->"In[27]:=",ExpressionUUID->"f5841f52-0a57-4683-97a8-1c5e0e7e60ea"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[1, 0, 0], PointSize[0.02], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, {None}}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7656383811414843`*^9, 3.7656384524465513`*^9, 
+  3.765638540793805*^9, 3.7656385962149935`*^9, 3.7656386714378033`*^9, 
+  3.765639887809308*^9, 3.765695704471693*^9, 3.7658166147092156`*^9, 
+  3.765825799532159*^9, 3.765853246491393*^9, 3.76585627211609*^9, 
+  3.765856324108263*^9, 3.7658579166678843`*^9, 3.7658773680285397`*^9, 
+  3.765877992240416*^9, 3.7660813868471575`*^9, 3.767063565001916*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"b00c45e5-f118-463a-86b5-ff9304e5110e"]
+}, Open  ]],
+
+Cell["Frame Labels \[OpenCurlyDoubleQuote]Temperature\[CloseCurlyDoubleQuote] \
+, \[OpenCurlyDoubleQuote]Viscosity\[CloseCurlyDoubleQuote]", "Text",
+ CellChangeTimes->{{3.765638869275179*^9, 
+  3.7656389018554697`*^9}},ExpressionUUID->"c299dd3f-5672-4459-9b03-\
+77dd02aa4502"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765638855506095*^9, {3.7656389959484377`*^9, 3.7656390527867985`*^9}, {
+   3.765639122704649*^9, 3.76563917552332*^9}, {3.765639225124835*^9, 
+   3.765639285219327*^9}, {3.765639318346304*^9, 3.765639352802518*^9}, {
+   3.7656394066556025`*^9, 3.7656395102161245`*^9}, {3.765639544941184*^9, 
+   3.765639547562691*^9}, {3.7656395783210335`*^9, 3.7656396416786346`*^9}, {
+   3.765639691208191*^9, 3.7656397206103077`*^9}, {3.765639754639784*^9, 
+   3.765639771644003*^9}, 3.765856297489534*^9, 3.765857843089037*^9},
+ CellLabel->"In[28]:=",ExpressionUUID->"b0765a00-34d0-4198-af04-619f4150dbd7"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[1, 0, 0], PointSize[0.02], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.76563929092505*^9, 3.7656393628427515`*^9, 3.765639414238254*^9, 
+   3.765639473418255*^9, {3.7656395210988903`*^9, 3.7656395501272073`*^9}, {
+   3.7656395884991703`*^9, 3.765639613376885*^9}, 3.76563964435411*^9, 
+   3.765639781281483*^9, 3.765639887867262*^9, 3.765695704515665*^9, 
+   3.7658166147511916`*^9, 3.765825799583129*^9, 3.7658532465226393`*^9, 
+   3.765856272156067*^9, 3.765856324142242*^9, 3.7658579167158566`*^9, 
+   3.765877368077512*^9, 3.7658779922893896`*^9, 3.7660813868891163`*^9, 
+   3.767063565057915*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"92b34f77-e9c8-4436-b90d-11b0358e73aa"]
+}, Open  ]],
+
+Cell["\<\
+We may arrange the ticks of the axes, (for framed plots the the axes are the \
+sides of the frame).\
+\>", "Text",
+ CellChangeTimes->{{3.7656957865246735`*^9, 3.7656958991560073`*^9}, 
+   3.76569609555134*^9},ExpressionUUID->"37841da5-2884-4338-82c1-\
+14f3c4f95c96"],
+
+Cell["\<\
+Frame tics are defined via FrameTicks rule. This rule is applied using lists. \
+General definition is,\
+\>", "Text",
+ CellChangeTimes->{{3.7656961284364843`*^9, 
+  3.765696263715871*^9}},ExpressionUUID->"83241ff5-3325-4e92-a354-\
+d5bec664117c"],
+
+Cell[TextData[{
+ "FrameTicks \[Rule] ",
+ StyleBox["{",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["{",
+  FontColor->RGBColor[0., 0.615686274509804, 0.]],
+ StyleBox["Left Side, Bottom",
+  FontColor->GrayLevel[0]],
+ StyleBox["}",
+  FontColor->RGBColor[0., 0.615686274509804, 0.]],
+ StyleBox[" , ",
+  FontColor->GrayLevel[0]],
+ StyleBox["{",
+  FontColor->RGBColor[0., 0.615686274509804, 0.]],
+ StyleBox["Right Side , Top",
+  FontColor->GrayLevel[0]],
+ StyleBox["}",
+  FontColor->RGBColor[0., 0.615686274509804, 0.]],
+ StyleBox["}",
+  FontColor->RGBColor[1, 0, 0]]
+}], "Text",
+ CellChangeTimes->{{3.7656963433881817`*^9, 3.76569656565666*^9}, 
+   3.7656967046529174`*^9},ExpressionUUID->"7696cc58-dad5-4e07-8e06-\
+698deb4a9558"],
+
+Cell["\<\
+Generally we only need two lists one for left and right (if it exists), one \
+for bottom and top (if it exists).\
+\>", "Text",
+ CellChangeTimes->{{3.765696746340005*^9, 
+  3.7656968963869257`*^9}},ExpressionUUID->"dd19b6b8-0df7-4927-b60a-\
+dc7d2f6fb3a4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"yList", " ", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "5", ",", "10", ",", "15", ",", "20", ",", "25", ",", "30"}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7656969453838716`*^9, 3.7656969684086103`*^9}, {
+  3.765697009340127*^9, 3.76569703595187*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"7ddc4978-5426-4467-8310-a4036225f5bb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"xList", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", "27", 
+     ",", "29", ",", "31"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7656970447827945`*^9, 3.765697100707712*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"c10ad91b-3610-44a0-a987-ce9e0964deee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["experienceSet"], "Input",
+ CellChangeTimes->{{3.765699330471564*^9, 3.7656993318307858`*^9}, 
+   3.765856297753382*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"4e798185-4fe5-44f6-9586-2c8ff8282f8f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"15", ",", "2.16`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"17", ",", "3.86`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"19", ",", "5.23`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"21", ",", "6.11`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23", ",", "7.82`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25", ",", "9.28`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"27", ",", "13.88`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"29", ",", "23.77`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"31", ",", "28.18`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7656993330111065`*^9, 3.7658166148101573`*^9, 
+  3.765825799645094*^9, 3.7658532465695105`*^9, 3.765856272196044*^9, 
+  3.7658563241832204`*^9, 3.765857916759832*^9, 3.7658773681294823`*^9, 
+  3.765877992345357*^9, 3.7660813869600925`*^9, 3.7670635651179028`*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"5e031e99-688f-4695-b74b-b8947690edd8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "5", ",", "10", ",", "15", ",", "20", ",", "25", ",", 
+           "30", ",", "35"}], "}"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765638855506095*^9, {3.7656389959484377`*^9, 3.7656390527867985`*^9}, {
+   3.765639122704649*^9, 3.76563917552332*^9}, {3.765639225124835*^9, 
+   3.765639285219327*^9}, {3.765639318346304*^9, 3.765639352802518*^9}, {
+   3.7656394066556025`*^9, 3.7656395102161245`*^9}, {3.765639544941184*^9, 
+   3.765639547562691*^9}, {3.7656395783210335`*^9, 3.7656396416786346`*^9}, {
+   3.765639691208191*^9, 3.7656397206103077`*^9}, {3.765639754639784*^9, 
+   3.765639771644003*^9}, {3.7656975043611617`*^9, 3.7656975076512613`*^9}, 
+   3.7656976173863096`*^9, {3.765697649559862*^9, 3.765697705146965*^9}, {
+   3.7656977789446287`*^9, 3.765697836721483*^9}, {3.765698406710498*^9, 
+   3.765698445146448*^9}, {3.7656985070159655`*^9, 3.7656985070159655`*^9}, {
+   3.7656985778923054`*^9, 3.7656985795463486`*^9}, {3.765698679550991*^9, 
+   3.7656986841863284`*^9}, {3.7656987189064107`*^9, 
+   3.7656987664361343`*^9}, {3.7656988784338937`*^9, 
+   3.7656988784338937`*^9}, {3.765698915703504*^9, 3.7656989377138767`*^9}, {
+   3.765698981521764*^9, 3.7656990393065968`*^9}, {3.76569907369287*^9, 
+   3.7656991076943645`*^9}, {3.7656992578112645`*^9, 3.765699263405038*^9}, {
+   3.7656994159045534`*^9, 3.7656994601571674`*^9}, {3.7656996887340527`*^9, 
+   3.7656996919621973`*^9}, {3.765699762756585*^9, 3.765699815036584*^9}, {
+   3.765699897425332*^9, 3.765699899376215*^9}, 3.765700068289302*^9, {
+   3.765700107951559*^9, 3.765700110236246*^9}, {3.765700141247446*^9, 
+   3.765700152608946*^9}, {3.765700186549458*^9, 3.765700199039293*^9}, {
+   3.76570045368522*^9, 3.765700456121825*^9}, {3.765700494018075*^9, 
+   3.765700507767214*^9}, {3.7657006069403048`*^9, 3.765700618203841*^9}, 
+   3.7657007533603053`*^9, 3.765856298642872*^9, 3.765857844008526*^9},
+ CellLabel->"In[32]:=",ExpressionUUID->"eb2c589d-ffc0-45a8-aa53-08195fc7936b"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[1, 0, 0], PointSize[0.02], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {5, 
+       FormBox["5", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {15, 
+       FormBox["15", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}, {35, 
+       FormBox["35", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7656989992765603`*^9, 3.7656990424148426`*^9, 3.7656991124906254`*^9, 
+   3.7656994624968243`*^9, {3.765699789929999*^9, 3.7656998166476717`*^9}, 
+   3.765699901551965*^9, {3.7657001443087025`*^9, 3.765700154661763*^9}, {
+   3.765700190419238*^9, 3.7657002004554977`*^9}, 3.7657005106115522`*^9, 
+   3.765700622259508*^9, 3.7657007551282945`*^9, 3.7658166148572187`*^9, 
+   3.765825799697064*^9, 3.765853246678879*^9, 3.7658562722390337`*^9, 
+   3.7658563242271953`*^9, 3.765857916799814*^9, 3.7658773681764526`*^9, 
+   3.7658779923953276`*^9, 3.7660813869970713`*^9, 3.7670635651698914`*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"14bb319f-8a68-48c8-b379-159af84883e2"]
+}, Open  ]],
+
+Cell["Now grid lines,", "Text",
+ CellChangeTimes->{{3.765700689185111*^9, 
+  3.765700733481716*^9}},ExpressionUUID->"100fb191-ff70-494c-a6da-\
+bbfd4a56e965"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+         "27", ",", "29", ",", "31"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+         ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+         ",", "26", ",", "28", ",", "30"}], "}"}]}], "}"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765638855506095*^9, {3.7656389959484377`*^9, 3.7656390527867985`*^9}, {
+   3.765639122704649*^9, 3.76563917552332*^9}, {3.765639225124835*^9, 
+   3.765639285219327*^9}, {3.765639318346304*^9, 3.765639352802518*^9}, {
+   3.7656394066556025`*^9, 3.7656395102161245`*^9}, {3.765639544941184*^9, 
+   3.765639547562691*^9}, {3.7656395783210335`*^9, 3.7656396416786346`*^9}, {
+   3.765639691208191*^9, 3.7656397206103077`*^9}, {3.765639754639784*^9, 
+   3.765639771644003*^9}, {3.7656975043611617`*^9, 3.7656975076512613`*^9}, 
+   3.7656976173863096`*^9, {3.765697649559862*^9, 3.765697705146965*^9}, {
+   3.7656977789446287`*^9, 3.765697836721483*^9}, {3.765698406710498*^9, 
+   3.765698445146448*^9}, {3.7656985070159655`*^9, 3.7656985070159655`*^9}, {
+   3.7656985778923054`*^9, 3.7656985795463486`*^9}, {3.765698679550991*^9, 
+   3.7656986841863284`*^9}, {3.7656987189064107`*^9, 
+   3.7656987664361343`*^9}, {3.7656988784338937`*^9, 
+   3.7656988784338937`*^9}, {3.765698915703504*^9, 3.7656989377138767`*^9}, {
+   3.765698981521764*^9, 3.7656990393065968`*^9}, {3.76569907369287*^9, 
+   3.7656991076943645`*^9}, {3.7656992578112645`*^9, 3.765699263405038*^9}, {
+   3.7656994159045534`*^9, 3.7656994601571674`*^9}, {3.7656996887340527`*^9, 
+   3.7656996919621973`*^9}, {3.765699762756585*^9, 3.765699815036584*^9}, {
+   3.765699897425332*^9, 3.765699899376215*^9}, 3.765700068289302*^9, {
+   3.765700107951559*^9, 3.765700110236246*^9}, {3.765700141247446*^9, 
+   3.765700152608946*^9}, {3.765700186549458*^9, 3.765700199039293*^9}, {
+   3.76570045368522*^9, 3.765700456121825*^9}, {3.765700494018075*^9, 
+   3.765700507767214*^9}, {3.7657006069403048`*^9, 3.765700618203841*^9}, {
+   3.765700791340517*^9, 3.7657008742789407`*^9}, {3.7657009895278316`*^9, 
+   3.765701008258086*^9}, 3.7658562995773363`*^9, 3.7658578448470287`*^9},
+ CellLabel->"In[33]:=",ExpressionUUID->"77381db1-1c17-40ec-9253-38f24a1c7256"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[1, 0, 0], PointSize[0.01], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31}, {0, 2, 4, 6, 8, 10, 12, 
+    14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.765700743083193*^9, 3.765700845920209*^9, 3.7657008778748827`*^9, {
+   3.7657009924061675`*^9, 3.7657010096822653`*^9}, 3.7658166149500775`*^9, 
+   3.7658257997500334`*^9, 3.7658532467413754`*^9, 3.765856272279996*^9, 
+   3.76585632427017*^9, 3.7658579168577747`*^9, 3.7658773682284307`*^9, 
+   3.765877992444318*^9, 3.7660813870470657`*^9, 3.7670635652377677`*^9},
+ CellLabel->"Out[33]=",ExpressionUUID->"1993a42a-089b-4ddd-a449-9f00d1d2e89d"]
+}, Open  ]],
+
+Cell["Also grid colors,", "Text",
+ CellChangeTimes->{{3.7657020311832514`*^9, 
+  3.765702040783754*^9}},ExpressionUUID->"8b5a9b09-d5f1-425d-b9cf-\
+df9843312849"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Brown", ",", 
+       RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+         "27", ",", "29", ",", "31"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+         ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+         ",", "26", ",", "28", ",", "30"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GridLinesStyle", "\[Rule]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Blue", ",", "Dashed"}], "]"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Orange", ",", "Dashed"}], "]"}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765702063036973*^9, {3.7657021820407176`*^9, 3.765702184562276*^9}, {
+   3.765825562764985*^9, 3.765825583287212*^9}, {3.765825633924165*^9, 
+   3.7658256613504295`*^9}, {3.765825718523632*^9, 3.7658257212470684`*^9}, 
+   3.7658563001949816`*^9, 3.7658578463131876`*^9, {3.7670638244108963`*^9, 
+   3.7670639189155216`*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"458fe49a-f901-49d6-aecf-54b81464c972"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.01], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31}, {0, 2, 4, 6, 8, 10, 12, 
+    14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->{{
+     Directive[
+      RGBColor[0, 0, 1], 
+      Dashing[{Small, Small}]]}, {
+     Directive[
+      RGBColor[1, 0.5, 0], 
+      Dashing[{Small, Small}]]}},
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7670638893668327`*^9, 3.767063920903449*^9},
+ CellLabel->"Out[44]=",ExpressionUUID->"54cc9b58-d618-4b8d-94e9-9fb4c777d02a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Brown", ",", 
+       RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"15", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"17", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"19", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"21", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"23", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"25", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"27", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"29", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"31", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"10", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"12", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"14", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"16", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"18", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"20", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"22", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"24", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"26", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"28", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"30", ",", "Red"}], "}"}]}], "}"}]}], "}"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765702063036973*^9, {3.7657021820407176`*^9, 3.765702184562276*^9}, {
+   3.7657026319106274`*^9, 3.7657027251121607`*^9}, {3.765702763569112*^9, 
+   3.76570280447565*^9}, {3.765702878893941*^9, 3.7657029153200536`*^9}, {
+   3.765703006605689*^9, 3.765703053243936*^9}, {3.7657031107179503`*^9, 
+   3.7657031758276143`*^9}, {3.765703214330511*^9, 3.765703226306653*^9}, 
+   3.765703336697313*^9, 3.7657033687829065`*^9, 3.7657034173150773`*^9, {
+   3.7657034542688646`*^9, 3.7657035255599813`*^9}, {3.76571661719773*^9, 
+   3.7657166668043733`*^9}, {3.7657167165559607`*^9, 
+   3.7657168479058943`*^9}, {3.76571688334066*^9, 3.7657168975965147`*^9}, {
+   3.7657169288206778`*^9, 3.7657170299928617`*^9}, {3.7657170614229097`*^9, 
+   3.765717097553258*^9}, {3.765717129989725*^9, 3.765717237212449*^9}, {
+   3.7657173958598003`*^9, 3.7657174025129986`*^9}, {3.765717458522008*^9, 
+   3.7657174619860163`*^9}, {3.765717510282438*^9, 3.7657175295094433`*^9}, {
+   3.7657175882428837`*^9, 3.7657176493689575`*^9}, {3.7657177165225945`*^9, 
+   3.765717746693355*^9}, {3.7657179443863883`*^9, 3.7657179738675346`*^9}, {
+   3.765825738516163*^9, 3.765825741331547*^9}, 3.765856300795637*^9, 
+   3.7658578887918763`*^9},
+ CellLabel->"In[35]:=",ExpressionUUID->"9884266e-25ad-40f1-9b0b-4193cb53597b"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.01], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{{15, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {17, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {19, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {21, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {23, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {25, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {27, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {29, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {31, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}}, {{0, 
+      RGBColor[1, 0, 0]}, {2, 
+      RGBColor[1, 0, 0]}, {4, 
+      RGBColor[1, 0, 0]}, {6, 
+      RGBColor[1, 0, 0]}, {8, 
+      RGBColor[1, 0, 0]}, {10, 
+      RGBColor[1, 0, 0]}, {12, 
+      RGBColor[1, 0, 0]}, {14, 
+      RGBColor[1, 0, 0]}, {16, 
+      RGBColor[1, 0, 0]}, {18, 
+      RGBColor[1, 0, 0]}, {20, 
+      RGBColor[1, 0, 0]}, {22, 
+      RGBColor[1, 0, 0]}, {24, 
+      RGBColor[1, 0, 0]}, {26, 
+      RGBColor[1, 0, 0]}, {28, 
+      RGBColor[1, 0, 0]}, {30, 
+      RGBColor[1, 0, 0]}}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.765717657204484*^9, 3.7657177510828424`*^9, {3.76571796633585*^9, 
+   3.765717977255597*^9}, 3.7657180254400883`*^9, 3.7658166150670123`*^9, 
+   3.7658257493909235`*^9, 3.765825799886959*^9, 3.7658532468351183`*^9, 
+   3.765856272370039*^9, 3.765856324362118*^9, 3.765857916984702*^9, 
+   3.7658773683633585`*^9, 3.765877992567252*^9, 3.7660813871959405`*^9, 
+   3.767063565345729*^9},
+ CellLabel->"Out[35]=",ExpressionUUID->"6d55f56e-9326-4be8-910e-c347442d0f46"]
+}, Open  ]],
+
+Cell["\<\
+In  Mathematica there is more than a one way to achieve things. But for even \
+publication quality, these examples may suit some needs. All the graphs is \
+customisable for any data and any choice. Mathematica has many other tweaks \
+for plottting anything, these examples are the simplest show-up for scatter \
+plots. \
+\>", "Text",
+ CellChangeTimes->{{3.765701321506381*^9, 3.7657013439445004`*^9}, {
+   3.765701710364297*^9, 3.765701999315538*^9}, 3.7657181265533032`*^9, {
+   3.76571920919254*^9, 
+   3.7657192287792807`*^9}},ExpressionUUID->"77b651d8-4a12-44ef-a65e-\
+bd7f118df921"],
+
+Cell["\<\
+If we want everything in black and white, the plot definition is lot simpler.\
+\>", "Text",
+ CellChangeTimes->{{3.765718148067997*^9, 3.765718231716216*^9}, {
+  3.7657191796514225`*^9, 
+  3.765719192686952*^9}},ExpressionUUID->"4a67c97f-9bad-42dc-a3c9-\
+cae4c7613ba9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "None"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"PointSize", "[", "0.008", "]"}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+         "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+         ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+         ",", "26", ",", "28", ",", "30"}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7657183412686663`*^9, 3.7657183688048887`*^9}, {
+   3.7657184122370152`*^9, 3.7657185030729856`*^9}, 3.76571854312703*^9, {
+   3.7657185740403376`*^9, 3.7657186049656076`*^9}, 3.76571868378847*^9, {
+   3.7657190371350555`*^9, 3.7657190384133325`*^9}, 3.7658563013543167`*^9, 
+   3.7658578896703725`*^9},
+ CellLabel->"In[36]:=",ExpressionUUID->"0122c701-52a9-4e64-9e61-3edb502bf467"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.008], 
+     AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, None}, {True, None}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox[
+      "\"Viscosity \[Rule] \\n\"", FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox[
+      "\"\\nTemperature \[Rule]  (\[Degree]C) \"", FontFamily -> "Segoe UI", 
+       FontSize -> 22, StripOnInput -> False], TraditionalForm], None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31, 33}, {0, 2, 4, 6, 8, 10, 
+    12, 14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.765718607470186*^9, 3.7657186863230176`*^9, 
+  3.7657190403932023`*^9, 3.765816615128975*^9, 3.7658257999369264`*^9, 
+  3.7658532468819885`*^9, 3.76585627241092*^9, 3.7658563244021087`*^9, 
+  3.765857917055662*^9, 3.765877368451312*^9, 3.7658779926271963`*^9, 
+  3.766081387238929*^9, 3.7670635653937287`*^9},
+ CellLabel->"Out[36]=",ExpressionUUID->"37125ce6-8e47-4a77-ace8-d12086b7e315"]
+}, Open  ]],
+
+Cell["When frames are closed, we can have more presentable plots.", "Text",
+ CellChangeTimes->{{3.765733494508621*^9, 
+  3.7657335558414364`*^9}},ExpressionUUID->"0ea2fc16-59f8-45df-b911-\
+8de2c40e6997"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"AspectRatio", "\[Rule]", "0.5"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "True"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "True"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"PointSize", "[", "0.008", "]"}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+         "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+         ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+         ",", "26", ",", "28", ",", "30"}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7657183412686663`*^9, 3.7657183688048887`*^9}, {
+   3.7657184122370152`*^9, 3.7657185030729856`*^9}, 3.76571854312703*^9, {
+   3.7657185740403376`*^9, 3.7657186049656076`*^9}, 3.76571868378847*^9, {
+   3.7657190371350555`*^9, 3.7657190384133325`*^9}, {3.765733444213477*^9, 
+   3.76573345239179*^9}, 3.7658563018980045`*^9, 3.7658578918781185`*^9, {
+   3.7660813156748114`*^9, 3.7660813293140335`*^9}, {3.7660813627349205`*^9, 
+   3.76608136796894*^9}, {3.7660814937900486`*^9, 3.766081494646552*^9}, {
+   3.766081530278181*^9, 3.766081535120427*^9}, {3.766081577438235*^9, 
+   3.7660816238827076`*^9}, {3.7660817017821913`*^9, 3.7660817037170753`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"2239142c-c957-49cb-b83b-732164e2067e"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.008], 
+     AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->0.5,
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox[
+      "\"Viscosity \[Rule] \\n\"", FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox[
+      "\"\\nTemperature \[Rule]  (\[Degree]C) \"", FontFamily -> "Segoe UI", 
+       FontSize -> 22, StripOnInput -> False], TraditionalForm], None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31, 33}, {0, 2, 4, 6, 8, 10, 
+    12, 14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7657336858668346`*^9, 3.765816615184943*^9, 3.765825799992894*^9, 
+   3.7658532469288607`*^9, 3.7658562724558935`*^9, 3.765856324444071*^9, 
+   3.765857917102635*^9, 3.7658773685012674`*^9, 3.7658779926871786`*^9, 
+   3.7660813335016413`*^9, {3.766081371342013*^9, 3.766081387285902*^9}, 
+   3.766081497053167*^9, 3.7660815375710316`*^9, {3.766081579466092*^9, 
+   3.766081627214835*^9}, 3.7660817047614965`*^9, 3.767063565441717*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"f88358f6-b55c-4a1d-9c1c-00d64cdf90bb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"experienceSet", " ", ",", "\[IndentingNewLine]", 
+    RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "True"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "True"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Brown", ",", 
+       RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"15", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"17", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"19", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"21", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"23", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"25", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"27", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"29", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"31", ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Blue", ",", "Dashed"}], "]"}]}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"10", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"12", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"14", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"16", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"18", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"20", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"22", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"24", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"26", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"28", ",", "Red"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"30", ",", "Red"}], "}"}]}], "}"}]}], "}"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765702063036973*^9, {3.7657021820407176`*^9, 3.765702184562276*^9}, {
+   3.7657026319106274`*^9, 3.7657027251121607`*^9}, {3.765702763569112*^9, 
+   3.76570280447565*^9}, {3.765702878893941*^9, 3.7657029153200536`*^9}, {
+   3.765703006605689*^9, 3.765703053243936*^9}, {3.7657031107179503`*^9, 
+   3.7657031758276143`*^9}, {3.765703214330511*^9, 3.765703226306653*^9}, 
+   3.765703336697313*^9, 3.7657033687829065`*^9, 3.7657034173150773`*^9, {
+   3.7657034542688646`*^9, 3.7657035255599813`*^9}, {3.76571661719773*^9, 
+   3.7657166668043733`*^9}, {3.7657167165559607`*^9, 
+   3.7657168479058943`*^9}, {3.76571688334066*^9, 3.7657168975965147`*^9}, {
+   3.7657169288206778`*^9, 3.7657170299928617`*^9}, {3.7657170614229097`*^9, 
+   3.765717097553258*^9}, {3.765717129989725*^9, 3.765717237212449*^9}, {
+   3.7657173958598003`*^9, 3.7657174025129986`*^9}, {3.765717458522008*^9, 
+   3.7657174619860163`*^9}, {3.765717510282438*^9, 3.7657175295094433`*^9}, {
+   3.7657175882428837`*^9, 3.7657176493689575`*^9}, {3.7657177165225945`*^9, 
+   3.765717746693355*^9}, {3.7657179443863883`*^9, 3.7657179738675346`*^9}, {
+   3.7657336012153974`*^9, 3.7657336072389593`*^9}, 3.7657336530886517`*^9, {
+   3.765825779264786*^9, 3.765825781655414*^9}, 3.765856302378729*^9, 
+   3.765857892782587*^9, {3.7660814124215283`*^9, 3.7660814218621426`*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"2c461807-93bb-44fa-8d84-e20a1742f7e5"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.01], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->1,
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{{15, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {17, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {19, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {21, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {23, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {25, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {27, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {29, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}, {31, 
+      Directive[
+       RGBColor[0, 0, 1], 
+       Dashing[{Small, Small}]]}}, {{0, 
+      RGBColor[1, 0, 0]}, {2, 
+      RGBColor[1, 0, 0]}, {4, 
+      RGBColor[1, 0, 0]}, {6, 
+      RGBColor[1, 0, 0]}, {8, 
+      RGBColor[1, 0, 0]}, {10, 
+      RGBColor[1, 0, 0]}, {12, 
+      RGBColor[1, 0, 0]}, {14, 
+      RGBColor[1, 0, 0]}, {16, 
+      RGBColor[1, 0, 0]}, {18, 
+      RGBColor[1, 0, 0]}, {20, 
+      RGBColor[1, 0, 0]}, {22, 
+      RGBColor[1, 0, 0]}, {24, 
+      RGBColor[1, 0, 0]}, {26, 
+      RGBColor[1, 0, 0]}, {28, 
+      RGBColor[1, 0, 0]}, {30, 
+      RGBColor[1, 0, 0]}}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7657336117673454`*^9, 3.7657336562148457`*^9, 3.765816615243909*^9, {
+   3.7658257891601105`*^9, 3.7658258000618544`*^9}, 3.765853246975732*^9, 
+   3.7658562725228567`*^9, 3.765856324496041*^9, 3.7658579171546173`*^9, 
+   3.7658773685782237`*^9, 3.765877992739148*^9, 3.7660813874088316`*^9, 
+   3.766081425120288*^9, 3.7670635654857054`*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"c09b35b9-985c-4cc7-86d1-58aed38a6c45"]
+}, Open  ]],
+
+Cell["\<\
+Grids may be defined with a simpler way, if all x grids and y grids have \
+their own block colors and style.\
+\>", "Text",
+ CellChangeTimes->{
+  3.765718131541456*^9, {3.7670637536020756`*^9, 3.7670637792733974`*^9}, {
+   3.76706410260631*^9, 3.7670641551969423`*^9}, {3.7670642729852767`*^9, 
+   3.767064311631445*^9}},ExpressionUUID->"20216cd7-0589-4a56-9c7a-\
+02e17b68e899"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+   "experienceSet", " ", ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Frame", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "True"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", " ", "True"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Directive", "[", 
+          RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+           " ", 
+           RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+           " ", 
+           RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+        "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Brown", ",", 
+       RowBox[{"PointSize", "[", "0.015", "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+       "24", ",", " ", "Red", ",", 
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+           ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+           ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+           "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+        "}"}]}], "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+         "27", ",", "29", ",", "31"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+         ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+         ",", "26", ",", "28", ",", "30"}], "}"}]}], "\[IndentingNewLine]", 
+      "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"GridLinesStyle", "\[Rule]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Blue", ",", "Dashed"}], "]"}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765702063036973*^9, {3.7657021820407176`*^9, 3.765702184562276*^9}, {
+   3.7657026319106274`*^9, 3.7657027251121607`*^9}, {3.765702763569112*^9, 
+   3.76570280447565*^9}, {3.765702878893941*^9, 3.7657029153200536`*^9}, {
+   3.765703006605689*^9, 3.765703053243936*^9}, {3.7657031107179503`*^9, 
+   3.7657031758276143`*^9}, {3.765703214330511*^9, 3.765703226306653*^9}, 
+   3.765703336697313*^9, 3.7657033687829065`*^9, 3.7657034173150773`*^9, {
+   3.7657034542688646`*^9, 3.7657035255599813`*^9}, {3.76571661719773*^9, 
+   3.7657166668043733`*^9}, {3.7657167165559607`*^9, 
+   3.7657168479058943`*^9}, {3.76571688334066*^9, 3.7657168975965147`*^9}, {
+   3.7657169288206778`*^9, 3.7657170299928617`*^9}, {3.7657170614229097`*^9, 
+   3.765717097553258*^9}, {3.765717129989725*^9, 3.765717237212449*^9}, {
+   3.7657173958598003`*^9, 3.7657174025129986`*^9}, {3.765717458522008*^9, 
+   3.7657174619860163`*^9}, {3.765717510282438*^9, 3.7657175295094433`*^9}, {
+   3.7657175882428837`*^9, 3.7657176493689575`*^9}, {3.7657177165225945`*^9, 
+   3.765717746693355*^9}, {3.7657179443863883`*^9, 3.7657179738675346`*^9}, {
+   3.7657336012153974`*^9, 3.7657336072389593`*^9}, 3.7657336530886517`*^9, {
+   3.765825779264786*^9, 3.765825781655414*^9}, 3.765856302378729*^9, 
+   3.765857892782587*^9, {3.7660814124215283`*^9, 3.7660814218621426`*^9}, {
+   3.767063071574876*^9, 3.7670633184051833`*^9}, {3.7670633542242193`*^9, 
+   3.7670633933299637`*^9}, {3.767063439137147*^9, 3.767063444974017*^9}, 
+   3.767063507593735*^9, {3.7670635382864914`*^9, 3.767063559600301*^9}, {
+   3.767063593105812*^9, 3.767063615767333*^9}, {3.7670636901952744`*^9, 
+   3.7670637128183928`*^9}, {3.7670644730841165`*^9, 
+   3.7670646074844503`*^9}, {3.767072507665756*^9, 3.7670725372971544`*^9}, {
+   3.767072575756814*^9, 3.767072679195706*^9}, {3.7670727204175205`*^9, 
+   3.76707272309859*^9}, {3.7670727722047663`*^9, 3.7670727984824934`*^9}, {
+   3.767072840759198*^9, 3.7670729394416533`*^9}, {3.767072983023986*^9, 
+   3.7670731691795654`*^9}, {3.767073235658112*^9, 3.7670732508373814`*^9}, {
+   3.767073283446412*^9, 3.767073301370321*^9}, {3.7670733414092236`*^9, 
+   3.7670733815992527`*^9}, {3.767073412153833*^9, 3.767073596941024*^9}, {
+   3.767074925459098*^9, 3.7670750120378485`*^9}, {3.767075073574936*^9, 
+   3.767075081642834*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"272ce6a6-0a7f-4d15-8f15-0255fe5a5ae1"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.015], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->1,
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31}, {0, 2, 4, 6, 8, 10, 12, 
+    14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->{{
+     Directive[
+      RGBColor[1, 0, 0], 
+      Dashing[{Small, Small}]]}, {
+     Directive[
+      RGBColor[0, 0, 1], 
+      Dashing[{Small, Small}]]}},
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7670728693462057`*^9, 3.7670728977654696`*^9}, 
+   3.767072957693859*^9, 3.7670730073616543`*^9, {3.767073077009512*^9, 
+   3.767073102901148*^9}, {3.767073144458826*^9, 3.767073172642702*^9}, 
+   3.76707330377373*^9, 3.767073386631893*^9, 3.7670734643891354`*^9, 
+   3.7670735367588115`*^9, 3.7670735713670716`*^9, {3.76707496260325*^9, 
+   3.7670750129496136`*^9}, 3.767075083712181*^9},
+ CellLabel->"Out[66]=",ExpressionUUID->"4d018b31-9ba0-4997-9128-af03c7a43cb0"]
+}, Open  ]],
+
+Cell["Adding some text with Epilog [ ].", "Text",
+ CellChangeTimes->{{3.7670750942075152`*^9, 
+  3.767075140447503*^9}},ExpressionUUID->"003f7fd0-4dac-4ac9-84ed-\
+8ae19c048c8d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+    "experienceSet", " ", ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Frame", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"True", ",", "True"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"True", ",", " ", "True"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"FrameStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Directive", "[", 
+           RowBox[{"Thick", ",", "Orange"}], "]"}], ",", "None"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", "Blue"}], "}"}], ",", "None"}], "}"}]}], 
+       "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Viscosity \[Rule] \\n\>\"", ",", "Orange", ",", " ", 
+            RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+            " ", 
+            RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+           "\"\<\\nTemperature \[Rule]  (\[Degree]C) \>\"", ",", "Blue", ",", 
+            " ", 
+            RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Segoe UI\>\""}], ",", 
+            " ", 
+            RowBox[{"FontSize", "\[Rule]", "22"}]}], "]"}], ",", "None"}], 
+         "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", "600"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Brown", ",", 
+        RowBox[{"PointSize", "[", "0.015", "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"Style", "[", 
+       RowBox[{
+       "\"\<Viscosity/Temperature Chart of the Mixture K 234\\n\>\"", ",", 
+        "24", ",", " ", "Red", ",", 
+        RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}]}], "]"}]}], ",",
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"FrameTicks", "\[Rule]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+            ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+            ",", "26", ",", "28", ",", "30"}], "}"}], ",", "None"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+            "27", ",", "29", ",", "31", ",", "33"}], "}"}], ",", "None"}], 
+         "}"}]}], "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"GridLines", "\[Rule]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", "25", ",", 
+          "27", ",", "29", ",", "31"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+         "0", ",", "2", ",", "4", ",", "6", ",", "8", ",", "10", ",", "12", 
+          ",", "14", ",", "16", ",", "18", ",", "20", ",", "22", ",", "24", 
+          ",", "26", ",", "28", ",", "30"}], "}"}]}], "\[IndentingNewLine]", 
+       "}"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"GridLinesStyle", "\[Rule]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Red", ",", "Dashed"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Blue", ",", "Dashed"}], "]"}], "}"}]}], 
+       "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{"Text", "\[IndentingNewLine]", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Style", "[", "\[IndentingNewLine]", 
+          RowBox[{
+          "\"\<Well Mixed\\n{5 minutes with Tornado 605)\>\"", ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"FontFamily", "\[Rule]", "\"\<Segoe UI\>\""}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"FontSize", "\[Rule]", "18"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"RGBColor", "[", 
+            RowBox[{"0.38", ",", "0.71", ",", "0.5"}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"19.5", ",", "18"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}]}], "\[IndentingNewLine]", "]"}], 
+       "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{
+  3.765702063036973*^9, {3.7657021820407176`*^9, 3.765702184562276*^9}, {
+   3.7657026319106274`*^9, 3.7657027251121607`*^9}, {3.765702763569112*^9, 
+   3.76570280447565*^9}, {3.765702878893941*^9, 3.7657029153200536`*^9}, {
+   3.765703006605689*^9, 3.765703053243936*^9}, {3.7657031107179503`*^9, 
+   3.7657031758276143`*^9}, {3.765703214330511*^9, 3.765703226306653*^9}, 
+   3.765703336697313*^9, 3.7657033687829065`*^9, 3.7657034173150773`*^9, {
+   3.7657034542688646`*^9, 3.7657035255599813`*^9}, {3.76571661719773*^9, 
+   3.7657166668043733`*^9}, {3.7657167165559607`*^9, 
+   3.7657168479058943`*^9}, {3.76571688334066*^9, 3.7657168975965147`*^9}, {
+   3.7657169288206778`*^9, 3.7657170299928617`*^9}, {3.7657170614229097`*^9, 
+   3.765717097553258*^9}, {3.765717129989725*^9, 3.765717237212449*^9}, {
+   3.7657173958598003`*^9, 3.7657174025129986`*^9}, {3.765717458522008*^9, 
+   3.7657174619860163`*^9}, {3.765717510282438*^9, 3.7657175295094433`*^9}, {
+   3.7657175882428837`*^9, 3.7657176493689575`*^9}, {3.7657177165225945`*^9, 
+   3.765717746693355*^9}, {3.7657179443863883`*^9, 3.7657179738675346`*^9}, {
+   3.7657336012153974`*^9, 3.7657336072389593`*^9}, 3.7657336530886517`*^9, {
+   3.765825779264786*^9, 3.765825781655414*^9}, 3.765856302378729*^9, 
+   3.765857892782587*^9, {3.7660814124215283`*^9, 3.7660814218621426`*^9}, {
+   3.767063071574876*^9, 3.7670633184051833`*^9}, {3.7670633542242193`*^9, 
+   3.7670633933299637`*^9}, {3.767063439137147*^9, 3.767063444974017*^9}, 
+   3.767063507593735*^9, {3.7670635382864914`*^9, 3.767063559600301*^9}, {
+   3.767063593105812*^9, 3.767063615767333*^9}, {3.7670636901952744`*^9, 
+   3.7670637128183928`*^9}, {3.7670644730841165`*^9, 
+   3.7670646074844503`*^9}, {3.767072507665756*^9, 3.7670725372971544`*^9}, {
+   3.767072575756814*^9, 3.767072679195706*^9}, {3.7670727204175205`*^9, 
+   3.76707272309859*^9}, {3.7670727722047663`*^9, 3.7670727984824934`*^9}, {
+   3.767072840759198*^9, 3.7670729394416533`*^9}, {3.767072983023986*^9, 
+   3.7670731691795654`*^9}, {3.767073235658112*^9, 3.7670732508373814`*^9}, {
+   3.767073283446412*^9, 3.767073301370321*^9}, {3.7670733414092236`*^9, 
+   3.7670733815992527`*^9}, {3.767073412153833*^9, 3.767073596941024*^9}, {
+   3.767074925459098*^9, 3.7670750120378485`*^9}, {3.767075073574936*^9, 
+   3.767075081642834*^9}, {3.76707517611115*^9, 3.767075217270939*^9}, {
+   3.767075269177391*^9, 3.7670754391573668`*^9}, 3.7670754770775166`*^9, {
+   3.767075511366745*^9, 3.767075655869943*^9}, {3.767075690605794*^9, 
+   3.7670757375958977`*^9}, {3.7670758549108453`*^9, 3.7670758725159836`*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"3def839c-4200-44fb-a1ca-3c91a2774ff4"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.015], AbsoluteThickness[1.6], 
+     PointBox[{{15., 2.16}, {17., 3.86}, {19., 5.23}, {21., 6.11}, {23., 
+      7.82}, {25., 9.28}, {27., 13.88}, {29., 23.77}, {31., 
+      28.18}}]}, {}}, {}, {}, {}, {}},
+  AspectRatio->1,
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{14.750000000000002`, 0},
+  DisplayFunction->Identity,
+  Epilog->{
+    InsetBox[
+     FormBox[
+      StyleBox[
+      "\"Well Mixed\\n{5 minutes with Tornado 605)\"", FontFamily -> 
+       "Segoe UI", FontSize -> 18, 
+       RGBColor[0.38, 0.71, 0.5], StripOnInput -> False], TraditionalForm], {
+     19.5, 18}, {0, 0}, Automatic, {1, 0}]},
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox["\"Viscosity \[Rule] \\n\"", 
+       RGBColor[1, 0.5, 0], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}, {
+     FormBox[
+      StyleBox["\"\\nTemperature \[Rule]  (\[Degree]C) \"", 
+       RGBColor[0, 0, 1], FontFamily -> "Segoe UI", FontSize -> 22, 
+       StripOnInput -> False], TraditionalForm], None}},
+  FrameStyle->{{
+     Directive[
+      Thickness[Large], 
+      RGBColor[1, 0.5, 0]], None}, {{
+      Thickness[Large], 
+      RGBColor[0, 0, 1]}, None}},
+  FrameTicks->{{{{0, 
+       FormBox["0", TraditionalForm]}, {2, 
+       FormBox["2", TraditionalForm]}, {4, 
+       FormBox["4", TraditionalForm]}, {6, 
+       FormBox["6", TraditionalForm]}, {8, 
+       FormBox["8", TraditionalForm]}, {10, 
+       FormBox["10", TraditionalForm]}, {12, 
+       FormBox["12", TraditionalForm]}, {14, 
+       FormBox["14", TraditionalForm]}, {16, 
+       FormBox["16", TraditionalForm]}, {18, 
+       FormBox["18", TraditionalForm]}, {20, 
+       FormBox["20", TraditionalForm]}, {22, 
+       FormBox["22", TraditionalForm]}, {24, 
+       FormBox["24", TraditionalForm]}, {26, 
+       FormBox["26", TraditionalForm]}, {28, 
+       FormBox["28", TraditionalForm]}, {30, 
+       FormBox["30", TraditionalForm]}}, None}, {{{15, 
+       FormBox["15", TraditionalForm]}, {17, 
+       FormBox["17", TraditionalForm]}, {19, 
+       FormBox["19", TraditionalForm]}, {21, 
+       FormBox["21", TraditionalForm]}, {23, 
+       FormBox["23", TraditionalForm]}, {25, 
+       FormBox["25", TraditionalForm]}, {27, 
+       FormBox["27", TraditionalForm]}, {29, 
+       FormBox["29", TraditionalForm]}, {31, 
+       FormBox["31", TraditionalForm]}, {33, 
+       FormBox["33", TraditionalForm]}}, None}},
+  GridLines->{{15, 17, 19, 21, 23, 25, 27, 29, 31}, {0, 2, 4, 6, 8, 10, 12, 
+    14, 16, 18, 20, 22, 24, 26, 28, 30}},
+  GridLinesStyle->{{
+     Directive[
+      RGBColor[1, 0, 0], 
+      Dashing[{Small, Small}]]}, {
+     Directive[
+      RGBColor[0, 0, 1], 
+      Dashing[{Small, Small}]]}},
+  ImagePadding->All,
+  ImageSize->600,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    StyleBox["\"Viscosity/Temperature Chart of the Mixture K 234\\n\"", 24, 
+     RGBColor[1, 0, 0], FontFamily -> "Segoe UI", StripOnInput -> False], 
+    TraditionalForm],
+  PlotRange->{{15., 31.}, {0, 28.18}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7670756773154097`*^9, {3.7670757151800756`*^9, 3.7670757389215217`*^9}, {
+   3.7670758573022585`*^9, 3.7670758738580055`*^9}},
+ CellLabel->"Out[71]=",ExpressionUUID->"9a257ee4-226b-49e5-a1d1-7d7ab0b64db5"]
+}, Open  ]],
+
+Cell["Have good time when applying them...", "Text",
+ CellChangeTimes->{
+  3.765718131541456*^9},ExpressionUUID->"d029e96f-62f7-4785-830b-\
+bfc954304b7a"]
+}, Open  ]]
+},
+WindowSize->{1118, 717},
+WindowMargins->{{286, Automatic}, {-135, Automatic}},
+PrintingPageRange->{Automatic, Automatic},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"bdeSegoeUI20.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 415, 9, 159, "Chapter",ExpressionUUID->"2d0dccfa-3022-4aa8-a51e-2521fe290591"],
+Cell[998, 33, 306, 6, 74, "Text",ExpressionUUID->"b17de6cd-43b5-4b1d-9646-280b4ca3f496"],
+Cell[1307, 41, 854, 14, 136, "Text",ExpressionUUID->"9b05547e-b472-4f21-8611-9da2932796b4"],
+Cell[2164, 57, 1236, 30, 291, "Text",ExpressionUUID->"a4e03d1f-8de7-41a1-8f72-aa0f7585e04d"],
+Cell[3403, 89, 348, 7, 74, "Text",ExpressionUUID->"e577754f-713c-4fe4-822f-6d77d6f9e0c6"],
+Cell[CellGroupData[{
+Cell[3776, 100, 168, 3, 40, "Item",ExpressionUUID->"9001b1a7-cf0d-48c5-9935-af0f33839d30"],
+Cell[3947, 105, 231, 4, 40, "Item",ExpressionUUID->"99aaa158-60af-40c4-b4a3-a4def8030929"]
+}, Open  ]],
+Cell[4193, 112, 773, 24, 290, "Text",ExpressionUUID->"ec380923-8f0c-44a3-9cfe-a3f0a7dce789"],
+Cell[4969, 138, 571, 10, 262, "Text",ExpressionUUID->"4d9a17c5-92a9-4bc8-9473-2d7fdec8ba2f"],
+Cell[5543, 150, 949, 15, 322, "Text",ExpressionUUID->"5df07aff-5cfb-441a-afa9-9e7dd873c012"],
+Cell[6495, 167, 438, 9, 69, "Input",ExpressionUUID->"de5642bc-1bfc-4f67-aee3-209300328490"],
+Cell[6936, 178, 245, 4, 82, "Text",ExpressionUUID->"395b924b-7754-4cac-9acd-0924d9fcd441"],
+Cell[CellGroupData[{
+Cell[7206, 186, 287, 5, 69, "Input",ExpressionUUID->"2647366a-382d-4330-9221-78116a4d8663"],
+Cell[7496, 193, 1696, 42, 476, "Output",ExpressionUUID->"aefcc003-d5ed-4a44-ab78-8d15aef142de"]
+}, Open  ]],
+Cell[9207, 238, 600, 10, 202, "Text",ExpressionUUID->"69f4a819-872a-4697-a7be-83ade9f349ee"],
+Cell[9810, 250, 269, 6, 82, "Text",ExpressionUUID->"80505cb3-aa99-4635-bd61-fd1bf4eff2ac"],
+Cell[CellGroupData[{
+Cell[10104, 260, 226, 4, 69, "Input",ExpressionUUID->"9a7cb73f-4e73-44de-bb07-b2b5233b64ad"],
+Cell[10333, 266, 464, 6, 77, "Output",ExpressionUUID->"4a09b8e1-8371-4fbf-98d4-76db843e4926"]
+}, Open  ]],
+Cell[10812, 275, 196, 3, 82, "Text",ExpressionUUID->"69cf004c-b7c5-475d-9798-7a2b4b1397a1"],
+Cell[CellGroupData[{
+Cell[11033, 282, 226, 4, 69, "Input",ExpressionUUID->"82fe6f4a-0fce-47be-8525-f89911f3f5b5"],
+Cell[11262, 288, 467, 6, 77, "Output",ExpressionUUID->"ad51da5c-429c-468e-81a6-10b3c8d4ce54"]
+}, Open  ]],
+Cell[11744, 297, 468, 9, 142, "Text",ExpressionUUID->"8c723c57-ad0a-4f7d-b885-c96b7599f72b"],
+Cell[12215, 308, 229, 5, 82, "Text",ExpressionUUID->"a99d50f5-2a5c-48df-9fc7-db97e03b8031"],
+Cell[12447, 315, 199, 3, 82, "Text",ExpressionUUID->"25fdf8c0-a79f-469a-bd63-564f876caed5"],
+Cell[12649, 320, 422, 8, 82, "Text",ExpressionUUID->"f4c95302-7e57-4b88-992e-7b8c17506578"],
+Cell[13074, 330, 348, 7, 82, "Text",ExpressionUUID->"2480d870-6a9c-42dc-bf9a-ff19609fad66"],
+Cell[13425, 339, 149, 3, 82, "Text",ExpressionUUID->"2de09c54-68d7-46ff-ad26-54e20a4bc404"],
+Cell[13577, 344, 470, 9, 82, "Text",ExpressionUUID->"65900a39-1fe4-4726-9a42-e17216ceac15"],
+Cell[14050, 355, 343, 7, 142, "Text",ExpressionUUID->"e8606648-5d05-4c1d-8c6c-dba35681f1f4"],
+Cell[14396, 364, 334, 6, 69, "Input",ExpressionUUID->"e0237111-a50e-49fc-a1af-21489ced063b"],
+Cell[14733, 372, 367, 8, 142, "Text",ExpressionUUID->"a54d1746-b643-49aa-8742-5c7a63dc1aeb"],
+Cell[CellGroupData[{
+Cell[15125, 384, 406, 9, 69, "Input",ExpressionUUID->"e310dbc2-bb1f-491a-b5f4-8dffbf1757c4"],
+Cell[15534, 395, 528, 11, 77, "Output",ExpressionUUID->"207f36be-ca0c-499e-8b67-a5114f7438e7"]
+}, Open  ]],
+Cell[16077, 409, 319, 7, 82, "Text",ExpressionUUID->"5de105b6-e983-4d9d-bf59-05d18e19daea"],
+Cell[16399, 418, 397, 7, 142, "Text",ExpressionUUID->"03bd2d3f-1b78-41c9-bbb5-df8e90e7b16d"],
+Cell[CellGroupData[{
+Cell[16821, 429, 492, 11, 69, "Input",ExpressionUUID->"77b7162e-6c6b-4fe6-89e0-1d336c596f76"],
+Cell[17316, 442, 548, 10, 77, "Output",ExpressionUUID->"a6eba1ed-fe12-4640-8bec-e8b9281026bb"]
+}, Open  ]],
+Cell[17879, 455, 236, 6, 82, "Text",ExpressionUUID->"1bac5891-7d5f-4e19-8214-93a8aa41c31e"],
+Cell[CellGroupData[{
+Cell[18140, 465, 218, 4, 69, "Input",ExpressionUUID->"8fb4850c-0f23-41ec-8142-19a1a74263d0"],
+Cell[18361, 471, 1580, 39, 476, "Output",ExpressionUUID->"0209f38e-6537-45a7-8c3a-eeb32617fa60"]
+}, Open  ]],
+Cell[19956, 513, 385, 7, 142, "Text",ExpressionUUID->"b9e2ea48-882b-4687-b731-57c3667f1cd3"],
+Cell[20344, 522, 640, 11, 202, "Text",ExpressionUUID->"e55ca9f3-12e6-4a4c-8c0f-708888f060a1"],
+Cell[CellGroupData[{
+Cell[21009, 537, 329, 7, 69, "Input",ExpressionUUID->"689b60c5-aa33-4418-9919-f2f2b33fc30e"],
+Cell[21341, 546, 3319, 80, 397, "Output",ExpressionUUID->"d8047618-9f67-4fea-9e03-9b76f4b1135b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24697, 631, 229, 4, 69, "Input",ExpressionUUID->"15f60983-387d-4419-9213-aea4f901701f"],
+Cell[24929, 637, 1902, 45, 476, "Output",ExpressionUUID->"af3adb26-5dfa-4db5-a755-fb8dc5b9f072"]
+}, Open  ]],
+Cell[26846, 685, 613, 11, 202, "Text",ExpressionUUID->"fb967f72-d698-44f9-a991-ac5e924773b8"],
+Cell[27462, 698, 784, 12, 262, "Text",ExpressionUUID->"7da9b59d-46d7-4b19-bc97-c1a17ccbd4fb"],
+Cell[28249, 712, 645, 11, 202, "Text",ExpressionUUID->"e38cd0c6-fd84-4108-b810-1430abfb3cbd"],
+Cell[28897, 725, 1580, 24, 561, "Text",ExpressionUUID->"6586bfcf-46cd-4691-abe6-980517254e03"],
+Cell[30480, 751, 607, 11, 142, "Text",ExpressionUUID->"24063ee0-75a7-452b-b83e-01497d4f2854"],
+Cell[31090, 764, 228, 5, 82, "Text",ExpressionUUID->"e5df3c27-c7dc-4453-863a-8d1b4e59ee44"],
+Cell[CellGroupData[{
+Cell[31343, 773, 498, 9, 69, "Input",ExpressionUUID->"104423ab-e64f-4853-8838-9858d707fe83"],
+Cell[31844, 784, 1201, 28, 135, "Output",ExpressionUUID->"62c676fc-87a3-4b9d-8f60-00cb474df197"]
+}, Open  ]],
+Cell[33060, 815, 350, 7, 82, "Text",ExpressionUUID->"53652ee9-b91e-4590-a10b-852a717673d0"],
+Cell[CellGroupData[{
+Cell[33435, 826, 753, 17, 69, "Input",ExpressionUUID->"f7ae7970-8651-4b57-b04d-27af6a6f1f54"],
+Cell[34191, 845, 1102, 27, 135, "Output",ExpressionUUID->"75aa27df-a381-4b24-b753-535bb580fba3"]
+}, Open  ]],
+Cell[35308, 875, 449, 9, 82, "Text",ExpressionUUID->"29587c09-74af-4623-92ed-7e922851c4a9"],
+Cell[35760, 886, 368, 8, 142, "Text",ExpressionUUID->"ec9c01b0-9ec8-4cf7-8a76-18153cd3d167"],
+Cell[36131, 896, 986, 26, 127, "Input",ExpressionUUID->"cfba6608-cefc-4624-9b43-0024d6259ba6"],
+Cell[37120, 924, 507, 9, 82, "Text",ExpressionUUID->"2110b828-0fa8-4290-950b-956f11d676f5"],
+Cell[CellGroupData[{
+Cell[37652, 937, 359, 6, 69, "Input",ExpressionUUID->"54769368-1029-4cc6-81d5-40356c0b29b4"],
+Cell[38014, 945, 318, 4, 77, "Output",ExpressionUUID->"96c8ef22-519e-4085-8794-998210a94d14"]
+}, Open  ]],
+Cell[38347, 952, 345, 7, 142, "Text",ExpressionUUID->"3862c3e0-5c01-41fd-be55-992f5037a925"],
+Cell[38695, 961, 235, 4, 69, "Input",ExpressionUUID->"5023a8ea-e6f5-47d2-aba0-f8311f6b21ec"],
+Cell[38933, 967, 449, 9, 82, "Text",ExpressionUUID->"ef8e0b7d-4f63-42f7-8222-49962d1284f7"],
+Cell[CellGroupData[{
+Cell[39407, 980, 397, 6, 69, "Input",ExpressionUUID->"e7752529-1c1a-49ed-89d4-7ee2fe05d6cd"],
+Cell[39807, 988, 1956, 45, 470, "Output",ExpressionUUID->"8099da1b-380b-4e59-ba64-61b1126c5b86"]
+}, Open  ]],
+Cell[41778, 1036, 467, 9, 142, "Text",ExpressionUUID->"e1bdf413-36d4-40db-b055-c4e780fc1265"],
+Cell[42248, 1047, 349, 7, 82, "Text",ExpressionUUID->"95a61c8e-ff26-4206-9f73-8fce79e640c1"],
+Cell[CellGroupData[{
+Cell[42622, 1058, 461, 8, 239, "Input",ExpressionUUID->"d4ba4025-1e5d-4175-a238-14ccfbba73de"],
+Cell[43086, 1068, 1833, 43, 476, "Output",ExpressionUUID->"b15c0141-429c-4d98-bead-69a70e265bc1"]
+}, Open  ]],
+Cell[44934, 1114, 298, 6, 142, "Text",ExpressionUUID->"1608e2a2-2f75-4569-a786-5f1301785971"],
+Cell[45235, 1122, 1418, 39, 738, "Output",ExpressionUUID->"2dcdc5e7-a4ad-4751-97aa-dce256c47ca7"],
+Cell[CellGroupData[{
+Cell[46678, 1165, 590, 10, 239, "Input",ExpressionUUID->"66d54b5a-dee6-4fa3-9e88-b24a0e89ae10"],
+Cell[47271, 1177, 1915, 45, 761, "Output",ExpressionUUID->"06d5415b-78d7-4448-976e-0634f6a0b8b1"]
+}, Open  ]],
+Cell[49201, 1225, 277, 6, 82, "Text",ExpressionUUID->"a94aa034-327e-44e2-b75a-1dc70823003f"],
+Cell[CellGroupData[{
+Cell[49503, 1235, 826, 14, 295, "Input",ExpressionUUID->"685e2e67-69c6-4f0b-871f-b0d3dbbdc980"],
+Cell[50332, 1251, 2011, 47, 829, "Output",ExpressionUUID->"ab30ec63-bc96-47a4-bdbd-c90886da98ea"]
+}, Open  ]],
+Cell[52358, 1301, 386, 7, 142, "Text",ExpressionUUID->"2709cbd5-089a-43ab-a82a-e51415227954"],
+Cell[CellGroupData[{
+Cell[52769, 1312, 1075, 19, 407, "Input",ExpressionUUID->"9a76ce67-10a5-4544-acee-92f111b11492"],
+Cell[53847, 1333, 2076, 49, 902, "Output",ExpressionUUID->"7302e12f-c299-4467-9722-d83653dd6c80"]
+}, Open  ]],
+Cell[55938, 1385, 436, 9, 74, "Text",ExpressionUUID->"7e2e01b4-6511-43c1-9f1b-6198bc82cad8"],
+Cell[CellGroupData[{
+Cell[56399, 1398, 2266, 37, 240, "Input",ExpressionUUID->"9c6ea409-e8fc-4abd-860d-20e416e7260c"],
+Cell[58668, 1437, 1967, 47, 468, "Output",ExpressionUUID->"6845ff9c-44ea-4075-a69a-478442c2863c"]
+}, Open  ]],
+Cell[60650, 1487, 174, 3, 43, "Text",ExpressionUUID->"6d09a38d-e35a-49f4-a6f2-1e3af3e7484a"],
+Cell[CellGroupData[{
+Cell[60849, 1494, 1917, 34, 269, "Input",ExpressionUUID->"4cbefb39-9ade-4ede-8645-f3f0229ee6a8"],
+Cell[62769, 1530, 2261, 54, 468, "Output",ExpressionUUID->"4de76bf5-43b5-4c80-b6b5-9054258b7395"]
+}, Open  ]],
+Cell[65045, 1587, 331, 7, 43, "Text",ExpressionUUID->"fc26d0cc-b9f6-433f-8870-662a922484e8"],
+Cell[CellGroupData[{
+Cell[65401, 1598, 3039, 59, 269, "Input",ExpressionUUID->"f5841f52-0a57-4683-97a8-1c5e0e7e60ea"],
+Cell[68443, 1659, 2089, 52, 468, "Output",ExpressionUUID->"b00c45e5-f118-463a-86b5-ff9304e5110e"]
+}, Open  ]],
+Cell[70547, 1714, 276, 4, 43, "Text",ExpressionUUID->"c299dd3f-5672-4459-9b03-77dd02aa4502"],
+Cell[CellGroupData[{
+Cell[70848, 1722, 2800, 66, 385, "Input",ExpressionUUID->"b0765a00-34d0-4198-af04-619f4150dbd7"],
+Cell[73651, 1790, 2580, 63, 486, "Output",ExpressionUUID->"92b34f77-e9c8-4436-b90d-11b0358e73aa"]
+}, Open  ]],
+Cell[76246, 1856, 275, 6, 43, "Text",ExpressionUUID->"37841da5-2884-4338-82c1-14f3c4f95c96"],
+Cell[76524, 1864, 254, 6, 43, "Text",ExpressionUUID->"83241ff5-3325-4e92-a354-d5bec664117c"],
+Cell[76781, 1872, 724, 23, 43, "Text",ExpressionUUID->"7696cc58-dad5-4e07-8e06-698deb4a9558"],
+Cell[77508, 1897, 264, 6, 43, "Text",ExpressionUUID->"dd19b6b8-0df7-4927-b60a-dc7d2f6fb3a4"],
+Cell[77775, 1905, 387, 9, 36, "Input",ExpressionUUID->"7ddc4978-5426-4467-8310-a4036225f5bb"],
+Cell[78165, 1916, 367, 8, 36, "Input",ExpressionUUID->"c10ad91b-3610-44a0-a987-ce9e0964deee"],
+Cell[CellGroupData[{
+Cell[78557, 1928, 212, 3, 36, "Input",ExpressionUUID->"4e798185-4fe5-44f6-9586-2c8ff8282f8f"],
+Cell[78772, 1933, 996, 25, 70, "Output",ExpressionUUID->"5e031e99-688f-4695-b74b-b8947690edd8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79805, 1963, 4616, 99, 443, "Input",ExpressionUUID->"eb2c589d-ffc0-45a8-aa53-08195fc7936b"],
+Cell[84424, 2064, 3438, 81, 486, "Output",ExpressionUUID->"14bb319f-8a68-48c8-b379-159af84883e2"]
+}, Open  ]],
+Cell[87877, 2148, 157, 3, 43, "Text",ExpressionUUID->"100fb191-ff70-494c-a6da-bbfd4a56e965"],
+Cell[CellGroupData[{
+Cell[88059, 2155, 5322, 115, 501, "Input",ExpressionUUID->"77381db1-1c17-40ec-9253-38f24a1c7256"],
+Cell[93384, 2272, 3665, 87, 486, "Output",ExpressionUUID->"1993a42a-089b-4ddd-a449-9f00d1d2e89d"]
+}, Open  ]],
+Cell[97064, 2362, 161, 3, 43, "Text",ExpressionUUID->"8b5a9b09-d5f1-425d-b9cf-df9843312849"],
+Cell[CellGroupData[{
+Cell[97250, 2369, 4254, 107, 617, "Input",ExpressionUUID->"458fe49a-f901-49d6-aecf-54b81464c972"],
+Cell[101507, 2478, 3468, 87, 486, "Output",ExpressionUUID->"54cc9b58-d618-4b8d-94e9-9fb4c777d02a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[105012, 2570, 7010, 170, 733, "Input",ExpressionUUID->"9884266e-25ad-40f1-9b0b-4193cb53597b"],
+Cell[112025, 2742, 4854, 130, 486, "Output",ExpressionUUID->"6d55f56e-9326-4be8-910e-c347442d0f46"]
+}, Open  ]],
+Cell[116894, 2875, 597, 11, 105, "Text",ExpressionUUID->"77b651d8-4a12-44ef-a65e-bd7f118df921"],
+Cell[117494, 2888, 278, 6, 43, "Text",ExpressionUUID->"4a67c97f-9bad-42dc-a3c9-cae4c7613ba9"],
+Cell[CellGroupData[{
+Cell[117797, 2898, 3301, 79, 385, "Input",ExpressionUUID->"0122c701-52a9-4e64-9e61-3edb502bf467"],
+Cell[121101, 2979, 3441, 81, 486, "Output",ExpressionUUID->"37125ce6-8e47-4a77-ace8-d12086b7e315"]
+}, Open  ]],
+Cell[124557, 3063, 203, 3, 43, "Text",ExpressionUUID->"0ea2fc16-59f8-45df-b911-8de2c40e6997"],
+Cell[CellGroupData[{
+Cell[124785, 3070, 3727, 84, 414, "Input",ExpressionUUID->"2239142c-c957-49cb-b83b-732164e2067e"],
+Cell[128515, 3156, 3528, 83, 428, "Output",ExpressionUUID->"f88358f6-b55c-4a1d-9c1c-00d64cdf90bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[132080, 3244, 7210, 172, 762, "Input",ExpressionUUID->"2c461807-93bb-44fa-8d84-e20a1742f7e5"],
+Cell[139293, 3418, 4768, 129, 674, "Output",ExpressionUUID->"c09b35b9-985c-4cc7-86d1-58aed38a6c45"]
+}, Open  ]],
+Cell[144076, 3550, 387, 8, 43, "Text",ExpressionUUID->"20216cd7-0589-4a56-9c7a-02e17b68e899"],
+Cell[CellGroupData[{
+Cell[144488, 3562, 6638, 138, 994, "Input",ExpressionUUID->"272ce6a6-0a7f-4d15-8f15-0255fe5a5ae1"],
+Cell[151129, 3702, 3770, 92, 674, "Output",ExpressionUUID->"4d018b31-9ba0-4997-9128-af03c7a43cb0"]
+}, Open  ]],
+Cell[154914, 3797, 177, 3, 43, "Text",ExpressionUUID->"003f7fd0-4dac-4ac9-84ed-8ae19c048c8d"],
+Cell[CellGroupData[{
+Cell[155116, 3804, 8095, 164, 1400, "Input",ExpressionUUID->"3def839c-4200-44fb-a1ca-3c91a2774ff4"],
+Cell[163214, 3970, 3794, 97, 674, "Output",ExpressionUUID->"9a257ee4-226b-49e5-a1d1-7d7ab0b64db5"]
+}, Open  ]],
+Cell[167023, 4070, 154, 3, 43, "Text",ExpressionUUID->"d029e96f-62f7-4785-830b-bfc954304b7a"]
+}, Open  ]]
+}
+]
+*)
+

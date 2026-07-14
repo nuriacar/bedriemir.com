@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:19 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b9/b9s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b9s3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b9s2.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b9s4.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 9
+		</p>
+		<p class="chapter">
+			String (Karakter Dizgisi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 9 Sayfa 3	
+		</p>
+		<p class="subheading" id="proto-replace">9.2.11 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin replace() Metodu</p>
+		<p class="indent">
+			Bu metod, bir kd nesne örneğinde, belirli alt kd verisinin içinde bulunan bir aranan kd 
+			verisinin başka bir kd verisi ile değiştirilmesini sağlar. Bu metodun kullanım şekli aşağıda görülmektedir :
+		</p>
+		<pre>
+<span class="keyw-50"><em>this</em></span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span><span 
+			class="str">aranankd</span><span 
+			class="op">,</span> <span 
+			class="str">yenikd</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="indent">
+			Bu metodun uygulanmasında, ilk önce <span class="keyw">this</span> değeri,
+			ilkel kd veri tipine dönüştürülür ve kd verisi olarak tanımlanır. 
+		</p>
+		<p class="indent">
+			Bu metodun uygulama alanı çok geniştir. En basit uygulama türleri, gerek aranan gerek değiştirilecek kd
+			değerlerinin basit kd değerleri olduğu durumlardır.
+		</p>
+		<p class="indent" id="b9.2.11-uyg-1">
+			Eğer aranan kd, kd verisi içinde bulunmazsa geriye kd verisi döndürülür. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.11-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.11-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'javascript'</span><span 
+			class="op">,</span>  arananKd <span 
+			class="op">=</span> <span 
+			class="str">'x'</span><span 
+			class="op">,</span>  değişecekKd <span 
+			class="op">=</span> <span 
+			class="str">'script'</span><span 
+			class="op">,</span>  sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span>arananKd<span 
+			class="op">,</span> değişecekKd<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.11-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.11-uyg-1-sonuç-1"></p>
+
+		<p class="indent" id="b9.2.11-uyg-2">
+			Eğer arananan kd, kd verisi içinde bulunursa, ilk uyuşma sonucu, belirtilen kd ile değiştirilir. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.11-uyg-2-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.11-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'javascript'</span><span 
+			class="op">,</span>  arananKd <span 
+			class="op">=</span> <span 
+			class="str">'javascript'</span><span 
+			class="op">,</span>  değişecekKd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span>  sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span>arananKd<span 
+			class="op">,</span> değişecekKd<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.11-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.11-uyg-2-sonuç-1"></p>
+		<p class="indent" id="b9.2.11-uyg-3">
+			İncelenen kd verisindeki tüm uyuşmaların yerine, verilen kd nin yerleştirilmesi istenirse,
+			uygulanabilecek en etkili yöntem, düzenli deyimlerin kullanılmasıdır. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.11-uyg-3-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.11-uyg-3.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Sayın Yeşil Yaprak Sitesi sakinlerine, Yeşil Yaprak sitesi ...'</span><span 
+			class="op">,</span>
+<span class="pl-50">arananKd</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'yeşil yaprak'</span><span 
+			class="op">,</span> <span 
+			class="str">'gi'</span><span 
+			class="op">),</span> değişecekKd <span 
+			class="op">=</span> <span 
+			class="str">'Kozaltı'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span>arananKd<span 
+			class="op">,</span> değişecekKd<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.11-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.11-uyg-3-sonuç-1"></p>
+		<p class="indent">
+			Aranacak kd değerinin karmaşık bir düzenli deyim olması durumunda, elde edilecek sonuçların 
+			öngörülmesi giderek güçleşecektir. Bu durumda, sonuçların iyice denendikten sonra kullanılması sağlık verilir.
+		</p>
+		<p class="indent">
+			Yerleştirilecek değer, bir fonksiyon da olabilir. Bu durumda, fonksiyonu, ilk argüman olarak, uyuşan alt 
+			kd parçası ile çağrılacaktır. Bu tür uygulamalara, normal olarak pratikte rastlanmaz.
+		</p>
+		<p class="subheading" id="proto-search">9.2.12 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin search() Metodu</p>
+			<p class="indent">
+			Bu metodun amacı, bir kd verisinde aranan düzenli deyim ifadesinin uyuştuğu karakterin
+			yerinin belirlenmesidir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50"><em>this</em></span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">search</span><span 
+			class="op">(</span><span 
+			class="str">düzenli deyim</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent" id="b9.2.12-uyg-1">
+			şeklindedir. Eğer argüman düzenli deyim tipinde değilse, düzenli deyim nesne sınıfı
+			yapılandırıcısı çağrılarak, ifade, düzenli deyim sınıf örneğine (düzenli deyim ifadesine)
+			dönüştürülecektir. Geri döndürülen değer, uyuşma olursa, ilk uyuşma sağlanan karakterinin
+			indis değeri, uyuşma olmazsa, -1 değeridir. Bu metod, global arama anahtarını ve düzenli deyim
+			sınıfı nesne örneğinin <span class="keyw">LastIndex</span> özelliğini gözardı eder. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.12-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.12-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Sayın Yeşil Yaprak Sitesi sakinlerine, Yeşil Yaprak sitesi ...'</span><span 
+			class="op">,</span>
+<span class="pl-50">arananKd</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'yeşil yaprak'</span><span 
+			class="op">,</span> <span 
+			class="str">'gi'</span><span 
+			class="op">),</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">search</span><span 
+			class="op">(</span>arananKd<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.12-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.12-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.12-uyg-1.html">uygulama</a> sonuçlarından da
+			görüldüğü gibi, <span class="keyw">search</span> <span class="op">()</span> metodu,
+			sadece ilk uyuşmanın olduğu karakterin koordinatını döndürmekte ve global arama 
+			anahtarının sonuçlarını gözardı etmektedir. Yani aramayı global arama anahtarı kapalı imiş
+			gibi yapmaktadır.
+		</p>
+		<p class="subheading" id="proto-slice">9.2.13 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin slice() Metodu</p>
+		<p class="indent">
+			İncelenecek olan <span class="keyw">slice</span><span class="op">()</span> metodu 
+			iki argüman alır. Bunlardan biri, başlangıç, diğeri de son değerleridir. Metodun kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span> başlangıç<span 
+			class="op">,</span> son<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metot, <span class="keyw">this</span> kd nesne örneğini, ilkel kd değerine dönüştürür
+			ve başlangıç değerinden başlayan ve son ile biten (son hariç) alaığındaki karakterleri içeren bir alt
+			ilkel kd verisini döndürür. Eğer son argümanının değeri <span class="keyw">undefined</span> ise,
+			başlangıç değerinden başlayarak, kd verisinin sonuna kadar karakterleri kapsayan bir alt ilkel kd
+			değeri geri döndürülür. 
+		</p>
+		<p class="indent" id="b9.2.13-uyg-1">
+			Bu metodun başlangıç ve son argümanları pozitif skaler tamsayı değerleri ise, geri dönecek 
+			alt ilkel kd verisinin kestirilmesi çok kolay olacaktır. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.13-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.13-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Sayın Yeşil Yaprak Sitesi sakinlerine, Yeşil Yaprak sitesi ...'</span><span 
+			class="op">,</span>
+<span class="pl-50">başlangıç</span> <span 
+			class="op">= </span>6<span 
+			class="op">,</span> son <span 
+			class="op">= </span>18<span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">,</span> son<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.13-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.13-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Bu metodun argümanlarının değerleri negatif de olabilir. Bu durumda aşağıdaki formülasyon
+			uygulanabilir: 
+		</p>
+		<p class="indent">
+			n <span class="op">=</span> kd verisinin karakter sayısı olmak üzere,		</p>
+		<p class="indent">
+			eğer başlangıç negatif ise, <span 
+			class="keyw">max</span><span 
+			class="op">(</span>n <span 
+			class="op">+</span> başlangıç<span 
+			class="op">, </span>0<span 
+			class="op">)</span> değeri aksi halde <span 
+			class="keyw">min</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">,</span> n<span 
+			class="op">)</span> değeri kullanılır.		</p>
+		<p class="indent">
+			eğer son negatif ise, <span 
+			class="keyw">max</span><span 
+			class="op">(</span>n <span 
+			class="op">+</span> son<span 
+			class="op">,</span>0<span 
+			class="op">)</span> değeri aksi halde <span 
+			class="keyw">min</span><span 
+			class="op">(</span>son<span 
+			class="op">,</span> n<span 
+			class="op">)</span> değeri kullanılır.
+		</p>
+		<p class="subheading" id="proto-split">9.2.14 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin split() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı, verilen bir kd verisinin alt kd lere ayrılmasıdır. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">split</span><span 
+			class="op">(</span>ayraç<span 
+			class="op">,</span> sınır<span 
+			class="op">);</span>
+		</pre>
+		<p class="indent">
+			Burada ayraç, bir kd parçası olabileceği gibi, bir düzenli deyim de olabilir. 
+			Eğer ayracın değeri 	belirsiz ise, metod geriye sadece kd verisine dönüştürülmüş olan 
+			<span class="keyw">this</span> değerini içeren bir dizi döndürür. sınır değeri ise, 
+			metodun geri döndürdüğü dizinin uzunluğunu belirtir. Sınır değeri belirsiz ise, 
+			ayırma <span class="keyw">this</span> değerinin sonuna kadar devam eder. 
+			Sınır değeri 0 ise, geriye boş dizi döndürülür.
+		</p>
+		<p class="indent" id="b9.2.14-uyg-1">
+			Bu metot geriye bir dizi döndürür. Dizi elemanları ayracın 
+			<span class="keyw">this</span> değerinde uyuştuğu alt kd parçacıklarının ayırdığı 
+			kd ceğerleridir. En basit bir uygulama için bir örnek 
+			<a href="../uygulamalar/b9.2.14-uyg-1-js.html">JavaScript programı</a> aşağıda verilmiştir. 
+			Bu programın ilişikli olduğu, bir 	<a href="../uygulamalar/b9.2.14-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir:	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Sayın Yeşil Yaprak Sitesi sakinlerine, Yeşil Yaprak sitesi ...'</span><span 
+			class="op">,</span>
+<span class="pl-50">ayraç</span> <span 
+			class="op">= </span><span 
+			class="str">'Yeşil'</span><span 
+			class="op">,</span> sınır <span 
+			class="op">= </span>3<span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">split</span><span 
+			class="op">(</span>ayraç<span 
+			class="op">,</span> sınır<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">'@'</span><span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b9.2.14-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.14-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b9.2.14-uyg-1.html">uygulama</a>
+			sonucundan görüldüğü gibi, kd verisi önve ilkel kd tipine dönüştürülmekte, ve 
+			ayraç aranmaktadır. Aranan ayraç olan <span class="str">'Yeşil'</span> kd parçası
+			iki yerde bulunmakat bu şekilde kd verisi üç alt kd verisine parçalanabilmektedir. 
+			Geri döndürülecek dizide üç eleman olması öngörüldüğünden, her üç parça da geri 
+			döndürülen diziye aktarılmaktadır.
+		</p>
+		<p class="indent" id="b9.2.14-uyg-2">
+			Aynı işlev, düzenli deyimlerin kullanılması ile de sağlanabilir. Bu durumda, global 
+			arama anahtarı gözardı edilir. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.14-uyg-2-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.14-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Sayın Yeşil Yaprak Sitesi sakinlerine, Yeşil Yaprak sitesi ...'</span><span 
+			class="op">,</span>
+<span class="pl-50">ayraç</span> <span 
+			class="op">= </span><span 
+			class="str">/yeşil/i</span><span 
+			class="op">,</span> sınır <span 
+			class="op">= </span>3<span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">split</span><span 
+			class="op">(</span>ayraç<span 
+			class="op">,</span> sınır<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">'@'</span><span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b9.2.14-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.14-uyg-2-sonuç-1"></p>
+		<p class="indent" id="b9.2.14-uyg-3">
+			İlgiç bir uygulama, ayracın bir boş kd yi kapsadığı durumlarda gerçekleşir. Bu durumda,
+			geri dönen dizi, sınırlamanın elverdiği kadarı ile, kd verisinin tüm karakterlerini içerebilir. 
+			Bu konuda bir 
+			<a href="../uygulamalar/b9.2.14-uyg-3-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.14-uyg-3.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Ders programı</span><span 
+			class="op">,</span>
+<span class="pl-50">ayraç</span> <span 
+			class="op">= </span><span 
+			class="str">/y*/i</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">split</span><span 
+			class="op">(</span>ayraç<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">'|'</span><span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b9.2.14-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green"> Program Sonucu : </p>
+		<p id="b9.2.14-uyg-3-sonuç-1"></p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.14-uyg-3.html">uygulama</a>
+			klasik bir uygulamadır. Bu yöntemle, tüm kd karakterleri bir dizi elemanlarına
+			yerleştirilebilir ve istendiği şekilde manipüle edilebilir.
+		</p>
+		<p class="indent">
+			Eğer <span class="keyw">this</span> verisi, boş kir kd ise sonuç, ayracın boş 
+			bir kd ile uyuşup uyuşmadığına bağlıdır. Eğer uyuşma sağlanıyorsa, döndüürülen dizide
+			hiç eleman bulunmaz. Eğer uyuşma sağlanamıyorsa, geri dönen dizi, sadece boş bir kd olan
+			bir tek eleman içerecektir.
+		</p>
+		<p class="subheading" id="proto-substring">9.2.15 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin substring() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı bir kd verisinin belirli bir diliminden yeni bir kd verisi yaratmaktır. 
+			Bu yeni kd verisine, alt kd (substring) adı verilir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">,</span> son<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada, başlangıç, alt kd'nin başladığı karakter konumu, son ise alt kd nin 
+			tamamlandığı karakterden bir sonraki karakterin konumudur. Eğer son değeri belirsiz ise, 
+			kd verisinin en sonundaki karakterin konumuna kadar devam edilir. Eğer her iki değer de 
+			<span class="keyw">NaN</span> veya negatif ise, yerlerine sıfır konulur. Eğer, heri iki argümandan
+			birisi kd uzunluğundan büyükse, yerine kd uzunluğu yerleştirilir. Eğer başlangıç, sondan büyükse, her
+			ikisi yer değiştirir. 
+		</p>
+		<p class="indent">
+			Görüldüğü gibi, bu metot bir sonuç vermesi için fazla zorlanmıştır. Genelde bir sonuç verir fakat,
+			bu sonucun istenilen sonuç olup olmadığı, iyice denenerek kararlaştırılmalıdır. En doğrusu, 
+			bu metodu bilinçle, normal sınırlar içinde ve sonucunun öngörülmesi kolay olacak şekilde
+			uygulanması sağlık verilir. Bu metot geriye bir kd nesne sınıfı örneği değil, ilkel kd (string) 
+			tipinde bir veri döndürür.
+		</p>
+		<p class="indent" id="b9.2.15-uyg-1">
+			Bu konuda basit bir uygulama için örnek bir 
+			<a href="../uygulamalar/b9.2.15-uyg-1-js.html">JavaScript programı</a> ve 
+			ilişikli olduğu, <a href="../uygulamalar/b9.2.15-uyg-1.html">uygulama</a> sayfasında 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> substring<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span><span 
+			class="str">'Damlataş Mağarası'</span><span 
+			class="op">,</span>
+<span class="pl-50">başlangıç</span> <span 
+			class="op">= </span>8<span 
+			class="op">,</span> son <span 
+			class="op">= </span>15<span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">,</span> son<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.15-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.15-uyg-1-sonuç-1"></p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b9s2.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b9s4.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.11-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.11-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.11-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.12-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.13-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.14-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.14-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.14-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.15-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:19 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

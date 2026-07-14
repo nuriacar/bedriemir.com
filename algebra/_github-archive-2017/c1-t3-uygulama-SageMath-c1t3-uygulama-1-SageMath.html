@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <title>Blank HTML5</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Mathematics Tutorial Turkish" />
+    <meta name="keywords" content="MathematicsTutorial Turkish" />
+    <meta name="author" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Robots" content="INDEX,FOLLOW" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <link href="../../../../css/algebrastyle.css" rel="stylesheet" 
+        type="text/css" />
+    <link href="../../../../css/bootstrap.css" rel="stylesheet" 
+        type="text/css" />
+  </head>
+  <body>
+    <p style="margin: auto; width: 100%;">
+      <a href="../c1t3-uygulama-1.html"><img alt="reverse" 
+            src="../../../../images/reverse.fw.png" /></a>
+    </p>
+    <p class="Chapter">
+      Bölüm 1
+    </p>
+    <p class="verticalTab-10">&nbsp;
+    </p>
+    <p class="Chapter">
+      1 - Başlangıç Bilgileri
+    </p>
+    <p class="Chapter">
+      c1t3-SageMath Uygulama Sayfası
+    </p>
+    <p class="Chapter">
+      Semboller, Kümeler ve Sayı Sistemleri Tanıtımı Uygulamaları
+    </p>
+    <p class="verticalTab-10">&nbsp;
+    </p>
+    <p class="Text">
+      Sage, yeni ve çok kapsamlı bir CAS uygulamasıdır. Sage University of 
+      Washington da matematematik profesörü William Stein tarafından, 1905 
+      de yayınlanmaya başlamıştır. Bugün, stabil 6.9 ve 6.10 beta sürümlerine 
+      eriilmiştir. Geniş bir gönüllüler grubu tarafından geliştirilmekte ve 
+      ücretsiz olarak dağıtılmaktadır.
+    </p>
+    <p class="Text">
+      Sage, diğer CAS sistemleri gibi kendi betik (scriting) program dilini 
+      değil, açık kayanak Python programlama dilini kullanmaktadır. Python 
+      geliştiricilerinin bazıları daha önce Ada programlama dili projesinde 
+      çalışmışlar ve bu dilin önemli özelliklerini Python programlama dilinin 
+      içeriğine katmışlardır. Bu nedenle, Python güncel programllama platformunun 
+      matematik uygulamaları açısından en önemli açık kaynak program dillerinden 
+      bir haline gelmiştir.
+    </p>
+    <p class="Text">
+      Sage, Python kitaplıkları yanında, birçok gelişmiş kitaplıkları (özgün 
+      programları) içermekte ve kullanıcıya erişim olanakları sunmaktadır.
+    </p>
+    <p class="Text">
+      Sage hernekadar Python program diline dayanmakta ise, bu dile birçok 
+      katkı sağlayan özel fonksiyonları da içermektedir. Bu nedenle, Sage 
+      yine de kendi özel program dilini oluşturmuş olduğu söylenebilir.
+    </p>
+    <p class="Text">
+      Sage, Linux sistemlerine doğrudan indirilip yerleştirilebilir. Windows 
+      sitemlerine Oracle, VirtualBox aracılığı ile bir sanal makine olarak 
+      indirilebilir. Bu sanal makine ancak Ingilizce klavye ile kullanılabilmektedir. 
+      Bu nedenle, web üzerinden kullanımı çok daha rahat olmaktadır. Özellikle 
+      cloud.sagemath.com organize olduktan sonra, istemci makinelere Sage 
+      kurulumuna hiçbir gerek kalmadığı belirtilmektedir.
+    </p>
+    <p class="Text">
+      Sage ana sunucusu http://cloud.sagemath.com üzerinden üyelik kabul etmektedir. 
+      Buna rağmen, dünyanın bir çok yerlerinde Sage sunucuları bulunmakta 
+      ve herbirine üye olunarak kullanılabilmektedir.
+    </p>
+    <p class="Text">
+      Bir diğer kolay kullanımı, <a href="https://sagecell.sagemath.org/"> https://sagecell.sagemath.org/</a> sayfasındaki tek Sage uygulama hücrelerinin 
+      kullanılmasıdır. Bu sayfa sadece deneme ve ve çok küçük uygulamalar 
+      için yeterlidir. Düzenli uygulamalar için Sage bulut servisine abone 
+      olarak kullanmak sağlık verilir.
+    </p>
+    <p class="Text">
+      Sage olağanüstü geniş, kullanımı kolay ve başlangıç düzeyinden en gelişkin 
+      düzeye kadar çalışanlara katkı sağlayan bir CAS sistemidir. Bu olağanüstü 
+      sistemi o derece yaygın ve güçlüdür ki, birçok matematik ders kitabı 
+      Sage uygulamaları içermektedir.
+    </p>
+    <p class="Section">
+      Python ve Kümeler
+    </p>
+    <p class="Text">
+      Python programlama dili, Kümeleri doğrudan destekleyen az sayıda program 
+      dillerinden biridir. Python küme uygulamaları, winPython notebookları 
+      kullanılarak, aşağıda görüldüğü şekilde gerçekleştirilmiştir.
+    </p>
+    <p class="pagecenter">
+      <img alt="" src="../sage/set_001-A.jpg" />
+    </p>
+    <p class="pagecenter">
+      <img alt="" src="../sage/set_002-A.jpg" />
+    </p>
+    <p class="pagecenter">
+      <img alt="" src="../sage/set_003-A.jpg" />
+    </p>
+    <p class="Text">
+      Yukarıdaki kodlardan görüldüğü gibi, Python programlama dilinin, kümelere 
+      verdiği destek, dikkate değer niteliktedir.
+    </p>
+    <p class="Text">
+      Sage, bütün bu kodları aynen destekler. Bunun dışında Sage programlama 
+      dili, Python'dan daima daha fazlasını sunar.
+    </p>
+    <p class="Section">
+      Sage Kullanımı
+    </p>
+    <p class="Text">
+      Sage sisteminin kullanılması en kolay şekilde, <a href="http://cloud.sagemath.org">http://cloud.sagemath.org</a> sitesinde 
+      bir kullanıcı hesabı açtırmakla gerçekleşir. Hesap açımı ücretsizdir, 
+      fakat olanağı olanların aylık abone sistemine geçmeleri çok yararlı 
+      olmaktadır.
+    </p>
+    <p class="Text">
+      Sage aynı Python not defteri (notebook) arayüzü gibi çalışır. Her Sage 
+      hücresi, diğer hücrelerden bağımsız olarak çalışabilir (independly executable) 
+      bir hücredir ve aynen Mathematica CAS sistemi not deterlerinde olduğu 
+      gibi, CTRL+ENTER veya sayfadaki Run düğmesine basılınca çalışır. Daha 
+      önce başka hücelerde tanımlanmış ve çalıştırılarak belleğe alınmış olan 
+      tüm tanımlar, daha sonraki hücrelerde de geçerli olurlar.
+    </p>
+    <p class="Text">
+      Her Sage hücresi otonom (özerk) bir hücredir. Çalıştırıldıklarında, 
+      bünyelerindeki her yasal bildirimi (statement) çalıştırırlar. Bir değeri 
+      görüntülemek için değerin tanımlayıcısını (identifier), yani daha anlaşılır 
+      bir söylem ile değişken ismi,tek bir satıra veya aynı satıra nokta virgülden 
+      sonra yazılabilir veya show() veya print() öntanımlı fonksiyonlarından 
+      yararlanılabilir. Öntanımlı print() fonksiyonu, aynen Python programlama 
+      dilinde olduğu gibi çalışır.
+    </p>
+    <p class="Text">
+      Her Sage hücresinin belirli bir meta tanımlayıcısı vardır. Hiçbir meta 
+      bilgisi verilmezse, bu hücre bir hesaplama hücresi olarak işlev görür. 
+      Eğer hücrenin ilk satırına,
+    </p>
+    <pre class="blue">
+       %html      
+    </pre>
+    <p class="Text">
+      meta tanımlayıcısı yazılırsa bu hücre bir html kod sayfası gibi çalışır. 
+      Çalıştığında yazılı html kodlarını aynen bir kod çözümleyicisi gibi 
+      (örnek olarak Internet Explorer, Edge veya FireFox gibi) çözümleyerek 
+      görüntüler.
+    </p>
+    <p class="Text">
+      Eğer hücrenin ilk satırına,
+    </p>
+    <pre class="blue">
+       %md      
+    </pre>
+    <p class="Text">
+      meta tanımlayıcısı yazılırsa bu hücre bir markdown kod sayfası gibi 
+      çalışır. Çalıştığında yazılı metin kodlarını aynen bir metin kod çözümleyicisi 
+      gibi (örnek olarak Notepad, Scite gibi) çözümleyerek görüntüler. Böylece, 
+      açıklama metinleri, yorumlar ve benzerleri, sayfaya kolayca eklenebilirler.
+    </p>
+    <p class="Text">
+      Eğer hücrenin ilk satırına,
+    </p>
+    <pre class="blue">
+       %md      
+    </pre>
+    <p class="Text">
+      meta tanımlayıcısı yazılırsa bu hücre bir markdown kod sayfası gibi 
+      çalışır. Çalıştığında yazılı metin kodlarını aynen bir metin kod çözümleyicisi 
+      gibi (örnek olarak Notepad, Scite gibi) çözümleyerek görüntüler. Böylece, 
+      açıklama metinleri, yorumlar ve benzerleri, sayfaya kolayca eklenebilirler.
+    </p>
+    <p class="Text">
+      Eğer hücrenin ilk satırına,
+    </p>
+    <pre class="blue">
+       %auto veya salvus.auto(True)       
+    </pre>
+    <p class="Text">
+      meta tanımlayıcılarından birisi yazılırsa bu hücre bir başlangıç (initialisation) 
+      hücresi gibi çalışır. Başlangıç hücreleri, not defterinin her yüklenmesinde 
+      otomatik olarak çalışır. Bu şekilde, bir başlangıç hücresinde, her türlü 
+      kullanıcı sabitleri, tüm sayfa boyunca kullanılacak tanımlar, global 
+      değişkenler gibi değerler, bir başlangıç hücresinde tanımlanarak, sayfanın 
+      her yüklenmesinde tanımlı olmaları sağlanabilir.
+    </p>
+    <p class="Text">
+      Başlangıç hücereleri sayfa başında olabildikleri gibi, her Sage hücesine 
+      de otomatik çalışma özelliği kazandırılabilir. Bir Sage hücresininin 
+      meta bilgileri bu hücrenin en az bir kez çalıştırılması ile aktif hale 
+      geçirilmiş olurlar.
+    </p>
+    <p class="Text">
+      Bu sayfada görülen Sage kodları, <a 
+            href="
+%20%20%20%20%20%20http://bedriemir.com/algebra/c1/t2/uygulama-1/sage/c1t1-uygulama-1-sage-kodlar.html"> http://bedriemir.com/algebra/c1/t2/uygulama-1/sage/c1t1-uygulama-1-sage-kodlar.html</a> sayfasından erişilebilir. Buradaki kodlar kopyalanarak kendi açtığınız 
+      Sage not defteri sayfasında kullanılabilir. Alternatif olarak, <a href="http://bedriemir.com/algebra/c1/t2/uygulama-1/sage/c1t1-uygulama-1-sage.sws"> http://bedriemir.com/algebra/c1/t2/uygulama-1/sage/c1t1-uygulama-1-sage.sws</a> dosyası kendi hesabınıza yüklenebilir (upload)
+    </p>
+    <p class="Text">
+      Sage, küme tanımı kendi öz anahtar sözcüğü (keyword) veya kendi öntanımlı 
+      fonksiyonu veya bildirimi (statement) Set() fonsiyonu ile yapılabilir. 
+      Sage Set() fonksiyonu ile küme tanımlanması, aşağıdaki gibi yapılabilir.
+    </p>
+    <p class="Section">
+      Sage Küme Tanımları
+    </p>
+    <p class="Text">
+      Önce, bir Python listesi (list) veya bir Python topluluğu (tuple) veya 
+      bir Python kümesi (set) yaratılır.
+    </p>
+    <pre class="blue">
+    Liste = [1, 2, 3]
+    Topluluk = (1, 2, 3)
+    Kume = {1, 2, 3}</pre>
+    <p class="Text">
+      Burada, istenilen veri tipi yaratılabilir. Fakat, değişmez (immutable) 
+      bir veri tipi olan topluluk (tuple) veri tipi çok elverişli olmaktadır.
+    </p>
+    <p class="Text">
+      Daha sonra, uygun Python veri tipinden, Sage küme tipine geçiş yapılır.
+    </p>
+    <pre class="blue">
+      A = Set(Topluluk)</pre>
+    <p class="Text">
+      Python küme tipi tanımı set() (küçük harf s) ile yapılırken, Sage küme 
+      tanımının Set() (büyük harf S) ile yapıldığına dikkat etmek gerekir.
+    </p>
+    <p class="Text">
+      İstenirse, ilk iki adım birlikte gerçekleştirilebilir. Yani, bir Python 
+      veri tipi tanımlanıp, aynı anda Sage kümesine dönüştürülebilir.
+    </p>
+    <pre class="blue">
+      A = Set((12, 14, 2, 5))</pre>
+    <p class="Text">
+      Kısa ve anlaşılır olduğundan, bu tanımın uygulanması sağlık verilir.
+    </p>
+    <p class="Text">
+      Sage kümeleri sıralanması gelişigüzel (random) elemanlardan oluşur. 
+      Elemenlarının sıralı halinin görüntülenmesi için sorted() fonksiyonu 
+      çağrılır. Bu fonksiyon kümeyi sıralı listeye dönüştürerek görüntülenmesini 
+      sağlar. Aşağıdaki işlem, tahrip edici bir atama olmadığından, orijinal 
+      küme değişkeni etkilenmez.
+    </p>
+    <pre class="blue">
+      sorted(A)
+      A</pre>
+    <pre class="green">
+     [2, 5, 12, 14] 
+     {12, 14, 2, 5}</pre>
+    <p class="Text">
+      Sage küme nesneleri, öntanımlı olarak birçok metodu (nesne ile uygulanabilen 
+      fonksiyonları) kalıtım ile edinirler. Bu fonksiyolardan en çok kullanılanlar:
+    </p>
+    <pre>
+     cardinality()
+     difference()
+     CartesianProduct()
+     intersection()
+     parent()
+     rename()
+     subsets()
+     symetric_difference
+     is_subset()
+     is_superset()</pre>
+    <p class="Text">
+      metotlarıdır.
+    </p>
+    <pre class="blue">
+     A=Set([4,2,3,1])
+     A</pre>
+    <pre class="green">
+    {1, 2, 3, 4}</pre>
+    <pre class="blue">
+     B = Set([3,4,5,6,7,8,9])
+     B</pre>
+    <pre class="green">
+    {3, 4, 5, 6, 7, 8, 9}</pre>
+    <pre class="blue">
+      A.cardinality()</pre>
+    <pre class="green">
+      4</pre>
+    <pre class="blue">
+      B.cardinality()</pre>
+    <pre class="green">
+      7</pre>
+    <p class="Text">
+      Bir kümenin kardinalliği element sayısına eşit gibi düşünülebilir, fakat 
+      anlamı çok daha derindir.
+    </p>
+    <pre class="blue">
+       B-A</pre>
+    <pre class="green">
+       {8, 9, 5, 6, 7}</pre>
+    <p class="Text">
+      B kümesinde olup A kümesinde olmayan elementlerin kümesi. Bu kümeye 
+      A nın B ye tümleyicisi veya A nın B ye göre komplemanı adı verilir. 
+      B kümesi evrensel küme olarak düşünülebilir. Bu küme, Sage küme nesnelerinde, 
+      difference() metodu olarak tanımlanmıştır.
+    </p>
+    <pre class="blue">
+      C</pre>
+    <pre class="green">
+       {8, 9, 5, 6, 7}</pre>
+    <p class="Text">
+      olarak bulunabilir. Yani eğer bir A kümesi Sage küme değişkeni olarak 
+      tanımlanmışsa, A.difference(B) deyimi, A kümesinin B ye göre tümleyicisi 
+      olan kümeyi geri döndürür.
+    </p>
+    <pre>
+      complementA = B.difference(A)</pre>
+    <p class="Text">
+      Sage hücrelerinde, atama yapılınca, atanan değer görüntülenmez, Atanan 
+      değerin görüntülenmesi için, ya atamanın yapıldığı değişen adını, ya 
+      da show() veya Python print() fonksiyonundan yararlanmak gerekir.
+    </p>
+    <pre class="blue">
+     complementA = B.difference(A)
+     complementA</pre>
+    <pre class="green">
+     {8, 9, 5, 6, 7}</pre>
+    <p class="Text">
+      Bir A Sage küme nesnesinin, bir B Sage küme nesnesi ile kesişim kümesi, 
+      intersection() metodu ile geri döndürülür.
+    </p>
+    <pre class="blue">
+      A.intersection(B)</pre>
+    <p class="Text">
+      Sage union fonksiyonu sadece kümler için değil, listeler, topluluklar 
+      ve kümeler için uygulanabilen bir kendi başına çalışan (stand alone) 
+      fonksiyondur. Önece union() fonksiyonun Sage tarafından açıklanan uygulama 
+      yöntemini görelim:
+    </p>
+    <pre class="blue">
+      help(union)      
+    </pre>
+    <pre class="green">
+      Help on function union in module sage.misc.misc:
+
+union(x, y=None)
+    Return the union of x and y, as a list. The resulting list need not
+    be sorted and can change from call to call.
+    
+    INPUT:
+    
+    
+    -  ``x`` - iterable
+    
+    -  ``y`` - iterable (may optionally omitted)
+    
+    
+    OUTPUT: list
+    
+    EXAMPLES::
+    
+        sage: answer = union([1,2,3,4], [5,6]); answer
+        [1, 2, 3, 4, 5, 6]
+        sage: union([1,2,3,4,5,6], [5,6]) == answer
+        True
+        sage: union((1,2,3,4,5,6), [5,6]) == answer
+        True
+        sage: union((1,2,3,4,5,6), set([5,6])) == answer
+        True
+      
+    </pre>
+    <p class="Text">
+      Bu açıklamaya göre union() öntanımlaı fonksiyonu geriye lir liste döndürecektir. 
+      Bu listenin bir Sage kümesine dönüştürülümesi gerekmektedir. Örnek olarak, 
+      elemanları sırasız olarak tanımlanmış iki tane Sage küme nesnesi tanımlayalım 
+      ve birleşimlerini inceleyelim
+    </p>
+    <pre class="blue">
+      QA = Set([2,6,3,6,8,1])
+      QB = Set([16,9, 8, 7, 23, 36, 18, 11])
+      WW = union(QA,QB)
+      WW</pre>
+    <pre class="green">
+      [1, 2, 3, 36, 6, 7, 8, 9, 11, 16, 18, 23]</pre>
+    <p class="Text">
+      Bu sonuçtan, Sage union() fonksiyonun kullanımı iyice aklımıza yerleşmiş 
+      olmalıdır.
+    </p>
+    <p class="Text">
+      Bir A kümesinin bir B kümesi ile kesişiminin, A kümesinin B kümesine 
+      tümleyicisi ile birleşimi, B kümesini verir.
+    </p>
+    <pre class="blue">
+       B == Set(union(A.intersection(B) , B.difference(A)))      
+    </pre>
+    <pre class="green">
+       True     
+    </pre>
+    <p class="Text">
+      Burda, union() fonksiyonu geriye lite tipinde bir veri döndürdüğü için, 
+      B kümesi ile karşılaştırabilmek amacı ile, union() fonksiyonunun geri 
+      döndürdüğü veri tipini, Sage kümesi tipine dönüştürümü gerçekleştiriliyor. 
+      Bu işleme veri tipi eşleştirilmesi (coercion) adı verilir. Ancak aynı 
+      veri tiplerinden değerler, birbirleri ile karşılaştırılabilir.
+    </p>
+    <p class="Text">
+      Sage CAS sisteminin kümeleri gayet iyi desteklediği ve bu sistemle tüm 
+      küme işlemlerinin, Python programlama diline göre daha ileri düzeyde 
+      gerçekleştirilebileceği görülüyor. İleride, Sage CAS sistemi le daha 
+      başka küme uygulamaları gerçekleştireceğiz.
+    </p>
+    <p class="Section">
+      Sage ile Sayısal İşlemler
+    </p>
+    <p class="Text">
+      Sage girlen veri tipini algılar ve bu veri tipinin çalışabileceği en 
+      yüksek düzeyde duyarlık sağlanabilecek türe dönüştürür.
+    </p>
+    <pre class="blue">
+        range(20)    
+    </pre>
+    <pre class="green">
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]     
+    </pre>
+    <pre class="blue">
+       range(12,28,2)     
+    </pre>
+    <pre class="green">
+       [12, 14, 16, 18, 20, 22, 24, 26]     
+    </pre>
+    <pre class="blue">
+       QR = Set(range(1,11))
+       QR   
+    </pre>
+    <pre class="green">
+       {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}     
+    </pre>
+    <p class="Text">
+      Kesin (exact) sayılar arasındaki işlemlerin sonucu kesin sayılardır.
+    </p>
+    <pre class="blue">
+       1 + 1/2     
+    </pre>
+    <pre class="green">
+       3/2     
+    </pre>
+    <p class="Text">
+      Kesin sayılar ile gerçel sayılar arasındaki işlemlerin sonucu gerçel 
+      sayılardır.
+    </p>
+    <pre class="blue">
+      1 + 0.1      
+    </pre>
+    <pre class="green">
+      1.10000000000000      
+    </pre>
+    <p class="Text">
+      Asal sayılar
+    </p>
+    <pre class="blue">
+       primes(50)     
+    </pre>
+    <pre class="green">
+       &lt;generator object primes at 0x7f90914568c0&gt;     
+    </pre>
+    <pre class="blue">
+      list(primes(50))      
+    </pre>
+    <pre class="green">
+      [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]      
+    </pre>
+    <pre class="blue">
+      AP=tuple(sorted((primes(10,80))))
+      AP     
+    </pre>
+    <pre class="green">
+      (11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79)      
+    </pre>
+    <p class="Text">
+      Asal sayı çarpanları
+    </p>
+    <pre class="blue">
+      factor(5736)      
+    </pre>
+    <pre class="green">
+      2^3 * 3 * 239      
+    </pre>
+    <p class="Text">
+      Kesin sayı işlemlerinin sonucunun gerçel sayıya dönüştürülmesi (coercion)
+    </p>
+    <pre class="blue">
+      QA=n((1+1/2))
+      QA      
+    </pre>
+    <pre class="green">
+      1.50000000000000      
+    </pre>
+    <p class="Text">
+      Sage otomatik olarak oranları en küçük terimlerine indirger.
+    </p>
+    <pre class="blue">
+       QP = 25/250
+       QP     
+    </pre>
+    <pre class="green">
+        1/10    
+    </pre>
+    <p class="Text">
+      Asal çarpanların bulunması
+    </p>
+    <pre class="blue">
+       factor(4567443689)     
+    </pre>
+    <pre class="green">
+        6577 * 694457    
+    </pre>
+    <p class="Text">
+      Bu işemi bilgisayar olmadan ybapabilmek, hiç de kolay sayılmaz!
+    </p>
+    <p class="Text">
+      En Büyük Ortak Bölen (EBOB) (greatest common divisor) (gcd)
+    </p>
+    <pre class="blue">
+      gcd(76,86)      
+    </pre>
+    <pre class="green">
+      2      
+    </pre>
+    <pre class="blue">
+     76/82       
+    </pre>
+    <pre class="green">
+      36/41      
+    </pre>
+    <p class="Text">
+      Sage otomatik olarak en düşük terimlere indirgediği için, EBOB bulunmasına 
+      gerek kalmamaktadır. Ayrıca artık el ile bölme pek yapılmadığından, 
+      EBOB bulunmasına gerek azalmıştır.
+    </p>
+    <p class="Text">
+      Sage çok geniş bir sayısal destek sağlamaktadır. İleride bu yöntemleri 
+      uygulayarak daha fazla bilgi kazanacağız. Bu uygulamaları web sayfanızda 
+      açacağınız, sws (sage worksheeet) sayfanızda denemeniz çok yararlı olacaktır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../../content.html"><em>« Matematik İndeksi</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../c1t3.html"><em>« Konu Sayfasına Dönüş</em></a></li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../../../../../index.html"><em>Site İndeksi 
+        »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../../../../../Library/lastmodified.js">
+        </script> 
+    <script type="text/javascript" src="../../../../../js/bdelib.js">
+        </script>> 
+    <script type="text/javascript" src="../../../../../js/bootstrap.js">
+      </script> 
+    <script type="text/javascript" src="../../../../../js/jquery-1.11.3.min.js">
+      </script>
+    <div style="font-family: Helvetica; font-size: 16px; width: 100%; border : 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      <p class="Text">
+      </p>
+      <span style="color: red;">Created with MSExpressionWeb4</span> <span class="pl-25"><a href="../sage/c1t3-uygulama1-sage.pdf">pdf sürümü</a></span>
+    </div>
+    <p class=" Text verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file"> <img src="../../../../images/html5-small-1.gif" 
+            alt=" geçerli html5" /></a></span>
+    </p>
+  </body>
+</html>

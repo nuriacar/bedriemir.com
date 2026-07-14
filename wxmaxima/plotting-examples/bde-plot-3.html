@@ -1,0 +1,844 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+    <head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/wxmaxima/plotting-examples/bde-plot-3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>bde-plot-3</title>
+        <meta content="wxMaxima" name="generator">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+        
+</script>
+        <link href="bde-plot-3_htmlimg/bde-plot-3.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!-- ***************************************************** -->
+        <!--          Created with wxMaxima version 17.10.1         -->
+        <!-- ***************************************************** --><noscript>
+        <div class="error message">
+        Please enable JavaScript in order to get a 2d display of the equations embedded 
+        in this web page.</div></noscript>\( \DeclareMathOperator{\abs}{abs} \newcommand{\ensuremath}[1]{\mbox{$#1$}} 
+        \)
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_variable">Simple</span>
+                <span class="code_variable">Working</span>
+                <span class="code_variable">Scientific</span>
+                <span class="code_variable">Plots</span>
+                <span class="code_variable">Using</span>
+                <span class="code_variable">WxMaxima</span> </span></td>
+            </tr>
+        </table>
+        <!-- Title cell -->
+        <p class="title">
+        </p>
+        <!-- Text cell -->
+        <p class="comment">
+            WxMaxima has plot2d and wxplot2d functions for plotting mathematical 
+            objects. We will first investigate wxplot2d capabilities.<br><br>For 
+            any function it is very useful to assess general behaviors.<br><br>We 
+            will begin with the most general way to plot any function.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>
+                [<span class="code_function">sin</span>(<span class="code_variable">x</span>)],[<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">6</span>,<span class="code_number">6</span>]<br>
+                )<span class="code_endofline">;</span> </span></td>
+            </tr>
+        </table>
+        \[\tag{%t2} \]
+        <img alt=" (Graphics) " src="bde-plot-3_htmlimg/bde-plot-3_1.png" style="max-width: 90%;" width="598"><br />
+        \[\tag{%o2} \]
+        <!-- Text cell -->
+        <p class="comment">
+            We can also define the function previously and plot it afterwards.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">f</span>(<span class="code_variable">x</span>)
+                <span class="code_operator">=</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">x</span><span class="code_endofline">;</span>
+                </span></td>
+            </tr>
+        </table>
+
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>
+                [<span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">x</span>],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">1</span>,<span class="code_number">0</span><span class="code_number">.</span><span class="code_number">1</span>]
+                <br>&nbsp;&nbsp; )<span class="code_endofline">;</span> </span>
+                </td>
+            </tr>
+        </table>
+        <img alt=" (Graphics) " src="bde-plot-3_htmlimg/bde-plot-3_7.png" style="max-width: 90%;" width="598"><br />
+
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_variable">It</span><span class="code_operator">'</span><span class="code_variable">s</span>
+                <span class="code_variable">time</span>
+                <span class="code_variable">to</span>
+                <span class="code_variable">arrange</span>
+                <span class="code_variable">y</span> <span class="code_variable">
+                range</span>, </span></td>
+            </tr>
+        </table>
+        <!-- Text cell -->
+        <p class="comment">
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>
+                [<span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">x</span>],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">1</span>,<span class="code_number">0</span><span class="code_number">.</span><span class="code_number">1</span>],[<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">500</span>,<span class="code_number">500</span>]<br>&nbsp;&nbsp; 
+                )<span class="code_endofline">;</span> </span></td>
+            </tr>
+        </table>
+        <img alt=" (Graphics) " src="bde-plot-3_htmlimg/bde-plot-3_11.png" style="max-width: 90%;" width="598"><br />
+
+        <!-- Code cell --><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>&nbsp;&nbsp;
+                <br>[<span class="code_function">sin</span>(<span class="code_variable">x</span>),<span class="code_function">cos</span>(<span class="code_variable">x</span>)],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">5</span>,<span class="code_number">5</span>],[<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>]<br>&nbsp;&nbsp; 
+                )<span class="code_endofline">;</span> </span></td>
+            </tr>
+        </table>
+
+        <!-- Text cell -->
+        <p class="comment">
+            To plot tan(x) in the same range with sin(x) and cos(x) we first plot 
+            tan(x) and see the output.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>
+                [<span class="code_function">tan</span>(<span class="code_variable">x</span>)],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">6</span>,<span class="code_number">6</span>]
+                <br>&nbsp;&nbsp; )<span class="code_endofline">;</span> </span>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Text cell -->
+        <p class="comment">
+            We will arrange the range as to have something more descriptive.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>(<br>
+                [<span class="code_function">sin</span>(<span class="code_variable">x</span>),<span class="code_function">cos</span>(<span class="code_variable">x</span>),<span class="code_function">tan</span>(<span class="code_variable">x</span>)],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">10</span>,<span class="code_number">10</span>],[<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>],<br>&nbsp;&nbsp; 
+                [<span class="code_variable">title</span>,<span class="code_string">&quot;Trigonometric 
+                Functions&quot;</span>],<br>&nbsp;&nbsp; [<span class="code_variable">xlabel</span>,<span class="code_string">&quot;x 
+                −−&gt;&quot;</span>],<br>&nbsp; [<span class="code_variable">ylabel</span>,<span class="code_string">&quot;sin(x),cos(x),tan(x)&quot;</span>],<br>
+                [<span class="code_variable">legend</span>,<span class="code_string">&quot;sin(x)&quot;</span>,<span class="code_string">&quot;cos(x)&quot;</span>,<span class="code_string">&quot;tan(x)&quot;</span>]<br>&nbsp;&nbsp;&nbsp; 
+                )<span class="code_endofline">;</span> </span></td>
+            </tr>
+        </table>
+        <img alt=" (Graphics) " src="bde-plot-3_htmlimg/bde-plot-3_21.png" style="max-width: 90%;" width="598"><br />
+
+        <!-- Text cell -->
+        <p class="comment">
+            Graphing Parts of an Equation (http://www.scotchildress.com/wxmaxima/Plotting/Plotting.html)<br>
+        </p>
+        <!-- Text cell -->
+        <p class="comment">
+            lhs =left hand side, rhs=righand side.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_variable">E</span><span class="code_operator">:</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span>
+                <span class="code_operator">−</span><span class="code_number">4</span>·<span class="code_variable">x</span>
+                <span class="code_operator">=</span> <span class="code_number">5</span>·<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">5</span>
+                <span class="code_operator">+</span> <span class="code_number">3</span>·<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span>
+                <span class="code_operator">+</span> <span class="code_number">7</span><span class="code_endofline">;</span>
+                </span></td>
+            </tr>
+        </table>
+
+        <!-- Code cell -->
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i12) </span></td>
+                <td><span class="input"><span class="code_function">wxplot2d</span>([<span class="code_function">rhs</span>(<span class="code_variable">E</span>),<span class="code_function">lhs</span>(<span class="code_variable">E</span>)],<br>&nbsp; 
+                [<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">5</span>,<span class="code_number">5</span>],<br>&nbsp; 
+                [<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">20</span>,<span class="code_number">20</span>],<br>&nbsp; 
+                [<span class="code_variable">title</span>,<span class="code_string">&quot;Two 
+                Sides of an Equation&quot;</span>],<br>&nbsp;&nbsp; [<span class="code_variable">xlabel</span>,<span class="code_string">&quot;x 
+                →&quot;</span>],<br>&nbsp;&nbsp; [<span class="code_variable">ylabel</span>,<span class="code_string">&quot;y 
+                →&quot;</span>],<br>&nbsp;&nbsp; [<span class="code_variable">legend</span>,<span class="code_string">&quot;Right 
+                Side&quot;</span>,<span class="code_string">&quot;Left Side&quot;</span>])<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt=" (Graphics) " src="bde-plot-3_htmlimg/new_5.png" style="max-width: 90%;" width="598"><br />
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i27) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<br>
+                <span class="code_variable">dimensions</span>
+                <span class="code_operator">=</span> [<span class="code_number">500</span>,<span class="code_number">500</span>],<br>
+                <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_operator">'</span><span class="code_variable">wxt</span>,<br>
+                <span class="code_variable">xrange</span><span class="code_operator">=</span>[<span class="code_number">−</span><span class="code_number">12</span>,<span class="code_number">12</span>], &nbsp;&nbsp;&nbsp;<br>
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">150</span>], &nbsp;&nbsp;&nbsp;<br>
+                <span class="code_variable">grid</span><span class="code_operator">=</span>true,<br>
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x 
+                →&quot;</span>,<br>&nbsp;&nbsp; <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y 
+                →&quot;</span>,<br>&nbsp;&nbsp; <span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;Algebraic 
+                2D Graphs&quot;</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;x^2−2x+30&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;
+                <br>&nbsp;&nbsp; <span class="code_function">explicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">−</span><span class="code_number">2</span>·<span class="code_variable">x</span><span class="code_operator">+</span><span class="code_number">30</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">12</span>,<span class="code_number">12</span>),<br>&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;Polygraph&quot;</span>,<span class="code_number">5</span>,<span class="code_number">120</span>]),<br>&nbsp;&nbsp;
+                <span class="code_variable">label_alignment</span><span class="code_operator">=</span><span class="code_operator">'</span><span class="code_variable">right</span>,<br>&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;Assemblement&quot;</span>,<span class="code_number">8</span>,<span class="code_number">110</span>]),<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;x^2&quot;</span>,<br>&nbsp;&nbsp;
+                <span class="code_function">explicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">12</span>,<span class="code_number">12</span>)<br>
+                )<span class="code_endofline">$</span><span class="code_endofline">;</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="500" src="bde-plot-3_htmlimg/bde-plot-draw-1.png" width="500" /><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">3</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                diamant</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">1</span>],[<span class="code_number">9</span>,<span class="code_number">1</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                filled_down_triangle</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">2</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">2</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                asterisk</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">3</span>],[<span class="code_number">5</span>,<span class="code_number">3</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                filled_diamant</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">4</span>],[<span class="code_number">5</span>,<span class="code_number">4</span>],[<span class="code_number">9</span>,<span class="code_number">4</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">5</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">5</span>],[<span class="code_number">5</span>,<span class="code_number">5</span>],[<span class="code_number">9</span>,<span class="code_number">5</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">6</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">6</span>],[<span class="code_number">5</span>,<span class="code_number">6</span>],[<span class="code_number">9</span>,<span class="code_number">6</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                filled_circle</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">7</span>],[<span class="code_number">5</span>,<span class="code_number">7</span>],[<span class="code_number">9</span>,<span class="code_number">7</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">8</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">8</span>],[<span class="code_number">5</span>,<span class="code_number">8</span>],[<span class="code_number">9</span>,<span class="code_number">8</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                filled_diamant</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">9</span>],[<span class="code_number">5</span>,<span class="code_number">9</span>],[<span class="code_number">9</span>,<span class="code_number">9</span>]]) 
+                )<span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-2.png" width="600" /><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">3</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                diamant</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">1</span>],[<span class="code_number">9</span>,<span class="code_number">1</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i1) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">6</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-4.png" width="600" />
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i3) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">5</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"></span></td>
+            </tr>
+        </table>
+        <img alt="" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-5.png" width="600" />
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i4) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">4</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"></span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-6.png" width="600" /><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i5) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">3</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-7.png" width="600" /><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i6) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">2</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-8.png" width="600" /><!-- Code cell --><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i7) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span>,<span class="code_number">10</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">5</span>,<span class="code_number">2</span>],[<span class="code_number">9</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <!-- Code cell --><!-- Code cell -->
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/bde-plot-draw-9.png" width="600" /><!-- Code cell --><!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i31) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">dimensions</span>
+                <span class="code_operator">=</span> [<span class="code_number">500</span>,<span class="code_number">500</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">proportional_axes</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                xy</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span><span class="code_number">.</span><span class="code_number">8</span>,<span class="code_number">3</span><span class="code_number">.</span><span class="code_number">2</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">0</span><span class="code_number">.</span><span class="code_number">8</span>,<span class="code_number">3</span><span class="code_number">.</span><span class="code_number">2</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">grid</span><span class="code_operator">=</span>true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;Recursive 
+                Relation&quot;</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x→&quot;</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">ylabel</span>
+                <span class="code_operator">=</span> <span class="code_string">&quot;y→&quot;</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                filled_circle</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">1</span>,<span class="code_number">1</span>],[<span class="code_number">2</span>,<span class="code_number">2</span>],[<span class="code_number">3</span>,<span class="code_number">3</span>]]))<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="500" src="bde-plot-3_htmlimg/bde-plot-draw-10.png" width="500" />
+        <p class="comment">
+            Some more useful controls from https://people.richland.edu/james/spring15/m122/projects/draw.html<br>
+        </p>
+        <!-- Text cell -->
+        <p class="comment">
+            Attention for disturbed show-ups !<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i26) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<br>&nbsp;&nbsp;
+                <span class="code_variable">grid</span>
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                red</span>,<br>&nbsp;&nbsp; <span class="code_function">explicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>),<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                blue</span>,<br>&nbsp;&nbsp; <span class="code_variable">line_width</span>
+                <span class="code_operator">=</span> <span class="code_number">2</span>,<br>&nbsp;&nbsp;
+                <span class="code_function">implicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">+</span><span class="code_variable">y</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">=</span><span class="code_number">4</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>,<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>),<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                forest_green</span><br>&nbsp;&nbsp; )<span class="code_endofline">;</span>
+                </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="499" src="bde-plot-3_htmlimg/richland-1.png" width="600" />
+        <!-- Text cell -->
+        <p class="comment">
+            Use always squared plot dimensions for realistic plots!<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<br>&nbsp;&nbsp;
+                <span class="code_variable">dimensions</span>
+                <span class="code_operator">=</span> [<span class="code_number">600</span>,<span class="code_number">600</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">xrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">3</span>,<span class="code_number">3</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">4</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">grid</span>
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                red</span>,<br>&nbsp;&nbsp; <span class="code_function">explicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>),<br>&nbsp;&nbsp;
+                <span class="code_variable">color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                forest</span><span class="code_operator">−</span><span class="code_variable">green</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">line_width</span>
+                <span class="code_operator">=</span> <span class="code_number">2</span>,<br>&nbsp;&nbsp;
+                <span class="code_function">implicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">+</span><span class="code_variable">y</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">=</span><span class="code_number">4</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>,<span class="code_variable">y</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>)<br>&nbsp;&nbsp; 
+                )<span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="599" src="bde-plot-3_htmlimg/richland-2.png" width="600" />
+        <!-- Text cell -->
+        <p class="comment">
+            You may set draw defaults in case &nbsp;when drawing many similar graphs.<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i20) </span></td>
+                <td><span class="input"><span class="code_function">set_draw_defaults</span>(<br>&nbsp;&nbsp;
+                <span class="code_variable">xaxis</span>
+                <span class="code_operator">=</span> true, <br>&nbsp;&nbsp;
+                <span class="code_variable">xaxis_color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                orange</span>,<br>&nbsp; <span class="code_variable">xaxis_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                solid</span>, <br>&nbsp;&nbsp; <span class="code_variable">xaxis_width</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,
+                <br>&nbsp;&nbsp; <span class="code_variable">xtics</span>
+                <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">yaxis</span>
+                <span class="code_operator">=</span> true, <br>&nbsp;&nbsp;
+                <span class="code_variable">yaxis_color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                orange</span>,<br>&nbsp;&nbsp; <span class="code_variable">yaxis_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                solid</span>, <br>&nbsp;&nbsp; <span class="code_variable">yaxis_width</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,
+                <br>&nbsp;&nbsp; <span class="code_variable">ytics</span>
+                <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">dimensions</span>
+                <span class="code_operator">=</span> [<span class="code_number">600</span>,<span class="code_number">600</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">grid</span>
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;
+                <span class="code_variable">nticks</span>
+                <span class="code_operator">=</span> <span class="code_number">250</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">ip_grid</span>
+                <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">font</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                Arial</span>,<br>&nbsp;&nbsp; <span class="code_variable">font_size</span>
+                <span class="code_operator">=</span> <span class="code_number">14</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">line_width</span>
+                <span class="code_operator">=</span> <span class="code_number">3</span><br>
+                )<span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <p>
+            <small>These graph defaults are valid unless altered. The image below, 
+            is plotted against previously defined draw defaults.</small>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i21) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<br>&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>],<br>&nbsp;&nbsp;
+                <span class="code_function">explicit</span>(<span class="code_variable">x</span>·<span class="code_function">sin</span>(<span class="code_variable">x</span>)<span class="code_operator">^</span><span class="code_number">2</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>)<br>
+                )<span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <img alt="plot" height="599" src="bde-plot-3_htmlimg/richland-3.png" width="600" />
+        <!-- Text cell -->
+        <!-- Text cell -->
+        <!-- Code cell -->
+        <!-- Code cell -->
+        <!-- Text cell -->
+        <p class="comment">
+        </p>
+        <!-- Text cell -->
+        <p class="comment">
+            or use in one detailed graph<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i24) </span></td>
+                <td><span class="input"><br>&nbsp; <span class="code_function">draw2d</span>(<br>&nbsp;&nbsp;
+                <span class="code_variable">yrange</span>
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">xaxis</span>
+                <span class="code_operator">=</span> true, <br>&nbsp;&nbsp;
+                <span class="code_variable">xaxis_color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                orange</span>,<br>&nbsp;&nbsp; <span class="code_variable">xaxis_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                solid</span>, <br>&nbsp;&nbsp; <span class="code_variable">xaxis_width</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,
+                <br>&nbsp;&nbsp; <span class="code_variable">xtics</span>
+                <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">yaxis</span>
+                <span class="code_operator">=</span> true, <br>&nbsp;&nbsp;
+                <span class="code_variable">yaxis_color</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                orange</span>,<br>&nbsp;&nbsp; <span class="code_variable">yaxis_type</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                solid</span>, <br>&nbsp;&nbsp; <span class="code_variable">yaxis_width</span>
+                <span class="code_operator">=</span> <span class="code_number">1</span>,
+                <br>&nbsp;&nbsp; <span class="code_variable">ytics</span>
+                <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">dimensions</span>
+                <span class="code_operator">=</span> [<span class="code_number">600</span>,<span class="code_number">600</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">grid</span>
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;
+                <span class="code_variable">nticks</span>
+                <span class="code_operator">=</span> <span class="code_number">250</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">ip_grid</span>
+                <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<br>&nbsp;&nbsp;
+                <span class="code_variable">font</span>
+                <span class="code_operator">=</span> <span class="code_variable">
+                Tahoma</span>,<br>&nbsp;&nbsp; <span class="code_variable">font_size</span>
+                <span class="code_operator">=</span> <span class="code_number">14</span>,<br>&nbsp;&nbsp;
+                <span class="code_variable">line_width</span>
+                <span class="code_operator">=</span> <span class="code_number">2</span>,<br>&nbsp;&nbsp;
+                <span class="code_function">explicit</span>(<span class="code_variable">x</span>·<span class="code_function">sin</span>(<span class="code_variable">x</span>)<span class="code_operator">^</span><span class="code_number">2</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">2</span>)<br>
+                )<span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <p class="comment">
+            <img alt="plot" height="599" src="bde-plot-3_htmlimg/richland-4.png" width="600" />
+        </p>
+        <!-- Text cell -->
+        <!-- Code cell -->
+        <p>
+        <Small>Some with more control elaborated from this site</Small>
+        
+        </p>
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i74)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">sx</span>(<span class="code_variable">x</span>)<span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">sin</span>(<span class="code_variable">x</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i73)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">cx</span>(<span class="code_variable">x</span>)<span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">cos</span>(<span class="code_variable">x</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i10)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">tx</span>(<span class="code_variable">x</span>)<span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">tan</span>(<span class="code_variable">x</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i11)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">sx</span>(<span class="code_variable">x</span>)<span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">+</span><span class="code_function">cx</span>(<span class="code_variable">x</span>)<span class="code_operator">^</span><span class="code_number">2</span><span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i75)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">load</span>(<span class="code_variable">draw</span>)<span class="code_endofline">$</span>  </SPAN></TD>
+</TR></TABLE>
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i76)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">draw2d</span>(<BR>
+<span class="code_variable">yrange</span> <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>],<BR>
+<span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;sin(x)&quot;</span>,<BR>
+<span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x→&quot;</span>,<BR>
+<span class="code_variable">ylabel</span> <span class="code_operator">=</span> <span class="code_string">&quot;sin(x) &nbsp;→&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_variable">xaxis</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span>, <BR>
+<span class="code_variable">xaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">xaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">xaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">xtics</span> <span class="code_operator">=</span> <span class="code_number">1</span>·<span class="code_variable">π</span>,<BR>
+<span class="code_variable">yaxis</span> <span class="code_operator">=</span> true, <BR>
+<span class="code_variable">yaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">yaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">yaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">ytics</span> <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<BR>
+<span class="code_variable">dimensions</span> <span class="code_operator">=</span> [<span class="code_number">800</span>,<span class="code_number">600</span>],<BR>
+<span class="code_variable">grid</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">nticks</span> <span class="code_operator">=</span> <span class="code_number">250</span>,<BR>
+<span class="code_variable">ip_grid</span> <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<BR>
+<span class="code_variable">font</span> <span class="code_operator">=</span> <span class="code_variable">Tahoma</span>,<BR>
+<span class="code_variable">font_size</span> <span class="code_operator">=</span> <span class="code_number">14</span>,<BR>
+<span class="code_variable">line_width</span> <span class="code_operator">=</span> <span class="code_number">2</span>,<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;sin(x)&quot;</span>, &nbsp;&nbsp;&nbsp;<BR>
+<span class="code_function">explicit</span>(<span class="code_function">sx</span>(<span class="code_variable">x</span>),<span class="code_variable">x</span>,<span class="code_number">0</span>,<span class="code_number">6</span>·<span class="code_variable">π</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+)<span class="code_endofline">$</span>   </SPAN></TD>
+</TR></TABLE>
+
+<img src="bde-plot-3_htmlimg/bde-sinus-1.png" width="800" height="600" alt="sinus curve"/><!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i68)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">draw2d</span>(<BR>
+<span class="code_variable">yrange</span> <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>],<BR>
+<span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;cos(x)&quot;</span>,<BR>
+<span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x→&quot;</span>,<BR>
+<span class="code_variable">ylabel</span> <span class="code_operator">=</span> <span class="code_string">&quot;cos(x) &nbsp;→&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_variable">xaxis</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span>, <BR>
+<span class="code_variable">xaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">xaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">xaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">xtics</span> <span class="code_operator">=</span> <span class="code_number">1</span>·<span class="code_variable">π</span>,<BR>
+<span class="code_variable">yaxis</span> <span class="code_operator">=</span> true, <BR>
+<span class="code_variable">yaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">yaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">yaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">ytics</span> <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<BR>
+<span class="code_variable">dimensions</span> <span class="code_operator">=</span> [<span class="code_number">800</span>,<span class="code_number">600</span>],<BR>
+<span class="code_variable">grid</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">nticks</span> <span class="code_operator">=</span> <span class="code_number">250</span>,<BR>
+<span class="code_variable">ip_grid</span> <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<BR>
+<span class="code_variable">font</span> <span class="code_operator">=</span> <span class="code_variable">Tahoma</span>,<BR>
+<span class="code_variable">font_size</span> <span class="code_operator">=</span> <span class="code_number">14</span>,<BR>
+<span class="code_variable">line_width</span> <span class="code_operator">=</span> <span class="code_number">2</span>,<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;cos(x)&quot;</span>,<BR>
+<span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_function">explicit</span>(<span class="code_function">cx</span>(<span class="code_variable">x</span>),<span class="code_variable">x</span>,<span class="code_number">0</span>,<span class="code_number">6</span>·<span class="code_variable">π</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+)<span class="code_endofline">$</span>   </SPAN></TD>
+</TR></TABLE>
+
+<img src="bde-plot-3_htmlimg/bde-cosinus-1.png" width="800" height="600" alt=""/>
+<!<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i80)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">draw2d</span>(<BR>
+<span class="code_variable">yrange</span> <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>],<BR>
+<span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;tg(x)&quot;</span>,<BR>
+<span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x→&quot;</span>,<BR>
+<span class="code_variable">ylabel</span> <span class="code_operator">=</span> <span class="code_string">&quot;tan(x) &nbsp;→&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_variable">xaxis</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span>, <BR>
+<span class="code_variable">xaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">xaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">xaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">xtics</span> <span class="code_operator">=</span> <span class="code_number">1</span>·<span class="code_variable">π</span>,<BR>
+<span class="code_variable">yaxis</span> <span class="code_operator">=</span> true, <BR>
+<span class="code_variable">yaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">yaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">yaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">ytics</span> <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<BR>
+<span class="code_variable">dimensions</span> <span class="code_operator">=</span> [<span class="code_number">800</span>,<span class="code_number">600</span>],<BR>
+<span class="code_variable">grid</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">nticks</span> <span class="code_operator">=</span> <span class="code_number">250</span>,<BR>
+<span class="code_variable">ip_grid</span> <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<BR>
+<span class="code_variable">font</span> <span class="code_operator">=</span> <span class="code_variable">Tahoma</span>,<BR>
+<span class="code_variable">font_size</span> <span class="code_operator">=</span> <span class="code_number">14</span>,<BR>
+<span class="code_variable">line_width</span> <span class="code_operator">=</span> <span class="code_number">2</span>,<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;tan(x)/100&quot;</span>,<BR>
+<span class="code_variable">color</span><span class="code_operator">=</span><span class="code_string">&quot;indian−red&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_function">explicit</span>(<span class="code_function">tx</span>(<span class="code_variable">x</span>)<span class="code_operator">/</span><span class="code_number">100</span>,<span class="code_variable">x</span>,<span class="code_number">0</span>,<span class="code_number">6</span>·<span class="code_variable">π</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+)<span class="code_endofline">$</span>   </SPAN></TD>
+</TR></TABLE>
+<img src="bde-plot-3_htmlimg/bde-tangent-1.png" width="800" height="600" alt="Tangent"/>
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i71)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">draw2d</span>(<BR>
+<span class="code_variable">yrange</span> <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">2</span>],<BR>
+<span class="code_variable">title</span><span class="code_operator">=</span><span class="code_string">&quot;sin(x) , cos(x) , tan(x)/100&quot;</span>,<BR>
+<span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x→&quot;</span>,<BR>
+<span class="code_variable">ylabel</span> <span class="code_operator">=</span> <span class="code_string">&quot;sin(x) , cos(x) , tan(x)/100 →&quot;</span>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<span class="code_variable">xaxis</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span>, <BR>
+<span class="code_variable">xaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">xaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">xaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">xtics</span> <span class="code_operator">=</span> <span class="code_number">1</span>,<BR>
+<span class="code_variable">yaxis</span> <span class="code_operator">=</span> true, <BR>
+<span class="code_variable">yaxis_color</span> <span class="code_operator">=</span> <span class="code_variable">orange</span>,<BR>
+<span class="code_variable">yaxis_type</span> <span class="code_operator">=</span> <span class="code_variable">solid</span>, <BR>
+<span class="code_variable">yaxis_width</span> <span class="code_operator">=</span> <span class="code_number">1</span>, <BR>
+<span class="code_variable">ytics</span> <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<BR>
+<span class="code_variable">dimensions</span> <span class="code_operator">=</span> [<span class="code_number">600</span>,<span class="code_number">600</span>],<BR>
+<span class="code_variable">grid</span> <span class="code_operator">=</span> true,<BR>
+<span class="code_variable">nticks</span> <span class="code_operator">=</span> <span class="code_number">250</span>,<BR>
+<span class="code_variable">ip_grid</span> <span class="code_operator">=</span> [<span class="code_number">100</span>,<span class="code_number">100</span>],<BR>
+<span class="code_variable">font</span> <span class="code_operator">=</span> <span class="code_variable">Tahoma</span>,<BR>
+<span class="code_variable">font_size</span> <span class="code_operator">=</span> <span class="code_number">14</span>,<BR>
+<span class="code_variable">line_width</span> <span class="code_operator">=</span> <span class="code_number">2</span>,<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;sin(x)&quot;</span>, &nbsp;&nbsp;&nbsp;<BR>
+<span class="code_function">explicit</span>(<span class="code_function">sx</span>(<span class="code_variable">x</span>),<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">6</span>,<span class="code_number">6</span>),<BR>
+<span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span>,<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;cos(x)&quot;</span>,<BR>
+<span class="code_function">explicit</span>(<span class="code_function">cx</span>(<span class="code_variable">x</span>),<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">6</span>,<span class="code_number">6</span>),<BR>
+<span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;tan(x)/100&quot;</span>, &nbsp;&nbsp;&nbsp;<BR>
+<span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">forest</span><span class="code_operator">−</span><span class="code_variable">green</span>,<BR>
+<span class="code_function">explicit</span>(<span class="code_function">tx</span>(<span class="code_variable">x</span>)<span class="code_operator">/</span><span class="code_number">100</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">6</span>,<span class="code_number">6</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+)<span class="code_endofline">$</span>   </SPAN></TD>
+</TR></TABLE>
+<img src="bde-plot-3_htmlimg/bde-combined-1.png" width="600" height="600" alt="combined trigonometric plot"/><!-- Code cell -->
+
+        <p class="comment">
+            <!-- Code cell --><small>These plots are of introductory purpose and 
+            wxmaxima can capable a lot of more.Lot of publications with the same context, may be found and can be explorated. But the 
+            ones here, are proven for giving successful results and may serve for plotting similar curves with other options.</small>
+Just install <a href="https://sourceforge.net/projects/maxima/files/Maxima-Windows/5.41.0-Windows/">vwxmaxima</a> and plot your curves by altering the plot statements given here.
+        </p>
+        <hr><small>Created with <a href="https://andrejv.github.io/wxmaxima/">wxMaxima</a>.</small>
+        <small><br>Prof.Dr. Bedri Doğan Emir. (bedri@bedriemir.com)</small>
+    </body>
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

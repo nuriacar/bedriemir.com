@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:36 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders14.html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Python 3 Ders 14</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body class="indent">
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2</h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders13.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders15.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 14</p>
+    </div>
+    <p id="functions" class="title-left">
+      2.3 - Fonksiyonların Uygulanması</p>
+    <p class="indent">
+      Python programlama dilinde fonksiyonların kullanımı için,
+      <a href="ders2.html#function-introduction">seksiyon 1.8 
+      de</a> tanıtım bilgileri verilmişti. Bu kısımda ise daha 
+      geniş olarak fonksiyonların kullanımı üzerinde duracağız.
+    </p>
+    <p class="indent">
+      Burya kadar aldığımız bilgilerden, fonksiyonların önemini 
+      görebiliyoruz. Fonksiyonlar hem kendi başlarına kapalı 
+      bir birim olarak bazı işlevlerin yerine getirilmesi, hem 
+      Python modüllerinin yazımı, hem nesne (object) lerin metotlarının 
+      oluşturulması açısından büyük önem taşımaktadırlar. Fonksiyonlar, 
+      programların yapı taşlarını oluştururlar.</p>
+    
+    <p class ="subheading" id="funcsassign">2.3.1 - Fonksiyonların
+      Değişkenlere Atanması  
+    </p>
+    <p class="indent">
+      Python programlama dilinde fonksiyonlar birinci sınıf 
+      nesnelerdir ve değişkenlere atanabilirler. Örnek :</p>
+    <pre class="pl-25">
+      g <span class="op">=</span> adSoyad<span class="op">;</span></pre>
+    <p class="indent">
+      Bu atamada fonksiyonun sadece yazılımı, g değişkenine 
+      yüklenmiş fakat, fonksiyon çalışmamıştır. Eğer fonksiyon 
+      çalışmış olsaydı, g değişkeninde fonksiyon yazılımı değil, 
+      geri döndürdüğü değer atanmış olurdu. Yukarıdaki atama 
+      gerçekleştikten sonra, artı g değişkeni de, kendisine 
+      atanan fonksiyonun aynı olur ve fonksiyon çalıştırma işlemcisi 
+      eklenerek g<span class="op">()</span> şeklinde çalıştırılabilir. 
+      Bu ifade, sanki adSoyad<span class="op">()</span> yazılmış 
+      gibi aynı işlevi yapar ve aynı değeri döndürür.
+    </p>
+    
+    <p class ="subheading" id="syntax">
+        2.3.2 - Fonksiyonların Sözdizimi
+    </p>
+    <p class="indent">
+      Fonksiyonların ilk tanıtımlarının yapılmış olduğu
+      <a href="ders2.html#function-introduction">seksiyon 1.8 
+      de</a> fonksiyon yazılımının EBNF formülasyonu verilmişti. 
+      Burada bu formülasyonu hatırlatma amacı ile yeniden incelemek, 
+      bir tür haritadan yararlanmak gibi gerekli olacaktır.
+    </p>
+    <p class="nonindent">
+      Python için fonksiyon tanımı EBNF formülasyonu şekli,</p>
+    <p class="indent">
+      <strong>funcdef </strong>::= [decorators] &quot;def&quot; 
+      funcname &quot;(&quot; [parameter_list] &quot;)&quot; 
+      [&quot;-&gt;&quot; expression] &quot;:&quot; suite<br>
+      <strong>decorators </strong>::= decorator+<br><strong>
+      decorator </strong>::= &quot;&#64;&quot; dotted_name [&quot;(&quot; 
+      [parameter_list [&quot;,&quot;]] &quot;)&quot;] NEWLINE<br>
+      <strong>dotted_name </strong>::= identifier (&quot;.&quot; 
+      identifier)*<br><strong>parameter_list</strong> ::= (defparameter &quot;,&quot;)*<br>
+      | &quot;*&quot; [parameter] (&quot;,&quot; defparameter)* 
+      [&quot;,&quot; &quot;**&quot; parameter]<br>| &quot;**&quot; 
+      parameter<br>| defparameter [&quot;,&quot;] )<br>
+      <strong>parameter </strong>::= identifier [&quot;:&quot; 
+      expression]<br><strong>defparameter </strong>::= parameter 
+      [&quot;=&quot; expression]<br><strong>funcname
+      </strong>::= identifier
+    </p>
+    <p class="nonindent">
+      şeklindedir.</p>
+    <p class="indent">
+      Yukarıdaki formülasyondan, Python programlama dilinde, 
+      fonksiyon sözdiziminin (sentaks) büyük bir kısmının isteğe 
+      bağlı olduğu, sadece az bir zorunlu kısmının bulunduğu 
+      görülebilir. Zorunlu olan,</p>
+    <pre class="pl-25">
+   &quot;<span class="keyw">def</span>&quot; funcname &quot;(&quot;&quot;)&quot;&quot;:&quot; suite </pre>
+    <p class="indent">
+      kısmıdır ve bunun da uygulanması,</p>
+    <pre class="pl-25">
+  <span class="keyw">def</span> birFonksiyon<span 
+    class="op">():</span>
+  <span class="pl-50">fonksiyon içeriği ...</span></pre>
+    <p class="indent">
+      şeklindedir. Doğal olarak, fonksiyon içeriği olmazsa, 
+      fonksiyon tanımına da gerek kalmayacaktır.
+    </p> 
+    <p class ="subheading" id="apps">
+        2.3.3 - Fonksiyonların Uygulanma Yöntemleri
+    </p>
+    <p class="indent" id="uyg1">
+      Aşağıda görülen
+      <a href="uygulamalar/ders14/ders14program1.html">programda</a> 
+      adSoyad<span class="op">(</span>ad<span class="op">,</span>soyad<span 
+      class="op">)</span> fonksiyonu,, Python program dilinde 
+      minimal bir sözdizimi uygulanarak yazılmış, ve bu fonksiyon, 
+      çeşitli yöntemler kullanılarak çağrılmıştır.
+    </p>
+    <pre class="pl-25">
+  <span class="comm"># Program : Ders14program1.py</span>
+    	
+  <span class="keyw">def</span> adSoyad<span class="op">(</span>ad  <span 
+    class="op">,</span> soyad  <span class="op">):</span>
+    	
+  <span class="keyw-25">if</span> len<span class="op">(</span>ad<span 
+    class="op">) == </span>0 <span class="op">and </span>len<span 
+    class="op">(</span>soyad<span class="op">) == </span>0 <span 
+    class="op">:</span>
+  <span class="pl-50">adıVeSoyadı</span> <span class="op">=</span> <span 
+    class="str">&quot;Adı ve Soyadı Belirtilmemiştir!&quot;</span><span 
+    class="op">;</span>
+          
+  <span class="keyw-25">else</span><span class="op">:</span>
+  <span class="pl-50">adıVeSoyadı</span> <span class="op">=</span> ad <span 
+    class="op"> + </span><span class="str">' '</span> <span 
+    class="op"> + </span>soyad<span class="op">;</span> 
+  
+  <span class="keyw-25"> return</span> adıVeSoyadı<span 
+    class="op">;</span>
+  
+  print<span class="op">(</span><span class="str">&quot;Adı ve Soyadı :  &quot;</span><span 
+    class="op"> , </span> adSoyad<span class="op">(</span><span 
+    class="str">&quot;&quot;</span> <span class="op">,</span> <span 
+    class="str">&quot;&quot;</span><span class="op">);</span>
+    	
+  print<span class="op">(</span><span class="str">&quot;Adı ve Soyadı :  &quot;</span><span 
+    class="op"> , </span> adSoyad<span class="op">(</span><span 
+    class="str">'Güneş'</span> <span class="op">,</span> <span 
+    class="str">'Tezel'</span><span class="op">);</span>
+  
+  print<span class="op">(</span><span class="str">&quot;Adı ve Soyadı :  &quot;</span><span 
+    class="op"> , </span> adSoyad<span class="op">(</span>soyad <span 
+    class="op">=</span> <span class="str">'Tezel'</span> <span 
+    class="op">,</span> ad <span class="op">=</span> <span 
+    class="str">'Güneş'</span><span class="op">);</span>  	
+    	
+    	<span class="maroon">
+    	
+    	---------Program----Sonucunun----Görüntülenmesi----------------------------
+  Adı ve Soyadı :  Adı ve Soyadı Belirtilmemiştir!
+  Adı ve Soyadı :  Güneş Tezel
+  Adı ve Soyadı :  Güneş Tezel</span></pre>
+    <p class="indent">
+      Fonksiyonların argümanları, formal parametrelerdeki sıralar 
+      kullanılarak yapılabilir. Bu tür bir uygulama, hemen hemen 
+      tüm program dilleri için genel bir fonksiyon çağırma şeklidir. 
+      Yukarıdaki programda, ilk iki print<span class="op">()</span> 
+      bildiriminde adSoyad<span class="op">()</span> fonksiyonun 
+      çağrılması, fonksiyondaki parametrelin tanım sıraları 
+      gözetilerek yapılmıştır.
+    </p>
+    <p class="indent">
+      Python programlama dilinde istendiğinde, fonksiyonların 
+      çağrılmalarında, argümanların formal parametrelerde belirtilmiş 
+      olan isimleri kullnılarak ve istendiğinde, formal parametrelerin 
+      tanım sıraları gözetilmeden çağrılmaları yaılabilir. Yukarıdaki 
+      programda, üçüncü print<span class="op">()</span> fonkisyonu 
+      içinde, adSoyad<span class="op">()</span> fonksiyonun 
+      çağrılması bu yöntemle gerçekleştirilmiştir.
+    </p>
+    <p class="indent">
+      Yukarıdaki programda, len<span class="op">(</span>ad<span 
+      class="op">)</span> ifadesi, öntanımlı len<span 
+      class="op">()</span> fonksiyonu kullanılarak, ad sözel 
+      verisinde karakter sayısının (veri uzunluğunun) saptanmasını 
+      sağlamaktadır.
+    </p>
+    <p class="indent">
+      Yukarıdaki programda, adıVeSoyadı değişkeni, fonkiyon 
+      içinde tanımlanmıştır. Dolayısı ile, bu bir yerel değişkendir 
+      ve sadece fonksiyon içinde tanımlıdr. Bu değişken, fonksiyon 
+      dışında tanımsızdır ve fonksiyon dışından erişime kapalıdır.</p>
+    <p class="indent">
+      Python programlama dilinde, değişkenlerin üç tür kapsam 
+      alanları bulunabilir:</p>
+    <ul class="listNoMarker">
+      <li>Yerel (Local) kapsam : Değişken fonsiyon içinde tanımlanır 
+      ve sadece fonksiyon içindende tanımlı kalır. Yerel değişkenlere, 
+      fonksiyon dışından erişilemez.</li>
+      <li>Yerel olmayan (nonLocal) kapsam : Bu tür değişkenleri 
+      hem fonkisyon içinde hem de fonksiyonu çevreleyen ilk 
+      üst kapsam alanında tanımlıdır. Fonksiyon eğer bir üst 
+      fonksiyon içinde tanımlı ise, bu üst fonksiyon, içinde 
+      tanımlı bir yerel fonksiyon, alt fonksiyon içinde de tanımlıdır 
+      ve bu değişken alt fonksiyon için, bir nonLocal değişken 
+      durumunda iken, üst fonksiyon için bir yerel değişken 
+      durumundadır ve üst fonksiyon dışında, global alanda tanımsızdır. 
+      Yerel olmayan değişkenler eğer iç fonksiyon içinden tanımlanmaları 
+      gerekirse,</li>
+      <li>nonLocal x;</li>
+      <li>x = 99;</li>
+      <li>şeklinde tanımlanabilirler. Bir nonLocal değişkenin 
+      değeri, iç fonksiyon içinden değiştirilirse, bu değişiklik, 
+      fonksiyonu kapsayan ilk dış fonkiyon kapsamındaki tanımlı 
+      değere de yansır.</li>
+      <li>Global değişkenler : Tüm program kapsam alanında tanımılıdırlar. 
+      Global değişkenlerin değerleri, programın bir noktasında 
+      değişirse, bu değişiklik global değişkenin tanımlı olduğu 
+      tüm program alanına da yansır. Global değişkenler, gerek 
+      olduğu zaman, bir fonksiyonun içinden,</li>
+      <li>global alfa<span class="op">;</span></li>
+      <li>alfa <span class="op">=</span> 99<span class="op">;</span></li>
+      <li>olarak da tanıtılabilirler.</li>
+    </ul>
+    <p id="uyg2" class="indent">
+      Aşağıdaki
+      <a href="uygulamalar/ders14/ders14program2.html">program</a>, 
+      global, yerel ve yerel olmayan kapsamlar üzerinde açıklayıcı 
+      uygulamalar içermektedir.
+    </p>
+    <pre class="pl-25">
+  <span class="comm"># Ders14program2.py</span>
+  
+  a <span class="op">=</span> 11<span class="op">;</span> <span 
+    class="comm"># global kapsam</span>
+  
+  <span class="keyw">def</span> dışFonksiyon<span 
+    class="op">():</span>
+  <span class="pl-25">b</span> <span class="op">=</span> 23<span 
+    class="op">;</span>
+  <span class="comm-25">&quot;&quot;&quot;dışFonksiyon açısından yerel(lokal),  
+          içFonksiyon açısından nonLocal (yerel olmayan) kapsam,
+          dışFonksiyon kapsamı dışında tanımsız.&quot;&quot;&quot;</span>
+  
+  <span class="keyw-25">def</span> içFonksiyon<span 
+    class="op">():</span>
+  <span class="keyw-50">global</span> a<span class="op">;</span> <span 
+    class="comm"># Global değişken a ya bağlandı!</span>
+  <span class="pl-50">a</span> <span class="op">=</span> 919<span 
+    class="op">;</span> <span class="comm"># Global değişkenin değeri değişti!</span>
+  <span class="keyw-50">nonlocal</span> b<span class="op">;</span> <span 
+    class="comm"># Yerel olmayan değişken b ya bağlandı!</span>
+  <span class="pl-50">b</span> <span class="op">=</span> 645<span 
+    class="op">;</span> <span class="comm"># Yerel olmayan değişkenin değeri değişti!</span>
+  <span class="pl-50">c</span> <span class="op">=</span> 35<span 
+    class="op">;</span> <span class="comm"># Yerel değişken tanımı</span>
+  <span class="keyw-50">global</span> x<span class="op">;</span> <span 
+    class="comm"># Yeni bir global değişken tanımı</span>
+  <span class="pl-50">x</span> <span class="op">=</span> 99<span 
+    class="op">;</span> <span class="comm"># Yeni global değişkene değer bağlanması</span>
+  
+  <span class="pl-25">içFonksiyon</span><span class="op">();</span>
+  
+  <span class="keyw-25">if</span> b <span class="op">!=</span> 23<span 
+    class="op">:</span>
+  <span class="pl-50">s1</span> <span class="op">=</span> <span 
+    class="str">'Bu Değişkenin Değeri bir alt program\n'</span><span 
+    class="op">;</span>
+  <span class="pl-50">s2</span> <span class="op">=</span> <span 
+    class="str">'tarafından değiştirilmiştir ve \n'</span><span 
+    class="op">;</span>
+  <span class="pl-50">s3</span> <span class="op">=</span> <span 
+    class="str">'güncel değeri,'</span><span class="op">;</span>
+  <span class="keyw-50">global</span> s;
+  <span class="pl-50">s</span> <span class="op">=</span> s1 <span 
+    class="op">+</span> s2 <span class="op">+</span> s3<span 
+    class="op">;</span>
+  <span class="pl-50">print</span><span class="op">(</span>s <span 
+    class="op">+</span> <span class="str">' b ='</span> <span 
+    class="op">,</span> b <span class="op">,</span> <span 
+    class="str">'dir.\n'</span><span class="op">);</span>
+  
+  dışFonksiyon<span class="op">();</span>
+  
+  if not a <span class="op">==</span> 11<span class="op">:</span>
+  
+  print<span class="op">(</span>s <span class="op">+</span> ' a =' <span 
+    class="op">,</span> a <span class="op">,</span> <span 
+    class="str">'dir.\n'</span><span class="op">);</span>
+  
+  print (<span class="str">'x = '</span><span class="op">,</span> x<span 
+    class="op">);</span>
+        
+  <span class="maroon">
+  
+  ---------Program----Sonucunun----Görüntülenmesi----------------------------
+  		 
+  Bu Değişkenin Değeri bir alt program
+  tarafından değiştirilmiştir ve  
+  güncel değeri, b = 645 dir.
+  
+  Bu Değişkenin Değeri bir alt program
+  tarafından değiştirilmiştir ve  
+  güncel değeri, a = 919 dir.
+  
+  x =  99</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki program üzerine, açıklanması gereken çok nokta 
+      bulunmaktadır. İlk olarak, global program alanı altında, 
+      bir dışFonksiyon<span class="op">()</span> tanımlanmış 
+      ve bu dış fonksiyon içinde, bir de içFonksiyon<span 
+      class="op">()</span> tanımlamıştır. Tanımlanmış olan içFonksiyon<span 
+      class="op">()</span> içeriğine, global program alanı 
+      tarafından erişim olanağı yoktur.
+    </p>
+    <p class="indent">
+      Global program alanı içinden tanımlanan a değişkeni, global 
+      bir değişkendir ve değerine, gerek içFonksiyon<span 
+      class="op">()</span>, gerekse dışFonksiyon<span 
+      class="op">()</span> içinden erişilebilir. Erişim sınırlıdır.
+      Global değişkenlerin değerlerine, bir alt program isim
+      alanı içinden erişilebilir. Değerleri okunabilir ve eğer
+      global değişken, değiştirilebilir (mutable) bir
+      tip ise değerine ekleme çıkarma yapılabilir. Fakat,
+      hiçbir koşul altında, veri tipi ne olursa olsun,
+      global değişkenler, alt program isim alanları
+      içinden ne <span class="keyw">del</span> bildirimi
+      ile yok edilebilirler ne de  kendilerine yeni bir değer
+      atanabilir.
+    </p>
+    <p class ="indent">
+      Global bir değişken ile aynı ad ile, bir alt program
+      isim alanında, yani bir değişken tanımlanabilir ve
+      bu değişkene yeni bir değer atanabilir Böyle bir durumda,
+      tanımlanan bu değişken, yerel bir değişken olacaktır.
+      Bu değişkene atanan değer, sadece atandığı alt
+      fonksiyonun isim (tanım) alanında geçerli
+      olacaktır. Bu değişken atandığı alt program isim alanında
+      yok edildiği takdirde, yoketme sadece bu alt
+      fonksiyon isim alanı ile sınırlı kalacaktır. Bu değişken
+      bundan sonra tanımlandığı isim alanında tanımsız
+      olacaktır. Fakat alt fonksiyon isim alanı
+      terkedildiğinde, global isim alanına geçildiğinde,
+      global değişken tanımlanmış olduğu değer ile
+      tanımlı olarak kalacaktır. Bu dokunulmazlık,
+      Python programlama dilinde, global değişkenlerin
+      değerlerinin kontrolsüz olarak değiştirilememesi için konulmuş 
+      olan, bir tür sigorta gibidir. Ama yeterli
+      değildir.      
+    </p>
+    <p class ="indent">
+      Global değişkenlerin alt programlar içinden
+      dokunulmazlığı, kolayca aşılabilir. Yukarıdaki
+      programda olduğu gibi, alt program içinden
+      <span class="keyw">global</span>&lt;global
+      değişken adı&gt; bildirimi yapıldığında ,
+      belirtilen global değişken üzerinde,
+      her türlü değişim  ve yoketme yapılabilir.
+      Bu değişiklikler, global program alanına da yansır.
+      Yukarıdaki programın çıktısında, bu olay
+      açıkça görülmektedir.
+    </p>
+    <p class="indent">
+      Programda, dışFonksiyon içinden tanımlanmış olan b değişkeni, 
+      global program alanı açışından yerel bir değişkendir ve 
+      buna global program alanı altından erişilemez. Bu değişken, 
+      içFonksiyon<span class="op">()</span> açısından, nonLocal 
+      bir değişkendir ve değerine içFonksiyon<span 
+      class="op">()</span> içinden erişilebilir ve eğer,
+      <span class="keyw">nonlocal</span>&lt;lokal olmayan 
+      değişken adı&gt; bildirimi yapılmışsa, değeri içFonksiyon<span 
+      class="op">()</span> içinden değiştirilebilir. Program 
+      akışı içinde bu gerçekleşmiş ve b değişkeninin değeri, 
+      içFonksiyon<span class="op">()</span> içinden değiştirilmiştir.
+    </p>
+    <p class="indent">
+      Programda, içFonksiyon<span class="op">()</span> içinden 
+      bir s global değişkeni tanımlanmış ve değerinden, global 
+      program alanı içinde yararlanılmıştır.
+    </p>
+    <p class="indent">
+      Aynı şekilde, içFonksiyon<span class="op">()</span> içinden 
+      bir x globsal değişkeni tanımlanmış ve değerine global 
+      kapsam alanı içinde erişebildiği görülmüştür.
+    </p>
+    <p class="indent">
+      Bu programın kötü tarafı global değişken kullanılmış olması, 
+      daha da kötü tarafı bu global değişkenlerden bazılarının 
+      fonksiyonlar içinden tanımlanmış olması, bazılarının da, 
+      değerlerinin yerel kapsam alanlarında değiştirilmiş olmasıdır. 
+      Bu gibi, tanımlamalar, programcının program üzerinde kontolünü 
+      kaybetmesine yol açabilir. Olanaklar ölçüsünde, bu gibi 
+      tanımlamalar ve değer değiştirmelerden kaçınılmalıdır.</p>
+    <p id="uyg3" class="indent">
+      llk bir iyileştirme için, programı gereksiz tanımlanmış 
+      değişkenlerden temizleyelim. Aşağıdaki
+      <a href="uygulamalar/ders14/ders14program3.html">program</a>, 
+      yapılmış olan bu ilk iyileştirmeleri yansıtmaktadır.
+    </p>
+    <pre class="pl-25">
+  <span class="comm"># Program : Ders14program3.py</span>
+  
+  global_1 <span class="op">=</span> 11<span class="op">;</span> <span 
+    class="comm"># global kapsam</span>
+  
+  <span class="keyw">def</span> dışFonksiyon<span 
+    class="op">():</span>
+  <span class="pl-25">dışFonksiyon_1</span> <span 
+    class="op">=</span> 23<span class="op">;</span>
+  <span class="comm-25">&quot;&quot;&quot;dışFonksiyon açısından yerel(lokal),  
+          içFonksiyon açısından nonLocal (yerel olmayan) kapsam,
+          dışFonksiyon kapsamı dışında tanımsız.&quot;&quot;&quot;</span>
+  
+  <span class="keyw-25">def</span> içFonksiyon<span 
+    class="op">():</span>
+  <span class="keyw-50">global</span> global_1<span 
+    class="op">;</span> <span class="comm"># Global değişken global_1 ya bağlandı!</span>
+  <span class="pl-50">global_1</span> <span class="op">=</span> 919<span 
+    class="op">;</span> <span class="comm"># Global değişkenin değeri değişti!</span>
+  <span class="keyw-50">nonlocal</span> dışFonksiyon_1<span 
+    class="op">;</span> <span class="comm"># Yerel olmayan değişken dışFonksiyon_1 ya bağlandı!</span>
+  <span class="pl-50">dışFonksiyon_1</span> <span 
+    class="op">=</span> 645<span class="op">;</span> <span 
+    class="comm"># Yerel olmayan değişkenin değeri değişti!</span>
+  
+  
+  <span class="pl-25">içFonksiyon</span><span class="op">();</span>
+  
+  <span class="keyw-25">return</span> dışFonksiyon_1<span 
+    class="op">;</span>
+  
+  <span class="keyw">def</span> msg<span class="op">():</span>
+  <span class="keyw-25">return</span><span class="op">(</span><span 
+    class="str">'{0:20}{1:20}{2:20}'.format('Bu değişkenin değeri,',
+             'bir alt program içinde\n', 'değiştirilmiştir !\nYeni değer : '</span><span 
+    class="op">));</span>
+  
+  <span class="keyw">def</span> anaProgram<span class="op">():</span>
+        
+  <span class="pl-25">mesaj</span> <span class="op">=</span> msg<span 
+    class="op">();</span>
+  
+  <span class="pl-25">anaProgramDeğişken_1</span> <span 
+    class="op">=</span> dışFonksiyon<span class="op">();</span>
+  
+  <span class="keyw-25">if</span> <span class="op">not</span> anaProgramDeğişken_1 <span 
+    class="op">==</span> 23<span class="op">:</span>
+  <span class="pl-50">print</span><span class="op">(</span>mesaj<span 
+    class="op">,</span> <span class="str">'dışFonksiyon_1 = '</span><span 
+    class="op">,</span> anaProgramDeğişken_1 <span 
+    class="op">,</span> <span class="str">'\n'</span><span 
+    class="op">);</span>
+  
+  <span class="keyw-25">if</span> <span class="op">not</span> global_1 <span 
+    class="op">==</span> 11<span class="op">:</span>
+  <span class="pl-50">print</span><span class="op">(</span>mesaj<span 
+    class="op">,</span> <span class="str">'global_1 = '</span><span 
+    class="op">,</span> global_1<span class="op">);</span>
+  
+  anaProgram<span class="op">();</span>
+  
+  <span class="maroon">
+    	
+    	---------Program----Sonucunun----Görüntülenmesi----------------------------
+  
+  Bu değişkenin değeri,bir alt program içinde
+  değiştirilmiştir !
+  Yeni değer :  dışFonksiyon_1 =  645 
+  
+  Bu değişkenin değeri,bir alt program içinde
+  değiştirilmiştir !
+  Yeni değer :  global_1 =  919</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki program, yapısal olarak birçok değişiklikler 
+      içermektedir. Global alanda, sadece global değişkenler 
+      ve fonksiyonlar tanımlanmışlardır. Global değişkenler, 
+      program içinde kolay izlenebilmeleri için global_x şeklinde 
+      isimlendirilmişlerdir. Programda sadece bir tek global 
+      değişken bulunmaktadır.</p>
+    <p class="indent">
+      Fonksiyonlar arasında yeni tanımlanmış bir msg
+      <span class="op">()</span> fonksiyonu bulunmaktadır. Bu 
+      fonksiyon, iç fonksiyon içinden, mesaj taşıyan bir global 
+      değişken tanımlanma gereksinimini ortadan kaldırmaktadır. 
+      Bu şekilde, büyük bir güvenlik sorunu ortadan kaldırılmıştır. 
+      Alt fonksiyonlar içinde yeni global değişkenler oluşturmak, 
+      programcının program yürüşünün kontrolünü kaybetmesi olanağını 
+      ortaya çıkaran potansiyel bir hata kaynağıdır.
+    </p>
+    <p class="indent">
+      Programda tüm işlevsel çalışmalar, yeni tanımlanmış bir 
+      ana program içinden yürütülmektedir. Ana program alt programları 
+      çağırmakta, geri döndürülen değerleri değerlendirmekte, 
+      verilmesi gereken çıktıları oluşturmaktadır.</p>
+    <p class="indent">
+      Ana programın amacı, tehlikeli global değişkenlerin gereksiniminin 
+      azaltılmasıdır. Fonksiyonlardan gelen geri dönüş değerleri, 
+      artık global değil, ana fonksiyon içinde tanımlanmış yerel 
+      değişkenlere aktarılmaktadır. Bu yerek değişkenler, sadece 
+      ana fonksiyon içinde tanımlı olup, değerleri başka alt 
+      fonksiyonlar içinde değiştirilememektedir. Bu da büyük 
+      bir güvenlik avantajı sağlamaktadır.</p>
+    <p class="indent">
+      Alt programlarda tanımlanma zorunluluğu olan yerel ve 
+      yerek olmayan değişkenler, dikkat çekecek şekilde isimlendirilerek 
+      değerlerinin iç fonksiyonlara değişmesi durumunda, olayın 
+      gözden kaçabilmesinin engellenmesi sağlanmaya çalışılmıştır.</p>
+    <p class="indent">
+      Görüldüğü gibi, hem global hem de yerel olmayan değişkenler, 
+      potansiyel hata kaynakları olup, kullanılmaları tamamen 
+      ortadan kaldırılabilme olanağı bulunmasa bile, hiç değilse 
+      en aza indirilmelidir.</p>
+    <p class="indent">
+      Global ve yerel olmayan değişkenler, program yürüyüşü 
+      içinde, yeniden çağrılmamaları durumunda, Python çöp toplayıcısı 
+      tarafından ortadan kaldırılırlar. Yine de, aşırı önlem 
+      alma yanlısı programcılar, bu değişkenlerin kullanım gereksinmeleri 
+      ortadan kalkınca,</p>
+    <pre class="pl-25">
+    <span class="keyw">del </span>&lt;değişkenAdı&gt;</pre>
+    <p class="nonindent">
+      şeklinde programdan uzaklaştırabilirler.</p>
+    <p id="uyg4" class="nonindent">
+      Bir programın global değişken gerektirmeyen sürümleri 
+      daima bulunabilir. Bu sürümler biraz daha kompakt bir 
+      kodlama gerektirebilirler. Örnek olarak, aşağıdaki programda, 
+      anaProgram() içindeki iletişim amaçlı yerel değişken, 
+      anaProgramDeğişken_1 kullanımı yerine, fonksiyondan doğrudan 
+      bilgi aktarımı yöntemi kullanılmıştır.</p>
+    <pre class="pl-25">
+  <span class="comm"># Program : Ders14program4.py</span>
+  
+  global_1 <span class="op">=</span> 11 <span class="comm"># global kapsam</span>
+  
+  <span class="keyw">def</span> dışFonksiyon<span 
+    class="op">():</span>
+  <span class="pl-25">dışFonksiyon_1</span> <span 
+    class="op">=</span> 23
+  <span class="comm-25">&quot;&quot;&quot;dışFonksiyon açısından yerel(lokal),  
+          içFonksiyon açısından nonLocal (yerel olmayan) kapsam,
+          dışFonksiyon kapsamı dışında tanımsız.&quot;&quot;&quot;</span>
+  
+  <span class="keyw-25">def</span> içFonksiyon<span 
+    class="op">():</span>
+  <span class="keyw-50">global</span> global_1 <span 
+    class="comm"># Global değişken global_1 ya bağlandı!</span>
+  <span class="pl-50">global_1</span> <span class="op">=</span> 919 <span 
+    class="comm"># Global değişkenin değeri değişti!</span>
+  <span class="keyw-50">nonlocal</span> dışFonksiyon_1 <span 
+    class="comm"># Yerel olmayan değişken dışFonksiyon_1 ya bağlandı!</span>
+  <span class="pl-50">dışFonksiyon_1</span> <span 
+    class="op">=</span> 645 <span class="comm"># Yerel olmayan değişkenin değeri değişti!</span>
+  
+  
+  <span class="pl-25">içFonksiyon</span><span class="op">()</span>
+  
+  <span class="keyw-25">return</span> dışFonksiyon_1
+  
+  <span class="keyw">def</span> msg<span class="op">():</span>
+  <span class="keyw-25">return</span><span class="op">(</span><span 
+    class="str">'{0:20}{1:20}{2:20}'.format('Bu değişkenin değeri,',
+             'bir alt program içinde\n', 'değiştirilmiştir !\nYeni değer : '</span><span 
+    class="op">))</span>
+  
+  <span class="keyw">def</span> anaProgram<span class="op">():</span>
+        
+  <span class="pl-25">mesaj</span> <span class="op">=</span> msg<span 
+    class="op">()</span>
+  
+  <span class="keyw-25">if</span> <span class="op">not</span> dışFonksiyon<span 
+    class="op">() ==</span> 23<span class="op">:</span>
+  <span class="pl-50">print</span><span class="op">(</span>mesaj<span 
+    class="op">,</span> <span class="str">'dışFonksiyon_1 = '</span><span 
+    class="op">,</span> dışFonksiyon<span class="op">() ,</span> <span 
+    class="str">'\n'</span><span class="op">)</span>
+  
+  <span class="keyw-25">if</span> <span class="op">not</span> global_1 <span 
+    class="op">==</span> 11<span class="op">:</span>
+  <span class="pl-50">print</span><span class="op">(</span>mesaj<span 
+    class="op">,</span> <span class="str">'global_1 = '</span><span 
+    class="op">,</span> global_1<span class="op">)</span>
+  
+  anaProgram<span class="op">();</span>
+  
+  <span class="maroon">
+    	
+    	---------Program----Sonucunun----Görüntülenmesi----------------------------
+  
+  Bu değişkenin değeri,bir alt program içinde
+  değiştirilmiştir !
+  Yeni değer :  dışFonksiyon_1 =  645 
+  
+  Bu değişkenin değeri,bir alt program içinde
+  değiştirilmiştir !
+  Yeni değer :  global_1 =  919</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki programda görüldğü gibi, ana program içinde 
+      iletişim amaçlı bir yerel değişken tanımı yerine, fonksiyondan 
+      doğrudan bilgi aktarımı yöntemi uygulanmış ve bunun sonucunda 
+      biraz daha zor okunan bir kodlama oluşmuştur.</p>
+    <p class="indent">
+      Python programlama dilinde, bildirim sonunda noktalı virgül 
+      kullanımı gerekli değildir. Bu nedenle, yukarıdaki programda 
+      noktalı virgül kullanılmamıştır.</p>
+    <p class="indent">
+      Python programları yukarıdan aşağıya doğru derlenirler, 
+      ve bir program öğesini çağırmadan önce, bunun tanımlanmış 
+      olması gerekir. Bu nedenle ana program, tüm fonksiyon 
+      ve global tanımların tamamlanmalarından sonra, global 
+      kapsam alanının en altına konulmuştur. Yine aynı şekilde, 
+      dışFonksiyon<span class="op">()</span> içinde, içFonksiyon<span 
+      class="op">()</span> önce tanımlanmış, sonra çağrılmıştır.
+    </p>
+    <p id="uyg5" class="indent">
+      Python programlama dilindeki kolaylıklardan biri, fonksiyon 
+      argümanlarına isimleri ile değer verilebilmesidir. Argümanlara 
+      isimleri ile değer verildiğinde, argümanların tanım sıralarının 
+      gözetilmesi gerekmez. Aşağıdaki küçük bir örnek bu tür 
+      bir fonksiyon çağrısını açıklamaktadır.</p>
+    <pre class="pl-25">
+  <span class="comm"># Ders14program5.py</span>
+  
+  <span class="keyw">def</span> görüntüle<span class="op">(</span>a <span 
+    class="op">,</span> b<span class="op">):</span>
+  <span class="keyw-50"> print</span><span class="op">(</span><span 
+    class="str">' a ='</span><span class="op">,</span> a <span 
+    class="op">,</span> <span class="str">' b ='</span> <span 
+    class="op">,</span> b<span class="op">);</span>
+  
+  görüntüle<span class="op">(</span>b <span class="op">=</span> 88 <span 
+    class="op">,</span> a <span class="op">=</span> 77<span 
+    class="op">);</span>
+  <span class="maroon">
+    	
+    	---------Program----Sonucunun----Görüntülenmesi-----------------------
+   a = 77  b = 88    
+      </span>
+    </pre>
+    <p class="indent">
+      Argümanların isimle belirtilmesi, özellikle çok sayıda 
+      argümanı olan fonksiyonlarda, çok yararlı bir özellik 
+      olarak kabul edilmektedir.</p>
+    <p id="uyg6" class="indent">
+      Python fonksiyonları değişken sayıda argüman alabilecek 
+      şekilde tanımlanabilirler. Aslında, bu özellik Java ve 
+      JavaScript gibi modern bilgisayar dillerinde de sağlanmıştır. 
+      Değişken sayıda argüman ile fonksiyonu çağırabilme özelliği, 
+      fonksiyonun değişen koşullara uyumunu sağlayan ve bu şekilde, 
+      büyük bir esneklik veren bir özelliktir. Bir arkadaş grubunuz 
+      olduğunu düşünün. Bu arkadaşlara bir kutlama günü davetiyesi 
+      göndereceksiniz, fakat bunlardan bazıları her zaman davete 
+      gelebilecek durumda olmayabilir. Bunun için bir genel 
+      davetiye fonksiyonu yazılır ve değişken sayıda argüman 
+      alabilmesi sağlanır. Bundan sonra bu fonksiyonu her zaman 
+      kullanabilir ve sadece elde olan arkadaşlarınıza çağrı 
+      yapmasını sağlayabilirsiniz. Aşağıdaki
+      <a href="uygulamalar/ders14/ders14program6.html">program</a> 
+      bu konuda bir örnek olararak düzenlenmiştir.
+    </p>
+    <pre class="pl-25">
+  <span class="comm"># Ders14program6.py</span>
+      
+  <span class="keyw">def</span> arkadaşListesi<span 
+    class="op">(*</span>arkadaş<span class="op">):</span>
+  
+  <span class="pl-50">maxVeri</span> <span class="op">=</span> <span 
+    class="keyw">len</span><span class="op">(</span>arkadaş<span 
+    class="op">);</span>
+  
+  <span class="pl-50">i</span>  <span class="op">=</span>  0<span 
+    class="op">;</span>
+  
+  <span class="keyw-50">while</span> i &lt; maxVeri<span 
+    class="op">:</span>
+  
+  <span class="keyw-75">print</span><span class="op">(</span><span 
+    class="str">'Sayın ,'</span> <span class="op">,</span> arkadaş[i] <span 
+    class="op">,</span> <span class="str">'\n \
+          16 kasım saat 13.00 den itibaren başlayacak olan \n \
+          mangal partimize, lütfen katılmanızı rica ederim. \n \
+          Saygılar, \n \
+          Bedri Doğan Emir \n'</span><span class="op">);</span>
+  
+  <span class="pl-75"> i</span> <span class="op">=</span> i <span 
+    class="op">+</span> 1<span class="op">;</span>
+  
+  
+  <span class="keyw">def</span> main<span class="op"> : </span>
+  
+      arkadaşListesi<span class="op">(</span> 
+         <span class="str">'Hasan Elbasan'</span><span 
+    class="op">,</span> <span class="str">'Ahmet Kahraman'</span><span 
+    class="op">,</span>
+         <span class="str">'Asena Kündeci'</span><span 
+    class="op">,</span> <span class="str">'Tomris Başkesen'</span><span 
+    class="op">);</span>
+  
+  <span class="keyw">if</span> __name__ <span class="op">==</span> <span 
+    class="str">'__main__'</span><span class="op">:</span>
+  
+      main<span class="op">();</span>
+  
+      <span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+  Sayın , Hasan Elbasan 
+           16 kasım saat 13.00 den itibaren başlayacak olan 
+           mangal partimize, lütfen katılmanızı rica ederim. 
+           Saygılar, 
+           Bedri Doğan Emir 
+  
+  Sayın , Ahmet Kahraman 
+           16 kasım saat 13.00 den itibaren başlayacak olan 
+           mangal partimize, lütfen katılmanızı rica ederim. 
+           Saygılar, 
+           Bedri Doğan Emir 
+  
+  Sayın , Asena Kündeci 
+           16 kasım saat 13.00 den itibaren başlayacak olan 
+           mangal partimize, lütfen katılmanızı rica ederim. 
+           Saygılar, 
+           Bedri Doğan Emir 
+  
+  Sayın , Tomris Başkesen 
+           16 kasım saat 13.00 den itibaren başlayacak olan 
+           mangal partimize, lütfen katılmanızı rica ederim. 
+           Saygılar, 
+           Bedri Doğan Emir 
+   </span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki programda, <span class="keyw">print</span><span 
+      class="op">()</span> fonksiyonu içindeki
+      <span class="str">'\n \</span> şeklindeki bildirimin ilk
+      <span class="str">'\n'</span> sözel verinin görüntlenmesinin 
+      yeni satırdan devam edilmesini bildirien kaçış karakteri, 
+      ikinci <span class="str">'\'</span> (ters şlaş) karakterinin 
+      ise, program yazımında, uzun sözel verilerin aynı ekranda 
+      kalmasını sağlamak için yazılımda alt satıra geçildiğini 
+      belirten bir ifade şeklidir.
+    </p>
+    <p class="indent">
+      Yine yukarıdaki programda, argümanlar, bir sözlük içine 
+      alınmıştır ve burada argümanlar arasında her iterasyon 
+      bir argüman değerine karşı gelmektedir. Çok güzel, ve 
+      argüman sayısı önceden belirli olmayan durumlarda çok 
+      işe yarayan bir özelliktir.</p>
+    <p id="uyg7" class="indent">
+      Her şey güzel ama, ya parti tarihini veya parti cinsini 
+      önceden belirtmesek ve daetiyemiz, değişik tarihlerde, 
+      değişik türde partilerimiz için, değişken sayıdaki davetliler 
+      için geçerli olacak şekilde düzenlense daha da iyi olabilir. 
+      Bu olanak Python programlama dilinde sağlanmıştır. Bunun 
+      için, tarih ve parti türünü sabit argümanlar, davetlileri 
+      ise, değişken sayıda argümanlar olarak belirterek fonksiyon 
+      tanımını gerçekleştirebiliriz. Aşağıdaki
+      <a href="uygulamalar/ders14/ders14program7.html">program</a> 
+      bu yöntemi uyglamaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Ders14program7.py</span>    
+    
+<span class="keyw">def</span> arkadaşListesi<span 
+    class="op">(</span>tarih <span class="op">=</span> <span 
+    class="str">'2 Aralık 2014'</span><span class="op">,</span> parti <span 
+    class="op">=</span> <span class="str">'Mangal'</span><span 
+    class="op">, *</span>arkadaş<span class="op">):</span>
+
+    maxVeri <span class="op">=</span> len(arkadaş<span 
+    class="op">);</span>
+
+    i <span class="op">=</span> 0<span class="op">;</span>
+
+    while i <span class="op"></span> maxVeri<span 
+    class="op">:</span>
+
+        print<span class="op">(</span><span class="str">'\n'</span>,
+<span class="str">' Sayın \n '</span><span class="op">,</span> arkadaş<span 
+    class="op">[</span>i<span class="op">] ,</span> <span 
+    class="str">', \n'</span><span class="op">,</span>
+<span class="str">''' {0:25} den itibaren başlayacak olan
+  {1:3} partimize, lütfen katılmanızı rica ederim.
+  Saygılarımla,
+     Bedri Doğan Emir '''</span><span class="op">.</span>format<span 
+    class="op">(</span>tarih, parti<span class="op">));</span>
+
+        i <span class="op">=</span> i <span class="op">+</span> 1<span 
+    class="op">;</span>
+
+
+def main<span class="op">():</span>
+
+    arkadaşListesi(<span class="str">'2 Ocak 2015 günü, saat 15.00'</span><span 
+    class="op">,</span> <span class="str">'Çay'</span><span 
+    class="op">,</span>
+       <span class="str"> 'Tülin Özer'</span><span 
+    class="op">,</span> <span class="str">'Güler Karbeyaz'</span><span 
+    class="op">,</span>
+        <span class="str">'Fortune Behar'</span><span 
+    class="op">,</span> <span class="str">'Andonis Karaoğlu'</span><span 
+    class="op">);</span>
+
+if __name__ <span class="op">==</span> '__main__'<span 
+    class="op">:</span>
+
+    main<span class="op">();</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+
+
+  Sayın 
+  Tülin Özer , 
+  2 Ocak 2015 günü, saat 15.00 den itibaren başlayacak olan
+  Çay partimize, lütfen katılmanızı rica ederim.
+  Saygılarımla,
+     Bedri Doğan Emir 
+
+  Sayın 
+  Güler Karbeyaz , 
+  2 Ocak 2015 günü, saat 15.00 den itibaren başlayacak olan
+  Çay partimize, lütfen katılmanızı rica ederim.
+  Saygılarımla,
+     Bedri Doğan Emir 
+
+  Sayın 
+  Fortune Behar , 
+  2 Ocak 2015 günü, saat 15.00 den itibaren başlayacak olan
+  Çay partimize, lütfen katılmanızı rica ederim.
+  Saygılarımla,
+     Bedri Doğan Emir 
+
+  Sayın 
+  Andonis Karaoğlu , 
+  2 Ocak 2015 günü, saat 15.00 den itibaren başlayacak olan
+  Çay partimize, lütfen katılmanızı rica ederim.
+  Saygılarımla,
+     Bedri Doğan Emir 
+ 
+    </span></pre>
+    <p class="indent">
+      Bir önceki programdaki açıklamalara, bu program için eklenecek 
+      yeni bir konu bulunmamaktadır. Bu yeni programda uygulanan 
+      yöntem, bir öncekine göre, çok daha fazla esneklik sunuyor. 
+      Sonuçların biçimlendirilmesi, bu tür mesajların kolayca 
+      düzenlenebildiğini ortaya koymaktadır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders13.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders15.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:46 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

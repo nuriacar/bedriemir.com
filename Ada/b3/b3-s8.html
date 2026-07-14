@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:19 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s8.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 8</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s7.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s9.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+</p>
+		<p class="chapter">
+			Öntanımlı Gerçek Sayı Veri Tipleri
+	</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 8
+</p>
+		<p class="subheading" id="fixed">3.3.7 - Sabit Ondalıklı (Fixed Point) Tipler</p>
+		<p class="indent">
+			<a href="../b2/b2-s2.html#veri">Ada veri sistemi</a>, iki 
+			türlü gerçek sayı (Real) veri tipi tanımlar, Bunlar Float ve Fixed gerçek sayı veri tipleridir. 
+			Float veri tipi hakkında <a href="../b2/b2-s3.html#st">Standard Pakette </a>
+			geniş bir tanım olmasına karşın, sabit ondalıklı tipler hakkında aşağıda görülen çok kısa 
+			bir bilgi bulunmaktadır.
+		</p>
+	<div class="Examples-Maroon">
+			-- The type universal_fixed is predefined.<br />
+			-- The only multiplying operators defined between<br />
+			-- fixed point types are<br />
+			function &quot;*&quot; (Left : universal_fixed; Right : universal_fixed)<br />
+			return universal_fixed;<br />
+			function &quot;/&quot; (Left : universal_fixed; Right : universal_fixed)<br />
+			return universal_fixed;<br />
+			<br />
+			type Duration is delta implementation-defined range implementation-defined;<br />
+		-- The predefined operators for the type Duration are the same as for<br />
+		-- any fixed point type.
+	</div>
+		<p class="indent">
+			Bu bilgilerden sabit ondalıklı gerçek sayı tipleri için, Standard pakette fazla bir tanım
+			yapılmadığı görülmektedir. Aslında buna gerek de yoktur. Gerek sabit ondalıklı tipler,
+			gerekse Float veri tipi aynı gerçek sayı (Real)ailesinden veri tipleridir. Float tipi için tanımlanan
+			işlemciler aynen sabit ondalıklı (Fixed) tipler için de geçerlidir.
+		</p>
+		<p class="indent">
+			Standart paketteki tanımdan, sabit ondalıklı gerçek sayı veri tipi için sacede Duration adlı bir
+			öntanımlı veri tipi tanımlandığı görülmektedir. Bu veri tipi aslında tüm sayısal çalışmalar için 
+			kullanılabilir, fakat bir konvansiyon olarak sadece geçen süre ile ilgili çalışmalarda
+			uygulanmaktadır. Bu nedenle, kullanıcılar, kendi gereksinmeleri için, gerekli sabit ondalıklı 
+			sayı veri tiplerini kendileri yaratıp uygulamak zorundadır. Bunun çok kolaylıkla gerçekleştirilebileceğini
+			kendimiz uygulayarak göreceğiz.
+		</p>
+		<p class="indent">
+			<a href="../b2/b2-s2.html#veri">Ada veri sistemi</a> iki türlü sabit ondalıklı gerçek sayı veri
+			tipi tanımlamaktadır. Bunlar, adi sabit ondalıklı gerçek sayı veri tipi ve desimal sabit ondalıklı
+			veri tipidir. 
+		</p>
+	<p class="indent">
+		Sabit Ondalıklı veri tiplerinin tanıtımları:
+</p>
+		<p class="Examples-Maroon">
+			fixed_point_definition ::= ordinary_fixed_point_definition | decimal_fixed_point_definition<br /><br />
+			ordinary_fixed_point_definition ::= <span class="keyw">delta</span> 
+				<em>static</em> expression real_range_specification<br /><br />
+			decimal_fixed_point_definition ::= <span class="keyw">delta</span> <em>static</em> expression <span class="keyw">digits</span> static expression [real_range_specification]<br /><br />
+			digits_constraint ::= <span class="keyw">digits</span> <em>static</em> expression [range_constraint]<br />
+</p>
+		<p class="indent">
+			şeklinde gerçekleştirilir.
+		</p>
+		<p class="indent">
+			Sabit ondalıklı tipler, delta adı verilen bir eşiğin katları olarak düzenlenmiş
+			veri tipleridir. Float tipi ile sabit ondalıklı tipler aralarındaki fark ilkinin
+			göreli, ikincisinin mutlak doğruluk (accuracy) taşımasıdır. Hatırlandığı gibi, Float veri tipinde, 
+			eşik değişken, bağıl hata yaklaşık sabit iken, sabit ondalıklı tiplerde, esşik sabit, 
+			bağıl hata değişkendir. Sabit ondalıklı tiplerde bağıl hata küçük sayılarda yüksek, büyük sayılarda 
+			düşüktür ve bu yüzden sabit ondalıklı sayılar ile matematik ifadelerin hesaplanması
+			avantajlı bulunmamamaktadır. 
+		</p>
+		<p class="indent">
+			Sabit ondalıklı tip (ordinary fixed point) tipinde <span class="keyw">delta</span> saklı sözcüğü 
+			ile belirlenen bir doğruluk sayısı (eşik) ve <span class="keyw">range</span> saklı sözcüğü ile 
+			belirlenen tanım aralığı bulunur. Burada <span class="keyw">delta</span>
+			her gerçek sayı tipi değer olabilir. 
+		</p>
+	<p class="indent">
+			Decimal tip olarak adlandırılan ikinci tipin doğruluk belirleyicisi, <span class="keyw">digits</span> 
+			saklı sözcüğü	ile belirlenen ondalık sayısıdır. Burada <span class="keyw">digits</span> saklı 
+	sözcüğünün değeri bir tamsayıdır. Adi sabit ondalıklı tiplerde <span class="keyw">range</span>
+			belirlemesi zorunlu iken, desimal tipler için isteğe bağlıdır.
+		</p>
+		<p class="indent">
+			Tüm sabit ondalıklı tipler, <em>small</em> adı verilen bir sayının tamsayı katlarıdır.
+			Bu değer, normal sabit ondalıklı tipler için, tipin <span class="keyw">delta</span> 
+			değerinden büyük olamaz. Desimal tipler için ise, <span class="keyw">delta</span>
+			değerine eşittir. Eğer başkaca bir değer belirtilmemişse, normal sabit ondalıklı tipler 
+			için <em>small</em> değeri 2 nin <span class="keyw">delta</span> değerinden az
+			veya ona eşit üsleridir. Desimal tiplerin <em>small</em> değerleri 10 nun üsleri olarak
+			tanımlanmıştır. Eğer bir <span class="keyw">range</span> değeri belirlenecekse,
+			bu aralığın her iki ucu,
+		</p>
+		<p class="indent">
+			–(10**D–1)*delta .. +(10**D–1)*delta
+		</p>
+		<p class="indent">
+			bağıntısını doğrulayan değerler arasında olmalıdır. Burada D belirtilen digits sayısı veya 
+			bu sayıyı veren statik ifadenin sonucudur. Tanımlanan bir desimal tipi, donanım
+			desteklemezse, tanım geçerli kabul edilmez. Sabit ondalıklı sayıların tanıtımında 
+			tutulalabilecek en sağlıklı yol, gerekli değerlerin denenerek donanımın 
+			destekleyebildiklerinin uygulanması şeklinde olabilir.
+		</p>
+		<p class="indent">
+			Normal sabit ondalıklı tipler, aritmetik işlemler için çok avantajlı değildir. Bu yüzden
+			kayan noktalı, aritmetiği destekleyen donanımlarda Float tipi tercih edilir. Günümüzde
+			normalde tüm donanımlar kayan noktalı aritmetiği destekleyebildikleri için, normal 
+			sabit ondalıklı tipler, günümüzde ancak özel durumlarda uygulama alanı bulabilmektedir.
+			Desimal tipler ise, muhasebe işlemleri için avantajlı olduklarından bu alanda geniş ölçüde
+			uygulanmaktadır.
+		</p>
+		<p class="indent">
+			Öntanımlı tek sabit ondalıklı veri tipi Duration tipidir. Duration bir adi sabit ondalıklı tiptir ve 
+			gerek digits gerekse <span class="keyw">range</span> değerleri yerleşime bağlı 
+			(Implementation Defined) olarak tanımlanmıştır. Duration veri tipinden nesneler, saat, tarih 
+			çalışmaları için yapılan uygulamalarda kullanılır. 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>,
+			 öntanımlı Duration adi sabit ondalıklı veri tipinin bir tam günü kapsayacak pozitif ve negatif en
+			 az 86400 saniyeyi kapsaması gerektiğini belirtmektedir. Duration'Small 20 milisaniyeden daha yüksek
+			 olmayacaktır. GNAT 2012 RM de Duration'Small değerinin 100 milisaniyenin üzerinde olmayacağı
+			 belirtilmiştir ve Duration'Small = 10**(-9)) olarak açıklanmıştır. Duration öntanımlı adi sabit ondalıklı
+			 veri tipinin çalıştığımız sistemdeki yerleşim değerleri biraz ileride sorgulanacaktır.
+		</p>
+		<p class="indent">
+			Adi sabit ondalıklı tiplerin konsol görüntülerinin sağlanabilmesi için, Ada_Text_IO öntanımlı paketinde,
+			 Ada.Text_IO.Fixed_IO alt paketinin örneklenmesi ile özgün bir giriş/çıkış paketi yaratılması gerekir.
+		</p>
+		<p class="indent">
+			Aynı şekilde, Decimal sabit ondalıklı tiplerin konsol görüntülerinin sağlanabilmesi için, Ada_Text_IO 
+			öntanımlı paketinde	Ada.Decimal_IO adında öntanımlı bir alt paket sağlanmıştır. Kullanıcılar, bu paketin 
+			kendi veri tipleri için örneklenmesi ile özgün bir giriş çıkış paketi yaratabilirler.</p>
+		<p class="subheading" id="universal-fixed">3.3.7.1 - Universal_Fixed</p>
+		<p class="indent">
+			Standart pakette tanımlanmış olan Universal_Fixed veri tipi tam olarak
+			kuramsal bir tiptir ve kullanıcıların bu veri tipine erişimi yoktur.
+		</p>
+		<p class="subheading" id="ordinary-fixed">3.3.7.2 - Adi Sabit Ondalıklı Tipler</p>
+		<p class="indent">
+			Öntanımlı bir adi sabit ondalıklı tip yoktur. Kullanıcılar bu veri tipini kendi
+			gereksinmelerine göre özgün olarak tanımlayıp uygulamaları gerekmektedir.
+			 Aşağıda görülen <a href="../uygulamalar/b3_3_7_2_uyg_1.html">prosedürde</a>, 
+			 adi sabit ondalıklı bir veri tipi tanımlanmıştır.
+		</p>
+<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_2_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">2.0</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">0.00</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1000.00</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Sabit_Ondalık_IO</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Fixed_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>x<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">constant</span><span class="S0"> &nbsp;</span><span class="S11">Sabit_Ondalık</span><span class="S0"> &nbsp;</span><span class="S4">:=</span><span class="S0"> </span><span class="S3">7.2</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Veri<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Verinizi Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Girilen Veri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Veri + 2.0 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>veri<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">2.0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sabit = 7.2 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>x<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sabit = 7.2 + 2.0 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>x<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">2.0</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_2_uyg_1<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">Lütfen Verinizi Giriniz : 7.2</span>
+
+<span class="pl-25 green">Girilen Veri :     8.0</span>
+
+<span class="pl-25 green">Veri + 2.0 Değeri:     10.0</span>
+
+<span class="pl-25 green">Sabit = 7.2 Değeri:     6.0</span>
+
+<span class="pl-25 green">Sabit = 7.2 + 2.0 Değeri:     8.0</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_7_2_uyg_1.html">prosedürde</a>, alınan sonuçlar,
+			hiç hoş değildir ve bilgisayarlarla çalışılırken son derece dikkatli olunması için uyarı niteliğinde sayılmalıdır. 
+			Öncelikle, tanımlı olan Sabit_Ondalık adi sabit ondalıklı veri tipindeki değerler, 0.0 , 2.0 , 4.0 , 6.0 , 
+			8.0 , 10.0 kümesi içinde olan sayılardır. Küme içindeki elemanlar, başlangıç : 0.0 , ilk eleman : 
+			2.0 x 1 = 2.0, ikinci eleman : 2. 0 x 2 = 4.0,  üçüncü eleman : 2.0 x 3 = 6.0, dördüncü 
+			eleman :  2.0 x 4 = 8.0, beşinci eleman : 2.0 x 5 = 8.0 ... şeklinde oluşmaktadır. Bu küme başka 
+			bir sayı içermemektedir ve eğer bir değer Sabit_Ondalık kümesi içinde tanımlı olacaksa, 
+			küme içindeki sayılardan birisine yuvarlatılması gerekecektir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_7_2_uyg_1.html">prosedürde</a>, alınan sonuçlar,
+			bu durumda, tanımlı Sabit_Ondalık kümesi içine yerleştirilme aşamasında, gerçek değer ve 
+			makine değeri arasında kaçınılmaz bir farklıılk yaşanmakta ve elimizdeki örnek gibi, gerçek değer 
+			ve yerleştirilecek değerler arasında dengenin iyi tutturulamamış olduğu sistemlerde, doğruluk
+			(accuracy) kaybı ortaya çıkmaktadır. Bunun çaresi, gerçekleşek değerlere uygun olabilecek sabit
+			 ondalıklı sistemlerin oluşturulmasıdır. 
+		</p>
+		<p class="indent">
+			Yine yukarıdaki <a href="../uygulamalar/b3_3_7_2_uyg_1.html">prosedürde</a>, alınan sonuçlar,
+			sabit değerin (<span class="keyw">constant</span>) ile verinin aynı değerde olmasına karşın farklı
+			küme elemanlarına adapte edilmiş olmasıdır. Bu iki değerin, adapte edilmiş değerleri ile yapılan
+			aritmetik toplama işlemi beklenenden çok farklı sonuç vermektedir. Bunun nedeni, sabit sayıların
+			ve değişkenlerin makine sayıları oluşturulurken farklı algoritmalar kullanılmış olmasından kaynaklanabilir.
+			Buradaki esas sorun, oluşturulmuş olan veri sisteminin eldeki verilere uygun olmamasıdır. Bu durum,
+			aşağıda görülen <a href="../uygulamalar/b3_3_7_2_uyg_2.html">prosedürde</a> düzeltilmeye çalışılmıştır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_2_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">0.1</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">0.00</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1000.00</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Sabit_Ondalık_IO</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Fixed_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>x<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">constant</span><span class="S0"> &nbsp;</span><span class="S11">Sabit_Ondalık</span><span class="S0"> &nbsp;</span><span class="S4">:=</span><span class="S0"> </span><span class="S3">7.2</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Veri<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Verinizi Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Girilen Veri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Veri + 2.0 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>veri<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">2.0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sabit = 7.2 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>x<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sabit = 7.2 + 2.0 Değeri: "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>x<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">2.0</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_2_uyg_2<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">Lütfen Verinizi Giriniz : 7.2</span>
+
+<span class="pl-25 green">Girilen Veri :     7.2</span>
+
+<span class="pl-25 green">Veri + 2.0 Değeri:     9.2</span>
+
+<span class="pl-25 green">Sabit = 7.2 Değeri:     7.2</span>
+
+<span class="pl-25 green">Sabit = 7.2 + 2.0 Değeri:     9.2</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_7_2_uyg_2.html">prosedürde</a>, 
+			durumun düzeldiği açıkça görülmektedir. Burada, <span class="keyw">delta</span>
+			değeri 0.1 değerine indirilmiş, Oluşturulan değerler kümesindeki değerler ile, 
+			verilerin uyumu sağlanmıştır. Değerler kümesindeki verilere yakın elemanlar, 
+			7.0 , 7.1 , 7.2 , 7.3 ... değerindedir ve verilerin değerler kümesine yerleştirilmesi sırasında 
+			bir doğruluk (accuracy) kaybı yaşanması olasığı kalmamıştır. 
+		</p>
+		<p class="indent">
+			Sabit ondalıklı sayılar, <em>small</em> adı verilen ve <span class="keyw">delta</span>
+			değerinden küçük veya eşit olan bir sayının katları olarak oluşurlar. Serinin ilk ve son elemanları,
+			serinin diğer elemanlarından sadece <em>small</em> değeri kadar az veya çok olabilirler. 
+			GNAT 2012 derleyicisinde <em>small</em> değeri 2<sup>+/- tamsayı</sup> şeklinde
+			olabilir. Derleyici, <span class="keyw">for</span>T'Small <span class="keyw">use</span> 0.01
+			şeklinde 2nin üsleri yerine 10 temeline göre <em>small</em> düzenlenmesine zorlanabilrise de bu gibi,
+			derleyicinin çalışmasını etkileyecek düşük düzeyli düzenlemelerin, ancak gerektiği zaman ve
+			konuyu iyi bilen kullanıcılar tarafından yapılmasının daha uygun olacağı uyarısı yapılmaktadır.
+			Çoğunlukla, konudan uzak kullanıcıların yapacakları alçak düzey düzenlemelerin yararsız ve 
+			yan etkilerinin iyi hesaplanamaması nedeni ile tehlikeli olabileceği de hatırda tutulmalıdır.
+		</p>
+		<p class="indent">
+			Günümüzde GNAT 2012 derleyicisinin normal olarak yerleşimi 32 bit lik sistemlerdedir. 
+			Bu sistemlerde <em>small</em> değerinin 10<sup>-10</sup> kadar düşük
+			değerlerle tanımı olasılığı bulunmaktadır. Burada unutulmaması gereken gerçek,
+			<em>small</em> değerinin kapsam alanı ile antagonist olarak çalışmasıdır.
+			Düşük <em>small</em> değerleri, dar bir kapsam alanına neden olacaktır. 
+			Bu nedenle, sonuçların hesaplanabileceği kapsam alanını elde etmek ve hesapların
+			gerektirdiği duyarlığın sağlanması için bir optimizasyonun sağlanması gereklidir.
+			Çalıştığımız,x86 işlemcisi üzerinde çalışan 64 bit Windows 7 sistemi üzerinde 
+			yerleşmiş GNAT 2012 derleyiciisinde ulaşabildiğimiz bazı ekstrem değerler aşağıda görülmektedir:
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">type</span>  Sabit_Ondalık  <span class="keyw">is</span> <span 
+		class="keyw">delta</span> 1.0E-14 <span class="keyw">range</span> -1.0E4 ..1.0E4;
+
+<span class="keyw-25">type</span>  Sabit_Ondalık  <span class="keyw">is</span> <span 
+		class="keyw">delta</span> 1.0E-13 <span class="keyw">range</span> -1.0E5 ..1.0E5;
+		
+<span class="keyw-25">type</span>  Sabit_Ondalık  <span class="keyw">is</span> <span 
+		class="keyw">delta</span> 1.0E-12 <span class="keyw">range</span> -1.0E6 ..1.0E6;
+		
+<span class="keyw-25">type</span>  Sabit_Ondalık  <span class="keyw">is</span> <span 
+		class="keyw">delta</span> 1.0E-11 <span class="keyw">range</span> -1.0E7 ..1.0E7;
+		 </pre>
+		 <p class="nonindent">
+			Belitilmiş olduğu gibi, bunlar ekstrem değerlerdir ve gerçekte çok daha düşük duyarlıklar
+			gerekli olmakta ve çok daha geniş kapsam alanları sağlanabilmektedir. Doğal olarak 
+			denemeler yapılması ile, sonuçlların yaklaşık değerleri bulunarak, daha dar kapsam
+			alanları ve yüksek duyarlıklarla çalışma olanağı da olabilir.
+		</p>
+		<p class="indent">
+			Sabit ondalıklı veri sisteminin matematik ifadelerde az kullanıldığı gerçektir. Bunun nedeni,
+			bu veri tipinin eksponent işlemcisi içermemesi yanında, Float sisteminin, hem kapsam
+			hem de duyarlık açısından daha üstün olduğu için, matematik çalışmalarda sabit ondalıklı
+			sistemin kullanımına gerek olmamasıdır.
+		</p>
+		<p class="indent">
+			Aşağıdaki ilk <a href="../uygulamalar/b3_3_7_2_uyg_3.html">prosedürde</a> bir algoritma,
+			önce makinenin verebileceği en yüksek duyarlık ve 	kapsam alanını sağlayabilen Long_Long_Float 
+			veri tipi kullanılarak, ikinci <a href="../uygulamalar/b3_3_7_2_uyg_4.html">prosedürde</a> ise, 
+			aynı algoritma sabit ondalıkta ve sonucu içerebilecek en dar kapsam alanı ile en yüksek duyarlık 
+			içeren bir tip ile hesaplanmış ve sonuçlar karşılaştırılmıştır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_2_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Veri<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S4">;</span>
+
+<span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>veri<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">((</span><span class="S3">16.9E-3</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S3">25.0</span><span class="S4">)/</span><span class="S0"> </span><span class="S4">(</span><span class="S3">1.0E-4</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">25.8</span><span class="S0"> </span><span class="S4">*</span><span class="S3">3.0E5</span><span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S3">1.0E6</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">0.000016</span><span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1.05663</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">4.5E6</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sonuç : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_2_uyg_3<span class="S4">;</span>
+
+
+Bu Prosedürün Sonucu, 
+
+<span class="pl-25 green">Sonuç : 245711.4772</span>
+
+olmuştur.
+		</pre>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_2_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">1.0E-12</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">1.0E4</span><span class="S0"> </span><span class="S4">..</span><span class="S3">1.0E6</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Sabit_Ondalık_IO</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Fixed_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sabit_Ondalık</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>veri<span class="S0"> </span><span class="S4">:</span><span class="S11">Sabit_Ondalık</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>veri<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">((</span><span class="S3">16.9E-3</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S3">25.0</span><span class="S4">)/</span><span class="S0"> </span><span class="S4">(</span><span class="S3">1.0E-4</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">25.8</span><span class="S0"> </span><span class="S4">*</span><span class="S3">3.0E5</span><span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S3">1.0E6</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">0.000016</span><span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1.05663</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">4.5E6</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sonuç : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sabit_Ondalık_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Veri<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_2_uyg_4<span class="S4">;</span>
+
+Bu Prosedürün Sonucu,
+
+<span class="pl-25 green">Sonuç : 245709.1809</span>
+
+olmuştur.
+		</pre>
+		<p class="indent">
+			İki prosedürün verdiği sonuçlar arasında farklılık olduğundan, aynı algoritma 17 ondalık ile
+			Long_Long_Float veri tipine yakın işlem yapabilen MathCad 14 ile kontrol edilmiş ve ilk
+			prosedür ile aynı sonuç bulunmuştur. Bu durumda, Sabit ondalıklı veri sistemi, Float sistemine göre,
+			hem daha dar kapsam alanlı, hem daha küçük duyarlıklı olduğu, üstelik verdiği sonuçalrın
+			hata paylarının daha büyük olduğu açıklıkla görülmüştür. İlk prosedürde, Long_Long_Float
+			yerine Float dahi kullanılsa yine sabit ondalıklı sistemden daha iyi sonuç alınabilmektedir.
+			Bu durumda, matematiksel ifadelerin hesaplanması için, sabit ondalıklı veri sisteminin
+			kullanılması için bir neden olmadığı  söylenebilir. Bu nedenle, matematiksel hesaplamalarda hemen daima 
+			Float sistemi kullanılır.
+	</p>
+		<p class="indent">
+			Sabit ondalıklı veri sistemi toplama çıkarma işlemlerinde daima doğru (yaklaşık olmayan)
+			sonuçlar verdiği için, en çok muhasebe, stok kontrol gibi alanlarda kullanılır.
+		</p>
+		<p class="subheading" id="decimal-fixed">3.3.7.3 - Desimal Sabit Ondalıklı Tipler</p>
+		<p class="indent">
+			Desimal sabit ondalıklı tipler aynı adi sabit ondalıklı tipler gibidir,sadece <span class="keyw">delta</span>
+			değerleri 2 değil 10 sayısının üslerine göre belirlenir.Ayrıca,desimal tiplerin tanımında
+			duyarlılık ondalık sayısı olan <span class="keyw">digits</span> de belirtilmelidir. Bu şekilde aynı zamanda tipin
+			duyarlık ondalık sayısı da tanımla birlikte belirlenmiş olur. Tanımından da görülebileceği gibi, desimal tiplerin
+			tanımında kapsam aralığının belirtilmesi isteğe bağlıdır ve çoğunlukla boş geçilir.
+		</p>
+		<p class="indent">
+			Desimal sabit ondalıklı tiplerin değerleri gerektiğinde daima sıfıra yakın olacak şekilde yuvarlatılır. 
+			Desimal sabit ondalıklı tipler, adi sabit ondalıklı tiplerde daha avantajlı olmalarına rağmen yine de
+			matematiksel hesaplarda kullanımları yeterince avantajlı değildir. Bunun yerine, muhasebe istemlerinde,
+			stok kontrol çalışmalarında, hastahane-eczane sitemlerinde, maaş bordroları, personel kayıtlarında,
+			olağanüstü kullanışlı olurlar. Bu veri tiplerinin kullanımları için çeşitli öntanımlı programlar, 
+			Information Systems Annex de verilmiştir. Burada bu tiplerin sadece tanıtımları yapılacaktır.
+		</p>
+		<p class="indent">
+			  Aşağıda görülen <a href="../uygulamalar/b3_3_7_3_uyg_1.html">prosedürde</a>, desimal bir
+				tipin tanıtımı ve uygulanması yapılmıştır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_3_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span>Desimal<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">0.01</span><span class="S0"> </span><span class="S1">digits</span><span class="S0"> </span><span class="S3">14</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>Desimal_IO<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Decimal_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Desimal<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Saat_Ücreti</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> &nbsp;</span><span class="S1">constant</span><span class="S0"> </span>Desimal<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">30.86</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Ödenecek_Ücret</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Desimal<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Haftalık_Saat_Sayısı</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">50</span><span class="S0"> </span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Çalışılan_Saat</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Haftalık_Saat_Sayısı</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Haftalık Çalışılan Saati, &nbsp;0 ile 50 Arası Bir Tamsayı Olarak Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Integer<span class="S4">(</span><span class="S11">Çalışılan_Saat</span><span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Ödenecek_Ücret</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Integer<span class="S4">(</span><span class="S11">Çalışılan_Saat</span><span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S11">Saat_Ücreti</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Haftalık Çalışılan Saat : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">62</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Integer<span class="S4">(</span><span class="S11">Çalışılan_Saat</span><span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Saat Ücreti (TL.Krş) : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">67</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Desimal_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Saat_Ücreti</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Ödenecek Ücret (TL.Krş) : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">60</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Desimal_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Ödenecek_Ücret</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_3_uyg_1<span class="S4">;</span>
+
+Bu Prosedürün Sonucu :
+
+<span class="pl-25 green">Haftalık Çalışılan Saat :                            10</span>
+<span class="pl-25 green">Saat Ücreti (TL.Krş) :                         30.86</span>
+<span class="pl-25 green">Ödenecek Ücret (TL.Krş) :                308.60</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki prosedürde, açıklanacak birçok nokta bulunmaktadır. İlk olarak,
+			prosedürde kullanıcı tanımlı özgün bir tip olan Haftalık_Saat_Sayısı veri tipi
+			üzerinde durulacaktır. Kullanıcıya özel özgün tiplerin tanıtımı kısa süre sonra 
+			incelenecektir. Fakat, burada ilk bir tanıtım örneği verilmektedir.
+			Haftalık_Saat_Sayısı bir tip değil bir alt tiptir, çünkü tipler isimsiz (anonim) alt 
+			tipler isimli olurlar. Her veri tipinin ilk alttipi kendisidir. Tipler kısıtsız (unconstrained) 
+			iken alt tipler daima kısıtlıdır. Haftalık_Saat_Sayısı, bir tamsayı tipinin isimli alt 
+			tipidir. Haftalık_Saat_Sayısı alt tipinin temel tipinin özelliklerine Haftalık_Saat_Sayısı'Base 
+			niteliği ile erişilebilir. Haftalık_Saat_Sayısı alt tipinin temel tipi, Haftalık_Saat_Sayısı'Base 
+			kapsam sınırı, donanımın 32 bit genişliğinde Tamsayı tiplerine verdiği,
+			-2<sup>31</sup> (=-2147483648) .. 2<sup>31</sup>-1 (= 2147483647) 
+			kapsamında olabilir. Haftalık_Saat_Sayısı alt tipinde ise sadece haftalık çalışma saati için 
+			gereksinme olacak kadar 0 ..50 (saat) kapsam aralığı verilmiştir. Bu şekilde, 
+			gereksinmelere uygun veri tipleri oluşturularak, veri yanlışlılklarından korunma 
+			sağlanması amaçlanmaktadır. 
+		</p>
+		<p class="indent">
+			Haftalık_Saat_Sayısı veri tipi bir tamsayı veri tipidir fakat Integer veri tipi
+			ile bir ilgisi yoktur. Bir Integer alt tipi olarak tanımlanmamıştır. Integer veri
+			tipi için tanımlanmış kolaylıklardan yararlanamaz. Örnek olarak Ada.Integer_Text_IO
+			öntanımlı paketinden yararlanılarak görüntülenemez. Fakat, bu bir tamsayı tipidir ve
+			tamsayı tipleri ile uyumludur. Haftalık_Saat_Sayısı veri tipinden bir X nesnesi, 
+			Integer(X) şeklinde, Integer veri tipine dönüştürülebilir ve böylece Integer veri
+			tipi için tanımlı kolaylıklardan yararlananabilme ayrıcalığı elde eder. Örnek olarak,
+			 Ada.Integer_Text_IO öntanımlı paketinden yararlanılarak görüntülenebilir.
+		</p>
+		<p class="indent">
+			Haftalık_Saat_Sayısı veri tipi aşağıdaki gibi, bir Integer veri tipi alt tipi olarak 
+			da tanımlanabilirdi :
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">subtype</span> Haftalık_Saat_Sayısı <span 
+			class="keyw">is</span> Integer <span class="keyw">range</span> 0 ..50;
+		</pre>
+	<p class="nonindent">
+			Bu şekilde yine 0 .. 50 arası tanımlı olur ve Integer veri tipi için öntanımlı 
+			kolaylıklardan yararlanabilirdi. Fakat bu şekilde yapılmamış ve ayrı bir özgün tamsayı
+			tipi yaratma yoluna gidilmiştir. Bu durumda, nesnelerinin Integer veri tipi için öntanımlı 
+			kolaylıklardan yararlanabilmeleri için, açık (explicit) bir veri tipi dönüştürümesi ile 
+			Integer veri tipine dönüştürülmeleri gerekli olmuştur.
+</p>
+		<p class="nonindent">
+			Haftalık_Saat_Sayısı veri tipi özgün ve bağımsız bir tamsayı veri olduğundan,
+			görüntülenmesi için, Ada.Text_IO.Integer_IO alt paketinden (<a href="../b2/b2-s3.html#T_O">bk 2.17</a>
+			yararlananarak aynen sayılabilir veri tipilerinde yaptığımız gibi, 
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">package</span> Saat_IO<span 
+			class="keyw">is new</span> Ada.Text_IO.Integer_IO(num => Haftalik_Saat_Sayısı);
+		</pre>
+		<p class="nonindent">
+			yeni bir giriş/çıkış paketi tanımlanarak, Haftalik_Saat_Sayısı nesnelerinin giriş/çıkışı sağlanabilirdi, fakat, 
+			böyle yeni bir özgün paket örneği yaratılmaktansa, Haftalik_Saat_Sayıs nesnelerini açık dönüştürme
+			ile Integer veri tipine dönüştürülüp, giriş/çıkışlarının sağlanması yoluna gidilmiştir. Her iki 
+			yöntem de geçerlidir ve kullanıcının tercihine bağlıdır. Sonuçta amaç, Haftalik_Saat_Sayısı tipinde
+			nesnelerin giriş/çıkışlarının sağlanabilmesidir.
+		</p>
+		<p class="indent">
+			Sabit ondalıklı tiplerin nesneleri, Integer tipleri ile çarpılıp bölünebilirler. Bu özellikleri, idari işlerde 
+			kullanılmalarının bir başka gerekçesidir. Fakat, Haftalık_Saat_Sayısı veri tipi nesneleri Integer veri tipinin
+			veya Integer veri tipinin alt tiplerinin nesneleri değildir. Haftalik_Saat_Sayısı veri tipi, özgün ve 
+			bağımsız bir tamsayı veri tipidir. Integer veri tipi ile ilgisi yoktur ve Integer tipinde nesnelerin kullanılabildiği
+			sabit ondalıklı sayıların çarpım veya bölüm işlemlerinde işlenen olarak kullanılamaz. Bunun için
+			Haftalık_Saat_Sayısı veri tipindeki nesnelerin Integer veri tipi nesnelerine dönüştürülmeleri
+			gereklidir ve yukarıdaki <a href="../uygulamalar/b3_3_7_3_uyg_1.html">prosedürde</a> 
+			de bu yöntem uygulanmıştır.
+		</p>
+		<p class="subheading" id="fixed-attrs">3.3.7.4 - Sabit Ondalıklı Veri Tiplerine Uygulanabilen Nitelikler</p>
+		<p class="indent">
+			Sabit ondalıklı veri tipleri, gerçek sayı veri tipleridir. Bu veri tipleri, skaler, veri tipleridir. Ayrıca,
+			bu veri tiplerinin ayrık ve sayılabilir karakterleri daha çok vurgulanmıştır. Bu nedenle, tüm skaler, 
+			sayılabilir ve ayrık verilere uygulanabilen nitelikler sabit ondalıklı verilere uygulanabildiği gibi, 
+			salt sabit ondalıklı verilere uygulanabilir nitelikler de bulunmaktadır. Bunlar sırası ile incelemeye 
+			çalışacağız.
+		</p>
+		<p class="indent">
+			İlk incelemeye çalışacağımız nitelik, S'Delta olacaktır. Bu nitelik, tanımlanmış olan sabit 
+			ondalıklı bir alt tip için,  delta değerini universal_real tipinde döndürür. Bu niteliğin tanımı,
+			aşağıda görülmektedir.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Delta</span> : <span class="pl-15">Aşağıdaki yöntemle hesaplanır:</span></li>
+			<li>Her S sabit ondalıklı alt tipi için,</li>
+			<li>bu nitelik delta değerini verir.</li>
+			<li>Bu niteliğin değeri, universal_real tipindedir.</li>
+		</ul>
+		<p class="indent">
+			  Aşağıda görülen <a href="../uygulamalar/b3_3_7_4_uyg_1.html">prosedürde</a>, S'Delta
+				niteliğinin sorgulandığı bir uygulama görülmektedir.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_4_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span>Desimal<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">1.0E-2</span><span class="S0"> </span><span class="S1">digits</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">10.0</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S4">+</span><span class="S3">10.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"delta değeri : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Desimal<span class="S4">'</span><span class="S1">Delta</span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_4_uyg_1<span class="S4">;</span>
+
+Bu Prosedürün Sonucu :
+
+<span class="pl-25 green">delta değeri : 1.0000E-2</span>
+
+olmaktadır.
+		</pre>
+	<p class="indent">
+			Eğer bir alt tip <span class="keyw">delta</span> değeri olmadan tanımlanmışsa,
+			o alt tipin <span class="keyw">delta</span> değeri, baz tipin <span class="keyw">delta</span>
+			değerine eşittir.
+	</p>
+	<p class="indent">
+			Bir sabait ondalıklı tipin <span class="keyw">digits</span> değeri, S'Digits nitelik değeri 
+			ile sorgulanabilir. Bu nitelik aşağıda açıklanmıştır.
+	</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Digits</span> : <span class="pl-15">Her</span> S sabit ondalıklı bir 
+				desimal alt tip için, S'Digits niteliği, bu alt tipin nesnelerinin temsil</li> 
+			<li>edebileceği ondalık sayısını döndürür. </li>
+			<li>Bu niteliğin değeri universal_integer tipindededir ve Aşağıdaki yöntemle hesaplanır:</li>
+				<ul class="list">
+					<li>İçinde <span class="keyw">digits</span> kısıtı bulunan bir alt tipin tanımında,
+					<span class="keyw">digits</span> saklı <br />
+					sözcüğünün hemen ardında bulunan değer, veya sonucu<br />
+				  bu değer olan bir statik ifadenin sonucu ile,	</li>
+					<li>İçinde <span class="keyw">digits</span> kısıtı bulunmayan bir alt tipin tanımında,<br />
+					<span class="keyw">subtype</span> olarak tanımış olduğu tipin <span class="keyw">digits</span> sayısından,</li>
+					<li>Baz alt tipin (her tipin ilk tipi kendisidir) <span class="keyw">digits</span> değeri, <br />
+					-(10**D-1)*delta .. (10**D-1)*delta<br />
+					kapsam aralığının, temel tipin kapsam aralığında kalabilmesi <br />
+					için en yüksek D (<span class="keyw">digits</span>) değeridir.</li>
+				</ul>
+		</ul>
+	<p class="indent">
+			  Aşağıda görülen <a href="../uygulamalar/b3_3_7_4_uyg_2.html">prosedürde</a>, bir desimal sabit
+				ondalıklı veri tipinin S'Digits niteliği sorgulanmaktadır.
+	</p>
+				<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_4_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span>Desimal<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">1.0E-2</span><span class="S0"> </span><span class="S1">digits</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">10.0</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S4">+</span><span class="S3">10.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"digits değeri : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Desimal<span class="S4">'</span><span class="S1">Digits</span><span class="S4"></span><span class="S0"></span><span class="S0"></span><span class="S4"></span><span class="S0"></span><span class="S3"></span><span class="S0"></span><span class="S4"></span><span class="S0"></span><span class="S0"></span><span class="S4"></span><span class="S0"></span><span class="S3"></span><span class="S0"></span><span class="S4"></span><span class="S0"></span><span class="S0"></span><span class="S4"></span><span class="S0"></span><span class="S3"></span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_4_uyg_2<span class="S4">;</span>
+
+Bu Prosedürün Sonucu :
+
+<span class="pl-25 green">digits değeri :           4</span>
+
+olmaktadır.
+</pre>
+	<p class="indent">
+			S'Digits niteliğinin tanımı, bir sabit ondalıklı tiipin, özellikle, <span class="keyw">digits</span> 
+			kısıtı açıkça belirli olan bir desimal sabit ondalıklı tipinin kapsam aralığı genişliğinin
+			tipin <span class="keyw">delta</span> ve <span class="keyw">digits</span> değerleri ile,
+			ters orantılı olduğunu belirtmektedir. Yani özellikle bir desimal sabit ondalıklı tipin
+			<span class="keyw">delta</span> ve <span class="keyw">digits</span> değerleri 
+			tanımlanmdığında, bu tipin kapsam baz kapsam aralığı oluşmakta ve tipin tanımındaki kapsam
+			aralığı bu baz tipin kapsam aralığı içinde kalmazsa tipin tanımı kabul edilmemektedir. Diğer bir söylem şekli ile,
+			kullanıcı <span class="keyw">delta</span> ve <span class="keyw">digits</span> değerlerini
+			belirlediğinde, tipin temel kapsam alanı bu iki tanıma bağlı olarak sistem tarafından oluşturulmakta ve 
+			kullanıcının yapmış olduğu kapsam aralığı tanımının, bu temel tanımla uyuşup uyuşmadığı kontrol edilmektedir. 
+	</p>
+	<p class="indent">
+			Desimal sabit ondalıklı tiplerde, <em>small</em> değeri, tipin belirtilen <span class="keyw">delta</span>
+			değerine eşittir. Adi sabit ondalıklı ondalıklı veri tiplerinde ise, bu değer açık değildir, fakat yine de 
+			belirtilmiş olan <span class="keyw">delta</span> değerine yakın olması gerekir. Adi sabit ondalıklı
+			veri tipleri için, bu değer, ileride göreceğimiz, nitelik değerlerinin kullanıcı tarafından belirtilmesi
+			yöntemine göre, kullanıcı tarafından belirtilebilir. Aşağıda tanımı verilen S'Small niteliği, 
+			özellikle baz alt tip olarak tanımlanmış olan (her tipin ilk alt tipi kendisidir) adi sabit ondalıklı tiplerde 
+			uygulanmış olan <em>small</em> değerlerinin açıklanmasında yararlı olmaktadır. Bu niteliğin 
+			tanımı aşağıda verilmiştir.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Small</span> : <span class="pl-15">nitelik</span> değeri, her adi sabit ondalıklı veri tipi için, </li>
+			<li><em>small</em> değerini döndürür.</li>
+			<li>Bu niteliğin değeri, universal_real tipindedir.</li>
+		</ul>
+		<p class="indent">
+			  Aşağıda görülen <a href="../uygulamalar/b3_3_7_4_uyg_3.html">prosedürde</a>, S'Small
+				niteliğinin sorgulandığı bir uygulama görülmektedir.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_7_4_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span>pH<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">delta</span><span class="S0"> </span><span class="S3">1.0E-2</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">0.00</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">14.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"small değeri : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>pH<span class="S4">'</span>Small<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_7_4_uyg_3<span class="S4">;</span>
+
+Bu Prosedürün Sonucu :
+
+<span class="pl-25 green">small değeri : 7.8125E-3</span>
+
+olmaktadır.
+		</pre
+			><p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_7_uyg_3.html">prosedürün</a>, sonuçlarından da
+			görüldüğü gibi, bir adi sabit ondalıklı temel alt tip (pH veri tipi ismli bir temel, yani bir başka temel tipin
+			temel alınmadığı bir alt tip olarak kabul edilir. Temel tip olan pH'Base ismsiz -anonim- ve kapsam alanı sınırsızdır)
+			için, gerçekleşmiş olan <em>small</em> değeri, <span class="keyw">delta</span> değerine yakındır.
+		</p>
+		<p class="indent">
+			On temelli sayılar ile çalıştığımızdan, desimal sabit ondalıklı tiplerin <span class="keyw">digits</span>
+			değeri ile çakışık olan on temelli <em>small</em> değerlerinin izlenmesi, bizim için daha kolay olmaktadır.
+		</p>
+		<p class="indent">
+			<span class="pl-600">devam =&gt;</span>
+		</p>
+      <ul id="navbottom">
+        <li id="index">
+          <a href="../index.html"><em>« İndeks</em></a>
+        </li>
+        <li id="denge"></li>
+        <li id="sayfa">
+          <a href="b3-s7.html"><em> &laquo;Önceki</em></a></li>
+        <li id="denge1"></li>
+        <li id="kodlama">
+          <a href="b3-s9.html"><em> Sonraki &raquo;</em></a></li>
+        <li id="navbottom-sonlama"></li>
+      </ul>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:19 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

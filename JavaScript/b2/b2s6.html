@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:49 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s6.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s6</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s5.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s7.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title" id="oop">
+			2.6 - Nesnelerle Çalışmak </p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 6
+		</p>
+		<p class="subheading" id="nesneler">2.6.1- Nesnelerin Tanımı
+	</p>
+		<p class="indent">
+			Doğadaki yapılanmalar ilk bakışta karmaşık ve anlaşılması güç gibi görünebilir.
+			Dikkatli bilimsel incelemeler, bu yapılanmaların daha basit yapıların
+			biraraya gelmesi ile oluştuğunu göstermiştir. Doğa, göreli olarak az
+			sayıda temel bileşenden çok sayıda nesne oluşumu ortaya çıkarmıştır.
+			Örnek olarak karmaşık yapılı taşlar, basit yapıda minerallerden oluşmaktadır.
+			Büyük sayıda karmaşık moleküller, az sayıda basit atomlardan oluşmaktadır.
+			Karmaşık canlı yapıları daha basit yapıdaki hücrelerden oluşmaktadır. 
+		</p>
+		<p class="indent">
+			Örnek olarak doğadaki taş kavramı, bize belirli bir nesne tipini anımsatır.
+			Bu  nesne tipinin iç yapısı dışa kapalıdır. İnsanların taşları kullanmaları
+			için, iç  yapılarını bilmelerine gerek yoktur. Taş olarak nitelendirilebilecek
+			nesnelerin bazı özellikleri bulunur. Bu özelliklerden bazıları sadece
+			değer alabilir. Örnek olarak sertlik derecesi taşlar için Mohs skalası
+			ile verilen bir sertlik değeridir. Mineral yapısı, taşı oluşturan
+			minerallerin adlarıdır. Yoğunluk, taşın birim hacmının ağırlığdır.Bazı
+			özellikler ise bir yöntem olarak tanımlanır. Örnek olarak ağırlık,
+			yoğunluk ile hacmın çarpımıdır. Buna ağırlık hesaplama metodu adı
+			verilebilir. Bu kadar az özellik bile, taşları başka nesnelerden
+			ayırt edilebilmelerini sağlar. Örnek olarak sıvıların yoğunluk özellikleri,
+			ağırlık hesaplama metotları olmalarına karşın, sertlik özellikleri
+			olmadığından taş olarak nitelendirilemezler. Sıvı bileşikler ve taşlar
+			ayrı nesne türleridir. 
+		</p>
+		<p class="indent">
+			Taş nesinin yapısını veya başka bir söylem ile prototipini tanımladıktan
+						sonra, bu tanıma uygun nesne örnekleri belirlenebilir. Taş nesne
+						örnekleri, taş sınıfının prototipine uygun özellikler taşıyan fakat bu
+						özelliklerin değerleri birbirinden farklı olan nesnelerdir. Örnek olarak
+						Mermer ve Granit taş sınıfına ait farklı nesne örnekleridir.
+		</p>
+		<p class="indent">
+			Taş ve sıvı cisimler örneğinde görüldüğü gibi az sayıda özellik tanımı
+			bile nesnelerin  birbirinden ayırt edilebilmelerine yarayabilir. Diğer
+			taraftan, az sayıda genel özellikler,  kullanılarak tanımı yapılan nesneler,
+			birbiri ile benzerliği az olan nesneleri de aynı  sınıfta olarak algılanmalarına
+			neden olur. Örnek olarak Kireçtaşı ve Granit aynı taş  sınıfında olarak
+			algılanırlar. Daha ayrıntılı bir sınıflandırma için, alt sınıflar tanımlanabiir.
+			Sıcakta bozunabilen taşlar için bir alt sınıf tanımlamak için  taş
+			sınıfı özelliklerine ek olarak bir bozunma sıcaklığı
+			özelliği tanımlanabilir. Bu şekilde Kireçtaşı taş sınıfında, sıcakta
+			bozunabilen taşlar alt sınıfında bir nesne örneği olarak nitelendirilebilir.
+			Bilimde sınıflama yöntemi ile nesnelerin sistematik incelenmesine
+			taksonomi adı verilir. 
+		</p>
+		<p class="indent">
+			Nesne yönelimli programlama	hakkında başlangıç bilgileri 
+			<a href="../b1/b1s6.html#oop">bölüm 1.6.4</a>, 
+			nesneler <a href="b2s2.html#object">bölüm 2.6</a> da tanıtılmıştı. 
+			Bu konuların yeniden incelenmesi yararlı olacaktır. Burada nesnelerin 	
+			JavaScript programlarında uygulanma yöntemleri üzerinde durulacaktır.
+		</p>
+		<p class="indent">
+			JavaScript programlama dili sınıf temeline değil, prototip temeline dayanır. 
+			JavaScript programlama dilinde nesne sınıfı diye bir kavram yoktur. 
+			JavaScript programlama dilinde prototipi aynı olan nesne örnekleri vardır. 
+			Aynı prototipi paylaşan nesne örnekleri, istenirse aynı sınıfın örnekleri olarak 
+			düşünülebilir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, nesne örnekleri yapılandırıcı fonksiyonlardan 
+			yararlanarak oluşturulurlar. Her fonksiyon yapılandırıcı fonksiyon olarak kullanılabilir.
+			Fonksiyonlar, aynı prototipi (istenilirse bu fonksiyon sınıfı prototipi olarak da düşünülebilir) 
+			paylaşan sınıf üyeleridir. Her fonksiyonun bir prototip özelliği vardır. JavaScript programlama 
+			dilinde, sadece fonksiyonların prototip özellikleri vardır. Bunun anlamı, sadece yapılandırıcı 
+			fonksiyonların kendi nesne tiplerini (sınıf olarak da düşünülebilir) yaratabilecekleridir.
+			Bir yapılandırıcı fonksiyonun prototip özelliğinin değeri de bir nesnedir ve yapısı, fonksiyonun 
+			yapılandıracağı nesne örnekleri ile aynıdır. 	Yapılandırıcı fonksiyonların prototip özelliklerinin 
+			değeri, istenirse sınıf nesnesi olarak kabul edilebilir.
+		</p>
+		<p class="indent">
+			Yapılandırıcı fonksiyonların prototip özelliklerinin değeri, yani bir noktada sınıfın prototip 
+			nesnesinin veya sınıf nesnesinin yapısı, yapılandırıcı fonksiyon tarafından belirlenir ve bu 
+			yapılandırıcı fonksiyon 	kullanılarak oluşturulacak tüm nesne sınıf örnekleri başlangıçta 
+			aynı özellik ve metotları içerirler.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, yapılandırıcı fonksiyonlar öntanımlı veya kullanıcı 
+			tanımlı olabilirler. Öntanımlı yapılandırıcı fonksiyonlar, 
+			<a href="b2s2.html#object">bölüm 2.6</a> da belirtilmiştir. Öntanımlı yapılandırıcı
+			fonksiyonlar ve öntanımlı yapılandırıcı fonksiyonların <span class="keyw">prototype</span>
+			özellikleri, tüm JavaScript yorumlayıcısının yazılımları gibi kullanıcıya kapalıdır.
+		</p>
+		<p class="indent">
+			Bilgisayar programcılığında, nesneler aynı doğdaki nesne kavramı gibi tanımlanıp
+			kullanılırlar. Aradaki fark bilgisayar programlarında nesnelerin, program
+			araçlarına göre tanımlanıp uygulanmasıdır.
+			Bilgisayar programcılığında, nesneler, iç sıralanmanın önemli olmadığı
+			bilgi  toplulukları olarak tarif edilirler. JavaScript programlarında
+			nesneler bir tanımlayıcı ile belirtilirler. Yani tüm programlama
+			öğeleri gibi bir adları bulunur. Her nesneye özel olan özellikler
+			tanımlanabilir. Nesne özellikleri, değişkenler, başka nesneler ve
+			fonksiyonlardan oluşabilir. Nesnelerin, fonksiyon olan özelliklerine
+			metot adı da verlir. Metotlar, girdi olarak nesne özelliklerini kullanan
+			nesneye özel fonksiyonlardır. 
+		</p>
+		<p class="indent">
+			Nesneler, istendiğinde, bir nesne tipinin alt tipi olarak tanımlanabilirler. Bu durumda, 
+			alt nesne tipi üst nesne tipinin tüm özelliklerini (metotlar özelliklere dahildir) kalıtımla elde
+			eder ve bu genel tip özelliklerine kendine özgü özellikler de eklenir. Buna ana sınıf/ alt sınıf
+			nesne hiyerarşisi adı verilebilir, fakat burada sınıf tanımı yerinde değildir, çünkü, 
+			JavaScript programlama dilinde, nesne sınıfları kavramı yoktur. Nesneler, belirli prototiplere
+			göre üretilirler. Bu yüzden nesnelerin veri tipi olarak algılanması daha doğrudur. Yine de anlamı
+			bilindikten sonra, nesne tipleri, nesne sınıfı olarak tanımlanabilir.
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısı nesne temeline göre yazılmıştır ve tüm programlama
+			öğeleri  nesne olarak tanımlanmıştır. Tüm nesneler, generik nesne sınıfı
+			olarak da adlandırılan
+			<a href="../b4/b4s1.html">Object</a> nesne sınıfının bir alt sınıfı olarak
+			tanımlanırlar. Bu durumda, tüm nesneler, generik nesne sınıfının özellikleri
+			ve metotları yanında, kendi özellik ve metotlarını da içerirler.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, nesne yönetimi son derece dinamiktir. Öntanımlı
+			olsun,  kullanıcı tanımlı olsun, tüm nesnelerin prototiplerine özellik
+			ve metot eklemeleri yapılabilir.  Nesne örnekleri, yaratıldıkları
+			prototipinin tanımladığı özellik ve metotlar yanında kendi özellik
+			ve metotlarına sahip olabilirler. Konuların ilerlemesi ile tüm bu
+			yöntemler görülecektir. Fakat şimdiden uyarmakta yarar bulunabilir.
+			Her olanak olan yöntemin uygulanması gerekmez. Öntanımlı nesne türlerinin
+			prototiplerine katkı yapmak, programların taşınabilirliğini azaltır.
+			Kullanıcı tanımlı bir nesne tipinden örnekler yaratıldıktan sonra
+			bu nesne tipinin protopinini değiştirmek, bu tipi ait olan eskiden
+			üretilmiş nesne örneklerinin özellikleri ile sonradan üretilecek nesne
+			örnekleri arasında özellik farklılıklarına neden olur. bu nedenle, ne öntanımlı
+			bir tipin yapısının değiştirilmesi, ne de kullanıcı tanımlı bir tipin
+			örnekleri yaratıldıktan sonra prototipinin değiştirilmesi sağlık verilmez.
+			Veri yapısının baştan iyi tasarlanıp program sonuna kadar bu veri
+			yapısına sadık kalınması, en güvenli yöntem olarak kabul edilir.
+		</p>
+		<p class="indent">
+			Nesne sınıf örneklerine yeni metotların ve özelliklerin eklenmesi, hiçbir
+			sakıncası  olmadan istendiği gibi uygulanabilir. Bir nene örneğine eklenen 
+			yeni özellik ve metotlar, sadece tanımlandıkları nesne örneği için geçerlidir. 
+			Nesne örneğinin ait olduğu sınıfın prototipi bu değişiklikyen etkilenmez ve dolayısı ile,
+			aynı sınıfın diğer örneklerinin yapıları bu eklentileri içermez. Bir nesne sınıfına 
+			yeni özellikler eklenmesi için nesne sınıfının prototipine yeni özellikler eklenmelidir. 
+			Ancak bu şekilde yeni üretilecek sınıf örneklerinde yeni özellikler bulunabilir.
+		</p>
+		<p class="subheading" id="new">2.6.2- new Bildirimi</p>
+		<p class="indent">
+			<span class="keyw">new</span> Bildirimi, bir yapılandırıcı fonksiyondan yararlanılarak
+			bu yapılandırıcı fonksiyonun prototip nesnesinin değeri olan nesnenin (sınıf nesnesinin)
+			özellik ve metotlarını içeren bir nesne sınıf örneğinin oluşturulmasını sağlar. Kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-25">new</span> YapılandırıcıFonksiyon([argümanlar])
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Yapılandırıcı fonksiyonlar, <span class="keyw">Object</span><span 
+			class="op">()</span>, <span class="keyw">Number</span><span 
+			class="op">()</span>, <span class="keyw">String</span><span 
+			class="op">()</span>, <span class="keyw">Boolean</span><span 
+			class="op">()</span>, <span class="keyw">Array</span><span 
+			class="op">()</span>, <span class="keyw">Function</span><span 
+			class="op">()</span> gibi öntanımlı altı yapılandırıcı yanında, kullanıcı
+			tanımlı yapılandırıcı fonksiyonlar da olabilir. Tüm öntanımlı ve kullanıcı
+			 tanımlı yapılandırıcı fonksiyonları ileride teker teker ve detaylı olarak
+			 inceleyeceğiz. Örnek olarak, <a href="../b4/b4s1.html">bölüm 4 de</a>
+			incelenecek olan öntanımlı <span class="keyw">Object </span>nesne 
+			sınıfının <span class="keyw">Object</span><span class="op">()</span>
+			yapılandırıcı fonksiyonundan yararlanarak bir boş 
+			<span class="keyw">Object</span> sınıfı (generik nesne sınıfı) 
+			örneğinin yaratılması için, 
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">new</span> <span class="keyw">Object</span><span 
+			class="op">(); </span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir atama yeterlidir.
+		</p>
+		<p class="subheading" id="this">2.6.3 - this Saklı Sözcüğü</p>
+		<p class="indent">
+			<span class="keyw">this</span> Saklı sözcüğü, nesnelerde geçerli nesneyi
+			, yani metodu çağıran nesneyi, fonksiyonlarda ise fonksiyonu çağıran kapsamı
+			belirtir. Bu bir otomatikleştirme terimidir ve aynı çağrının değişik nesneler
+			veya değişik kapsamlar tarafından yapılabilmesini sağlar. 
+			<span class="keyw">this</span> Saklı	sözcüğü çok güçlü bir öğedir, fakat çok 
+			dikkatli ve bilinçli olarak kullanılmalı ve denenmeden uygulamaya konulmamalıdır.
+		</p>
+		<p class="indent">
+			<span class="keyw">this</span> Saklı sözcüğünün kullanımı için bir örnek,
+			aşağıda verilen nesne literalleri örneklerinde görülebilir. Bu konuda ileride
+			detaylı bir inceleme yapılacaktır.
+		</p>
+		<p class="subheading" id="accessing">2.6.4 - Nesne Özelliklerine Erişim</p>
+		<p class="indent">
+			Nesne çalışırken, nesne özelliklerine erişim önemli olmaktadır. Çünkü bir
+			nesne ancak özellikleri olduğunda ve özelliklerine erişim yöntemleri iyi
+			kullanıldığında yararlı olabilir. Bunun için, nesne özelliklerine erişimin
+			çok iyi özümsenmesi gerekir. 
+		</p>
+		<p class="indent">
+			Nesne özelliklerine erişim için iki farklı yöntem kulanılabilir. Bunlar,
+		</p>
+		<ul class="list">
+			<li>Nokta (dot) işlemcisinin kullanılması</li>
+			<li>Köşeli parantez (square brackett) işlemcisinin kullanılması</li>
+		</ul>
+		<p class="nonindent">
+			yöntemleridir. Her iki yöntem de teknik olarak birbirine eşdeğerdir.
+		</p>
+		<p class="navy" id="dot"><strong>2.6.4.1 - Nokta İşlemcisi</strong></p>
+		<p class="indent">Nokta işlemcisi iki işlenenli bir işlemcidir. Sol işleneni
+		bir nesne değişkeni, sağ işleneneni ise, bu nesnenin bir alt nesnesi veya bir özelliği veya
+		metodudur. Sağ işlenende hiçbir şekilde tırnak içinde ifadeler bulunamaz.
+		Kullanımı,
+		</p>
+		<pre>
+<span class="pl-50">nesne</span><span 
+			class="op">.</span>özellik (veya metot)
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Örnek
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">writeln(<span class="str">'Doğum Günü'</span>)<span 
+			class="op">;</span> </span>
+		</pre>
+		<p class="nonindent">
+			Bu örnekte,  <span class="keyw">window</span> nesnesinin, <span 
+			class="keyw">document</span> alt nesnesinin 
+			<span class="keyw">writeln</span><span class="op">()</span> metoduna 
+			erişim sağlanmaktadır.
+		</p>
+		<p class="indent">
+			Nokta notasyonu, nesne özelliklerine erişim için klasik sayılabilecek 
+			tüm programlama dilleri tarafından uygulanan bir yöntemdir. Bu yöntemle
+			örnek olarak,
+		</p>
+		<pre>
+<span class="pl-25">birParmakBoru<span 
+			class="op">.</span>çap</span>
+		</pre>
+		<p class="nonindent" id="b2.6.4.1-uyg-1">
+			şeklinde nesne özelliklerine erişilir. Nesne özelliklerine nokta notasyonu
+			ile erişim için bu kitabın bir çok yerinde örnekleri bulunmaktadır. 
+		</p>
+		<p class="indent">
+			Kullanım kolaylığına rağmen, nesne özelliklerine en iyi erişim yönteminin nokta 
+			işlemcisi olduğu söylenemez. Nokta notasyonunun sağ işlemcisinin bir ifade olmaması gerekir.
+			Bu nedenle bazı durumlarda köşeli parantez işlemcisinin kullanımı gerekebilir.
+		</p>
+		<p class="navy" id="parantez"><strong>2.6.4.2 - Köşeli Parantez İşlemcisi ile Nesne Özelliklerine Erişim</strong></p>
+		<p class="indent">
+			Köşeli parantez notasyonu teknik olarak nokta notasyonu ile eşdeğer olmasına karşın 
+			nesne özelliklerine erişim için daha az kullanılır. Bu konuda standart uygulama, nokta 
+			notasyonudur. Fakat, köşeli parantez notasyonu, nokta notasyonundan daha yeteneklidir
+			ve nokta notasyonun yetersiz kaldığı, ifadelerin çözümlenmesi gereken durumlarda köşeli
+			parantez notasyonuna başvurulur. Köşeli parantez notasyonu aşağıda belirtilen şekilde 
+			uygulanır.
+		</p>
+		<pre>
+<span class="pl-25">birParmakBoru</span><span 
+			class="op">[</span><span 
+			class="str">'çap'</span><span 
+			class="op">]</span>
+		</pre>
+		<p class="indent">
+			Aşağıdaki çağrı, nokta notasyonu ile hata verir:
+		</p>
+		<pre>
+<span class="pl-25">Kimlik<span 
+			class="op">.</span>özel[]</span>
+		</pre>
+		<p class="nonindent">
+			Aynı çağrı, köşeli parantez notasyonu ile gerçekleştirilebilir. Çünkü, 
+			özel işaretler karakter dizgisi verisinin parçası olarak çözümlenir ve 
+			işaret olarak yorumlanmaz.
+		</p>
+		<pre>
+<span class="pl-25">kimlik</span><span 
+			class="op">[</span><span 
+			class="str">'özel[]'</span><span 
+			class="op">]</span>
+		</pre>
+		<p class="indent">
+			Metotların çağrılması için tek yöntem nokta notasyonudur. Köşeli parantez notasyonu
+			ile metot çağrılmaz.
+		</p>
+		<p class="navy" id="with"><strong>2.6.4.3 - with Bildirimi</strong>
+	</p>
+		<p class="indent">
+			<span class="keyw">with</span> Bildirimi, tüm nesne yönelimli yöntemleri 
+			destekleyen programlama dillerinin bildirimleri arasında görülebilmektedir.
+			<span class="keyw">with</span> Bildirimin kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">with</span> <span 
+			class="op">(</span>Nesne<span 
+			class="op">) {</span>
+<span class="keyw-50">...</span>
+<span class="keyw-50">işlemler</span>
+<span class="keyw-50">...</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Javascript programlama dilinde <span class="keyw">with</span>
+			bildiriminin kullanılmaması sağlık verilmektedir. Bunun birkaç nedeni bulunmaktadır:
+		</p>
+		<p class="indent">
+			Nelerin özelliklerine <span class="keyw">with </span>bildirimi ile erişilmeye 
+			çalışıldığında düzensiz ve okunması zor bir kod ortaya çıkmaktadır.
+		</p>
+		<p class="indent">
+			Javascript programlama dilinde, <span class="keyw">with</span> 
+			bildirimi, bildirildiği kapsam alanında yeni bir kapsam alanı açar ve 
+			işlevi tamamlandığında eski kapsam alanını yeniden oluşturur. Bu işlem, 
+			önemli ölçüde zaman kaybettiricidir ve program performansını azaltır.
+		</p>
+		<p class="indent">
+			Bu nedenlerden dolayı, Javascript programlarında, <span 
+			class="keyw">with</span> bildirimine hemen hemen hiç rastlanmaz.
+		</p>
+		<p class="indent" id="b2.6.4.3-uyg-1">
+			<span class="keyw">Aşağıda with</span> bildriminin kullanıldığı bir 
+			<a href="../uygulamalar/b2.6.4.3-uyg-1.html">uygulama</a> örneğinin, 
+			<a href="../uygulamalar/b2.6.4.3-uyg-1-js.html">JavaScript kodları</a>, 
+		  görülmektedir:		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">var</span> apartman <span 
+			class="op">= {</span>
+<span class="pl-75">daire1Maliki</span> <span 
+			class="op">:</span> <span 
+			class="str">'Ahmet Özyağcı'</span>
+<span class="op-75">};</span>
+
+<span class="keyw-50">function </span>başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-75">with</span><span 
+			class="op">(</span>apartman<span 
+			class="op">) {</span>
+
+<span class="pl-100">bilgiYaz</span><span 
+			class="op">(</span>daire1Maliki<span 
+			class="op">,</span> <span 
+			class="str">'b2.6.4.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p class="cursive-green">
+			Sonuç :
+		</p>
+		<p class="cursive-red" id="b2.6.4.3-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Sonuçtan da görüldüğü gibi, <span class="keyw">with</span> 
+			bildiriminin kullanımı, önemli ölçüde kod yazım kolaylığı sağlamakta ve 
+			kodların okunurluğunu da fazla etkilememektedir.
+			Özellikle, programlarda kullanıcının kendi yarattığı nesnelere erişim
+			sırasında, <span class="keyw">with</span> bildiriminin kullanımı,
+			kod yazımında azalma ve akıcılık sağlayabilir. Küçük programlar için, 
+			<span class="keyw">with</span> bildiriminin performans azalttığı 
+			yönündeki sakıncanın da fazla önemi olmayabilir.
+		</p>
+		<p class="subheading" id="nesneliteralleri">
+					2.6.5 - Nesne Literalleri
+		</p>
+		<p class="indent">
+			Nesne literalleri, bölüm <a href="b2s2.html#object">2.2.6</a> da açıklanan,
+			<span class="keyw">Object</span> nesne sınıfının örnekleridir. <span class="keyw">Object</span>
+			nesne sınıfı en geniş olarak <a href="../b4/b4s1.html">bölüm 4 de</a> incelenmiştir. Bir 
+			<span class="keyw">Object</span> nesne sınıfı (generik nesne sınıfı) örneği, tüm nesne sınıf örnekleri
+			 gibi, 
+	</p>
+			<pre>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">new</span> <span class="keyw">Object</span><span 
+			class="op">(); </span>
+		</pre>
+		<p class="nonindent">
+			şeklinde, <span 	class="keyw">new</span> bildirimi ve yapılandırıcı fonksiyon 
+			kullanılarak oluşturulabiilir. Bu ifadenin anlamı, yapılandırıcı fonksiyonun belirttiği 
+			özelliklere sahip bir nesne örneğinin yaratılarak a değişkenine atanmasıdır. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, 
+			<span class="keyw">Object</span><span class="op">()</span> yapılandırıcı fonksiyonu,
+			nesne örneklerinin <span class="keyw">new</span> bildirimine gerek duyulmadan 
+			oluşturulabildiği iki nesne sınıfından biridir. Diğeri de dizi sınıfıdır. Generik nesne sınııfı
+			örneklerinin oluşturulması için nesne başlatıcısı olarak adlandırılan, kapsam sınırlandıcıları 
+			 <span class="op">{}</span> dan yararlanılabilir. 
+		</p>
+
+		<pre>
+<span class="pl-50">a</span> <span class="op">= {} ;</span> 
+		</pre>
+		<p class="nonindent">
+			Bu ifadenin sonucu <span class="keyw">new</span> bildirimi ile generik 
+			nesne sınıfı örneği oluşturulması ile aynıdır. Her iki yöntemin sonucunda, a değişkenine
+			generik nesne sınıfının (<span class="keyw">Object</span> nesne sınıfının) bir örneği 
+			atanmış olur. Atanmaış olan generik nesne sınıfı örneği, sadece ana sınıf olan 
+			<a href="../b3/b3s1.html">Global JavaScript Nesnesinin</a> ve örneği olduğu
+			<a href="../b4/b4s1.html">Object</a> nesne sınıfının prototip nesnesinde
+			belirtilen özellik ve metotlara sahiptir. Bunun için, yaratılmış olan bu genel
+			<a href="../b4/b4s1.html">Object</a> nesne sınıfı örneğine, boş bir nesne 
+			literali adı verilir.
+		</p>
+		<p class="indent">
+			Bir sınıfın boş bir örneğini yaratmak hiç bir işe yaramaz. Birbirinden
+			farklı  olmayan binlerce aynı sınıftan boş nesne örneği olabilir,
+			fakat birbirlerinden farkı olmadığından önemli değillerdir. Önemli
+			olmak, özel olmak, özgün olmakla gerçekleşir.
+		</p>
+		<p class="indent">
+			Boş bir nesne literalinin özgün bir nesne literali (generik nesne sınıf örneği) 
+			olması için, bu nesne örneğine, aşağıda görüldüğü gibi yeni bir özellik eklenebilir:
+		</p>
+		<pre>
+<span class="pl-50">a</span><span 
+			class="op">.</span>isim <span 
+			class="op">=</span> <span 
+			class="str">'Ahmet Eroğlu'</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="indent" id="b2.6.5-uyg-1">
+			Boş olarak yaratılan bir generik nesne sınıf örneğine veya eş anlamlı olarak
+			bir nesne literaline, aşağıda kodları verilen bir 
+			<a href="../uygulamalar/b2.6.5-uyg-1-js.html">JavaScript programı</a> ile bir yeni
+			özellik eklenmiş ve bu programın iliştirildiği 
+		<a href="../uygulamalar/b2.6.5-uyg-1.html">sayfada</a> verdiği sonuçlar aşağıda gösterilmiştir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="pl-75">kimlik</span> <span
+			class="op"> = {};</span>
+<span class="pl-75">kimlik</span> <span
+			class="op">.</span>ad <span
+			class="op">=</span> <span
+			class="str">'Selcan'</span><span
+			class="op">;</span>
+<span class="pl-75">sonuçYaz</span><span
+			class="op">(<span 
+			class="str">'kimlik.ad = '</span>,  </span>kimlik<span
+			class="op">.</span>ad<span
+			class="op">,</span> <span
+			class="str">'b2.6.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu : 
+		</p>
+			<p class="indent" id="b2.6.5-uyg-1-sonuç-1">
+		</p>
+				<p class="indent">
+			Boş bir generik nesne sınıfı örneğine yeni bir özellik atandığında, bu generik nesne örneği 
+			artıl boş generik nesne örneği değil, özgün bir generik nesne sınıf örneği veya eş anlamlı 
+			olarak  özgün bir nesne literalidir. Kendine özgü bir isim özelliği vardır ve bu özelliğe 
+			bir değer atanmıştır. Bu özelliğe, nokta veya köşeli parantez işlemcilerinden yararlanarak 
+			erişilebilir. Örnek olarak bu özelliğin değeri, aşağıda görüldüğü gibi, başka bir değişkene atanabilir :
+		</p>
+		<pre>
+<span class="pl-50">b</span> <span 
+			class="op">=</span> a<span 
+			class="op">.</span>isim<span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Nesne özellikleri olarak fonksiyonlar da tanımlanabilir. Bir nesnenin değeri fonksiyon olan
+			özellğine metot adı verilir. Metotlar çoğunlukla nesne özelliklerini veri olarak alarak 
+			hesaplamalar yaparlar. Bir nesneye metot bağlanması iki yöntemle gerçekleştirilebilir. 
+			İlk yöntem, aşağıda görüldüğü gibi, nesne özelliğine bir fonksiyon literali (anonim
+			fonksiyon) atanmasıdır:
+		</p>
+		<pre>
+<span class="pl-50">a</span><span 
+			class="op">.</span>isimGöster <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span class="keyw">this</span><span 
+			class="op">.</span>isim<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+		</pre>
+		<p class="indent">
+			Bir başka yöntem de, fonksiyonu dışarda tanımlaması ve nesne özellğine
+			atanmasıdır :
+		</p>
+		<pre>
+<span class="keyw-50">function</span> isimBelirt<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>isim<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span>isimBelirt <span 
+			class="op">=</span> isimGöster<span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Daha önce de görüldüğüne göre, bir fonksiyon bir değişkene atanırken <span class="op">()</span>
+			işlemcisi kullanılmaz. bu şekilde değişkene fonksiyona bellekte erişim sağlayan bellek 
+			işaretçisi (pointer) atanmış olur. Aksi halde, değişkene fonksiyonun döndürdüğü değer atanmış olur ki 
+			bu hataya neden olur. 
+		</p>
+		<p class="indent">
+			Metodun içindeki <span class="keyw">this</span> saklı sözcüğü, metodu çağıran kapsama işaret eder.
+			Metodu çağıran kapsam a nesnesi olduğundan, <span class="keyw">this</span> a nesnesini ifade eder.
+		</p>
+		<p class="indent">
+			Metot nesne örneğine bağlandıktan sonra, aynen nesnenin diğer özellikleri gibi
+			çağrılabilir:
+		</p>
+		<pre>
+<span class="pl-50">a</span><span 
+			class="op">.</span>isimBelirt<span class="op">();</span>
+		</pre>
+		<p class="indent">
+			Metodu çağırırken fonksiyon çağırma işlemcisi <span class="op">()</span> nin kullanılması gerekir. 
+			Çünkü burada, fonksiyonun döndüreceği değere gereksinme duyulmaktadır.
+		</p>
+		<p class="indent">
+			Bir nesne literali anlam olarak, bir generik nesne sınıfı örneği olsa bile,
+						nesne literali bir  literaldir ve tek defada girilebilecek bir veri
+						olmalıdır. Bunun için nesne literalleri, aslında tek defada ve kapsam sınırlandıcıları <span class="op">{}</span> arasında
+			oluşturulurlar. Genel yöntem,
+		</p>
+		<pre>
+<span class="pl-50">nesne Literali (Object sınıfı nesne örneği) değişken adı</span> <span 
+			class="op">=</span> <span 
+			class="op">{</span><span class="comm">özellik1</span> <span 
+			class="op">:</span> değer1<span 
+			class="op">,</span> <span class="comm">özellik2</span> <span 
+			class="op">:</span> değer2 <span 
+			class="op">,</span> <span class="comm">özellik3</span> <span 
+			class="op">:</span> değer3 <span 
+			class="op">, ... </span> <span class="comm">özellikN</span> <span 
+			class="op">:</span> değerN<span 
+			class="op">};</span> 
+		</pre>
+		<p class="nonindent" id="b2.6.5-uyg-2">
+			şeklindedir. Bir nesne literali örneği ile, özelliklerine erişim ve metotlarını kullanım yöntemi
+			bir <a href="../uygulamalar/b2.6.5-uyg-2-js.html">JavaScript programı</a> ve iliştirildiği
+			<a href="../uygulamalar/b2.6.5-uyg-2.html">sayfada</a> verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-75">yarımParmakBoru</span> <span 
+			class="op"> = {</span>
+<span class="pl-100">çap</span> <span 
+			class="op">:</span> 2.54 <span 
+			class="op">/</span> 2<span 
+			class="op">,</span> 
+<span class="pl-100">etKalınlığı</span> <span 
+			class="op">:</span> 2<span 
+			class="op">,</span> 
+<span class="pl-100">dışKesit</span> <span 
+			class="op">=</span> <span class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-125">var</span> dışÇap <span 
+			class="op">=</span> <span class="keyw">this</span><span 
+			class="op">.</span>etkalınlığı*2 <span 
+			class="op">+</span> <span class="keyw">this</span><span 
+			class="op">.</span>çap<span 
+			class="op">;</span>
+<span class="keyw-125">return</span> dışÇap <span 
+			class="op">*</span> dışÇap <span 
+			class="op">*</span> <span 
+			class="keyw">Math</span><span 
+			class="op">.</span>PI <span 
+			class="op">/</span> 4<span 
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">};</span>
+
+<span 
+			class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'yarımParmakBoru.çap = '</span><span 
+			class="op">,</span> yarımParmakBoru<span 
+			class="op">.</span>çap<span 
+			class="op">,</span> <span 
+			class="str">'b2.6.5-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span 
+			class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'yarımParmakBoru.dışKesit = '</span><span 
+			class="op">,</span> yarımParmakBoru<span 
+			class="op">.</span>dışKesit<span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.6.5-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+				Program Sonucu : 
+	</p>
+			<p class="indent" id="b2.6.5-uyg-2-sonuç-1"> 
+		</p>
+			<p class="indent" id="b2.6.5-uyg-2-sonuç-2"> 
+		</p>
+		<p class="nonindent">
+			Nesne literalleri, diğer sınıf örnekleri gibi kullanılırlar. Aynı yapıda
+			başka bir örneğe gereksinme duyulmayacak durumlarda, örnek olarak aşağıda göreceğimiz
+			fonksiyon kitaplığı gibi uygulamalarda, nesne literallerinin kullanımı uygundur. Fakat, 
+			aynı yapıda ikinci bir nesne literaline gereksinme duyulduğunda, nesne literali paradigmasının
+			yeterli olmadığı hissedilir. Yapısı birinci nesne literali ile aynı, fakat özelliklerinin değerleri 
+			değişik olan İkinci nesne literalinin oluşturulabilmesi için, birincisinin yapısının aynen yeniden
+			belirtilmesi gerekir. Bu da gereksizi bir yazım yükü anlamına gelir, üstelik ayanı yapıda olmalarına
+			karşın, iki nesne literali arasında bir bağ yoktur. Her ikisi de sadece generik nesne sınıfı örnekleridir.
+			İkinci nesne literali,
+		</p>
+		<pre>
+<span class="pl-50">birParmakBoru</span> <span 
+			class="op"> = {</span>
+<span class="pl-75">çap</span> <span 
+			class="op">:</span> 2.54<span 
+			class="op">,</span> 
+<span class="pl-75">etKalınlığı</span> <span 
+			class="op">:</span> 2<span 
+			class="op">,</span> 
+<span class="pl-75">dışKesit</span> <span 
+			class="op">:</span> <span class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-100">var</span> dışÇap <span 
+			class="op">=</span> <span class="keyw">this</span><span 
+			class="op">.</span>etkalınlığı*2 <span 
+			class="op">+</span> <span class="keyw">this</span><span 
+			class="op">.</span>çap<span 
+			class="op">;</span>
+<span class="keyw-100">return</span> dışÇap <span 
+			class="op">*</span> dışÇap <span 
+			class="op">*</span> <span 
+			class="keyw">Math</span><span 
+			class="op">.</span>PI <span 
+			class="op">/</span> 4<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="pl-50">};</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde yaratılabilir. Fakat bunun daha kolay başka bir yolu da vardır. Herşeyden önce, 
+			eğer bir yapının birden çok örneğine gereksinme duyuluyorsa, artık o yapı için,
+			bir sınıf tanımına gereksinme olmuş demektir. Oysa, yarımParmakBoru ve birParmakBoru
+			nesneleri, <span class="keyw">Object</span> nesne sınıfının özgün özellikler 
+			eklenmiş sınıf örnekleridir. Oysa bu özellikler bir yapılandırıcı fonksiyonda tanımlanmış olsaydı, 
+			her defasında aynı yapının tanımına gerek olmadan, istendiği kadar nesne örneği üretilebilirdi. 
+			Üstelik üretilecek nesne örneklerinin aynı sınıfı paylaşmak (prototipleri aynı olmak) gibi bir 
+			ortak özellikleri olurdu. Kullanıcı tanımlı nesne sınıflarının açıklanması ileride detaylı olarak 
+			yapılacaktır.
+		</p>
+		<p class="subheading" id="nested">2.6.6 - İçiçe Yuvalanmış Nesneler</p>
+		<p class="indent" id="b2.6.6-uyg-1">
+			Nesneler istenildiği kadar derinlikte içiçe yuvalanabilirler. Yani, bir 
+			nesnenin özelliği bir başka nesne olabilir. İçiçe yuvalanmış nesnelerle 
+			çalışılması fazla kullanışlı değildir. Bu nedenle bir, en çok iki düzey derinlikte 
+			yuvalanmış nesneler yapılandırılır. İçiçe iki nesnenin 
+			kullanıldığı bir nesne literalini içeren bir örneğin 
+			<a href="../uygulamalar/b2.6.6-uyg-1-js.html">JavaScript kodları</a> ve 
+			iliştirildiği <a href="../uygulamalar/b2.6.6-uyg-1.html">sayfada</a> verdiği 
+			sonuçlar, aşağıda, görülmektedir.
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">var</span> deney <span 
+			class="op">= {</span>
+<span class="pl-75">deneyNo</span> <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> 
+<span class="pl-75">deneyTarihi</span> <span 
+			class="op">:</span> <span 
+			class="str">'12.08.1986'</span><span 
+			class="op">,</span>
+<span class="pl-75">parametreler</span><span 
+			class="op">:</span><span 
+			class="op">{</span>
+<span class="pl-100">pH</span> <span 
+			class="op">:</span> 5.6<span 
+			class="op">,</span> 
+<span class="pl-100">BOD</span> <span 
+			class="op">:</span> 3.2
+<span class="op-75">}
+</span><span class="op-50">};</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> günlükDeney <span 
+			class="op">=</span> deney<span 
+			class="op">;</span>
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>deney<span
+			class="op">.</span>parametreler<span
+			class="op">.</span>pH<span
+			class="op">,</span> <span
+			class="str">'b2.6.6-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Günlük Deney pH Değeri Sonucu : </span>
+			<span class="cursive-red" id="b2.6.6-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			Uygulama sonucundan da görülebileceği gibi, nesnelerin içiçe yuvalanma derinliği 
+			arttıkça, çağrılma kodları da tren katarı gibi uzamaktadır. Bu açıdan içiçe yuvalamayı, 
+			akla yakın bir derinlikte bırakmak uygun olacaktır.
+		</p>
+		<p class="subheading" id="library">2.6.7 - Fonksiyon Kitaplıkları
+	</p>
+		<p class="indent" id="b2.6.7-uyg-1">
+			Yeni bazı incelemeler, çok sayıda fonksiyon içeren uygulamalarda asılı fonksiyon
+			(hanging functions) olarak da adlandırılan serbest fonksiyonların yönetiminin 
+			güçleştiğini ve bu fonksiyonların konularına göre çeşitli nesne literallerinin 
+			metotları olarak yerleştirmenin daha düzenli olacağını, istenirse, global değişkenlerin de
+			bu kitaplıklara konularak dıştan bir değer alması gerekmeyen birimler 
+			oluşturulabileceğini belirtmektedirler. Aşağıda bu ile ilgili bir 
+			<a href="../uygulamalar/b2.6.7-uyg-1.html">örneğin</a>,
+			<a href="../uygulamalar/b2.6.7-uyg-1-js.html">JavaScript kodları</a> verilmiştir.		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">var</span> geo <span 
+			class="op">= {</span> 
+<span class="pl-75">türev</span> <span 
+			class="op">:</span> <span class="keyw">function</span> <span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">,</span> eps<span 
+			class="op">) {</span>
+<span class="keyw-100">return</span> <span 
+			class="op">(</span>a<span 
+			class="op">(</span>b <span 
+			class="op">+</span> eps<span 
+			class="op">)</span> <span 
+			class="op">-</span> a<span 
+			class="op">(</span>b<span 
+			class="op">)) / ((</span>b <span 
+			class="op">+</span> eps<span 
+			class="op">)</span> <span 
+			class="op">-</span> b<span 
+			class="op">) ;</span>
+<span class="op-75">}</span>
+<span class="op-50">};</span>
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> <span class="keyw">fonction</span><span 
+			class="op">(</span>x<span 
+			class="op">) {</span>
+<span class="keyw-100">return</span> x <span 
+			class="op">*</span> x <span 
+			class="op">+</span> 5 <span 
+			class="op">*</span> x<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>geo<span
+			class="op">.</span>türev<span 
+			class="op">(</span>q<span 
+			class="op">,</span> 2<span 
+			class="op">,</span> 0.0000001<span
+			class="op">),</span> <span
+			class="str">'b2.6.7-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.6.7-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b2.6.7-uyg-1-js.html">JavaScript kodları</a> yukarıda görülen 
+			<a href="../uygulamalar/b2.6.7-uyg-1.html">örnekte</a>, bir a<span 
+			class="op">(x*x+5*x)</span> fonksiyonunun, b <span class="op">[</span>2<span 
+			class="op">]</span> noktasındaki türevinin yaklaşık değeri hesaplanmaktadır. Türevin
+			geometrik yaklaşımı, bir geo global nesne literalinin bişr metodu olarak tanımlanmıştır. Burada
+			geo global nesne literali, bir fonksiyon kitaplığı olarak hareket etmektedir. 
+		</p>
+		<p class="indent">
+			Türevin hesaplandığı türev<span class="op">()</span>fonksiyonu, 
+		</p>
+		<p class="chapter">
+			<img src="../images/2.6.7-img-1bis4.png" alt="türev" 
+			width="223" height="75" />
+		</p>
+		<p class="nonindent">
+			olarak hesaplanmaktadır. 
+	</p>
+		<p class="indent">
+			geo Fonksiyon kitaplığından türev fonksiyonun çağrılması, 
+			geo.türev<span class="op">()</span> şeklinde gerçekleştirilmektedir.
+			Bu kullanım şekliyle, JavaScript global nesne literali fonksiyon 
+			kitaplıkları, Java paketlerine (packages) benzemektedir. Bu kitaplıkların,
+			geo.js gibi ayrı bir JavaScript dosyasına yerleştirilip, kullanılacakları sayfa ile 
+			ilişkilendirilmeleri, her konu için ayrı bir fonksiyon kitaplığı oluşturulabileceğini
+			belirtir ki bu olağanüstü bir olanak olarak düşünülebilir. 
+		</p>
+		<p class="indent">
+			Son günlerde, programlarda kullanılacak tüm global değişkenlerin,
+			asılı (global) bir nesne literalinin özellikleri, fonksiyonların da aynı 
+			nesne literalinin metotları olarak tanımlanıp kullanılması üzerinde,
+			güçlü eğilimler görülmektedir. Bunun bir uygulama örneği de yukarıdaki 
+			programda görülmektedir.
+		</p>
+		<p class="indent">
+			Global değişkenlerin, asılı olarak değil de bir asılı 
+			nesne literalinin özelliği olarak tanımlanması, sadece 
+			bu global değişkenin değerinin yanlışlıkla değiştirilme
+			olasılığını azaltabilecek iyi bir önlem olarak kabul edilebilir. 
+			Diğer yönden, bir global değişkenin asılı (serbest) global değişken 
+			olarak değil, başka bir global nesne literalininin özelliği olarak 
+			tanımlanması, bu değişkenin global olmak özelliğini ortadan kaldırmaz.
+			Sadece, açık global olmak yerine dolaylı olarak tanımlanmış (implied) 
+			global haline getirir. Prensip olarak her iki tür global de, kendilerine
+				 gereksinme duyan fonksiyona argümandan başka bir şekilde giriş yapıyorlarsa,
+			fonksiyonun taşınabilirliğini kesinlikle ortadan kaldırırlar. Programlarda
+			açık veya gizli global değişken kullanılmasından kaçınılması gerekir. 
+		</p>
+		<p class="indent">
+			Global fonksiyonların bir global nesne literalinin metotları olarak tanımlanması,
+			konulara göre düzenlenmiş fonksiyon kitaplıkları organizasyonuna olanak
+			sağlaması açısından çok yararlıdır. Buna rağmen bu fonksiyonlara erişim
+			için geo<span 	class="op">.</span>türev<span class="op">()</span> örneğine olduğu gibi,
+			ek olarak kitaplık isminin de eklenmesi, ek bir yazma yükü getirmektedir.
+			Diğer taraftan global foksiyonların bir performans eksilmesi yarattığı
+			da bugüne kadar belirtilmememiştir. Bu nedenle, ek yazılım yükünü doğrulayabilecek
+			tek olgunun, organizasyon kolaylığı olabileceği düşünülebilir. Yine de,
+			kitaplık fonksionlarının tek bir kitaplık nesnesinin metotları olarak tasarlanması, 
+			çok düzenli  ve uygulanması sağlık verilebilecek olan bir yazılım
+			stili olacaktır. Günümüzde fazla yaygın olmayan bu yazılım stilinin uygulanması
+			kişisel seçime bağlı kalmaktadır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s5.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s7.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.6.4.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.6.5-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b2.6.5-uyg-2.js">
+		</script>
+<script type="text/javascript" src="../js/b2.6.6-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b2.6.7-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:49 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

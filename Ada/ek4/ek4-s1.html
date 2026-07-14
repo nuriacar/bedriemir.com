@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/ek4/ek4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:39 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/ek4/ek4-s1.html"> 
+    <meta charset="utf-8" />
+    <title>Template</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+  </head> 
+  <body> 
+		<pre class="Examples-Maroon">
+ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+691 11 June 2010 Language-Defined Attributes Annex K<br />
+Annex K<br />
+(informative)<br />
+Language-Defined Attributes<br />
+This annex summarizes the definitions given elsewhere of the language-defined attributes.
+<br />
+******************************************************************************<br />
+<strong>P'Access</strong> For a prefix P that denotes a subprogram:<br />
+P'Access yields an access value that designates the subprogram denoted by P. The type of<br />
+P'Access is an access-to-subprogram type (S), as determined by the expected type. See<br />
+3.10.2.
+
+
+******************************************************************************<br /><br />
+<strong>X'Access</strong> For a prefix X that denotes an aliased view of an object:<br />
+X'Access yields an access value that designates the object denoted by X. The type of<br />
+X'Access is an access-to-object type, as determined by the expected type. The expected<br />
+type shall be a general access type. See 3.10.2.
+<br />******************************************************************************<br />
+<strong>X'Address</strong> For a prefix X that denotes an object, program unit, or label:<br />
+Denotes the address of the first of the storage elements allocated to X. For a program unit or<br />
+label, this value refers to the machine code associated with the corresponding body or<br />
+statement. The value of this attribute is of type System.Address. See 13.3.
+<br />******************************************************************************<br />
+<strong>S'Adjacent</strong> For every subtype S of a floating point type T:<br />
+S'Adjacent denotes a function with the following specification:<br />
+function S'Adjacent (X, Towards : T)<br />
+return T<br />
+If Towards = X, the function yields X; otherwise, it yields the machine number of the type T<br />
+adjacent to X in the direction of Towards, if that machine number exists. If the result would<br />
+be outside the base range of S, Constraint_Error is raised. When T'Signed_Zeros is True, a<br />
+zero result has the sign of X. When Towards is zero, its sign has no bearing on the result.<br />
+See A.5.3.
+<br />******************************************************************************<br />
+<strong>S'Aft</strong> For every fixed point subtype S:<br />
+S'Aft yields the number of decimal digits needed after the decimal point to accommodate<br />
+the delta of the subtype S, unless the delta of the subtype S is greater than 0.1, in which<br />
+case the attribute yields the value one. (S'Aft is the smallest positive integer N for which<br />
+(10**N)*S'Delta is greater than or equal to one.) The value of this attribute is of the type<br />
+universal_integer. See 3.5.10.<br />
+******************************************************************************<br />
+<strong>S'Alignment</strong> For every subtype S:<br />
+The value of this attribute is of type universal_integer, and nonnegative.<br />
+For an object X of subtype S, if S'Alignment is not zero, then X'Alignment is a nonzero<br />
+integral multiple of S'Alignment unless specified otherwise by a representation item. See<br />
+13.3.<br />
+******************************************************************************<br />
+<strong>X'Alignment</strong> For a prefix X that denotes an object:<br />
+The value of this attribute is of type universal_integer, and nonnegative; zero means that<br />
+the object is not necessarily aligned on a storage element boundary. If X'Alignment is not<br />
+zero, then X is aligned on a storage unit boundary and X'Address is an integral multiple of<br />
+X'Alignment (that is, the Address modulo the Alignment is zero).<br />
+See 13.3.
+<br />******************************************************************************<br />
+
+<strong>S'Base</strong> For every scalar subtype S:<br />
+S'Base denotes an unconstrained subtype of the type of S. This unconstrained subtype is<br />
+called the base subtype of the type. See 3.5.
+
+******************************************************************************<br />
+
+<strong>S'Bit_Order</strong> For every specific record subtype S:<br />
+Denotes the bit ordering for the type of S. The value of this attribute is of type<br />
+System.Bit_Order. See 13.5.3.
+<br />
+******************************************************************************<br />
+
+<strong>P'Body_Version</strong><br />
+For a prefix P that statically denotes a program unit:<br />
+Yields a value of the predefined type String that identifies the version of the compilation<br />
+unit that contains the body (but not any subunits) of the program unit. See E.3.
+
+
+******************************************************************************<br />
+
+<strong>T'Callable</strong> For a prefix T that is of a task type (after any implicit dereference):<br />
+Yields the value True when the task denoted by T is callable, and False otherwise; See 9.9.
+
+
+******************************************************************************<br />
+
+<strong>E'Caller</strong> For a prefix E that denotes an entry_declaration:<br />
+Yields a value of the type Task_Id that identifies the task whose call is now being serviced.<br />
+Use of this attribute is allowed only inside an entry_body or accept_statement<br />
+corresponding to the entry_declaration denoted by E. See C.7.1.
+
+
+******************************************************************************<br /><br />
+<strong>S'Ceiling</strong> For every subtype S of a floating point type T:<br />
+S'Ceiling denotes a function with the following specification:<br />
+function S'Ceiling (X : T)<br />
+return T<br />
+The function yields the value ?X?, i.e., the smallest (most negative) integral value greater<br />
+than or equal to X. When X is zero, the result has the sign of X; a zero result otherwise has a<br />
+negative sign when S'Signed_Zeros is True. See A.5.3.
+
+
+******************************************************************************<br />
+
+<strong>S'Class</strong> For every subtype S of an untagged private type whose full view is tagged:<br />
+Denotes the class-wide subtype corresponding to the full view of S. This attribute is<br />
+allowed only from the beginning of the private part in which the full view is declared, until<br />
+the declaration of the full view. After the full view, the Class attribute of the full view can<br />
+be used. See 7.3.1.<br />
+
+******************************************************************************<br />
+
+<strong>S'Class</strong> For every subtype S of a tagged type T (specific or class-wide):<br />
+S'Class denotes a subtype of the class-wide type (called T'Class in this International<br />
+Standard) for the class rooted at T (or if S already denotes a class-wide subtype, then<br />
+S'Class is the same as S).<br />
+S'Class is unconstrained. However, if S is constrained, then the values of S'Class are only<br />
+those that when converted to the type T belong to S. See 3.9.
+
+
+
+******************************************************************************<br /><br />
+
+<strong>X'Component_Size<br /></strong>
+For a prefix X that denotes an array subtype or array object (after any implicit dereference):<br />
+Denotes the size in bits of components of the type of X. The value of this attribute is of type<br />
+universal_integer. See 13.3.<br />
+
+
+******************************************************************************<br />
+
+
+<strong>S'Compose</strong> For every subtype S of a floating point type T:<br />
+S'Compose denotes a function with the following specification:<br />
+function S'Compose (Fraction : T;<br />
+Exponent : universal_integer)<br />
+return T<br />
+
+Let v be the value Fraction &middot; T'Machine_RadixExponent&ndash;k, where k is the normalized exponent<br />
+of Fraction. If v is a machine number of the type T, or if |v| &ge; T'Model_Small, the function<br />
+yields v; otherwise, it yields either one of the machine numbers of the type T adjacent to v.<br />
+Constraint_Error is optionally raised if v is outside the base range of S. A zero result has the<br />
+sign of Fraction when S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************
+
+
+<strong>A'Constrained</strong><br />
+For a prefix A that is of a discriminated type (after any implicit dereference):<br />
+Yields the value True if A denotes a constant, a value, or a constrained variable, and False<br />
+otherwise. See 3.7.2.<br />
+
+<strong>S'Copy_Sign</strong> For every subtype S of a floating point type T:<br />
+S'Copy_Sign denotes a function with the following specification:<br />
+function S'Copy_Sign (Value, Sign : T)<br />
+return T<br />
+If the value of Value is nonzero, the function yields a result whose magnitude is that of<br />
+Value and whose sign is that of Sign; otherwise, it yields the value zero. Constraint_Error is<br />
+optionally raised if the result is outside the base range of S. A zero result has the sign of<br />
+Sign when S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************
+
+
+<strong>E'Count</strong> For a prefix E that denotes an entry of a task or protected unit:<br />
+Yields the number of calls presently queued on the entry E of the current instance of the<br />
+unit. The value of this attribute is of the type universal_integer. See 9.9.
+
+
+******************************************************************************<br />
+
+<strong>S'Definite</strong> For a prefix S that denotes a formal indefinite subtype:<br />
+S'Definite yields True if the actual subtype corresponding to S is definite; otherwise it<br />
+yields False. The value of this attribute is of the predefined type Boolean. See 12.5.1.
+
+
+******************************************************************************<br />
+
+<strong>S'Delta</strong> For every fixed point subtype S:<br />
+S'Delta denotes the delta of the fixed point subtype S. The value of this attribute is of the<br />
+type universal_real. See 3.5.10.
+
+
+******************************************************************************<br />
+
+<strong>S'Denorm</strong> For every subtype S of a floating point type T:<br />
+Yields the value True if every value expressible in the form<br />
+&plusmn; mantissa &middot; T'Machine_RadixT'Machine_Emin<br />
+where mantissa is a nonzero T'Machine_Mantissa-digit fraction in the number base<br />
+T'Machine_Radix, the first digit of which is zero, is a machine number (see 3.5.7) of the<br />
+type T; yields the value False otherwise. The value of this attribute is of the predefined type<br />
+Boolean. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Digits</strong> For every decimal fixed point subtype S:<br />
+S'Digits denotes the digits of the decimal fixed point subtype S, which corresponds to the<br />
+number of decimal digits that are representable in objects of the subtype. The value of this<br />
+attribute is of the type universal_integer. See 3.5.10.<br />
+
+******************************************************************************<br />
+
+<strong>S'Digits</strong> For every floating point subtype S:<br />
+S'Digits denotes the requested decimal precision for the subtype S. The value of this<br />
+attribute is of the type universal_integer. See 3.5.8.<br />
+
+******************************************************************************<br />
+
+<strong>S'Exponent</strong> For every subtype S of a floating point type T:<br />
+S'Exponent denotes a function with the following specification:<br />
+function S'Exponent (X : T)<br />
+return universal_integer<br />
+The function yields the normalized exponent of X. See A.5.3.<br />
+
+******************************************************************************<br />
+
+
+<strong>S'External_Tag<br /></strong>
+For every subtype S of a tagged type T (specific or class-wide):<br />
+S'External_Tag denotes an external string representation for S'Tag; it is of the predefined<br />
+type String. External_Tag may be specified for a specific tagged type via an<br />
+attribute_definition_clause; the expression of such a clause shall be static. The default<br />
+external tag representation is implementation defined. See 13.13.2. See 13.3.
+
+
+******************************************************************************
+<br />
+
+<strong>A'First</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'First denotes the lower bound of the first index range; its type is the corresponding index<br />
+type. See 3.6.2.<br />
+
+******************************************************************************<br />
+
+<strong>S'First</strong> For every scalar subtype S:<br />
+S'First denotes the lower bound of the range of S. The value of this attribute is of the type<br />
+of S. See 3.5.<br />
+
+******************************************************************************
+
+
+<strong>A'First(N)</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'First(N) denotes the lower bound of the N-th index range; its type is the corresponding<br />
+index type. See 3.6.2.<br />
+
+
+******************************************************************************<br />
+
+
+<strong>R.C'First_Bit</strong><br />
+For a component C of a composite, non-array object R:<br />
+If the nondefault bit ordering applies to the composite type, and if a component_clause<br />
+specifies the placement of C, denotes the value given for the first_bit of the<br />
+component_clause; otherwise, denotes the offset, from the start of the first of the storage<br />
+elements occupied by C, of the first bit occupied by C. This offset is measured in bits. The<br />
+first bit of a storage element is numbered zero. The value of this attribute is of the type<br />
+universal_integer. See 13.5.2.<br />
+
+
+******************************************************************************<br />
+
+<strong>S'Floor</strong> For every subtype S of a floating point type T:<br />
+S'Floor denotes a function with the following specification:<br />
+function S'Floor (X : T)<br />
+return T<br />
+The function yields the value ?X?, i.e., the largest (most positive) integral value less than or<br />
+equal to X. When X is zero, the result has the sign of X; a zero result otherwise has a<br />
+positive sign. See A.5.3.
+
+
+******************************************************************************<br />
+
+<strong>S'Fore</strong> For every fixed point subtype S:<br />
+S'Fore yields the minimum number of characters needed before the decimal point for the<br />
+decimal representation of any value of the subtype S, assuming that the representation does<br />
+not include an exponent, but includes a one-character prefix that is either a minus sign or a<br />
+space. (This minimum number does not include superfluous zeros or underlines, and is at<br />
+least 2.) The value of this attribute is of the type universal_integer. See 3.5.10.<br />
+
+******************************************************************************
+
+
+<strong>S'Fraction</strong> For every subtype S of a floating point type T:<br />
+S'Fraction denotes a function with the following specification:<br />
+function S'Fraction (X : T)<br />
+return T<br />
+The function yields the value X &middot; T'Machine_Radix&ndash;k, where k is the normalized exponent of<br />
+X. A zero result, which can only occur when X is zero, has the sign of X. See A.5.3.<br />
+
+******************************************************************************
+
+
+<strong>T'Identity</strong> For a prefix T that is of a task type (after any implicit dereference):<br />
+Yields a value of the type Task_Id that identifies the task denoted by T. See C.7.1.<br />
+
+<strong>E'Identity</strong> For a prefix E that denotes an exception:<br />
+E'Identity returns the unique identity of the exception. The type of this attribute is<br />
+Exception_Id. See 11.4.1.
+
+
+******************************************************************************<br />
+
+
+<strong>S'Image</strong> For every scalar subtype S:<br />
+S'Image denotes a function with the following specification:<br />
+function S'Image(Arg : S'Base)<br />
+return String<br />
+The function returns an image of the value of Arg as a String. See 3.5.
+
+
+******************************************************************************
+
+
+<strong>S'Class'Input</strong><br />
+For every subtype S'Class of a class-wide type T'Class:<br />
+S'Class'Input denotes a function with the following specification:<br />
+function S'Class'Input(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class)<br />
+return T'Class<br />
+First reads the external tag from Stream and determines the corresponding internal tag (by<br />
+calling Tags.Descendant_Tag(String'Input(Stream), S'Tag) which might raise Tag_Error &mdash;<br />
+see 3.9) and then dispatches to the subprogram denoted by the Input attribute of the specific<br />
+type identified by the internal tag; returns that result. If the specific type identified by the<br />
+internal tag is abstract, Constraint_Error is raised. See 13.13.2.
+
+
+******************************************************************************
+<br />
+
+<strong>S'Input</strong> For every subtype S of a specific type T:<br />
+S'Input denotes a function with the following specification:<br />
+function S'Input(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class)<br />
+return T<br />
+S'Input reads and returns one value from Stream, using any bounds or discriminants written<br />
+by a corresponding S'Output to determine how much to read. See 13.13.2.
+<br />
+******************************************************************************
+<br />
+<strong>A'Last</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'Last denotes the upper bound of the first index range; its type is the corresponding index<br />
+type. See 3.6.2.
+<br />
+******************************************************************************<br />
+
+<strong>S'Last</strong> For every scalar subtype S:<br />
+S'Last denotes the upper bound of the range of S. The value of this attribute is of the type of<br />
+S. See 3.5.<br />
+
+<strong>
+******************************************************************************<br />
+
+A'Last(N)</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+<strong>A'Last(N)</strong> denotes the upper bound of the N-th index range; its type is the corresponding<br />
+index type. See 3.6.2.<br />
+
+<strong>
+******************************************************************************<br />
+
+R.C'Last_Bit<br /></strong>
+For a component C of a composite, non-array object R:<br />
+If the nondefault bit ordering applies to the composite type, and if a component_clause<br />
+specifies the placement of C, denotes the value given for the last_bit of the<br />
+component_clause; otherwise, denotes the offset, from the start of the first of the storage<br />
+
+elements occupied by C, of the last bit occupied by C. This offset is measured in bits. The<br />
+value of this attribute is of the type universal_integer. See 13.5.2.<br />
+
+<strong>******************************************************************************<br />
+
+S'Leading_Part</strong><br />
+For every subtype S of a floating point type T:<br />
+S'Leading_Part denotes a function with the following specification:<br />
+function S'Leading_Part (X : T;<br />
+Radix_Digits : universal_integer)<br />
+return T<br />
+Let v be the value T'Machine_Radixk&ndash;Radix_Digits, where k is the normalized exponent of X. The<br />
+function yields the value<br />
+&bull; ?X/v? &middot; v, when X is nonnegative and Radix_Digits is positive;<br />
+&bull; ?X/v? &middot; v, when X is negative and Radix_Digits is positive.<br />
+Constraint_Error is raised when Radix_Digits is zero or negative. A zero result, which can<br />
+only occur when X is zero, has the sign of X. See A.5.3.<br />
+
+<strong>
+******************************************************************************<br />
+
+A'Length</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'Length denotes the number of values of the first index range (zero for a null range); its<br />
+type is universal_integer. See 3.6.2.<br />
+
+<strong>
+******************************************************************************<br />
+
+A'Length(N)</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'Length(N) denotes the number of values of the N-th index range (zero for a null range);<br />
+its type is universal_integer. See 3.6.2.<br />
+
+<strong>******************************************************************************
+
+
+S'Machine</strong> For every subtype S of a floating point type T:<br />
+S'Machine denotes a function with the following specification:<br />
+function S'Machine (X : T)<br />
+return T<br />
+If X is a machine number of the type T, the function yields X; otherwise, it yields the value<br />
+obtained by rounding or truncating X to either one of the adjacent machine numbers of the<br />
+type T. Constraint_Error is raised if rounding or truncating X to the precision of the<br />
+machine numbers results in a value outside the base range of S. A zero result has the sign of<br />
+X when S'Signed_Zeros is True. See A.5.3.<br />
+
+<strong>******************************************************************************<br />
+
+S'Machine_Emax<br /></strong>
+For every subtype S of a floating point type T:<br />
+Yields the largest (most positive) value of exponent such that every value expressible in the<br />
+canonical form (for the type T), having a mantissa of T'Machine_Mantissa digits, is a<br />
+machine number (see 3.5.7) of the type T. This attribute yields a value of the type<br />
+universal_integer. See A.5.3.<br />
+
+<strong>
+******************************************************************************<br />
+
+S'Machine_Emin<br /></strong>
+For every subtype S of a floating point type T:<br />
+Yields the smallest (most negative) value of exponent such that every value expressible in<br />
+the canonical form (for the type T), having a mantissa of T'Machine_Mantissa digits, is a<br />
+machine number (see 3.5.7) of the type T. This attribute yields a value of the type<br />
+universal_integer. See A.5.3.<br />
+
+
+******************************************************************************<br />
+
+
+<strong>S'Machine_Mantissa</strong><br />
+For every subtype S of a floating point type T:<br />
+
+Yields the largest value of p such that every value expressible in the canonical form (for the<br />
+type T), having a p-digit mantissa and an exponent between T'Machine_Emin and<br />
+T'Machine_Emax, is a machine number (see 3.5.7) of the type T. This attribute yields a<br />
+value of the type universal_integer. See A.5.3.<br />
+
+<strong>******************************************************************************<br />
+
+
+S'Machine_Overflows</strong><br />
+For every subtype S of a fixed point type T:<br />
+Yields the value True if overflow and divide-by-zero are detected and reported by raising<br />
+Constraint_Error for every predefined operation that yields a result of the type T; yields the<br />
+value False otherwise. The value of this attribute is of the predefined type Boolean. See<br />
+A.5.4.<br />
+
+******************************************************************************<br />
+
+
+<strong>S'Machine_Overflows</strong><br />
+For every subtype S of a floating point type T:<br />
+Yields the value True if overflow and divide-by-zero are detected and reported by raising<br />
+Constraint_Error for every predefined operation that yields a result of the type T; yields the<br />
+value False otherwise. The value of this attribute is of the predefined type Boolean. See<br />
+A.5.3.<br />
+
+******************************************************************************<br />
+
+
+<strong>S'Machine_Radix</strong><br />
+For every subtype S of a fixed point type T:<br />
+Yields the radix of the hardware representation of the type T. The value of this attribute is<br />
+of the type universal_integer. See A.5.4.<br />
+
+******************************************************************************
+
+
+<strong>S'Machine_Radix</strong><br />
+For every subtype S of a floating point type T:<br />
+Yields the radix of the hardware representation of the type T. The value of this attribute is<br />
+of the type universal_integer. See A.5.3.
+
+
+
+******************************************************************************<br /><br />
+
+<strong>S'Machine_Rounding</strong><br />
+For every subtype S of a floating point type T:<br />
+S'Machine_Rounding denotes a function with the following specification:<br />
+function S'Machine_Rounding (X : T)<br />
+return T<br />
+The function yields the integral value nearest to X. If X lies exactly halfway between two<br />
+integers, one of those integers is returned, but which of them is returned is unspecified. A<br />
+zero result has the sign of X when S'Signed_Zeros is True. This function provides access to<br />
+the rounding behavior which is most efficient on the target processor. See A.5.3.<br />
+
+
+******************************************************************************<br />
+
+<strong>S'Machine_Rounds</strong><br />
+For every subtype S of a fixed point type T:<br />
+Yields the value True if rounding is performed on inexact results of every predefined<br />
+operation that yields a result of the type T; yields the value False otherwise. The value of<br />
+this attribute is of the predefined type Boolean. See A.5.4.<br />
+
+******************************************************************************
+
+
+<strong>S'Machine_Round</strong>s<br />
+For every subtype S of a floating point type T:<br />
+Yields the value True if rounding is performed on inexact results of every predefined<br />
+operation that yields a result of the type T; yields the value False otherwise. The value of<br />
+this attribute is of the predefined type Boolean. See A.5.3.<br />
+
+
+******************************************************************************<br />
+
+<strong>S'Max</strong> For every scalar subtype S:<br />
+S'Max denotes a function with the following specification:<br />
+
+function S'Max(Left, Right : S'Base)<br />
+return S'Base<br />
+The function returns the greater of the values of the two parameters. See 3.5.<br />
+
+******************************************************************************
+
+
+<strong>S'Max_Alignment_For_Allocation</strong><br />
+For every subtype S:<br />
+Denotes the maximum value for Alignment that could be requested by the implementation<br />
+via Allocate for an access type whose designated subtype is S. The value of this attribute is<br />
+of type universal_integer. See 13.11.1.<br />
+
+******************************************************************************<br />
+
+
+<strong>S'Max_Size_In_Storage_Elements</strong><br />
+For every subtype S:<br />
+Denotes the maximum value for Size_In_Storage_Elements that could be requested by the<br />
+implementation via Allocate for an access type whose designated subtype is S. The value of<br />
+this attribute is of type universal_integer. See 13.11.1.<br />
+
+******************************************************************************<br />
+
+<strong>S'Min</strong> For every scalar subtype S:<br />
+S'Min denotes a function with the following specification:<br />
+function S'Min(Left, Right : S'Base)<br />
+return S'Base<br />
+The function returns the lesser of the values of the two parameters. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>S'Mod</strong> For every modular subtype S:<br />
+S'Mod denotes a function with the following specification:<br />
+function S'Mod (Arg : universal_integer)<br />
+return S'Base<br />
+This function returns Arg mod S'Modulus, as a value of the type of S. See 3.5.4.<br />
+******************************************************************************
+
+
+<strong>S'Model</strong> For every subtype S of a floating point type T:<br />
+S'Model denotes a function with the following specification:<br />
+function S'Model (X : T)<br />
+return T<br />
+If the Numerics Annex is not supported, the meaning of this attribute is implementation<br />
+defined; see G.2.2 for the definition that applies to implementations supporting the<br />
+Numerics Annex. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Model_Emin<br /></strong>
+For every subtype S of a floating point type T:<br />
+If the Numerics Annex is not supported, this attribute yields an implementation defined<br />
+value that is greater than or equal to the value of T'Machine_Emin. See G.2.2 for further<br />
+requirements that apply to implementations supporting the Numerics Annex. The value of<br />
+this attribute is of the type universal_integer. See A.5.3.
+<br />
+******************************************************************************
+
+
+<strong>S'Model_Epsilon</strong><br />
+For every subtype S of a floating point type T:<br />
+Yields the value T'Machine_Radix1 &ndash; T'Model_Mantissa. The value of this attribute is of the type<br />
+universal_real. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Model_Mantissa<br /></strong>
+For every subtype S of a floating point type T:<br />
+If the Numerics Annex is not supported, this attribute yields an implementation defined<br />
+value that is greater than or equal to ?d &middot; log(10) / log(T'Machine_Radix)? + 1, where d is<br />
+the requested decimal precision of T, and less than or equal to the value of<br />
+T'Machine_Mantissa. See G.2.2 for further requirements that apply to implementations<br />
+supporting the Numerics Annex. The value of this attribute is of the type universal_integer.<br />
+See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Model_Small</strong><br />
+For every subtype S of a floating point type T:<br />
+Yields the value T'Machine_RadixT'Model_Emin &ndash; 1. The value of this attribute is of the type<br />
+universal_real. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Modulus</strong> For every modular subtype S:<br />
+S'Modulus yields the modulus of the type of S, as a value of the type universal_integer. See<br />
+3.5.4.<br />
+
+******************************************************************************<br />
+
+<strong>S'Class'Output</strong><br />
+For every subtype S'Class of a class-wide type T'Class:<br />
+S'Class'Output denotes a procedure with the following specification:<br />
+procedure S'Class'Output(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : in T'Class)<br />
+First writes the external tag of Item to Stream (by calling String'Output(Stream, Tags.-<br />
+External_Tag(Item'Tag)) &mdash; see 3.9) and then dispatches to the subprogram denoted by the<br />
+Output attribute of the specific type identified by the tag. Tag_Error is raised if the tag of<br />
+Item identifies a type declared at an accessibility level deeper than that of S. See 13.13.2.<br />
+******************************************************************************
+
+
+<strong>S'Output</strong> For every subtype S of a specific type T:<br />
+S'Output denotes a procedure with the following specification:<br />
+procedure S'Output(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : in T)<br />
+S'Output writes the value of Item to Stream, including any bounds or discriminants. See<br />
+13.13.2.
+<br />
+******************************************************************************
+
+
+<strong>D'Partition_Id<br /></strong>
+For a prefix D that denotes a library-level declaration, excepting a declaration of or within a<br />
+declared-pure library unit:<br />
+Denotes a value of the type universal_integer that identifies the partition in which D was<br />
+elaborated. If D denotes the declaration of a remote call interface library unit (see E.2.3) the<br />
+given partition is the one where the body of D was elaborated. See E.1.<br />
+
+******************************************************************************
+
+
+<strong>S'Pos</strong> For every discrete subtype S:<br />
+S'Pos denotes a function with the following specification:<br />
+function S'Pos(Arg : S'Base)<br />
+return universal_integer<br />
+This function returns the position number of the value of Arg, as a value of type<br />
+universal_integer. See 3.5.5.
+
+
+******************************************************************************
+<br />
+
+<strong>R.C'Position</strong> For a component C of a composite, non-array object R:<br />
+If the nondefault bit ordering applies to the composite type, and if a component_clause<br />
+specifies the placement of C, denotes the value given for the position of the<br />
+component_clause; otherwise, denotes the same value as R.C'Address &ndash; R'Address. The<br />
+value of this attribute is of the type universal_integer. See 13.5.2.<br />
+
+******************************************************************************<br />
+
+
+<strong>S'Pred</strong> For every scalar subtype S:<br />
+S'Pred denotes a function with the following specification:<br />
+function S'Pred(Arg : S'Base)<br />
+return S'Base<br />
+For an enumeration type, the function returns the value whose position number is one less<br />
+than that of the value of Arg; Constraint_Error is raised if there is no such value of the type.<br />
+For an integer type, the function returns the result of subtracting one from the value of Arg.<br />
+For a fixed point type, the function returns the result of subtracting small from the value of<br />
+Arg. For a floating point type, the function returns the machine number (as defined in 3.5.7)<br />
+immediately below the value of Arg; Constraint_Error is raised if there is no such machine<br />
+number. See 3.5.<br />
+
+******************************************************************************<br />
+
+
+<strong>P'Priority</strong> For a prefix P that denotes a protected object:<br />
+Denotes a non-aliased component of the protected object P. This component is of type<br />
+System.Any_Priority and its value is the priority of P. P'Priority denotes a variable if and<br />
+only if P denotes a variable. A reference to this attribute shall appear only within the body<br />
+of P. See D.5.2.<br />
+
+******************************************************************************
+
+
+A'Range For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+A'Range is equivalent to the range A'First .. A'Last, except that the prefix A is only<br />
+evaluated once. See 3.6.2.
+
+<br />
+******************************************************************************<br />
+
+
+<strong>S'Range</strong> For every scalar subtype S:<br />
+S'Range is equivalent to the range S'First .. S'Last. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>A'Range(N)</strong> For a prefix A that is of an array type (after any implicit dereference), or denotes a<br />
+constrained array subtype:<br />
+<strong>A'Range(N)</strong> is equivalent to the range A'First(N) .. A'Last(N), except that the prefix A is<br />
+only evaluated once. See 3.6.2.<br />
+
+******************************************************************************<br />
+
+<strong>S'Class'Read</strong> For every subtype S'Class of a class-wide type T'Class:<br />
+S'Class'Read denotes a procedure with the following specification:<br />
+procedure S'Class'Read(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : out T'Class)<br />
+Dispatches to the subprogram denoted by the Read attribute of the specific type identified<br />
+by the tag of Item. See 13.13.2.<br />
+
+******************************************************************************<br />
+
+<strong>S'Read</strong> For every subtype S of a specific type T:<br />
+S'Read denotes a procedure with the following specification:<br />
+procedure S'Read(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : out T)<br />
+S'Read reads the value of Item from Stream. See 13.13.2.<br />
+
+******************************************************************************<br />
+
+<strong>S'Remainder</strong> For every subtype S of a floating point type T:<br />
+S'Remainder denotes a function with the following specification:<br />
+function S'Remainder (X, Y : T)<br />
+return T<br />
+For nonzero Y, let v be the value X &ndash; n &middot; Y, where n is the integer nearest to the exact value<br />
+of X/Y; if |n &ndash; X/Y| = 1/2, then n is chosen to be even. If v is a machine number of the type<br />
+T, the function yields v; otherwise, it yields zero. Constraint_Error is raised if Y is zero. A<br />
+zero result has the sign of X when S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Round</strong> For every decimal fixed point subtype S:<br />
+S'Round denotes a function with the following specification:<br />
+function S'Round(X : universal_real)<br />
+return S'Base<br />
+The function returns the value obtained by rounding X (away from 0, if X is midway<br />
+between two values of the type of S). See 3.5.10.<br />
+
+******************************************************************************<br />
+
+<strong>S'Rounding</strong> For every subtype S of a floating point type T:<br />
+S'Rounding denotes a function with the following specification:<br />
+function S'Rounding (X : T)<br />
+return T<br />
+The function yields the integral value nearest to X, rounding away from zero if X lies<br />
+exactly halfway between two integers. A zero result has the sign of X when S'Signed_Zeros<br />
+is True. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Safe_First<br /></strong>
+For every subtype S of a floating point type T:<br />
+Yields the lower bound of the safe range (see 3.5.7) of the type T. If the Numerics Annex is<br />
+not supported, the value of this attribute is implementation defined; see G.2.2 for the<br />
+definition that applies to implementations supporting the Numerics Annex. The value of<br />
+this attribute is of the type universal_real. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Safe_Last</strong> For every subtype S of a floating point type T:<br />
+Yields the upper bound of the safe range (see 3.5.7) of the type T. If the Numerics Annex is<br />
+not supported, the value of this attribute is implementation defined; see G.2.2 for the<br />
+definition that applies to implementations supporting the Numerics Annex. The value of<br />
+this attribute is of the type universal_real. See A.5.3.<br />
+
+******************************************************************************
+
+
+<strong>S'Scale</strong> For every decimal fixed point subtype S:<br />
+S'Scale denotes the scale of the subtype S, defined as the value N such that S'Delta =<br />
+10.0**(&ndash;N). The scale indicates the position of the point relative to the rightmost significant<br />
+digits of values of subtype S. The value of this attribute is of the type universal_integer.<br />
+See 3.5.10.<br />
+
+******************************************************************************<br />
+
+<strong>S'Scaling</strong> For every subtype S of a floating point type T:<br />
+S'Scaling denotes a function with the following specification:<br />
+function S'Scaling (X : T;<br />
+Adjustment : universal_integer)<br />
+return T<br />
+Let v be the value X &middot; T'Machine_RadixAdjustment. If v is a machine number of the type T, or if<br />
+|v| &ge; T'Model_Small, the function yields v; otherwise, it yields either one of the machine<br />
+numbers of the type T adjacent to v. Constraint_Error is optionally raised if v is outside the<br />
+base range of S. A zero result has the sign of X when S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Signed_Zeros</strong><br />
+For every subtype S of a floating point type T:<br />
+Yields the value True if the hardware representation for the type T has the capability of<br />
+representing both positively and negatively signed zeros, these being generated and used by<br />
+the predefined operations of the type T as specified in IEC 559:1989; yields the value False<br />
+otherwise. The value of this attribute is of the predefined type Boolean. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Size</strong> For every subtype S:<br />
+If S is definite, denotes the size (in bits) that the implementation would choose for the<br />
+following objects of subtype S:<br />
+&bull; A record component of subtype S when the record type is packed.<br />
+&bull; The formal parameter of an instance of Unchecked_Conversion that converts<br />
+from subtype S to some other subtype.<br />
+If S is indefinite, the meaning is implementation defined. The value of this attribute is of<br />
+the type universal_integer. See 13.3.<br />
+
+******************************************************************************<br />
+
+<strong>X'Size</strong> For a prefix X that denotes an object:<br />
+Denotes the size in bits of the representation of the object. The value of this attribute is of<br />
+the type universal_integer. See 13.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Small</strong> For every fixed point subtype S:<br />
+S'Small denotes the small of the type of S. The value of this attribute is of the type<br />
+universal_real. See 3.5.10.<br />
+
+******************************************************************************<br />
+
+<strong>S'Storage_Pool</strong><br />
+For every access-to-object subtype S:<br />
+Denotes the storage pool of the type of S. The type of this attribute is Root_Storage_-<br />
+Pool'Class. See 13.11.<br />
+
+******************************************************************************<br />
+
+<strong>S'Storage_Size</strong><br />
+For every access-to-object subtype S:<br />
+Yields the result of calling Storage_Size(S'Storage_Pool), which is intended to be a<br />
+measure of the number of storage elements reserved for the pool. The type of this attribute<br />
+is universal_integer. See 13.11.
+<br />
+******************************************************************************
+
+
+<strong>T'Storage_Size</strong><br />
+For a prefix T that denotes a task object (after any implicit dereference):<br />
+Denotes the number of storage elements reserved for the task. The value of this attribute is<br />
+of the type universal_integer. The Storage_Size includes the size of the task's stack, if any.<br />
+The language does not specify whether or not it includes other storage associated with the<br />
+task (such as the &quot;task control block&quot; used by some implementations.) See 13.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Stream_Size</strong><br />
+For every subtype S of an elementary type T:<br />
+Denotes the number of bits occupied in a stream by items of subtype S. Hence, the number<br />
+of stream elements required per item of elementary type T is:<br />
+T'Stream_Size / Ada.Streams.Stream_Element'Size<br />
+The value of this attribute is of type universal_integer and is a multiple of<br />
+Stream_Element'Size. See 13.13.2.
+<br />
+******************************************************************************
+
+
+<strong>S'Succ</strong> For every scalar subtype S:<br />
+S'Succ denotes a function with the following specification:<br />
+function S'Succ(Arg : S'Base)<br />
+return S'Base<br />
+For an enumeration type, the function returns the value whose position number is one more<br />
+than that of the value of Arg; Constraint_Error is raised if there is no such value of the type.<br />
+For an integer type, the function returns the result of adding one to the value of Arg. For a<br />
+fixed point type, the function returns the result of adding small to the value of Arg. For a<br />
+floating point type, the function returns the machine number (as defined in 3.5.7)<br />
+immediately above the value of Arg; Constraint_Error is raised if there is no such machine<br />
+number. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>X'Tag </strong>For a prefix X that is of a class-wide tagged type (after any implicit dereference):<br />
+X'Tag denotes the tag of X. The value of this attribute is of type Tag. See 3.9.<br />
+
+<strong>S'Tag</strong> For every subtype S of a tagged type T (specific or class-wide):<br />
+S'Tag denotes the tag of the type T (or if T is class-wide, the tag of the root type of the<br />
+corresponding class). The value of this attribute is of type Tag. See 3.9.<br />
+
+******************************************************************************<br />
+
+<strong>T'Terminated</strong> For a prefix T that is of a task type (after any implicit dereference):<br />
+Yields the value True if the task denoted by T is terminated, and False otherwise. The value<br />
+of this attribute is of the predefined type Boolean. See 9.9.<br />
+
+******************************************************************************<br />
+
+<strong>S'Truncation</strong> For every subtype S of a floating point type T:<br />
+S'Truncation denotes a function with the following specification:<br />
+function S'Truncation (X : T)<br />
+return T<br />
+The function yields the value ?X? when X is negative, and ?X? otherwise. A zero result has<br />
+the sign of X when S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Unbiased_Rounding<br /></strong>
+For every subtype S of a floating point type T:<br />
+S'Unbiased_Rounding denotes a function with the following specification:<br />
+function S'Unbiased_Rounding (X : T)<br />
+return T<br />
+The function yields the integral value nearest to X, rounding toward the even integer if X<br />
+lies exactly halfway between two integers. A zero result has the sign of X when<br />
+S'Signed_Zeros is True. See A.5.3.<br />
+
+******************************************************************************<br />
+
+<strong>X'Unchecked_Access</strong><br />
+For a prefix X that denotes an aliased view of an object:<br />
+All rules and semantics that apply to X'Access (see 3.10.2) apply also to<br />
+X'Unchecked_Access, except that, for the purposes of accessibility rules and checks, it is as<br />
+if X were declared immediately within a library package. See 13.10.<br />
+
+******************************************************************************<br />
+
+<strong>S'Val</strong> For every discrete subtype S:<br />
+S'Val denotes a function with the following specification:<br />
+function S'Val(Arg : universal_integer)<br />
+return S'Base<br />
+This function returns a value of the type of S whose position number equals the value of<br />
+Arg. See 3.5.5.<br />
+
+******************************************************************************<br />
+
+<strong>X'Valid</strong> For a prefix X that denotes a scalar object (after any implicit dereference):<br />
+Yields True if and only if the object denoted by X is normal and has a valid representation.<br />
+The value of this attribute is of the predefined type Boolean. See 13.9.2.<br />
+
+******************************************************************************<br />
+
+<strong>S'Value</strong> For every scalar subtype S:<br />
+S'Value denotes a function with the following specification:<br />
+function S'Value(Arg : String)<br />
+return S'Base<br />
+This function returns a value given an image of the value as a String, ignoring any leading<br />
+or trailing spaces. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>P'Version</strong> For a prefix P that statically denotes a program unit:<br />
+Yields a value of the predefined type String that identifies the version of the compilation<br />
+unit that contains the declaration of the program unit. See E.3.<br />
+
+******************************************************************************<br />
+
+<strong>S'Wide_Image</strong> For every scalar subtype S:<br />
+S'Wide_Image denotes a function with the following specification:<br />
+function S'Wide_Image(Arg : S'Base)<br />
+return Wide_String<br />
+******************************************************************************<br />
+
+<strong>S'Wide_Value</strong><br />
+For every scalar subtype S:<br />
+S'Wide_Value denotes a function with the following specification:<br />
+function S'Wide_Value(Arg : Wide_String)<br />
+return S'Base<br />
+This function returns a value given an image of the value as a Wide_String, ignoring any<br />
+leading or trailing spaces. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>S'Wide_Wide_Image</strong><br />
+For every scalar subtype S:<br />
+S'Wide_Wide_Image denotes a function with the following specification:<br />
+function S'Wide_Wide_Image(Arg : S'Base)<br />
+return Wide_Wide_String<br />
+The function returns an image of the value of Arg, that is, a sequence of characters<br />
+representing the value in display form. See 3.5.
+
+<br />
+******************************************************************************<br />
+
+
+<strong>S'Wide_Wide_Value</strong><br />
+For every scalar subtype S:<br />
+S'Wide_Wide_Value denotes a function with the following specification:<br />
+The function returns an image of the value of Arg as a Wide_String. See 3.5.<br />
+
+function S'Wide_Wide_Value(Arg : Wide_Wide_String)<br />
+return S'Base<br />
+This function returns a value given an image of the value as a Wide_Wide_String, ignoring<br />
+any leading or trailing spaces. See 3.5.<br />
+
+******************************************************************************<br />
+
+S<strong>'Wide_Wide_Width<br /></strong>
+For every scalar subtype S:<br />
+S'Wide_Wide_Width denotes the maximum length of a Wide_Wide_String returned by<br />
+S'Wide_Wide_Image over all values of the subtype S. It denotes zero for a subtype that has<br />
+a null range. Its type is universal_integer. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>S'Wide_Width</strong><br />
+For every scalar subtype S:<br />
+S'Wide_Width denotes the maximum length of a Wide_String returned by S'Wide_Image<br />
+over all values of the subtype S. It denotes zero for a subtype that has a null range. Its type<br />
+is universal_integer. See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>S'Width</strong> For every scalar subtype S:<br />
+S'Width denotes the maximum length of a String returned by S'Image over all values of the<br />
+subtype S. It denotes zero for a subtype that has a null range. Its type is universal_integer.<br />
+See 3.5.<br />
+
+******************************************************************************<br />
+
+<strong>S'Class'Write</strong><br />
+For every subtype S'Class of a class-wide type T'Class:<br />
+S'Class'Write denotes a procedure with the following specification:<br />
+procedure S'Class'Write(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : in T'Class)<br />
+Dispatches to the subprogram denoted by the Write attribute of the specific type identified<br />
+by the tag of Item. See 13.13.2.<br />
+******************************************************************************<br />
+
+
+<strong>S'Write</strong> For every subtype S of a specific type T:<br />
+S'Write denotes a procedure with the following specification:<br />
+procedure S'Write(<br />
+Stream : not null access Ada.Streams.Root_Stream_Type'Class;<br />
+Item : in T)<br />
+S'Write writes the value of Item to Stream. See 13.13.2.<br />
+
+******************************************************************************<br />		
+		</pre>
+  </body> 
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek4/ek4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:52:39 GMT -->
+</html> 
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

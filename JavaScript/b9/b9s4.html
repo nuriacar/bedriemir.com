@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:20 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b9/b9s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b9s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b9s3.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b10/b10s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 9
+		</p>
+		<p class="chapter">
+			String (Karakter Dizgisi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 9 Sayfa 4
+		</p>
+		<p class="subheading" id="proto-tolowercase">9.2.16 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin toLowerCase() Metodu</p>
+		<p class="indent">
+			Bu metod, bir kd verisinin karakterlerini küçük harflere çevirir. Eğer
+				kd verisi ilkel kd tipinde değilse ilk önce ilkel kd tipine dönüştürülür.
+				Dönüştürme, karakterlerin teker teker incelenerek dönüştürülmesi ile gerçekleşir.
+				Eğer bir harfin  Unicode küçük harf eşdeğeri varsa, bu eşdeğer alınır, yoksa
+				karakter olduğu gibi bırakılır. Sonuç, ilkel kd tipindedir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">toLowerCase</span><span 
+			class="op">()</span>
+		</pre>
+		<p class="indent" id="b9.2.16-uyg-1">
+			şeklindedir. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.16-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.16-uyg-1.html">uygulama</a> sayfasında
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> isim<span 
+			class="str"><span 
+			class="op">=</span> 'TUNAY'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">isim</span><span 
+			class="op">.</span><span 
+			class="keyw">toLowerCase</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> isim<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.16-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.16-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.16-uyg-1.html">uygulamanın</a>
+			sonucunun iyi gitmesi bizleri yanıltmasın. Türk alfabesi, küçük harf/ büyük harf
+			projeksiyonu açısından Unicode projeksiyonu ile uyumsuzdur. Türk alfabesine
+			göre İ nin küçük harf eşleniği, i harfi, I hatfinin küçük harf eşleniği ise, ı harfidir. 
+			Oysaki Unicode karakter projeksiyonları I nın küçük harf eşleniğinin i harfi
+			olmasını öngörür. Bu da sorun yaratacak bir konu olarak karşımıza çıkar. 
+			Türkçe için yapılacak şey, aşağıda görülen toLocaleLowerCase<span class="op">()</span>
+			metodununun yazılımını değiştirerek uygun bir algoritma ile dönüşümleri gerçekleştirmektir.
+		</p>
+		<p class="subheading" id="proto-tolocalelowercase">9.2.17 - String (Karakter
+			Dizgisi) Nesne Sınıfı Prototipinin toLocaleLowerCase() Metodu</p>
+		<p class="indent">
+			Bu metod, bir kd verisinin karakterlerini küçük harflere çevirir. Eğer
+			kd verisi ilkel kd tipinde değilse ilk önce ilkel kd tipine dönüştürülür.
+			Dönüştürme, karakterlerin teker teker incelenerek dönüştürülmesi ile gerçekleşir.
+			Eğer bir harfin  Unicode küçük harf eşdeğeri varsa, bu eşdeğer alınır,
+				yoksa karakter olduğu gibi bırakılır. Sonuç, ilkel kd tipindedir. Bu
+				metodun amacı, Unicode büyük/küçük harf projeksiyonuna uymayan az sayıda
+				dillerin, bu arada özellikle Türkçe karakterlerin, küçük harflare çevrilmesi
+				için özel bir algoritma kullanımına olanak sağlanmasıdır. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">toLocaleLowerCase</span><span 
+			class="op">()</span>
+		</pre>
+		<p class="indent" id="b9.2.17-uyg-1">
+			şeklindedir. Bu konuda bir 
+			<a href="../uygulamalar/b9.2.17-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.17-uyg-1.html">uygulama</a> sayfasında
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> isim<span 
+			class="str"><span 
+			class="op">=</span> 'TIĞ İŞİ'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">isim</span><span 
+			class="op">.</span><span 
+			class="keyw">toLocaleLowerCase</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> isim<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.17-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.17-uyg-1-sonuç-1"></p>
+		<p class="indent" id="b9.2.17-uyg-2">
+			Yukarıda açıklanan nedenlerden dolayı, Türkçenin İ ve ı karakterlerinin
+				bu metotla doğru çalışacağı düşünülmüyordu, fakat İ karakteri düzgün olarak
+				i haline geliyor,  sorun, I/ı eşleniğinde çıkıyor fakat çözümü son derece
+				basit. Bu konuda bir ön taratma  yaparak, veriyi I harfinden ve İ harfinden
+				kurtarabiliriz. Bu yöntemle, 
+			<span class="keyw">toLowerCase</span><span class="op">()</span>
+			metodu yeterli olmaktadır yani, 
+			<span class="keyw">toLocaleLowerCase</span><span class="op">()</span>
+			metodu için yeni bir algoritmanın yazılması gereksiz olmaktadır. Aşağıda bu yöntemin
+			<a href="../uygulamalar/b9.2.17-uyg-2-js.html">JavaScript kodları</a>ve 
+			bağlandığı bir 	<a href="../uygulamalar/b9.2.17-uyg-2.html">uygulama</a> 
+			sayfasında verdiği sonuç görülmektedir.
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> kurtar<span 
+			class="op">(</span>kötüRuh<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> iyiRuh <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>kötüRuh<span 
+			class="op">.</span><span class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">iyiRuh</span> <span 
+			class="op">=</span> kötüRuh<span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span><span 
+			class="str">'I'</span><span 
+			class="op">,</span> <span 
+			class="str">'ı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> iyiRuh<span 
+			class="op">;</span> <span class="comm-50">// İyi Saatte Olsunlar !!!</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> YerelKüçükHarflereÇevir2<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> isim<span 
+			class="str"><span 
+			class="op">=</span> 'TIĞ İŞİ'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span> <span 
+			class="op">=</span> kurtar<span 
+			class="op">(</span>isim<span 
+			class="op">);</span> 
+
+<span class="pl-50">sonuç</span> <span 
+			class="op">=</span> isim<span 
+			class="op">.</span><span 
+			class="keyw">toLowerCase</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.17-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p id="b9.2.17-uyg-2-sonuç-1"></p>
+		<p class="indent">
+			Sonuçlar, bu yöntemin iyi çalıştığını ve türkçe büyük karakterlerin sorunsuzca küçük 
+			karakterlere dönüştürülebildiğini belirtmektedir.
+		</p>
+		<p class="subheading" id="proto-touppercase">9.2.18 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin toUpperCase() Metodu</p>
+		<p class="indent">
+			Bu metot, prensip olarak <span class="keyw">toLowerCase</span><span class="op">()</span>
+			metodu ile aynıdır. Sadece, burada küçük harfler büyük harflere dönüştürülmektedir. Metotlar
+			içeriğe karşı duyarlı olduklarından, her iki metot prensipte zorunlu olarak simetrik değildir. Yani, 
+			kd<span class="op">.</span><span class="keyw">toUpperCase</span><span class="op">()</span><span 
+			class="op">.</span><span class="keyw">toLowerCase</span><span class="op">()</span> ifadesi, 
+			kd<span class="op">.</span><span class="keyw">toLowerCase</span><span class="op">()</span> ifadesi,ne
+			ifadesine her zaman eşit değildir. 
+		</p>
+		<p class="indent" id="b9.2.18-uyg-1">
+			Burda, her zaman olduğu gibi Türkçe karakterler sorun çıkararır. Türkçe karakterlerin bu yönteme
+			nasıl yanıt verdiğinin incelenmesi için, bir uygulama örneğinin 
+			<a href="../uygulamalar/b9.2.18-uyg-1-js.html">JavaScript programı</a> ve 
+			ilişikli olduğu, <a href="../uygulamalar/b9.2.18-uyg-1.html">uygulama</a> sayfasında verdiği sonuç, 
+			aşağıda görülmektedir:		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> isim<span 
+			class="str"><span 
+			class="op">=</span> 'ıiüşğöçü'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">isim</span><span 
+			class="op">.</span><span 
+			class="keyw">toUpperCase</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> isim<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.18-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.18-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.18-uyg-1.html">uygulamanın</a> 
+			sonuçlarından, her zaman olduğu gibi <span 
+			class="str">'I'</span> ile <span 
+			class="str">'ı'</span> karakterlerinin sorun çıkardığı görülüyor. Bunun 
+			için bu şefer farklı bir önlem alma yöntemi üzerinde duracağız. Bunu, 
+			bir sonraki metodun incelenmesi sırasında göreceğiz.
+		</p>
+		<p class="subheading" id="proto-tolocaleuppercase">9.2.19 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin toLocaleUpperCase() Metodu</p>
+		<p class="indent" id="b9.2.19-uyg-1">
+			Bu metodun amacı, klasik Unicode dualitesini sağlamayan Türkçe gibi yerel
+			dillere, kendi öz dönüştürme metotlarını düzenleyerek, sorunsuz bir büyük
+			harflere dönüştürme yöntemini yerleştirme olanağının sağlanmasıdır. Biraz önce, 
+			Türkçe için sorun çıkaran çiftlerin <span class="str">'ı'</span>/ <span 
+			class="str">'I'</span> ve <span class="str">'i'</span>/ <span 
+			class="str">'i'</span> çiftlerinden kaynaklandığını farketmiştik. Bu sorunun 
+			kesin çözümü için, aşağıda görülen bir yöntemin
+			<a href="../uygulamalar/b9.2.19-uyg-1-js.html">JavaScript kodları</a> ve 
+			bağlandığı bir 	<a href="../uygulamalar/b9.2.19-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">String</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">toLocaleUpperCase</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span><span 
+			class="str">'ı'</span><span 
+			class="op">,</span> <span 
+			class="str">'I'</span><span 
+			class="op">);</span>
+<span class="pl-50">a</span> <span 
+			class="op">=</span> a<span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span><span 
+			class="str">'i'</span><span 
+			class="op">,</span> <span 
+			class="str">'İ'</span><span 
+			class="op">);</span>
+<span class="keyw-50">return</span> a<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-50">var</span> isim<span 
+			class="str"><span 
+			class="op">=</span> 'ğüşiçöı'</span><span 
+			class="op">, </span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span> <span 
+			class="op">=</span> isim<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleUpperCase</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.19-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.19-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Sorun yok. Metot görüldüğü gibi iyi çalışmakta ve Türkçe karakterlerin küçükten büyüğe dönüşümünü 
+			sağlamaktadır.
+		</p>
+		<p class="title-left" id="instances">9.3 - String (Karakter Dizgisi) Nesne Sınıfı Örneklerinin Özellikleri</p>
+		<p class="subheading" id="string-length">9.3.1 - String (Karakter Dizgisi) Nesne Örneklerinin length Özelliği</p>
+		<p class="indent" id="b9.3.1-uyg-1">
+			Karakter dizgisi nesne sınıfının örneklerinin aynı dizi sınıfı örnekleri
+				gibi <span class="keyw">length</span>
+			özelliği vardır. Kd sınıfı nesne örneklerinin <span class="keyw">length</span> özelliğinin
+			değeri, nesne  örneğinin içerdiği karakter sayısıdır. Kd sınıfı prototipinin
+			uzunluğunun değeri 0 olacaktır, çünkü kd  sınıfının prototipi boş bir kd nesne
+			sınıfı örneğidir. Aşağıda 
+			<a href="../uygulamalar/b9.3.1-uyg-1-js.html">JavaScript kodları</a> görülen
+			bir program bu konuyu  açıklamaktadır. Bu programın bağlandığı bir <a href="../uygulamalar/b9.3.1-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'String.prototype.length = '</span><span 
+			class="op">,</span> String.prototype.length<span 
+			class="op">,</span> <span 
+			class="str">'b9.3.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.3.1-uyg-1-sonuç-1"></p>
+		<p class="title-left" id="StringFunction">9.4 - String () Fonksiyonu</p>
+		<p class="indent">
+			<span class="keyw">String</span><span 	class="op">()</span> fonksiyonu, verilerin
+			 ilkel string veri tipine dönüştürülmesi için en çok akla gelen bir dönüştürme
+			yöntemidir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">String</span><span class="op">([</span>değer<span class="op">])</span>
+		</pre>
+		<p class="nonindent" id="b9.4-uyg-1">
+			şeklindedir. Eğer bir değer verilmezse, boş bir karakter dizigisi geri döndürülür. Bu konuda bir 
+			<a href="../uygulamalar/b9.4-uyg-1-js.html">JavaScript programı</a> ve ilişkilendirilmiş
+			olduğu <a href="../uygulamalar/b9.4-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> b <span 
+			class="op">=</span> 26<span 
+			class="op">;</span>
+<span class="pl-50">veriTipiYaz</span><span 
+			class="op">(</span><span 
+			class="keyw">String</span><span 
+			class="op">(</span>b<span 
+			class="op">),</span> <span 
+			class="str">'b9.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b9.4-uyg-1-sonuç-1"></p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b9s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b10/b10s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.16-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.17-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.17-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.18-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.19-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.3.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.4-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:20 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,505 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b6/b6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:28 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b6/b6-s1.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 6 Sayfa 1</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+ <body>
+   <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+   <a href="../b5/b5-s2.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+   <a href="../b7/b7-s1.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a>
+  </div>
+<p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+<p class="chapter">
+   Bölüm 6
+ </p>
+  <p class="chapter">
+   Döngüler
+</p>
+  <p class="pagenum">
+  Bölüm 6 Sayfa 1
+ </p>
+  <p class="title-left" id="loop">6.1 Genel Döngü Tanımı Ve Sözdizimi</p>
+  <p class="indent">
+   Bilgisayar programlarında döngüler, ardışık bildirimlerin sıfır veya birden çok kez
+   tekrarlanmasıdır. Döngüler bilgisayar programlarında büyük rol oynarlar. Örnek olarak 
+   milyonlarca insanın kimlik kodlarının teker teker taranarak aranan numaranın bulunması, 
+   ancak döngüler sayesinde gerçekleşebilir. 
+  </p>
+  <p class="indent">
+   İlging bir saptama olarak, Ada programlama dilinde, döngülerin GOTO deyimleri ile, 
+   hiçbir özel yapılanma gereği olmadan gerçekleştirilebileceğini belirtielim. Fakat bu yöntem,
+   hiç uygulanmz. Bunun nedeni, programı okuyacak olanların GOTO deyimi ile 
+   karşılaştıklarında bunun bir döngü sistemi olduğunun anlayamayacakları olasılığının
+   çok yüksek olabileceğidir. Programı okuyacak olanlar, GOTO deyimleri arasında kaybolabilir ve   programı iyi okuyamayabilirler. Genel olarak GTOTO deyimi, çağdışı kabul edilir ve 
+   görenlerde bir tedirginlik duygusu uyandırır. Bu açıdan, döngülerin tasarımı için, 
+   Ada programlama dilinin öntanımlı döngü yapılarının kullanılması dışında bir yöntemin
+   akla bile getirilmemesi gerekir.
+  </p>
+ <p class="indent">
+  <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>,
+  döngü sözdizimini aşağıdaki gibi tanımlamıştır:
+  </p>
+  <p class="Examples-Maroon">
+   loop_statement ::=   [loop_statement_identifier:]
+   [iteration_scheme] loop<br />
+   &nbsp;&nbsp;sequence_of_statements<br />
+  end loop [loop_identifier];</p>
+  <p class="Examples-Maroon">
+   iteration_scheme ::= while condition
+   | for loop_parameter_specification</p>
+  <p class="Examples-Maroon">
+   loop_parameter_specification ::=
+   defining_identifier in [reverse] discrete_subtype_definition
+  </p>
+  <p class="indent">
+   Yukarıdaki Ada döngü sözdiziminde tüm terimlerin isteğe bağlı olduğu görülüyor. Temel
+   yapı, 
+  </p>
+<pre class="app-25">
+<span class="keyw-25">loop</span>
+
+<span class="pl-50">Bildirimler...</span>
+
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   şeklindedir. Böyle bir döngü çalışabilir, ama durdurulamaz, çünkü bir çıkış mekanizması 
+   yoktur. Bu yüzden buna sonsuz döngü adı verilir. Sonsuz döngü birkez başladıktan sonra, 
+   bilgisayarı kapatmadan sona erdirmenin bir yolu bulunamaz. Bu yüzden sonsuz döngü 
+   yararlı bir yapılanma değlidir.
+  </p>
+  <p class="indent">
+   Ada döngü sözdiziminin incelendiğindğinde <span 
+   class="Examples-Maroon"> [loop_statement_identifier:]</span> şeklinde bir döngü isminin
+   verilebildiği görülüyor. Eski bir Pascal özelliği olan döngü isimleri, görüldüğü gibi zorunlu 
+   değildir tam aksine döngü isimlerine çok az durumda gereksinme olur. Döngü ismi olan 
+   bir sonsuz döngü sistemi,
+  </p>
+  <pre class="app-25">
+  Dış_Döngü :
+<span class="keyw-25">loop</span>
+
+<span class="pl-50">Bildirimler...</span>
+
+<span class="keyw-25">end loop</span> Dış_Döngü;
+  </pre>
+  
+  <p class="nonindent">
+   şeklindedir. Döngü ismi verilirse döngü başında belirtilir ve ismin ardına bir kolon (:) 
+   eklenir. Döngü bitiminde mutlaka biten döngünün adının belirtilmesi gerekir aksi halde derleyici
+   döngü ismini yok hükmünde sayar.
+  </p>
+  <p class="indent">
+   Döngülere isim verilmesi sadece birkaç içiçe döngü olduğunda ve bu döngü sisteminde, 
+   iç döngülerden biri tamamlanınca belirli bir dış döngüye atlamasının sağlanması
+   amacı ile yapılır. Tek başına olan veya içiçe olup görevi tamamlanınca normal olarak
+   bir üst döngüye atlayan alışılagelmiş döngü sistemlerinde döngülerin isimlendirilmesine 
+   gerek yoktur. 
+  </p>
+ <p class="indent">
+   Döngülerden çıkış yöntemi, aşağıda sözdizimi görülen <span class="keyw">exit</span>
+   bildirimi ile sağlanır.
+  </p>
+  <p class="Examples-Maroon">
+   exit_statement ::=<br />
+   exit [loop_name] [when condition];
+  </p>
+  <p class="indent">
+   Sözdiziminden de görüldüğü gibi, <span class="keyw">exit</span> bildirimi,
+   hiçbir çıkış döngüsü ismi ve çıkış koşulu bildirilmeden de kullanılabilir.Fakat, bu 
+   sonsuz döngü yazılımı gibi extravagent bir davranış biçimi olur ve hiçbir anlamı olmaz.
+   Çıkış döngösü isminin kullanılması için, <span class="keyw">exit</span> bildiriminin
+   bu döngünün içinde olması gerekir. Her döngü nasıl olsa bir üst döngüye çıkış 
+   yapacağından, eğer bir üst değil bunun üstünde bir döngüye çıkış yapılması isteniyorsa,
+   çıkış döngüsü ismi kullanmanın bir anlamı olabilir, yoksa bir üst döngüye çıkış
+   yapılacaksa, herhangibir döngü ismi kullanılması gereksizdir. Sözdiziminde önemli olan 
+   anahtar terim, koşul terimidir. Koşul, sonucu Boolean bir değere indirgenebilen 
+   bir mantıksal ifadedir. Bu durumda, her gereksinmeyi karşılayacak kullanıcı 
+   tasarımlı döngüler yaratılabilir. 
+</p>
+  <p class="indent">
+   Aşağıdaki döngü örneği, bir fonksiyonun kökünün bulunduğu bir değer aralığını 
+   saptamak amacı ile uygulanmaktadır. Bir f(x) fonksiyonun köklerinden biri,
+   f(x) = 0 olduğu x değerlerinden biridir (öyle bir değer varsa). Eğer,
+   f(x1) * f(x2) &lt; 0 ise kök değeri, x1 ve x2 değerleri arasındadır. Eğer 
+   f(x1) * f(x2) = 0 olursa x1 veya x2 değerlerinden birisi fonksiyonun köküdür.
+  </p>
+  <p class="indent">
+   Fonksiyonlar kaprisli yapılanmalardır. Köklerinin olup olmadığı veya nerede
+   olduğu hiç belli olmaz. Her fonksiyonun cebirsel incelenmesi yanında önce 
+   grafiğinin incelenerek davranışının yakından gözlenmesi, köklerinin olup olmadığı
+   ve kökleri varsa, kaç tane kök olduğu ve bunların yaklaşık aralıkları belirlenmelidir.
+   İnceleyeceğimiz foksiyonun grafik incelemesi aşağıda görülmektedir.
+  </p>
+  <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/IMG0004_36310745.png" 
+    alt="Foksiyon Grafiği" width="587" height="449" /></p>
+  <p class="sayfaortala dikeyTab-25">Şekil 6.1 x<sup>3</sup>-18 x<sup>2</sup> 
+  + 25 x + 100 Fonksiyonun Grafiği</p>
+  <p class="indent">
+   Yukarıda görülen fonksiyonun grafiğinden, fonksiyonun iki tane kökü olduğu 
+   görülüyor. Bunlardan biri -2 ile 0 arasında diğeri +2 ile +4 arasında yer alıyor.
+   Grafik olarak belki daha hassas bilgiler de alabiliriz, fakat bu zahmetli olur.
+   Sürekli grafiğin eksenlerini daraltıp köklerin bulunduğu aralığın daha da 
+   daraltılması yöntemi uygulanabilir fakat pratik ve modüler olmaz. Yani, grafik olarak
+   bulunacak bir çözüm hem emek yoğun olur, hem de her fonksiyon için geçerli olmaz. 
+   Grafik metotla, her fonksiyon için, ayrı bir çalışma yapmak gerekir. Oysa sayısal yöntem 
+   sistematik ve modülerdir. Bir yöntemi tüm fonksiyonlara uygulayabiliriz.
+  </p>
+  <p class="indent">
+   Bu çalışmada fonksiyonların kökünün bulunması için, &quot;Kaba Güç&quot;
+   (Brute Force) denilen bir yöntem kullnacağız. Bu yöntem, fonksiyonların 
+   kökünün bulunması için, kesinlikle en iyi yöntem değildir, fakat anlaşılması ve
+   uygulaması en kolay yöntemlerden biridir. Bütün yapılacak şey, bir aralık saptamak
+   ve bu aralıkta f(x_ilk) * f(x_son) &lt; 0 olup olmadığına bakmaktır. Doğal olarak 
+   f(x_ilk) * f(x_son) = 0 olursa, x_ilk veya x_son dan birisi kök , yani ya f(x_ilk) ya da
+   f(x_son) = 0 olmalıdır. Fakat bunun gerçekleşme olasılığı çok azdır ve genellikle bu 
+   olasılık gözardı edilir. Eğer aranan kök bu aralıkta bulunmazsa, yani, f(x_ilk) * f(x_son) &lt; 0
+   veya f(x_ilk) * f(x_son) = 0 değilse, o zaman x_son = x_ilk olarak değiştirilir, x_xon = x_ilk + artım
+   olarak belirlenir ve yeniden bu ralıkta kök olup olmadığı sınanır. Eğer kök bulunmuşsa, aralık
+   belirtilir ve işlem tamamlanır. Oluşturulmuş aralıkta kök bulunmamışsa, aralık yeniden
+   arttırılır ve deneme sayısı belirli bir iterasyon sayısına ulaşılıncaya kadar aralığın 
+   ilerletilmesine devam edilir. Bu yöntemin akım şeması aşağıda görülmektedir.
+  </p>
+    <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/brute_force.gif" 
+    alt="Akım Şeması" width="794" height="1097" /></p>
+  <p class="sayfaortala dikeyTab-25">Şekil 6.1 Kaba Güç Yönteminin Akım Şeması</p>
+  <p class="indent">
+   Yukarıdaki akım şemasından , bu yöntemin çok olasılıklı karar mekanizmalarının
+   kullanıldığı bir yöntem olduğu görülüyor. Bu yöntemin yapısal programlama sistematiği
+   içinde programlanmış bir <a href="../uygulamalar/b6_1_uyg_1.html">örneği</a> 
+   aşağıda görülmektedir.
+  </p>
+  <pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">With</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">With</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b6_1_uyg_1<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">,</span>x2<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>C<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">Constant</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.001</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>I<span class="S0"> </span><span class="S4">:</span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">function</span><span class="S0"> </span>f_x<span class="S0"> </span><span class="S4">(</span><span class="S0"> </span>x<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S4">)</span><span class="S0"> </span><span class="S1">return</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">return</span><span class="S0"> </span>x<span class="S4">**</span><span class="S3">3</span><span class="S4">-</span><span class="S3">18.0</span><span class="S4">*</span>x<span class="S4">**</span><span class="S3">2</span><span class="S4">+</span><span class="S3">25.0</span><span class="S4">*</span>x<span class="S4">+</span><span class="S3">100.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>f_x<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">-</span><span class="S3">4.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">loop</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x2<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>x1<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span>C<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span><span class="S4">(</span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>f_x<span class="S4">(</span>x2<span class="S4">))</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök içeren aralığın alt sınırı : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x1<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök içeren aralığın üst sınırı : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x2<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">exit</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">elsif</span><span class="S0"> </span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>f_x<span class="S4">(</span>x2<span class="S4">)</span><span class="S0"> </span><span class="S4">=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x1<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span><span class="S0"> </span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x2<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>x2<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>I<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span><span class="S3">10000</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Maksimum Iterasyon Sayısına Ulaşıldı ve Fonkiyonun bir Kökü Saptanamadı !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">exit</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b6_1_uyg_1<span class="S4">;</span></pre>
+  <p class="indent">Bu programın sonucu, </p>
+  <p class="indent green">Kök içeren aralığın alt sınırı : -1.70599999999999995E+00</p>
+  <p class="indent green">Kök içeren aralığın üst sınırı : -1.70499999999999995E+00</p>
+  <p class="indent green">Kaydedilen Iterasyon Sayısı :  2294</p>
+ <p class="indent">olmaktadır.</p>
+  <p class="indent">
+   Yukarıdaki prosedürde uygualnmaış olan döngü yöntemi üzerinde çok övgülü sözlerin 
+   söylenebileceği açıktır. Söylenecek en doğru ve kısa sözcüğün, bu döngü sisteminin
+   bir bilgisayar programlama dilinin kullanıcılara sunabileceği döngü sistemlerinin en gelişmiş
+   olanı olduğudur. Bunun çok çeşitli nedenleri bulunmaktadır. Herşeyden önce,
+   bu döngü sistemi, sınırsız özgür ve esnektir. Programlama dili kullanıcılara sadece sonsuz
+   döngü (loop) ve çıkış (exit)olanağını sunmaktadır. Bu olanakların kullanım yöntemleri,
+   aynı yukarıdaki programda görüldüğü gibi tamamen programcının isteğine bırakılmıştır. 
+   Programcı döngü tasarımın tüm adımlarını istediği gibi düzenleyebilmektedir. Bir programlama
+   dilinde bundan fazlası elde edilemez ve bu olanakları ancak Ada kullanıcılara sunmaktadır. 
+   Sırası ile açıklayalım. Döngünün her devrine bir iterasyon adı verilir. Matematikte döngüler ile 
+   sınama yolu ile çözüm yöntemine &quot;iteratif çözüm yöntemleri&quot; adı verilir. 
+   Gerçekleştirilen iterasyon sayısı, iterasyon sayacı, döngü sayacı, döngü indisi (index) 
+   veya döngü parametresi adı verilen bir tamsayı değişkeni ile kontrol edilebilir. Döngü indisi FORTRAN devrinden 
+   gelme bir gelenekle, I , J , K ,  L , M  , N gibi harfler kullanılarak tanımlanır. Bu harflerin 
+   kullanımı hiçbir şekilde zorunlu değildir, fakat yazılan programların kolay okunması için bir 
+   iletişim yöntemidir. Ada <span class="keyw">loop</span> yapılanmasında, döngü indisinin 
+   kullanılıp kullanılmayacağı artışının nasıl yapılacağı özgürce seçilmektedir. Bizim 
+   programımızda döngü indisi I ile tanımlanmış ve her döngüde bir tamsayı artacak şekilde 
+   programlanmıştır. Bunun dışında döngüden çıkış istenirse salt GOTO istenirse mantıksal 
+   yöntemlerle yapılabilir. Yukarıdaki programda sadece mantıksal yöntemler kullanılmıştır.
+  </p>
+  <p class="indent">
+   Döngü tasarımında en büyük tehlike, sonsuz döngüye girilmesidir. Bunun önlenmesi için 
+   çeşitli önlemler alınabilir. Döngü çeşitlerinden birisi, belirli sayıya kadar döngü yapılan, 
+   öntanımlı (preset) bir döngü sayısına kadar iterasyon yapılmasıdır. Döngü sayacının 
+   düzenlemesi doğru yapıldığında, bu tip döngülerde sonsuz döngüye girilmesi olanağı 
+   yoktur.
+  </p>
+  <p class="indent">
+   Bazı döngülerde ise, iterasyonlara belirli bir koşulun gerçekleşmesine kadar devam 
+   edilmesi öngörülmüştür. Bu tip döngülerde, sonduz döngüye düşülmesi tehlkesi her 
+   zaman bulunmaktadır. Çünkü, öngörülen koşul hibir zaman gerçekleşmeyebilir. Yukarıdaki 
+   örnekteki yapılanması da, böyle bir döngü sistemidir. Bu durumda, mutlaka ama mutlaka, 
+   döngünün tamamlanacağı bir maksimum döngü sayacı değeri belirlenmeli ve bu değere 
+   ulaşıldığında ne olursa olsun döngüden çıkış sağlanmalıdır. Yukarıdaki programda da 
+   böyle bir maksimum döngü sayacı değeri tanımlanmıştır. 
+  </p>
+ <p class="indent">
+   Ada <span class="keyw">loop</span> yapılanmalarının tasarımı, sonuna kadar özgürdür. 
+   Döngü sonu, döngünün başında, döngünün ortasında, döngünün sonunda kontrol edilebilir. 
+   Gerçekleşmesi beklenilen olasılıklra göre birden fazla <span class="keyw">exit</span>
+   bildirimi bulunabilir. Unutulmaması gereken nokta bunlardan sadece bir tanesinin etkin 
+   olabileceğidir. Özetle, Ada <span class="keyw">loop</span> yapılanmalarının tasarımında,
+   tüm sorumluluk programcıya aittir ve işlerin iyi gitmemesi halinde tek suçlanacak olan da
+   programcıdır.
+  </p>
+  <p class="indent">
+   Ada <span class="keyw">loop</span> yapılanması, bir programcıya döngü yapılanması için
+   gereksinimi olan her aracı sağlar. Bu nedenle, başka yapılanmalara hiçbir zaman ve hiçbir 
+   şekilde gereksinme olmaz. Buna rağmen, Ada programlama dili, kullanıcılara iki tane daha 
+   öntanımlı döngü yapılanması (<span class="maroon">iteration_scheme</span>) sağlamıştır.
+   Bunlar tüm programlama dillerinde genel olarak bulunan <span class="keyw">while</span>
+   ve <span class="keyw">for</span> yapılanmasıdır. Ada programlama dilinde genel özgür 
+   <span class="keyw">loop yapılanmasının</span> tüm gereksinmeleri karşıladığı ve bu iki 
+   öntanımlı yapılanmaya kesinlikle gereksinim olmadığı halde, biligi verme açısından bu iki 
+   öntanımlı iterasyon şeması incelenecektir.
+  </p>
+  <p class="title-left" id="while-loop">6.2 While Döngüsü</p>
+  <p class="indent">
+   6.1 deki genel döngü tanımı <a href="b6-s1.html#loop">sözdizimi</a> incelendiğinde, 
+   <span class="keyw">while</span> iterasyon şeması içeren bir döngü sisteminin zorunlu
+   terimlerinin 
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">while</span> Boolean İfade <span class="keyw">loop</span>
+
+<span class="pl-50">Bildirimler...</span>
+
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   şelinde olacağı görülür. Bu yapılanma, genel döngü sisteminin
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">loop</span>
+
+<span class="keyw-50">if</span> Boolean İfade <span class="keyw">then</span>
+
+<span class="keyw-75">exit</span>;
+
+<span class="keyw-50">end if</span>;
+
+<span class="pl-50">Bildirimler...</span>
+
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   şeklindeli yapılanması ile aynıdır. Her ikisi de döngü sonunun döngü başında kontrol 
+   edildiği döngü sistemleridir. 
+  </p>
+  <p class="title-left" id="for-loop">6.3 For Döngüsü</p>
+  <p class="indent">
+   For döngüsü biraz daha detaylı bir yapıya sahiptir. For döngüsünün sözdizimi, 
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">for</span> Döngü_Parametresi_Tanımı <span 
+     class="keyw">loop</span>
+
+<span class="pl-50">Bildirimler...</span>
+
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   şeklindedir
+  </p>
+  <p class="indent">
+   Burada görülen Döngü_Parametresi_Tanımı terimi için, en az bildirim,
+  </p>
+    <pre class="app-25">
+<span class="pl-25">Tanımlayıcı</span> <span class="keyw">in</span> (veya <span 
+      class="keyw">in reverse</span>) Alt_Veri_Tipi
+  </pre>
+  <p class="nonindent">
+   olmalıdır. Bu şekilde, 
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">for</span> I <span class="keyw">in</span> Integer <span 
+   class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   döngüsü, döngü parametresi olan I değeri, Integer veri tipinin en alt değerinden 
+   başlayarak ve döngüde bir tamsayı artarak döngüyü tüm Integer veri tipinin eleman sayısı
+   kadar tekrar ettirecektir. Eğer döngü,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">for</span> I <span class="keyw">in reverse</span> Integer <span 
+   class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   şeklinde kurulursa, döngü parametresi olan I değeri, bu sefer Integer veri tipinin en üst değerinden 
+   başlayarak ve her döngüde bir tamsayı azalarak döngüyü Integer veri tipinin en düşük değerine 
+   erişene kadar tekrar ettirecektir. Eğer daha az sayıda iterasyon gerekiyorsa, kapsam kısıtlaması bildirimi
+   yapmak gerekir. Böylece,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">for</span> I <span class="keyw">in </span> Integer <span 
+   class="keyw">range</span> 1.. 10 <span class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   döngüsü, I değeri 1 den 10 a kadar değerler alana kadar döngüyü 10 kez tekrar
+   ettirecektir. Aynı şekilde, 
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">subtype</span> Döngü_Sınırı <span 
+   class="keyw">is</span> Integer <span class="keyw">range</span> 1..10;
+
+<span class="keyw-25">for</span> I <span class="keyw">in </span> Döngü_Sınırı <span 
+   class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   döngüsü, oluşturulabilir. Aynı işlevi yapacak,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">subtype</span> Döngü_Sınırı <span 
+   class="keyw">is</span> Integer <span class="keyw">range</span> 1..10;
+
+<span class="keyw-25">for</span> I <span class="keyw">in </span> Döngü_Sınırı'Range<span 
+   class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   döngüsü de geçerlidir. Yine,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">subtype</span> Döngü_Sınırı <span 
+   class="keyw">is</span> Integer <span class="keyw">range</span> 1..10;
+
+<span class="keyw-25">for</span> I <span class="keyw">in </span> Döngü_Sınırı <span 
+		class="keyw">range</span> 1 ..5 <span class="keyw">loop</span>
+   ... Bildirimler ...
+<span class="keyw-25">end loop</span>;
+  </pre>
+  <p class="nonindent">
+   döngüsü de geçerlidir. Görüldüğü gibi olanaklar sonsuzdur. Ama sonuçta hiçbir şey genel
+   <span class="keyw">loop</span> yapılanmasından fazla bir olanak sağlamamaktadır.
+  </p>
+  <p class="indent">
+   Burada incelenen, <span class="keyw">for</span> döngüsünün önemli bir
+   kısıtlaması bulunmaktadır. Burada döngü parametresi I nin değeri tanıma göre, döngünün
+   kapsamalığının en alt veya en üst değerinden başlayarak bir artar veya ekslir. Bunu 
+   değiştirmenin olanağı yoktur. Döngü içinde I değeri asla değiştirilemez. Bu değere bir atama
+   yapılamaz. Ada for döngülerinin döngü parametresi, daima bir artar veya eksilir. Bu kısıtlama,
+   Ada programlama dilinde <span class="keyw">for</span> döngülerinin
+   kullanışını önemli ölçüde etkiler. 
+  </p>
+  <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+   </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+   <a href="../b5/b5-s2.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+   <a href="../b7/b7-s1.html"><em> Sonraki &raquo;</em></a>
+   </li>
+ </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b6/b6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:28 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b7_1_2_uyg_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:50 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/uygulamalar/b7_1_2_uyg_4.html"> 
+  <meta charset="utf-8">
+  <title>b7_1_2_uyg_4</title> 
+  <meta name="Subject" content="Ada Turkish Tutorial">
+  <meta name="Description" content="Ada Tutorial in Turkish Language ">
+  <meta name="Keywords" content="Ada Tutorial Turkish">
+  <meta name="Abstract" content="Ada Turkish Tutorial">
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir">
+  <meta name="Distribution" content="Local">
+  <meta name="Robots" content="Index">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+  <link href="../css/Adastyle.css" rel="stylesheet"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+ <body>
+  <div class="sayfaortala">
+   <table class="apptable">
+    <tbody>
+     <tr>
+      <td colspan="2" class="apptable-td-1">Ada Program Örnekleri</td>
+     </tr>
+     <tr>
+      <td colspan="2" class="apptable-td-2">Programı Yazan : Prof.Dr.Bedri Doğan Emir</td>
+     </tr>
+     <tr>
+      <td colspan="1" class="apptable-td-3"><div class="dikeyTab-5"><span 
+       class="maroon">procedure :</span> 
+       <a href="../programlar/b7_2_1_uyg_4.html">b7_2_1_uyg_4.adb</a></div></td>
+      <td class="apptable-td-4"><div class="dikeyTab-5"><a 
+       href="javascript:void window.history.back(-1)">Çağıran Sayfaya Geri Dönüş</a></div></td>
+     </tr>
+    </tbody>
+   </table> 
+  </div>
+<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b7_1_2_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">   </span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">array</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S4">..</span><span class="S3">10</span><span class="S0"> </span><span class="S4">)</span><span class="S0"> </span><span class="S1">of</span><span class="S0"> </span>Integer<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">10</span><span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Kontrol<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Boolean<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0">  </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S1">begin</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">22</span><span class="S4">,</span><span class="S0"> </span><span class="S3">55</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S3">66</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">88</span><span class="S4">,</span><span class="S0"> </span><span class="S3">99</span><span class="S4">,</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">30</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Dizi Sıralanması Sonuçları (İki Yönlü Kabarcıklı Sıralama) (Kokteyl Sıralama) (Coctail Sort)"</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmamış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span><span class="S11">Dış_İterasyon</span><span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">   </span>
+<span class="S0">      </span>Kontrol<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>False<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">      </span><span class="S1">for</span><span class="S0"> </span>J<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S1">if</span><span class="S0"> </span><span class="S4">(</span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0">  </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">))</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">);</span>
+<span class="S0">            </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Kontrol<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>True<span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">         </span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">      </span><span class="S1">for</span><span class="S0"> </span>J<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S1">reverse</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S1">if</span><span class="S0"> </span><span class="S4">(</span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0">  </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">))</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>J<span class="S4">+</span><span class="S3">1</span><span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Kontrol<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>True<span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">         </span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+
+<span class="S0">      </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Dış_İterasyon</span><span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">      </span><span class="S1">exit</span><span class="S0"> </span><span class="S1">when</span><span class="S0"> </span><span class="S1">not</span><span class="S0"> </span>Kontrol<span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">(</span><span class="S3">2</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Dış Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">78</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Toplam Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">71</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">73</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S1">end</span><span class="S0"> </span>b7_1_2_uyg_4<span class="S4">;</span>
+</pre>
+  <p class="indent">Bu programın sonucu, </p>
+  <pre class="pl-25 green">
+                             Dizi Sıralanması Sonuçları (İki Yönlü Kabarcıklı Sıralama) (Kokteyl Sıralama) (Coctail Sort)
+
+         Sıralanmamış Dizi :               0 22 55 33 33 33 66 88 99 44
+         Sıralanmış Dizi :                  99 88 66 55 44 33 33 33 22 0
+
+         Gerçekleşmiş Olan Dış Iterasyon Sayısı :                             9
+         Gerçekleşmiş Olan Toplam Iterasyon Sayısı :                     81
+         Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :                       35
+  </pre>
+  <p class="indent">
+   olmaktadır.
+  </p>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b7_1_2_uyg_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:51 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

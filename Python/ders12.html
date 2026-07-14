@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:04 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders12.html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Python 3 Ders 12</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders11.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders13.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 12
+      </p>
+    </div>
+    <p id="flow" class="subheading">
+      2.1.5 - Programların Mantıksal Yürüyüşü</p>
+    <p class="indent">
+      Python programları tukarıdan aşağıya doğru gelişir. Eğer 
+      yö değiştirici bir bildirime rastlanmazsa, program düz 
+      bir hat üzerinden her program adımı sonlanınca, bir sonraki 
+      adım uygulanarak sonuna kadar devam eder. Programın yönünü 
+      değiştirecek bir bildirime rastlanınca, program yö değiştirir. 
+      Buna dallanma (branching) adı verilir.</p>
+    <p class="indent">
+      Programın dallanması iki yöntemle gerçekleşir. Bunlardan 
+      ilki, eski BASIC ve FORTRAN programları gibi, her satıra 
+      bir numara vermek ve goto dbildirimleri ile programın 
+      yürüyüiünü bu satır numaralarına yönlendirmek şelinde 
+      olur. Buna kısaca goto yöntemi denilir. Bu yöntem, birçok 
+      sorunlar yaratır. Program gideceği yeri bulur. Fakat, 
+      programın gidiş yönünü sonradan olkumak pek kolay olmaz. 
+      Bu yüzden FORTRAN program paketleri sonradan çok zor, 
+      hatta belki de hiç yeniden organize edilemez.
+    </p>
+    <p class="indent">
+      Programın yürüyüş yönünün değiştirilebilmesinin ikinci 
+      yolu, mantıksal bildirimler yolu ile programa yeni yürüyüş 
+      yönlerinin bildirilmesidir. Birazdan inceleyeceğimiz if 
+      (eğer) bildirimi bu işlevi yapar. Bu yöntemde geri gitmek 
+      yoktur, sadece ileri adımların hangi yönden çalıştırılacağı 
+      programa bildirilir. Bu konuda bir akım şeması aşağıda 
+      görülmektedir.
+    </p>
+    <p class="indent pagecenter">
+      <img alt="programın yön değiştirmesi" 
+      src="images/if.png"></p>
+    <p class="indent">
+      Yukarıdaki programın yürüyüşü incelendiğinde, program 
+      başladıktan sonra düz hat üzerinde bazı program adımları 
+      çalıştırılyor. Sonra bir dallanma (if) bildirimi geliyor 
+      ve program bu bildirimin sonucu <span class="keyw">True</span> 
+      ise bir yöndeki, <span class="keyw">False</span> ise diğer 
+      yöndeki program adımlarını çalışrarak sona ulaşıyor. Dikkat 
+      edilirse, eğer dallanma sonucu bir tarafa yönlendirirse, 
+      programın diğer taraftaki program adımlarını görme olanağı 
+      bulunmuyor.
+    </p>
+    <p class="indent">
+      Programların salt mantıksal yöntemle yön değiştirmesi, 
+      modern program dillerinde olduğu gibi Python tarafından 
+      da uygulanan yöntemdir. Bu yöntemin kolay anlaşılabilir 
+      olması, onu programların sonradan düzeltilmesini kolaylaştıran 
+      bir araç haline getirmektedir. Salt mantıksal yön değiştirme 
+      yöntemini kullanan Python programlarının sonradan yeniden 
+      düzenlemesi, en azından olanaksız sayılmamaktadır.
+    </p>
+    <p id="if" class="subheading">
+      2.1.6 - if, if-else Bildirimleri</p>
+    <p class="indent">
+      Program yön değiştirmesi için kullanılan en basit olarak,
+      <span class="keyw">if</span> bildirimi uygulanır. Bu bildirim, 
+      bir bildirim bloğu açar ve bu bloğun içindeki program 
+      adımları, yukarıdan aşağıya doğru uygulanır, son program 
+      adımının uygulanması da tamamlanınca, program kontrolü,
+      <span class="keyw">if</span> bloğunun izleyen program 
+      adımına geçer.
+    </p>
+    <p class="indent">
+      Bir if bildiriminin yapısı aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="keyw">if</span> &lt;Mantıksal İfade&gt; (veya bir olayın gerçekleşmesi) <span 
+    class="op">  :</span>
+&nbsp;&nbsp;&nbsp;&nbsp;program adımları (if bloğunun içinde)...
+program adımları (if bloğunun dışında)...
+    </pre>
+    <p class="nonindent">
+      Görüldüğü gibi, Python programlama dilininde
+      <span class="keyw">if</span> bloğunun tanımı çok kolay 
+      ve sözdizimi çok açıktır. Örnekler,
+    </p>
+    <pre class="pl-25">
+<span class="keyw">if</span> r &gt; 45 <span class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;print<span class="op">(</span><span 
+    class="str">'Yakıt yeterli !'</span><span class="op">);</span>
+
+<span class="keyw">if</span> a :
+&nbsp;&nbsp;&nbsp;&nbsp;print<span class="op">(</span><span 
+    class="str">'Koşul Gerçekleşti !'</span><span 
+    class="op">);</span></pre>
+    <p class="indent">
+      Eğer <span class="keyw">if</span> bloğu içindeki program 
+      adımları henüz henüz hazır değilse, bunu sonraya bırakıp,
+      <span class="keyw">if</span> bloğunu
+      <span class="keyw">pass</span> geçebiliriz. Örnek:
+    </p>
+    <pre class="pl-25">
+<span class="keyw">if</span> r &gt; 45 <span class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">pass</span>
+program adımları...</pre>
+    <p class="indent">
+      Bir <span class="keyw">if</span> bildirimini bazen bir
+      <span class="keyw">else</span> bidirimi izleyebilir. Bunun 
+      anlamı, koşulun gerçekleşmesi ile çalıştırılacak program 
+      adımları <span class="keyw">if</span> bloğu içinde, koşulun 
+      gerçekleşmemesi durumunda çalıştırılacak program adımları 
+      else bloğunda tutularak, bir tür genel program adımlarından 
+      soyutlanır. Buna, kapsülleme, (encapsulation) adı verilir. 
+      Örnek olarak,
+    </p>
+    <pre class="pl-25">
+<span class="comm"># if bloğunun başlangıcı (Programın Mantıksal Yön değiştirmesi</span>
+<span class="keyw">if</span> &lt;Mantıksal Sonuç&gt;<span 
+    class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;(Mantıksal sonucun <span 
+    class="keyw">True</span> olması durumunda çalıştırılacak program adımları)...
+<span class="keyw">else</span><span class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Mantıksal sonucun <span 
+    class="keyw">False</span> olması durumunda çalıştırılacak program adımları)...
+<span class="comm"># if bloğunun sonu</span>
+program adımları...</pre>
+    <p class="indent">
+      Yukarıdaki programdaki yapılanmaya bakılınca, kapsüllemenin 
+      çok etkin olduğu ve programın bir aşamasında, belirli 
+      bir dallanma olayının tam olarak uygulanabilirliği görülebilir. 
+      Koşullu dallanma için gerekli mantıksal olayın gerçekleşmesi 
+      durumunda program bir yöne, gerçekleşmemesi durumında 
+      ise, bir başka yöne dallanır. Dallanma sonunda, program 
+      bir sonraki bildirimle çalışmaya devam eder.
+    </p>
+    <p id="uyg1" class="indent">
+      Birden çok koşulun gerçekleşmesi ile programın yön değiştirme 
+      olanağı da sağlanmıştır. Bir koşul gerçekleşirse, program 
+      bir tarafa, başka bir koşul gerçekleşirse, program bir 
+      başka tarafa, hiçbiri gerçekleşmemişse, program belirli 
+      bir tarafa yön değiştirebilir. Üstelik bazen koşullardan 
+      birkaçı birden gerçekleşmişse, program her yöne sıra ile 
+      dallanır. Python programlama dilinde, JavaScript veya 
+      Java program dilleri gibi, <span class="keyw">switch</span> 
+      bildirimi yoktur. Fakat, aşağıdaki
+      <a href="uygulamalar/ders12/ders12program1.html">program</a> 
+      buna eşdeğer sonuç sağlar.
+    </p>
+    <table>
+      <tr>
+        <td><pre>a<span class="op"> = </span>12<span 
+        class="op">;</span>
+b<span class="op"> = </span>43<span class="op">;</span>
+c<span class="op"> = </span>76<span class="op">;</span>
+<span class="keyw">if</span> c <span class="op">==</span> 22<span 
+        class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;c uygun !&quot;</span><span 
+        class="op">));</span>
+<span class="keyw">else</span><span class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;c uyumsuz !&quot;</span><span 
+        class="op">));</span>
+<span class="keyw">if</span> b <span class="op">==</span> 43<span 
+        class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;b uygun !&quot;</span><span 
+        class="op">));</span>
+<span class="keyw">else</span><span class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{0}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;b uyumsuz !&quot;</span><span 
+        class="op">));</span>
+<span class="keyw">if</span> a<span class="op">==</span> 12<span 
+        class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;a uygun !&quot;</span><span 
+        class="op">));</span>
+<span class="keyw">else</span><span class="op">:</span>
+    print<span class="op">(</span><span class="str">&quot;{0}&quot;</span><span 
+        class="op">.</span>format<span class="op">(</span><span 
+        class="str">&quot;a uyumsuz !&quot;</span><span 
+        class="op">));</span></pre></td>
+      </tr>
+      <tr>
+        <td><pre><span class="green">
+&quot;&quot;&quot;
+Program Sonucu :
+
+c uyumsuz !
+b uygun !
+a uygun !
+
+&quot;&quot;&quot;</span></pre></td>
+      </tr>
+    </table>
+    <p class="indent">
+      Yukarıdaki program bir tarama (scanning) uygulamasıdır. 
+      Bu yöntemle bilgisayar tüm olasılıkları tarar ve içlerinden 
+      sonucu <span class="keyw">True</span> olanların bloğona 
+      girer ve program adımlarını çalıştırır.
+    </p>
+    <p id="uyg2" class="indent">
+      Bazen de ilk <span class="keyw">True</span> sonucunu yakalayıp 
+      belirrtriği program adımlarını çalıştıran ve diğer olasılıkları 
+      gözardı eden programlara gerek duyulabilir. Bunlar içiçe
+      <span class="keyw">if</span> bildirimleri ile organize 
+      edilebilirler. Böyle bir
+      <a href="uygulamalar/ders12/ders12program2.html">örnek 
+      program</a> aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders12program2.py</span>
+
+a <span class="op">=</span> 12<span class="op">;</span>
+b <span class="op">=</span> 43<span class="op">;</span>
+c <span class="op">=</span> 76<span class="op">;</span>
+<span class="keyw">if</span> c <span class="op">==</span> 22<span 
+    class="op">:</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;c uygun !&nbsp;</span><span 
+    class="op">));</span>
+<span class="keyw">else</span><span class="op">:</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;c uyumsuz !&nbsp;</span><span 
+    class="op">));</span>
+    <span class="keyw">if</span> b <span class="op">==</span> 43<span 
+    class="op">:</span>
+        print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;b uygun !&nbsp;</span><span 
+    class="op">));</span>
+    <span class="keyw">else</span><span class="op">:</span>
+        print<span class="op">(</span><span class="str">&nbsp;{0}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;b uyumsuz !&nbsp;</span><span 
+    class="op">));</span>
+        <span class="keyw">if</span> a <span class="op">==</span> 2<span 
+    class="op">:</span>
+           print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;a uygun !&nbsp;</span>)<span 
+    class="op">);</span>
+        <span class="keyw">else</span><span class="op">:</span>
+            print<span class="op">(</span><span class="str">&nbsp;{0}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;a uyumsuz !&nbsp;</span><span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">"Program Sonu"</span><span 
+    class="op">);</span>
+<span class="green">
+&nbsp;&nbsp;&nbsp;
+
+Program Sonucu :
+c uyumsuz !
+b uygun !
+Program Sonu
+
+&nbsp;&nbsp;&nbsp;
+</span></pre>
+    <p id="uyg3" class="indent">
+      Bu tür bir yazılım, girintili sözdizimininden yaralanılarak 
+      kolayca izlenebilir. Fakat, fazla uzun seçenek sayısı 
+      ile çalışmak zorunda kalınınca, bu yazılımın okunması 
+      biraz zor olabilir. Bunun için, Python programlama dili, 
+      yeni ve kendine özgü bir saklı sözcük yaratarak, çok daha 
+      uygun bir yazılım sistemi sağlamıştır. Burada yeni bir 
+      saklı sözcük kullanılabilir. Bu yeni saklı sözcük,
+      <span class="keyw">if</span> ve <span class="keyw">else 
+      if</span> saklı sözcüklerinin birleşimi olan
+      <span class="keyw">elif</span> saklı sözcüğüdür. Aşağıda 
+      bu programın <span class="keyw">elif</span>
+      <a href="uygulamalar/ders12/ders12program3.html">
+      sürümü</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25 verticalTab-50">
+<span class="comm"># Program : Ders12program3.py</span>
+
+a <span class="op">=</span> 12<span class="op">;</span>
+b <span class="op">=</span> 43<span class="op">;</span>
+c <span class="op">=</span> 76<span class="op">;</span>
+
+<span class="keyw">if</span> c <span class="op">==</span> 22<span 
+    class="op">:</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;c uygun !&nbsp;</span><span 
+    class="op">));</span>
+
+<span class="keyw">elif</span> b <span class="op">==</span> 43<span 
+    class="op">:</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;c uygun değil!&nbsp;</span><span 
+    class="op">));</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;b uygun !&nbsp;</span><span 
+    class="op">));</span>
+
+<span class="keyw">elif</span> a <span class="op">==</span> 12<span 
+    class="op">:</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;c uygun değil!&nbsp;</span><span 
+    class="op">));</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;b uygun değil!&nbsp;</span><span 
+    class="op">));</span>
+    print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;a uygun!&nbsp;</span><span class="op">));</span>
+
+print<span class="op">(</span><span class="str">&nbsp;{}&nbsp;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&nbsp;Program Sonu!&nbsp;</span><span 
+    class="op">));</span>
+<span class="green">
+
+&quot;&quot;&quot;
+
+Program Sonucu :
+c uygun değil!
+b uygun !
+program sonu !
+
+&quot;&quot;&quot;</span></pre>
+    <p class="indent">
+      Yukarıdaki programda görüldüğü gibi, bu son şeklin yazılımı 
+      çok basit ve açıktır. Yukarıda uygulaması görülen
+      <span class="keyw">if/elif</span> merdivenleri istendiği 
+      kadar uzun olabilir. Seçenek sırası dikkatle düzenlenmelidir, 
+      çünkü bir kez doğrulanan seçenek oldu mu, diğer seçenekler 
+      girilmeden seçme olayı tamamlanır. Doğrulanan seçenekten 
+      sonra da doğrular olsa bile onlara girilmeden program 
+      seçenek bloğunu terkeder. İstenirse, en son seçenek olarak
+      <span class="keyw">else</span> bloğu kullanılabilir.
+    </p>
+    <p class="indent">
+      Bazen mantıksal işlemcilerden yararlanılarak çoklu seçenekler 
+      daha aza indirgenebilir. Örnek olarak yukarıdaki programda, 
+      a <span class="op">==</span> 12,b <span class="op">==</span> 
+      43, ve c <span class="op">==</span> 12 olduğu zaman, seçeneğin 
+      doğrulanması istendiğinde,
+    </p>
+    <pre class="pl-25">
+<span class="keyw">if </span>a <span class="op">==</span> 12 <span 
+    class="op">and</span> b  <span class="op">==</span> 43 <span 
+    class="op">and</span> c  <span class="op">==</span> 76 <span 
+    class="op">:</span>
+    </pre>
+    <p class="nonindent">
+      şeklinde bir seçenek bloğu tanımlanabilir. Bu bir nokta 
+      veruşudur ve sadece belirtilen seçenekleri tümü de doğrulandığında 
+      kontrol, seçenek bloğu içine girebilir.
+    </p>
+    <p class="indent">
+      Mantıksal işlemcilerin de katkısı ile çok detaylı ve tam 
+      amacı belirten seçenek blokları organize edilebilir. Dikkat 
+      edilmesi gereken nokta, seçenekler karmaşık hale gelirse, 
+      oluşturulan seçenek bildiriminin sınanmasının çok vakit 
+      alabileceğidir. Bazen, uzun olmasına karşın, daha basit olan
+      <span class="keyw">if/elif</span> merdivenleri daha hızlı 
+      sonuç verebilir.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders11.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders13.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:12 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.7-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:02 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.7-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>19.6.7.1 - Element Arabiriminin tagName Özelliği</title>
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title></title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.6-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="b19.6.8-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a></p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19</p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.7 Sayfa 1 </p>
+	<p class="subheading" id="element">19.6.7 - Element Arabirimi</p>
+		<p class="sayfaortala">
+				<img  src="../images/b19.6.7-img-1.png" width="1611" height="848" 
+				alt="Element Arabirimi" />
+		</p>
+		<p class="sayfaortala">
+			Şekil 19.6.7 - 1 - DOM Düzey 2 de Element Arabiriminin  IDL Yazılımı
+		</p>
+		<p class ="indent">
+			Bu arayüzde tanımlanan <span class="keyw">Element</span> arayüzü 
+			belge içindeki bir HTML veya XML elementinin oluşturduğu bir düğümün 
+			özelliklerini tanımlar. Şekil 19.2 - 4 deki kalıtım şeması incelendiğinde,
+			<span class="keyw">Element</span> düğümününün, generik düğüm tipi olan
+			<span class="keyw">Node</span> düğüm türünün bir alt türü olduğu görülür. 
+			Bu nedenle, <span class="keyw">Element</span> arabirimi, 
+			<span class="keyw">Node</span> arabiriminin özelliklerini kalıtım yolu ile 
+			elde eder ve bu şekilde <span class="keyw">Element</span> arabirimi özelliklerine,
+			ister bu arabirimdeki, istenirse bir üst düzey <span class="keyw">Node</span>
+			arabirimin özellikleri kullanılarak ulaşılabilir.	
+		</p>
+		<p class ="indent">
+			<span class="keyw">Element</span> arayüzü, yeni nitelik değeri okuma ve 
+			belirtme (get and set) metotlarını içerir. Bunlardan ilki DOMString tipi 
+			bir karakter dizigisi değer döndüren <span class="keyw">getAttribute</span><span 
+			class="op">(</span><span class="str">DOMString tipinde nitelikİsmi</span><span 
+			class="op">)</span> şeklinde uygulanan mettottur. Diğeri nitelik değeri belirten 
+			<span class="keyw">setAttribute</span><span class="op">(</span><span 
+			class="str">DOMString tipinde nitelikİsmi</span><span class="op">)</span> 
+			metodudur. Bu iki metodun çok pratik olması diğer nitelik erişim metotlarına göre 
+			avantaj sağlamaktadır. 
+		</p>
+		<p class="navy" id="tagname"><strong>19.6.7.1 - Element Arabiriminin tagName Özelliği</strong></p>
+		<p class="indent" id="b19.6.7.1-uyg-1">
+			<span class="keyw">Element</span> arabiriminin tagName özelliği, erişilen 
+			<span class="keyw">Element</span> tipi düğümün hangi elemente ait olduğunu
+			belirten özelliktir. Bu özellik salt okunur niteliktedir ve geriye karakter dizgisi 
+			(DOMString) tipi bir değer döndürür. Bu özellğin uygulandığı bir 
+			<a href="../uygulamalar/b19.6.7.1-uyg-1-js.html">programın</a> kodları
+			aşağıda görülmekte ve sonucu bağlı olduğu 
+			<a href="../uygulamalar/b19.6.7.1-uyg-1.html">sayfada</a> görüntülenmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),
+</span><span class="pl-50">sonuç</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">)</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Element Düğümünün Adı : '</span> <span 
+			class="op">+</span> elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">tagName</span><span
+			class="op">));</span>
+<span class="pl-50">elementDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+
+		<p class="navy" id="getattribute"><strong>19.6.7.2 - Element Arabiriminin getAttribute() Metodu</strong></p>
+		<p class ="indent">
+			<span class="keyw">Element</span> düğümünün, 
+			<span class="keyw">getAttribute</span><span 
+			class="op">()</span> metodu, element düğümlerinin niteliklerinin <span 
+			class="keyw">value</span> özelliklerinin değerini karakter dizigisi verisi olarak 
+			döndürür. Eğer, niteliğin değeri verilmemiş ve varsayılan bir değeri de yoksa,
+			boş bir karakter dizigisi verisi döndürülür. Bu metot salt okunur karakterdedir ve
+			nitelik değerlerine erişim için çok kullanışlı bir metottur. Günümüzde W3C-DOM 
+			yöntemlerinin uygulandığı programlarda hemen hemen sadece bu metotla element 
+			niteliklerine erişilmektedir. 
+		</p>
+		<p class="indent" id="b19.6.7.2-uyg-1">
+			Bu metot, kodları aşağıda görülen 
+			<a href="../uygulamalar/b19.6.7.2-uyg-1-js.html">programda</a> 
+			uygulanmıştır. Bu program, ilişikli olduğu 
+			<a href="../uygulamalar/b19.6.7.2-uyg-1.html">sayfada </a>çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">),</span>
+<span class="pl-50">sınıf</span> <span 
+			class="op">=</span> elementDüğümü<span
+			class="op">.</span><span
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Element Düğümünün class Nitelik Değeri : '</span><span 
+			class="op">,</span> sınıf<span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id="setattribute"><strong>19.6.7.3 - Element Arabiriminin setAttribute() Metodu</strong></p>
+		<p class ="indent">
+			W3C-DOM yöntemlerinin uygulandığı programlarda, 
+			<span class="keyw">setAttribute</span><span class="op">()</span>
+			metodunun önemi büyüktür. Bu metot, özellikle sayfaya
+			 yerleştirilmek için yeni oluşturulmakta olan bir element düğümüne
+			yeni nitelikler eklenmesi için elde olan tek W3C-DOM yöntemidir. 
+			Bu metot geriye bir veri döndürmez ve eğer uygulanması istenen 
+			nitelik değerleri arasında uymsuz karakterler varsa veya, salt okunur
+			bir niteliğe değer atanması bildiriliyorsa hata oluşur.
+		</p>
+		<p class="indent">
+			Bir elementin, sayfaya yerleştirilmek amacı ile yeni yaratılması sırasında
+			varsayılan değeri olan niteliklerinden başka hiçbir niteliği yaratılmaz. DTD de 
+			#IMPLIED olarak belirtilen isteğe bağlı hiçbir nitelik varsayılan olarak yaratılmaz. 
+			Bunlar arasında çok kullanılan, <span class="str">'class'</span>, 
+			<span class="str">'id'</span>, <span class="str">'style'</span> gibi nitelikler 
+			de vardır. Bu nitelikler,açık (explicit) olarak değerleri atanarak nitelik düğümü 
+			haline getirilebilirler. Yeni eklenecek elementler için, Bu amaçla kullanılabilecek 
+			tek metot, <span class="keyw">setAttribute</span><span class="op">()</span>
+			metodudur.
+		</p>
+		<p class="indent" id="b19.6.7.3-uyg-1">
+			<span class="keyw">Element</span> arabiriminin 
+			<span class="keyw">setAttribute</span><span class="op">()</span> metodunun 
+			uygulandığı bir <a href="../uygulamalar/b19.6.7.3-uyg-1-js.html">programın</a> kodları 
+			aşağıda görülmektedir. Bu programın sonuçları, bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.7.3-uyg-1.html">sayfada</a> görüntülenmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'id Nitelik Değeri &quot;sonuç&quot; Olan Element Düğümünün class Nitelik Değeri : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">),</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id="removeattribute"><strong>19.6.7.4 - Element Arabiriminin removeAttribute() Metodu</strong></p>
+		<p class ="indent">
+			<span class="keyw">Element</span> arayüzü, niteliklerin kaldırılması için, <span 
+			class="keyw">removeAttribute</span><span class="op">()</span> metodunu tanımlamaktadır.
+			Bu elementin kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">ElementSınıfıDüğümNesnesiÖrneği</span><span class="op">.</span><span 
+			class="keyw">removeAttribute</span><span 
+			class="op">(</span>DOMString tipinde nitelikİsmi<span class="op">)</span>
+		</pre>
+		<p class="nonindent" id="b19.6.7.4-uyg-1">
+			şeklindedir. <span class="keyw">Element</span> arabirimin, <span 
+			class="keyw">removeAttribute</span><span class="op">()</span> metodunun
+			uygulanması ile, sayfaya yerleşik bir elementin <span class="keyw">id</span>
+			niteliğininin kaldırıldığı bir <a href="../uygulamalar/b19.6.7.4-uyg-1-js.html">programın</a>
+			kodları aşağıda görülmektedir. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b19.6.7.4-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">elementDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">removeAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">.</span>getAttribute<span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">) ===</span> <span 
+			class="keyw">null</span> <span 
+			class="op">) {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Eskiden id Niteliği "hedef" \n Olan Elementin, Yeni id Değeri null dur. \n Bu yeni Değer Sorgulandığında hata oluşur.'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'id Nitelik Değeri &quot;sonuç&quot; Olan Element Düğümünün class Nitelik Değeri : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">),</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id = "hasattribute"><strong>19.6.7.5 - Element Arabiriminin hasAttribute() Metodu</strong></p>
+		<p class="indent" id="b19.6.7.5-uyg-1">
+			Bu metot, DOM Düzey 2 ile tanımlanmıştır. Bu özellik geriye mantıksal (Boolean) bir değer 
+			döndürür. Eğer bu nitelik belirtilmiş veya varsayılan değeri varsa, bu değer <span 
+			class="keyw">true</span> aksi durumda <span class="keyw">false</span> olur. Bu konudaki 
+			bir <a href="../uygulamalar/b19.6.7.5-uyg-1-js.html">program</a> aşağıda görülmekte ve bağlantılı 
+			olduğu <a href="../uygulamalar/b19.6.7.5-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'id Nitelik Değeri &quot;sonuç&quot; Olan Element Düğümünün &quot;class&quot;  Nitelik Değeri Belirtilmiş mi?  '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">.</span><span 
+			class="keyw">hasAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">),</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id = "getelementsbytagname">
+			<strong>19.6.7.6 - Element Arabiriminin getElementsByTagName() Metodu</strong>
+		</p>
+		<p class="indent" id="b19.6.7.6-uyg-1">
+			Bu metot, aynı <span class="keyw">document</span> arabiriminin, <span 
+			class="keyw">getElementsByTagName</span><span class="op">()</span>
+			metoduna benzemektedir. Bu metot, geriye, bir element düğümünün belirli bir element türünden tüm
+			alt düğümlerini içeren bir <span class="keyw">NodeList</span> koleksiyonu 
+			döndürür.  Bu konudaki bir <a href="../uygulamalar/b19.6.7.6-uyg-1-js.html">program</a> 
+			aşağıda görülmekte ve bağlantılı olduğu 
+			<a href="../uygulamalar/b19.6.7.6-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç1</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">),</span><span 
+			class="op">
+</span><span class="pl-50">sonuç2</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç1<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+<span class="pl-50">sonuç1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'float : left;'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>sonuç2<span 
+			class="op">,</span> elementDüğümü<span
+			class="op">);</span>
+<span class="pl-50">sonuç2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'padding-top : 1.5%;'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuç2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'id Nitelik Değeri &quot;sonuç1&quot; Olan Element Düğümünün '</span><span 
+			class="op">,</span><span 
+			class="str">''</span><span 
+			class="op">,</span><span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Alt &lt;span&gt; türü  Element Sayısı :  '</span><span 
+			class="op">,</span>sonuç1<span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span 
+			class="op">)</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id = "normalize">
+			<strong>19.6.7.7 - Element Arabiriminin normalize() Metodu</strong>
+		</p>
+		<p class="indent">
+			Sözel veri içeriği alabilen elementlerin sözel veri içerikleri hiçbir zaman 
+			eşdüzey düğümler (siblings) olmaz, birden fazla sözel veri düğümü (<span 
+			class="keyw">Text</span> arabirimi yapısında bir nesne sınıfı örneği) 
+			bulunuyorsa, mutlaka aralarında bir element, yorum, CDATA seksiyonu, entity referansı, 
+			işlem bildirimleri (processing instructions) vb .. düğümleri olmalıdır. Bazı durumlarda, 
+			kullanıcılar bilinçsiz olarak veya gerekli olduğu için, (örneğin <span class="keyw">TexT</span>
+			arabiriminde tanımlı <span class="keyw">splitText</span>) metodunun kullanılöasında olduğu gibi)
+			yanyana iki eşdüzey sözel veriyi yerleştirmiş duruma düşebilirler. Bunun  görüntü 
+			açısından bir sakıncası yoktur. SAdece <span class="keyw">xPointer</span> aramalarında, 
+			sakınca yaratabileceği belirtilmektedir. Aslında, kopyalama gibi aktarım işlemlerinde sayfa yapısı
+			otomatik olarak normalize edilebilir. Yine de, böyle bir yapı bozukluğu yaratıldığının farkında olunursa,
+			kullanıcının burada tanımlanan <span class="keyw">normalize</span><span class="op">()</span>
+			metodunun kullanılması sağlık verilir.  Bu metot geriye bir değer döndürmez ve bir hataya neden olmaz.
+			kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">elementSınıfıDüğümNesnesiÖrneği</span><span 
+			class="op">.</span><span class="keyw">normalize</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bir uygulama örneği, <span class="keyw">Text</span> arabiriminin 
+			<span class="keyw">splitText</span><span class="op">()</span> metodu
+			incelenirken verilmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b19.6.6-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="b19.6.8-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.7-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:02 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

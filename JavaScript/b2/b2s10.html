@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:53 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s10.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s10</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s9.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s11.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.8 - Karşılaştırma İşlemcileri 
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 10
+		</p>
+		<p class="subheading" id="value">2.8.1 - Değerle Karşılaştırma İşlemcisi (==) (Eşitlik İşlemcisi) 
+	</p>
+		<p class="indent">
+			Değerle karşılaştırma işlemcisi, iki değeri birbiri ile karşılaştırır. Karşılaştırma sonucu
+			iki değer birbirine eşitse <span class="keyw">true</span> eşit değilse <span 
+			class="keyw">false</span> sonucunu verir.
+		</p>
+		<p class="indent">
+			Çok basit gibi görünen bu işlem, tüm programcılar için çok dikkat edilmesi
+			gereken noktalar içerir. 
+		</p>
+		<p class="indent">
+			Dikkat edilmesi gereken noktalardan ilki, çok küçük kayan noktalı değerler
+			(ondalıklı sayılar) için bilgisayarların eşitlikte hata yapabilmeleridir. Bu nedenle
+			epsilon gibi küçük sayılar eşitlik işlemcisi ile değil, büyüktür (&gt;) veya 
+			küçüktür (&lt;) işlemcisi ile karşılaştırılmalıdır. 
+		</p>
+		<p class="indent">
+			İkinci dikkat edilecek nokta, sözel verilerin eşitliğini yüzde yüz garanti ederek
+			belirtmenin çok zor olmasıdır. Bu veriler, boşluklar içerebilir, hatalı yazılabilir. 
+			Bazen türkçe karakterler sorun çıkarabilir. Bu veriler, normalize etmek olarak
+			adlandırılan bir seri ön işleme tabi tutularak ne kadar güvenli olursa o kadarla
+			yetinerek karşılaştırılır. Bu işlemler, en basitinden boşlukların kaldırılması, tüm 
+			karakterlerin küçük veya büyük karakterlere dönüştürülmesi gibi işlemleri içerirler.
+			Normalizasyon her gereksinmeye göre farklı işlemleri içerir ve tam bir teknoloji 
+			gösterisine dönüşebilir. Bu nedenle, ham sözel verilerin karşılaştırılmasına girişmemek
+			daha güvenli ve olumludur.
+		</p>
+		<p class="indent">
+			Tamsayıların karşılaştırılması tam güvenlidir. Bu nedenle programlarda, 
+			arama işlemlerinin sağlıklı yürütülebilmesi için, üye numaraları, vatandaşlık
+			numaraları gibi tamsayı veri alanları oluşturulur ve karşılaştırmalar bu tamsayı
+			veriler üzerinden yürütülür.
+		</p>
+		<p class="indent">
+			Değeri aynı nesneye işaret eden, eşit bellek işaretçileri olan 
+			iki veri eşit kabul edilir. Bunun için ilk olarak bir s değişkenine
+			bir nesne atanır. Bu işlemde, nesne belirli bir bellek bölgesine
+			yerleştirilir ve s değişkenine bu bellek bölgesinin işaretçisi olan bir
+			hex tamsayı değeri yerleştirilir. Bir başka B değişkenine s değeri 
+			aktarılırsa, s deki değer sayı tipinde bir ilkel değişken olduğundan,
+			B ye değerle aktarılır (kopyası B ye atanır). Bu durumda B ve s de aynı
+			hex değerler atanmış olur. Bu hex değer, nesnenin yerleştirilmiş olduğu
+			bellek bölgesinin işaretçisidir. s ve B deki değerler	 aynı olduğundan
+						 değerle karşılaştırılma sonucu <span class="keyw">true</span> 
+			sonucunu verir. Aslında, karşılaştırılan sadece aynı nesneye erişimi sağlayan
+			biribirleri ile değer ve tip olarak aynı olan ve iki ayrı değişkene atanmış
+			olan bellek işaretçilerinin değerleridir.
+		</p>
+		<p class="sayfaortala">
+					<img src="../images/b2s10-img-8.png"  alt="Bellek referansları" width="678" height="343"/>		</p>
+		<p class="sayfaortala">
+				Nesne Verilerinin Referanslarının Karşılaştırılması.
+		</p>
+		<p class="indent" id="b2.8.1-uyg-1">
+			 Bu süreci açıklayan bir 
+			<a href="../uygulamalar/b2.8.1-uyg-1.html">uygulama</a> nın,
+			<a href="../uygulamalar/b2.8.1-uyg-1-js.html">JavaScript kodları</a> 
+			aşağıda görülmektedir
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> s <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">},</span> B <span 
+			class="op">=</span><span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">B</span> <span 
+			class="op">= </span>s<span 
+			class="op">;</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'B === s Karşılaştırmasının sonucu : '</span>, B <span 
+			class="op">===</span>s<span 
+			class="op">,</span> <span 
+			class="str">'b2.8.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.8.1-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Bu sonuç belki biraz alışılmamış sayılabilir. Fakat, paragraf 
+			<a href="b2s9.html#tablo">2.7.5.6</a> daki tablo 
+			incelenince bu sonucun doğal olduğu anlaşılır. Yukarıdaki 
+			şemaya bakılırsa, bir nesneyi işaret eden s değişkenin belleğinde bir
+			hex sayı olan bir bellek işaretçisi bulunacaktır. Bu bellek işaretçisi, 
+			B değişkenine aktarıldığında, hem s, hem de B de aynı bellek bölgesine 
+			işaret eden eşit bellek işaretçileri olduğu görülür. Bellek işaretçileri tamsayı
+			ilkel verilerdir ve değerle kopyalanarak aktarılırlar. Aktarılma işlemi sonunda, 
+			s deki değerin bir kopyası B ye aktarılır. B ve s değişkenlerinin değerleri aynı
+			olduğundan, karşılaştırma sonucu olumlu çıkmaktadır.
+		</p>
+		<p class="indent" id="b2.8.1-uyg-2">
+			Nesne sınıf örnekleri, sınıfları ve içerikleri aynı bile olsa, farklı bellek
+			bölgelerinde bulunduklarından ve bu bölgelere işaret eden 
+			bellek işaretçilerinin değerleri birbirlerinden farklı olduğundan, farklı olarak algılanırlar. 
+			Bu konuda bir 
+			<a href="../uygulamalar/b2.8.1-uyg-2-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.8.1-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> s <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">},</span> B <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">};</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'B === s Karşılaştırmasının sonucu : '</span>, B <span 
+			class="op">===</span> s<span 
+			class="op">,</span> <span 
+			class="str">'b2.8.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+				</pre>
+				<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.8.1-uyg-2-sonuç-1">
+		</p>
+		<p class="indent">
+			Bu uygulama ve sonucu,çok önemlidir. Karşılaştırma işlemlerinde,
+			neslerin tümü değil, özellikleri başka değerlerle karşılaştırılmalıdır.
+		</p>
+		<p class="indent" id="b2.8.1-uyg-2">
+			<span class="keyw">null</span> ve <span class="keyw">undefined</span>
+			değerleri, değerle karşılaştırma sonucunda eşit olarak değerlendirilir. Bu konuda,
+			daha önce verilmiş bir 
+			<a href="../uygulamalar/b2.2.2-uyg-2.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.2.2-uyg-2-js.html">JavaScript kodları</a> 
+			aşağıda yeniden verilmiştir:
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */
+
+</span><span class="keyw-50">function </span>sonuç<span 
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>s <span 
+			class="op">==</span> <span 
+			class="keyw"> undefined</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.2.2-uyg-2-sonuç'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.2.2-uyg-2-sonuç"></span>
+		</p>
+		<p class="nonindent">
+			Bu şaşırtıcı sonuç, biraz sonra inceleyeceğimiz hem değer hem de
+			tiple kontrol yapan eşdeğerlik işlemcisi (===) kullanıldığında ortadan kalkar.
+			Bu nedenle, her olanak olduğunda, eşitlik işlemcisi (==) yerine, eşdeğerlik
+			işlemcisi (===) kullanılması daha doğru olur.
+		</p>
+		<p class="indent">
+			Yukarıda görülen 
+			<a href="../uygulamalar/b2.2.2-uyg-2.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.2.2-uyg-2-js.html">JavaScript kodlarında</a> küçük
+			değişiklikler yapılarak her türlü ikili karşılaştırma işlemcisinin vereceği sonuç,
+			kolayca izlenebilir. Ayrıca, 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a>,
+			programı da, bu gibi küçük denemeler için çok uygundur. Bu programda, basitçe
+			<span class="keyw">undefined</span> <span class="op">==</span> <span 
+			class="keyw">null</span> yazarak işlem tuşuna basınız. İşlem sonucu, sonuç 
+			kutusunda görüntülenecektir.
+		</p>
+		<p class="indent">
+			Aşağıdaki tabloda verilen tüm sonuçlar, 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a>,
+			programı kullanılarak elde edilmiştir. 
+		</p>
+		<div class="pl-200">
+			<table summary="Verilerin Değerle Karşılaştırma İşlemcisi ile Karşılaştırılması Sonuçları" 
+				class="tablo1 sayfaortala" width="70%">
+				<caption class="captionred">
+					Verilerin Değerle Karşılaştırma İşlemcisi ile Karşılaştırılması Sonuçları
+				</caption>
+				<colgroup>
+					<col class="st1" width="25%" />
+					<col class="st1" width="25%" />
+					<col class="st1" width="25%" />
+					<col class="st1" width="25%" />
+				</colgroup>
+				<tr class="highline color4">
+					<th>İşlenen 1</th>
+					<th>İşlemci</th>
+					<th>İşlenen 2</th>
+					<th>Sonuç</th>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">NaN</span>
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">NaN</span>
+					</td>
+					<td>
+						<span class="red">false</span>	
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">null</span>
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">null</span>
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">undefined</span>
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">undefined</span>
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">true</span>
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">true</span>
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						44
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">
+						44
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						12.8775566443388
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						12.8775566443388
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="str">'38.539'</span>
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">38.539</span>
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="str">'Cağaloğlu'</span>	
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="str">
+						'Cağaloğlu'
+					</td>
+					<td>
+						<span class="green">true</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="str">'Cağaloğlu'</span>
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="str">'cağaloğlu'</span>
+					</td>
+					<td>
+						<span class="red">false</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">{w :3}</span>
+					</td>
+					<td>
+						 <span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">{w :3}</span>
+					</td>
+					<td>
+						<span class="red">false</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">new Number</span> <span 
+						class="op">(</span>4<span class="op">)</span>
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">new Number</span> <span 
+						class="op">(</span>4<span class="op">)</span>
+					</td>
+					<td>
+						<span class="red">false</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">new Boolean</span><span 
+						class="op">(</span><span 
+						class="keyw">true</span><span 
+						class="op">)</span>
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">
+						<span class="keyw">new Boolean</span><span 
+						class="op">(</span><span 
+						class="keyw">true</span><span 
+						class="op">)</span>
+					</td>
+					<td>
+						<span class="red">false</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tbline">
+						<span class="keyw">new String</span><span 
+						class="op">(</span><span 
+						class="str">'Güntan'</span><span 
+						class="op">)</span>
+					</td>
+					<td>
+						<span class="op">==</span>
+					</td>
+					<td class="tbline">	
+						<span class="keyw">new String</span><span 
+						class="op">(</span><span 
+						class="str">'Güntan'</span><span 
+						class="op">)</span>
+					</td>
+					<td>
+						<span class="red">false</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			Tablodaki sonuçlar aşağıda sırası ile incelenmektedir:
+		</p>
+		<ul class="list">
+			<li>
+				<span class="keyw">NaN</span> değeri, hiçbirşeyle,
+				kendisi ile bile eşit değildir. 
+			</li>
+			<li>
+				<span class="keyw">null</span> ve <span 
+				class="keyw">undefined</span>değerleri hem kendileri,
+				hem de birbirleri ile, eşit olarak algılanırlar. Gerçek farklılıkları, eşdeğerlik
+				işlemcisi (===) ile karşılaştırıldıklarında ortaya çıkar. 
+			</li>
+			<li>
+				Tüm ilkel değerler değerleri ile karşılaştırılır.
+			</li>
+			<li>
+				<span 
+			class="keyw">true</span> 1değerine, <span 
+			class="keyw">false</span> 0 değerine eşittir. 
+			</li>
+			<li>
+				Karakter dizgisi (string) tipinde veriler, aynı ilkel değerler
+				gibi değerle karşılaştırılır şeklinde işlem görürler. İki sözel 
+				veri, ancak aynı karakterleri içeriyorlarsa eşit olarak algılanırlar.
+			</li>
+			<li>
+				Bir karakter dizgisi tipinde veri, sayısal bir bilgi ile 
+				karşılaştırıldığında, JavaScript yorumlayıcısı önce sözel 
+				veriyi sayısal hale çevrilmeye çalışır. Başarılı olursa karşılaştırma
+				iki sayısal değer üzerinden yapılır. Başaramazsa, sonuç olumsuz 
+				olarak belirtilir.
+			</li>
+				<li>
+					Aynı nesneye işaret eden iki bellek işaretçisi birbirine eşittir.
+				</li>
+				<li>
+					Nesneler, aynı yapı ve özellik değerlerine sahip olsalar da
+					farklı bellek alanlarında saklandıklarından, bunlara işaret 
+					eden bellek işaretçileri eşit değildir.
+				</li>
+				<li>
+					Öntanımlı nesne yapılandırıcıları ile, nesne olarak tanımlanmış 
+					ilkel tip karşılıkları olan veriler, değerle değil referansla karşılaştırılırlar. 
+					Bu veriler aynı sınıfın örnekleri ve değerleri aynı bile olsa, birer nesnedir ve
+					farklı bellek bölgelerinde saklanırlar. Bunlara işaret eden bellek işaretçilerinin
+					değerleri farklıdır. Bu yüzden, ilkel tip olarak tanımlanabilecek olan veriler,
+					karşılık gelen öntanımlı nesne sınıflarının örnekleri olarak değil ilkel veri
+					olarak tanımlanmalıdırlar. Yani, a <span class="op">=</span> 9<span 
+					class="op">;</span> olarak tanıtım yapılmalı, az rastlanan performans 
+					arttırıcı durumlar dışında a <span class="op">=</span><span 
+					class="keyw">new Number</span><span class="op">(</span>9<span 
+					class="op">);</span> olarak tanıtım yapılmamalıdır.
+				</li>
+		</ul>
+		<p class="subheading" id="valueandtype">2.8.2 - Değer ve Tiple Karşılaştırma İşlemcisi (===) (Eşdeğerlik İşlemcisi) 
+	</p>
+		<p class="indent">
+			Eşdeğerlik işlemcisi, karşılaştırdığı işlenenlerin hem değer hem de veri tipi olarak 
+			aynı olmasını gözetir. Karşılaştırma öncesi herhangibir tip uyarlaması yapılmaz.
+		</p>
+		<p class="indent">
+			Eşdeğerlik işlemcisinin uygulanmasına ait örnekler, aşağıda tartışılmıştır.
+		</p>
+		<pre>
+<span class="keyw-25">undefined</span> <span class="op">===</span> <span 
+			class="keyw">undefined</span><span class="cursive-maroon">Sonuç :</span><span 
+			class="green">true</span>
+
+<span class="keyw-25">null</span>	 <span class="op">===</span> <span 
+			class="keyw">null</span><span class="cursive-maroon">Sonuç :</span> <span 
+			class="green">true</span>
+		</pre>
+		<p class="nonindent">
+			fakat,
+		</p>
+		<pre>
+<span class="keyw-25">null</span>	<span class="op">===</span> <span 
+			class="keyw">undefined</span><span class="cursive-maroon">Sonuç :</span>	<span 
+			class="red">false</span>
+		</pre>
+		<p class="nonindent">
+			Bu sonnuçlar doğaldır çünkü, <span class="keyw">undefined</span> ve
+			<span class="keyw">null</span> farklı tipte verilerdir. Her ikisinin de 
+			değerleri bir tür boşluk olduğundan, eşitik işlemcisinin bunları eşit olarak 
+			algılaması açıklanabilir. Fakat, bu değerler asla
+			eşdeğer olamazlar çünkü veri tipleri farklıdır.
+		</p>
+		<pre>
+<span class="keyw-25">true</span> <span class="op">===</span> <span 
+			class="keyw">true</span> <span class="cursive-maroon">Sonuç :</span>	<span 
+			class="green">true</span>
+
+<span class="keyw-25">false</span><span class="op">===</span><span 
+			class="keyw">false</span>	<span class="cursive-maroon">Sonuç :</span>	<span class="green">true</span>
+
+<span class="pl-25">12</span> <span class="op">===</span> 12 <span class="cursive-maroon">Sonuç :</span><span 
+			class="green">true</span>
+		</pre>
+		<p class="nonindent">
+			fakat,
+		</p>
+		<pre>
+<span class="str-25">'12'</span> <span class="op">===</span> 12 <span 
+			class="cursive-maroon">Sonuç :</span><span class="red">false</span>
+		</pre>
+		<p class="nonindent">
+			Tipleri ve değerleri aynı olan ilkel veriler eşdeğerdir. Fakat, 
+			tipi farklı olan ilkel veriler eşdeğer değillerdir. Eşitlik işlemcisi
+			ile sınandıklarında, eşit olarak değerlendirilebilirler.
+		</p>
+		<pre>
+<span class="keyw-25">NaN</span> <span class="op">===</span> <span 
+			class="keyw">NaN</span> <span class="cursive-maroon">Sonuç :</span>	<span 
+			class="red">false</span>
+		</pre>
+		<p class="nonindent">
+			<span class="keyw">NaN</span> kendi kendine dahil 
+			hiçbirşeye eşit ve eşdeğer değildir.
+		</p>
+		<pre>
+<span class="str-25">'Ilgaz'</span><span class="op">===</span> <span 
+			class="str">'Ilgaz'</span><span class="cursive-maroon">Sonuç :</span>	<span 
+			class="green">true</span>
+		</pre>
+		<p class="nonindent">
+			İki karakter dizgisi veri aynı sayıda karakter içerdiklerinde
+			ve içerdikleri karakterler aynı ve aynı dizilimde iseler eşdeğer 
+			kabul edilirler. Aksi halde eşdeğer ve eşit kabul edilmezler. 
+			Karşılaştırmadan önce, Unicode normalize formunun uygulandığı
+			varsayılır.
+		</p>
+		<p class="indent">
+			Eğer iki bellek işaretçisi, bellekte aynı bölgeye işaret ediyorlarsa eşdeğer
+			kabul edilirler. Eğer farklı bölgelere işaret ediyorlarsa, bu bölgelerde bulunan
+			verilerin yapıları aynı ve özellik değerler de aynı olsa bile birbirlerinin eşdeğeri
+			ve eşiti olarak kabul edilmezler. Yukarıdaki şemada belirtilen işlemler 
+			gözönüne alındığında,
+		</p>
+		<pre>
+<span class="pl-25">B</span> <span class="op">===</span> s veya tersi 
+<span class="pl-25">s</span> <span class="op">===</span>B <span 
+			class="cursive-maroon">Sonuç :</span><span class="green">true</span>
+		</pre>
+		<p class="nonindent">
+			olur.
+		</p>
+		<p class="indent">
+			Tüm yukarıdaki bilgilerin ışığında, 
+		</p>
+		<ul class="list">
+			<li>
+				Tüm karşılaştırma işlemlerinde daima eşdeğerlik işlemcisi 
+				(===) kullanılmalı ve yüzde yüz gerekli olmadıkça asla
+				eşitlik işlemcisi (==) kullanılmamalıdır.
+			</li>
+			<li>
+				Karşılaştırmalardan önce tüm tip değişikleri açık yöntemlerle
+				gerçekleştirilmeli, karşılaştırmanın sağlıklı yürümesi için tüm olasılıklar
+				gözönüne alınmalıdır.
+			</li>
+			<li>
+				Değerle (kopyalanarak) ve referansla aktarılan veriler üzerinde kesin 
+				bilgi sahibi olunmalıdır. Karşılaştırma işleminin doğru sonuçlar vermesi için, 
+				işlenenlenlerin karşılaştırılabilir olması sağlanmalıdır. Referansla 
+				aktarılan nesnelerin birbirleri ile karşılaştırılmasına çalışarak JavaScript 
+				yorumlayıcısının vakti boşa harcanmamalıdır. Nesnelerin değere çevrilmesi için
+				öntanımlı metotlardan uzak durulmalı, nesnelerin birbirleri ile karşılaştırılması 
+				istenen, karşılaştırılabilir özellikleri birbirleri ile karşılaştırılmalıdır. Bunun için,
+				tüm ön işlemler, açık olarak, program adımları ile gerçekleştirilmektedir.
+			</li>
+			<li>
+				Karakter dizgisi verilerin birbirleri ile karşılaştırılmalarında sağlıklı sonuç 
+				alınabileceğine güvenmemek gerekir. Sözel veriler tipografik farklıklar içerebilirler
+				ve bu da, aynı sayılan verilerin karşılaştırmalarda farklı olarak değerlendirilmesine
+				yol açar. Bu nedenle, klüp üyeliği gibi grup verilerinde, üyelik numarası gibi
+				bir tamsayı kimlik numarası alanı oluşturulup, tüm işlemlerin bu numara üzerinden 
+				yürütülmesi son derece gereklidir. Sözel verilerin karşılaştırılmalarında, literatürde
+				bulunabilecek kamuya açık gelişkin yöntemlerle başlanmalı ve gitgide kendi 
+				teknolojimizi geliştirmeliyiz.
+			</li>
+			<li>
+				Netscape 4 ve üstü sürümlerde, JavaScript1.2 de eşitlik işlemcisi (==), 
+				eşdeğerlik işlemcisi(===) gibi hareket eder. Hatalı sonuçlardan kaçınmak 
+				için, JavaScript1.2 sürümünün kullanılmaması gerekir. 
+			</li>
+		</ul>
+		<p class="subheading" id="nonequal">
+					2.8.3 - Eşit Değil (!=) ve Eşdeğer Değil (!==) İşlemcileri
+	</p>
+		<p class="indent">
+			Bu işlemcilerin çalışması, eşdeğer eşitlik (==) ve eşdeğerlik (===) işlemcileri gibidir. ! işlemcisi,
+			mantıksal NOT işlemcisi gibi çalışır. Bu işlemcilerin uygulanması da aynen karşı gelen (==) ve (===) 
+			işlemcileri ile aynıdır. 
+		</p>
+		<p class="indent">
+			Eşit değil işlemcisi , a <span class="op">!=</span> b yerine, a<span 
+			class="op">!(</span>a <span class="op">==</span> b<span class="op">)</span> 
+			şeklinde de kullanılabilir. Bu kullanım şekli, bu işlemcinin aslında iki işlemcinin 
+			ardışık olarak kullanılmasından oluştuğunu belirtmektedir. 
+		</p>
+		<p class="subheading" id="less">2.8.4 - &lt; , &lt;= , &gt; ,&gt;= İlişkisel İşlemciler
+	</p>
+		<p class="indent">
+			İlişkisel işlemcilerin uygulanması, eşitlik
+			işlemcilerinin uygulanmasından farklı
+			olarak, JavaScript yorumcusunun karşılaştırılacak
+			büyüklüleri sayısal değerlere çevirme
+			çabası ile başlar. Bu durumda iki farklı
+			nesne bile sayısal değerlere çevrilebilirlerse
+			karşılaştırılabilirler. İlişkisel işlemciler,
+		</p>
+		<pre> 
+<span class="str-25"><em>solİşlenen</em></span> <span 
+			class="comm">ilişkisel işlemci</span> <em class="str">sağİşlenen</em>
+		</pre>
+		<p class="nonindent">
+			şeklinde kullanılırlar. Burada ilişkisel
+			işlemci, her türlü ilişkisel işlemci olabilir.
+		</p>
+		<p class="indent">
+			Genel olarak bir karşılaştırma işleminde,
+			JavaScript yorumcusu,
+	</p>
+		<ul class="list">
+			<li>
+					<span class="str"><em>sol</em></span> ve
+					<span class="str"><em>sağ </em></span>işlenenleri 
+					sayısal değerlere çevirmeye çalışır.
+			</li>
+			<li>
+					Eğer her iki ifade de birer karakter dizgisi(string) ise, leksikografik bir
+					karşılaştırma yapar. Burada dikkat edilecek nokta, Unicode konvansiyonuna 
+					göre, küçük harflerin karakter karşılıklarının, büyük harflarinkinden daha büyük olmasıdır. 
+					Yani, <span class="str">'A'</span> <span class="op">&lt;</span> <span class="str">'a'</span>
+					işleminin sonucu <span class="keyw">true</span> olacaktır.
+			</li>
+			<li>
+					Her her iki ifade de
+					<span class="keyw">NaN</span>
+					ise, false değerini döndürür.
+			</li>
+			<li>
+					Negatif sıfır pozitif sıfıra eşittir.
+			</li>
+			<li>
+					Negatif sonsuzluk kendisi dahil herşeyden
+					küçüktür.
+			</li>
+			<li>
+					Pozitif sonsuzluk kendisi dahil herşeyden
+					büyüktür.
+			</li>
+	</ul>
+
+		<p class="subheading" id="ternary">2.8.5 - Üçlü Koşul İşlemcisi (?) (Üçlü İşlemci)
+	</p>
+		<p class="indent">
+			Üçlü koşul işlemcisi <span class="op">?</span> JavaScript programlama dilinin 
+			üç tane işlenen ile çalışan tek işlemcisidir. Çalışma şekli aşağıdaki gibidir:
+		</p>
+		<pre>
+<span class="str-25">işlenen1</span> <span class="op">?</span> <span 
+			class="str"><em>işlenen2</em></span> <span class="op">:</span> <span 
+			class="str"><em>işlenen3</em></span>
+		</pre>
+		<p class="nonindent">
+			Bu ifade, işlenen1 sonucu doğrulanırsa ikinci işlenenin sonucunu,
+			yoksa üçüncü işlenenin sonucunu döndür olarak okunmalıdır. Belki daha 
+			kolay akılda kalacak bir söyleyiş şekli, birinci işlenen doğruysa
+			ikinci işleneni, yoksa üçüncü işleneni döndür şeklinde olabilir. 
+		</p>
+		<p class="indent">
+			Üçlü işlemcinin ilk işleneni mantıksal bir ifade veya mantıksal 
+			bir sonuca indirgenebilecek bir ifade olmalıdır. İkinci ve üçüncü
+			işlenenler istendiği gibi ifadeler olabilir.
+		</p>
+		<p class="indent" id="b2.8.5-uyg-1">
+			Üçlü işlemci, ileride göreceğimiz, bir <span class="keyw">if..else</span>
+			bildiriminin kısaltılmış şeklidir. Bu işlemci kullanılarak yapılmış bir 
+			<a href="../uygulamalar/b2.8.5-uyg-1.html">uygulamanın</a>
+			<a href="../uygulamalar/b2.8.5-uyg-1-js.html">JavaScript kodları</a>
+			aşağıda görülmektedir:
+		</p>
+		
+		<pre>
+<span class="comm-25"> /* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> üçlüİşlemci()<span 
+			class="op">{</span>
+			
+<span class="keyw-50">var</span> t<span 
+			class="op"> = </span>9<span 
+			class="op">,</span> p<span 
+			class="op"> = </span>4<span 
+			class="op">,</span> g <span 
+			class="op">= </span>18<span 
+			class="op">;</span>
+
+<span class="keyw-50">var</span> d<span 
+			class="op"> = </span>((t - p) <span 
+			class="op">== </span>5)  <span 
+			class="op">? </span> (t - p) <span 
+			class="op">:</span> (g - t)<span 
+			class="op">;</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="keyw">(</span>d <span 
+			class="op">, '</span><span 
+			class="str">2.8.5-uyg-1-sonuç-1'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(üçlüİşlemci)</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s9.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s11.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.8.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.8.1-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.2.2-uyg-2.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:53 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

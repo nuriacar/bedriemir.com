@@ -1,0 +1,1690 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:36 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b15/b15s7.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b15s7</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b15s6.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b16/b16s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 15
+		</p>
+		<p class="chapter">
+			Kullanıcı Tanımlı Nesneler
+		</p>
+		<p class="pagenum">
+			Bölüm 15 Sayfa 7
+	</p>
+		<p class="title-left" id="project">
+					15.6 - Örnek Proje
+	</p><p class="indent" id="public">
+			Bu bölümde incelenmiş olan yöntemlerin uygulanması, örnek 
+			bir proje çerçevesinde gerçekleştirilmiştir. Bu projede bir sosyal klübün
+						üye kayıtları incelenecektir.
+		</p>
+		<p class="indent" id="b15.6-uyg-1">
+			Bu projede, genel üyelere ait veri yapısı, ayrı bir 
+			<a href="../uygulamalar/b15.6-uyg-1-genel-ilk-js.html">veri dosyasında</a>
+			saklanarak yanlışıkla değiştirilmesi olasılığının azaltılması amaçlanmıştır.
+			Her bir genel üye kaydı, GenelÜye sınıfına ait yeni bir nesne örneği anlamına
+			gelmektedir. Bu yapılandırıcı fonksiyon, aşağıda görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-25">function</span> GenelÜye(nr,ad,soyad) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr<span 
+			class="op">=</span>nr <span 
+			class="op">||</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad<span 
+			class="op">=</span>ad <span 
+			class="op">||</span><span 
+			class="str"> 'Veri Atanmadı'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad<span 
+			class="op">=</span>soyad <span 
+			class="op">||</span><span 
+			class="str"> ''</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Veri yapısılarına ait nesne örneklerinin oluşturulması amaçlı ilk web formu, 
+			<a href="b15s3.html#cons">bölüm 15.2.2</a> de bir 
+			<a href="../uygulamalar/b15.2.2-uyg-4.html">uygulama</a> da tanıtılmıştı. 
+			Bu uygulamada, veri kaydı yapıldıktan sonra, kullanıcının giriş düğmesini
+			tekrar tıklaması ile yeniden kaydın tekrarlanması sorunu bulunmaktaydı
+			ve bu nedenle, gerçek ortamlarda uygulanması uygun değildi.
+		</p>
+		<p class="indent" id="b15.6-uyg-1">
+			Bu projede, ilk olarak, GenelÜye sınıfına ait kayıtların girilebileceği gerçek bir
+			web formu geliştirilecektir. Bu formda, kullanıcıların kayıt düğmesine
+			sadece ilk bastıklarında programın çalışacağı, sonraki tıklamaların
+			etkisiz olacağı bir yöntem geliştirilmiştir. Bu programın 
+			<a href="../uygulamalar/b15.6-uyg-1-js.html">JavaScript</a> kodları
+			aşağıda görülmektedir. 
+		</p>
+
+		<pre>
+<span class="keyw-50">...</span>
+<span class="comm-25">// çalıştır() fonksiyonu bdelib.js program kitaplığındadır.</span>
+<span class="comm-25">// oku() fonksiyonu bdelib.js program kitaplığındadır.
+</span><span class="comm-25">// nesneTablosu() fonksiyonu bdelib.js program kitaplığındadır.</span>
+
+<span class="comm-25">// GenelÜye Yapılandırıcı Fonksiyonu b15.7-uyg-genel-ilk.js kitaplığındadır.</span>
+
+
+<span class="keyw-25">function</span> verigir<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> gizli <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> klüpÜyesi <span 
+			class="op">=</span> <span 
+			class="op">= [],</span> geriDönüş <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>sınırlama <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>gizli <span 
+			class="op">&gt;</span> 0<span 
+			class="op">) {</span>
+<span class="pl-100">gizli</span> <span 
+			class="op">=</span> gizli <span 
+			class="op">-</span> 1<span 
+			class="op">;</span>
+<span class="pl-100">klüpÜyesi[1]</span> <span 
+			class="op">=</span> yeniGenelÜyeYaz<span 
+			class="op">();</span>
+<span class="keyw-100">if</span> <span 
+			class="op">(</span>klüpÜyesi<span 
+			class="op">) {</span>
+<span class="pl-125">nesneTablosu</span><span 
+			class="op">(</span><span 
+			class="str">'kayıt'</span><span 
+			class="op">,</span> <span 
+			class="str">'Klüp Üyesi Kaydı'</span><span 
+			class="op">,</span> klüpÜyesi<span 
+			class="op">[</span>1<span 
+			class="op">);</span>
+<span class="pl-125">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'rec'<span 
+			class="op">,</span> 'KayıtTamamlandı !'</span><span 
+			class="op">);</span>
+<span class="pl-125">geriDönüş</span><span 
+			class="op">= <span 
+			class="keyw">false</span></span><span 
+			class="op">;</span><span class="comm-50">// çapa elementinin href niteliğinin etkisizleştirilmesi için...</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span><span 
+			class="op"> {</span>
+<span class="pl-125">geriDönüş</span><span 
+			class="op">= <span 
+			class="keyw">true</span></span><span 
+			class="op">;<span class="comm-50">// çapa elementinin href niteliğinin etkinleştirilmesi için...</span>
+</span><span class="op-100">}</span>
+
+<span class="keyw-75">else</span><span 
+			class="op"> {</span>
+<span class="pl-100">geriDönüş</span><span 
+			class="op">= <span 
+			class="keyw">false</span></span><span 
+			class="op">;</span><span class="comm-50">// çapa elementinin href niteliğinin etkisizleştirilmesi için...</span>
+<span class="op-75">}</span>
+<span class="keyw-75">return</span> geriDönüş<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> yeniGenelÜyeYaz()<span 
+			class="op"> {</span>
+
+<span class="keyw-50">var</span> klüpÜyesi <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> a <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> b <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> c <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">a</span> <span 
+			class="op">=</span> oku(<span 
+			class="str">'nr'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">b</span> <span 
+			class="op">=</span> oku(<span 
+			class="str">'ad'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">c</span> <span 
+			class="op">=</span> oku(<span 
+			class="str">'soyad'</span>)<span 
+			class="op">;</span>
+
+<span class="keyw-50">if (</span>tenisÜyesiYaz<span 
+			class="op">.</span>ilkÇağrı) <span 
+			class="op">{</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(!</span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>a<span
+			class="op">)) || </span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>b <span
+			class="op">,</span> 10<span
+			class="op">)) || </span><span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>c <span
+			class="op">,</span> 10<span
+			class="op">)) ||</span> b <span
+			class="op">===</span> <span
+			class="str">''</span><span
+			class="op"> || </span>c <span
+			class="op">===</span> <span
+			class="str">''</span><span 
+			class="op">)</span> <span 
+			class="op">{</span>
+
+<span class="keyw-100">alert(</span><span
+			class="str">'Geçersiz Veri !\n'</span><span
+			class="keyw"> <span 
+			class="op">+</span> <span 
+			class="str">'Lütfen O.K. Tuşuna Bastıktan Sonra\n' <span 
+			class="op">+</span> 'Düzeltilmiş Verileri Giriniz'</span>)</span><span
+			class="op">;</span>
+<span class="pl-100"></span>klüpÜyesi <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">else</span> <span
+			class="op">{</span>
+<span class="comm-100">// Kaydı Yap !</span>
+
+<span class="pl-100">klüpÜyesi <span 
+			class="op">=</span></span> yeniGenelÜye<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">,</span>c<span 
+			class="op">)</span> <span
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">return</span> klüpÜyesi<span
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat() <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> yeniKayıt <span 
+			class="op">=</span> <span class="keyw">new</span> verigir<span 
+			class="op">();</span>
+
+<span class="pl-50">çalıştır(</span><span 
+			class="str">'kayıtYap' </span><span 
+			class="op">,</span> verigir<span 
+class="op">.</span>sınırlama<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Kayıt başarılı olursa, kaydedilen verilerin listesi, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib</a> kitaplığında bulunan, 
+			nesneTablosu<span class="op">()</span> adında çok esnek ve genel bir 
+			tablolama fonksiyonu ile yapılmaktadır. Bu programın 
+			yazılımı aşağıda verilmiştir. 
+		</p>
+		<pre>
+
+
+<span class="keyw-25">function</span> nesneTablosu(oluşacakTablo <span 
+			class="op">,</span> tabloBaşlığı <span 
+			class="op">,</span> nesne)<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> tablo <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oluşacakTablo'</span><span 
+			class="op">),</span>
+<span class="pl-50">capt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'caption'</span><span 
+			class="op">),</span>
+<span class="pl-50">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tbody'</span><span 
+			class="op">),</span>
+<span class="pl-50">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tbody'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">= {};</span>
+
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'border'</span><span 
+			class="op">,</span> <span 
+			class="str">'3px'</span> <span 
+			class="op">);</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'align'</span><span 
+			class="op">,</span> <span 
+			class="str">'center'</span> <span 
+			class="op">);</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'font : 0.92em Verdana;'</span> <span 
+			class="op">);</span>
+
+
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-red'</span> <span 
+			class="op">);</span>
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>tabloBaşlığı<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild</span><span 
+			class="op">(</span>capt<span 
+			class="op">);</span>
+
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>tabloGövdesi<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span> <span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-maroon'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'background-color : orange;'</span> <span 
+			class="op">);</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;
+
+</span><span class="pl-50">yeniBaşlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'th'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Veri Alanı'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniBaşlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'th'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Veri Alanı Değeri'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">for(var</span> alan <span 
+			class="keyw">in</span> nesne <span 
+			class="op">{</span>
+<span class="keyw-75">if (typeof</span> nesne[alan]<span 
+			class="op"> === </span><span 
+			class="str">'function'</span><span 
+			class="keyw">)</span><span 
+			class="op">{</span>
+<span class="keyw-100">continue</span><span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="pl-100">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-100">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;
+
+</span><span class="pl-100">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-100">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span> <span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">);</span>
+<span class="pl-100">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Üye Numarası'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-100">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-100">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-100">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span> <span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-100">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'nr'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-100">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+		</pre>
+		<p class="indent">
+			Kullanılan nesneTablosu<span class="op">()</span> fonksiyonu,
+			çok genel bir fonksiyon olduğundan, her nesne örneği için
+			uygulanabilir. Buna karşılık, özellik isimleri genel olarak özellik olarak
+			görülmektedir. Bu fonksiyon, kolaylıkla özelleştirilebilir. 
+		</p>
+		<p class="indent">
+			Bu veri giriş formu, <a href="../uygulamalar/b15.6-uyg-1.html">uygulama</a> 
+			sayfasında denenebilir.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b15.6-uyg-1.html">programı</a>, daha önce, 
+			<a href ="b15s3.html#cons">bölüm 15.2.2</a> de verilmiş olan 
+			<a href ="../uygulamalar/b15.2.2-uyg-4.html">programına</a> göre daha
+			gelişkin bir programdır. Bu program, sadece ilk tıklamanın kayıt yapılmasını
+			 sağlayacak ve global değişkenlerin kullanılmadığı bir sınırlama yöntemini
+			içermektedir. Böyle bir sınırlama web formları için, ancak gizli veya açık
+			global değişkenler kullanılması ile  gerçekleştirilebilir.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b15.6-uyg-1.html">program</a> kullanıcının
+			formu  sunmak için basacağı sunuş düğmesine sadece bir kez basabiilmesini
+			sağlayan bir  sınırlama yöntemi içermektedir. Bu <a href ="b15s3.html#cons">bölüm
+			15.2.2</a> de verilmiş olan <a href ="../uygulamalar/b15.2.2-uyg-4.html">programa</a> göre önemli
+			bir ilerlemedir. Bu ilerlemenin değerlendirilebilmesi
+			için önce genel olarak tıklama sınırlamasının nasıl gerçekleştirilebileceği
+			incelenecektir. Bu gibi hareketli programların akım şemaları ile açıklanması
+			oldukça zordur. Bunun için, olayları izlemeye çalışacağız. İlk olarak,
+			<a href ="../uygulamalar/b15.2.2-uyg-4.html">programını</a> ele alalım burada
+			hiç tıklama kontrolü yoktur. Kullanıcı giriş düğmesini tıklayınca, program,
+			her giriş kutusundakii değerin uygunluğunu kontrol etmektedir. Eğer değer
+			uygun değilse kullanıcı uyarılmakta fakat yine de kabul edilmektedir. Sonuçta
+			kayıt gerçekleşmekte fakat sayfa açık kalmakta ve kayıt düğmesinin yeniden
+			tıklanmasını  engelleyecek bir kontrol bulunmamaktadır ve her tıklayışta
+			istendiği kadar aynı değerleri içeren tekrarlı kayıtlar gerçekleştirilebilmektedir.
+			Bu da en istenmeyen şeydir. Bir kayıt dosyasında, birbirinin aynı iki kayıt
+			asla bulunmamalıdır. Bu nedenle böyle formlar gerçek uygulamalarda kullanılmamalıdır.
+		</p>
+		<p class="indent">
+			Bu durumun düzeltilmesi, pensip olarak sabit bir çapa görevini yapacak bir global değişken
+			kullanılması ile çözümlenebilir. Global değişken başlangıçta <span class="keyw">true</span> değerindedir. 
+			Kullanıcı kayıt düğmesine tıkladığında, program kontrolü global değişkeni kontrol eder, değer 
+			<span class="keyw">true</span> ise bu değeri <span 	class="keyw">false</span> yapasr ve
+			giriş değerlerini tek defada kontrol eder. Bu değerler doğruysa kayıt gerçekleşir. Değilse, 
+			bir uyarı mesajı görüntülenir ve kullanıcı bu mesajı okuduğunu belirten düğmeye tıklarsa,
+			sayfa yeni bir kayıt akımı açar. Kayıt gerçekleştikten sonra, kullanıcı yeniden kayıt düğmesine
+			tıklasa bile kayıt gerçekleşmez çünkü global çapanın değeri <span 	class="keyw">false</span>,
+			yani bayrak inik durumdadır. 
+		</p>
+		<p class="indent">
+			Bu sistemde tüm giriş verilerininin uygunluğunun ancak  tüm değerlerin birden tek defada
+			kontrolü ile yapılabildiğini de ekleyelim. Bu yöntem ister istemez tüm istemci tarafı 
+			programlarında böyledir. Çünkü bir web sayfasının durdurulup yeniden başlatılması 
+			olanağı yoktur.
+		</p>
+		<p class="indent">
+			Global bir çapanın kullanılması, tıklama kontrolü problemini çözmekte fakat, global
+			değişken kullanımının istenmeyen yan etkileri nedeni ile, kullanımına pek sıcak
+			bakılmamaktadır. Tıklama kontrolünün başka bir yöntemle yapılması için burada 
+			sınıf özel üyelerinden yararlanan yeni bir yöntem geliştirilmiştir. Özel üyelerin
+			kullanımına ait uygulama, ilk olarak JavaScript uzmanı, 
+			<a href="http://www.crokford.com/">
+				Douglas Crokford
+			</a>
+			tarafından önerilmiştir. Bu fonksiyonun orijinalini daha önce incelenmiştik.
+			Burada, bu fonksiyon, form tıklamasının sınırlandırılması amacı ile 
+			yeniden düzenlenmiştir. Metot, bir verigir() yapılandırıcı fonksiyonun
+			 ileride anlamı açıklanacak olan ayrıcaklı sınırlama <span class="op">()</span> 
+			metodunun, fonksiyonun özel üyesi olan gizli isimli bir yerel
+			değişkenin değerini okuması, her okuyuşta bu özel üyenin değerini değiştirmesi
+			ve her çağrılırılışta bir önceki değerini okumaya çalışmasına dayanmaktadır.
+			Tek defalık bir okuma va değiştirmeden sonra artık bu metot
+			geriye daima <span class="keyw">false</span> değerini döndürmektedir.
+			Bu değeri okuyan tıklama kontrolü de sadece bir kez çalışmakta ve ikinci
+			kez tıklandığında işlevsiz olmaktadır. Sayfa, uygun olmayan veriler girildiğinde,
+			 kaydı yapmayarak kendini yenilemekte ve verilerin yeniden doğru
+			olarak girilmesini beklemektedir. Sadece uygunluk kontrollerini
+			geçebilen veriler, kayda girebilmektedir. İleride bu veri giriş formları,
+			verilerin disk dosyalarına kaydedilmesi için kullanılacaktır.
+		</p>
+		<p class="indent">
+			Özellikle, <a href="../uygulamalar/b15.6-uyg-1.html">yukarıdaki</a> 
+			formda, bir olay yöneticisine bir fonksiyon
+			yerine bir metodun atanması orijinal bir düşüncedir ve global
+			değişken kullanma gereksinmesini ortadan kaldırmaktadır.
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b15.6-uyg-1.html">Yukarıdaki</a> 
+			formda, tıklama sınırlamasının gerçekleştirilmesi, formun 
+			istemci bilgisayarına indirildiği durumda, istemcinin JavaScript
+			yorumlayıcısı devreden çıkarılmış ise, çalışmayacaktır. Bu tür
+			formların sunucu tarafında çalıştırılması daha garantili 
+			olacaktır.
+		</p>
+		<p class="indent" id="b15.6-uyg-2">
+			Klüp bir süre üyelerine hizmet vermiş ve yeni spor tesisleri inşaatları
+			yaptırmıştır. Bu tesislerden ilk hizmete gireni tenis spor dalıdır. 
+			Klübün Tenis seksiyonu açılınca, Tenis seksiyonu için yeni üyelerin
+			kayıtlarının yapılması gerekmiştir. Kaydını yaptıracak yeni üyeler, tenis 
+			tesislerinden de yararlanmak isterlerse, bunu ilk kayıtları sırasında
+			belirtmeleri istenmiştir. Bu üyelerin kayıtları için, TenisÜyesi
+			<span class="op">()</span> isimli yeni bir yapılandırıcı fonksiyon 
+			düzenlenmiş ve bu fonksiyon GenelÜye sınıfı yapılandırıcı fonksiyonunun
+			bulunduğu 
+			<a href="../uygulamalar/b15.6-uyg-2-genel-ikinci-js.html">sınıf yapıları dosyasına</a> 
+			eklenmiştir. Tenis üyeleri sınıfı, genelÜye sınıfının bir alt sınıfı olarak oluşturulmuştur. 
+			Alt sınıf/ üst sınıf ilişkisi, 	TenisÜyesi<span class="op">()</span> yapılandırıcı 
+			fonksiyonunun üst sınıf olan GenelÜye<span class="op">()</span> yapılandırıcı 
+			fonksiyonunu çağırması ile gerçekleştirilmiş ve buna ek olarak üst sınıf prototipinin 
+			alt sınıfa transferi ile de sınıflararası hiyerarşik prototip zinciri kurulmuştur. 
+			Veri yapıları ve yapılandırıcı fonksiyonlar, 
+			<a href="../uygulamalar/b15.6-uyg-2-genel-ikinci-js.html">kendi sayfalarında</a>
+			ve aşağıda görülebilir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> GenelÜye(nr,ad,soyad) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr<span 
+			class="op">=</span>nr <span 
+			class="op">||</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad<span 
+			class="op">=</span>ad <span 
+			class="op">||</span><span 
+			class="str"> 'Veri Atanmadı'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad<span 
+			class="op">=</span>soyad <span 
+			class="op">||</span><span 
+			class="str"> ''</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> TenisÜyesi(nr<span 
+			class="op">,</span>ad<span 
+			class="op">,</span>soyad<span 
+			class="op">,</span>dolapNo) <span 
+			class="op">{
+</span><span class="keyw-50">this</span><span 
+			class="op">.</span>kalıtım<span 
+			class="op">=</span>GenelÜye;
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kalıtım(nr<span 
+			class="op">,</span>ad<span 
+			class="op">,</span>soyad)<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>dolapNr<span 
+			class="op">=</span>dolapNo <span class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25"></span>TenisÜyesi<span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> GenelÜye<span 
+			class="op">();</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Projenin başlangıcından itibaren belirli bir süre geçmiş olduğundan, 
+			veri giriş formunda, hem program yapısı açısından hem de görüntü açısından
+			bazı özelleştirmeler gerçekleştirilmiştir. bu yeni sürümde,
+			<a href="../uygulamalar/b15.6-uyg-2-js.html">veri giriş formunde</a> değişken 
+			isimleri daha anlamlı olanları ile yer değiştirmiş ve veri giriş sonucunun 
+			görüntülenmesi için yararlanılan tablolama fonlsiyonu da daha özelleştilimiş 
+			bir hale getirilmiştir. Bu değişikliler, kendi
+			<a href="../uygulamalar/b15.6-uyg-2-js.html">sayfalarında</a> ve aşağıda görülebilir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> tabloYap(oluşacakTablo <span 
+			class="op">,</span> tabloBaşlığı <span 
+			class="op">,</span> nesne)<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> tablo <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> capt <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> tabloGövdesi <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> yeniSatır <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> yenibaşlık <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> yeniSütun <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById(</span><span 
+			class="str">'oluşacakTablo'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span> <span 
+			class="keyw">style</span><span 
+			class="op">.</span> <span 
+			class="keyw">font</span> <span 
+			class="op">=</span> <span 
+			class="str">'16px verdana'</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span> <span 
+			class="keyw">border</span> <span 
+			class="op">=</span> <span 
+			class="str">'3px'</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span> <span 
+			class="keyw">align</span> <span 
+			class="op">=</span> <span 
+			class="str">'center'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'caption'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>tabloBaşlığı<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>capt<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tbody'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>tabloGövdesi<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-maroon'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span> <span 
+			class="keyw">style</span><span 
+			class="op">.</span> <span 
+			class="keyw">backgroundColor</span> <span 
+			class="op">=</span> <span 
+			class="str">'orange'</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+
+<span class="pl-50">yeniBaşlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'th'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Veri Alanı'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniBaşlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'th'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Veri Alanı Değeri'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Üye Numarası'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'nr'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Adı'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'ad'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Soyadı'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'soyad'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'tr'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Dolap Numarası'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'dolapNr'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// çalıştır() fonksiyonu bdelib.js program kitaplığındadır.</span>
+<span class="comm-25">// oku() fonksiyonu bdelib.js program kitaplığındadır.
+</span><span class="comm-25">// nesneTablosu() fonksiyonu bdelib.js program kitaplığındadır.</span>
+
+<span class="comm-25">// GenelÜye() ve TenisÜyesi() Yapılandırıcı Fonksiyonları, </span>
+<span class="comm-25">// b15.7-uyg-genel-ikinci.js kitaplığındadır.</span>
+
+
+<span class="keyw-25">function</span> verigir<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> gizli <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> tenisÜyesi <span 
+			class="op">=</span> <span 
+			class="op">= [],</span> geriDönüş <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>sınırlama <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>gizli <span 
+			class="op">&gt;</span> 0<span 
+			class="op">) {</span>
+<span class="pl-100">gizli</span> <span 
+			class="op">=</span> gizli <span 
+			class="op">-</span> 1<span 
+			class="op">;</span>
+<span class="pl-100">tenisÜyesi</span><span 
+			class="op">[</span>1<span 
+			class="op">] =</span> yeniTenisÜyesiYaz<span 
+			class="op">();</span>
+<span class="keyw-100">if</span> <span 
+			class="op">(</span>tenisÜyesi<span 
+			class="op">[</span>1<span 
+			class="op">]) {</span>
+<span class="pl-125">tabloYap</span><span 
+			class="op">(</span><span 
+			class="str">'kayıt'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tenis Üyesi Kaydı'</span><span 
+			class="op">,</span> tenisÜyesi<span 
+			class="op">[</span>1<span 
+			class="op">);</span>
+<span class="pl-125">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'rec'</span><span 
+			class="op">,</span> <span 
+			class="str">'KayıtTamamlandı !'</span><span 
+			class="op">);</span>
+<span class="pl-125">geriDönüş</span><span 
+			class="op">= </span><span 
+			class="keyw">false</span><span 
+			class="op">;</span><span class="comm-50">// çapa elementinin href niteliğinin etkisizleştirilmesi için...</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span><span 
+			class="op"> {</span>
+<span class="pl-125">geriDönüş</span><span 
+			class="op">= </span><span 
+			class="keyw">true</span><span 
+			class="op">;</span><span class="comm-50">// çapa elementinin href niteliğinin etkinleştirilmesi için...</span>
+<span class="op-100">}</span>
+
+<span class="keyw-75">else</span><span 
+			class="op"> {</span>
+<span class="pl-100">geriDönüş</span><span 
+			class="op">= </span><span 
+			class="keyw">false</span><span 
+			class="op">;</span><span class="comm-50">// çapa elementinin href niteliğinin etkisizleştirilmesi için...</span>
+<span class="op-75">}</span>
+<span class="keyw-75">return</span> geriDönüş<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> yeniTenisÜyesiYaz<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> tenisÜyesi <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> tenisÜyesiÜyeNumarası <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> tenisÜyesiAdı <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> 
+<span class="pl-75">tenisÜyesiSoyadı</span> <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span>  tenisÜyesiDolapNumarası<span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">tenisÜyesiÜyeNumarası</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'nr'</span><span 
+			class="op">);</span>
+<span class="pl-50">tenisÜyesiAdı</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'ad'</span><span 
+			class="op">); </span>
+<span class="pl-50">tenisÜyesiSoyadı</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'soyad'</span><span 
+			class="op">);</span>
+<span class="pl-50">tenisÜyesiDolapNumarası</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'dolap'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span><span
+			class="op">(!</span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiÜyeNumarası<span
+			class="op">)) || </span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiAdı<span
+			class="op">,</span> 10<span
+			class="op">)) || </span>
+<span class="keyw-75">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiSoyadı<span
+			class="op">,</span> 10<span
+			class="op">)) ||</span> tenisÜyesiAdı <span
+			class="op">===</span> <span
+			class="str">''</span><span
+			class="op"> || </span>tenisÜyesiSoyadı <span
+			class="op">===</span> <span
+			class="str">''</span> <span 
+			class="op">||</span> 
+<span class="op-75">!</span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiDolapNumarası<span 
+			class="op">))) {</span>
+
+<span class="keyw-75">alert(</span><span
+			class="str">'Geçersiz Veri !\n'</span><span
+			class="keyw"> <span 
+			class="op">+</span> <span 
+			class="str">'Lütfen O.K. Tuşuna Bastıktan Sonra\n' <span 
+			class="op">+</span> 'Düzeltilmiş Verileri Giriniz'</span>)</span><span
+			class="op">;</span>
+<span class="pl-100"></span>tenisÜyesi <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="comm-100">// Kaydı Yap !</span>
+
+<span class="pl-75">tenisÜyesi <span 
+			class="op">=</span></span> yeniTenisÜyesi<span 
+			class="op">(</span>tenisÜyesiÜyeNumarası<span 
+			class="op">,</span> tenisÜyesiAdı<span 
+			class="op">,</span>tenisÜyesiSoyadı<span 
+			class="op">, </span>tenisÜyesiDolapNumarası<span
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> tenisÜyesi<span
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat() <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> yeniKayıt <span 
+			class="op">=</span> <span class="keyw">new</span> verigir<span 
+			class="op">();</span>
+
+<span class="pl-50">çalıştır(</span><span 
+			class="str">'kayıtYap' </span><span 
+			class="op">,</span> verigir<span 
+class="op">.</span>sınırlama<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Bu yeni veri giriş formunu lütfen 
+			<a href="../uygulamalar/b15.6-uyg-2.html">deneyiniz</a>.
+		</p>
+		<p class="indent" id="b15.6-uyg-3">
+			Çalışmalar devam ederken klüp yöneticileri, üyelerin telefon numaralarının
+			kaydedilmesinin  yararlı olacağını düşünerek bu yönde bir istek belirtmişlerdir.
+			Projenin çok esnek  veri yapısı ve veri giriş sistemi olduğundan
+			bu isteğin gerçekleşmesi çok basit olacaktır. GenelÜye ve TenisÜyesi veri
+			yapıları birbirlerine prototip zinciri ile bağlıdır ve GenelÜye sınıfı,
+			üst sınıf konumundadır. Prototip zinciri kurulmuş olduğunda, üst sınıfın prototipine 
+			yapılacak bir alan eklentisi, anında alt sınıfın prototipine de yansıyacaktır. 
+		</p>
+		<p class="indent">
+			Telefon numarası alanını sisteme yerleştirmek çok kolay olacaktır. İlk olarak, 
+			<a href="../uygulamalar/b15.6-uyg-3-genel-son-js.html">veri yapıları dosyasında</a>,
+		</p>
+		<pre>
+<span class="pl-25">GenelÜye</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>telNo <span 
+			class="op">=</span> <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde 	yeni bir üst sınıf veri alanı tanıtımı yapılacaktır. Bu yeni üst sınıf 
+			veri alanı, alt sınıf olan TenisÜyesi sınıfının da veri yapısına aktarılmış 
+			olmaktadır. Bundan sonra, tabloYap<span class="op">()</span>fonksiyonuna 
+			aşağıdaki satırlar eklenecektir :
+		</p>
+		<pre>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">'Tenis Üyesinin Telefon Numarası'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">'td'</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span>nesne[<span 
+			class="str">'telNo'</span>]<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">apppendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Bundan sonra <a href="../uygulamalar/b15.6-uyg-3.html">Veri Giriş Formuna</a> 
+			yeni bir telefon adlı veri alanı eklenecektir. Bundan sonra, 
+			<a href="../uygulamalar/b15.6-uyg-3-js.html">program sayfasına</a> aşağıdaki değişiklik
+			yapılacaktır :
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> yeniTenisÜyesiYaz<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> tenisÜyesi <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> tenisÜyesiÜyeNumarası <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span> tenisÜyesiAdı <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> 
+<span class="pl-75">tenisÜyesiSoyadı</span> <span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">,</span>   tenisÜyesiTelefonNumarası<span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">, </span>tenisÜyesiDolapNumarası<span 
+			class="op">= </span><span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">tenisÜyesiÜyeNumarası</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'nr'</span><span 
+			class="op">);</span>
+<span class="pl-50">tenisÜyesiAdı</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'ad'</span><span 
+			class="op">); </span>
+<span class="pl-50">tenisÜyesiSoyadı</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'soyad'</span><span 
+			class="op">);</span>
+<span class="pl-50">tenisÜyesiTelefonNumarası</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'telefon'</span><span 
+			class="op">);</span>
+<span class="pl-50">tenisÜyesiDolapNumarası</span><span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'dolap'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span><span
+			class="op">(!</span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiÜyeNumarası<span
+			class="op">,</span> 10<span
+			class="op">)) || </span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiAdı<span
+			class="op">,</span> 10<span
+			class="op">)) || </span>
+<span class="keyw-75">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiSoyadı<span
+			class="op">,</span> 10<span
+			class="op">)) || !</span> <span 
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiTelefonNumarası <span
+			class="op">,</span> 10<span
+			class="op">)) || </span>
+<span class="pl-75">tenisÜyesiAdı <span
+			class="op">===</span> <span
+			class="str">''</span> <span 
+			class="op">||</span>tenisÜyesiSoyadı</span> <span
+			class="op">===</span> <span
+			class="str">''</span> <span 
+			class="op">|| !</span> <span
+			class="keyw">isFinite</span><span 
+			class="op">(</span><span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span>tenisÜyesiDolapNumarası<span 
+			class="op">))) {</span>
+
+<span class="keyw-75">alert(</span><span
+			class="str">'Geçersiz Veri !\n'</span><span
+			class="keyw"> <span 
+			class="op">+</span> <span 
+			class="str">'Lütfen O.K. Tuşuna Bastıktan Sonra\n' <span 
+			class="op">+</span> 'Düzeltilmiş Verileri Giriniz'</span>)</span><span
+			class="op">;</span>
+<span class="pl-100"></span>tenisÜyesi <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="comm-100">// Kaydı Yap !</span>
+
+<span class="pl-75">tenisÜyesi <span 
+			class="op">=</span></span> yeniTenisÜyesi<span 
+			class="op">(</span>tenisÜyesiÜyeNumarası<span 
+			class="op">,</span> tenisÜyesiAdı<span 
+			class="op">,</span>tenisÜyesiSoyadı<span 
+			class="op">, </span>
+<span class="pl-200">tenisÜyesiDolapNumarası</span><span
+			class="op">);</span>
+
+<span class="pl-75"></span>tenisÜyesi<span 
+class="op">.</span>telNo <span 
+			class="op">=</span> tenisÜyesiTelefonNumarası<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> tenisÜyesi<span
+			class="op">;</span>
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b15.6-uyg-3.html">formu</a> lütfen deneyiniz. 
+		</p>
+		<p class="indent">
+			Bu bölümde, kullanıcı tanımlı nesne sınıfları üzerinde kanamış olduğumuz 
+			bilgilerin bir projede uygulanması yapılmıştır. Örneklerde görülen tüm yöntemler,
+			her türlü endüstriyel projede kullanım için uygundur. Bu yöntemlerin iyi 
+			özümsenmesi gerekmektedir.
+		</p>
+		<p class="indent">
+			Sonuç olarak, JavaScript program dilinde, hiyerarşik sistemler, çok kolay
+			çözümlenebilmektedir. Bu konuda incelemiş olduğumuz örnekler,
+			konu için belirli bir bilgi düzeyi sağlamaya yeterlidir. Bu örneklerin 
+			çok iyi özümsenmesi gereklidir.
+		</p>
+		<p class="indent">
+			JavaScript program dilinde, hiyerarşik sistemler üzerine daha birçok çalışma 
+			bulunmaktadır. Bu çalışmalar literatürden izlenebilir. Genel olarak, JavaScript 
+			program dilinde, hiyerarşik sistemlerin oluşturulması konvansiyonel olarak
+			ve en alışılmış şekliyle yukarıdaki örneklerde görülen yöntemler uygulanarak
+			çözümlenmektedir. Diğer çalışmalar henüz öneriler düzeyindedir ve genel bir 
+			uygulamaları yoktur. Ayrıca incelenen örneklerdeki yöntemlerden fazla bir avantaj
+			sağlamamaktadır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b15s6.html"><em>« Önceki</em></a>
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b16/b16s1.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:36 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:26 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders18.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 18</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders17.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders19.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 18
+      </p>
+    </div>
+    <p id="create" class="subheading verticalTab-10">
+      3.1.3 - Listelerin Yaratılması
+    </p>
+    <p class="indent">
+      Listeler doğrudan veya dosyadan okunarak literal olarak 
+      atanabildikleri gibi, önceden atanmış listelerin kopyalanması 
+      yöntemleri ile oluşturulabilirler. Boş bir liste,
+    </p>
+    <p class="indent">
+      liste <span class="op">= []</span>
+    </p>
+    <p class="nonindent">
+      şeklinde atanır. Bir liste literali,
+    </p>
+    <p class="indent">
+      liste <span class="op">= [</span>3<span class="op">,</span>4<span 
+      class="op">]</span>
+    </p>
+    <p class="nonindent">
+      şeklinde atanır. Bir önceden atanmış bir liste yeni bir 
+      değişkene,
+    </p>
+    <p class="indent">
+      g <span class="op">=</span> liste
+    </p>
+    <p class="nonindent">
+      şeklinde bağlanabilir. Listelerin kesilerek alt listeler 
+      oluşturulması, kopyalanarak yeni bir değişkene atanması 
+      yapılabilir. Bunların hepsini detaylı olarak incelemiş 
+      durumdayız.
+    </p>
+    <p class="indent">
+      Bazı durumlarda, önceden bir liste hazırlanması gerekebilir. 
+      Bu işlem için, liste çoğaltma işlemcisi * den yararlanılabilir. 
+      Örnek:
+    </p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program1.py</span>
+
+<span class="op">&gt;&gt;&gt;</span> liste <span class="op">=</span> <span 
+    class="op">[</span>None<span class="op">]*</span>5
+<span class="op">&gt;&gt;&gt;</span> liste
+[None, None, None, None, None]</pre>
+    <p class="indent">
+      Listelerin önceden yaratılmasında eleman olarak, genellikle 
+      None kullanılır. Fakat, her türlü önceden hazırlanmış 
+      eleman, aşağıdaki örnekte görülebileciği gibi, çoğaltılarak 
+      listelere önceden yerleştirilebilir.
+    </p>
+    <pre class="pl-25">
+
+<span class="op">&gt;&gt;&gt;</span> q <span class="op">=</span> <span 
+    class="op">[</span>5<span class="op">,</span>7<span 
+    class="op">]*</span>3
+<span class="op">&gt;&gt;&gt;</span> q
+[5, 7, 5, 7, 5, 7]</pre>
+    <p class="indent">
+      Listeler, <span class="keyw">list</span><span 
+      class="op">()</span> öntanımlı fonksiyonundan yararlanarak 
+      da yaratılabilirler. Kullanım örnekleri aşağıda görülmektedir.
+    </p>
+    <p class="indent">
+      L <span class="op">=</span> <span class="keyw">list</span><span 
+      class="op">()</span> Örnek,</p>
+    <pre class="pl-25">
+
+<span class="op">&gt;&gt;&gt;</span> L <span class="op">=</span> <span 
+    class="keyw">list</span><span class="op">()</span>
+<span class="op">&gt;&gt;&gt;</span> L
+<span class="op">[]</span> </pre>
+    <p class="indent">
+      Bu işlemin L <span class="op">= []</span> işlemine eşdeğer 
+      olduğu görülüyor. Bu nedenle, kullanımı pratik değildir.
+    </p>
+    <p class="indent">
+      L <span class="op">=</span> <span class="keyw">list</span><span 
+      class="op">(</span>sekans<span class="op">)</span> (Burada 
+      sekans birbirini izleyen veri topluluklarıdır. Bunlar, 
+      konteyner tiplerdir ve her türlü liste, topluluk (tuple) 
+      sözlük (dict) generator olabilir). Örnek,
+    </p>
+    <p class="indent">
+      L <span class="op">=</span> <span class="op">(</span>8
+      <span class="op">,</span> 9 <span class="op">,</span> 
+      10<span class="op">)</span>
+    </p>
+    <p class="indent">
+      Bu işlem de, L <span class="op">=</span>
+      <span class="op">[</span>8<span class="op">,</span> 9<span 
+      class="op">,</span> 10<span class="op">]</span> işlemine, 
+      yani bir liste değişkenine, bir liste literalinin atanması 
+      ile eşdeğer olduğu görülüyor. İkinci yöntem daha pratik 
+      olduğundan daha çok kullanılması doğaldır.
+    </p>
+    <p class ="indent">
+      Bir sekans oluşturmak için, <span class="keyw">range</span>
+      <span class="op">()</span> fonksiyonundan yararlanılabilir.
+      Örnek :
+    </p>
+    <pre class="pl-25">
+d  <span class="op">=</span> <span class="keyw">list</span><span
+class="op">(</span><span class="keyw">range</span><span
+class="op">(</span>-2<span class="op">,</span> 2<span class="op">))</span>    
+    </pre>
+
+    
+    <p class="indent">
+      L <span class="op">=</span> list<span class="op">(</span>ifade
+      <span class="keyw">for</span> değişken
+      <span class="op">in</span> sekans<span class="op">)</span>
+    </p>
+    <p class ="indent">
+      Bu işlem sonunda <span class="op">[</span>-2<span
+      class="op">,</span> -1<span class="op">,</span> 0<span
+      class="op">,</span> 1<span class="op">]</span> listesi oluşur.
+      Görüldüğü gibi <span class="keyw">list</span>
+      <span class="op">()</span> fonksiyonu çok yararlı
+      olmaktadır.
+    </p>
+    <p class="indent">
+      Bu son işlem list comphensions adı verilen ve salt Python 
+      programlama diline özgü bir liste yaratma yöntemi ile 
+      eşdeğerdir. Burada da daha güçlü olan sonuncusu daha yaygın 
+      olarak kullanılmaktadır.
+   </p>
+    <p class="indent">
+      Bu örneklerle de görüldüğüne göre, <span class="keyw">
+      list</span><span class="op">()</span> fonksiyonu 
+      genellikle az kullanılmasına karşın, çok yararlı ve 
+      yetenekli bir liste oluşturma yöntemidir.
+    </p>
+    <p class="indent">
+      List comprehensions adı verilen bir yöntem, listelerin 
+      oluşmasına olanak sağlar. Bu yöntem, salt Python programlama 
+      diline özgüdür. Bunu kısa süre sonra göreceğiz.</p>
+    <p class="indent" id="uyg1">
+      Bir listeyi daha önce tanımlamış bir liste elemanlarından 
+      yararlanılarak veya boş liste yeni elemanlar oluşturarak 
+      eklemek için, genellikle fonksiyonlardan yararlanılır. 
+      Bunun çok senaryoları vardır. Örnek olarak, atanmış bir 
+      listenin elemanları, bir fonksiyonun argümanı olarak kullanılarak, 
+      fonksiyonun geri döndürdüğü değer, yeni bir listenin elemanları 
+      olarak atanabilir. Aşağıdaki<a 
+      href="uygulamalar/ders18/ders18program1.html"> program</a>, 
+      bu işlemin klasik yoldan çözümünü içermektedir.
+    </p>
+    <pre class="pl-25">
+
+
+<span class="keyw">def</span> fonksiyon<span class="op">(</span>a<span 
+    class="op">):</span>
+
+<span class="keyw-25">if</span> a<span class="op">&lt;</span> 20 
+<span class="keyw-50">return True</span>
+
+<span class="keyw-25">else</span> <span class="op">:</span>
+<span class="keyw-50">return False</span>
+
+
+t  <span class="op">=</span>  <span class="op">[</span>20<span 
+    class="op">,</span> 30<span class="op">,</span> 5<span 
+    class="op">,</span> 15<span class="op">,</span> 40<span 
+    class="op">]</span>
+    
+s <span class="op">=</span> <span class="keyw">len</span><span 
+    class="op">(</span>t<span class="op">)</span>
+
+ilk <span class="op">=</span> <span class="op">[</span><span 
+    class="keyw">None</span> <span class="op">] * </span>5
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>t<span class="op">) :</span>
+
+ilk<span class="op"> [</span>indis<span class="op">] = </span> fonksiyon<span 
+    class="op">(</span>eleman<span class="op">)</span>
+
+ikinci <span class="op">= []</span> 
+
+<span class="keyw">for</span> eleman <span class="op">in</span> t<span 
+    class="op">:</span>
+
+<span class="pl-25">ikinci</span><span class="op">.</span><span 
+    class="keyw">append</span><span class="op">(</span>fonksiyon<span 
+    class="op">(</span>eleman<span class="op">))</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>ilk<span class="op">) :</span>
+       
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'out :'</span><span class="op">,</span> indis<span 
+    class="op">, </span>eleman<span class="op">)</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>ikinci<span class="op">) :</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'out :'</span><span class="op">,</span> indis<span 
+    class="op">, </span>eleman<span class="op">)</span>
+
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+ilk : 0 False
+ilk : 1 True
+ilk : 2 False
+ilk : 3 False
+ilk : 4 True
+ikinci : 0 False
+ikinci : 1 True
+ikinci : 2 False
+ikinci : 3 False
+ikinci : 4 True</span></pre><pre></pre>
+    <p class="indent">
+      Yukarıdaki programda iki farklı klasik yöntemle, var olan 
+      bir listeden hareketle iki ayrı liste yaratılmıştır. Yaradılış 
+      yöntemleri ne kadar farklı olursa olsun, sonuçta oluşan 
+      listeler, birbirlerinin aynı olmaktadırlar.
+    </p>
+    <p class="indent" id="uyg2">
+      Yukarıdaki, programda klasik yönden çözülmüş olan, var 
+      olan bir liste elemanlarının, bir fonksiyona argüman olarak 
+      sağlanması ve fonsiyonun döndürdüğü değerlerin yeni bir 
+      listenin elemanları olarak atanması problemi, aşağıda 
+      bir <a href="uygulamalar/ders18program2.html">uygulama</a> 
+      örneği verilen <span class="keyw">map</span><span 
+      class="op">()</span> fonksiyonu yardımı ile, daha kısa 
+      olarak çözümlenebilmektedir.
+    </p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program2.py</span>
+
+<span class="keyw">def</span> fonksiyon<span class="op">(</span>a<span 
+    class="op">):</span>
+
+<span class="keyw-25">if</span> a<span class="op">&lt;</span> 20 
+<span class="keyw-50">return True</span>
+
+<span class="keyw-25">else</span> <span class="op">:</span>
+<span class="keyw-50">return False</span>
+
+
+t  <span class="op">=</span>  <span class="op">[</span>20<span 
+    class="op">,</span> 30<span class="op">,</span> 5<span 
+    class="op">,</span> 15<span class="op">,</span> 40<span 
+    class="op">]</span>
+    
+
+ilk<span class="op"> = </span><span class="keyw">map</span><span 
+    class="op">(</span> fonksiyon<span class="op">,</span>t<span 
+    class="op">)</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>ilk<span class="op">) :</span>
+       
+<span class="keyw-25">print</span><span class="op">(</span>indis<span 
+    class="op">, </span>eleman<span class="op">)</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+0 False
+1 True
+2 False
+3 False
+4 True
+</span></pre>
+    <p class="indent">
+      Yukarıdaki programda uygulanan <span class="keyw">map</span><span 
+      class="op">()</span> fonksiyonunun, yetkinliğine ne kadar 
+      övgü yapılırsa yapılsın az gelebilir. Python programlama 
+      dilinin en güçlü yönlerinden birisi, çok iyi bir araştırma 
+      ile, en gerekli işlemleri yapabilecek fonksiyonların öntanımlı 
+      olarak verilmesi olarak belirtilmektedir.
+    </p>
+    <p class ="indent">
+      Öntanımlı <span class="keyw">filter</span><span
+      class="op">()</span> fonksiyonu var  olan bir sekansın
+      bazı elemanların belirli bir kriteryuma göre filtreleyerek
+      yeni bir liste oluşturur. 
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>d <span class="op">=</span> <span 
+    class="keyw">list</span><span class="op">(</span><span 
+    class="keyw">filter</span><span class="op">((</span><span 
+    class="keyw">lambda</span> x<span class="op">:</span> x <span class="op">></span> 0<span 
+    class="op">),</span> <span class="keyw">range</span><span 
+    class="op">(</span>-2<span 
+    class="op">,</span> 5<span class="op">)))  </span>
+<span class="op">&gt;&gt;&gt;</span>d
+<span class="op">&gt;&gt;&gt;[</span>1<span class="op">,</span> 2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+    </pre>
+    <p class ="indent">
+      Bu filtreleme işlemi, klasik yöntemle, önce listenin
+      oluşturulması, sonra bir <span class="keyw">for</span>
+      <span class="op">in</span> döngüsü ile liste
+      elemanları taranıp bir <span class="keyw">if</span> karşılaştırılması yapılarak
+      kriteryumu geçenleri yeni bir liste elemanları olarak
+      yerleştirme şeklinde yapılabilir. Yine de,
+      <span class="keyw">filte</span>r<span class="op">()</span>
+      öntanımlı fonksiyonu daha kısa ve daha etkili bir kodlama
+      olanağı sağlar.
+      
+    </p>
+
+    
+    <p class="indent">
+      Python programlama dilinin en gözalıcı uygulamalarından 
+      birisi, <span class="str">&quot;list comprehensions&quot;</span> 
+      adı verilen bir uygulamadır. Bu uygulama prensip olarak,
+      <span class="keyw">map</span><span class="op">()</span> 
+      fonksiyonunun işlevini daha kısa olarak yürütebilmek amacını 
+      taşımaktadır. Bu yöntemin ismini &quot;liste oluşturma&quot; 
+      olarak düşünebiliriz.
+    </p>
+    <p class="indent">
+      Liste oluşturma yönteminin temel sözdizimi,
+    </p>
+    <p class="indent">
+      <span class="op">[</span> ifade(k değerini içerir)
+      <span class="keyw">for</span> k <span class="op">in</span> 
+      liste <span class="keyw">if</span> koşul<span 
+      class="op">]</span>
+    </p>
+    <p class="indent">
+      Burada, herşeyden önce, sonuçta bir listenin yaratılacağı, 
+      tüm yapılanmanın köşeli parantezler içine alınması ile 
+      belirtiliyor. Yaratılacak listenin bir değişkene atanması 
+      en doğrusu olacaktır. Bu tanımda ifade k döngü değişkenini 
+      içeren bir ifadedir ve bu ifadenin sonucu, oluşturacak 
+      listenin elemanlarını oluşturucaktır. Iterasyon değişkeni 
+      k, liste adında ekiden var olan bir sekansiyel veri tipi 
+      sınıf örneğinin elemanlarını sekansiyel olarak (birbiri 
+      ardınca son eleman tamamlanıncaya kadar) tarayacak ve 
+      her iterasyonda, eriştiği elemanın değerini alacaktır. 
+      Her iterasyonda kdöngü değişkeni k nın aldığı değer eğer 
+      varsa if ile başlayan koşulu sağlayıp sağlamadığı kontrol 
+      edilecek ve eğer koşul sağlanıyorsa, ifade o iterasyondaki 
+      k değeri ile hesaplanarak sonuç yeni oluşturulacak listenin 
+      bir elemanı olarak, oluşturulacak listeye yerleştirilecektir.
+    </p>
+    <p class="indent">
+      Bu yöntem, aşağıda açıklanan çalışma yöntemine koşuttur.
+    </p>
+    <pre class="pl-25">
+<span class="keyw">for</span> item <span class="op">in</span> list<span 
+    class="op">:</span>
+<span class="keyw-25">if</span> conditional<span class="op">:</span>
+<span class="pl-50">expression </span>   
+    </pre>
+    <p id="uyg3" class="indent">
+      Bu yöntem, aşağıda görülen
+      <a href="uygulamalar/ders18/ders18program4.html">programda</a> 
+      çeşitli şekillerde uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program3.py</span>
+
+<span class="keyw">def</span> fonksiyon<span class="op">(</span>a<span 
+    class="op">):</span>
+
+<span class="keyw-25">if</span> a<span class="op">&lt;</span> 20 
+<span class="keyw-50">return True</span>
+
+<span class="keyw-25">else</span> <span class="op">:</span>
+<span class="keyw-50">return False</span>
+
+
+t  <span class="op">=</span>  <span class="op">[</span>20<span 
+    class="op">,</span> 30<span class="op">,</span> 5<span 
+    class="op">,</span> 15<span class="op">,</span> 40<span 
+    class="op">]</span>
+    
+ilk  <span class="op">= [</span>fonksiyon<span class="op">(</span>k<span 
+    class="op">)</span> <span class="keyw">for</span> k <span 
+    class="op">in</span> t<span class="op">]
+</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>ilk<span class="op">) :</span>
+       
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'ilk : '</span>indis<span class="op">, </span>eleman<span 
+    class="op">)</span>
+    
+ikinci <span class="op">= [</span>elem <span class="op">*</span> 2 <span 
+    class="keyw">for</span> elem <span class="op">in</span> t<span 
+    class="op">]</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>ilk<span class="op">) :</span>
+       
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'ikinci : '</span>indis<span class="op">, </span>eleman<span 
+    class="op">)</span>
+      
+üçüncü  <span class="op">= [</span>fonksiyon<span 
+    class="op">(</span>k<span class="op">)</span> <span 
+    class="keyw">for</span> k <span class="op">in</span> t <span 
+    class="keyw">if</span> k &gt; 15 <span class="op">]</span>
+
+<span class="keyw">for</span> indis <span class="op">,</span> eleman<span 
+    class="op"> in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>üçüncü<span class="op">) :</span>
+       
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'üçüncü : '</span>indis<span class="op">, </span>eleman<span 
+    class="op">)</span>
+      
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+ilk :  0 False
+ilk :  1 True
+ilk :  2 False
+ilk :  3 False
+ilk :  4 True
+ikinci :  0 False
+ikinci :  1 True
+ikinci :  2 False
+ikinci :  3 False
+ikinci :  4 True
+üçüncü :  0 False
+üçüncü :  1 True
+üçüncü :  2 True
+</span></pre>
+    <p class="indent">
+      Yukarıdaki program liste oluşturma yönteminin çeşitli 
+      variyantlarını açık olarak belirtmektedir. Liste oluşturma 
+      yöntemi, Python programlama dilinin güçlü yöntemlerinden 
+      biridir ve çok iyi özümsenmelidir.
+    </p>
+    <p class ="indent" id="uyg4">
+      Bilgisayar progamları ile asal sayıların belirlenmesi
+      çeşitli yöntemlerle yapılabilir. Aşağıdaki 
+      <a href="uygulamalar/ders18program4.html">program</a>,
+      klasik bir asal ayı hesaplama yönteminin uygulanmasıdır.      
+    </p>   
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program4.py</span>
+<span class="keyw">def</span> primes<span class="op">(</span>m<span 
+    class="op">):</span>
+<span class="pl-25">d</span> <span class="op">= []</span>
+  
+<span class="keyw-25">for</span> num <span class="op">in</span> range<span 
+    class="op">(</span>2<span class="op">,</span> m<span 
+    class="op">):</span> <span class="comm"># 2 den m e kadar iterasyon</span>
+<span class="keyw-50">for</span> i in range<span class="op">(</span>2<span 
+    class="op">,</span> num<span class="op">):</span> <span 
+    class="comm"># sayının çarpanlarının araştırılması</span>
+<span class="keyw-75">if</span> <span class="comm">num </span><span 
+    class="op">%</span> i <span 
+    class="op">==</span> 0<span 
+    class="op">:</span><span class="comm"> # ilk çarpan</span>
+<span class="comm-100"># j = num / i # ikinci çarpan</span>
+<span class="comm-100"># print('{0} eşittir {1} * {2}'.format(num, i, j))</span>
+<span class="keyw-100">break</span> <span class="comm"># bir sonraki sayıya geç</span>
+<span class="keyw-75">else</span><span class="op">:</span> <span
+      class="comm"># döngünün else kısmı</span>
+<span class="pl-100">d</span><span class="op">.</span><span 
+    class="keyw">append</span><span class="op">(</span>num<span 
+    class="op">)</span>
+<span class="comm-100"># print('\n', num, 'bir asal sayıdır\n')</span>  
+<span class="keyw-25"> return</span> d
+
+
+q <span class="op">=</span> primes<span class="op">(</span>20<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span>q<span class="op">)</span>
+
+    
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+ [2, 3, 5, 7, 11, 13, 17, 19]</span></pre>
+    <p class ="indent">
+      Yukarıdaki program son derece klasik ve anlaşılması kolay
+      bir asal sayı hesaplama uygulamasıdır. Bu program, bu çalışma
+      çerçevesinde geliştirilmiştir. Bu uygulamanın,
+      programlama stili çok açıktır ve program yürüyüşü
+      kolaylıkla izlenebilmektedir.
+    </p>
+    <p class ="indent" id="uyg5">
+      Bu program, <a href="http://www.secnetix.de/olli/Python/list_/      comprehensions.hawk">http://www.secnetix.de/olli/Python/list_comprehensions.hawk</a>
+      tarafından, list comprehension yöntemine çevrilmiştir.
+      Bu <a href="uygulamalar/ders18/ders18program5.html">program</a>,
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program5.py</span>
+
+noprimes <span class="op">= [</span>j <span class="keyw">for</span> i <span 
+    class="op">in</span> <span class="keyw">range</span><span 
+    class="op">(</span>2, 8<span 
+    class="op">)</span> <span class="keyw">for</span> j <span 
+    class="op">in</span> <span class="keyw">range</span><span 
+    class="op">(</span>i <span class="op">*</span> 2<span 
+    class="op">,</span> 50<span class="op">,</span> i<span 
+    class="op">)]</span>
+primes <span class="op">= [</span>x <span class="keyw">for</span> x <span 
+    class="op">in</span> <span class="keyw">range</span><span 
+    class="op">(</span>2<span 
+    class="op">,</span> 50<span 
+    class="op">)</span> <span 
+    class="keyw">if</span> x <span class="op">not</span> <span 
+    class="op">in</span> noprimes<span 
+    class="op">]</span>
+<span class="keyw">print</span> <span class="op">(</span>primes<span class="op">) </span>   
+    </pre>
+    <p class ="indent">
+      Bu program çok kısadır, fakat bir önceki ile aynı
+      sonucu vermektedir. Yani, her iki program da asal
+      sayıları hesaplamaktadır. List comprehensions yöntemini kullanan
+      yukarıdaki program, klasik yöntemi kullanan ilkine göre
+      çok daha kısadır. Bu programda, iki liste oluşturulmakta
+      ve ilk listeye asal sayı olmayan sayılar yerleştirilmektedir.
+      Bu liste sıralı sayılarla karşılaştırılmakta ve asal
+      sayılar olmayan sayıların listesinde bulunmayan sayılar,
+      asal sayılar listesinin elemanları olarak atanmaktadırlar.
+      Sadece bu program bile, list comprehensions yönteminin
+      önemini belirtmek için yeterli sayılabilir.      
+    </p>
+    <p class ="indent">
+      Burada incelediğimiz, <span class="keyw">list</span>
+      <span class="op">()</span> öntenımlı fonksiyon uygulamaları
+      ileride de, örnek olarak, toplulukların (tuples),
+      listelere çevrilmesinde, sözel veri uygulamalarında,
+      ve daha başka uygulamalarda karşımız çıkacaktır.  Liste
+      oluşturma yöntemi, Python programlama dilinin güçlü
+      yöntemlerinden biridir ve çok iyi özümsenmelidir.    
+    </p>
+    <p class="indent" id="uyg6">
+      Liste elemanlarının tümü sayısal değerlerden oluşuyorsa, 
+      elemanların değerlerinin toplamı <span class="keyw">sum</span>
+      <span class="op">()</span> öntanımlı fonksiyonun uygulanması 
+      saptanabilir. Aşağıdaki
+      <a href="uygulamalar/ders18/ders18program6.html">program</a> 
+      bu konuda bir uygulama örneğidir.
+    </p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders18program6.py</span>
+
+f <span class="op">= [</span>12.45<span class="op">,</span> 14.56<span 
+    class="op">,</span> 13.44<span class="op">,</span> 14.66<span 
+    class="op">]</span>
+
+x <span class="op">=</span> <span class="keyw">len</span><span 
+    class="op">(</span>f<span class="op">)</span>
+
+toplam <span class="op">=</span> <span class="keyw">sum</span><span 
+    class="op">(</span>f<span class="op">)</span>
+
+ortalama <span class="op">=</span> toplam <span class="op">/</span> x
+
+<span class="keyw">print</span><span class="op">(</span>"ortalama = {0: 2.2f}"<span 
+    class="op">.</span><span class="keyw">forma</span>t<span 
+    class="op">(</span>ortalama<span class="op">))</span>
+    
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+ortalama =  13.78</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, <span class="keyw">sum</span><span 
+      class="op">()</span> fonksiyonu çok kolaylık sağlayan 
+      bir fonksiyondur.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders17.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders19.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

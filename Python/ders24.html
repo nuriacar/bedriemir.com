@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders24.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders  24</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" content="Python 3 Tutorial, in Turkish">
+    <meta name="author" content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" alt="Top Navigasyon" 
+        usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders23.html" shape="rect" 
+          coords="0,0,75,18" />
+          <area alt="" title="" href="ders25.html" shape="rect" 
+          coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 24
+      </p>
+    </div>
+    <p id="frozensets" class="title-left">
+      3.5 - Donmuş Kümeler (frozenset)
+    </p>
+    <p class="indent">
+      Python programlama dilinde set (küme) veri tipi, güncellenebilir 
+      niteliği ile matematematikte tanımlı küme kavramına tam olarak uygunluk 
+      göstermez. Matematikte tanımlı kümeler, birbirlerinin alt kümeleri 
+      olabilirken Python programlama dilinde bu ancak güncellenemeyen 
+      bir veri tipi olan <span class="keyw">frozenset</span> (donmuş küme) 
+      veri tipinde olanaklı olmaktadır. Donmuş küme veri tipinin, küme 
+      veri tipinden tek farkı güncellenemeyen bir veri tipi olmasıdır. 
+      Bu nedenle, gerek oluşumları, gerek elemanlarına erişimi, kümelerle 
+      yaklaşık aynı olan donmuş küme veri tipindeki nesne örneklerine 
+      uygulanabilecek olan metotlar, sadece güncellenemeyen bir veri tipine 
+      uygulanabilen metotlar olmaktadır.
+    </p>
+    <p class="subheading" id="genesis">
+      3.5.1 - Donmuş Kümelerin Oluşumu</p>
+    <p class="indent">
+      Donmuş kümeler, sadece <span class="keyw">frozenset</span><span 
+      class="op">()</span> fonksiyonu uygulanarak oluşturulabilirler. 
+      Örnekler,
+    </p>
+    <pre class="pl-25 navy">
+P = frozenset([45, 67, 333])
+print(P)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">frozenset({67, 45, 333})</span></pre>
+    <pre class="pl-25 navy">
+q = {'Alemdar' , 'Sahrayıcedid', 'Erenköy', 45, 36, 88}
+PQ = frozenset(q)
+print(PQ)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">frozenset({'Sahrayıcedid', 36, 'Erenköy', 'Alemdar', 88, 45})
+
+</span></pre>
+    <pre class="pl-25 navy">
+import numpy as num
+PW = frozenset(num.sin(i) for i in range(0,4))
+print(PW)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">frozenset({0.0, 0.8414709848078965, 0.90929742682568171, 0.14112000805986721})
+
+</span></pre>
+    <p class="indent">
+      Özel matematik modülü numpy, iyi çalışan bir Winpython yerleşiminde, 
+      bulut ortamında Sage veya Wakari.io sitesinde Ipython uygulamalarından 
+      çağrılabilir. Eğer numpy'ye erişim sağlanamazsa, bu uygulama için, 
+      math modülünün ithali yeterli olacaktır.
+    </p>
+    <pre class="pl-25 navy">
+import math
+PW = frozenset(math.sin(i) for i in range(0,4))
+print(PW)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">frozenset({0.0, 0.8414709848078965, 0.9092974268256817, 0.1411200080598672})</span></pre>
+    <p id="access" class="subheading">
+      3.5.2 - Donmuş Küme Elemanlarına Erişim</p>
+    <p class="indent">
+      Donmuş küme elemanlarına erişim için, küme elemanlarına erişim için 
+      kullanılan tüm yöntemlerden yararlanılabilir.
+    </p>
+    <p id="methods" class="subheading">
+      3.5.3 - Donmuş Küme Elemanlarına Uygulanabilen Metotlar</p>
+    <p class ="indent">
+      Donmuş küme veri tipi güncellenemez bir veri itpi olduğundan,
+      uygulanabilecek metotlar, küme veri tipine göre daha kısıtlıdır. 
+      Bu metotlar. frozenset.copy(), frozenset.difference() (-), 
+      frozenset.intersection() (&amp;),<br>frozenset.isdisjoint(), 
+      frozenset.issubset() (&lt;=; aynı zamanda özalt kümeler için, &lt;) , 
+      frozenset.issuperset() (&gt;=; aynı zamanda özüst kümeler için &gt;), frozenset.union() (|) ve 
+      frozenset.symmetric_difference() (^) metotlarıdır.
+    </p>
+    <p class ="subsubsub" id="forward">
+        Python programlama dili ile ilk çalışmalarımıza buradan sonra SAGE alt yapısı ile
+        çalışarak devam edecek ve burada sayısal örnekler yapacağız. SAGE Pyython
+        programlama dile ile çalışan birçok modülü ve grafik programına erişim sağladığı için, 
+        Python bilgisi ile SAGE ortamında çalışmak çok avantajlı olacaktır. Python 
+        ile sayısal hesap yöntemleri konusunda çok sayıda 
+        uygulamalar yapacağız. SAGE ile devam ediyoruz....        
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders23.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="../index-2.html"><em>Sonraki Sayfa »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli HTML5 </a>
+      </span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:40 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,610 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+    <head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/HTMLandCSS/CSS3/selectors/css3-sel-s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content=
+        "HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+              name="generator">
+        <meta http-equiv="Content-Language" content="tr">
+        <meta name="description" content=
+        "HTML learning,Document Organisation and Coding">
+        <meta name="keywords" content=
+        "HTML, Generic Coding in Turkish Language">
+        <meta name="s-Id" content="Bölüm 9 Sayfa 7">
+        <meta name="Author" content="Prof. Dr. Bedri Doğan Emir">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=utf-8">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <link rel="stylesheet" type="text/css" href=
+        "../../css/newstyle.css" media="all">
+        <title>
+            Pseudo-elementler ve Birleştiriciler
+        </title>
+    </head>
+    <body>
+   <div>
+            <span>
+                <img name="htmlmap" 
+                     src="../../images/reservedimages/html-map.png"
+                   width="384" height="140" class="x" 
+                   usemap="#htmlmap" alt="HTML Image Map" 
+                   style="margin:0px;padding:0px;"></span>
+                <map name="htmlmap">
+                    <area shape="circle" coords="278,16, 9"
+                          href="../../b2/b2s1.html" alt="b2s1">
+                    <area shape="circle" coords="317,72, 9"
+                          href="../../ek4/ek4s1.html" alt="Ek4">
+                    <area shape="circle" coords="257,93, 9"
+                          href="../../ek6/ek6s1.html" alt="Ek 6">
+                    <area shape="circle" coords="336,72, 9"
+                          href="../../ek5/ek5s1.html" alt="Ek5">
+                    <area shape="circle" coords="297,36, 9"
+                          href="../../b8/b8s1.html" alt="b8s1">
+                    <area shape="circle" coords="258,17,9"
+                          href="../../b1/b1s1.html" alt="b1s1">
+                    <area shape="rect" coords="323,111,370,123"
+                          href="../../ek7/attributes.html" 
+                          alt=" Ek7 Nitelikler">
+                    <area shape="circle" coords="338,14, 9"
+                          href="../../b5/b5s1.html" alt="b5s1.htm">
+                    <area shape="circle" coords="278,72, 9"
+                          href="../../ek2/ek2s1.html" alt="Ek2">
+                    <area shape="circle" coords="297,15, 9"
+                          href="../../b3/b3s1.html" alt="b3s1">
+                    <area shape="circle" coords="297,73, 9"
+                          href="../../ek3/ek3s1.html" alt="Ek3">
+                    <area shape="circle" coords="277,36, 9"
+                          href="../../b7/b7s1.html" alt="b7s1">
+                    <area shape="rect" coords="256,113,311,123"
+                          href="../../ek7/elements.html"
+                          alt="Ek7 Elementler">
+                    <area shape="circle" coords="258,73, 9"
+                          href="../../ek1/ek1s1.html" alt="Ek1">
+                    <area shape="circle" coords="317,15, 9"
+                          href="../../b4/b4s1.html" alt="b4s1">
+                    <area shape="circle" coords="258,36, 9"
+                          href="../../b6/b6s1.html" alt="b6s1">
+                    <area shape="circle" coords="277,93,9"
+                          href="../../ek7/catalogue.html"
+                          alt=" Ek7 Catalogue">
+                </map>
+            <span 
+			       style="position:absolute;right:730px;top:10px;
+			              margin:0px;padding:0px;">    
+                <a href="../../index.html">
+                    <img class="topindex" 
+                         src="../../images/sharedimages/index.gif" 
+                         alt="index" width="40" height="40"></a> 
+                <a href="../selectors/css3-sel-s1.html">
+                    <img class="topprevious"
+                         src="../../images/sharedimages/previous.gif"
+                         alt="previous" width="40" height="40"></a>
+                <a href="../inheritance/css3-inh-s1.html">
+                     <img class="topnext" 
+                          src="../../images/sharedimages/next.gif" 
+                          alt="next"  width="40" height="40"></a>
+            </span>
+        </div>
+        <p class="chapter">
+            Katlı Stil Sayfaları (Sürüm3)
+        </p>
+        <p class="chapter-title">
+            Selektörler
+        </p>
+        <p class="pagenum">
+            Sayfa 3 / 3
+        </p>
+        <hr>
+        <p>
+             
+        </p>
+        <p class="title-left" id="pseudo-elements">
+            Pseudo-elementler
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="description">
+            Pseudo-element Kavramı
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Pseudo-element kavramı, belge işaretleme dili
+            tarafından belirtilenden daha fazla soyutlama olanağı
+            elde edilmesi için oluşturulmuştur. Örnek olarak
+            paragrafın ilk satırı veya ilk harfinin hedeflenmesinin
+            pseudo-elementlerin kullanımı dışında yolu
+            bulunmamaktadır. Ayrıca, belge kodlarında bulunmayan
+            bilgilere de ancak pseudo-elementlerin kullanımı ile
+            ulaşabiliriz. Örnek olarak ::before ve ::after
+            pseudo-elementleri, başka türlü erişilemeyecek olan
+            oluşturulan içeriğe referans verme olanağını sağlar.
+        </p>
+        <p class="indent">
+            Pseudo-elementlerin pseudo-sınıflarından farklı olması
+            için biribiribirini takip eden iki tane kolon (::)
+            işareti ile gösterilirler. Pseudo sözcüğü antik Grekçe
+            de &quot;sahte, görüntüsü yanıltıcı, gerçeğe benzeyen
+            fakat gerçek olmayan&quot; anlamına gelmektedir. Pesudo
+            elementler de belgenin kodlamasında kullanılmış gerçek
+            elementlere uygulanmazlar. Bunun yerine, uygulanmaları
+            gereken yerde, belirtilen kuralların uygulandığı yeni
+            ve görünmez elementler yaratırlar. Bunun için sahte
+            element olarak adlandırılmışlardır.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="first-line">
+            ::first-line Pseudo-elementi
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bu pseudo-elementin tanımı da kullanımı da kolaydır.
+            ::first-line pseudo elementi, içeriğin ilk satırının
+            formatlanmasını sağlar. Örnek,
+        </p>
+        <pre class="navy">
+p::first-line {text-transform:uppercase}
+        </pre>
+        <p class="nonindent">
+            bu pseudo-element, E 6.02 SP2 de desteklendiğinden
+            kodlamalarda rahatlıkla kullanılabilir. Herşeyden önce
+            ::first-line sahte elementinin herhangibir gerçek
+            paragrafla uyuşmayacağını belirtelim. Bu ifade, her
+            gerçek paragrafın önünde, gerçek paragrafın ilk
+            satırını içeren yeni bir sanal paragraf yaratacaktır.
+            Bu sanal sahta paragrafın içeriğinin tümü büyük harfle
+            yazılacaktır. Bir uygulama örneği, <a href=
+            "../examples/firstline.htm">firstline.htm</a>
+            dosyasında incelenebilir. Doğal olarak belge
+            çözümleyicilerde görsel olarak çözümlenen belgelerde,
+            bir paragrafın satır uzunluğu, açık pencerenin boyu,
+            font büyüklüğü gibi birçok faktörlere bağlıdır ve
+            önceden öngörülemez. Bu kural her görüntülenme
+            durumunda, daima ilk satırı etkileyeceğinden çok
+            yararlı olabilir, fakat Türkçe karakterlere dikkat
+            edilmelidir. Burada özellikle ı harfinin büyük harfe
+            döndürülmesi IE 6.02 SP2 de sorun yaratabilir. Firefox
+            1.0 da ise sorunsuz olarak gerçekleşmektedir.
+        </p>
+        <p class="indent">
+            p::first-line Pseudo elementi sadece <a href=
+            "../glossary/css3glossary.htm#block">blok-düzey</a>
+            elementlerle kullanılabilir.
+        </p>
+        <p class="indent">
+            p::first-line Pseudo elementi bazı kısıtlamalarla
+            prensip olarak bir <a href=
+            "../glossary/css3glossary.htm#inline">satırıiçi</a>
+            elementi olarak etki yapar. Kısıtlamalar daha çok
+            kullanımla ilgiidir. p::first-line Pseudo elementi ile,
+            yazıtipi (font) özellikleri, renk özellikleri, arkaplan
+            (background) özellikleri, <em>&#39;word-spacing&#39;,
+            &#39;letter-spacing&#39;, &#39;text-decoration&#39;,
+            &#39;vertical-align&#39;, &#39;text-transform&#39;,
+            &#39;line-height&#39;, &#39;text-shadow&#39;,</em> ve
+            <em>&#39;clear&#39;</em> özellikleri kullanılabilir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="fist-letter">
+            ::first-letter Pseudo-elementi
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bu pseudo-element içeriğin ilk harfinin formatlanmasını
+            sağlar. Örnek,
+        </p>
+        <pre class="navy">
+p::first-letter {text-transform:uppercase;font-weight:bold}
+        </pre>
+        <p class="indent">
+            p::first-letter Pseudo-elementi, tüm elementlere
+            uygulanabilir ve IE 6.02 SP2 de desteklendiğinden
+            kodlamalarda rahatlıkla kullanılabilir.
+        </p>
+        <p class="indent">
+            p::first-letter Pseudo-elementi, eğer <a href=
+            "http://www.w3.org/style/css/">CSS</a> yüzme özelliği
+            <em>&#39;float:none&#39;</em> ise, çoğu kullanımla
+            ilgili bazı kısıtlamalarla bir <a href=
+            "../glossary/css3glossary.htm#inline">satıriçi</a>
+            elementi olarak hareket eder. Bunun dışında yüzen
+            (floating) bir element konumundadır. p::first-letter
+            Pseudo-elementi ile birlikte, yazıtipi (font)
+            özellikleri, renk özellikleri, arkaplan (background)
+            özellikleri, marj özellikleri<em>,</em> gezinti alanı
+            (padding) özellikleri, kenar alanı (border)
+            özellikleri, <em>&#39;text-decoration&#39;,
+            &#39;vertical-align&#39;</em> (sadece
+            <em><em>&#39;float:none&#39;</em></em>ise) <em>,
+            &#39;text-transform&#39;, &#39;line-height&#39;,</em>
+            &#39;float&#39;, &#39;text-shadow&#39;, ve
+            <em>&#39;clear&#39;</em> özellikleri kullanılabilir.
+        </p>
+        <p class="indent">
+            p::first-letter Pseudo-elementi ile bir uygulama :
+        </p>
+        <pre class="navy">
+...
+                &lt;style type=&quot;text/css&quot;&gt;   
+                        p {font-size:18px; line-height:25px;}
+                        p::first-letter
+                           {font-size:200%;font-weight:bold;float:left;}
+                        span {text-transform:uppercase;}
+                &lt;/style&gt;   
+        &lt;/head&gt;
+        &lt;body&gt;
+                &lt;p&gt;&lt;span&gt;Pamuk Prenses&lt;/span&gt; efsanesi
+                aslında çocuklar için çok uygun değil. Burada herşeyden önce
+                birçok doğa üstü, akıl dışı, rasyonel düşünceye sığmayan
+                öğe var.&lt;/p&gt;
+        &lt;/body&gt;
+&lt;/html&gt;          
+        </pre>
+        <p class="indent">
+            Bu program, IE 6.02 SP2 ile çözümlendiğinde, alınan
+            sonucun en üst köşesi, aşağıda görülmektedir:
+        </p>
+        <p>
+            <img src=
+            "../../images/reservedimages/CSS3-selectors-s3resim2.png"
+               width="252" height="99"
+               style="position:relative;left:100px;" alt="resim 2">
+        </p>
+        <p class="nonindent">
+            Programın tümü, <a href=
+            "../examples/first-letter.htm">first-letter.htm</a>
+            programının IE 6.02 SP1 veya SP2 ve Firefox 1.0 da
+            çözümlenmesi ile görülebilir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="user-interface">
+            Kullanıcı Arayüzü Element Parçacıkları
+            Pseudo-elementleri
+        </p>
+        <p>
+             
+        </p>
+        <p class="nonindent" id="selection">
+            <strong>::selection (seçilmiş kısım)
+            Pseudo-elementi</strong>
+        </p>
+        <p class="indent">
+            Bu pseudo-element, kullanıcı tarafından seçilmiş belge
+            kısmına uygulanır. Örnek,
+        </p>
+        <pre class="navy">
+::selection {color:red}
+        </pre>
+        <p class="nonindent">
+            Bu pseudo-element, E 6.02 SP2 de desteklenmediğinden
+            kullanımı uygun değildir.
+        </p>
+        <p class="nonindent" id="before-after">
+            <strong>::before ve :: after
+            Pseudo-elementleri</strong>
+        </p>
+        <p class="nonindent">
+            Bu pseudo-element, oluşturulan içeriği hedefler ve
+            oluşturulan içerikler arasında incelenecektir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="combinators">
+            Birleştiriciler (Combinators)
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="descendent">
+            Soy Birleştiricisi (Descendent Combinator)
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bazı durumlarda, sayfa yazarları bir elementin soyundan
+            gelen bir elementi işaret etmek isteyebilirler. Örnek
+            olarak &lt;ul&gt; (<strong>u</strong>nordened
+            e<strong>l</strong>ement=sırasız liste) içindeki bir
+            liste elemanı &lt;li&gt; gibi.
+        </p>
+        <p class="indent">
+            Bir başka elementin soyundan gelen elementleri belirten
+            birleştirici, birleştirilecek basit selektör isimlerii
+            bir boşluk ile ayrılarak belirtilir.
+        </p>
+        <pre class="navy">
+ul li {font:Verdana;color:red;}
+</pre>
+        <p class="nonindent">
+            Bu ifade, bir sırasız liste elementinin soyundan gelen
+            bir liste elementini hedeflemektedir. Bu selektörün
+            etkisini, <a href=
+            "../examples/descendent%20combinators%201.htm">descendent
+            combinators 1.htm</a> programında izleyebilirsiniz. Bu
+            selektör IE 6.02 SP2 ve FireFox 1.0 tarafından
+            desteklenmektedir.
+        </p>
+        <p class="indent">
+            Bu ifade aslında yazarlar için, son derece yararlı bir
+            olanak sağlamaktadır. Büyük bir Web topluluğunuz varsa
+            ve her sayfadaki liste elementleriniz de birbirine
+            benziyorsa, sırasız listelere bir türlü, sırasız
+            listelere de bir başka türlü görüntü verebilirsiniz.
+            Her sayfaya uygulanan bir <a href=
+            "http://www.w3.org/style/css/">CSS</a> programı
+            yazılması ile, her defasında liste elemanlarına
+            &quot;class&quot; tanımlaması yapmak artık gerekmez.
+            Bunun sakıncalı yönü ise, liste elemenlarının
+            görünümünü baştan belirlenmiş olması ve bu görüntünün
+            üstüne çıkmak (override etmek) için liste elemanına
+            yeni bir stil niteliği tanımının yapılması
+            gerektiğidir. Bu selektörün kullanımın rasyonel
+            kriteryumu da bu çelişkiden türetilebilir. Eğer
+            doğrudan tanım ile kullanacağınız liste elemanı sayısı,
+            yeniden stil tanınmasını gerektirenlerden fazla
+            olacaksa bu selektörün kullanım gerekçesi vardır, aksi
+            halde yoktur.
+        </p>
+        <p class="indent">
+            Torunları belirtmek için, her iki tarafında da boşluk
+            karakteri olan bir asteristik (*) kullanılır.
+        </p>
+        <pre class="navy">
+div * p
+        </pre>
+        <p class="indent">
+            Bu ifade henüz hiçbir belge çözümleyicide
+            desteklenmemektedir.
+        </p>
+        <p class="indent">
+            Yine çok özel bir soy birleştiricisi örneği:
+        </p>
+        <pre class="navy">
+p *[id]
+        </pre>
+        <p class="nonindent">
+            Bu ifade, bir paragraf elementinin içerdiği bir ve
+            &quot;id&quot; niteliği verilmiş bir herhangibir
+            elementi hedefler. Burada p ile asteristik (*) arasında
+            bir boşluk karakteri bulunmaktadır. Henüz IE 6.02 SP2
+            tarafından desteklenmemekte, fakat FireFox 1.0
+            tarafından desteklenmektedir. Eğer daha özel olarak
+            belirli bir elemanı hedeflersek,
+        </p>
+        <pre class="navy">
+div p[id]
+        </pre>
+        <p class="nonindent">
+            şeklinde bir selektör oluşturabiliriz. Bu selektör, bir
+            bölüm elementinin içerdiği, id niteliği verilmiş bir
+            paragraf elementini hedeflemektedir. Bu selektör tipi
+            de, henüz IE 6.02 SP2 tarafından desteklenmemekte,
+            fakat FireFox 1.0 tarafından desteklenmektedir. Bu
+            selektörün etkisini <a href=
+            "../examples/descendent%20combinators%202.htm">descendent
+            combinators 2.htm</a> programını FireFox 1.0 ile açarak
+            izleyebilirsiniz. Doğal olarak, genel destek açısından
+            id selektör tipleri henüz kullanılmamalıdır.
+        </p>
+        <p class="indent">
+            Genelden çok özele doğru gidildiğinde, hem
+            selektörlerin kullanılma gerekleri, hem de belge
+            çözümleyicilerin de bunlara destekleri azalır. Yine de
+            öyle durumlar olur ki, sadece çok özel selektörlerden
+            yararlı olabilirler fakat genellikle bu ifadelerin de
+            destekleri bulunamaz.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="child-combinators">
+            Çocuk Birleştiricisi (Child Combinator)
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bir başka elementin çocuğu olan bir element, her iki
+            tarafında isteğe bağlı boşluk karakteri olan bir&gt;
+            işareti ile gösterilir. Örnek,
+        </p>
+        <pre class="navy">
+div &gt; ul
+body &gt; p
+        </pre>
+        <p class="nonindent">
+            Burada ilk ifade, bir bölüm elementinin çocuğu olan bir
+            sırasız bir liste elementini, ikinci ifade ise,
+            &lt;body&gt; elementinin çocuğu olan bir paragraf
+            elementini hedeflemektedir. Aşağıdaki gibi detaylı
+            kalıtım mekanizmaları da tanımlanabilir.
+        </p>
+        <p class="navy">
+            div p&gt;ul li&gt;p
+        </p>
+        <p class="nonindent">
+            Burada atası bir bölüm elementi olan (bir bölüm
+            elementinin soyundan gelen) bir paragraf elementinin
+            çocuğu olan bir sırasız liste lementinin soyundan
+            gelen, bir liste elementinin çocuğu olan bir paragraf
+            elementini hedefleyen bir selektör grubu (bileşik
+            selektör) yazılmıştır. Yukarıdaki örnekte bulunan
+            selektörlerin etkileri, <a href=
+            "../examples/child%20combinator1.htm">child
+            combinator1.htm</a> programında incelenebilir. Bu
+            programda da gözlenebileceği gibi, bu mekanizmalar şu
+            anda IE 6.02 SP2 de desteklenmemekte ve sadece FireFox
+            1.0 tarafından desteklenmektedir. Bu durumda çocuk
+            selektör tipleri, genel uyumu sağlayamayacaklarından
+            şimdilik kullanımları uygun değildir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="adjacent">
+            Bitişik Soydaş Element Birleştiricileri (Adjacent
+            Sibling Element Combinators)
+        </p>
+        <p>
+             
+        </p>
+        <p class="nonindent" id="brother">
+            <strong>Kardeş Element Doğrudan Bitişme
+            Birleştiricisi</strong>
+        </p>
+        <p class="indent">
+            Bu tür birleştirici, iki selektör topluluğunu
+            birleştiren bir artı (+) işaretidir. Bu artı işaretinin
+            her iki tarafındaki selektör toplulukları tarafından
+            temsil edilen elementler aynı ana-babayı paylaşırlar ve
+            ikinci topluluk, birincisinin hemen ardından gelir.
+            Örnek
+        </p>
+        <pre class="navy">
+div + ul
+        </pre>
+        <p class="nonindent" id="indirect">
+            <strong>Kardeş Element Dolaylı Bitişme
+            Birleştiricisi</strong>
+        </p>
+        <p class="indent">
+            Bu tür birleştirici, iki selektör topluluğunu
+            birleştiren bir tilde (~) işaretidir. Bu tilde
+            işaretinin her iki tarafındaki selektör toplulukları
+            tarafından temsil edilen elementler aynı ana-babayı
+            paylaşırlar ve ikinci topluluğun birincisinin hemen
+            ardından gelmesi gerekmez. Örnek,
+        </p>
+        <pre class="navy">
+div ~ ul {color:magenta}
+</pre>
+        <p class="nonindent">
+            tanımına, aşağıdaki &lt;ul&gt; elementi tarafından uyum
+            sağlanacaktır.
+        </p>
+        <pre class="navy">
+&lt;html&gt;
+        &lt;head&gt;                    
+                &lt;style type=&quot;text/css&quot;&gt;
+                        div ~ p {color:red}
+                &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;p&gt;Eğer ...&lt;/p&gt;
+                &lt;div&gt;
+                        &lt;p&gt;Kırmızı&lt;/p&gt;
+                &lt;/div&gt;
+        &lt;/body&gt;
+&lt;html&gt;
+        </pre>
+        <p class="indent">
+            Yukarıdaki soysal selektör türünün etkileri <a href=
+            "../examples/child%20combinator2.htm">child
+            combinator2.htm</a> programı incelenerek görülebilir.
+            Bu selektör henüz hiçbir belge çözümleyicide
+            desteklenmemektedir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="sel-specifity">
+            Selektör Spesifikliğinin Hesaplanması
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Selektör spesifikliğinin hesaplanması için,
+        </p>
+        <ul class="list">
+            <li>
+                <p>
+                    negatif selektörler basit selektörlerin
+                    argümanları gibi hesaplanır.
+                </p>
+            </li>
+            <li>
+                <p>
+                    a=selektördeki id niteliği sayısı.
+                </p>
+            </li>
+            <li>
+                <p>
+                    b=selektördeki diğer nitelikler ve
+                    pseudo-sınıfların sayısı.
+                </p>
+            </li>
+            <li>
+                <p>
+                    c=selektördeki element ismi sayısı.
+                </p>
+            </li>
+            <li>
+                <p>
+                    pseudo-elementler sayılmaz.
+                </p>
+            </li>
+        </ul>
+        <p class="nonindent">
+            Elde edilen a b c sayıları stringler gibi
+            birleştirilir. Elde edilen sayı, selektör
+            spesifikliğidir. Örnek,
+        </p>
+        <pre class="navy">
+*         /* a=0 b=0 c=0 --&gt; <span style=
+"color:red">spesifiklik = 0</span> */
+div       /* a=0 b=0 c=1 --&gt; <span style=
+"color:red">spesifiklik = 1</span> */
+div ol    /* a=0 b=0 c=2 --&gt; <span style=
+"color:red">spesifiklik =2</span> */
+p + * [class=&quot;port1&quot;] /* a=0 b=1 c=1 --&gt; <span style="color:red">spesifiklik =11</span> */
+        </pre>
+        <p>
+             
+        </p>
+        <p class="nonindent">
+            Selektör spesifikliği, özelliklerin kalıtımla
+            edinilmesinde, önemli bir kriteryumdur.
+        </p>
+         <div class="navline-bottom">
+
+                <a href="../../index.html">
+					      <img src="../../images/sharedimages/indeksbelgesi.png"
+                     class="bottomindex" alt="index"></a>
+					 <a href="../selectors/css3-sel-s2.html">
+					      <img src="../../images/sharedimages/oncekibelge.png"
+                     class="bottomprevious" alt="prev"></a>
+					<a href="../inheritance/css3-inh-s1.html">
+							<img src="../../images/sharedimages/sonrakibelge.png"
+                     class="bottomnext" alt="next"></a>
+
+        </div><!-- #BeginLibraryItem "/Library/Date.lbi" -->
+        <p style=
+        "font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:red;">
+        <!-- #BeginDate format:fcAm1m -->Thursday, October 6, 2005  19:42<!-- #EndDate -->
+        </p><!-- #EndLibraryItem -->
+        <p>
+            <a href=
+            "http://validator.w3.org/file-upload.html">validate in
+            W3C !</a>
+        </p>
+    </body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1338891330" alt="setstats" border="0" width="1" height="1"></noscript>

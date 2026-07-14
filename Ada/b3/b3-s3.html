@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:15 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s3.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 3</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+  </head> 
+  <body> 
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s2.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s4.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 3
+		</p>
+		<p class="title-left" id="int">3.2 -  Öntanımlı Tamsayı Veri Tipleri</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			ile birlikte gelen Standard paketin görünebilir kısmında tanımlanan tamsayı veri tiplerinin 
+			tanımı aşağıda görülmektedir :
+		</p>
+		<div class="Examples-Maroon">
+			<p>package Standard is<br />
+				pragma Pure(Standard);<br />
+			</p>
+			<p>....</p>
+			<p><br />
+			-- The integer type root_integer and the<br />
+			-- corresponding universal type universal_integer are predefined.<br />
+			type Integer is range implementation-defined;<br />
+			subtype Natural is Integer range 0 .. Integer'Last;<br />
+			subtype Positive is Integer range 1 .. Integer'Last;<br />
+			-- The predefined operators for type Integer are as follows:<br />
+			-- function &quot;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;/=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&lt;&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&lt;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&gt;&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&gt;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;+&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;-&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;abs&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;+&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;-&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;*&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;/&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;rem&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;mod&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;**&quot; (Left : Integer'Base; Right : Natural)<br />
+			-- return Integer'Base;<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 - Ada Reference Manual<br />
+			A.1 The Package Standard 11 June 2010 324<br />
+			-- The specification of each operator for the type<br />
+			-- root_integer, or for any additional predefined integer<br />
+			-- type, is obtained by replacing Integer by the name of the type<br />
+			-- in the specification of the corresponding operator of the type<br />
+			-- Integer. The right operand of the exponentiation operator<br />
+		-- remains as subtype Natural.</p>
+		</div>
+		<p class="indent">
+			Yukarıdaki pakette dört tane tamsayı tipi tanımlanmaktadır. Bunlar,
+		</p>
+		<p class="indent">
+			root_integer, universal_integer, Integer, Natural ve Positive
+		</p>
+		<p class="nonindent">
+			tamsayı veri tipleridir. Bu tamsayı tiplerinin bibirleri ile ilişkisinin
+			anlaşılması için, Ada programlama dilinde veri tipleri hiyerarşisinin
+			incelenmesi yararlı olacaktır. 
+		</p>
+		<p class="indent">
+			Ada programlama dilinde veri tipleri hiyerarşik bir yapılanma olarak
+				düzenlenmiştir. Her veri tipinin bir ilk atası (ultimate ancestor) bulunur.
+				İlk ata, hiçbir üst sınıftan türetilmemiş olan veri tipidir. Bu ilk ata tipinden, 
+				çeşitli kapsam kısıtları gibi farklıklarla aynı tipin alt sınıfları türetileblir.
+				Alt tiplerin türetilmesi, Standard pakette tanıtma ile gerçekleşebildiği gibi,
+				ileride göreceğimiz gibi, kullanıcılar da geniş ölçüde gereksinmelerine
+				göre alt tipler tanımlayıp uygulamalarında kullanabilirler.  
+		</p>
+		<p class="indent">
+			Standart pakette tanımlanmış olan yukarıda belitilen tamsayı veri tiplerini de, 
+			bir tamsayı veri tipi hiyerarşisi olarak düşünmek gerekir. Bu tamsayı veri hiyerarşisi
+			aşağıda incelenmiştir.
+		</p>
+		<p class="subheading" id="root_integer">3.2.1 - root_integer</p>
+		<p class="indent">
+			Standard pakette root_integer tamsayı veri tipi için, sadece öntanımlı bir tamsayı olduğu
+			bilgisi verilmiştir. Bu tamsayı veri tipi, Standard pakette değil, derleyici bünyesinde
+			tanımlanmıştır. Derleyici bünyesinde tümleşik root_integer veri tipi hakkında,
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			sayfa 33, bölüm 3.4.1 de açıklayıcı bilgiler verilmiştir. Burada, sayısal root tiplerin, sayısal universal 
+			tiplerin atası olarak tanımlandıkları belirtilmiştir. Bu tanıma göre, root_integer, tüm
+			tamsayı tiplerinin ilk atası, (ultimate ancestor) sınıfıdır.
+		</p>
+		<p class="indent">
+			Tüm tamsayı tiplerinin ilk atası olarak tanımlandığı belirtilen, root_integer, universal_integer
+			veri tipi ile uygulanan işlemcilerde karşılaşılabilme olasılığı olan kuramsal belirsizliğin
+			aşılması amacı ile tanımlanmıştır. Eğer universal_integer veri tipindeki değerler
+			tüm sayı işlemcilerinde geçerli olursa bir belirsizlik yaşanabileceği ve 
+			bu belirsizliğin aşılabilmesi için, kuramsal bir üst sınıf tamsayı veri tipi yaratıp, 
+			işlemcilerde önceliğin bu üst sınıfa verilmesi düşünülmüştür. Bu konuda henüz tartışmalar
+			devam etmesine karşın, bunun pratik alana bir etkisi yoktur. Bu belirsizilik, kuramsal 
+			matematiksel düzeydedir. Sadece bir tanım konusudur ve uygulamalara bir etkisi yoktur. 
+			Kuramsal amaçlarla tanımlanmış olan root_integer veri tipi, sadece tüm tamsayı tiplerinin
+			en üst atası olarak ve kuramsal düzeyde bir tip olarak belirtilmiştir. Bu veri tipinin programlarda 
+			bir tamsayı veri tipi olarak kullanılması sözkonusu değildir.
+		</p>
+		<p class="indent">
+			Kuramsal root_integer tamsayı veri tipi, tüm tamsayı tiplerin en üst atası (ultimate ancestor)
+			konumundadır. Sınırları System.Min_Int .. System.Max_Int sınırları arasındadır. Bu değerler,
+			çalışılan sistem karakteristiklerine bağlı doğrudan saptanma olanağı olmayan, kuramsal
+			değerlerdir. Hiçbir tamsayı tipinin kapsam aralığı root_integer tipinden daha geniş olamaz.
+			Kullanıcılar, gerçek programlama çalışmaları sırasında root_integer veri tipi ile karşılaşmazlar.
+		</p>
+		<p class="subheading" id="universal_integer">3.2.2 -  universal_integer</p>
+		<p class="indent">
+			Standard pakette tanımlanmış olan ikinci tamsayı veri tipi universal_integer veri tipidir.
+			Bu veri tipi, root_integer veri tipinin alt tipidir ve en küçük ve en büyük değerleri 
+			root_integer ile aynıdır. Standard pakette tanımlanmış olan universal_integer veri tipi
+			Tüm tamsayı tipleri için sınıf boyu (class wide) tip olarak tanımlıdır ve bu özelliği ile tüm 
+			alt tamsayı veri tipleri ile uyumludur, fakat kullanıcılar tarafından değişken tipi olarak
+			tanımlanamaz ve alt tipleri oluşturulamaz. Matematiksel olarak, tüm tanım aralığındaki 
+			tamsayıların ve işlemcilerin birleşimi (union) ile oluşan bir küme olarak tanımlanır.
+</p>
+		<p class="indent">
+			Bu küme elemanları ile yapılacak işlemlerde, örnek olarak
+		</p>
+		<pre class="app-25">
+1 + 4 &lt; 7
+		</pre>
+		<p class="nonindent">
+			gibi, çelişkili olma potansiyeli taşıyan sonuçlara neden olacağından çelişkinin 
+			aşılması için, işlenenleri universal_integer tiplerin oluşturduğu işlemlerde işlemci
+			önceliğinin temel tamsayı ata tipi olarak tanımlanan root_integer veri tipine vererek
+			çelişkinin aşılmasına çalışılmıştır. Konu üzerinde kuramsal tartışmalar hala 
+			devam etmektedir. Bu kuramsal konunun gerçek problemlerle çalışan programcıları, 
+			yani gerçek dünyayı ilgilendirecek bir yönü yoktur. Kullanıcılar sadece Integer tipinde
+			ve onun öntanımlı alt tipleri olan Natural ve Positive tipleri ile kendi tanımlayabilecekleri
+			tamsayı alt tiplerinin oluşturduğu nesneleri uygulayarak kapsam aşımına neden olmadan 
+			hesaplamalarını gerçekleştirmekle yükümlüdür.
+		</p>
+		<p class="indent">
+			Standard pakette tanımlanmış olan universal_integer veri tipi, root_integer kök 
+			tipine göre daha gerçek ve operasyonel özelliktedir. Yine de, bu veri tipinin 
+			kullanıcılar tarafından isimli alt tipleri tanımlanamaz. Integer veri tipinden 
+			sabitler ve tamsayı literalleri, universal_integer tipinde veriler olarak kabul edilir. 
+			Ayrıca bazı niteliklerin döndürdüğü değerler universal_integer veri tipinde olarak 
+			tanımlanmıştır. universal_integer Veri tipinin kendisi için tanımlı alt programları 
+			(tiplerin işlemcileri alt programlar olarak tanımlanırlar) yoktur. Fakat, universal_integer, 
+			veri tipi, tüm tamsayı tiplerinin sınıf boyu (class-wide) tipi olarak kabul edilir ve
+			tüm tamsayı alt tipleri ile uyumlu kabul edilir. Bu şekilde tüm tamsayı tipleri için 
+			tanımlı işlemcilerde işlenen olarak kullanılabilir, tüm tamsayı tipi değişkenlerine 
+			atanabilir ve tüm tamsayı tipleri ile ifadeler oluşturabilirler. Aslında, root_integer 
+			kuramsal sınıfının tanımlanmasının gereği de universal_integer veri tipinin bu
+			üniversalitesidir. Kullanıcılar, universal_integer veri tipinden nesneler ile programlarda 
+			karşılaşabilirler. Örnek olarak, 
+	</p>
+		<pre class="app-25">
+<span class="pl-50">Alan_Sabiti</span> :<span class="keyw"> constant</span> Integer  :=16;
+		</pre>
+		<p class="nonindent">
+			şeklinde yapılan bir tanımda, kullanıcı sabitin Integer tipinde olacağını belirtmiş 
+			olmasına rağmen, derleyici bu sabitin veri tipini universal_integer olarak algılar. 
+			Kullanıcılar universal_integer veri tipi ile, bu tür bir sabit tanımı, 
+			tamsayı literallerin kullanımı ve geri döndürülen nitelik değerlerin tipi olması 
+			dışında, fazla karşılaşmazlar. 
+</p>
+		<p class="subheading" id="integer">3.2.3 - Integer</p>
+		<p class="indent">
+			Öntanımlı Integer tamsayı veri tipi, uygulanabilen nesneleri (objects) oluşturulabilen ilk tamsayı 
+			tipidir. Bu tipin Standard paketteki tanıtımı yukarıda görülmektedir. Satndard pakette verilen Integer
+			tanımın anlaşılması, buraya kadar gerçekleştirdiğimiz çalışmaları anımsarsak fazla zor
+			olmaması gerekir. Bazı ileride inceleyeceğimiz tanımların açıklanması ile daha açık bilgiler
+			elde edebileceğiz.
+		</p>
+		<p class="indent">
+			Standart pakette Integer veri tipinin tanımı,
+		</p>
+		<p class="Examples-Maroon">
+			type Integer is range implementation-defined;
+		</p>
+		<p class="indent">
+			Bu tanım aslında ileride göreceğimiz bir tamsayı alt tipi tanımıdır. Burada 
+			<span class="keyw">range</span> saklı sözcüğü kapsam araqlığını belirtmektedir. 
+			Sadece, kullanıcılar, uygulanması gereken gerçek kapsam aralığı belirtmek zorunda olmalarına
+			karşın, Standard paketteeki Integer veri tipi tanıtımı, kapsam aralığının yerleşime
+			bağlı olacağını belirtmektedir. 
+		</p>
+		<p class="indent">
+			Integer veri tipinin kapsam aralığının yerleşime bağlı olması, Integer tipinin 
+			yerleşime göre sistemin destekleyebileceği en yüksek kapsam aralığına sahip
+			olacağı anlamın kesinlikle gelmemektedir. Bir sistemde tamsayı değerlerinin
+			en geniş kapsam aralığı, root_integer tipinin sınırları System.Min_Int .. System.Max_Int
+			arasında olan kapsam aralığıdır. Integer veri tipinin yerleşime bağlı 
+			kapsam alaını sadece Integer veri tipi için geçerlidir ve daha çok derleyicinin
+			tasarımı ile ilgilidir. Eskiden çalışan çoğu sistemlerin, 16 bit mimari üzerinde çalıştığı 
+			düşünülerek, Integer veri tipi kapsam aralığı, 16 bitlik sistemlerin destekleyebilmesi
+			için, çok kısıtlı sınırlar içinde tutulmuştur. Bu düşünce ile, GNAT derleyicisi,
+			Integer veri tipleri için kapsam aralığının –2**15+1 .. +2**15–1 (- 32767 ile 32767) 
+			belki ekstra bir negatif değerle, (-32768 - 32767) arasında destekleneceğini
+			belirtmektedir. Bu değer doğal olarak çok tutucu olduğundan,32 bit aritmetiği destekleyebilen 
+			sistemler için, bir Long_Integer veri tipinin de tanımlanabileceğini ve bunun destekleyebileceği
+			kapsam aralığının –2**31+1 ..+2**31–1 (-2 147 483 647 ile 2 147 483 647),
+			belki ekstra bir negatif değerle -2 147 483 648 ile 2 147 483 647 arası
+			olabileceği belirtilmiştir. Günümüzde çalışan sistemlerin büyük bir kısmı 32 bit aritmetiği 
+			desteklemektedir. Dolayısı ile bu son değer aralığı ile çalışmak programların taşınabilirliğini 
+			büyük bir olasılıkla etkilemeyecektir. Yani, günümüzde 32 bitlik sistemlerin desteklediği tanım 
+			aralığında tanımlanan tamsayı tipleri ile çalışılan programlarda, taşınırlık probleminin 
+			yaşanmasının olasığı çok az olacaktır.
+		</p>
+		<p class="indent">
+			Gerçmişte, çoğunlukla 16 bitlik sistemlerle çalışıldığından, 32 bitlik aritmetiği destekleyebilen 
+			sistemlerde çalışabilmek amacı ile bugünkü 32 bit sistemlerin kapsam aralığında çalışabiliecek 
+			bir Long_Integer tanımı yapılmıştı. Günümüzde 32 bit sistemlerde Integer tipinin tanım aralığı bu 
+			aralığa ulaştığından Long_Integer tanımı anlamsız kalmış ve günümüzde standart pakete dahil 
+			edilmemiştir.
+		</p>
+		<p class="subheading" id="int-attrs">3.2.3.1 - Integer Veri Tipine Uygulanabilen Nitelikler</p>
+		<p class="indent">
+			Integer veri tipi, skaler (scalar), ayrık (discrete) bir veri tipidir, sayılabilir bir veri tipi olarak da
+			düşünülebilir. Bu nedenle, Integer veri tipine uygulanabilen nitelikler, Boolean veri tipine
+			uygulanabilen nitelikler ile aynıdır. Burada uygulanacak niteliklerin tanımları Boolean veri tipi 
+			incelenirken yapılmış olan <a href="b3-s1.html#bool-attrs">nitelik açıklamalarından</a>, 
+			veya <a href="../ek4/ek4-s1.html">ek4-s1</a> deki nitelik listesinden bulunabilir.
+		</p> 
+		<p class="indent">
+			Intger veri tipinin monitör gösterimlerinin sağlanması için, Ada.Text_IO paketinde alt paket
+			olarak tanımlanmış olan Ada.Text_IO.Integer_Text_IO generik paketi, Integer veri tipi için,
+			öntanımlı olarak Ada.Integer_Text_IO adı ile örneklenmiştir. Bu öntanımlı paketin kullanılması
+			geniş ölçüde <a href="../ek3/ek3-s2.html">ek3-s2</a> de açıklanmıştır. Integer tipi nesnelerin
+			 giriş/çıkış işlemlerinin düzenlenmesi için, bu paketin kullanımının iyi bir şekilde incelenmesi 
+			 gereklidir. İstenirse, basit sonuçların ekran gösterimi, imaj niteliğinden yararlanıp sözel değerlere 
+			 dönüştürülerek Ada.Text_IO paketinden yararlanılarak gerçekleştirilebilir.
+		</p>
+		<p class="indent">
+			Integer veri tipinin <span class="red">Integer'First</span> ve 
+			<span class="red">Integer'Last</span> nitelikleri, Integer veri tipinin çalışılan
+			sistemde, desteklenen en küçük ve en büyük değerlerini döndürür.
+			 Aşağıda görülen <a href="../uygulamalar/b3_2_3_1_uyg_1.html">prosedürde</a>, 
+			 bu kapsam sınırları sorgulanmaktadır.
+		</p>
+				<p>
+			<span><span class="S0"></span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span 
+    class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span 
+    class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span 
+    class="S0"> &nbsp;</span>b3_2_3_1_uyg_1<span class="S0"> </span><span class="S1">is</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span 
+    class="S7">"Bu Makinenin En Alt Integer Veri Tipi Değeri : "</span><span class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span 
+    class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span 
+    class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span>Integer<span 
+    class="S4">'</span>First<span class="S4">,</span><span class="S0"> &nbsp;</span>width<span 
+    class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span 
+    class="S3">11</span><span class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>New_Line<span class="S4">;</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span 
+    class="S7">"Bu Makinenin En Üst Integer Veri Tipi Değeri :"</span><span class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span 
+    class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span 
+    class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span 
+    class="S0"> </span>Integer<span class="S4">'</span>Last<span class="S4">,</span><span 
+    class="S0"> &nbsp;</span>width<span class="S0"> </span><span class="S4">=&gt;</span><span 
+    class="S0"> </span><span class="S3">12</span><span class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span 
+    class="S0"> </span>b3_2_3_1_uyg_1<span class="S4">;</span></span><br />
+		<br />
+<span class="pl-25">Bu programın sonucu,</span> <br />
+<br />
+<span class="green">Bu Makinenin En Alt Integer Veri Tipi Değeri : -2147483648</span><br />
+<br />
+<span class="green">Bu Makinenin En Üst Integer Veri Tipi Değeri :  2147483647</span>
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_2_3_1_uyg_1.html">prosedürde</a>, alınan sonuçlar,
+			çalışılan Windows 7 (64 bit) işletim sistemi ile çalışan bir masaüstü sistemi olan,
+			çalışılan sistemde, Integer veri tipinin 32 bit sistemler için desteklenen
+			kapsam aralığında yerleştiridiği görülmektedir. Kapsam aralığı yaklaşık 2 milyar pozitif
+			tamsayı olan bu kapasite, birçok projede kullanıcı tanımına gerek kalmayacak kadar 
+			geniş bir tamsayı kullanma olanağını sağlamaktadır. Bundan
+			çok daha geniş kapsam aralığı olan kullanıcı tanımlı özgün tamsayı tiplerini ileride
+			tanımlayıp kullanabileceğiz. Kullanıcılar gereksinmelerine göre, isterlerse
+			öntanımlı Integer veri tipinden isterlerse, biraz sonra inceleyeceğimiz, öntanımlı Natural ve Positive
+			öntanımlı tamsayı alt tiplerinden, isterlerse kendi tanımlayacakları özgün tamsayı tiplerinden
+			yararlanabilirler. Integer tipi verilerin günümüzde geniş bir kapsam alanı bulunmakta ve 
+			bilgisayar sistemlerinde sağlanan gelişme düşünüldüğünde, tüm sistemler an az 32 bitlik 
+			mimarilerde çalıştığından taşınabilirlik problemi yaşanmayacağı kesinlikle belirtilebilir.
+		</p>
+		<p class="indent">
+			Integer veri tipinin Intger'Max ve Intger'Min nitelikleri, iki tamsayı değerinin
+			büyük ve küçük olanını belirlemek için yararlı olur. Bu konuda bir 
+			<a href="../uygulamalar/b3_2_3_1_uyg_2.html">uygulama</a>, aşağıda görülmektedir.
+		</p>
+		<p>
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span><br />
+<br />
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_1_uyg_2<span class="S0"> </span><span class="S1">is</span><br />
+<br />
+<span class="S0">&nbsp;</span><span class="S11">Birinci_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">Constant</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">45_345</span><span class="S4">;</span><br />
+<br />
+<span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span><br />
+<br />
+<span class="S1">begin</span><br />
+<br />
+<span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">3500E5</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S11">Birinci_Değer</span><span class="S4">;</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Birinci Değer : &nbsp;"</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Birinci_Değer</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">35</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"İkinci Değer : &nbsp;"</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">31</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Büyük Olan Değer : &nbsp;"</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Integer<span class="S4">'</span>Max<span class="S4">(</span><span class="S11">Birinci_Değer</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">İkinci_Değer</span><span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<br />
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Küçük Olan Değer : &nbsp;"</span><span class="S4">);</span><br />
+<br />
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Integer<span class="S4">'</span>Min<span class="S4">(</span><span class="S11">Birinci_Değer</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">İkinci_Değer</span><span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">25</span><span class="S4">);</span><br />
+<br />
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_1_uyg_2<span class="S4">;</span></span>
+		</p>
+		<pre class="app-25">
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">Birinci Değer :                                 45345</span>
+<span class="green">İkinci Değer :                          349954655</span>
+<span class="green">Büyük Olan Değer :                 349954655</span>
+<span class="green">Küçük Olan Değer :                         45345</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Tamsayı tiplerinin sayılabilir veri tipi olarak da düşünülebileceğini belirtmiştik.
+			Tamsayı veri tipleri elemanları birbirini aralıksız izleyen sayılabilir veri tipleri
+			olarak düşünülebilir. Bunun kanıtı, tamsayı veri tiplerinde, öndeki değer,
+			(Succ) arkadaki değer (Pred) niteliklerin bulunmasıdır. Eğer, kapsam sınırının en altındaki
+			değerin bir olmayan bir ardındaki değer sorgulanırsa, kapsam sınırı hatası ile 
+			karşılaşılır. Aynı sonuç, kapsam üst sınırını izleyen eleman sorgulanırsa da
+			yaşanır. Tamsayı tiplerinin ekran görüntüleri, imaj niteliklerinden yararlanılarak alınabilir.
+			 Aşağıda görülen 
+			<a href="../uygulamalar/b3_2_3_1_uyg_3.html">prosedürde</a>, sınırlarda olmayan
+			bir Integer değerinin önündeki ve ardındaki değerler, imaj niteliğinden 
+			yararlanılarak görüntülenmektedir.
+		</p>
+		<p class="indent">
+			<span class="dikeyTab-5">&nbsp;</span>
+		</p>
+		<p>
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span 
+    class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<br />
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_1_uyg_3<span 
+    class="S0"> </span><span class="S1">is</span><br />
+<br />
+<span class="S11">Tamsayı</span><span class="S0"> </span><span class="S4">:</span><span 
+    class="S0"> </span><span class="S1">constant</span><span class="S0"> &nbsp;</span>Integer<span 
+    class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span 
+    class="S3">26</span><span class="S4">;</span><br />
+<br />
+<span class="S1">begin</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">" Bir Önceki Değer : &nbsp;&nbsp;"</span><span 
+    class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span 
+    class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Pred<span 
+    class="S4">(</span><span class="S11">Tamsayı</span><span class="S4">)));</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">" Değer : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span><span 
+    class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span 
+    class="S4">'</span>Image<span class="S4">(</span><span class="S11">Tamsayı</span><span 
+    class="S4">));</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">" Bir Sonraki Değer : &nbsp;"</span><span 
+    class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span 
+    class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Succ<span 
+    class="S4">(</span><span class="S11">Tamsayı</span><span class="S4">)));</span><br />
+<br />
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_1_uyg_3<span class="S4">;</span></span>
+		</p>
+		<pre class="app-25">
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">Bir Önceki Değer :      25</span>
+<span class="green">Değer :                      26</span>
+<span class="green">Bir Sonraki Değer :     27</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_2_3_1_uyg_3.html">prosedürde</a>, 
+			alınan sonuçlar, Integer veri tipinin bir skaler ve ayrık veri tipi olmanın yanında, 
+			bir sayılabilir veri tipi olarak, da düşünülebileceğini belirtmektedir. Integer veri 
+			tipinin sayılabilir karakteri, Pos ve Val niteliklerinin Integer veri tipine de 
+			uygulanabilmesinden anlaşılmaktadır. Integer veri tipinin Pos niteliğinin değeri ile
+			Val niteliğinin sonuçları kendisidir. Bu sonuçlar, aşağıdaki, 
+			<a href="../uygulamalar/b3_2_3_1_uyg_4.html">prosedürün</a> sonuçlarından 
+			da görülebilmektedir.
+		</p>
+		<p class="indent">
+			<span class="dikeyTab-5">&nbsp;</span>
+		</p>
+		<p>
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span 
+    class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<br />
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_1_uyg_4<span 
+    class="S0"> </span><span class="S1">is</span><br />
+<br />
+<span class="S11">Tamsayı</span><span class="S0"> </span><span 
+    class="S4">:</span><span class="S0"> </span><span class="S1">constant</span><span 
+    class="S0"> &nbsp;</span>Integer<span class="S0"> </span><span 
+    class="S4">:=</span><span class="S0"> </span><span class="S3">26382</span><span 
+    class="S4">;</span><br />
+<br />
+<span class="S1">begin</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span 
+    class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span 
+    class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span 
+    class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put<span class="S4">(</span><span class="S7">" Tamsayı Değeri:"</span><span 
+    class="S4">);</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span class="S3">80</span><span 
+    class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span 
+    class="S4">(</span><span class="S11">Tamsayı</span><span class="S4">));</span>
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span 
+    class="S4">);</span>
+<br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put<span class="S4">(</span><span 
+    class="S7">"Integer'Pos(Tamsayı Değeri):"</span><span class="S4">);</span>
+<br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Set_Col<span class="S4">(</span>To<span 
+    class="S0"> </span><span class="S4">=&gt;</span><span 
+    class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span 
+    class="S4">(</span>Integer<span class="S4">'</span>Pos<span class="S4">(</span><span 
+    class="S11">Tamsayı</span><span class="S4">)));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span 
+    class="S4">);</span>
+<br />
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put<span class="S4">(</span><span 
+    class="S7">"Integer'Val(Integer'Pos(Tamsayı)) Değeri:"</span><span 
+    class="S4">);</span>
+<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span 
+    class="S4">=&gt;</span><span class="S0"> </span><span class="S3">61</span><span 
+    class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+    class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span 
+    class="S4">'</span>Image<span class="S4">(</span>Integer<span 
+    class="S4">'</span>Val<span class="S4">(</span>Integer<span 
+    class="S4">'</span>Pos<span class="S4">(</span><span 
+    class="S11">Tamsayı</span><span class="S4">))));</span><br />
+<br />
+<br />
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_1_uyg_4<span 
+    class="S4">;</span></span>
+</p>
+
+		<pre class="app-25">
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">          Tamsayı Değeri:                                                  26382</span>
+<span class="green">          Integer'Pos(Tamsayı Değeri):                               26382</span>
+<span class="green">          Integer'Val(Integer'Pos(Tamsayı)) Değeri:            26382</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_2_3_1_uyg_4.html">prosedürde</a>, sonuçlarından da 
+			görülebildiği gibi Integer veri tipinin sayılabilir bir veri tipi karakteri de bulunmaktadır.
+		</p>
+		<p class="indent">
+			Integer veri tipinin Size niteliği, bu veri tipinin yerleşim genişliğini, yani 16 veya 32 bit
+			genişliğin uygulanmış olduğunu açıklayan önemli bir göstergedir. Yine önemli olan 
+			width,Wide_Width ve Wide_Wide_Width nitelikleri, Intger veri tipinin sözel imajının
+			alınması için başvurulan Image, Wide_Image ve Wide_Wide_Image niteliklerinin
+			Integer verileri sözel imajlarına dönüştürürken kullanacakları maksimum karakter
+			genişliğini bit cinsinden açıklamaktadır. Aşağıda, bu niteliklerin sorgulandığı bir
+			<a href="../uygulamalar/b3_2_3_1_uyg_5.html">prosedür</a> ve sonuçları
+			görülmektedir.
+		</p>
+		<p class="indent">
+			<span class="dikeyTab-5">&nbsp;</span>
+		</p>
+		<pre class="app-25">
+<span><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_2_3_1_uyg_5<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Integer'Size Değeri:"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">62</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Size<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Integer'Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">60</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Integer'Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">55</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Integer'Wide_Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Integer<span class="S4">'</span>Wide_Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Integer'Size Değeri:"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">62</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Integer<span class="S4">'</span>Size<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Integer'Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">60</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Integer<span class="S4">'</span>Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Integer'Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">55</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Integer<span class="S4">'</span>Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Integer'Wide_Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Integer<span class="S4">'</span>Wide_Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Long_Integer'Size Değeri:"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">62</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Long_Integer<span class="S4">'</span>Size<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Long_Integer'Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">60</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Long_Integer<span class="S4">'</span>Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Long_Integer'Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">55</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Long_Integer<span class="S4">'</span>Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Long_Integer'Wide_Wide_Width Değeri"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S4">(</span>Long_Long_Integer<span class="S4">'</span>Wide_Wide_Width<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_2_3_1_uyg_5<span class="S4">;</span></span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">Integer'Size Değeri:                                 32</span>
+<span class="pl-25 green">Integer'Width Değeri                                11</span>
+<span class="pl-25 green">Integer'Wide_Width Değeri                       11</span>
+<span class="pl-25 green">Integer'Wide_Wide_Width Değeri              11</span>
+
+<span class="pl-25 green">Long_Integer'Size Değeri:                                 32</span>
+<span class="pl-25 green">Long_Integer'Width Değeri                                11</span>
+<span class="pl-25 green">Long_Integer'Wide_Width Değeri                       11</span>
+<span class="pl-25 green">Long_Integer'Wide_Wide_Width Değeri              11</span>
+
+<span class="pl-25 green">Long_Long_Integer'Size Değeri:                                 64</span>
+<span class="pl-25 green">Long_Long_Integer'Width Değeri                                20</span>
+<span class="pl-25 green">Long_Long_Integer'Wide_Width Değeri                       20</span>
+<span class="pl-25 green">Long_Long_Integer'Wide_Wide_Width Değeri              20</span>
+
+olmaktadır.
+		</pre>
+
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_2_3_1_uyg_5.html">prosedür</a> sonuçları, GNAT 2012 
+			derleyicisinde, Integer veri tipinin 32 bit genişliğinde bir veri tipi olarak yerleştirildiğini 
+			belirtmektedir. Bu önemli bir bilgidir ve artık tüm Integer veri tiplerinin 32 bit genişliğinde 
+			yerleştirildiğini, kapsam genişliğinin -2 147 483 648 ile 2 147 483 647 arası olacağını, 
+			açıklmaktadır. Integer veri tipi, bu kapsam aralığında tüm sistemlerde desteklenip 
+			taşınma sorunu yaratmayacaktır. Artık 32 bitlik Long_Integer veri tipine gerek olmadığı, 
+			açıkça ortadadır. Bu nedenle Long_Integer veri tipi, Standart paketten çıkarılmış ve 
+			desteklenmesi derleyicinin seçimine bırakılmıştır. GNAT derleyicisi eskiye uyum 
+			amacı ile halen Long_Integer veri tipinin desteklemekte fakat kullanımı teşvik edilmemektedir.
+			Integer veri tipinin kapasitesinin yeterli olmadığı durumlarda, kullanıcılar çok daha geniş,
+			kapsam aralığında kendi tamsayı tiplerini tanımlayıp kullanabilirler.
+		</p>
+		<p class="indent">
+			Long_Long_Integer veri tipinin durumu farklıdır. Long_Long Integer veri tipi, 
+			64 bitlik tanım genişliği ile, Integer ve Long_Integer veri tiplerine göre üstünlük
+			göstermektedir. Yine de kullanıcıların bu genişlikte tamsayı veri tipine gereksinmeleri
+			olduğunda, kendi özgün tiplerini yaratıp uygulamaları daha iyi bir seçim olacaktır.
+			Standart olmayan bu tipleri kullanmak yerine, kendi özgün veri tipimize güvenmek, 
+			kalıcı programlar yaratmak için daha uygun olacaktır.
+		</p>
+		<p class="indent">
+			Integer veri tipi ile en çok kullanılan nitelikler burada incelenmiştir. Başka niteliklerin
+			de uygulanması gekirse, <a href="../ek4/ek4-s1.html">ek 4</a> deki nitelikler 
+			listesinden uygulanabilecek bir nitelik seçilerek spesifikasyonuna uygun olarak 
+			uygulanabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+		<a href="b3-s2.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b3-s4.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:15 GMT -->
+</html> 
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

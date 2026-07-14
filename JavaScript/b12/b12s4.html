@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b12/b12s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:26 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b12/b12s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b12s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b12s3.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b12s5.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 12
+		</p>
+		<p class="chapter">
+			Date Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 12 Sayfa 4
+		</p>
+		<p class="subheading" id="DatePrototypesetUTCSeconds">12.3.31 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setUTCSeconds(saniye [, ms]) Metodu</p>
+		<p class="indent" id="b12.3.31-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 saniye sayısını, argümanının belirttiği UTC saniye
+			sayısı ile değiştirir. Eğer ms değeri verilmemişse, metodun uygulandığı
+			ms verisi, 
+			<span class="keyw">getMilliseconds</span><span class="op">()</span>
+			yöntemi ile sorgulanır ve yeni oluşturulacak tarih verisinin milisaniye
+			sayısı  olarak belirlenir. Yeni UTC saniye değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin UTC tarihi
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi yerel tarih ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.31-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.31-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk UTC Saniye Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCSeconds</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setUTCSeconds</span><span 
+			class="op">(</span>55<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen UTC Saniye Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCSeconds</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarihin Saniye Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCSeconds</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.31-uyg-1-sonuç-7'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.31-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetMinutes">12.3.32 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setMinutes(dakika[,saniye [, ms]) Metodu</p>
+		<p class="indent" id="b12.3.32-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 dakika sayısını, argümanının belirttiği dakika sayısı ile değiştirir. Eğer saniye ve ms 
+			 değerleri verilmemişse, metodun uygulandığı saniye ve ms verisi, 
+			 <span class="keyw">getSeconds</span><span class="op">()</span> ve
+			<span class="keyw">getMilliseconds</span><span class="op">()</span>
+			yöntemi ile sorgulanır ve yeni oluşturulacak tarih verisinin saniye ve milisaniye
+			sayıları olarak belirlenir. Yeni dakika değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin UTC tarihi
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi yerel tarih ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.32-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.32-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk Dakika Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getMinutes</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setMinutes</span><span 
+			class="op">(</span>36<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Dakika Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getMinutes</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.32-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.32-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetUTCMinutes">12.3.33 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setUTCMinutes(dakika [, saniye [, ms])
+			Metodu</p>
+		<p class="indent" id="b12.3.33-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 dakika sayısını, argümanının belirttiği dakika sayısı ile değiştirir. Eğer saniye ve ms 
+			 değerleri verilmemişse, metodun uygulandığı saniye ve ms verisi, 
+			 <span class="keyw">getUTCSeconds</span><span class="op">()</span> ve
+			<span class="keyw">getUTCMilliseconds</span><span class="op">()</span>
+			yöntemi ile sorgulanır ve yeni oluşturulacak tarih verisinin saniye ve milisaniye
+			sayıları olarak belirlenir. Yeni dakika değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin yerel tarih
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi UTC tarihi ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.33-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.33-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk UTC Dakika Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCMinutes</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setUTCMinutes</span><span 
+			class="op">(</span>36<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen UTC Dakika Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCMinutes</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.33-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.33-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetHours">12.3.34 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setHours(saat [, dakika [, saniye[, ms])
+			Metodu</p>
+		<p class="indent" id="b12.3.34-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 saat sayısını, argümanının belirttiği saat sayısı ile değiştirir. Eğer daklika, saniye ve ms 
+			 değerleri verilmemişse, metodun uygulandığı dakika, saniye ve ms verisi, 
+			<span class="keyw">getMinutes</span><span class="op">()</span>, 
+			<span class="keyw">getSeconds</span><span class="op">()</span> ve
+			<span class="keyw">getMilliseconds</span><span class="op">()</span>
+			yöntemi ile sorgulanır ve yeni oluşturulacak tarih verisinin saniye ve milisaniye
+			sayıları olarak belirlenir. Yeni saat değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin UTC tarihi
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi yerel tarih ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.34-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.34-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk Saat Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getHours</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setHours</span><span 
+			class="op">(</span>16<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Saat Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getHours</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.34-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.34-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetUTCHours">12.3.35 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setUTCHours(saat [, dakika [, saniye
+			[, ms]) Metodu</p>
+		<p class="indent" id="b12.3.35-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 saat sayısını, argümanının belirttiği saat sayısı ile değiştirir. Eğer daklika, saniye ve ms 
+			 değerleri verilmemişse, metodun uygulandığı dakika, saniye ve ms verisi, 
+			<span class="keyw">getMinutes</span><span class="op">()</span>, 
+			<span class="keyw">getSeconds</span><span class="op">()</span> ve
+			<span class="keyw">getMilliseconds</span><span class="op">()</span>
+			yöntemi ile sorgulanır ve yeni oluşturulacak tarih verisinin saniye ve milisaniye
+			sayıları olarak belirlenir. Yeni saat değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin yerel tarih
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi UTC tarihi ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.35-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.35-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk UTC saat Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCHours</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setUTCHours</span><span 
+			class="op">(</span>16<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen UTC saat Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCHours</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.35-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.35-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetDate">12.3.36 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setDate(Gün)
+			Metodu</p>
+		<p class="indent" id="b12.3.36-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 Gün sayısını, argümanının belirttiği Gün sayısı ile değiştirir. Yeni Gün değeri ile 
+			 yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin UTC tarihi
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi yerel tarih ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.36-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.36-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk Gün Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getDate</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setDate</span><span 
+			class="op">(</span>20<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Gün Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getDate</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.36-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.36-uyg-1-sonuç-6"> 
+		</p>
+		<p class="subheading" id="DatePrototypesetUTCDate">12.3.37 - Date (Tarih)
+			Nesne Sınıfı  Prototip Nesnesinin setUTCDate(Gün) Metodu</p>
+		<p class="indent" id="b12.3.37-uyg-1">
+			Bu metot, uygulandığı <span class="keyw">this</span> tarih sınıfı nesne örneğinin
+			<span class="keyw">this</span> tarih sınıfı nesne örneğinin belirttiği tarihin
+			 Gün sayısını, argümanının belirttiği Gün sayısı ile değiştirir. Yeni Gün 
+			 değeri ile yenilenen <span class="keyw">this</span>
+			tarih nesne sınıf örneğinin <span class="keyw">this<span class="op">.</span></span><span 
+			class="keyw">toValue</span><span class="op">()</span> 
+			değerini geri döndürülür. Bu değer, <span class="keyw">this</span> tarih nesnesinin,
+			 tarih başlangıcından milisaniye olarak farkına eşit olan, ilkel sayısal
+			tipte, bir tamsayı değeridir. Metodun uygulandığı <span class="keyw">this</span> 
+			tarih sınıfı nesne örneğinin önceki tarih değeri kaybolur. Metodun geri
+			döndürdüğü  milisaniye sayısından bir tarih damgası olarak yararlanılabilir
+			ve bu tarih damgasından  tarih nesnesinin değeri yeniden oluşturulabilir.
+		</p>
+		<p class="indent">
+			<span class="red">Uyarı : </span> 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardında, bu metodun çalışması sırasında tarih verisinin yerel tarih
+			ile yeniden yapılacacağı açıklanmıştır. Aslında bu bir hatalı açıklamadır
+			ve tarih verisi UTC tarihi ile yeniden yapılanmaktadır.
+		</p>
+		<p class="indent">
+			Bu konuda bir 
+			<a href="../uygulamalar/b12.3.37-uyg-1-js.html">JavaScript programı</a> ve
+			bağlantılı olduğu <a href="../uygulamalar/b12.3.37-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir.	
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> tarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>1998, 6, 18, 12, 33, 46, 400<span 
+			class="op">)</span><span 
+			class="op">,</span> td <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> yeniTarih <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk UTC Gün Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCDate</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">td</span> <span 
+			class="op">=</span> tarih<span 
+			class="op">.</span><span 
+			class="keyw">setUTCDate</span><span 
+			class="op">(</span>20<span 
+			class="op">);</span><span class="comm-50">// Dikkat Tarih Değeri Yenilendi !!!</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen UTC Gün Sayısı : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">.</span><span class="keyw">getUTCDate</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yenilenen Tarih : '</span><span 
+			class="op">,</span> tarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'td (Tarih Damgası) (milisaniye olarak) : '</span><span 
+			class="op">,</span> td<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>td<span 
+			class="op">);</span><span class="comm-50">// Tarih Damgasının Belirttiği Tarihin Oluşturulması</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tarih Damgasından Yeniden Yaratılan Tarih : '</span><span 
+			class="op">,</span> yeniTarih<span 
+			class="op">,</span> <span 
+			class="str">'b12.3.37-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-2">
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-3">
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-4"> 
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-5"> 
+		</p>
+		<p class="indent" id="b12.3.37-uyg-1-sonuç-6"> 
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b12s3.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b12s5.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.31-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.32-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.33-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.34-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.35-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.36-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b12.3.37-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b12/b12s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:26 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

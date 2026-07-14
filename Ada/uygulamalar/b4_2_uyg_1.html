@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b4_2_uyg_1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:27 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/uygulamalar/b4_2_uyg_1.html"> 
+    <meta charset="utf-8">
+    <title>b4_2_uyg_1</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial">
+    <meta name="Description" content="Ada Tutorial in Turkish Language ">
+    <meta name="Keywords" content="Ada Tutorial Turkish">
+    <meta name="Abstract" content="Ada Turkish Tutorial">
+    <meta name="Publisher" content="Prof. Dr. Bedri DoÃƒâ€Ã…Â¸an Emir">
+    <meta name="Distribution" content="Local">
+    <meta name="Robots" content="Index">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+    <link href="../css/Adastyle.css" rel="stylesheet"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+<body>
+<div class="sayfaortala">
+<table class="apptable">
+        <tbody>
+          <tr>
+            <td colspan="2" class="apptable-td-1">Ada Program Örnekleri</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="apptable-td-2">Programı Yazan : Prof.Dr.Bedri Doğan Emir</td>
+          </tr>
+          <tr>
+            <td colspan="1" class="apptable-td-3"><div class="dikeyTab-5"><span 
+              class="maroon">procedure :</span> <a 
+              href="../programlar/b4_2_uyg_1.adb">b4_2_uyg_1.adb</a></div></td>
+            <td class="apptable-td-4"><div 
+              class="dikeyTab-5"><a 
+              href="javascript:void window.history.back(-1)">Çağıran Sayfaya Geri Dönüş</a></div></td>
+          </tr>
+        </tbody>
+  </table> 
+  </div>
+<p class="dikeyTab-50">&nbsp;</p>
+		<pre class="app-25">
+<span><span class="S0"></span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_2_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayı</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">9223372036854775808</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">9223372036854775807</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span><span class="S11">Tamsayı</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">1E8</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1E9</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sektör_1_a_Dosya_18</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">1E8</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları_IO</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Integer_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Dosya Numarası : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölge_Tanım_Numaraları_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sektör_1_a_Dosya_18</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_2_uyg_1<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span></span>
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+			
+<span class="pl-25 green">Dosya Numarası :            100000001</span>
+			
+<span class="nonindent">olmaktadır.</span>	</pre>
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b4_2_uyg_1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:28 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

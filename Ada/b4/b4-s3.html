@@ -1,0 +1,367 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:25 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b4/b4-s3.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 4 Sayfa 3</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+ <body>
+   <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+   <a href="b4-s2.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+   <a href="../b5/b5-s1.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a>
+  </div>
+   <p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+   <p class="chapter">
+   Bölüm 4
+  </p>
+   <p class="chapter">
+   Kullanıcı Tanımlı Veri Tipleri
+ </p>
+   <p class="pagenum">
+   Bölüm 4 Sayfa 3
+  </p>
+
+   <p class="title-left" id="modulus">
+   4.6 Modüler (Çevrimsel) Tamsayı Tipleri
+   </p>
+   <p class="indent">
+   Modüler tamsayı tipleri, Ada programlama diline özgü, başka program dillerinde
+   rastlanmayan sıradışı ve ilginç bir tamsayı türüdür. Bu tamsayı türü kapsam aşımı
+   hatasına neden olmayacak şekilde, kapsam sınırını aşınca otomatik olarak sıfırlanarak
+   taşan sayı kadar değer alarak devam eden, negatif değerler almayan işaretsiz
+   tamsayı (unsigned integer) veri türüdür.
+ </p>
+   <p class="indent">
+   Modüler aritmetik 1801 de Carl Friedrich Gauss tarafından Disquisitiones Arithmeticae
+   (Aritmetik Tartışmalar) adlı kitabında tanıtılmıştır. Günümüze kadar bu konuda kuramsal
+   ve uygulamalı çalışmalar devam etmektedir. Uygulama alanları, matematik, bilgi işlem bilimleri,
+   kriptografi, bankacılık (IBAN numaraları), Chemical Abstract Numaraları, müzik kuramı gibi
+   önemli uygulama alanları olmaktadır. Göreli olarak kuramsal temelleri kolay anlaşılabilen
+   bir konu olmasına karşın, hesaplamaların izlenmesi kolay değildir. Modüler veri tipi Ada
+   programlamasında bu konunun kuramsal ve uygulamalı çalışanlarına yardımcı olmak amacı
+   ile konulmuştur. Bu veri tipi, doğal olarak, konu ile çalışanlara hitap etmektedir ve bu veri
+   tipini kullanacakların modüler aritmetik üzerine bilgi sahibi olmaları yararlı olacaktır.
+  </p>
+   <p class="indent">
+   Modüler tipler, daima 0 dan başlar, negatif değerleri yoktur. Bu yüzden modüler tiplere işaretsiz
+   tamsayı tipi adı da verilir. Modüler tipler, 0 ile <b>modulus</b> adı verilen bir değerden bir
+   eksiğine kadar değerler alabilir. Eğer bu tipten bir nesnenin değeri modulus değerinden fazla olursa,
+   modulus değerinden çıkarılır ve değeri o şekilde belirlenir. Bu şekilde modüler değerler, çevrimsel
+   (siklik) değerlerdir. Bu nedenle modulus değeri çevrim sınırı olarak da adlandırılabilir. Çevrimsel (modüler)
+   tipler, asla kapsam aşımı hatasına neden olmazlar. Bu değerlerin Pred ve Succ nitelikleri de
+   hiçbir zaman kapsam hatasına neden olmazlar.
+  </p>
+   <p class="indent">
+   Modüler tamsayı tipleri aşağıdaki <a href = "../uygulamalar/b4_6_uyg_1.html">programdaki</a>
+   gibi tanımlanabilir ve kullanılabilirler:
+  </p>
+   <pre class="app-25">
+
+<span class="keyw">with</span> Ada.Text_IO; <span
+class="keyw">use</span> Ada.Text_IO;<span class="keyw"></span>
+
+<span class="keyw">procedure</span> b4_6_uyg_1 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Çevrimsel <span class="keyw">is mod</span> 24;
+
+Saat : Çevrimsel := 23;
+
+<span class="keyw">begin</span>
+
+Saat := Saat + 3;
+
+Put(item =&gt;<span class="str">&quot;Saat  :  &quot;</span> & Çevrimsel'Image(Saat));
+
+<span class="keyw">end</span> b4_6_uyg_1;
+  </pre>
+   <p class="nonindent">
+   Bu programın sonucu :
+  </p>
+   <p class="green pl-25">
+   Saat : 1
+  </p>
+   <p class="nonindent">
+   olmaktadır.
+  </p>
+   <p class="indent">
+   Programda, çevrimsel değişkenin modulus değeri 24 olarak tanımlanmış olduğundan,
+   ençok 23 değeri ilk değer olarak atanabilir aksi halde başlangıçta kapsam hatası
+   ortaya çıkar. Eğer başlangıç değeri doğru verilirse, bir daha kapsam hatası ortaya
+   çıkmaz. İlk değer 23 olduğundan 23 +1 = 24 olur ve çevrim tamamlanarak Saat değeri
+   sıfırlanır. Geri kalan 2 değeri de sıfır değerine eklendiğinde 0 + 2 = 2 ve Saat değişkeninin
+   değeri 2 olur. Bu durumda, Saat değişkenin değeri çevrimsel olarak 0 -23 değerlerini
+   alabilecektir. Kapsam hatası söz konusu değildir ama görüldüğü gibi çevrimsel bir
+   değişkenin değerinin izlenmesi de kolay değildir.
+  </p>
+   <p class="indent">
+   Çevrimsel değişken değerlerinin, aşağıdaki
+   <a href = "../uygulamalar/b4_6_uyg_2.html">programda</a> uygulandığı gibi, öntanımlı
+   generik paketlerin kendi özel tipleri için anlık örneklenmesi ile de  giriş/çıkış işlemlerinin
+   gerçekleştirilmesi olanağı bulunmaktadır.
+  </p>
+   <pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">procedure</span> b4_6_uyg_2 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Çevrimsel <span class="keyw">is mod</span> 24;
+
+<span class="keyw-25">package</span> Çevrimsel_IO<span
+class="keyw">is new</span> Ada.Text_IO.Moduler_IO(Çevrimsel);
+
+<span class="pl-25">Saat</span> : Çevrimsel;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Saat</span> := Saat :=-2;
+
+<span class="pl-25">Ada.Text_IO.Put</span>(Item =&gt;<span
+ class="str">&quot;Saat  :  &quot;</span>);
+
+<span class="pl-25">Çevrimsel_IO.Put</span>(item =&gt;Saat);
+
+<span class="keyw-25">end</span> b4_6_uyg_2;
+  </pre>
+   <p class="nonindent">
+   Bu programın sonucu :
+  </p>
+   <p class="green pl-50">
+   Saat : 22
+  </p>
+   <p class="nonindent">
+   olmaktadır.
+  </p>
+   <p class="indent">
+   Sonucun 22 olması ilk bakışta şaşırtıcı gelse de, doğru sonuçtur. Saat değeri
+   olarak girilmiş olan değer eksi bir sayı değildir. Çevrimsel değişkenler eksi değerler alamaz.
+   Burada girilen değer tekli bir işlemci olan işaret değişim işlemcisi - ve atanacak çevrimsel değerdir.
+   Burada gerçekleşen olay çevrim sınırı değeri (mod) dan çevrimsel değişkene atanan 2 değerinin
+   çevrim sınırı (mod) değerinden çıkarılmasıdır. Bu şekilde sonuç, 24 - 2 = 22 olarak
+   gerçekleşmektedir. Görüldüğü gibi gerçekten çevrimsel değişkenlerin değerlerinin
+   izlenmesi kolay değildir.
+  </p>
+  <p class="indent">
+   Modüler tamsayı değerleri, işaretli tamsayı değerlerine ve tersine doğru birbirlerine
+   dönüştürülebilir. Bu konuda dikkat edilmesi gereken en önemli konu, dönüştürme
+   sonucunda oluşacak değerin, dönüştürülecek veri tipinin kapsamı içinde olmasıdır.
+   Aksi durumda, kaçınılmaz olarak kapsam hatası oluşur. Bu uyarı aslında tüm veri
+   dönüştürme işlemleri için geçerlidir. Bu konuda aşağıda görülen
+   <a href = "../uygulamalar/b4_4_uyg_3.html">programda</a> örnek
+   bir uygulama görülmektedir.
+  </p>
+  <pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">with</span> Ada.Integer_Text_IO;
+
+<span class="keyw">procedure</span> b4_6_uyg_3 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Milyem <span class="keyw">is mod</span> 401;
+
+<span class="keyw-25">package</span> Milyem_IO <span
+class="keyw">is new</span> Ada.Text_IO.Modular_IO(Milyem);
+
+<span class ="pl-25">Açı : Milyem := 402</span>
+
+<span class="keyw">begin</span>
+
+<span class ="pl-25">Ada.Text_IO.Put(Item => "</span><span
+class="str">Milyem  Değerine Çevrilecek Tamsayı Değeri :  " </span>);
+
+<span class ="pl-25">Ada.Integer_Text_IO.Put(Item => Tamsayı);</span>
+
+<span class ="pl-25">Ada.Text_IO.New_Line;</span>
+
+<span class ="pl-25">Açı := Milyem(Tamsayı);</span>
+
+<span class ="pl-25">Ada.Text_IO.Put(Item => </span><span
+class="str">"Tamsayı Değerinin Milyem Karşılığı : "</span>);
+
+<span class ="pl-25">Milyem_IO.Put(Item => Açı);</span>
+
+<span class="keyw">end</span> b4_6_uyg_3;
+....</pre>
+  <p class="indent">
+   Yukarıdaki programın derlenmesi sonunda, çalıştırma aşamasında sınır aşımı hatası oluşacağı uyarısı
+   verilir. Bu hata, tamsayı değerinin açı değerine dönüştürüleceği a : = Milyem(Tamsayı); adımında
+   ortaya çıkar. Tamsayı değeri 402 dir ve açıya dönüştürülmesi ile, açı değerinin 402 Milyem olması
+   gerekir. Oysa, Milyem değerinin çeverim sınırı 401 dir. Yani Milyem değerleri için 0 .. 400 değerleri
+   tanımlıdır, dönüştürme sonucunda elde edilen 402 değeri, Miilyem çevrimsel (modüler) veri tipinin
+   kapsamı dışındadır ve program çalıştığında kapsam aşımı hatası verecektir.
+  </p>
+  <p class="indent">
+   Tamsayı değerlerinin çevrimsel veri tiplerine dönüştürülmesi sırasında, oluşabilecek kapasam aşımı
+   hatalarının engellenmesi için, Ada programlama dili, kullanıcılara bir olanak sağlamıştır. Bu olanak,
+   tamsayı verilerini hem çevrimsel değerlere dönüştüren, hem de oluşan değerleri çevrimsel
+   veri veri tipinin çevrim sınırları içine yerleştiren Mod niteliğidir. Mod niteliğinin kullanımı aşağıda
+   görülen <a href = "../uygulamalar/b4_4_uyg_4.html">programda</a> görülmektedir.
+  </p>
+  <pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">with</span> Ada.Integer_Text_IO;
+
+<span class="keyw">procedure</span> b4_6_uyg_4 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Milyem <span class="keyw">is mod</span> 401;
+
+<span class="keyw-25">package</span> Milyem_IO <span
+class="keyw">is new</span> Ada.Text_IO.Modular_IO(Milyem);
+
+<span class ="pl-25">Açı : Milyem := 402</span>
+
+<span class="keyw">begin</span>
+
+<span class ="pl-25">Ada.Text_IO.Put(Item => "</span><span
+class="str">Milyem  Değerine Çevrilecek Tamsayı Değeri :  " </span>);
+
+<span class ="pl-25">Ada.Integer_Text_IO.Put(Item => Tamsayı);</span>
+
+<span class ="pl-25">Ada.Text_IO.New_Line;</span>
+
+<span class ="pl-25">Açı := Milyem'Mod(Tamsayı);</span>
+
+<span class ="pl-25">Ada.Text_IO.Put(Item => </span><span 
+class="str">"Tamsayı Değerinin Milyem Karşılığı : "</span>);
+
+<span class ="pl-25">Milyem_IO.Put(Item => Açı);</span>
+
+<span class="keyw">end</span> b4_6_uyg_4;
+..</pre>
+  <p class="nonindent">
+   Bu programın sonucu :
+  </p>
+  <p class="green pl-50">
+   Milyem  Değerine Çevrilecek Tamsayı Değeri :          402
+  </p>
+  <p class="green pl-50">
+   Tamsayı Değerinin Milyem Karşılığı :    1
+ </p>
+  <p class="nonindent">
+   olmaktadır.
+  </p>
+  <p class="indent">
+   Yukarıdaki uygulamadan da görüldüğü gibi, Mod niteliğinin uygulanması,
+   dönüştürme sonunda oluşan değerin, çevrim sınırları içine yerleştirilmesi ile,
+   kapsam hatası oluşmasının önüne geçildiği fakat
+   sonuçta yerleşen değerin öngörülmesinin çok kolay olmayacağı anlaşılmaktadır.
+   Sonuç modüler aritmtik uygulanarak oluşmaktadır ve hesap sistemi, n * modulus - değer
+   şeklindedir. Burada n değeri, sonuç kapsam sınırı içinde kalıncaya kadar arttırılan bir tamsayı,
+   değer ise dönüştürme sonucu oluşan değerdir ve aslında çevrimsel değerler birer
+   tamsayı değeri olduğu için doğrudan doğruya tamsayı verisidir. Yukarıdaki uygulamada,
+   1 * 401 - 402 = 1 sonucu gerçekleşmiştir.
+  </p>
+  <p class="indent">
+   Çevrimsel veri tiplerinin değerleri birer tamsayı olduklarından, tamsayı veri
+   tiplerine dönüştürülebilirler. Burada yine dikkat edilecek nokta, dönüştürme sonucunda elde edilecek
+   tamsayı tipinin, tipin kapsam sınırları içinde kalmasıdır. Aksi durumda, kaçınılmaz olarak kapsam aşımı
+   hatası oluşacaktır. Aşağıdaki <a href="../../sites/uygulamalar/b4_6_uyg_5.html">uygulama</a>
+   bir çevrimsel veri tipi değerinin, bir tamsayı veri tipine dönüştürülmesini açıklamaktadır.
+  </p>
+  <pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">with</span> Ada.Integer_Text_IO;
+
+<span class="keyw">procedure</span> b4_6_uyg_5 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Dakika<span class="keyw"> is mod</span> 60;
+
+<span class="keyw-25">type</span> İlk_On <span class="keyw">is range</span> -10 .. 10;
+
+<span class="keyw-25">package</span> Dakika_IO <span
+class="keyw">is new</span> Ada.Text_IO.Modular_IO(Dakika);
+
+<span class="keyw-25">package</span> On_IO <span
+class="keyw">is new</span> Ada.Text_IO.Integer_IO(İlk_On);
+
+<span class ="pl-25">Süre</span> : Dakika :=8;
+
+<span class ="pl-25">Sonuç</span> : İlk_On;
+
+<span class="keyw">begin</span>
+
+<span class ="pl-25">Ada</span>.Text_IO.Put(Item =><span
+class="str">"İlk_On  Değerine Çevrilecek Dakika Değeri :  "</span> );
+
+<span class ="pl-25">Dakika_IO</span>.Put(item => Süre);
+
+<span class ="pl-25">Ada</span>.Text_IO.New_Line;
+
+<span class ="pl-25">Sonuç</span> := İlk_On(Süre);
+
+<span class ="pl-25">Ada</span>.Text_IO.Put(Item =><span
+class="str">"Dakika Değerinin İlk_On Karşılığı : "</span>);
+
+<span class ="pl-25">On</span>_IO.Put(Item => Sonuç);
+
+<span class="keyw">end</span> b4_6_uyg_5;
+  </pre>
+  <p class="nonindent">
+   Bu programın sonucu :
+  </p>
+  <p class="green pl-50">
+  İlk_On  Değerine Çevrilecek Dakika Değeri :    82
+  </p>
+  <p class="green pl-50">
+   Dakika Değerinin İlk_On Karşılığı :   8
+  </p>
+  <p class="nonindent">
+   olmaktadır. Dönüştürülen değer, dönüştüğü veri tipinin kapsam alanı içinde kaldığından
+   kapsam aşımı hatası oluşmamaktadır.
+  </p>
+  <p class="indent">
+   Çevrimsel veri tipleri üzerine verebileceğimiz bilgiler bu kadardır. Bu veri tipinin sadece
+   konunun uzmanları tarafından kullanılmasında yarar bulunmaktadır. Bu konularla
+   çalışmayanların genellikle çevrimsel veri tiplerine gereksinmeleri olmayacaktır.
+  </p>
+  <p class="navy">
+   Bölüm Sonu Mesajı
+  </p>
+  <p class="indent">
+   Bu bölümle, basit veri tipi sınıfları, yani daha küçük kısmlara ayrılmayan
+   veri sınıflarının incelenmesi tamamlanmış olmaktadır.  Bundan sonra 
+   basit veri tiplerinin biraraya getirilmesi ile oluşturulan bileşik veri tiplerini
+   incelemeye başlayacağız. Fakat daha önce basit veri tiplerini kullanarak
+   temel bilgilerimizi geliştirmeye çalışacağız.
+  </p>
+  <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+   </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+   <a href="b4-s2.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+   <a href="../b5/b5-s1.html"><em> Sonraki &raquo;</em></a>
+   </li>
+  </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:25 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

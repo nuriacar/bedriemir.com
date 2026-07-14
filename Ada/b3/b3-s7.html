@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:18 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s7.html"> 
+    <meta charset="windows-utf-8" />
+    <title>BÃ¶lÃ¼m 3 Sayfa 7</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri DoÄŸan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s6.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s8.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			BÃ¶lÃ¼m 3
+		</p>
+		<p class="chapter">
+			Standard Pakette TanÄ±mlanan Ã–ntanÄ±mlÄ± Veri Tipleri
+		</p>
+		<p class="pagenum">
+			BÃ¶lÃ¼m 3 Sayfa 7
+		</p>
+		<p class="subheading" id="float-attrs">3.3.3.1 - Float Veri Tipine Uygulanabilen Nitelikler (Devam)</p>
+				<p class="indent">
+			GerÃ§ek sayÄ±larÄ±n bÃ¶lme iÅŸlemlerinin sonucunda oluÅŸam kalan sayÄ± kÄ±smÄ± Ã¶ntanÄ±mlÄ± Remainder (Kalan) 
+			fonksiyonu yani, baÅŸka bir deyiÅŸle, Ã¶ntanÄ±mlÄ± S'Remainder niteliÄŸinin dÃ¶ndÃ¼rdÃ¼ÄŸÃ¼ deÄŸer yardÄ±mÄ± ile 
+			sorgulanabilir. Bu fonksiyonun tanÄ±mÄ± aÅŸaÄŸÄ±da gÃ¶rÃ¼lmektedir.
+		</p>
+<ul class="listNoMarker">
+			<li><span class="red">S'Remainder</span> : <span class="pl-15">AÅŸaÄŸÄ±da spesifikasyonu verilen fonksiyonla hesaplanÄ±r:</span></li>
+			<li><span class="keyw-75">function</span> S'Remainder (X,Y  : T)</li>
+			<li><span class="keyw-100">return</span> T</li>
+			<li>Bu fonksiyon, gerÃ§ek sayÄ± verilerin bÃ¶lme iÅŸleminde kalanÄ±n deÄŸerini hesaplar. Bir n gerÃ§ek sayÄ± deÄŸeri, X/Y 
+			sonucunun en yakÄ±n tamsayÄ± karÅŸlÄ±ÄŸÄ±na tamamlanmasÄ± ile oluÅŸturulur.</li>
+			<li>EÄŸer, |n-X/Y| = 1/2 olursa, n Ã§ift sayÄ± olacak ÅŸekilde seÃ§ilir.</li>
+			<li>eÄŸer v makine sayÄ±sÄ± ise, bu sayÄ±, yoksa 0 dÃ¶ndÃ¼rÃ¼lÃ¼r.</li>
+			<li>EÄŸer sonuÃ§ 0 olursa, Constraint_Error oluÅŸur.</li>
+			<li>SonuÃ§ 0 olduÄŸunda, eÄŸer Float'Signed_Zeros True ise, verinin deÄŸerini alÄ±r.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliÄŸin deÄŸerini belirlemek iÃ§in aÅŸaÄŸÄ±da gÃ¶rÃ¼len <a href="../uygulamalar/b3_3_3_1_uyg_13.html">program</a> uygulanabilir:
+		</p>
+
+		<pre class="app-25">
+
+<span class="keyw">with</span> Ada.Text_IO;<span class="keyw"></span>
+
+<span class="keyw">procedure</span> b3_3_3_1_uyg_13 <span class="keyw">is</span>
+
+<span class="pl-25">X</span> : Float :=  23.0;
+
+<span class="pl-25">Y</span> : Float :=  -2.0;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;  X/ Y nin Remainder  DeÄŸeri: &quot;</span> &amp; Float'Image(Float'Remainder(X, Y)));
+
+<span class="keyw">end</span> b3_3_3_1_uyg_13;
+
+Bu programÄ±n sonucu,
+
+<span class="pl-25 green">  X/ Y nin Remainder  DeÄŸeri: -1.00000E+00</span>
+
+olmaktadÄ±r.
+		</pre>
+		<p class="nonindent">
+		HesaplarÄ±n yÃ¼rÃ¼yÃ¼ÅŸÃ¼nÃ¼ kontrol edelim: X/Y = -11.5 ve -12.0 &lt; -11.5 &lt; -11.0 , Ã§ift sayÄ± olan -12.0 Ä± yeÄŸliyoruz. 
+		r = X - n * Y, r = 23.0 - [(-12.0)*(-2.0)] = -1.0
+		</p>
+		<p class="indent">
+		Skaler bir veri tipi olan Float veri tipine tanÄ±mÄ± <a href="b3-s1.html#smax">daha Ã¶nce</a> incelenmiÅŸ olan 
+		Max ve Min fonksiyonlarÄ± uygulanarak, iki Float verisinin hangisinin bÃ¼yÃ¼k veya kÃ¼Ã§Ã¼k olduÄŸu saptanabilir. 
+		Bu fonksiyonlarÄ±n kullanÄ±mÄ±, S'Max (veya S'Min) (Arg1 , Arg2 S'Base) <span class="keyw">return</span> S'Base
+		ÅŸeklinde olmaktadÄ±r. Bu konuda bir <a href="../uygulamalar/b3_3_3_1_uyg_14.html">Ã¶rnek</a> aÅŸaÄŸÄ±da gÃ¶rÃ¼lmektedir:
+		</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_14<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>X<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">486.455878</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Y<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">486.455879</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;X DeÄŸiÅŸkeni DeÄŸeri: "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">42</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;Y DeÄŸiÅŸkeni DeÄŸeri: &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">42</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Y<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;En BÃ¼yÃ¼k Olan &nbsp;DeÄŸiÅŸken : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">37</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Max<span class="S4">(</span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Y<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;En KÃ¼Ã§Ã¼k Olan &nbsp;DeÄŸiÅŸken : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">37</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Min<span class="S4">(</span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Y<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_14<span class="S4">;</span></span>
+
+Bu programÄ±n sonucu,
+
+<span class="pl-25 green">  X DeÄŸiÅŸkeni DeÄŸeri:                    486.455872</span>
+<span class="pl-25 green">  Y DeÄŸiÅŸkeni DeÄŸeri:                    486.455872</span>
+<span class="pl-25 green">  En BÃ¼yÃ¼k Olan  DeÄŸiÅŸken :          486.455872</span>
+<span class="pl-25 green">  En KÃ¼Ã§Ã¼k Olan  DeÄŸiÅŸken :          486.455872</span>
+
+olmaktadÄ±r.
+		</pre>
+		<p class="indent">
+			YukarÄ±daki <a href="../uygulamalar/b3_3_3_1_uyg_14.html">prosedÃ¼rde</a>, alÄ±nan sonuÃ§ hiÃ§ tatminkar deÄŸil
+			ve bunun nedeni Float Ã¶ntanÄ±mlÄ± gerÃ§ek sayÄ± veri tipinin ondalÄ±k sayÄ±sÄ±nÄ±n sadece 6 ondalÄ±k ile sÄ±nÄ±rlÄ± olmasÄ±dÄ±r.
+			Veriler, ondalÄ±k sÄ±nÄ±rÄ±nda olduÄŸunda, alÄ±nan sonuÃ§larÄ±n son ondalÄ±k deÄŸerlerinde belirsizlik ortaya Ã§Ä±kmaktadÄ±r. 
+			DÃ¼ÅŸÃ¼k ondalÄ±k sayÄ±larÄ±nda sorun olmayan bu durum, ondalÄ±k sayÄ±sÄ± tanÄ±m sÄ±nÄ±rÄ±nda olan verilerde sorun
+			yaratmaktadÄ±r. 
+		</p>
+		<p class="indent">
+			Bu sorunun aÅŸÄ±lmasÄ±, ondalÄ±k sayÄ±sÄ± daha yÃ¼ksek olan Long_Float veya Long_Long_Float veri tiplerine
+			geÃ§ilmesi veya daha da iyisi, Ã§alÄ±ÅŸmalara uygun bir ondalÄ±k sayÄ±sÄ± olan Ã¶zgÃ¼n bir veri tipi yaratÄ±lmasÄ±dÄ±r.
+			Bunu ileride kolaylÄ±kla uygulayabileceÄŸiz. Å�u anda, ilk yapabileceÄŸimiz ÅŸey, verileri Long_Float veri
+			tipi ile deÄŸerlendirmeye Ã§alÄ±ÅŸmaktÄ±r. Bunu iÃ§in aÅŸaÄŸÄ±da gÃ¶rÃ¼len 
+			<a href="../uygulamalar/b3_3_3_1_uyg_15.html">prosedÃ¼r</a> uygulanabilir.
+		</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_3_3_1_uyg_15<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>X<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">486.455878</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Y<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> &nbsp;</span><span class="S3">486.455879</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;X DeÄŸiÅŸkeni DeÄŸeri: "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">42</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;Y DeÄŸiÅŸkeni DeÄŸeri: "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">42</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Y<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;En BÃ¼yÃ¼k Olan &nbsp;DeÄŸiÅŸken : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">37</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span>Max<span class="S4">(</span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Y<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;En KÃ¼Ã§Ã¼k Olan &nbsp;DeÄŸiÅŸken : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">37</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span>Min<span class="S4">(</span>X<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Y<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_15<span class="S4">;</span></span>
+
+Bu programÄ±n sonucu,
+
+<span class="pl-25 green">  X DeÄŸiÅŸkeni DeÄŸeri:                    486.455878</span>
+<span class="pl-25 green">  Y DeÄŸiÅŸkeni DeÄŸeri:                    486.455879</span>
+<span class="pl-25 green">  En BÃ¼yÃ¼k Olan  DeÄŸiÅŸken :          486.455879</span>
+<span class="pl-25 green">  En KÃ¼Ã§Ã¼k Olan  DeÄŸiÅŸken :          486.455878</span>
+
+olmaktadÄ±r.
+		</pre>
+		<p class="indent">
+			YukarÄ±daki <a href="../uygulamalar/b3_3_3_1_uyg_15.html">prosedÃ¼rde</a> 15 ondalÄ±k 
+			duyarlÄ±kta Long_Float kullanÄ±mÄ± sorunu Ã§Ã¶zÃ¼mlemiÅŸ olmaktadÄ±r. AslÄ±nda, bu problem iÃ§in 8-10
+			ondalÄ±k duyarlÄ±klÄ± bir Ã¶zgÃ¼n gerÃ§ek sayÄ± veri tipi de problemin doÄŸru Ã§Ã¶zÃ¼mÃ¼ iÃ§in yeterli olabilir
+			gibi gÃ¶rÃ¼nmektedir.
+		</p>
+		<p class="indent">
+			TÃ¼m skaler veri tiplerinde olduÄŸu gibi, Float, Long_Float ve Long_Long_Float veri tiplerinin
+			deÄŸerleri, S'Image niteliÄŸi yardÄ±mÄ± ile sÃ¶zel deÄŸerlere dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lebilir. Bu nitelik birÃ§ok
+			uygulamada sonuÃ§larÄ±n gÃ¶rÃ¼ntÃ¼lenmesinde kullanÄ±lmÄ±ÅŸtÄ±r. 
+		</p>
+		<p class="indent">
+			Burada incelenen tÃ¼m Ã¶zellikler, Ã¶ntanÄ±mlÄ±, Long_Float ve Long_Long_Float veri tiplerine
+			de uygulanabilir.
+		</p>
+		<p class="indent">
+			Flaot gibi gerÃ§ek sayÄ± veri tiplerine uygulanabilen Ã§ok sayÄ±da sistem ile, sayÄ±larÄ±n makine sayÄ±sÄ±
+			olarak gÃ¶sterimi ile ilgili nitelik de bulunmaktadÄ±r. Bu nitelikler, bu Ã§alÄ±ÅŸmada incelenmeyecektir. 
+			Bunun nedeni, bu niteliklerin sonuÃ§larÄ±nÄ±n normal kullanÄ±cÄ±larÄ± deÄŸil, bu konuda Ã¶zel Ã§alÄ±ÅŸma
+			yapanlarÄ± ilgilendirmekte olmasÄ±dÄ±r. 
+		</p>
+		<p class="indent">
+			Sistem yapÄ±sÄ± ile ilgili nitelikler, sistemden sisteme deÄŸiÅŸen sonuÃ§lar verirler ve bu konuda 
+			Ã¶zel ihtisasÄ± olmayanlarÄ±n sonuÃ§larÄ± deÄŸerlendirmesi olanaÄŸÄ± yoktur. Bu sonuÃ§lar,
+			programlama ilgili deÄŸil sistem yapÄ±sÄ± ile ilgilidir. Sadece sistem mimarisi ile ilgili Ã§alÄ±ÅŸma
+			yapanlar iÃ§in bir anlam taÅŸÄ±maktadÄ±r.
+		</p>
+		<p class="indent">
+			GerÃ§ek sayÄ±lar, Ã¼zerinde hata payÄ± olan sayÄ±lardÄ±r. Bu sayÄ±lar Ã¼zerindeki hatalarÄ±n deÄŸerlendirilmesi
+			sayÄ±sal analiz bilim kolunun bir konusudur. Ã‡alÄ±ÅŸÄ±lan sayÄ±larÄ±n elde ediliÅŸ ve kullanÄ±m tÃ¼rleri Ã¼zerinde 
+			yeterli bilgi yoksa bu bilgiler Ã¶ncelikle toplanmalÄ±, uygulanabilecek yÃ¶ntemler Ã¼zerinde 
+			gerekirse konunun uzmanlarÄ±na danÄ±ÅŸÄ±lmalÄ±dÄ±r.
+		</p>
+		<p class="subheading" id="float-ops">3.3.1.2 - Float Veri Tipi Ä°Ã§in TanÄ±mlÄ± Ä°ÅŸlemciler</p>
+		<p class="indent">
+			Float veri tipi iÃ§in tanÄ±mlÄ± iÅŸlemciler, aynen Integer veri tipi gibi, iliÅŸkisel ve aritmetik
+			iÅŸlemciler olarak iki tiptir. Ä°liÅŸkisel iÅŸlemciler karÅŸÄ±laÅŸtÄ±rma iÅŸlemcileri adÄ± da verilir. Bu iÅŸlemciler, 
+			doÄŸru veya yanlÄ±ÅŸ ÅŸeklinde Boolean sonuÃ§lar verirler. Ä°liÅŸkisel iÅŸlemciler, aynen
+			<a href="b3-s2.html#bool-ops">Boolean veri tipinde</a> incelemiÅŸ olduÄŸumuz ÅŸekilde 
+			uygulanÄ±rlar. 
+		</p>
+		<p class="indent">
+			Aritmetik iÅŸlemcilerin iÅŸlenenleri Float veri tipindedir ve sonuÃ§larÄ± Float veri tipinde gerÃ§ekleÅŸir.
+			SonuÃ§lar, gerÃ§ek sayÄ±larÄ±n bilgisayar sistemindeki gÃ¶sterimleri nedeni ile belirli bir hata iÃ§erir.
+			GerÃ§ek sayÄ±lar, hesaplama iÅŸlemlerinde tek kullanÄ±lan veri tipleridir. TamsayÄ± tipleri,
+			Ã§oÄŸunlukla sayma iÅŸleri iÃ§in kullanÄ±lÄ±r. Float veri tipine uygulanan iÅŸlemciler, 
+			<span class="keyw">rem</span> ve <span class="keyw">mod</span> dÄ±ÅŸÄ±nda, Integer
+			veri tipi iÃ§in tanÄ±mlanmÄ±ÅŸ iÅŸlemciler ile aynÄ±dÄ±r. Bu iÅŸlemciler, aynen 
+			<a href="b3-s4.html#int-ops">Integer veri tipinde</a> incelemiÅŸ olduÄŸumuz iÅŸlemciler 
+			gibi uygulanÄ±r.
+		</p>
+		<p class="indent">
+			Float veri tipinde veriler iÃ§in iÅŸlenenleri root tipler olan Ã§arpÄ±m ve bÃ¶lÃ¼m iÅŸlemcileri kuramsal
+			amaÃ§larla tanÄ±mlanmÄ±ÅŸlardÄ±r. GerÃ§ek ifadelerde, TamsayÄ± veri tipleri ile GerÃ§ek SayÄ± veri tiplerinin 
+			nesneleri aynÄ± ifadelerde kullanÄ±lmaz.
+		</p>
+		<p class="subheading" id="shortfloat">3.3.4 - Short_Float</p>
+		<p class="indent">
+			GNAT 2012 baÅŸka derleyicilerin destekleyebileceÄŸi, Short_Flaot veri tipini, uyum amacÄ± ile,
+			desteklemektedir. Bu veri tipi, 6 ondalÄ±k duyarlÄ±k deÄŸeri ile, Float veri tipinden farkÄ± yoktur ve
+			kullanÄ±mÄ± iÃ§in de hiÃ§bir neden yoktur.
+		</p>
+		<p class="subheading" id="longfloat">3.3.5 - Long_Float</p>
+		<p class="indent">
+			GNAT 2012 derleyicisi Long_Float veri tipini desteklemektedir. Bu veri tipi, 32 bit geniÅŸlik
+			ve 15 ondalÄ±k duyarlÄ±kla, Float veri tipinde gÃ¶re tercih edilecek gerÃ§ek sayÄ± veri tipidir. Fakat, 
+			bu Ã¶ntanÄ±mlÄ± veri tipi yerine programlarÄ±n taÅŸÄ±nabilrliÄŸinde daha fazla kolaylÄ±k saÄŸlamak ve 
+			modern trend nedeni ile kullanÄ±cÄ±larÄ±n Ã¶zgÃ¼n tiplerini tanÄ±mlayarak uygulamalarÄ± saÄŸlÄ±k verilmektedir.
+		</p>
+		<p class="subheading" id="longlongfloat">3.3.6 - Long_Long_Float</p>
+		<p class="indent">
+			GNAT 2012 derleyicisi, Long_Long_Float veri tipini desteklemektedir. Bu veri tipi, 
+			donanÄ±mÄ±n olanak saÄŸlayabildiÄŸi en yÃ¼ksek duyarlÄ±kta gerÃ§ek sayÄ± tipi olarak tanÄ±mlanmÄ±ÅŸtÄ±r. 
+			DonanÄ±m desteklediÄŸinde bu veri tipi IEEE extended form kapasitesinde bir veri tipi olarak
+			tasarÄ±mlanmÄ±ÅŸtÄ±r. Bu veri tipi, IA32 (X86) (Intel) (AMD) mimarilerinde, 80 bit geniÅŸletilmiÅŸ
+			duyarlÄ±k (extended precision) ile iÅŸlem olanaÄŸÄ± saÄŸlayabilmektedir. GNAT 2012, 128 bitlik SPARK 
+			formatÄ±nÄ± desteklememektedir. Bunun nedeni, bu formatÄ±n donanÄ±ma deÄŸil yazÄ±lÄ±ma dayanmakta
+			olmasÄ± olarak aÃ§Ä±klanmÄ±ÅŸtÄ±r.
+		</p>
+		<p class="indent">
+			Genel olarak Ã¶ntanÄ±mlÄ± Long_Long_Float veri tipi yerine, taÅŸÄ±nma kolaylÄ±ÄŸÄ± ve 
+			gÃ¼ncel eÄŸilim dolayÄ±sÄ± ile Ã¶zgÃ¼n gerÃ§ek sayÄ± tiplerinin tanÄ±tÄ±lÄ±p kullanÄ±lmasÄ±nÄ±n daha uygun
+			olacaÄŸÄ± belirtilmektedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>Â« Ä°ndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+<a href="b3-s6.html"><em> &laquo;Ã–nceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+<a href="b3-s8.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		
+	</li></ul></body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:18 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

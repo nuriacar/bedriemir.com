@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:51 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s8.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s8</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s7.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s9.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.7 - Aritmetik İşlemciler (Devam)
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 8
+		</p>
+		<p class="subheading" id="binary">
+			2.7.3 - İkili Aritmetik İşlemciler
+	</p>
+		<p class="indent">
+			İkili aritmetik işlemciler, 
+			<a href="b2s1.html">İşlemciler tablosunda</a> görülen ikili aritmetik
+			işlemciler, aşağıdaki tabloda verilmiştir
+		</p>
+		<div class="pl-400">
+			<table summary="İşlemciler" id="binary" class="tablo1" width="50%">
+				<caption class="captionred">
+					İkili Aritmetik İşlemciler
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tr class="highline color4">
+					<th>İşlemci</th>
+					<th>Adı</th>
+				</tr>
+				<tr class="tbline color5">
+					<td class="sayfaortala"> + </td>
+					<td> İkili Artı İşlemcisi </td>
+				</tr>
+				<tr class="tbline">
+					<td class="sayfaortala">> - </td>
+					<td> İkili Eksi İşlemcisi </td>
+				</tr>
+				<tr class="tbline">
+					<td class="sayfaortala">> * </td>
+					<td> Çarpım İşlemcisi </td>
+				</tr>
+				<tr class="tbline">
+					<td class="sayfaortala">> / </td>
+					<td> Bölüm İşlemcisi </td>
+				</tr>
+				<tr class="tbline">
+					<td class="sayfaortala">> % </td>
+					<td> Modulo İşlemcisi </td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			İkli işlemcilerin çalışma şekilleri,
+		</p>
+		<p class="title">
+			sol işlenen <strong><span class="op">işlemci</span></strong> sağ işlenen;
+		</p>
+		<p class="nonindent">
+			olarak tanımlanır. Burada incelenen işlemciler, aritmetik hesaplama
+			yapmak için kullanıldıklarından her iki işleninde veri tipi sayısal veya sayıya
+			dönüştürülebilen tipte veriler olmalıdır. Aksi halde <span class="keyw">NaN</span>
+			kuraldışılık hatası oluşur. Toplama ve çıkarma işlemcilerinde işlenenler sözel de 
+			olabilir.		</p>
+		<p class="navy" id="add"><strong>2.7.3.1- İkili Toplama (+) ve Çıkarma (-) İşlemcileri</strong>
+	</p>
+		<p class="indent">
+			Toplama işleminin sonuçları IEE 754 çift duyarlıklı
+			aritmetik koşullarına göre yürütülür:
+		</p>
+		<ul class="list">
+			<li>
+				Eğer her iki işlenen de
+				<span class="keyw">NaN</span> ise,
+				sonuç da <span class="keyw">NaN</span>
+				olacaktır.			</li>
+			<li>
+				Birbiri ile aksi işaretli iki
+				<span class="keyw">sonsuz</span>un
+				toplamı <span class="keyw">NaN</span>
+				dir.			</li>
+			<li>
+				Sonlu bir değer ile bir
+				<span class="keyw">sonsuz</span>un
+				toplamı,
+				<span class="keyw">sonsuz</span>
+				işlenenin değerine eşittir.
+			</li>
+			<li>
+				İki negatif sıfırın toplamı <strong>-</strong>0
+				dır. İki pozitif veya aksi işaretli sıfırın toplamı
+				<strong>+</strong>0 dır.
+			</li>
+			<li>
+				Geri kalan durumlarda, eğer bir
+				<span class="keyw">sonsuz</span>,
+				sıfır veya
+				<span class="keyw">NaN</span> olayı
+				yoksa, sonuç hesaplanır ve en yakın ifade
+				edilebilir değere IEE 754 yöntemine göre
+				yuvarlanır. Eğer sonuç ifade edilmek için çok
+				büyükse, işlem taşma (overflow) ile sonuçlanır ve
+				sonuç uygun işaretli
+				<span class="keyw">sonsuz</span>
+				olarak kabul edilir.
+			</li>
+		</ul>
+		<p class="indent " id="b2.7.3.1-uyg-1">
+			İkili toplama ve çıkarma işlemcilerinin işlenenleri, bu kategoride sözel tipte de 
+			olabilen tek işlemci tipidir. Bu işlemci her iki işlenen aynı tipte ise sol işlenenin 
+			değerini sağ işlenen ile toplar veya sağ işlenenin değerini sol işlenenden çıkarır. 
+			Sayısal verilerle bu işlemin nasıl sonuçlanacağı açıktır. Fakat sözel verilerle 
+			alışılagelmiş yöntem karakter dizgisi toplamasıdır ve iki karakter dizesinin 
+			birbirine eklenmesi ile karakter dizgisi birleşimi (string concatenation) sonucunu 
+			verir. Sözel veri birleşimi yönteminin bir 
+			<a href="../uygulamalar/b2.7.3.1-uyg-1.html">uygulamasının</a>,
+			<a href="../uygulamalar/b2.7.3.1-uyg-1-js.html">JavaScript kodları</a> aşağıda 
+			görülmektedir.		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sözelVeriBirleşimi<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> sözelVeriBirleşimi<span 
+			class="op">(</span><span 
+			class="str">'23'</span><span 
+			class="op">,</span> <span 
+			class="str">' Nisan'</span><span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.1-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Aynı sonucu, <a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a>
+			programında bir <span class="keyw">eval</span><span class="op">()</span> makrosu
+			yazarak da alabiliriz. <span class="keyw">eval</span><span class="op">()</span>
+			metodu, Global JavaScript Nesnesinin öntanımlı bir metodudur ve global bir 
+			hazır fonksiyon olarak kullanılabilmektedir. <span class="keyw">eval</span><span 
+			class="op">()</span> Metodu, <a href="../b3/b3s2.html#eval">3.3.1</a> de açıklanmıştır. 
+			<span class="keyw">eval</span><span class="op">()</span> Metodunun argümanı bir 
+			karakter dizigisi literalidir. Bu literal tüm bir JavaScript programını içerebilir. 
+			<span class="keyw">eval</span><span class="op">()</span> Metodunun özelliği,
+			bir çeşit bağımsız programlama ortamı olmasıdır. Argümanı olan karakter dizigisi verisindeki
+			tüm programlama adımlarını değerlendirir ve en son hesaplanan değeri geri döndürür. 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a> programı, 
+			kullanıcı ile etkileşimli (interaktif) bir Web sayfasıdır. 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a> programının 
+			kaynak kodları, <a href="../b3/b3s2.html#eval">3.3.1</a> de verilmiştir. Bu programdaki metin kutusuna,
+			aynı <span class="keyw">eval</span><span class="op">()</span> metodununa aktarılan
+			argüman gibi kodlar yazılıp İşlemi Yap ! düğmesi tıklatılınca, <span class="keyw">eval</span><span 
+			class="op">()</span> metodu çalışır, verilen kodları değerlendirir ve sonucu sonuç kutusunda 
+			görüntüler. Bu program çok pratik ve küçük programlarının sonucunu kontrol etmek için çok yararlı olabilir.
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a> programının değerlendirme
+			kutusuna girilmesi için, aşağıdaki kodlar yazılmıştır. Sadece <span class="keyw">eval</span><span 
+			class="op">()</span> metodunun sonucunu görüntüleyebileceği bu kodlar, kopyalanıp, <a 
+			href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a> programının değerlendirme
+			kutusuna girilebilir.
+		</p>
+		<p class="cursive-blue">
+			z = "23" + " Nisan";<br />
+			z + "    (" + typeof z + ")"
+		;</p>
+		<p class="nonindent">
+			Bundan sonra İşlemi Yap ! düğmesine basılıp sonuç görüntülenir.
+		</p>
+		<p class="indent">
+			Aritmetik toplama/çıkarma işlemlerinde, her iki işlenenin veri
+			tipi birbirinin aynı ise, sonucun veri tipi de işlenenlerin aynıdır. 
+			Fakat, işlenenlerin veri tipleri farklı ise, JavaScript yorumlayıcısının
+			eşsiz uyarlama sistemi veri tiplerini birbirine uyarlamaya çalışarak 
+			işlemi yapılabilir hale getirmeye gayret eder. Burada dikkat edilecek nokta, 
+			uyarlamanın her zaman kullanıcının öngördüğü yöne doğru 
+			gerçekleşmeyebileceğidir.		</p>
+		<p class="indent" id="b2.7.3.1-uyg-2">
+			Bir aritmetik toplama/çıkarma işleminde, işlenenlerden birisi sayısal diğeri
+			sözel ise, işlem aritmetik toplama değil sözel veri birleştirmesi olarak
+			gerçekleşir ve sonucun veri tipi sözel (string) olur. Bu konuda bir 
+			<a href="../uygulamalar/b2.7.3.1-uyg-2.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.3.1-uyg-2-js.html">JavaScript kodları</a> aşağıda 
+			görülmektedir.		</p>
+		
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> aritmetikToplama<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> aritmetikToplama<span 
+			class="op">(</span><span 
+			class="str">'2'</span><span 
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.1-uyg-2-sonuç-1"></span>		</p>
+		<p class="nonindent">
+			Sonuçlar, uyarlamanın her ikinci verinin de sözel tipe dönüştürüldüğü ve 
+			aritmetik toplama yerine sözel veri birleştirilmesi yapıldığını belirtmektedir. 
+			Bu <a href="../uygulamalar/b2.7.3.1-uyg-2.html">uygulama</a>, uyumsuz verilerle 
+			uygulanacak veri tipi uyarlamalarının her zaman istenen yönde gelişmeyeceğini
+			belirten bir uyarma olarak algılanabilir.	
+		</p>
+		<p class="indent">
+			Toplama işlemcisi her zaman toplanabilir (associative) özellik göstermez. 
+			1 <span class="op">+</span> 2 <span 
+			class="op">+</span> <span 
+			class="str">'Nisan'</span> ifadesi 3Nisan olarak değerlendirilirken <span 
+			class="str">'Nisan'</span> <span class="op">+</span> 1 <span 
+			class="op">+</span> 2 ifadesi, Nisan12 olarak değerlendirilir. Bu gibi her yöne 
+			çekilebilecek ifadelerden uzak durulması gerekir. Amacımız, JavaScript yorumlayıcısına
+			 açık ve net olarak bildirilmelidir. Gerekirse ön işlemler yapılmalı, parantezler kullanılmalı
+			ve en sonra, en doğru olarak değerlendirilecek şekilde ifadeler yazılmalıdır.
+		</p>
+		<p class="indent">
+			Eğer amaç aritmetik toplama ise ve verilerden biri sayısala çevrilebilir sözel tipte 
+			bir veri ise, işlemci uygulamasından önce, verilerin kullanıcı tarafından uyumlu hale
+			getirilmesi gerekecektir. Bu durumda, sözel verinin toplama işleminden önce kullanıcı 
+			tarafından sayısal tipe dönüştürülmesi gerekir. Bu işlem açık (explicit) veri tipi 
+			dönüştürülmesi olarak adlandırılır.		</p>
+		<p class="indent" id="b2.7.3.1-uyg-3">
+			JavaScript programlama dilinde, sözel bir verinin sayısala dönüştürülmesi
+			için kullanılabilecek çeşitli öntanımlı olanaklar bulunmaktadır. Bunları 
+			konular ilerledikçe sırası ile inceleyeceğiz. Burada kullanacağımız sözelden
+			sayısala açık tip dönüştürme yöntemi, biraz önce incelediğimiz, 
+			tekli arttırım işlemcisinden yararlanılarak gerçekleştirilebilecek 
+			açık tip dönüşümü olacaktır. Bu 
+			<a href="../uygulamalar/b2.7.3.1-uyg-3.html">yöntemin</a>,
+			<a href="../uygulamalar/b2.7.3.1-uyg-3-js.html">JavaScript kodları</a> aşağıda 
+			görülmektedir.		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sözeldenSayısala_2<span 
+			class="op">(</span>sözel<span 
+			class="op">) {</span>
+<span class="pl-75">sözel</span><span 
+			class="op">++</span><span 
+			class="op">;</span>
+<span class="keyw-75">return</span> sözel - 1<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> aritmetikToplama<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+<span class="keyw-75">var</span> a <span 
+			class="op">=</span> <span 
+			class="str">'2'</span><span 
+			class="op">,</span> b <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> q <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-75">a</span> <span 
+			class="op">=</span> sözeldenSayısala_2<span 
+			class="op">(</span>a<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> aritmetikToplama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.1-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.1-uyg-3-sonuç-1"></span>		</p>
+		<p class="nonindent">
+			<a href="../uygulamalar/b2.7.3.1-uyg-3.html">Uygulama</a> 
+			sonuçlarından da görüldüğüne göre, açık veri tipi dönüştürümü gerçekleştirildiğinde, 
+			işlemin yönü istenilen yönde değişmekte yani aritmetik toplama yapılmaktadır.		</p>
+		<p class="indent" id="b2.7.3.1-uyg-4">
+			Javascript programlama dilinde, sayısal bir bir veriyi açık olarak 
+			sözel tipe çevirmek için, en sık uygulanan yöntemlerden birisi, 
+			bu veriye boş bir karakter dizgisi (<span 
+			class="str">''</span> veya<span 
+			class="str">&quot;&quot;</span>) eklemektir. Böyle bir 
+			<a href="../uygulamalar/b2.7.3.1-uyg-4.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.3.1-uyg-4-js.html">JavaScript kodları</a> 
+			aşağıda görülmektedir.		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sayısaldanSözele_1<span 
+			class="op">(</span>sayısal<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> sayısal <span 
+			class="op">+</span> <span 
+			class="str">''</span><span 
+			class="op">;</span> <span class="comm-50">// boş bir karakter dizgisi eklenmektedir.</span>
+<span class="op-50">}</span>
+
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+<span class="keyw-75">var</span> alfa <span 
+			class="op">=</span> 2<span 
+			class="op">;</span>
+
+<span class="pl-75">alfa</span> <span 
+			class="op">=</span> sayısaldanSözele_1<span 
+			class="op">(</span>a<span 
+			class="op">lfa)</span><span 
+			class="op">;</span>
+
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>alfa<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.1-uyg-4-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.1-uyg-4-sonuç-1"></span>		</p>
+		<p class="indent">
+			Çıkarma işlemcisi -, iki sayısal işlenen üzerine
+			uygulandığında, işlenenlerın değerlerinin farkını
+			döndürür. Sol işlenen çıkaran sağ işlemci ise
+			çıkartılandır. Eğer a ve b sayısal işlenenler ise,
+			a-b daima a+(-b) işlemi ile aynı sonucu verecektir.		</p>
+		<p class="indent" id="b2.7.3.1-uyg-5">
+			Javascript programlama dilinde, çıkarma işlemcisinin, toplama 
+			işlemcisinden tek farkı, işlenenlerin veri tipinin birbirinden farklı 
+			olması durumunda, işlenenleri sayısal tipe uyarlamaya çalışmasıdır. 
+			Bu özellik programcılara, sözel verilerin açık olarak sayısala 
+			dönüştürülebilmesi için ikinci bir yöntemi kazandırmaktadır.
+			Böyle bir 
+			<a href="../uygulamalar/b2.7.3.1-uyg-5.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.3.1-uyg-5-js.html">JavaScript kodları</a> 
+			aşağıda görülmektedir.		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sözeldenSayısala_3<span 
+			class="op">(</span>sözel<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> sözel <span 
+			class="op">-</span> 0<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> aritmetikToplama<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+<span class="keyw-75">var</span> a <span 
+			class="op">=</span> <span 
+			class="str">'2'</span><span 
+			class="op">,</span> b <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> q <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-75">a</span> <span 
+			class="op">=</span> sözeldenSayısala_<span 
+			class="op">3(</span>a<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> aritmetikToplama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.1-uyg-5-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.1-uyg-5-sonuç-1"></span>		</p>
+		<p class="navy" id="multiplication"><strong>2.7.3.2- Çarpım (*) İşlemcisi</strong></p>
+		<p class="indent">
+			Çarpma işlemcisi uygulamalarında aşağıdaki sonuçlar
+			ortaya çıkabilir :		</p>
+		<ul class="list">
+			<li>
+				Her iki işlenen de
+				<span class="keyw">NaN</span> ise,
+				sonuç <span class="keyw">NaN</span>
+				(<span class="keyw">N</span>ot
+				<span class="keyw">a</span>
+				<span class="keyw">N</span>umber) dir.			</li>
+			<li>
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.			</li>
+			<li>
+				<span class="keyw">Sonsuz</span> ile
+				sıfır çarpılırsa sonuç
+				<span class="keyw">NaN</span> olur.
+			</li>
+			<li>
+				<span class="keyw">Sonsuz</span> ile
+				<span class="keyw">sonsuz</span>
+				çarpılırsa sonuç
+				<span class="keyw">sonsuz</span> olur.
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.
+			</li>
+			<li>
+				<span class="keyw">Sonsuz</span> ile
+				sıfırdan farklı sonlu bir sayının çarpımının sonucu
+				işaretli bir
+				<span class="keyw">sonsuz</span> dur.
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.			</li>
+			<li>
+				Geri kalan durumlarda, eğer bir
+				<span class="keyw">sonsuz</span> veya
+				<span class="keyw">NaN</span> olayı
+				yoksa, sonuç hesaplanır ve en yakın ifade
+				edilebilir değere IEE 754 yöntemine göre
+				yuvarlanır. Eğer sonuç ifade edilmek için çok büyükse,
+				sonuç aynı işaretli
+				<span class="keyw">sonsuz</span>
+				olarak kabul edilir. Eğer sonuç ifade edilmek için çok
+				küçükse, sonuç uygun işaretli sıfır olarak kabul
+				edilir.			</li>
+		</ul>
+		<p class="indent" id="b2.7.3.2-uyg-1">
+			Çarpma işlemcisi, işlenenlerinden birisi sayıya dönüştürülebilen bir
+			veri olması durumunda, bunu sayıya uyarlamaya çalışarak işlemi gerçekleştirme
+			yoluna gider. Bu da bizlere sözel verileri sayısal tipe dönüştürme için yeni bir 
+			açık yöntem olanağı sağlar. Bu konuda bir 
+			<a href="../uygulamalar/b2.7.3.2-uyg-1.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.3.2-uyg-1-js.html">JavaScript kodları</a> 
+			aşağıda görülmektedir.		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sözeldenSayısala_4<span 
+			class="op">(</span>sözel<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> sözel <span 
+			class="op">*</span> 1<span 
+			class="op">;</span>
+<span class="op-50">}
+
+</span><span class="keyw-50">function</span> aritmetikToplama<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+<span class="keyw-75">var</span> a <span 
+			class="op">=</span> <span 
+			class="str">'2'</span><span 
+			class="op">,</span> b <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> q <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-75">a</span> <span 
+			class="op">=</span> sözeldenSayısala_3<span 
+			class="op">(</span>a<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> aritmetikToplama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.3.2-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="navy" id="division"><strong>2.7.3.3- Bölüm (/) İşlemcisi</strong></p>
+		<p class="indent">
+			Bölme işlemcisi uygulamalarında aşağıdaki sonuçlar
+			ortaya çıkabilir :		</p>
+		<ul class="list">
+			<li>
+				Her iki işlenen de
+				<span class="keyw">NaN</span> ise,
+				sonuç <span class="keyw">NaN</span>
+				(<span class="keyw">N</span>ot
+				<span class="keyw">a</span>
+				<span class="keyw">N</span>umber) dir.
+			</li>
+			<li>
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.			</li>
+			<li>
+				<span class="keyw">Sonsuz</span> ile
+				<span class="keyw">sonsuz</span> un
+				bölümünün sonucu
+				<span class="keyw">NaN</span> olur.
+			</li>
+			<li>
+				<span class="keyw">Sonsuz</span> ile
+				sıfır bölünürse sonuç
+				<span class="keyw">sonsuz</span> olur.
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.			</li>
+			<li>
+				<span class="keyw">Sonsuz</span>&#39;un
+				sıfırdan farklı sonlu bir sayı ile bölünmesinin
+				sonucu işaretli bir
+				<span class="keyw">sonsuz</span> dur.
+				Her iki işlenenin de işareti aynı ise sonuç artı
+				işaretli, iki işlenenin işaretleri farklı ise sonuç
+				eksi işaretli olur.
+			</li>
+			<li>
+				Sonlu bir sayının bir
+				<span class="keyw">sonsuz</span> ile
+				bölünmesinin sonucu sıfır olur. Her iki işlenenin
+				de işareti aynı ise sonuç artı işaretli, iki
+				işlenenin işaretleri farklı ise sonuç eksi işaretli
+				olur.
+			</li>
+			<li>
+				Sıfırın ile sıfır ile bölünmesi,
+				<span class="keyw">NaN</span> sonucunu
+				verir. Sıfırın başka herhangibir sonlu değer ile
+				bölünmesi, sıfır sonucunu verir. Her iki işlenenin
+				de işareti aynı ise sonuç artı işaretli, iki
+				işlenenin işaretleri farklı ise sonuç eksi işaretli
+				olur.
+			</li>
+			<li>
+				Sıfır olmayan sonlu bir değerin sıfır ile
+				bölünmesi, işaretli bir
+				<span class="keyw">sonsuz</span>
+				sonucunu verir. Her iki işlenenin de işareti aynı
+				ise sonuç artı işaretli, iki işlenenin işaretleri
+				farklı ise sonuç eksi işaretli olur.			</li>
+			<li>
+				Geri kalan durumlarda, eğer bir
+				<span class="keyw">sonsuz</span> veya
+				<span class="keyw">NaN</span> olayı
+				yoksa, sonuç hesaplanır ve en yakın ifade
+				edilebilir değere IEE 754 yöntemine göre
+				yuvarlanır. Eğer sonuç ifade edilemeyecek kadar
+				büyük çıkarsa işlem taşma (overflow) yapar ve sonuç
+				uygun işaretli
+				<span class="keyw">sonsuz</span>
+				olarak kabul edilir. Eğer sonuç ifade edilmek için çok
+				küçük çıkarsa, işlem boşalma (underflow) olayına
+				neden olur. Sonuç aynı işaretli sıfır olarak kabul
+				edilir.
+			</li>
+		</ul>
+		<p class="indent" id="b2.7.3.3-uyg-1">
+			Bölme işlemcisi, işlenenlerinden birisi sayıya dönüştürülebilen bir
+			veri olması durumunda, bunu sayıya uyarlamaya çalışarak işlemi gerçekleştirme
+			yoluna gider. Bu da bizlere sözel verileri sayısal tipe dönüştürme için yeni bir 
+			açık yöntem olanağı sağlar. Bu konuda bir 
+			<a href="../uygulamalar/b2.7.3.3-uyg-1.html">uygulamanın</a>, 
+			<a href="../uygulamalar/b2.7.3.3-uyg-1-js.html">JavaScript kodları</a> aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function</span> sözeldenSayısala_5<span 
+			class="op">(</span>sözel<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> sözel <span 
+			class="op">/</span> 1<span 
+			class="op">;</span>
+<span class="op-50">}
+
+</span><span class="keyw-50">function</span> aritmetikToplama<span 
+			class="op">(</span>sağİşlenen<span 
+			class="op">,</span> solİşlenen<span 
+			class="op">) {</span>
+<span class="pl-75">x</span> <span 
+			class="op">=</span> sağİşlenen <span 
+			class="op">+</span> solİşlenen<span 
+			class="op">;</span>
+<span class="keyw-75">return</span> x<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+<span class="keyw-75">var</span> a <span 
+			class="op">=</span> <span 
+			class="str">'2'</span><span 
+			class="op">,</span> b <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> q <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-75">a</span> <span 
+			class="op">=</span> sözeldenSayısala_5<span 
+			class="op">(</span>a<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> aritmetikToplama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">);</span>
+<span class="pl-75">veriTipiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> <span 
+			class="str">'b2.7.3.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p> 
+			<span class="cursive-green">Sonuç : </span> 
+			<span class="cursive-red" id="b2.7.3.3-uyg-1-sonuç-1"></span>		</p>
+		<p class="navy" id="modulo"><strong>2.7.3.4 - Modulo (%) İşlemcisi</strong></p>
+		<p class="indent">
+			Modulo işlemcisi içsel bir bölme işleminin sonucunda,
+			işlenenlerin kalanını geri döndürür. Sağ taraf bölen
+			sol taraf bölünendir.		</p>
+		<p class="indent">
+			Modulo işleminin sonucu, IEEE aritmetik kurallarına
+			göre belirlenir:
+		</p>
+		<ul class="list">
+			<li>
+				Eğer her iki işlenen
+				<span class="keyw">NaN</span> ise,
+				sonuç da <span class="keyw">NaN</span>
+				olur.
+			</li>
+			<li>
+				Sonucun işareti, bölünenin işaretidir.
+			</li>
+			<li>
+				Eğer bölünen sonlu bölen
+				<span class="keyw">sonsuz</span> ise,
+				sonuç bölünene eşit olur.
+			</li>
+			<li>
+				Eğer bölünen sıfır bölen sonlu ise, sonuç bölene
+				eşit olur.	
+			</li>
+			<li>
+				Geri kalan durumlarda, eğer bir sıfır, veya
+				<span class="keyw">NaN</span> veya
+				<span class="keyw">sonsuz</span> işe
+				karışmazsa, bir n bölünen ve bir d bölenin
+				bulunduğu modulo işleminden ontabanlı geri kalan r, 
+				<pre class="navy">
+r=n-(d*q)
+				</pre>
+				formülü ile belirlenir. Burada, q, sadece n/d negatif
+				ise negatif ve sadece n/q pozitif ise pozitif olan, ve
+				büyüklüğü gerçek n ve d bölüm işleminin kalanından büyük
+				olmamak koşulu ile olabildiğince büyük olan bir sayıdır.			</li>
+		</ul>
+		<p class="indent">
+			Birçok programlama dilinde modulo işlemcisinin işlenenleri
+			olarak sadece tamsayılar kullanılabilmesine karşın, Javascript 
+			programlama dilinde kayan noktalı (ondalıklı) sayılar da kullanılabilmektedir.
+			Bu işlemcinin sonuçları bir tür yaklaşım göstergesi gibi 
+			kabul edilebilir. Fazla pratik bir matematik işlevi yoktur.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s7.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s9.html"><em>Sonraki »</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/b2.7.3.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.1-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.1-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.1-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.1-uyg-5.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.3.3-uyg-1.js">
+		</script>
+
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:51 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

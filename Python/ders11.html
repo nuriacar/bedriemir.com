@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:04 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders11.html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Python 3 Ders 11</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders10.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders12.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 11
+      </p>
+    </div>
+    <p id="logical" class="title-left verticalTab-10">
+      2.1 - Mantıksal İşlemler</p>
+    <p class="indent">
+      Mantıksal işlemler, bir programın belirli bir koşulların 
+      doğrulanmasına göre tanımlanmış işlemleri uygulamasıdır. 
+      Metematikte olsun, bilgisayar bilimlerinde olsun, mantıksal 
+      olarak ya doğrular, ya da yanlışlar vardır. Matematikte 
+      olsun, bilgisayar bilimlerinde olsun, mantıksal işlemler, 
+      ya doğru, ya da yanlış olarak sonuçlanırlar. Başak her 
+      türlü sonuçlanma olasılığı gözardı edilir. Aslında bu 
+      fiziksel dünya için, en doğru muhakeme şeklidir. Suyun 
+      sıcaklığı 60&deg; den fazla ise &quot;Suyun Sıcaklığı 
+      60&deg; den Fazladır&quot; savı doğrudur. Suyun sıcaklığı 
+      daha düşükse, bu sav yanlıştır. Başka olasılık da olamaz. 
+      Yani, mantıksal olayalar, doğrular ve yanlışlar üzerinden 
+      yürürler.
+    </p>
+    <p class="indent">
+      Bilgisayar programları, bazı koşulların gerçekleşip gerçekleşmediğini 
+      kontrol edip ona göre durum değiştirirler. Yani, bazı 
+      işlemleri ancak bazı koşullar gerçekleşmişse yaparlar. 
+      Aksi halde, bu koşulların gerçekleşmediği durumlarda yapmaları 
+      belirtilen işlemleri yaparlar. Bu seksiyonda, mantıksal 
+      koşulların ne şekilde oluştuğu ve bilgisayar programlarının 
+      mantıksal değerlere göre nasıl yön değiştirdiklerini incelemeye 
+      çalışacağız.
+    </p>
+    <p id="boolean" class="subheading">
+      2.1.1 - Boolean Veri Tipi</p>
+    <p class="indent">
+      Python programlama dili mantıksal (boolean) veri tipi 
+      değerlerinde C programlama dili yöntemlerini aynen kabul 
+      etmiştir. Boolean veriler ya <span class="keyw">False</span> 
+      ya da <span class="keyw">True</span> değerlerini alabilirler. 
+      Python derleyicisinin <span class="keyw">True</span> veya
+      <span class="keyw">False</span> olarak değerlendirdiği 
+      değerler aşağıda görülmektedir.
+    </p>
+    <ul class="listNoMarker">
+      <li>0 , 0.0 , 0+0j <span class="keyw">True</span>, diğer 
+      sayısal değerler <span class="keyw">False</span>.</li>
+      <li>Boş bir sözel değer <span class="str">&quot;&quot;</span>
+      <span class="keyw">False</span>, diğerler sözel değerler
+      <span class="keyw">True</span>.</li>
+      <li>Boş bir liste<span class="op">[]</span>
+      <span class="keyw">False</span>, diğer listeler
+      <span class="keyw">True</span></li>
+      <li>Boş bir topluluk (tuple) <span class="op">()</span>
+      <span class="keyw">False</span>, diğerleri
+      <span class="keyw">True</span></li>
+      <li>Boş bir sözlük (dictionary)<span class="op"> {}</span>
+      <span class="keyw">False</span>, diğer sözlükler
+      <span class="keyw">True</span></li>
+      <li>Boş bir küme (set) , set<span class="op"> ()</span>
+      <span class="keyw">False</span>, diğer kümeler
+      <span class="keyw">True</span></li>
+      <li>Özel bir Python öğesi, <span class="keyw">None</span> 
+      daima <span class="keyw">False </span>olarak değerlendirilir.</li>
+    </ul>
+    <p id="relop" class="subheading">
+      2.1.2 - Karşılaştırma İşlemcileri
+    </p>
+    <p class="indent">
+      Pyhton karşılaştırma işlemcileri iki işlenenlidir ve sonuçları 
+      sadece mantıksal değer veri tipinde (<span 
+      class="keyw">True</span> veya <span class="keyw">False</span>) 
+      olabilir.
+    </p>
+    <p class="indent">
+      Python karşılaştırma işlemcileri, aşağıda görülmektedir.
+    </p>
+    <ul class="listNoMarker">
+      <li><span class="op">==</span> (eşittir),</li>
+      <li><span class="op">&gt;</span> (büyüktür),</li>
+      <li><span class="op">&lt;</span> (küçüktür),</li>
+      <li><span class="op">&gt;=</span> (büyüktür veya eşittir),</li>
+      <li><span class="op">&lt;=</span> (küçüktür veya eşittir),</li>
+    </ul>
+    <p id="relapp" class="subsub">
+      2.1.2.1 - Karşılaştırma İşlemlerinin Uygulanması</p>
+    <p class="indent">
+      Python karşılaştırma işlemcilerinden doğru sonuç alınabilmesi 
+      için, uygulanacak işlenenler üzerinde, son derece dikkatli 
+      uyarlama çalışmaları yapılmalı ancak ondan sonra, karşılaştırma 
+      işlemi yapılıp ancak ondan sonra, alınan sonucun güvenilir 
+      olabileceği düşülmelidr. Aksi halde, doğru sonuç alınabilme 
+      olasılığı çok düşük kalabilir. Düşünülmesi gereken en 
+      önemli şey, bilgisayarların sadece tamsayılarla çalıştığı, 
+      sadece tamsayıları (aslında sadece 0 veya 1 leri) tanıyabildiği 
+      unutulmamalıdır. Bilgisayarlar, tüm diğer verileri 1 ve 
+      0 lara çevirip üzerlerinde işlem yaparlar. En büyük sorun 
+      da işte tam burada, bilgilerin makine diline çevrilmeleri 
+      sırasında ortaya çıkar.
+    </p>
+    <p class="indent">
+      Bilgisayara veri verirken, verinin düşüncemizce oluşturulmuş 
+      bir şeklini bilgisayara veri olarak göndeririz. Bilgisayarın 
+      da veriyi, bizim düşüncemizde olduğu gibi algılamasını 
+      bekleriz. Oysa bazen bunun tam tersi olur. Bilgisayar, 
+      gönderdiğimiz veriyi kendi algıladığı gibi belleğine yerleştirir 
+      ve algılamış olduğu veri bizim düşüncemize tam olarak 
+      uymayabilir.
+    </p>
+    <p class="indent">
+      İnsanlar ile bilgisayarların, üzerinde tam olarak anlaşabildikleri 
+      veriler, sadece tamsayı verileridir. Tamsayılar ile iletişime 
+      geçildiğinde, bilgisayarların insanların sağladığı verileri 
+      yanlış anlama olasılığı yok denecek kadar azdır. Bu nedenden 
+      dolayı, von Neumann bilgisayarlarda sadece tamsayılar 
+      ile çalışılmasını sağlık vermiştir. Doğal olarak, yaşam 
+      ondalıklı sayılara dayandığından bu öneri sadece bir ironi 
+      olarak kalmıştır. Tamsayılardan başka tüm veri türlerinde 
+      anlaşamama olasılığı çok yüksektir ve belirli bilgilerin 
+      bilgisayarlara aktarılmalarında, her veri tipi için ayrı 
+      bir uyarlama ön işleminin yapılmış olması kritiğin de 
+      üstünde bir zorunluluktur.
+    </p>
+    <p class="indent">
+      Örnek olarak, ondalıklı sayıları gözönüne alalım. Ondalıklı 
+      sayılar üzerinde bazı hesaplamalar yapılıp, sonucun belirli 
+      değerler ile karşılaştırılması gereksin, bu konuda üretilmiş 
+      değerin kaç ondalığa kadar duyarlı olduğu, yani bilgisayarın 
+      belleğindeki sayının ondalık değerlerinin kaçıncı basamağa 
+      kadar gerçeği yansıttığı tam olarak bilinemez. Bu nedenle, 
+      ondalık değerlerin eşitliklerinin değil, büyüklüklerinin 
+      karşılaştırılması ancak güvenilir sonuçlar verebilir.
+    </p>
+    <p class="indent">
+      Sözel veriler ise ayrı bir sorun kaynağıdır. Çoğu zaman, 
+      bu verilerin yazılmaları, kullanılan harfler, gündelik 
+      kullanımları ile sözlük yazımları arasındaki farklar belirli 
+      yöntemlerle giderilmeden, bu verilerin eşitlikleri üzerinde 
+      karşılaştırma işlemlerine girişilmemesi gerekir. Bunlar 
+      o kadar kritik işlemlerdir ki, çoğu zaman doğru yöntemler 
+      ancak profesyonel yardımla belirlenebilir.
+    </p>
+    <p class="indent">
+      İlk olarak eşitlik işlemcisinin uygulama örneklerini inceleyelim.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>16 <span class="op">==</span> 16<img 
+    alt="enter" src="images/enter.fw.png">
+
+True
+<span class="op">&gt;&gt;&gt;</span>21.000067 <span 
+    class="op">==</span> 21.000067<img alt="enter" 
+    src="images/enter.fw.png">
+
+True
+<span class="op">&gt;&gt;&gt;</span><span class="str">&quot;Duygu&quot;</span> <span 
+    class="op">==</span> <span class="str">&quot;duygu&quot;</span><img 
+    alt="enter" src="images/enter.fw.png">
+
+False
+<span class="op">&gt;&gt;&gt;</span>0 <span class="op">==</span> False<img 
+    alt="enter" src="images/enter.fw.png">
+
+True     
+    </pre>
+    <p class="indent">
+      Bu sonuçlardan, sözel verilerin karşılaştırılmalarında, 
+      küçük/büyük karakterlerin farklı algılandıkları, 0 sayısının 
+      False anlamına geldiğini anlıyoruz.
+    </p>
+    <p class="indent">
+      Diğer karşılaştırma işlemcileri de tamamen ile aynı şekilde 
+      çalışır.
+    </p>
+    <p id="logicop" class="subheading">
+      2.1.3 - Mantıksal İşlemciler
+    </p>
+    <p class="indent">
+      Python mantıksal işlemcileri, matematikte uygulanandıkları 
+      şekillerde sonuç verirler. Üç tane mantıksal işlemci tanımlanmıştır. 
+      Bunlar, <span class="op">and</span> , <span class="op">
+      or</span> ve <span class="op">not</span> işlemcileridir 
+      ve hepsi matematik mantıkta olduğu gibi işlev yaparlar.
+    </p>
+    <ul class="listNoMarker">
+      <li><span class="op">and</span> işlemcisi iki işlenenlidir. 
+      Her iki işlenen de <span class="keyw">True</span> ise,
+      <span class="keyw">True</span> yoksa
+      <span class="keyw">False</span> sonucunu verir.</li>
+      <li><span class="op">or</span> işlemcisi iki işlenenlidir. 
+      İşlenenlerden birisi veya ikisi <span class="keyw">True</span> 
+      ise, <span class="keyw">True</span> yoksa
+      <span class="keyw">False</span> sonucunu verir.</li>
+      <li><span class="op">not</span> işlemcisi tek işlenenlidir. 
+      İşlenen <span class="keyw">True</span> ise
+      <span class="keyw">False</span>, <span class="keyw">False</span> 
+      ise <span class="keyw">True</span> sonucunu verir.</li>
+    </ul>
+    <p id="logicapp" class="subsub">
+      2.1.3.1 - Mantıksal İşlemcilerin Uygulanması
+    </p>
+    <p class="indent">
+      Mantıksal işlemcilerin uygulanması için örnekler:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>True and False<img 
+    alt="enter" src="images/enter.fw.png">
+False
+<span class="op">&gt;&gt;&gt;</span>True or False<img 
+    alt="enter" src="images/enter.fw.png">
+True
+<span class="op">&gt;&gt;&gt;</span>not False<img 
+    alt="enter" src="images/enter.fw.png">
+True</pre>
+    <p id="boolexpr" class="subheading">
+      2.4 - Mantıksal İfadeler</p>
+    <p class="indent">
+      Mantıksal ifadelerin sonucu daima boolean veri tipi olan
+      <span class="keyw">True</span> veya <span class="keyw">
+      False</span> değeri ile sonuçlanır. Mantıksal ifadelerde, 
+      karşılaştırma veya mantıksal işlemciler veya her ikisi 
+      birden bulunur. Örnek :
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>16 &gt; 30 <span 
+    class="op">and</span> 23 <span class="op">==</span> 23 <img 
+    alt="enter" src="images/enter.fw.png">    
+False</pre>
+    <p class="indent">
+      Mantıksal işlemcilerin öncelik sıraları karşılaştırma 
+      işlemcilerinden küçüktür. Bu nedenle önce karşılaştırma 
+      işlemcileri uygulanır. Bu şekilde mantıksal ifade,
+      <span class="keyw">False</span> <span class="op">and</span>
+      <span class="keyw">True</span> haline indirgenir. Burada, 
+      and işlemcisi ancak her iki işleneni de
+      <span class="keyw">True</span> olursa
+      <span class="keyw">True</span> sonucunu vereceğinden, 
+      sadece bir tane <span class="keyw">True</span> ile sonuç
+      <span class="keyw">False</span> olur.
+    </p>
+    <p class="indent">
+      Mantıksal ifadeler çok daha karmaşık olabilirler. Fakat 
+      mantıksal ifadeler, ne kadar karmaşık olursa olsunlar, 
+      mantıksal veri tipinde (<span class="keyw">True</span> 
+      veya <span class="keyw">False</span>) olan sadece bir 
+      tek sonuç verebilirler.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders10.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders12.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:04 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

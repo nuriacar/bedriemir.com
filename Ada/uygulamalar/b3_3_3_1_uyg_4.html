@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b3_3_3_1_uyg_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:05 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/uygulamalar/b3_3_3_1_uyg_4.html"> 
+    <meta charset="utf-8" />
+    <title>b3_3_3_1_uyg_4</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+	</head>
+<body>
+		<table id="layout-top" summary="Başlık" border="1" bordercolor="#0000FF">
+			<tr>
+				<td><span class="maroon">procedure</span></td>
+				<td class="top1text">Ada Program Örnekleri</td>
+				<td class="top1previous">&nbsp;</td>
+			</tr>
+			<tr>
+				<td><a href="../programlar/b3_3_3_1_uyg_4.adb">b3_3_3_1_uyg_4.adb</a></td>
+				<td class="top2text">Programı Yazan : Prof.Dr.Bedri Doğan Emir</td>
+				<td class="top2previous">
+					<a href="javascript:void window.history.back(-1)">Çağıran Sayfaya Dönüş</a></td>
+			</tr>
+		</table>
+		<p class="indent">
+			<span class="dikeyTab-50">&nbsp;</span>
+		</p>
+<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_1_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>F_In_Out<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Float_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>Text_IO<span class="S0"> </span><span class="S1">renames</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Float Değeri Giriniz : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_in_Out<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>F<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Girilen Float Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>F<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Önceki Makine Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Pred<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Alt Eşik : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>F<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span>Float<span class="S4">'</span>Pred<span class="S4">(</span>F<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Sonraki Makine Değeri : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Succ<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">3</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Üst Eşik : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Float<span class="S4">'</span>Succ<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span>F<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Ortalama Fark : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ortalama<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S1">abs</span><span class="S4">(</span><span class="S11">Alt_Eşik</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Üst_Eşik</span><span class="S4">)</span><span class="S0"> </span><span class="S4">/</span><span class="S3">2.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">8</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot;Ortalama Gerçekleşen % Duyarlık (%Bağıl Hata) : &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Ortalama<span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S3">100.0</span><span class="S0"> </span><span class="S4">/</span>F<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_In_Out<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bağıl_Hata</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_4<span class="S4">;</span></pre>
+		<div class="sayfaortala">
+			<table width="80%" border="1" id="kapsam" class="tablo1">
+				<caption class="captionred ">
+						Öntanımlı Gerçek Sayı Veri Tiplerinin Karakteristikleri
+				</caption>
+				<colgroup>
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+				<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+					<col class="st1"  width="14.23%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4 st1">
+						<th>Girilen Float Değeri</th>
+						<th>Önceki Makine Değeri</th>
+						<th>Alt Eşik</th>
+						<th>Sonraki Makine Değeri</th>
+						<th>Üst Eşik</th>
+						<th>Ortalama Fark</th>
+						<th>Ortalama Gerçekleşen % Duyarlık (%Bağıl Hata)</th>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345600E+00</td>
+						<td class="sayfaortala">1.12345588E+00</td>
+						<td class="sayfaortala">1.19209290E-7</td>
+						<td class="sayfaortala">1.12345612E+00</td>
+						<td class="sayfaortala">1.19209290E-7</td>
+						<td class="sayfaortala"> 1.19209290E-7</td>
+						<td class="sayfaortala">1.1E-5</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345600E+15</td>
+						<td class="sayfaortala">1.12345594E+15</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">1.12345607E+15</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">6.71088640E+7</td>
+						<td class="sayfaortala">6.0E-6</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">1.12345602E+32</td>
+						<td class="sayfaortala">1.12345592E+32</td>
+						<td class="sayfaortala">9.67140656E+24</td>
+						<td class="sayfaortala">1.12345612E+32</td>
+						<td class="sayfaortala">9.67140656E+24</td>
+						<td class="sayfaortala"> 9.67140656E+24</td>
+						<td class="sayfaortala">8.6E-6</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b3_3_3_1_uyg_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:06 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

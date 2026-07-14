@@ -1,0 +1,2196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:15 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b20/b20.6-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b20.6-s1</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b20.5-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b20.6-s2.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 20
+		</p>
+		<p class="chapter">
+			Uygulamalar
+		</p>
+		<p class="pagenum">
+			Bölüm 20.6 Sayfa 1
+		</p>
+		<p class="title-left" id="resim">20.6 - Resimler ile Gerçekleştirilen Uygulamalar</p>
+		<p class ="indent">
+			Resiimler web sayfalarında en etkili iletişim araçlarından biridir. Her türlü 
+			içeriğin görsel açıklmaları resimler yardımı ile gerçekleştirilir. Burada resimlerin
+			kullanımı ile ilgili uygulama örnekleri incelenecektir.
+		</p>
+		<p class="subheading" id="rollovers-1">20.6.1 - JavaScript Resim Rolloverleri (Üç Resim Kullanlanlar)</p>
+		<p class ="indent">
+			Resim rolloverleri, bir bağlantı resminin, yani kullanıcının tıklaması ile 
+			sayfanın başka bir sayfaya gitmesini sağlayan kullanıcıyı uyarmak için başka 
+			resimlerle yer değiştirmesidir Örnek olarak bir bağlantı resminin mouse 
+			uzakta iken arkaplan rengi yeşil ise, mouse üzerine geldiiğinde JavaScript 
+			programı çalışarak arkaplan rengini maviye dönüştürebilir. Aynı şekilde, ve 
+			kullanıcı resmin üzerine tıkladığında JavaScript programı bu rengi kırmızıya 
+			dönüştürebilir . Bu tür programlara rollover programları adı verilmektedir. 
+			Genel olarak bir resim rolloveri için üç tane aynı boyutta fakat farklı resim 
+			hazırlamak gerekmektedir. Bunlardan birisi mouse uzakta ilen (mouseout), 
+			ikincisi mouse üzerinde iken (mouseover) ve üçüncüsü kullanıcı resme tıkladığında 
+			(onclick) görüntülenir.
+		</p>
+		<p class ="indent">
+			Rolloverin sayfanın bağlantılarının çekiciliğini ve kulanışlılığını arttıdığı kesindir. 
+			Fakat, resimlerle JavaScript kullanılması ile rollover etkisinin sağlanmasında, 
+			önemli sorunlarla karşılaşılır. 
+		</p>
+		<p class ="indent">
+			Sorunlardan bir tanesi, JavaScript ile gerçekleştirilen resim rolloverlerinde, 
+			JavaScript programının sayfanın doğal kodlayıcıları olan (X)HTML + CSS çiftinin 
+			dışında olmasıdır. Yani, JavaScript yorumlayıcısı kullanıcı tarafından devreden 
+			çıkarılabilir ve bu durumda sayfada hiçbir JavaScript etkisi gerçekleşemez. 
+			Bu sorunun rollover kullanımını fazla engelleyici bir yönü yoktur, çünkü JavaScript 
+			yorumlayıcısının kapatılmış olması, bağlantının çalışmasını engellemez, sadece 
+			rollover resimlerinin değişimini engeller, bunun da bağlantının çalışmasını engeller 
+			bir yönü bulunmamaktadır. Yani rollover olaylarını gerçekleştiren JavaScript programları, 
+			sayfayı aşamalı olarak geliştirir niteliktedir ve sayfa içinde farkedilmeden kaybolurlar.
+		</p>
+		<p class ="indent">
+			Rollover etkisinin JavaScript programları ile, resim değişimi yöntemi ile sağlanmasının
+			ikinci ve esas engelleyici sakıncası, rollover etkisinin resim değişimi ile sağlanması ve 
+			resimlerin sayfadaki metinlere göre çok daha yavaş indirilebilmeleridir. Resimler
+			büyük çapta verilerdir, bu nedenle metinlere göre daha yavaş indirilebilirler ve 
+			sayfada metinlerden sonra görüntülenirler. Bunun sonucu olarak, sayfa başlangıçta 
+			hoş olmayan açıklıklarla ve buralarda görüntülenen bağlantı resimlerinin metin 
+			açıklamaları ile görüntülenir. Bu sorun temel ve rollover resimlerinin kullanımını 
+			engelleyici niteliktedir. Aslında tüm sayfa resimleri için bu sorun geçerli olmasına karşın, 
+			özellikle rollover resimleri için çok daha rahatsız edici olabilir. Bu sorunun aslında basit 
+			bir çözümü yoktur ve karmaşık tekniklerle, 'Bekleyiniz Sayfa Hazırlanıyor !' tipi mesajlar 
+			görüntülerek sayfanın ancak düzenli hale geldiğinde kullanıcının görümüne sunulması 
+			sağlanabilir. Bu çözüm de yerine göre kullanıcıları rahatsız edici olarak nitelendirilebilir.
+		</p>
+		<p class ="indent">
+			Rollover resimlerinin kullanıcının etkisine yavaş tepki vermelerinin engelenmesinin bir yolu, 
+			resimlerin her çağrılmada uzak sunucudan değil, sadece başlangıçta indirilerek, kullanıcı 
+			makinesinin program belleğinde saklanmasının sağlanmasıdır. Ön bellekleme (preloading) olarak 
+			adlandırılan bu teknik, rollover resimlerinin sayfa indirilmesi ile beraber, kullanıcının geçici 
+			program belleğine (stack bellek) indirilmesi ve kullanıcının her çağrısında uzak sunucudan 
+			indirilmeye kıyaslandığında çok daha hızlı olarak öngörülen resim değişiminin sağlanabilmesidir.
+			Buna rağmen, resim önbelleklemesi, sayfanın başlangıçtaki kötü görünümünü engelleyemez.
+		</p>
+		<p class ="indent">
+			Günümüzde, internet erişiminde sağlanan yüksek hızlı bağlantılar, rollover kullanımında, 
+			sayfanın başlangıçtaki kötü görününümü neredeyse ortadan kaldırabilmekte ve rollover
+			resimlerinin önbelleklenmeleri çok daha hızılı gerçekleşebilmektedir. Günümüzde sağlanan 
+			hızlı bağlantılar, eskiden yavaş bağlantılarda yaşanabilen bu görüntü gecikmelerini gittikçe 
+			ortadan kaldırmaktadırlar. Yine de olanaklar oldukça bir önlem olarak resim 
+			önbelleklenmesinin yararı tartışılmaz.
+		</p>
+		<p class ="indent">
+			Bağlantılar için resim rolloverlerinin kullanılması, aynı etkinin metin bağlantıları
+			kullanılarak CSS teknikleri uygulanarak elde edilebilmesi ile biraz daha azalmıştır.
+			Gerçekten metin mesajları ile rollover etkisi CSS teknikleri ile elde edilebildikten sonra,
+			salt metin içeren resimlerle JavaScript rollover programlarının uygulanması 
+			gereği kalmamıştır. CSS sayfanın doğal programlama ortamıdır ve kullanıcı tarafından 
+			kapatılması olanağı yoktur. Bu nedenle CSS sekmeleri (CSS tabs) adı verilen 
+			CSS rolloverlerinin sayfada çalışamaması olasılığı bulunmamaktadır. Bu çalışmada, hatta
+			izlediğiniz bu sayfada bile çoğu bağlantılarda metin temelli CSS rolloverleri kullanılmıştır. 
+		</p>
+		<p class ="indent">
+			JavaScript kullanılan bir resim rollover programında, pensip olarak üç tane resim 
+			kullanılır. bunlardan ilki sayfanın ilk görüntüsündeki (mouseout) resmidir. İkinci resim, 
+			kullanıcı bağlantını üzerinde mouse ile geziindiğinde mouseout resmi ile yer değiştiren 
+			(mouseover) resmidir. Üçüncü ve son resim de, kullanıcı bağlantıyı çalıştırmaya karar verip 
+			bağlantı üzerine tıklayınca, mouseover resmi ile yer değiştiren (onclick) resmidir. 
+		</p>
+		<p class="indent">
+			JavaScript roloverlerinde resim önbelleklenmesin güncel yöntemleri üzerinde detaylı 
+			bir inceleme yararlı olacaktır. Esi DHTML günlerinde kullanılan öntanımlı 
+			<span class="keyw">image</span><span class="op">()</span> nesnesi, 
+			ne ECMA -262 çekirdek JavaScript spesifikasyonu, ne de W3C-DOM çekirdek spesifikasyonlarında
+			tanımlı standart bir öntanımlı nesne tipi değildir. Bu nesne tipi, belge çözümleyicilerin
+			özel tanımlı bir nesne tipidir ve günümüzde geçmişe uyum adına tüm belge çözümleyicilerce
+			desteklenmektedir. Her zaman beliritildiği gibi, bu gibi zoraki desteklerin ne kadar süreceği
+			belli olmadığından, ciddi bir programcılık çalışmasında,  uzun vadede programın sürekliliğinin 
+			sağlanması açısından temel standartların dışındaki öğelere yer verilmemesi uygun olacaktır.
+		</p>
+		<p class="indent">
+			Resim nesnesi devreden çıkınca, önbellekleme için, tek alternatif, resimlerin sayfa kodlarına
+			yerleştirilmesi fakat daha sonra rollover etkisi ile görüntülenecek olanları, CSS
+			adımları ile display : none olarak belirtmektedir. Bunun da sakıncası, belge çözümleyicilerin
+			yeni sürümlerinde, görüntelenmeyecek öğelerin indirilmesine kısıt getirilmekte olmasıdır. Bu 
+			açıdan, bu sakıncanın giderilmesi için, sayfa kodlarına eklenen, daha sonra görüntülecek resimlerin
+			1px yükseklik ve genişlikle tanımlanması ve hiç farkedilmeyecek olan bu noktanın da 
+			istenirse, JavaScript adımları ile görüntülenmesinin engelenmesi yoluna gidilecektir. Bu 
+			şekilde, her rollover etkisinde, resimlerin uzak sunucudan değil, önbelleklendiği program
+			belleğinden çağrılarak, uzak sunucudan resmi indirmeden kaynaklanan olası bir görüntü 
+			bozulmasının önüne geçmeye çalışılacaktır. 
+		</p>
+		<p class ="indent" id="b20.6.1-uyg-1">
+			Aşağıda kodları görülmekte olan <a href="../uygulamalar/b20.6.1-uyg-1-js.html">programda</a>, 
+			yukarıda açıklanan prensiplerin uygulandığı, üç resimli bir rollover etkisi gerçekleştirilmektedir. 
+			Bu programda, rollover resimleri, 1px boyutunda, görüntülenecek şekilde uzak sunucudan indirilmekte,
+			bu 1px genişlik ve yüksekliğindeki nokta da JavaScript adımları ile görüntüden kaldırılmaktadır. 
+			<a href="../uygulamalar/b20.6.1-uyg-1-src.html">Sayfanın</a> resimlerin indirildiği kısmının
+			(X)HTML kodları aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">span</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;pl-200&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">&lt;</span><span
+			class="elm">a</span> <span
+			class="att">href</span><span
+			class="op">=</span><span
+			class="str">&quot;#&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;geri1&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span 
+			class="str">&quot;../images/geri1.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;geri1&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span 
+			class="str">&quot;51&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;31&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> 
+<span class="att-200">id</span><span
+			class="op">=</span><span
+			class="str">&quot;geri2&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;../images/geri2.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;geri2&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span 
+			class="str">&quot;1&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> 
+<span class="att-200">id</span><span
+			class="op">=</span><span
+			class="str">&quot;geri3&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;../images/geri3.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;geri3&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span 
+			class="str">&quot;1&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="op">/</span><span
+			class="elm">a</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="op">/</span><span
+			class="elm">span</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">span</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;pl-100&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">a</span> <span
+			class="att">href</span><span
+			class="op">=</span><span
+			class="str">&quot;#&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;iler1&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;../images/ileri1.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri1&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span
+			class="str">&quot;51&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;31&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> 
+<span class="att-200">id</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri2&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span 
+			class="str">&quot;../images/ileri2.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri2&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="elm">img</span> 
+<span class="att-200">id</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri3&quot;</span> <span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;../images/ileri3.png&quot;</span> <span
+			class="att">alt</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri3&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;1&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span
+			class="op">/</span><span
+			class="elm">a</span><span
+			class="keyw">&gt;&lt;</span><span
+			class="op">/</span><span
+			class="elm">span</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25"> &lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			Rollover etkisi, sayfaya yerleştirilmiş, dolayısı ile sayfanın cache belleğine alınarak önbelleklenmiş
+			olan resimlerin, JavaScript program adımları igörüntülenmesi veya görüntüden kaldırılması ile 
+			kullanıcı bilgisayarı üzerinden gerçekleştirilmektedir. Resimler sadece başlangıçta ve sadece bir
+			kez sunucu üzerinden sayfaya indirilmekte, JavaScript program adımları, sadece sayfada zaten i
+			indirilmiş olan resimlerin görüntülenmesini veya gizlenmesini sağlamaktadır. Program,
+			hiçbir kitaplığa bağlı olmadan tüm gereksinmelerini kendisi karşılayacak şekilde, bağımsız
+			olarak çalışabilecek şekilde tasarlanmıştır. Programda sadece W3C-DOM ve standart çekirdek 
+			ECMAScript öğeleri kullanılmış ve bunların dışında, kullanımdan kaldırılmış veya markaya özel 
+			hiçbir öğeye yer verilmemiştir. Bu özelliği ile program, büyük bir olasılıkla sonsuza kadar belge 
+			çözümleyici desteği alabilecek bir program olarak nitelendirilebilir. Bu
+			<a href="../uygulamalar/b20.6.1-uyg-1.html">program</a>, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-1.html">uygulama sayfasında</a> çalışmakta ve tüm 
+			çok kullanılan belge çözümleyicilerin son sürümleri tarafından sorunsuzca desteklenmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> rollover3<span 
+			class="op">(</span>resimId<span 
+			class="op">,</span>resim2Id<span 
+			class="op">,</span>resim3Id<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resimId<span
+			class="op">),</span>
+<span class="pl-50">resim2</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim2Id<span
+			class="op">),</span>
+<span class="pl-50">resim3</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim3Id<span
+			class="op">),</span>
+<span class="pl-50">kaynak</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak2</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak3</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">resim2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim3</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak2<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak3<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseout'</span><span 
+			class="op">, </span>mouseOut<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri3'</span><span 
+			class="op">);</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'geri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri3'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">, </span>başlat<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.6.1-uyg-1.html">programda</a>, sayfadaki her rollover 
+			için, rollover3<span class="op">()</span> programının yeniden çağrılması gerekmektedir. Sayfadaki 
+			tüm rollover olaylarını tek defada oluşturabilecek bir otomasyon fonksiyonu yararlı olabilir. Üç resim
+			kullanılan bir rollover etkisinin oluşturulması için kullanılabilecek bir otomasyon fonksiyonun 
+			yazılımı aşağıda görülmektedir: 
+		</p>
+		<pre>
+
+<span class="keyw-25">function</span> rolloverYapBirinciYöntem3Resim<span 
+			class="op">(</span>resimDizisi<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> uzunluk <span 
+			class="op">=</span> resimDizisi<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> j <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> uzunluk <span 
+			class="op">/</span> 3<span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> i<span 
+			class="op">;</span>
+<span class="pl-75">rollover3</span><span 
+			class="op">(</span> resimDizisi<span 
+			class="op">[</span>j<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 1<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 2<span 
+			class="op">]);</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> 2<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Yukarıda kodları görülen, rolloverYapBirinciYöntem3Resim<span class="op">()</span>
+			otomasyon programı, sayfada rollover etkisi yaratılacak tüm resimlerin verilerini içeren
+			bir resim dizisini argüman olarak almaktadır. Bu resim dizisi, üçlü gruplar (sekans) halindedir.
+			Her grup bir rollover resiminin verielrini içermektedir. Dizideki sekansların hangi sıra ile 
+			verildiğinin bir önemi yoktur. Sadece her sekansın ilk elemanı başlangıçta 
+			görüntülenecek normal (mouseout) resiminin sayfadaki 
+			<span class="att">id</span> değeri, ikinci elemanı mouseover (hover) resminin sayfadaki 
+			<span class="att">id</span> değeri, üçüncü elemanı click resminin sayfadaki 
+			<span class="att">id</span> değeri olmalıdır. 
+			
+			
+		</p>
+		<p class="indent" id="b20.6.1-uyg-2">
+			Otamasyonu da içeren kendi kendine yeterli bir üç resimli, birinci yöntem
+			(yani sayfaya tüm rollover resimlerinin indirilip görüntülenmelerinin JavaScript
+			program adımları ile gerçekleştirildiği ) bir rollover 
+		<a href="../uygulamalar/b20.6.1-uyg-2-js.html">programının</a>, 
+			kodları aşağıda görülmektedir Bu program bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-2.html">uygulama sayfasında</a>, 
+			çalışmaktadır. 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> rollover3<span 
+			class="op">(</span>resimId<span 
+			class="op">,</span>resim2Id<span 
+			class="op">,</span>resim3Id<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resimId<span
+			class="op">),</span>
+<span class="pl-50">resim2</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim2Id<span
+			class="op">),</span>
+<span class="pl-50">resim3</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim3Id<span
+			class="op">),</span>
+<span class="pl-50">kaynak</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak2</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak3</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">resim2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim3</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak2<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak3<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer ise</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseout'</span><span 
+			class="op">, </span>mouseOut<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer ise</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> rolloverYapBirinciYöntem3Resim<span 
+			class="op">(</span>resimDizisi<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> uzunluk <span 
+			class="op">=</span> resimDizisi<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> j <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> uzunluk <span 
+			class="op">/</span> 3<span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> i<span 
+			class="op">;</span>
+<span class="pl-75">rollover3</span><span 
+			class="op">(</span> resimDizisi<span 
+			class="op">[</span>j<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 1<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 2<span 
+			class="op">]);</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> 2<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> resimler <span 
+			class="op">=</span> <span class="keyw">new</span> Array<span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri3<span 
+			class="op">,</span> 'geri1'<span 
+			class="op">,</span> 'geri2'<span 
+			class="op">,</span> 'geri3'</span><span 
+			class="op">);</span>
+<span class="pl-50">rolloverYapBirinciYöntem3Resim</span><span 
+			class="op">(</span>resimler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">, </span>başlat<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.6.1-uyg-2.html">programda</a>, 
+			tüm kodlar kendi kendine yeterlidir ve programın başka fonksiyon desteğine gereksinmesi
+			yoktur.  Kendi başlarına bağımsız olarak çalışabilen programların yazılımları 
+			yoğun olması ve her önceden hazırlanmış olan yardımcı fonksiyonlardan
+			yararlanamamaları olacaktır. İlk iki örnekteki kendi kendilerine yeten programların
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> fonksiyon kitaplığından yararlanmaları
+			durumunda, eski fonksiyon tanımlarından yararlanılarak yazılımın hissedilir bir şekilde 
+			kısaltılması sağlanabilir. İBu çalışmadaki tüm uygulamalarda kullanılan, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığındaki yerleşik yardımcı
+			fonksiyonlardan yararlanılması durumunda, ilk 
+			<a href="../uygulamalar/b20.6.1-uyg-1-js.html">uygulamanın </a>yazılımında gerçekleştirilebilen
+			kod ekonomisi aşağıda görülmektedir:		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> rollover3<span 
+			class="op">(</span>resimId<span 
+			class="op">,</span>resim2Id<span 
+			class="op">,</span>resim3Id<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resimId<span
+			class="op">),</span>
+<span class="pl-50">resim2</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim2Id<span
+			class="op">),</span>
+<span class="pl-50">resim3</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>resim3Id<span
+			class="op">),</span>
+<span class="pl-50">kaynak</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak2</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">kaynak3</span> <span 
+			class="op">=</span> resim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">resim2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim3</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'display:none;'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak2<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak3<span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>resim<span 
+			class="op">,</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>resim<span 
+			class="op">,</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">,</span> mouseOver<span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>resim<span 
+			class="op">,</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+		
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri3'</span><span 
+			class="op">);</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'geri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri3'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+		</pre>
+		<p class="indent" id="b20.6.1-uyg-3">
+			Eğer rollover3<span class="op">()</span> fonksiyonu da 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığına alınırsa,
+			her rollover etkisi için, sadece rollover3<span class="op">()</span>
+			fonksionunun çağrılması yeterli olur. Bu şekilde çalışan bir 
+			<a href="../uygulamalar/b20.6.1-uyg-3-js.html">programın</a> kodları 
+			aşağıda görülmektedir. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-3.html">sayfada</a> çalışmaktadır.	
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri3'</span><span 
+			class="op">);</span>
+<span class="pl-50">rollover3</span><span 
+			class="op">(</span><span 
+			class="str">'geri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'geri3'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);
+
+</span><span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.6.1-uyg-3-js.html">programda</a>
+			görüldüğü gibi, 3 resimli bir JavaScript rolloverini, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığından
+			yararlanarak gerçekleştirmek için sadece rollover3<span class="op">()</span>
+			fonksiyonunu çağırmak yeterli olmaktadır.		</p>
+		<p class="indent" id="b20.6.1-uyg-4">
+			Aynı şekilde, rolloverYapBirinciYöntem3Resim<span class="op">()</span>
+			otomasyon fonksiyonu da <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			kitaplığına alınırsa, tüm sayfadaki üç resimli rollover etkilerini tek bir adımda
+			tanımlama olanağı elde edilir. Bu son şeklin uygulandığı bir
+			<a href="../uygulamalar/b20.6.1-uyg-4-js.html">program</a> aşağıda 
+			görülmekte ve bağlantılı olduğu <a href="../uygulamalar/b20.6.1-uyg-4.html">sayfada</a>
+			çalışmaktadır.
+		</p>
+						<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> resimler <span 
+			class="op">=</span> <span class="keyw">new</span> Array<span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri2'</span><span 
+			class="op">,</span> <span 
+			class="str">'ileri3<span 
+			class="op">,</span> 'geri1'<span 
+			class="op">,</span> 'geri2'<span 
+			class="op">,</span> 'geri3'</span><span 
+			class="op">);</span>
+<span class="pl-50">rolloverYapBirinciYöntem3Resim</span><span 
+			class="op">(</span>resimler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+				</pre>
+		<p class="indent">
+			JavaScript kullanımı ile resim önbelleklemesinin gerçekleştirilmesi için
+			uygulanabilecek başka bir yol, kendi özel Resim veri tipimizin yaratılarak
+			rollover resimlerinin bu veri tipinin örnekleri olarak tanımlanmasıdır. 
+			Eskiden kullanılmakta olan markaya özel klasik Image<span class="op">()</span> 
+			veri tipinin bir benzeri burada kullanıcı veri tipi olarak tanımlanmaktadır. 
+		</p>
+		
+		<p class ="indent">
+			İlk yardımcı fonksiyonumuz, kullanıcı kaynaklı Resim nesne tipinin yapılandırıcısıdır. 
+			Bu yapılandırıcının yazılımı aşağıda görülmektedir: 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> Resim<span 
+			class="op">(</span>yer<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> içResim <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'img'</span><span 
+			class="op">);</span>
+<span class="pl-50">içResim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> yer<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kaynak <span 
+			class="op">=</span> içResim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="indent">
+			Bu yapılandırıcının belirttiği yapıda yaratılacak kullanıcı tipi Resim 
+			sınıfı nesne örneklerinin göevi, rollover resimlerini, programın başlaması ile 
+			sunucudan, kullanıcının bilgisayarının program belleğine aktarılmasıdır 
+			(image preloading). 
+		</p>
+		<p class="indent">
+			Bundan sonra, kullanıcı tanımlı Resim sınıfının kullanımı ile ön belleklenmiş resimlerden
+			yararlanarak rollover etkisini yaratan rollover<span class="op">()</span> fonksiyonu 
+			oluşturulmuştur. Bu fonksiyonun yazılımı, aşağıda görüldüğü gibidir.:
+		</p>
+		<pre>
+
+<span class="keyw-25">function</span> rollover<span 
+			class="op">(</span>res1<span 
+			class="op">,</span> res2<span 
+			class="op">,</span> res3<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim1 <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>res1<span 
+			class="op">),</span>
+<span class="pl-50">kaynak1</span> <span 
+			class="op">=</span> resim1<span 
+			class="op">.</span>getAttribute<span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">resim2</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res2<span 
+			class="op">),</span>
+<span class="pl-50">resim3</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res3<span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak1<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> resim2<span 
+			class="op">.</span>kaynak<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+<span class="pl-75">resim</span><span 
+			class="op">1.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span>resim3<span 
+			class="op">.</span>kaynak<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">1.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseout'</span><span 
+			class="op">, </span>mouseOut<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Resim sınıfının kullanıldığı rollover programlarında, tüm rollover resimleri sayfa kodlarına yerleştirilmez. Sayfaya
+			sadece görüntülenecek ilk resim (normal veya mouseout resmi) yerleştirilir. Diğer rollover resimleri, 
+			JavaScript programının belleğine aktarılır, böylece resimler kullanıcı bilgisayarında önbelleklenmiş olur ve 
+			gerektiğinde JavaScript program adımları ile, sayfadaki resimle yer değiştirir (swap). Bu yöntemi  kullanan bir 
+		<a href="../uygulamalar/b20.6.1-uyg-5-src.html">sayfanın</a> rollover resimlerini içeren kısmının (X)HTML kodları
+		aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">span</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;pl-400&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">&lt;</span><span
+			class="elm">img</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;geri1&quot; <span
+			class="att">src</span><span
+			class="op">=</span>&quot;../images/geri1.png&quot;</span><span
+			class="att"> alt</span><span
+			class="op">=</span><span
+			class="str">&quot;geri1&quot;<span
+			class="att"> height</span><span
+			class="op">=</span>&quot;51&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;31&quot;</span><span
+			class="keyw">&gt;&lt;</span><span
+			class="op">/</span><span
+			class="elm">span</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">span</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;pl-100&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">&lt;</span><span
+			class="elm">img</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri1&quot; <span
+			class="att">src</span><span
+			class="op">=</span>&quot;../images/ileri1.png&quot;</span><span
+			class="att"> alt</span><span
+			class="op">=</span><span
+			class="str">&quot;ileri1&quot; <span
+			class="att">height</span><span
+			class="op">=</span>&quot;51&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;31&quot;</span>&gt;</span><span
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">span</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25"> &lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent" id="b20.6.1-uyg-5">
+			Görüldüğü gibi, sayfada sadece normal gösterim resmi bulunmakta, bununla
+			yer değiştirecek rollover resimleri, JavaScript programının cache belleğinde
+			önbelleklenmiş durumdadır. Bu yöntemin uygulandığı kendi kendine yeten bir
+			<a href="../uygulamalar/b20.6.1-uyg-5-js.html">program</a> aşağıda 
+			görülmektedir. Bu program bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-5.html">sayfada</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> Resim<span 
+			class="op">(</span>yer<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> içResim <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'img'</span><span 
+			class="op">);</span>
+<span class="pl-50">içResim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> yer<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kaynak <span 
+			class="op">=</span> içResim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> rollover<span 
+			class="op">(</span>res1<span 
+			class="op">,</span> res2<span 
+			class="op">,</span> res3<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim1 <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>res1<span 
+			class="op">),</span>
+<span class="pl-50">kaynak1</span> <span 
+			class="op">=</span> resim1<span 
+			class="op">.</span>getAttribute<span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">resim2</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res2<span 
+			class="op">),</span>
+<span class="pl-50">resim3</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res3<span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim1<span 
+			class="op">.</span></span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak1<span 
+			class="op">);</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+
+<span class="pl-75">resim1.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'src'</span>, resim2<span 
+			class="op">.</span>kaynak);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+
+<span class="pl-75">resim1.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'src'</span>, resim3<span 
+			class="op">.</span>kaynak);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">1.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseout'</span><span 
+			class="op">, </span>mouseOut<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">rollover</span><span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri3.png'</span><span 
+			class="op">);</span>
+<span class="pl-50">rollover</span><span 
+			class="op">(</span><span 
+			class="str">'geri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/geri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/geri3.png'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">, </span>başlat<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent" id="b20.6.1-uyg-6">
+			Yukarıdaki <a href="../uygulamalar/b20.6.1-uyg-5.html">programda</a>, sayfadaki her 
+			rollover yapılacak resmi özel olarak belirtmek gerekmektedir. Sayfadaki tüm
+			rollover resimlerini tek defada tanıtabilecek bir otomasyon programı oluşturularak
+			daha kolay rollover oluşturma olanağı bulunabilir. Bu konudaki bir
+			<a href="../uygulamalar/b20.6.1-uyg-6-js.html">program</a> aşağıda 
+			görülmektedir. Bu program bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-6.html">sayfada</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> Resim<span 
+			class="op">(</span>yer<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> içResim <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'img'</span><span 
+			class="op">);</span>
+<span class="pl-50">içResim</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> yer<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kaynak <span 
+			class="op">=</span> içResim<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> rollover<span 
+			class="op">(</span>res1<span 
+			class="op">,</span> res2<span 
+			class="op">,</span> res3<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> resim1 <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>res1<span 
+			class="op">),</span>
+<span class="pl-50">kaynak1</span> <span 
+			class="op">=</span> resim1<span 
+			class="op">.</span>getAttribute<span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">),</span>
+<span class="pl-50">resim2</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res2<span 
+			class="op">),</span>
+<span class="pl-50">resim3</span>  <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Resim<span 
+			class="op">(</span>res3<span 
+			class="op">);</span>
+
+<span class="keyw-50">function</span> mouseOut<span 
+			class="op">() {</span>
+<span class="pl-75">resim1<span 
+			class="op">.</span></span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> kaynak1<span 
+			class="op">);</span><span class="op-50">}</span>
+
+<span class="keyw-50">function</span> mouseOver<span 
+			class="op">() {</span>
+
+<span class="pl-75">resim1.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'src'</span>, resim2<span 
+			class="op">.</span>kaynak);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">function</span> onClick<span 
+			class="op">() {</span>
+
+<span class="pl-75">resim1.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'src'</span>, resim3<span 
+			class="op">.</span>kaynak);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseover'</span><span 
+			class="op">, </span>mouseOver<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'mouseout'</span><span 
+			class="op">,</span> mouseOut<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onmouseout'</span><span 
+			class="op">, </span>mouseOut<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim</span><span 
+			class="op">1.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">resim1</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> onClick<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> rolloverYap3<span 
+			class="op">(</span>resimDizisi<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> uzunluk <span 
+			class="op">=</span> resimDizisi<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> j <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> uzunluk <span 
+			class="op">/</span> 3<span 
+			class="op">;</span> i<span 
+			class="op">++) {</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> i<span 
+			class="op">;</span>
+<span class="pl-75">rollover</span><span 
+			class="op">(</span>resimDizisi<span 
+			class="op">[</span>j<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 1<span 
+			class="op">],</span> resimDizisi<span 
+			class="op">[</span>j <span 
+			class="op">+</span> 2<span 
+			class="op">]);</span>
+<span class="pl-75">j</span> <span 
+			class="op">=</span> j <span 
+			class="op">+</span> 2<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> resimler <span 
+			class="op">=</span> <span class="keyw">new</span> Array<span 
+			class="op">(</span><span 
+			class="str">ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri3.png<span 
+			class="op">,</span> 'geri1'<span 
+			class="op">,</span> '../images/geri2.png'<span 
+			class="op">,</span> '../images/geri3.png'</span><span 
+			class="op">);</span>
+<span class="pl-50">rolloverYap3</span><span 
+			class="op">(</span>resimler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">, </span>başlat<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent" id="b20.6.1-uyg-7">
+			Eğer gerekli tüm fonksiyonlar <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			kitaplığına alınırsa, kullanıcı tanımlı Resim sınıfından yararlanan 3 resimli ve
+			otomasyonu olmayan bir rollover etkisi, her rollover resmi için, basitçe 
+			rollover<span class="op">()</span> fonksiyonunun çağrılması ile gerçekleşebilir.
+			Bu konudaki bir <a href="../uygulamalar/b20.6.1-uyg-7-js.html">programın</a>, 
+			kodları aşağıda görülmekte ve bu program bağlantılı olduğu 
+			<a href="../uygulamalar/b20.6.1-uyg-7.html">uygulama sayfasında</a>, 
+			çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">rollover</span><span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri3.png'</span><span 
+			class="op">);</span>
+<span class="pl-50">rollover</span><span 
+			class="op">(</span><span 
+			class="str">'geri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/geri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/geri3.png'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent">
+			Aynı programın otomasyon içeren sürümünün 
+			<a href="../uygulamalar/b20.6.1-uyg-8-js.html">yazılımı</a> aşağıda görülmekte ve bağlantılı
+			olduğu <a href="../uygulamalar/b20.6.1-uyg-8.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> resimler <span 
+			class="op">=</span> <span class="keyw">new</span> Array<span 
+			class="op">(</span><span 
+			class="str">'ileri1'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri2.png'</span><span 
+			class="op">,</span> <span 
+			class="str">'../images/ileri3.png<span 
+			class="op">,</span> 'geri1'<span 
+			class="op">,</span> '../images/geri2.png'<span 
+			class="op">,</span> '../images/geri3.png'</span><span 
+			class="op">);</span>
+<span class="pl-50">rolloverYap3</span><span 
+			class="op">(</span>resimler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent"  id="b20.6.1-uyg-8">
+			Bu bölümde incelenen tüm programlar istenirse yanlız olarak, istenirse
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> gibi bir kitaplık içine
+			alınarak kullanılabilir. Tüm bu fonksiyonlar önbellekli olarak rollover 
+			etkisini JavaScript kullanarak yaratırlar ve aralarında bir performans farkı yoktur. 
+			Sayfanın orijinal yazılımını etkilemeyen ve kullanıcı tanımlı Resim nesne sınıfının
+			kullanıldığı programlar daha kullanışlı olabilirler. Bu konuda seçim kullanıcıya kalmaktadır. 
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b20.5-s2.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b20.6-s2.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:15 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

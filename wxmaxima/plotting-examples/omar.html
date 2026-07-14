@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+    <head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/wxmaxima/plotting-examples/omar.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Omar Hayyam Method</title>
+        <meta content="wxMaxima" name="generator">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" 
+    content="Omar Hayyam Method for graphical solution of 3 rd. degree equations" />
+    <meta name="keywords" 
+    content="Omar Hayyam Mathematics" />
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Robots" content="INDEX,FOLLOW" />
+        <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+        
+</script>
+        <link href="omar_htmlimg/omar.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!-- ***************************************************** -->
+        <!--          Created with wxMaxima version 17.10.1         -->
+        <!-- ***************************************************** --><noscript>
+        <div class="error message">
+        Please enable JavaScript in order to get a 2d display of the equations embedded 
+        in this web page.</div></noscript>\( \DeclareMathOperator{\abs}{abs} \newcommand{\ensuremath}[1]{\mbox{$#1$}} 
+        \)
+        <!-- Title cell -->
+        <p class="title">
+            Omar Hayyam Method
+        </p>
+        <!-- Text cell -->
+        <p class="comment">
+            This plot explains Omar Khayyam's graphical method to solve the cubic 
+            equation x3+a2x=b, for a,b&gt;0:<br>(http://riotorto.users.sourceforge.net/Maxima/gnuplot/omar/index.html)<br>
+            <br>(Realised with wxmaxima rel. 17.10.1)<br>
+        </p>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i1) </span></td>
+                <td><span class="input"><span class="code_function">load</span>(<span class="code_variable">draw</span>)<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        \[\mbox{}\\\mbox{0 errors, 0 warnings}\]
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i10) </span></td>
+                <td><span class="input"><span class="code_variable">a</span><span class="code_operator">:</span>
+                <span class="code_number">3</span><span class="code_endofline">$</span><br>
+                <span class="code_variable">b</span><span class="code_operator">:</span>
+                <span class="code_number">26</span><span class="code_endofline">$</span><br>
+                <span class="code_variable">r</span><span class="code_operator">:</span>
+                <span class="code_variable">b</span><span class="code_operator">/</span>(<span class="code_number">2</span>·<span class="code_variable">a</span><span class="code_operator">^</span><span class="code_number">2</span>)<span class="code_endofline">$</span>
+                </span></td>
+            </tr>
+        </table>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">(%i11) </span></td>
+                <td><span class="input"><span class="code_function">draw2d</span>(<span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">General</span><span class="code_comment">
+                </span><span class="code_comment">settings</span><span class="code_comment">
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">xrange</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">3</span>,<span class="code_number">3</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">yrange</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> [<span class="code_number">−</span><span class="code_number">2</span>,<span class="code_number">4</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">axis_top</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">axis_right</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">axis_left</span> &nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">axis_bottom</span> &nbsp;
+                <span class="code_operator">=</span> false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">transparent</span> &nbsp;
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">user_preamble</span>
+                <span class="code_operator">=</span> <span class="code_string">&quot;unset 
+                tics&quot;</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">title</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_string">&quot;Omar 
+                Khayyam solution to the cubic x^3 + a^2 x = b&quot;</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">dimensions</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> [<span class="code_number">450</span>,<span class="code_number">450</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">terminal</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                svg</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">file_name</span> &nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_string">&quot;omar&quot;</span>,<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">draw</span><span class="code_comment">
+                </span><span class="code_comment">parabola</span><span class="code_comment">
+                </span><span class="code_comment">y</span><span class="code_comment">=</span><span class="code_comment">x</span><span class="code_comment">^</span><span class="code_comment">2</span><span class="code_comment">/</span><span class="code_comment">a</span><span class="code_comment">
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">explicit</span>(<span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">/</span><span class="code_variable">a</span>,<span class="code_variable">x</span>,<span class="code_number">−</span><span class="code_number">3</span>,<span class="code_number">3</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">head_length</span> &nbsp;
+                <span class="code_operator">=</span> <span class="code_number">0</span><span class="code_number">.</span><span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">vector</span>([<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">626</span>,<span class="code_number">2</span>],[<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;y=x^2/a&quot;</span>,<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">5</span>,<span class="code_number">2</span><span class="code_number">.</span><span class="code_number">1</span>]),<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">draw</span><span class="code_comment">
+                </span><span class="code_comment">circle</span><span class="code_comment">:</span><span class="code_comment">
+                </span><span class="code_comment">radius</span><span class="code_comment">
+                </span><span class="code_comment">r</span><span class="code_comment">
+                </span><span class="code_comment">&amp; </span>
+                <span class="code_comment">center</span><span class="code_comment">
+                </span><span class="code_comment">(</span><span class="code_comment">r</span><span class="code_comment">,</span><span class="code_comment">0</span><span class="code_comment">)
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">ellipse</span>(<span class="code_variable">r</span>,<span class="code_number">0</span>,<span class="code_variable">r</span>,<span class="code_variable">r</span>,<span class="code_number">0</span>,<span class="code_number">360</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">vector</span>([<span class="code_variable">r</span>,<span class="code_number">0</span>],[<span class="code_number">0</span>,<span class="code_variable">r</span>]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;r=b/(2 
+                a^2)&quot;</span>,<span class="code_variable">r</span><span class="code_operator">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>,<span class="code_variable">r</span>·<span class="code_number">2</span><span class="code_operator">/</span><span class="code_number">3</span>]),<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">draw</span><span class="code_comment">
+                </span><span class="code_comment">axis</span><span class="code_comment">
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">points_joined</span>
+                <span class="code_operator">=</span> true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                black</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_number">0</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">0</span>,<span class="code_number">3</span><span class="code_number">.</span><span class="code_number">5</span>],[<span class="code_number">0</span>,<span class="code_number">−</span><span class="code_number">1</span><span class="code_number">.</span><span class="code_number">5</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">−</span><span class="code_number">2</span><span class="code_number">.</span><span class="code_number">5</span>,<span class="code_number">0</span>],[<span class="code_number">2</span><span class="code_number">.</span><span class="code_number">5</span>,<span class="code_number">0</span>]]),<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">Mark</span><span class="code_comment">
+                </span><span class="code_comment">points</span><span class="code_comment">
+                </span><span class="code_comment">P</span><span class="code_comment">
+                </span><span class="code_comment">e</span><span class="code_comment">
+                </span><span class="code_comment">Q</span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                black</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_type</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_number">7</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_number">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">2</span>,<span class="code_number">4</span><span class="code_operator">/</span><span class="code_number">3</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;P&quot;</span>,<span class="code_number">2</span><span class="code_number">.</span><span class="code_number">25</span>,<span class="code_number">1</span><span class="code_number">.</span><span class="code_number">42</span>]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">2</span>,<span class="code_number">0</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;Q&quot;</span>,<span class="code_number">2</span><span class="code_number">.</span><span class="code_number">25</span>,<span class="code_number">0</span><span class="code_number">.</span><span class="code_number">23</span>]),<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">Draw</span><span class="code_comment">
+                </span><span class="code_comment">parallel</span><span class="code_comment">
+                </span><span class="code_comment">to</span><span class="code_comment">
+                </span><span class="code_comment">parabola</span><span class="code_comment">
+                </span><span class="code_comment">axis</span><span class="code_comment">
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">point_size</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_number">0</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                blue</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">line_type</span> &nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                dots</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">2</span>,<span class="code_number">2</span>],[<span class="code_number">2</span>,<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>]]),<br>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="code_comment">/·</span><span class="code_comment">
+                </span><span class="code_comment">Get</span><span class="code_comment">
+                </span><span class="code_comment">the</span><span class="code_comment">
+                </span><span class="code_comment">solution</span><span class="code_comment">
+                </span><span class="code_comment">·/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">line_width</span> &nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_number">4</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">color</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                red</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_variable">line_type</span> &nbsp;&nbsp;&nbsp;
+                <span class="code_operator">=</span> <span class="code_variable">
+                solid</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">points</span>([[<span class="code_number">0</span>,<span class="code_number">0</span>],[<span class="code_number">2</span>,<span class="code_number">0</span>]]),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="code_function">label</span>([<span class="code_string">&quot;The 
+                length of this red segment is the solution&quot;</span>,<span class="code_number">1</span>,<span class="code_number">−</span><span class="code_number">0</span><span class="code_number">.</span><span class="code_number">5</span>]))
+                <span class="code_endofline">$</span> </span></td>
+            </tr>
+        </table>
+        <!-- Code cell -->
+        <table>
+            <tr>
+                <td><span class="prompt">--&gt; </span></td>
+                <td><span class="input"></span></td>
+            </tr>
+        </table>
+        <!-- Image cell -->
+        <p class="image">
+            Figure 1:E:\Dynamic_Content\Maxima Programs\omar.png <br />
+            <img alt="Diagram" src="omar_htmlimg/omar_1.png" style="max-width: 90%;">
+        </p>
+        <hr><small>Created with <a href="https://andrejv.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </body>
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

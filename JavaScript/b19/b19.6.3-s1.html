@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:57 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.3-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b19.6.3-s1</title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.2-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="b19.6.4-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19 </p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.3 Sayfa 3 </p>
+		<p class="subheading" id="NodeList">19.6.3 - NodeList Arabirimi</p>
+		<p class="indent">
+			Bu arabirim bir düğüm tipini değil, düğümleri içeren bir koleksiyon nesnesi örneğini tanımlar.
+			Koleksiyon nesnesi yeni bir nesne türüdür. Bu öntanımlı bir JavaScript nesne türüdür ve 
+			yapılandırıcı fonksiyonu kullanıcılara açık değildir. Kolleksiyon nesnesinin yapısı sadece 
+			aşağıda görülen arabirim tanımı ile belirtilmektedir. Kullanıcılar bu nesne tipini,
+			tanımında yazılan özelliklerinden yararlanarak kullanabilirler. 
+		</p>
+		<p class="sayfaortala"> <img src="../images/b19.6.3-img-1.png" alt="NodeList Arabirimi" /> </p>
+		<p class="sayfaortala"> Şekil 19.6.3- 1 - DOM Düzey 2 de NodeList Arabiriminin  IDL Yazılımı </p>
+		<p class ="indent">
+			Bu arayüzde tanımlanan <span class="keyw">NodeList</span> yapısında kolleksiyon nesnesi,
+			<span class="keyw"> item</span> adı verilen elemanlardan oluşmaktadır. Şekil 19.6.3- 1 deki
+			<span class="keyw">NodeLİst</span> tanımı incelendiğinde, <span class="keyw">NodeLİst</span> 
+			tipinde bir kolleksiyon nesnesinde <span class="keyw">item</span> olarak tanımlanmış elemanların 
+			birer düğüm nesnesi olarak tanımlandıkları görülür. 
+		</p>
+		<p class="indent">
+			<span class="keyw">NodeList</span> (Düğüm Listesi) yapısında koleksiyonlar, sadece bir
+			element düğümünün <span class="keyw">childNodes</span> özelliğpinin değeri olarak 
+			oluşurlar. Bu toplulukta, <span class="keyw">item</span> özelliği ile tanımlanmış elemanler,
+			belirli alt düğümlere karşı gelirler. <span class="keyw">NodeList</span> tipindeki toplulukların
+			elemanlarının sıralanması, alt düğümlerin belge ağacında tanımlanma sıralarıdır.
+		</p>
+		<p class="indent">
+			Bir belge ağacında, bir elemntin alt düğümleri bazen belirtilmiş durumdadır. Örnek olarak
+			bir paragraf elementinin içerdiği <span class="keyw">&lt;</span><span class="elm">span</span><span 
+			class="keyw">&gt;</span> elemenlerinin sırası programcılar tarafından belirtilmiştir. Bazı durumlarda ise, 
+			örnek olarak bir elementin alt düğümlerine erişildiğinde, element düğümü olmayan örnek olarak 
+			<span class="keyw">Text</span> tipi alt düğümler gibi alt düğümlerin sıralanması önceden belirlenemez.
+			Erişilen düğümün tip kontrolunun yapılması gerekir.
+		</p>
+		<p class ="indent">
+			<span class="keyw">NodeList</span> kolleksiyon nesnesinin iki tane özelliği bulunmaktadır. Bunlar
+			<span class="keyw">item</span> ve <span class="keyw">length</span> özellikleridir.
+		</p>
+		<p class ="indent">
+			<span class="keyw">NodeList</span> yapısında kolleksiyon nesnesinin <span class="keyw">item</span>
+			özelliği, koleksiyonu (topluluğu) oluşturan elemanlara erişimi sağlamaktadır. Topluluk elemanlarına
+			<span class="keyw">item</span><span class="op">(</span>0<span class="op">)</span>, 
+			<span class="keyw">item</span><span class="op">(</span>1<span class="op">)</span>,...
+			<span class="keyw">item</span><span class="op">(</span>n<span class="op">)</span>, gibi
+			bir tamsayı koleksiyon indisi ile erişilebilmektedir. 
+		</p>
+		<p class="indent">
+			Şekil 19.6.2-1 deki <span class="keyw">Node</span> (Düğüm) arabirimlerinin yapısı 
+			(generik düğüm tipi nesnelerin yapısı) incelendiğide, düğüm nesnelerinin alt düğümlerini içeren
+			<span class="keyw">childNodes</span>, özelliğinin geri döndürdüğü değer, 
+			<span class="keyw">NodeList</span> tipinde koleksiyon nesnesi yapısındadır. Bu durumda, sayfaya 
+			yerleşik bir düğümün alt düğümlerine erişim için, <span class="keyw">NodeList</span> tipinde 
+			koleksiyon nesnelerin uygulanmasının iyi özümsenmesi gerekir.
+		</p>
+		<p class="indent">
+			Düğüm listesi nesne sıınıfının yapısı, dizi nesne sınıfına benzer, aynı izi sınıf bir uzunluk özelliği vardır ve
+			liste elemanlarına aynı dizi elemanları gibi tamsayı indislerle erişilebilir. Düğüm listesi nesnelerinde de 
+			elemanların dizilişi aynı dizilerde olduğu gibi, 0 ıncı elemandan başlar. Yani bir düğüm listesi koleksiyon 
+			nesne örneğinde, ilk elemanın erişim indisi, aynı dizilerde olduğu gibi 0 dan başlamaktadır.
+			<span class="keyw">NodeList</span> arabiriminin içeriği dinamik olarak güncellenir. Sayfadaki
+			değişikliklere göre, liste elemanları sürekli olarak yenilenir ve 
+			<span class="keyw">length</span> özelliğinin değeri değişir. 
+		</p>
+		<p class ="indent" id="b19.6.3-uyg-1">
+			Düğüm listelerinin dizi nesnelerine yakın benzerliği, düğüm listelerin de diziler gibi kullanımını
+			sağlayabilir. Kodları aşağıda görülen 
+			<a href="../uygulamalar/b19.6.3-uyg-1-js.html">programda</a> bir düğüm listesi koleksiyonundaki 
+			elemanlara, dizi elemanları gibi erişim sağlanmaktadır.. Bu program ilişikli olduğu
+			<a href="../uygulamalar/b19.6.3-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Alt Düğümler Koleksiyon Uzunluğu (Eleman Sayısı)  : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);
+
+</span><span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Alt Düğümler Koleksiyonu Eleman['</span> <span 
+			class="op">+ </span>i <span 
+			class="op">+</span> <span 
+			class="str">'] Alt Düğüm Tipi : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">[</span>i<span 
+			class="op">].</span><span 
+			class="keyw">nodeType</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Alt Düğümler Koleksiyonu Eleman['</span> <span 
+			class="op">+ </span>i <span 
+			class="op">+</span> <span 
+			class="str">'] Alt Düğüm Türü : '</span><span 
+			class="op">,</span> düğümTipiniBelirle<span 
+			class="op">(</span>refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">[</span>i<span 
+			class="op">]),</span> <span 
+			class="str">'sonuç3'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">i</span><span 
+			class="op">--;</span>
+
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Son Alt Düğüm, Eleman['</span> <span 
+			class="op">+</span> i <span 
+			class="op">+</span> <span 
+			class="str">'] dır.'</span><span 
+			class="op">, </span><span 
+			class="str">'sonuç4'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.3-uyg-1-js.html">program</a>, gayet iyi
+			çalışmakta ise de bu yöntem kesinlikle kullanılmamalıdır. <span class="keyw">NodeList</span>
+			(Düğüm Kistesi) tipinde koleksiyonlar, <span class="keyw">NodeList</span> nesne sınıfı
+			örnekleridir ve <span class="keyw">Array</span> (Dizi) sınıfı nesne örnekleri değildir. İki sınıf
+			arasındaki benzerlikten ötürü yukarıdaki <a href="../uygulamalar/b19.6.3-uyg-1-js.html">program</a>
+			çalışabilmektedir. Fakat benzerlikler sadece her iki sınıfın da <span class="keyw">length</span> 
+			özelliği olması ve her iki sınıfında elemanlarına tamsayı indislerle erişilebilmesi ile sınırlıdır. 
+			<span class="keyw">NodeList</span> nesne sınıfı koleksiyonların nesne yapıları, dizilere özgü 
+			<span class="keyw">concat</span><span class="op">()</span> gibi metotları içermemektedir. 
+			Bu nedenle düğüm listesi koleksiyonlarını, diziler gibi algılamaktan vazgeçmeliyiz. Bu tip 
+			uygulamalar eskiye aittir ve W3C-DOM spesifikasyonunda öngörülmemektedir. Çalışmalarımızı
+			eskiye doğru değil yeni yöntemlere yönlendirmeliyiz. Düğüm listeleri, Şekil 19.6.3- 1 deki W3C-DOM 
+			spesifikasyonunda tanımlı olan özellik ve metotları kullanılarak, W3C-DOM spesifikasyonunda öngörüldüğü
+			ve aşağıdaki uygulamalarda uygulandığı gibi,  <span class="keyw">NodeList</span> (Düğüm Listesi) tipinde
+			nesne örnekleri olarak uygulanmalıdır. Modern yöntemlerin programcılardan beklentileri de bu yöndedir.
+		</p>
+		<p class="navy" id="item"><strong>19.6.3.1 - NodeList Arabiriminin item Özelliği</strong></p>
+		<p class="indent">
+		 	W3C-DOM spesifikasyonunun Şekil 19.6.3 - 1 de görülen tanımına göre, 
+			<span class="keyw">NodeList</span> Arabirimi yapısındaki koleksiyonların
+			elemanlarına, bu koleksiyonların <span class="keyw">item</span> özellikleri kullanılarak erişilebilir. 
+			Her bir <span class="keyw">item</span> bir koleksiyon elemanına denk gelir. Koleksiyon elemanları,
+			0 dan başlayarak tamsayı indislerle erişlebilecek şekilde bitişik (contigious) olarak dizilmiştir. Diziliş
+			sırası sayfada tanım sırasıdır. Her bir <span class="keyw">item</span>
+			geriye <span class="keyw">node</span> (düğüm) tipinde bir nesne örneği döndürür.
+		</p>
+		<p class="indent" id="b19.6.3.1-uyg-1">
+			Aşağıda <span class="keyw">NodeList</span> tipinde bir nesne örneğinin elemanlarına 
+			spesifikasyonda öngörülen şekilde erişimi uygulayan bir 
+			<a href="../uygulamalar/b19.6.3.1-uyg-1-js.html">programın</a>, 
+			kodları aşağıda görülmekte ve bu program iliştirilmiş olduğu 
+			<a href="../uygulamalar/b19.6.3.1-uyg-1.html">uygulama sayfasında</a>, 
+			çalışmaktadır. 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">+</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span> <span 
+			class="op">+</span> ' ; ' </span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Alt Düğüm Tipi : '</span> <span 
+			class="op">+</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.3-uyg-1-js.html">program</a>, tüm belge 
+			çözümleyicilerde ortak olarak desteklenmekte ve sayfada <span 
+			class="att">id</span> nitelik değeri  <span class="str">'hedef'</span> olan 
+			paragraf düğümünün sadece bir tane metin tipi alt düğümü olduğunu belirtmektedir. 
+			Paragrafın metin içeriği, ileride görüleceği gibi, bu alt düğümün <span class="keyw">data</span>
+			özelliğinin değeridir.
+		</p>
+		<p class ="indent">
+			<span class="keyw">Koleksiyon</span> tipi nesne toplukları salt okunur niteliktedir. Kullanıcılar kendi
+			koleksionlarını oluşturamaz sadece mevcut koleksiyon topluluklarının elemanlarına erişebiilirler. 
+		</p>
+		<p class="navy" id="length"><strong>19.6.3.2 - NodeList Arabiriminin length Özelliği</strong></p>
+		<p class="indent">
+			<span class="keyw">NodeList</span> tipinde koleksiyonların <span class="keyw">length</span> özelliği, 
+			kolleksiyon içinde bulunan elemanların (<span class="keyw">item</span>) sayını bir tamsayı değeri 
+			olarak döndürür. Bu özellik aynı dizi nesnesinin <span class="keyw">length</span> özelliğine benzer.
+		</p>
+		<ul id="navbottom">
+			<li id="index"> <a href="../index.html"><em>« İndeks</em></a> </li>
+			<li id="denge"></li>
+			<li id="sayfa"> <a href="b19.6.2-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"> <a href="b19.6.4-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:57 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

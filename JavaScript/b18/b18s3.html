@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:46 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- Made with AC Meta Tag Generator ver. 1.5 at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+					content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type"
+					content="text/css" />
+		<meta http-equiv="Content-Script-Type"
+					content="text/JavaScript" />
+		<meta name="Title"
+					content="WEBTECH JavaScript Turkish Tutorial" />
+		<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Description"
+		content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords"
+					content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher"
+					content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>Bölüm 18 Sayfa 3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+				<a href="../index.html"><img alt="index" src="../images/index.gif" /></a> 
+				<a href="b18s2.html"><img alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s4.html"><img alt="next" src="../images/next.gif" /></a>		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 3
+		</p>
+		<p class="subheading" id="close">18.3.6 - window.close() Metodu (Sayfanın Kapanması)</p>
+		<p class="indent">
+			Bu metodun uygulanması,
+		</p>
+		<pre>
+		<span class="keyw">window</span><span class="op">.</span><span class="keyw">close</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metodun uygulanmasında, olayların anlaşılması için, öncelikle açılmış olan belge
+			çözümleyici penceresi türlerinin iyi anlaşılması gerekir. Belge çözümleyicisi pencereleri iki farklı
+			yöntemle açılmış olabilir. Bu pencereler:
+		</p>
+		<ul class="list">
+			<li>
+				İşletim sisteminde programlarının çalıştırılması ile açılan belge çözümleyici pencereleri (Sistem
+				Pencereleri)
+			</li>
+			<li>
+				Bir sistem penceresinde, JavaScript <span class="keyw">window</span><span 
+				class="op">.</span><span class="keyw">open</span><span class="op">()</span>
+				metodunun uygulanması ile açılmış olan belge çözümleyici pencereleri (Alt Pencereler) (Sub
+				Windows)
+			</li>
+		</ul>
+		<p class="nonindent">
+			olarak nitelendirilirler.
+		</p>
+		<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">close()</span> Metodu, uygulandığı pencerenin kapatılmasına çalışır.
+			Pencereler bu isteme, açılmış oldukları yönteme ve belge çözümleyicisi türüne bağlı olarak farklı
+			tepkiler verirler. Belge çözümleyicisi:
+		</p>
+		<p class="nonindent dikeyTab-10">
+			<strong>Internet Explorer (8.0) ise :</strong>
+		</p>
+		<ul class="list">
+			<li>
+				Sistem Pencereleri : 
+				<ul class="listNoMarker">
+					<li>
+						Eğer history envanterinde hiç bir sayfa adresi
+						bulunmuyorsa, bir kapanma onay kutusu açılmadan
+						pencere kapanır. (Bu belki de hiç
+						gerçekleşmeyecek bir koşuldur)
+					</li>
+					<li>
+						Eğer history envanterinde birden fazla sayfa
+						adresi bulunuyorsa, bir kapanma onay kutusu
+						açılır ve kullanıcı onay verirse pencere
+						kapanır. (bu hemen hemen daima karşılaşılan
+						durumdur)
+					</li>
+				</ul>
+			</li>
+			<li>
+				Alt Pencereler : 
+				<ul class="listNoMarker">
+					<li>Bir onay kutusu açılmadan kapatılır.</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="nonindent dikeyTab-10">
+			<strong>FireFox (3.0) ise :</strong>
+		</p>
+		<ul class="list">
+			<li>
+				Sistem Pencereleri : 
+				<ul class="listNoMarker">
+					<li>
+						Hiçbir şekilde kapatılamaz.
+					</li>
+				</ul>
+			</li>
+			<li>
+				Alt Pencereler : 
+				<ul class="listNoMarker">
+					<li>Bir onay kutusu açılmadan kapatılır.</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="nonindent dikeyTab-10">
+			<strong>Opera (9.2) ise :</strong>
+		</p>
+		<ul class="list">
+			<li>
+				Sistem Pencereleri : 
+				<ul class="listNoMarker">
+					<li>Bir onay kutusu açılmadan kapatılır.</li>
+				</ul></li>
+			<li>
+				Alt Pencereler : 
+				<ul class="listNoMarker">
+					<li>Bir onay kutusu açılmadan kapatılır.</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="indent">
+			Programlamada genel uygulanabilirlik gözetilmek
+			durumunda olduğundan, sistem pencerelerinin
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">close</span><span class="op">()</span>
+			metodu ile kapatılmasına çalışılmamalıdır. Çünkü
+			Firefox ve Mozilla ailesi (GECKO Motoru) bir belge
+			çözümleyici kullanan bir kullanıcının penceresinde,
+			bu metot çalışmayacaktır. Ayrıca, sistem
+			pencerelerinin zaten bir kapanma tutamakları
+			bulunmaktadır. Sistem pencerelerini (hatta her açılan
+			pencereyi), kapatma tutamağına tıklayarak kapatma
+			olanağı her zaman bulunmaktadır.
+		</p>
+		<p class="indent">
+			Alt pencererelere bir kapatma olanağı eklenmesi ise,
+			alt pencerin kapatma tutamağı görünmez durumda olarak
+			açıldığı durumlarda gereklidir. Diğer durumlarda, alt
+			pencereler de, sistem pencereleri gibi, kapatma
+			tutamaklarından yararlanılarak kapatılabilirler.
+		</p>
+		<p class="indent" id="b18.3.6-uyg-1">
+			Bu konudaki ilk örneğimiz, bir sistem penceresinin <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">close</span><span class="op">()</span> metodu ile
+			kapatılmaya çalışılmasıdır. Bu <a href="../uygulamalar/b18.3.6-uyg-1-js.html">programın</a>
+			kodları aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>PencereyiKapat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">window</span><span class="op">.</span><span 
+			class="keyw">setTimeOut</span><span 
+			class="op">(</span><span 
+			class="str">'windows.close()'</span><span 
+			class="op">,</span> 2E3<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>pencereyiKapat<span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu program, ilişkilendirildiği <a href="../uygulamalar/b18.3.6-uyg-1.html">sayfada</a>, 
+			hiçbir sayfa elemanı ile ilişki kurmamamakta, sadece sayfanın açıldığı pencerenin kapatılmasına
+			çalışmaktadır. Bu <a href="../uygulamalar/b18.3.6-uyg-1.html">sayfayı</a>, değişik
+			belge çözümleyiciler ile açmaya çalışınız. Sadece Internet Explorer uygun bir mesajal
+			sistem penceresini katma olanağı sağlayacaktır. GECKO temeli ile çalışan hiçbir belge çözümleyici, 
+			sistem pencerelerinin kapılmasına olanak vermemektedir. Bazı belge çözümleyiciler ise, hiçbir 
+			mesaj vermeksizin anında pencereyi kapatmaktadır ve bu kullanıcıyı rahatsız etmektedir. Sonuç
+			olarak, Yukarıdaki <a href="../uygulamalar/b18.3.6-uyg-1-js.html">program</a> ortak desteklenebilen
+			bir program değildir ve kullanılmaması gerekir. Sistem pencerelerinin kapatılması için, kapatma
+			tutamaklarından yararlanılması daha doğru olacaktır.
+		</p>
+		<p class="indent" id="b18.3.6-uyg-2">
+			İkinci uygulama, JavaScript program adımları ile açılmış olan pencerelerin kapatılmasıdır. 
+			Bu konudaki uygulamalar, ilk olarak, <a href="b18s1.html#open">18.3.1 konusunda</a> 
+			incelenmiş olan yöntemle bir açılan pencere (pop-up penceresi) açarak, bu pencerenin kullanıcı eliye
+			kapatılmasına çalışacaklardır. Kapatma düğmeleri çoğunlukla açılan sayfa 	üzerindedir. Bu uygulamada 
+			da açılan pencere üzerinde bir kapatma düğmesi bulunmaktadır. Bu 
+			<a href="../uygulamalar/b18.3.6-uyg-2-js.html">program</a>, prensip olarak, 
+			<a href="b18s1.html#open">18.3.1 konusunda</a> üçüncü uygulama olarak incelenmiş
+			olan, pencere açma
+			<a href="../uygulamalar/b18.3.1-uyg-3-js.html">programı</a> ile açılan 
+			<a href="../uygulamalar/tarifeler.html">sayfanın</a> ilişikli olduğu, 
+			<a href="../uygulamalar/tarifeler-js.html">program kodlarını</a>
+			içermektedir.  Bu program kodları aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereyiKapat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">self</span><span 
+			class="op">.</span><span 
+			class="keyw">close</span><span 
+			class="op">();</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereyiYazdır<span 
+			class="op">() {</span>
+			
+<span class="keyw-50">self</span><span 
+			class="op">.</span><span 
+			class="keyw">print</span><span 
+			class="op">();</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+
+<span class="pl-50">kapat</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'kapat'</span><span 
+			class="op">),</span>
+
+<span class="pl-50">yazdır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yaz'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">kapat</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> pencereyiKapat<span 
+			class="op">;</span>
+
+<span class="pl-50">yazdır</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> pencereyiYazdır<span 
+			class="op">;</span>
+			
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu <a href="../uygulamalar/tarifeler-js.html">program</a> kodlarının, 
+			ilişikli olduğu <a href="../uygulamalar/tarifeler.html">tarifeler.htm</a> sayfasının
+			XHTML kodlarının programla ilgili kısımları ise aşağıda görüldüğü gibi
+			sadece sayfa kodlarından oluşmaktadır ve JavaScript kodları bu kodlarla karışmaması
+			için, kendisine özgü bir dış JavaScript <a href="../uygulamalar/tarifeler-js.html">sayfasında</a> 
+			bulunmaktadır.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span  class="keyw-25">&lt;</span><span 
+			class="elm">p</span><span 
+			class="att"> class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;indent pl-200&quot;</span><span 
+			class="keyw">&gt;</span>
+<span  class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;kapat&quot;</span> <span 
+			class="att">value</span><span 
+			class="op">=</span><span 
+			class="str">&quot;Sayfayı Kapat !&quot;</span> <span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;yaz&quot;</span> <span 
+			class="att">value</span><span 
+			class="op">=</span><span 
+			class="str">&quot;Sayfayı Yazdır !&quot;</span> <span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			Bu <a href="../uygulamalar/b18.3.6-uyg-1.html">uygulama</a>, tüm belge 
+			çözümleyicilerde sorunsuz çalışabilmektedir.
+		</p>
+
+		<p class="subheading" id="focus">18.3.7 - window.focus() Metodu (Sayfanın İlgi Kazanması)</p>
+		<p class="indent">
+			Bu metot, klavye ilgisinin sağlanması olarak
+			açıklanabilir. Klavye ilgisi bir pencere üzerinde
+			odaklandığında, klavye girişleri, ilginin odaklandığı
+			pencereye yönelir.
+			<span class="keyw">focus</span> Metodu,
+			<span class="keyw">blur</span> metodunun
+			antagonistidir
+			(<span class="keyw">blur</span>
+			metodunun etkisi,
+			<span class="keyw">focus</span>
+			metodunun etkisi ile ters yöndedir). Klavye ilgisi,
+			bir nesne üzerinde odaklandığında, o nesnenin
+			<span class="keyw">onfocus</span> olay
+			dinleyicisi, bir eylemi başlatabilir. Genel olarak,
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open</span><span class="op">()</span>
+			metodu ile açılan alt pencerelerin açılma kodlarına
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">()</span>
+			metodunun eklenmesi, açılan pencereye anında ilgi
+			sağlayacağı için, iyi bir fikir olabilir. Çünkü, yeni
+			açılan bir pencerenin otomatik olarak ilgi
+			kazanmasına karşın, aynı isimle açık halde olan bir
+			pencereye yeni bir belge yüklenmesi ile sonuçlanan
+			isimli bir alt pencere açma olayında, yeni bir belge
+			yüklenen açık pencere arka plana düşer. Kullanıcının
+			bu pencereye
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">focus</span><span class="op">()</span>
+			bildirimi ile yeniden ilgi kazandırması (ön plana çekmesi) gerekebilir.
+		</p>
+		<p class="indent">
+			Çalışmalarınıza,
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">focus<span class="op">()</span></span>
+			metodunun kullanıldığı çeşitli örnekler verilmiştir.
+			Bu konudaki en son örnek,
+			<a href="../uygulamalar/b18.3.1-uyg-1.html">yukarıdaki</a>,
+			uygulamada gerçekleşmiştir.
+		</p>
+		<p class="subheading" id="moveby">18.3.8 - window.moveBy() Metodu (Sayfanın Yer Değiştirmesi)</p>
+		<p class="indent">
+			Bu metot, pencerenin bulunduğu yerden, verilen piksel değerlerine kadar, dikey ve yatay yönde
+			kaydırılmasını sağlar. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">moveBy</span><span 
+			class="op">(</span>yatay kaydırma piksel değeri<span 
+			class="op">,</span> dikey kaydırma piksel değeri<span 
+			class="op">);</span> 
+</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metodun koordinat sistemi görelidir. Verilen koordinat değerleri, pencerenin bulunduğu
+			koodinatlar (0,0) kabul edilerek, verilen piksel biriminde segment parçaları kadar, pencerenin yerini
+			değiştirirler. Pozitif ve negatif uzunluklar kullanılabilir.
+		</p>
+		<p class="indent">
+			Bu metodun uygulanmasında alt pencerelerde bir sorun yaşanmaz fakat, sistem pencerelerinde, sekmeli
+			sayfalar (tabbed browsing) ve çerçevelerle yapılacak çalışmalarda (frames) bu metot çalışmaz.
+		</p>
+		<p class="indent"  id="b18.3.8-uyg-1">
+			Bu konuda, kodları aşağıda görülen bir <a href="../uygulamalar/b18.3.8-uyg-1-js.html">örnek program</a>
+			verilmiştir. Bu program, <a href="../uygulamalar/b18.3.8-uyg-1.html">uygulama sayfası</a> ile
+			ilişikli olarak çalışmaktadır. Örnekte, sayfanın yer değiştirmeden önce
+			arka plana alınması ve bu şekilde, yer değiştirme işleminin, kullanıcının görüş alanı dışında
+			tamamlanarak, bir rahatsızlığa neden olmaması sağlanmıştır. Yer değiştirme işlemi tamamlandığında,
+			alt pencere tekrar ön plana taşınmaktadır. 
+	</p><pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;reklam&quot;</span><span 
+			class="op">,</span>
+<span class="str-200">'left = 100, top = 10, width = 300, height = 250,' </span><span 
+			class="op">+</span>
+<span class="str-200">'toolbar = no, menubar = no, location = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'directories = no, scrollbars = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'resizable = no, status = no'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">blur</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini ilgi odağından uzaklaştır. </span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">moveBy</span><span 
+			class="op">(</span>400<span 
+			class="op">,</span> 100<span 
+			class="op">);</span><span 
+			class="comm"> // Açık pencere nesnesinin yerini Değiştir.  </span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. </span>
+
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> reklam<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> URI <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">URI</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">[</span>6<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">pencereAç</span><span 
+			class="op">(</span>URI<span 
+			class="op">);</span>
+
+<span class="keyw-50">return</span><span 
+			class="keyw"> false</span><span 
+			class="op">;</span>
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= []</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>6<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> reklam<span 
+			class="op">;
+</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="moveto">
+		18.3.9 - window.moveTo() Metodu (Sayfanın Yer Değiştirmesi)
+		</p>
+		<p class="indent">
+			Bu metot, pencerenin belirtilen piksel değerlerine uygun olarak yeni koordinatlara geçmesini sağlar.
+			Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">moveTo</span><span 
+			class="op">(</span>yatay koordinat bileşeni<span 
+			class="op">,</span> dikey koordinat bileşeni<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Yatay ve dikey koordinat bileşenleri,
+			piksel olarak verilmelidir. Bu metodun koordinat
+			sistemi mutlaktır. Koordinat ekseni başlangıcı,
+			pencerenin sol üst köşesi, (0,0) olacak şekilde kabul
+			edilmiştir. Negatif koordinat değerleri kullanılmaz.
+		</p>
+<p class="indent">
+			Bu metodun kullanımı,
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">moveBy</span><span class="op">()</span>
+			metoduna benzer. Uygulanmasında alt pencerelerde bir
+			sorun yaşanmaz fakat, sistem pencerelerinde, sekmeli
+			sayfalar (tabbed browsing) ve çerçevelerle (frames)
+			çalışmalarda bu metot da çalışmaz.
+	</p>
+		<p class="indent"  id="b18.3.9-uyg-1">
+			Bu konuda, kodları aşağıda görülen bir <a href="../uygulamalar/b18.3.9-uyg-1-js.html">örnek program</a>
+			verilmiştir. Bu program, <a href="../uygulamalar/b18.3.9-uyg-1.html">uygulama sayfası</a> ile
+			ilişikli olarak çalışmaktadır. Örnekte, sayfanın yer değiştirmeden önce
+			arka plana alınması ve bu şekilde, yer değiştirme işleminin, kullanıcının görüş alanı dışında
+			tamamlanarak, bir rahatsızlığa neden olmaması sağlanmıştır. Yer değiştirme işlemi tamamlandığında,
+			alt pencere tekrar ön plana taşınmaktadır. 
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;reklam&quot;</span><span 
+			class="op">,</span>
+<span class="str-200">'left = 100, top = 10, width = 300, height = 250,' </span><span 
+			class="op">+</span>
+<span class="str-200">'toolbar = no, menubar = no, location = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'directories = no, scrollbars = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'resizable = no, status = no'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">blur</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini ilgi odağından uzaklaştır. </span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">moveTo</span><span 
+			class="op">(</span>400<span 
+			class="op">,</span> 100<span 
+			class="op">);</span><span 
+			class="comm"> // Açık pencere nesnesinin yerini Değiştir. </span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. </span>
+
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> reklam<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> URI <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">URI</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">[</span>6<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">pencereAç</span><span 
+			class="op">(</span>URI<span 
+			class="op">);</span>
+
+<span class="keyw-50">return</span><span 
+			class="keyw"> false</span><span 
+			class="op">;</span>
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= []</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>6<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> reklam<span 
+			class="op">;
+</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="scroll">18.3.10 - window.scroll() Metodu (Sayfanın İçeriğinin Kaydırılması)</p>
+		<p class="indent" id="b12s3-uyg-5">
+			Bu metot, pencerenin içeriğinin, verilen piksel
+			değerleri kadar olarak yana ve aşağıya doğru
+			kaymasını sağlar. Kullanımı,
+		</p>
+		<pre>
+		<span class="keyw">window</span><span 
+		class="op">.</span><span 
+		class="keyw">scroll</span><span 
+			class="op">(</span>yatay kayma değeri<span 
+		class="op">,</span> dikey kayma değeri<span 
+		class="op">);</span>
+</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metot, göreli bir kayma sağlar. Yatay
+			ve dikey kayma değerlerinin, başlangıç noktası
+			sayfanın, o anda bulunduğu durumdaki değerlerdir.
+			Değerler piksel biriminde belirtilirler. Bu metodun kullanımı, prensip olarak ,
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">scrollBy</span><span class="op">()</span> metodu ile aynı 
+			sonucu verir. 
+		</p>
+		<p class="indent"  id="b18.3.10-uyg-1">
+			Bu konuda, kodları aşağıda görülen bir 
+			<a href="../uygulamalar/b18.3.10-uyg-1-js.html">örnek program</a>
+			verilmiştir. Bu program, <a href="../uygulamalar/b18.3.10-uyg-1.html">uygulama sayfası</a> ile
+			ilişikli olarak çalışmaktadır.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;sayfa&quot;</span><span 
+			class="op">,</span>
+<span class="str-200">'left = 100, top = 10, width = 300, height = 250,' </span><span 
+			class="op">+</span>
+<span class="str-200">'toolbar = no, menubar = no, location = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'directories = no, scrollbars = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'resizable = no, status = no'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">scroll</span><span 
+			class="op">(</span>0<span 
+			class="op">,</span> 6890<span 
+			class="op">);</span><span 
+			class="comm"> // Açık pencere nesnesinin içeriğinin gösterimini yeni bir koordinattan başlat.</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. </span>
+
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> kaydır<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> URI <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">URI</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">pencereAç</span><span 
+			class="op">(</span>URI<span 
+			class="op">);</span>
+
+<span class="keyw-50">return</span><span 
+			class="keyw"> false</span><span 
+			class="op">;</span>
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= []</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>4<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> kaydır<span 
+			class="op">;
+</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="scrollBy">
+					18.3.11 - window.scrollBy() Metodu (Sayfanın İçeriğinin Kaydırılması)
+		</p>
+		<p class="indent" id="b18.3.11-uyg-1">
+			Bu metot, prensip olarak bir önceki, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">scroll</span><span class="op">()</span>
+			metodu ile aynı etkiyi yapar. Bu konuda yukarııdaki son uygulama, sadece ilgi program adımı,
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">scrollBy</span><span 
+			class="op">(</span>0<span 
+			class="op">,</span> 10450<span 
+			class="op">);</span><span 
+			class="comm"> // Açık pencere nesnesinin içeriğinin gösterimini yeni bir koordinattan başlat.</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde değiştirilerek yenilenmiştir. Bu <a href="../uygulamalar/b18.3.11-uyg-1-js.html">program</a>, 
+			bağlantılı olduğu <a href="../uygulamalar/b18.3.11-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<p class="subheading" id="scrollTo">
+					18.3.12 - window.scrollTo() Metodu (Sayfanın İçeriğinin Kaydırılması)
+		</p>
+		<p class="indent">
+			Bu metot diğer önceki kaydırma metotları gibi, sayfa içeriğinin belirli bir koordinata
+			kadar kaydırılmasına yarar. Bu yöntemdeki koordinatlar mıutlak değerlerdir. Kartezyen
+			koordinat sisteminin başlangıcı, açılan sayfanın en sol üst köşesinin koordinatları olarak
+			kabul edilen (0, 0) değerleridir. Koordinat birimleri piksel değerleridir. 
+		</p>
+		<p class="indent" id="b18.3.12-uyg-1">
+			Bu konuda bir uygulama programı, bir önceki programın ilgili adımlarının 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">scrollTo</span><span 
+			class="op">(</span>0<span 
+			class="op">,</span> 10450<span 
+			class="op">);</span><span 
+			class="comm"> // Açık pencere nesnesinin içeriğinin gösterimini yeni bir koordinattan başlat.</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent" id="b18.3.12uyg-1">
+			şeklinde değiştirilmesi ile gerçekleştirilmiştir. Bu <a href="../uygulamalar/b18.3.12-uyg-1-js.html">program</a>, 
+			bağlantılı olduğu <a href="../uygulamalar/b18.3.12-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<p class="subheading" id="special">
+			18.3.13 - Belge Çözümleyicilere Özgü BOM Metotları
+		</p>
+		<p class="indent">
+			Bu çalışmada sadece, tüm belge çözümleyicilerde
+			desteklenebilen BOM metotları incelenmiştir. Bu
+			metotlardan başka, çok sayıda salt bir tek belge
+			çözümleyiciye özgü ve diğerleri tarafından
+			desteklenmeyen metotlar da bulunmaktadır. Bu özel
+			metotların, genel amaçlı sayfalarda kullanılmaları
+			doğru değildir. Kapalı Intranetlerde ise, yerine göre
+			çok yararlı olabilirler. Salt MSIE için geçerli olan
+			BOM metotları için
+			<a href="http://msdn.microsoft.com/en-us/library/default.aspx">MSIE referans sayfası</a> ve 
+			<a href="http://msdn.microsoft.com/en-us/library/ms535873(VS.85).aspx">IE window nesnesi</a> 
+			referans sayfalarından yararlanılabilir. GECKO temelli belge çözümleyiciler için,
+			<a href="http://www.mozilla.org/docs/web-developer/">GECKO referans sayfası</a> ve
+			<a href="https://developer.mozilla.org/en/DOM/window">GECKO window nesnesi</a>
+			sayfalarından yararlanılabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>&laquo; İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s2.html"><em>&laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s4.html"><em> Sonraki &raquo; </em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:46 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

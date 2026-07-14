@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Julia/chapter1/page2/k1s2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:42 GMT -->
+<head>
+    <meta name="description" content="Julia Programlama Dili">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Julia/chapter1/page2/k1s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Julia Konu 1 Sayfa 2</title>
+    <meta content="Julia Programming Language Tutorial, in Turkish" name="description" />
+    <meta content="Julia Tutorial, in Turkish" name="keywords" />
+    <meta content="Prof. Dr. Bedri Doğan Emir" name="author">
+    <meta content="INDEX,FOLLOW" name="Robots" />
+    <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+    <link href="../../css/juliastyle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <p class="chapter">
+      Julia Programlama Dili
+    </p>
+    <p class="chapter">
+      Bölüm 1
+    </p>
+    <p class="chapter">
+    Başlangıç Bilgileri
+  </p>
+		<p class="pagenum">Sayfa 2</p>
+
+    <p id="platform" class="title-left">
+      1.2 -
+      Julia Programlama Platformu
+    </p>
+    <p class="subheading">
+      Julia Programlama Platformunun Masaüstü Bilgisayar Sistemine Yerleştirilmesi
+    </p>
+    <p class="indent">
+      Julia programlama ortamının kullanılan masaüstü bilgisayar istemine yerleştirilmesi 
+      son derece kolaydır. 64 bit Windows 10 sistemi çalıştıran bir makineye Julia 
+      platformunun yerleştirilmeye çalışıldığını varsayalım. Bunun için iki seçenek 
+      bulunmaktadır. İlki en basit şekilde,
+      <a href="https://julialang.org/downloads/">Julia resmî sayfasından 64 bit 
+      sürümünün</a> indirilmesi. Bu sürüm, sadece REPL ve notebook ortamlarını sağlar 
+      fakat sadece en gerekli paketleri içerdiğinden, iyi çalışan bir ortam sağlar.
+    </p>
+    <p class="indent">
+      İkinci seçenek, daha gelişkin ve sağlık verilen bir yükleme yöntemidir.
+      <a href="http://juliacomputing.com/products/juliapro.html">JuliaPro sayfasından</a> 
+      64 bitlik Windows için, JuliaPro ortamının özgür (free) versiyonu indirilebilir. 
+      Bu ortam çok gelişkindir. çok sayıda gerekli paket, Juno yazım ortamı (Atom 
+      temelli) , otomatik notebook sistemi yerleştirilmiş olur.
+    </p>
+    <p class="indent">
+      JuliaPro fazla yükü olduğu için bazen düzgün çalışmayabilir. Bu durumda, onu 
+      silmeden bırakın. Klasik Julia yükleyin ve ondaki julia.exe programını kullanın. 
+      Sorun kalmaz. Yüklenmiş olan paketler de aynen yüklü kalır.
+    </p>
+    <p class="indent">
+      Julia ortamı masaüstü sistemine yüklendikten sonra, yerleştirildiği klasörde, 
+      bin klasörü içinde julia.exe dosyasını bulun ve bunu sistem değişkeni (environmental 
+      variable) olarak yerleştirin. Makineyi yeniden başlatın.
+    </p>
+    <p class="indent">
+      Yeniden başlayan makinede, Julia programlarını çalıştırmak için üç farklı 
+      şansımız bulunmaktadır. Bunlar,
+    </p>
+    <ul class="list">
+      <li>REPL ortamı</li>
+      <li>notebook() ortamı</li>
+      <li>Julia script dosyalarının çalıştırılması</li>
+    </ul>
+    <p class="indent">
+      Her üçünün de farklı çalışma ve kod yazım kuralları bulunmaktadır. Daha doğrusu 
+      kod yazımı her ortamda aynıdır fakat, her ortamın sağladığı kolaylıklar kod 
+      yazımını basitleştirmektedir.</p>
+    <p id="repl" class="subheading">1.3 - REPL</p>
+    <p class="indent">
+      İlk olarak REPL (ReadEvaluatePrintLoop) ortamı tanıtlacaktır. REPL bir komut 
+      satırı benzeri ortamdır, fakat komut satırına göre çok gelişkindir.
+    </p>
+    <p class="indent">
+      Julia.exe bir sistem değişkeni olarak tanıtıldıktan sonra, windows komut satırı 
+      açılır ve julia yazılıp enter tuşuna basılır. Alternatif olarak, dosya sistemi 
+      içinde julia.exe bulunur ve mouse ile üzerine çift tıklanır. Derhal REPL ortamı 
+      açılacaktır.
+    </p>
+    <p class="indent">
+      REPL bir hesap makinesi gibi çalışır. Aşağıda bir çalışma örneği görüntülenmektedir:
+    </p>
+    <p class="indent">
+      <img alt="REPL" src="images2/pk1s2-1.png" />
+    </p>
+    <p class="indent">
+      Yukarıdaki REPL işlemleri incelendiğinde, 2+2 iki tüm Julia ifadelerinin REPL 
+      ortamında sorunsuzca çalıştırabildiği ve sonucun görüntelenebildiği anlaşılmaktadır.
+    </p>
+    <p class="indent">
+      İkinci satırda,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>a=3 &lt;----Enter
+    </p>
+    <p class="indent">
+      işlemi bir atama işlemidir. Julia programlama dilinde, atama sırasında atanacak 
+      değerin veri tipinin belirtilmesi isteğe bağlı ve genellikle sıradışıdır. 
+      Atama veri tipi belirtilmeden yapılabilir. Fakat, Julia yorumlayıcısı atanacak 
+      veri ile birlikte, çalışılan makinenin işletim sistemini analiz eder, atanacak 
+      olan değere en uygun veri tipini bulur, atmayı yapar ve atanan değer için 
+      gerçekleşen veri tipini belleğinde saklar. Bundan sonra bu değişkenle yapılacak 
+      tüm işlemler için veri tipi uygunluğu aranır. Veri tipine uygun olmayan işlemler 
+      tanımlanıp çalıştırılmaya çalışılınca, Julia yorumlayıcısı, bir hata (exception) 
+      (kuraldışılık) fırlatır ve eğer bir hata yönetme yöntemi tanımlanmamışsa program, 
+      code=1 hata kodu ile durdurulur. Bu işlem yöntemi, Julia programlama dilinin 
+      güçlü veri sistemli (Strongly Typed) bir programlama dili olduğunu belirtir. 
+      Programcıların, programlama yöntemlerini, kullanacakları nesnelerin bellekteki 
+      veri tipleri ile uyumlu olmasını sağlama yükümlülükleri vardır. Yoksa, programları 
+      bir adım bile atamaz.</p>
+    <p class="indent">
+      Julia yorumlayıcısın çalıştığı makinenin işletim sistemini ne şekilde algıladığının 
+      anlaşılması için sys.WORD_SIZE sorgulaması yapılabilir.
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>sys.WORD_SIZE
+    </p>
+    <p class="indent">
+      64
+    </p>
+    <p class="indent">
+      REPL ortamında atama sonunda, atama başarılı olmuşsa, atanan değer, yukarıdaki 
+      REPL sekansında (birbirini izleyen işlemler) görüntüldüğü gibi bir alt satırda 
+      görüntülenmektedir.
+    </p>
+    <p class="indent">
+      Gerçekleşmiş olan en son başarılı işlemin sonucuna, bir sonraki adımda,
+      <span class="keyw">ans</span>(answer'in kısaltılmışı) öntanımlı sözcüğü ile 
+      erişilebilir. Örnek:
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>3+1<span class="pl-25">&lt;---- Enter</span>
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>4
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>
+    </p>
+    <p class="indent">
+      ans+2<span class="pl-25">&lt;---- Enter</span>
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>6
+    </p>
+    <p class="indent">
+      REPL ortamında, aynı satırda birden fazla işlem, arada noktalı virgül (semikolon) 
+      kullanılması ile birbirlerinden ayrılarak tanımlanmaktadır. Satır çalıştırılınca, 
+      herşey uygun giderse, tüm ifadeler teker teker çalıştırılır ve gerçekleşen 
+      en son işlemin sonucu bir alt satırda görüntülenir.
+    </p>
+    <p class="indent">
+      REPL ortamında bir değerin görüntülenmesi için, <span class="keyw">print</span><span class="op">()</span>
+      <span class="keyw">println</span><span class="op">()</span>
+      <span class="keyw">print_with_color</span><span class="op">()</span> gibi 
+      yazdırma algoritmalarının kullanılması gereksizdir. Değerin tanıtıcısını (identifier) 
+      diğer bir söylem ile, değişken ismini çağırmak yeterlidir.
+    </p>
+    <p class="indent">
+      Yedinci işlem ilginçtir. Julia programlama dilinde orantılar pay//payda şeklinde 
+      tanıtıllır ve işlemler ortaımının tamsayı tipi bozulmadan tamsayı olarak sonuçlandırılır. 
+      Sonucun basitleştirme olanağı varsa, basitleştirilir ve sonuç görüntülenir. 
+      Burada, 3/25+9/3 =3/25+3=3/25+3*25/25=(3+3*25)/25 =78/25 işlemi yapılmış ve 
+      basitleştirme olanağı bulunmadığından, sonuç aynen beliritilmişir.
+    </p>
+    <p class="indent">
+      Son işlem de aynı şekilde ilginçtir. Julia programlama dilinde pi, e gibi 
+      semboller öntanımlıdır. Bu semboller, Latex kodlaması ile Grek karakterleri 
+      olarak tanımlanabilir. &pi; karakteri \ +pi+TAB klavye sekansı ile oluşturulabilir. 
+      Julia programlama dili, matematiğe yatkın olacak şekilde oluşturulmuştur. 
+      sin(2*&pi;) yazılması yerine sin(2&pi;) yazılabilir. Bu da Julia programlama 
+      diline olağanüstü bir matematik ifade oluşturma olanağı sağlar.
+    </p>
+    <p id="script" class="subheading">1.4 - Julia Programları (Julia Skriptleri)</p>
+    <p class="indent">
+      Julia programları, uzun ve gerçek programlar olarak da düzenlenebilirler. 
+      Bunlara, &quot;Julia Skriptleri&quot; adı da verilir. Julia skriptlerinin gerek 
+      yazımları gerekse çalıştırılmaları oldukça sıradışıdır. Julia programları, 
+      prensip olarak her türlü tekst programında yazılablirler. Fakat, Julia programlama 
+      dilinin özel karakterleri destekleme yeteneğinin değerlendirilebilmesi için, 
+      Julia skriptlerinin özel yazılımlarda hazırlanması daha uygun 
+      olmaktadır. İlk aday JuliaPro ile birlikte gelen Juno yazılımıdır. Atom yapısına 
+      bağlı olan Juno'nun hem yazım hem de çalıştırma yönünde ikili yeteneği bulunmaktadır. 
+      Juno, kurulumu ve kullanılması kolay olmayan, stabilitesi zayıf bir programdır. Bunun aslında fazla 
+      bir sakıncası yoktur. Yazım (skript), yazım sırasında sürekli kaydedilir. 
+      Skript dosyası elde olduktan sonra, Juno'nun çökmesi fazla zarar vermez. Çöken 
+      Juno yeniden çalıştırılır. Kaydedilmiş skript yeniden açılır (şansımız varsa !) ve çalışmaya 
+      kaldığı yerden devam edilir.
+    </p>
+    <p class="indent">
+      Her ortamda yazılmış olan Julia skriptleri, REPL ortamında örnek olarak, include("junoscript.jl") 
+      şeklinde çalıştırılabilir.
+    </p>
+    <p class="indent">
+      Julia skriptlerinin (programlarının) yazımını sağlayabilecek bir başka aday, 
+      Visual Studio Code adında Microsoft tarafından yeni geliştirilmiş, kurulumu
+      ve kullanımı kolay, stabilitesi iyi olan, Atom platformu benzeri bir kod 
+      editörüdür. VSCode ortamında, her türlü Julia programı çalıştırılabilmekte, 
+      fakat grafik görüntüleri desteklememektedir. Bunun da bir sorunu yoktur, 
+      çünkü grafik içeren Julia skriptleri, VSCode ortamında 
+      yazılıp, REPL ortamında, örnek olarak, include("test.jl") şeklinde çalıştırılabilmektedir.
+    </p>
+    <p class="indent">
+      Julia skriptlerinin yazılması ve çalıştırılması için bir başka aday, &quot;Sublime 
+      Text&quot; olarak tanınan bir editörün Julia skriptlerini destekleyen bir 
+      sürümüdür. Julia skriptlerini destekleyen Sublime Text yazılımı, stabil, başarılı 
+      bir yazılımdır. Bu ortam da aynen VSCode ortamı gibi, Julia skriptlerinin 
+      hem yazılabilmesini, hem de çalıştırılabilmesini sağlayabilmektedir. Sadece, 
+      bu ortam da, VSCode ortamı gibi, grafik çıktılarını desteklememektedir. Bu 
+      da bir sorun oluşturmaz. Yazımı tamamlanan, grafik çıktı içeren Julia programlarının 
+      çalıştırılmaları, REPL ortamında gerçekleştirilebilir.
+    </p>
+    <p class="indent">
+      Julia skriptinin yazılımı tamamlandıktan sonra, REPL ortamında çalıştırılabilmesi 
+      için, REPL programının skript programını görmesi sağlanmalıdır. Bunun iki 
+      yöntemi bulunmaktadır. Ya, REPL ortamının skript dosyasının lokasyonunu görmesi 
+      sağlanacaktır. Ya da REPL ve skript aynı klasörde bulunacaktır.
+    </p>
+    <p class="indent">
+      Bir dosyaya herhangibir tekst editörü ile,
+    </p>
+    <p class="nonindent">
+      println(&quot;Merhaba Dünya&quot;)
+    </p>
+    <p class="indent">
+      yazalım ve &quot;c.\temp\merhaba.jl&quot; adı ile bir tekst dosyasında saklayalım.
+    </p>
+    <p class="indent">
+      Bundan sonra REPL ortamını açalım ve pwd() yazalım, enter ile çalıştıralım. 
+      Burada, pwd saklı sözcüğü, print working directory anlamına gelir ve REPL 
+      programının çalıştığı klasörü belirtir. Aslında bundan sonra en kolay yapılacak 
+      işlem, bir dosya transferi ile, (Cut/Paste), &quot;Merhaba.jl&quot; dosyasını, 
+      REPL klsörüne taşımaktır.
+    </p>
+    <p class="indent">
+      Bir başka seçenek olarak da include(&quot;c:\\temp\\merhaba.jl&quot;şeklinde, 
+      REPL ortamına script programının lokasyonunu bildirmektir.REPL, JSON temellidir. 
+      JSON notasyonunda, klasör ayraçları \ (slaş) nın ek bir \ (slaş) ile saklanması, 
+      (escape) edilmesi gereklidir.
+    </p>
+    <p class="indent">
+      Üçüncü olasılık REPL programının çalışma alanını, &quot;Merhaba.jl&quot;skript 
+      dosyasının bulunduğu, &quot;c:\temp&quot; klasörüne taşımaktır. Bunun için 
+      REPL program satırına, cd(&quot;c:\\temp&quot;)yazmak yeterlidir. Bundan sonra, 
+      REPL ve skript dosyası aynı klasörde olacakları için, include(&quot;merhaba.jl&quot;) 
+      bildirimi ile, &quot;merhaba.jl&quot;skript dosyası çalıştırılabilecektir. 
+      p&gt;
+    </p>
+    <p class="indent">
+      Bir örnek olarak,
+    </p>
+    <p class="indent">
+      <img alt="Merha.jl dosyasının REPL üzerinden çalıştırılması" src="images2/pk1s2-2.png" />
+    </p>
+    <p class="indent">
+      Doğal olarak, grafik içermeyen bir Julia skripti olan &quot;merhaba.jl&quot;'in, 
+      REPL kullanılmadan doğrudan &quot;Sublime text&quot; veya &quot;VScode&quot;veya 
+      en kötü olasılıkla &quot;Juno&quot; üzerinde çalıştırmaktır.
+    </p>
+    <p id="notebook" class="subheading">1.5 - Notebook Ortamı</p>
+    <p class="indent">
+      Julia notebook ortamı aslında IPython notebooklarının, Julia kernel (çekirdek) 
+      üzerinden çalıştırılmasıdır. Julia notebooları, aynı IPython notebookları 
+      gibi *.ipynb (IPython notebooks) son ekine (extension) sahiptir.
+    </p>
+    <p class="indent">
+      İlginç bir Julia notebook ortamı, web üzerinde on-line çalışan &quot;Julia 
+      Box&quot;sitesidir. Çok stabil olmayan bu siteye,
+      <a href="https://www.juliabox.com/">https://www.juliabox.com</a> üzerinden 
+      ulaşılabilir. Kayıt olduktan sonra, açılan notebook ortamında, kendi makinemize 
+      hiç Julia implemantasyonu (yerleşimi) yapmadan, Julia program kodlarını çalıştırabiliriz.
+    </p>
+    <p class="indent">
+      Julia notebooklarına kendi makinenizde erişim sağlayabilmek için, eğer JuliaPro 
+      üzerinden yerleşim yapıldı ise, masaüstünde IJulia Notebooks ikonuna tıklamak 
+      yeterlidir. Eğer doğrudan Julia sitesinden indirilmiş ise, ilk çalıştırma 
+      için REPL üzerinden,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>Pkg.add(&quot;IJulia&quot;)
+    </p>
+    <p class="indent">
+      yazılarak, IJulia paketi, Julia ortamına eklenir. Bu işlem sadece bir kez 
+      gereklidir. Bundan sık sık yapılması gereken ortam güncelleme işlemi,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>Pkg.update()
+    </p>
+    <p class="indent">
+      yazılıp, Enter tuşuna basılarak gerçekleştirilir.
+    </p>
+    <p class="indent">
+      Sistem güncellenmesi tamamlanınca, artık bundan sonra REPL komut satırına 
+      sadece,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>using IJulia &lt;---- Enter
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>notebook() &lt;---- Enter
+    </p>
+    <p class="indent">
+      yazılması ile, Julia notebook ortamı açılacaktır.</p>
+    <p class="indent">
+      Ipython notebook ortamında Julia skriptleriin çalıştırırılması için, ya önceden 
+      saklanmış bir *.ipynb programı yeniden açılacak veya yeni bir Julia notebook 
+      sayfası açılacaktır.</p>
+    <p class="indent">
+      Yeni bir IJulia notebook sayfası açılması için, file sekmesinden new seçeneği 
+      tıklanır, açılan &quot;untitled.ipynb&quot; dosyasına kernel seçimi için, 
+      bir Julia kerneli seçilir. Yine file sekmesinden rename seçeneği ile bu yeni 
+      IJulia notebook sayfasına yeni bir isim verilir. Sonuçta &lt;yeniİsim&gt;.ipynb 
+      adlı Julia notebook sayfası kullanıma hazırdır.
+    </p>
+    <p class="indent">
+      IJulia notebook sayfaları hücre (cell) temeline göre çalışır. Her hücre bağımsız 
+      bir çalıştırma (değerlendirme) (evaluation) ortamı olmasına karşın, bir hücrede 
+      belleğe alınan bir veya birçok değer, fonksiyon makro ve benzeri, daha sonraki 
+      hücrelerde çağrılabilir.
+    </p>
+    <p class="indent">
+      IJulia notebooklarında (çalışma defterlerinde) iki türlü hücre vardır. Bunlar,
+    </p>
+    <ul class="list">
+      <li>markdown</li>
+      <li>code</li>
+    </ul>
+    <p class="indent">
+      tipi hücrelerdir.
+    </p>
+    <p class="indent">
+      Markdown hücreleri yorum yapmak için kullanılır. Burada açıklamalar yapılabilir. 
+      Markdown hücreleri, HTML kodlarını değerlendirebilir. Aşağıdaki yazım, hücre 
+      ortasında görüntülenen, kırmızı bir yorum satırı oluşturur.
+    </p>
+    <pre>
+    &lt;p style=&amp;quot;color:red;font-famlily:Verdana Geneva sans-script;font-size:16;text-align:center;&amp;quot;&gt;Paragraf Başlığı&lt;/p&gt;
+    </pre>
+    <p class="indent">
+      Notebook kod hücrelerinin yazılımı, REPL satırlarına çok benzer. Her hücrede 
+      birden çok işlem, semikolon ile ayrılarak tanımlanabilir. En son tanımlanan 
+      işlemin sonucu, görüntülenir. Her hücre, CTRL+Enter tuş kombinasyonu ile çalıştırılabilir.
+    </p>
+    <p class="indent">
+      Notebook hücrelerinde <span class="keyw">println</span><span class="op">()</span> 
+      tipi yazdırmaya pek gerek olmaz, zira değişkenin adı yazıldığında değeri görüntülenir. 
+      Ama, istenirse, tüm bir Julia skriptinin içeriği, bir notebook hücresinde 
+      çalıştırılır. Bu nedenle, Julia programlanmasında, skript yazılımına fazla 
+      gerek olmamaktadır.
+    </p>
+    <p class="indent">
+      IJulia ve Ipython notebookları, Python alt yapısının dayanaksız olması ve 
+      sık sık çökmesi nedeni ile fazla stabil değillerdir ve Python alt yapısı beklenmedeik 
+      bir anda çökerek, save edilmemiş notebook'u ortada bırakır. Notebook yazılımı 
+      tekst temeline dayanmaz ve kopyalanması pek olası değildir. Bu nedenle çökme, 
+      bir emeğin kaybolmasına neden olabilir. Daha kötüsü, bu yazılımların hatırlanmaları 
+      sağlanamazsa, yeniden yazımları çok sıkıntılı olabilir. Bu nedenle, alt yapıları 
+      çöken notebooklar asla kapatılmamalıdır.
+    </p>
+    <p class="indent">
+      Bu sorunun ilginç bir atlatılma yolu vardır. Window alt yapısı, her iki Julia 
+      alt yapısının implemantasyonuna olanak verir. Fakat sadece birindeki julia.exe 
+      sistem değişkeni (environmental variable) olanak tanımlanabilir. Bizim sağlık 
+      vereceğimiz yöntem, Hem JuliaPro hem de Julia alt yapısının farklı yerlere 
+      kurulması, ve JuliaPro ile gelen julia.exe programının sistem değişkeni olarak 
+      tanımlanmasıdır. Böylece REPL ve notebook ortamı, JuliaPro üzerinden çalıştırılacaktır. 
+      Julia alt yapısı ile gelen julia.exe masaüstüne bir kısayolu yerleştirilerek 
+      yedekte kalacaktır. Python alt yapısı çöküp, notebook yazılımı ortada kalınca, 
+      yedek julia.exe çalıştırılıp önce REPL sonra da notebook ortamı açılır. Henüz 
+      açık olan eski çakılmış notebooktaki kritik kodlar yeni açılan ve çalışan 
+      notebook hücrelerine kopyalanır. Çakılmış notebook kapatılır ve aynı alt yapı 
+      ile yeniden açılır. Henüz açık olan yedek yapı notebook'a aktarılmış olan 
+      kritik kodlar, yeniden açılmış olan ait olduğu notebook ortamına kopyalanır. 
+      Bu şekilde bilgi kaybı önlenmiş olur. Yedek notebook sayfası kapatılır. Yedek 
+      alt yapı, yeni bir çökme olasılığına karşı hazır olarak bekler.
+    </p>
+    <p class="indent">
+      Bilgisayar dünyasında, her şey sanki bir sorun olmayacakmış gibi sunulur. 
+      Oysa, her zaman sorun çıkar ve çıkan sorunları aşma yöntemleri araştırılır. 
+      Bilgisayar uzmanlığı sadece, katalog kitabındaki bilgileri uygulamaktan oluşmaz. 
+      Bu gibi pratik konuların üstesinden gelebilmek de bilgisayar bilimlerinin 
+      bir parçasıdır ve bu konuda uzman olmak isteyenlerin emek vermesi gereken 
+      bir konudur.
+    </p>
+    <p class="indent">
+      Yazdığımız tüm Julia programlarını çalıştıracak olanaklar elimize geçmiş olduğundan, 
+      artık Julia programlarının yazımına başlayabiliriz.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../index-2.html"><em>« Site Ana Sayfa</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../index.html"><em>« Julia Ana Sayfa</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../page1/k1s1.html"><em>« Önceki Sayfa</em></a></li>
+
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../../chapter2/page1/k2s1.html"><em>Sonraki Sayfa»</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../../../Library/lastmodified.js" type="text/javascript">
+      </script>
+     <p style="font-family: Helvetica; color: red; font-size: 14px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      Created With Microsoft Expression Web 4
+    </p>
+
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+      <img alt="Geçerli html5" src="../../images/html5-small-1.gif" /></a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Julia/chapter1/page2/k1s2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:46 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

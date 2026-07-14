@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:50 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s7.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s7</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s6.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s8.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.7 - Aritmetik İşlemciler </p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 7
+		</p>
+		<p class="subheading" id="coercion">2.7.1- Veri Tipi Uyarlaması (Coercion) 
+	</p>
+		<p class="indent">
+			Javascript programlama dilinin veri tipilerinin belirtilmediği bir programlama dili 
+			olması, yüzeysel bir gözlemdir ve sadece kullanım kolaylığı açısından düşünülmelidir. 
+			Bu görüntünün tam aksine, JavaScript yorumlayıcısı, veri tiplerini sürekli izler, belirli bir
+			veri tipi kullanılması gerekli olan işlenen veri tiplerini, metotların argüman veri 
+			tiplerini ve başka belirli veri tipi gereken her yerde, verilerin tipleri işleme uygun değilse, 
+			işleme uygun olacak veri tiplerine dönüştürmeye çalışır. Bu yönteme veri tipi 
+			uyarlaması veya basitçe uyarlama (coercion) adı verilir.
+	</p>
+		<p class="indent">
+			JavaScript tip uyarlamları bazı durumlarda çok açık ve yönü bellidir. Bu uyarlamalar,
+			sorunsuz gerçekleşir. Bazı durumlarda ise, uyarlama kullanıcının öngördüğü yönde 
+			gerçekleşmeyebilir. Bu durumlarda, sonuçların kontrol edilmesi ve gerekirse, kullanıcıların kendilerine
+			sağlanmış açık (explicit) tip dönüştürme yöntemlerinden yararlanarak verilerinin tiplerini
+			kendileri düzenlemeleri ve JavaScript yorumlayıcısına uyarlama zorunluğu bırakmamaları 
+			gerekir.
+		</p>
+		<p class="indent">
+			Javascript yorumlayıcısının uyarlama yeteneği, adaptive bir yöntemdir ve bir 
+			programlama dili için, esneklik sağlayan ileri bir yöntemdir. JavaScript yorumlayıcısının 
+			bu üstün uyarlama yeteneği, bazen yanlış sonuçlara neden olabilir. 
+		</p>
+		<p class="indent">
+			Javascript programlama dili, güçlü veri tipi kontrolü yapılan Java programlama dili gibi değildir.
+			Java programlama dilinde bir verinin tipi öngörülen işleme uygun değilse, program devreden çıkar.
+			Javascript programlama dilinde ise, aynı durum uyarlama ile sonuçlanır ve program bir sonuç üretebilir. 
+			Javascript programlamasında, sonuçlar daima kontrol edilmeli ve uyarlamaların doğru yönde geliştiği 
+			garanti edilmelidir.
+		</p>
+		<p class="subheading" id="unary">2.7.2- Tek İşlenenli (Unary) İşlemciler
+	</p>
+		<p class="indent">
+			Tek işlenenli işlemciler, sadece sol işlenen alırlar. Bu işlemciler, 
+			<a href="b2s1.html#unary">tekli işlemciler</a> listesinde 
+			verilmişlerdir. Bu listedeki aritmetik işlemciler aşağıdaki tabloda
+			listelenmiştir.
+		</p>
+		<div class="pl-200">
+			<table summary="İşlemciler" class="tablo1" width="70%">
+				<caption class="captionred">
+					Tekli Aritmetik İşlemciler
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color2">
+						<th class="first"> <strong>İşlemci</strong> </th>
+						<th class="second"> <strong>Adı</strong> </th>
+					</tr>
+					<tr class="tbline">
+						<td> + </td>
+						<td> Tekli Artı (Unary Plus) İşlemcisi </td>
+					</tr>
+					<tr class="tbline">
+						<td> - </td>
+						<td> Tekli Eksi (Unary Minus) İşlemcisi </td>
+					</tr>
+					<tr class="tbline">
+						<td> ++ </td>
+						<td> Arttırma (Increment) İşlemcisi </td>
+					</tr>
+					<tr class="tbline">
+						<td> -- </td>
+						<td> Eksiltme (Decrement) İşlemcisi </td>
+					</tr>
+					<tr class="tbline">
+						<td> void </td>
+						<td> void (Boşluk) İşlemcisi </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="navy" id="unaryplus"><strong>2.7.2.1 - Tekli Artı (Unary Plus) İşlemcisi</strong></p>
+		<p class="indent">
+			Tekli artı işlemcisi <span class="op">+</span>, cebirsel tekli artı işareti gibidir. JavaScript yorumlayıcısı, 
+			cebirde olduğu gibi, sayıları varsayılan olarak pozitif kabul eder. Bu durumda, 
+			tekli artı işaretinin kullanılması gereği olmamasına karşın, kullanıcının istemesi
+			halinde kulanılmasına bir engel yoktur. İstendiğinde,
+		</p>
+		<pre>
+<span class="pl-25">değişkenAdı</span> <span 
+			class="op">= +</span> ifade<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent" id="b2.7.2.1-uyg-1">
+			şeklinde	kullanılabilir. Burada ifade, sonucu sayısal olan ifadeler olabilir.
+			Tekli artı işlemcisi <span class="op">+</span>, hiçbir işlem yapmaz sadece 
+			argümanı olan ifadeyi değerlendirir. Önemli bir ayrıntı olarak, eğer ifadenin 
+			sonucu, sayıya dönüşenilen bir karakter dizigisi tipinde olursa, bunu bir sayısal 
+			veri tipine dönüştürür. Bu işlevi vurgulayan bir 
+			<a href="../uygulamalar/b2.7.2.1-uyg-1.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.2.1-uyg-1-js.html">JavaScript kodları</a> aşağıda 
+			görülmektedir.
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib-style.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>sözeldenSayısala_1<span
+			class="op">(</span>x<span 
+			class="op">) {</span>
+
+<span class="keyw-75">return</span> <span 
+			class="op">+</span> x<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> a <span 
+			class="op">=</span> <span 
+			class="str">'1204'</span><span 
+			class="op">;</span>
+<span class="pl-75">a</span> <span 
+			class="op">=</span> sözeldenSayısala_1<span 
+			class="op">(</span>a<span 
+			class="op">);</span>
+
+<span class="pl-75">veriTipiYaz</span><span
+			class="op">(</span>a<span
+			class="op">,</span> <span
+			class="str">'b2.7.2.1-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.1-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Bu kodlarda kullanılan veriTipiYaz<span class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığındaki yazdırma 
+			fonksiyonlarından biridir. Bu fonksiyon veri değerini ve veri tipini, sayfanın içerik 
+			kabul edebilir, id değeri belirtilen bir elemanının içeriği olarak yazdırmaktadır. 
+			Bu fonksiyonu henüz sadece kullanacağız. Bu fonksiyonun açıklanması,
+			<a href="../b20/b20.3-s2.html#veritipiyaz"> b20.3.3</a> konusunda yapılmıştır. 
+			İleride bu gibi fonksiyonların yazılımını kolayca gerçekleştirebilecek yöntemleri özümsemiş olacağız.		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b2.7.2.1-uyg-1.html">uygulamanın</a> 
+			belirttiği gibi, tekli artı, bir zorlamalı uyarlama sağlayan açık (explicit) tip
+			dönüştürücüsüdür. Javascript programlama dilinde bu gibi, kullanıcının serbestçe
+			kullanabileceği açık tip dönüştürücü yöntemlerden biridir. Bu 
+			<a href="../uygulamalar/b2.7.2.1-uyg-1.html">uygulamanın</a> sonucunda, 
+			a değişkeninin veri tipi, sözelden (string) sayısala (number) dönüştürülmüştür. 
+			Argüman sayısala çevrilemezse, tekli artı işlemcisi, <span class="keyw">NaN</span> 
+			(Not A Number) değerini döndürür.
+		</p>
+		<p class="indent">
+			Javascript programlama dili, sıkı veri tipi belirtilmesi gereken Java gibi
+			bir programlama dili değildir. Tam aksine Javascript programlama dili,
+			gevşek veri tipi izlenen ve yüksek uyarlama yeteneği ile açık tip dönüştürmesine
+			çok az gereksinme duyulan bir programlama dilidir. Javascript programlama dilinde, 
+			açık tip dönüştürmesine sadece uyarlamaların istenen yönde gelişmeme olasılığı
+			nedeni ile başvurulur.
+		</p>
+		<p class="navy" id="unaryminus"><strong>2.7.2.2 - Tekli Eksi (Unary Minus) İşlemcisi</strong>
+	</p>
+		<p class="indent" id="b2.7.2.2-uyg-1">
+			Tekli eksi işlemcisinin önemi büyüktür. Tekli eksi işlemcisinin kullanımı cebirde 
+			olduğu gibidir. Tekli eksiişareti kullanılırken sadece çarpma *, bölme / ve 
+			modulu % işlemcileri birlikte kullanılabilir. Eşit işlemcisi = ile kısayol işlemcisi
+			oluşturduğundan birlikte kullanılmaz. Tekli eksi işaretinin kullanıldığı bir uygulama, 
+			<a href="b2s6.html#library">fonksiyon kitaplıkları</a> konusunda yapmış olduğumuz,
+			<a href="../uygulamalar/b2.6.7-uyg-1.html">örneğinde</a> epsilon argümanını eksi bir değer
+			olarak vermek olacaktır. Bu <a href="../uygulamalar/b2.7.2.2-uyg-1.html">uygulamanın</a>
+			<a href="../uygulamalar/b2.7.2.2-uyg-1-js.html">JavaScript kodları</a> aşağıda verilmiştir.
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">var</span> geo <span 
+			class="op">= {</span> 
+<span class="pl-75">türev</span> <span 
+			class="op">:</span> <span class="keyw">function</span> <span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">,</span> eps<span 
+			class="op">) {</span>
+<span class="keyw-100">return</span> <span 
+			class="op">(</span>a<span 
+			class="op">(</span>b <span 
+			class="op">+</span> eps<span 
+			class="op">)</span> <span 
+			class="op">-</span> a<span 
+			class="op">(</span>b<span 
+			class="op">)) / ((</span>b <span 
+			class="op">+</span> eps<span 
+			class="op">)</span> <span 
+			class="op">-</span> b<span 
+			class="op">) ;</span>
+<span class="op-75">}</span>
+<span class="op-50">};</span>
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> q <span 
+			class="op">=</span> <span class="keyw">fonction</span><span 
+			class="op">(</span>x<span 
+			class="op">) {</span>
+<span class="keyw-100">return</span> x <span 
+			class="op">*</span> x <span 
+			class="op">+</span> 5 <span 
+			class="op">*</span> x<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>geo<span
+			class="op">.</span>türev<span 
+			class="op">(</span>q<span 
+			class="op">,</span> 2<span 
+			class="op">,</span> -0.0000001<span
+			class="op">),</span> <span
+			class="str">'b2.7.2.2-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.2-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b2.7.2.2-uyg-1-js.html">JavaScript kodları</a>
+			yukarıda görülen 
+			<a href="../uygulamalar/b2.7.2.2-uyg-1.html">uygulamanın</a>, 
+			sonucunda a<span class="op">(</span>x<span class="op">)</span>
+			fonksiyonun b<span class="op">[</span>x<span class="op">]</span>
+			noktasında türevinin sayısal değerine, aşağı değerlerden de 
+			yaklaşılmasına olanak sağlamıştır. Hem 
+			<a href="../uygulamalar/b2.6.7-uyg-1.html">2.6.7-uyg-1.htm</a>
+			uygulamasının, hem de yukarıdaki
+			<a href="../uygulamalar/b2.7.2.2-uyg-1.html">uygulamanın</a>
+			verdiği sonuçlardan, a<span class="op">(</span>x * x + 5 * x<span 
+			class="op">)</span> fonksiyonunun, b<span class="op">[</span>2<span 
+			class="op">]</span> noktasında türevinin mevcut olduğu ve noktanın
+			hem üstünde, hem de altında tannmlı olduğunu belirtmektedir. Bu 
+			her iki uygulamanın bir sondaj çalışması olduğunu, tek bir değerin
+			hesaplanması ile yetinildiğini belirtmek yerinde olur. Gerçek sayısal 
+			türev yaklaşımı, iteratif bir algoritma ile gerçekleştirilir ve ileride 
+			iteratif yöntemler incelenirken bu konuda çeşitli örneklerle çalışma 
+			olanağı bulacağız.
+		</p>
+		<p class="indent">
+			Tekli eksi işlemcisi de, aynı tekli artı işlemcisi gibi, açık tip dönüşümü sağlayan
+			bir işlemcidir. Argümanının sayısala dönüştürülebilir bir sözel tipte veri olması
+			durumunda, argümanının veri tipini, sayısala çevirir ve işaretini değiştirir. Argüman sayısala
+			çevrilemezse <span class="keyw">NaN</span> (Not A Number) değerini döndürür.
+		</p>
+	<p class="navy" id="tek"><strong>2.7.2.3 - Arttırma ve Eksiltme İşlemcileri</strong></p>
+		<p class="indent">
+			Arttırma ve eksiltme işlemcileri, <a href="b2s1.html#unary">işlemciler tablosunda</a>
+			görüldüğü gibi,		</p>
+		<ul class="list">
+			<li>
+				Tekli Arttırma İşlemcisi <span class="op">++</span>
+			</li>
+			<li>
+				Tekli Eksiltme İşlemcisi <span class="op">--</span>
+			</li>
+		</ul>
+		<p class="nonindent">
+			olarak iki tanedir. 
+		</p>
+		<p class="indent">
+			Tekli arttırma/eksiltme işlemcisi, işlenenin bulunduğu yere göre,
+		</p>
+		<ul class="list">
+			<li>
+				<span class="op">işlemci</span> işlenen şeklinde önek veya
+			</li>
+			<li>
+				işlenen <span class="op">işlemci</span> şeklinde sonek
+			</li>
+		</ul>
+		<p class="nonindent">
+			şeklinde kullanılabilir.
+		</p>
+		<p class="indent">
+			Arttırma veya eksiltme işlemcilerinin işlenenleri 
+			sayısal veya sayısal çevrilebilen bir karakter 
+			dizgisi olmalıdır. Sayısala çevrilebilen bir karakter 
+			dizgisi kavramı JavaScript programlama diline özgü, 
+			JavaScript yorumlayıcısının üstün uyarlama yeteneğinden yararlanan
+			bir programlama kolaylığıdır. JavaScript yorumlayıcısı, 
+			karakter dizigisi literalleri iki türlü nitelendirir:
+		</p>
+		<ul class="list">
+			<li>
+				İçeriği salt sayılardan oluşan ve sayısala çevrilebilir nitelikte
+				olan sayısal karakter dizeleri ( örnek : <span 
+				class="str">'22.14'</span>)
+			</li>
+			<li>
+				İçeriği hem sayılardan, hem de alfabetik karakterlerden 
+				oluşan ve sayısala çevrilemez nitelikte
+				olan alfasayısal karakter dizeleri ( örnek : <span 
+				class="str">'44xAB'</span>)
+			</li>
+		</ul>
+		<p class="indent">
+			Sayısala çevrilebilir karakter dizgileri, tekli arttırma/
+			eksiltme işlemcilerinin işlenenleri olduklarında 
+			JavaScript yorumlayıcısı bunları otomatik olarak 
+			sayısal değerlerine dönüştürür ve arttırma veya eksiltme 
+			işlemlerini yapar. Sayıya dönüşebilen bir sözel veriye 
+			arttırma/ eksiltme işlemcilerinin uygulanması sonucunda, 
+			gerçekleşen veri tipi dönüşümü, değişkenin kopyası değil, 
+			gerçek değeri üzerinden gerçekleştirilir. Veri tipi tipi
+			dönüşümü, geri dönülemez (irreversibl) ve tahrip edici 
+			(destrüktif) bir işlemdir. Orijinal veri tipine ancak kullanıcının 
+			yeniden açık tip veri tipi dönüştürümü yapması ile dönülebilir.
+		</p>
+		<p class="indent">
+			Arttırma veya eksiltme işlemcileri ile işlenenleri arasına
+			satırbaşı karakteri konulmamalıdır. Aksi halde, 
+			JavaScript yorumlayıcısı otomatik olarak işlem sonu 
+			işlemcisi <span class="op">;</span> ekleyerek ifadeyi
+			yanlış yorumlar.
+		</p>
+		<p class=" nonindent">
+			<strong class="blue">
+				Sadece Bir Tek Arttırma ve Eksiltme İşlemcisi İçeren İfadeler
+			</strong>
+		</p>
+		<p class="indent">
+			Sadece arttırma veya eksiltme işlemcileri içeren ifadelerde, 
+			arttırma/eksiltme işlemcileri, aşağıda görüldüğü gibi önek,
+		</p>
+		<pre>
+<span class="op-25">++</span>x<span 
+			class="op">;</span> (önek arttırma)<span 
+			class="op-100">--</span>x<span 
+			class="op">;</span> (önek eksiltme)
+		</pre>
+		<p class="nonindent">
+			veya sonek,
+		</p>
+		<pre>
+<span class="pl-25">x</span><span 
+			class="op">++;</span> (sonek arttırma)<span 
+			class="pl-100">x</span><span 
+			class="op">--;</span> (sonek eksiltme)
+		</pre>
+		<p class="nonindent">
+			şeklinde kulllanılır. Eşdeğer ifadeler, 
+		</p>
+		<pre>
+<span class="pl-25">x</span><span 
+			class="op">=</span>x<span 
+			class="op">+</span>1<span 
+			class="op">;</span> <span 
+			class="pl-50">veya ,</span><span 
+			class="pl-100">x</span><span 
+			class="op">=</span>x<span 
+			class="op">-</span>1<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			ifadeleridir. Tek başlarına kullanıldıkları ifadelerde 
+			arttırma/eksiltme işlemcilerinin, önek veya sonek olarak kullanılmaları 
+			sonucu etkilemez. Bu ifadelerde işlenenin değeri bir artar veya bir azalır. 
+			Arrtırma/ eksiltme işlemcilerinin tek başlarına kullanıldıkları profesyonel 
+			uygulamalarda çoğunlukla sonek formları kullanılmaktadır.
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-1">
+			Arttırma işlemcilerinin çalışmasını gösteren bir 
+			<a href="../uygulamalar/b2.7.2.3-uyg-1.html">uygulamanın</a>
+			<a href="../uygulamalar/b2.7.2.3-uyg-1-js.html">JavaScript kodları</a>
+			aşağıda görülmektedir :		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> x <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> y <span 
+			class="op">=</span> 11<span 
+			class="op">;</span>
+			
+<span class="pl-75">x</span><span 
+			class="op">++</span><span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>x<span
+			class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-75">--</span>y<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>y<span
+			class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-1-sonuç-2'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-1-sonuç-1"> x değeri : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-1-sonuç-2"> y değeri : </span>
+		</p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b2.7.2.3-uyg-1.html">uygulamanın</a> 
+			sonuçlarından da görüldüğü gübi, tekli işlemlerin tek başına uygulandıkları 
+			ifadelerin sonuçlarına önek veya sonek şeklinde kullanımları etki yapmamaktadır. 
+			Bu ifadelerde, kullanıcılar istedikleri formu serbestçe seçebilirler.
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-2"> 
+			Arttırma/eksiltme işlemcilerinin, sayısala çevrilebilen sözel bir veriye uygulanması
+			ile veri tipinin ve değerinin kalıcı olarak değişeceği, aşağıda,
+			<a href="../uygulamalar/b2.7.2.3-uyg-2-js.html">JavaScript kodları</a> verilen bir 
+			<a href="../uygulamalar/b2.7.2.3-uyg-2.html">uygulamada</a> görülmektedir.		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> w <span 
+			class="op">=</span> <span 
+			class="str">'22.14'</span><span 
+			class="op">;</span>
+<span class="pl-75">w<span 
+			class="op">++;</span></span>
+
+<span class="pl-75">veriTipiYaz</span><span
+			class="op">(</span>w<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-2-sonuç-1'</span><span
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b2.7.2.3-uyg-2.html">Uygulama</a>
+			sonuçlarından, sayısala çevrilebilen w değişkeninine, arttırma 
+			işlemcisinin uygulanması ile, w değişkenin değeri bir artmakta ve
+			veri tipi kalıcı olarak sayısala dönüşmektedir. Arttırma/eksiltme 
+			işlemcilerinin bu yeteneğinden sayısla dönüştürülebilen sözel 
+			verilerin sayısal tipe dönüştürülmesi için yararlanılması, paragraf 
+			<a href="../uygulamalar/b2.7.3.1-uyg-3.html">2.7.3.1 uygulama 3</a> de
+			yapılmıştır.
+		</p>
+		<p class="indent">
+			Aynı işlemin,
+		</p>
+		<pre>
+<span class="pl-25">w</span> <span 
+			class="op">=</span> <span 
+			class="str">'44xAB'</span><span 
+			class="op">;</span>
+<span class="op-25">++</span>w<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi ile çalıştırılmak istenmesi, değer sayısala uyarlanamadığından
+			<span class="keyw">NaN</span> (Not a Number) değeri döndürülür..
+		</p>
+		<p class="indent">
+			Sadece Bir Tek Arttırma ve Eksiltme İşlemcisi İçeren İfadeler, 
+			daha çok döngü sayacının otomatik olarak arttırma/eksiltme 
+			mekanizması olmayan <span class="keyw">while</span> dongüsü 
+			gibi döngü yapılanmalarında, döngü indisinin arttırılması için bir 
+			yazılım kolaylığı olarak düşünülmüştür. Bu işlemcilerin karmaşık
+			ifadelerde kullanılması doğru değildir. Yine de bu işlemciler,
+			istendiğinde, karmaşık ifadelerde kullanılabilirler, fakat bu durumlarda, 
+			işlemcinin önek veya sonek olarak kullanılması sonuçları dramatik olarak
+			etkiler.
+		</p>
+		<p class=" nonindent">
+			<strong class="blue">
+				Arttırma ve Eksiltme İşlemcileri Yanında Başka İşlemciler de İçeren İfadeler
+			</strong>
+		</p>
+		<p class="indent">
+			Tekli arttırma/eksiltme işlemcileri yanında başka işlemciler de içeren 
+			ifadeler, sonuçları kolayca öngörülebilen basit ifadeler olmaktan çıkarlar. 
+			Bu ifadelerde, arttırma/eksiltme işlemcilerinin önek veya sonek olarak 
+			kullanılması, sonuçları kesinlikle değiştirir. Bu gibi sonuçları kolayca 
+			öngörülemeyen ifadelerde çok dikkatli olmak gerekir. Öncelikle dikkat edilecek konu,
+			bu ifadelerde, ifade sonucu ve arttırma işleminin sonucunun farklı olabileceğidir. 
+			Her zaman geçerli olan kural:
+		</p>
+		<p class="indent">
+		<strong>Önek :</strong>
+			<strong>önce</strong>
+			<span class="red">arttırma</span>
+			<strong>sonra</strong>
+			<span class="blue">hesaplama</span>
+		</p>
+		<p class="indent">
+			<strong>Sonek : </strong>
+			<strong>önce</strong>
+			<span class="blue">hesaplama</span>
+			<strong>sonra</strong>
+			<span class="red">arttırma</span>
+		</p>
+		<p class="nonindent">
+			olarak ifade edilebilir.
+		</p>
+		<p class="nonindent">
+			Bu kurala göre, arttırma/eksiltme işlemcisinin önek
+			olarak kullanılması durumunda, önce değişkenin 
+			arttırımı/eksiltmesi yapılır, sonra arttırılmış veya
+			eksiltilmiş değerin kullanılması ile, ifadenin değeri hesaplanır. 
+			Arttırma/eksiltme işlemcisinin sonek
+			olarak kullanılması durumunda ise , önce ifadenin değerinin 
+			hesaplanması, değişkenin arttırılmamış veya eksiltilmemiş orijinal 
+			değeri ile yapılır. Sonra değişkene arttırma veya eksiltme 
+			işlemcisi uygulanarak değeri ve gerekirse veri tipi değiştirilir.
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-3">
+			Örnek, bir 
+			<a href="../uygulamalar/b2.7.2.3-uyg-3.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.7.2.3-uyg-3-js.html">kodları</a>, 
+			aşağıda görülmektedir :
+		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> sh <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>++sh * 5<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-3-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-3-sonuç-1"></span>
+		</p>
+		<p class="nonindent" id="b2.7.2.3-uyg-4">
+			Yukarıdaki kodlarda, sh değişkeni üzerine önek bir arttırma işlemcisi uygulanmaktadır.
+			Genel kurala göre, önek durumunda, öncelikle değişkenin değeri arttırılacak ve 
+			sh değişkeninin değeri (3+1 = 4) olacaktır. Bundan sonra, ifadenin
+			hesaplanması (4 * 5 = 20) gerçekleşmekte ve sonuç 20 olmaktadır. Oysa, 
+			<a href="../uygulamalar/b2.7.2.3-uyg-4-js.html">kodları</a> aşağıda 
+			görülmekte olan <a href="../uygulamalar/b2.7.2.3-uyg-4.html">uygulamada</a> 
+			sonuç  farklı olarak gerçekleşecektir:		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> sh <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>sh++ * 5<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-4-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span></pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-4-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			Bu ifadenin sonucu 15 olarak gerçekleşmektedir, çünkü sonek durumunda 
+			önce bellekteki orijinal değerle ifadenin sonucu 
+			hesaplanır (3 *5 = 15). Sonra arttırım gerçekleşerek sh 
+			değişkeninin değeri 1 artar (Post Expressional Incrementing).	
+		</p>
+		<p class="nonindent">
+			Aslında, biraz çapraşık ve sonucunun öngörülmesi için gerekli formülün her 
+			zaman hatırda tutulması zor olan bu gibi ifadeler yerine, 
+		</p>
+		<pre>
+<span class="pl-25">sh</span> <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+<span class="op-25">(</span>sh <span 
+			class="op">+</span> 1<span 
+			class="op">) *</span> 5<span 
+			class="op">;</span>
+<span class="pl-25">sh</span><span 
+			class="op">++;</span>
+		</pre>
+		<p class="nonindent">
+			kullanılsa, ifadenin sonucunun 20 olacağı kolaylıkla görülür.
+			İfadenin hesaplanmasından sonra sh değişkeninin değerinin 1 
+			artacağı önceden görülebilir. Böylelikle işlem sonucu 
+			kolaylıkla öngörülebilir hale dönüşür. Bu şekilde programın sonradan 
+			bakımı aşamasında programcılara büyük kolaylık sağlanmış olacaktır. 
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-5">
+			Aşğıda <a href="../uygulamalar/b2.7.2.3-uyg-5-js.html">kodları</a> görülen
+			<a href="../uygulamalar/b2.7.2.3-uyg-5.html"> uygulamada</a>, 
+			arttırma eksiltme işlemcileri ile birlikte atama işlemcisi de kullanılmaktadır:
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">= ++</span>s <span 
+			class="op">+</span> 2<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>q<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-5-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-5-sonuç-1"></span>
+		</p>
+		<p class="nonindent" id="b2.7.2.3-uyg-6">
+			İlk bakışta karışık görülmesine karşın, bu ifade çok basittir. Bilgisayar 
+			programlamasında, ifadeler &quot;divide and conquer&quot; (böl ve kazan) 
+			yöntemi ile çözülür. İlk olarak öncelikler 
+			<a href="b2s1.html#order">tablosundan</a> ifadedeki işlemcilerin öncelik 
+			sıraları saptanacaktır. Burada ilk öncelik sırası arttırma işlemcisinde, sonra
+			 toplama en son olarak atama işlemcisindedir. Burada arttırma işlemcisi, önek
+			 olarak uygulanıyor. Önek olarak uygulanan arttırma/eksiltme işlemcilerinde,
+			 işlenenin arttırımı derhal gerçekleşir. Arttırma işlemi gerçekleşir ve s=4
+			olur.  Bundan sonra, toplama işlemi yapılır. Toplama işlemi sonunda s değişkeninin
+			 değeri, 4+2=6 olur. En sonunda, en düşük öncelikli işlemci olan atama 
+			işlemcisi işleme konulur. Bu şekilde işlem sonunda, q=6 değerini alır.
+		</p>
+		<p class="indent">
+			Aynı ifadenin sonekli şeklini içeren bir başka
+			<a href="../uygulamalar/b2.7.2.3-uyg-6.html"> uygulamanın</a>, 
+			<a href="../uygulamalar/b2.7.2.3-uyg-6-js.html">JavaScript kodları</a>, 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> q <span 
+			class="op">= </span>s<span 
+			class="op">++ +</span> 2<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>q<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-6-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-6-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			Elde edilen sonucun 5 olması gayet doğaldır.
+			Bu sonucun nedeni incelendiğinde, öncelikler 
+			<a href="b2s1.html#order">tablosundan</a> en yüksek önceliğin 
+			arttırma işleminde olduğu görülebilir. Ne var ki ifadelerde, sonek olarak 
+			uygulanan arttırma işlemlerinde, değişkenin değer attırımı, 
+			ifade sonunda gerçekleşir (post assignment incrementing). Bu durumda, 
+			s değişkeninin değer attırımı atama sonunda gerçekleşecektir. 
+			Toplama 3+2=5 değerini verecek ve atama sonunda q değişkenin değeri 
+			5 olacaktır. Atama tamamlanınca, s değişkenin değer artımı gerçekleşecek
+			ve s değişkeninin değeri 4 olacaktır.
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-7">
+			Bazı rekürsif atama (kendi kendini çağıran atama) işlemlerinin sonuçlarının
+			öngörülmesi iyice yanıltıcı olabilir. Böyle bir 
+			<a href="../uygulamalar/b2.7.2.3-uyg-7.html">örneğin</a>,
+			<a href="../uygulamalar/b2.7.2.3-uyg-7-js.html">JavaScript kodları</a>, 
+			aşağıda görülmektedir.		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+<span class="pl-75">s</span> <span 
+			class="op">= </span><span 
+			class="op">++</span>s <span 
+			class="op">+</span> 2<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>s<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-7-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-7-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Bu ifade sonunda, s değeri  6 olmaktadır. Çünkü önek 
+			durumunda önce arttırma (s = 3 + 1 = 4),
+			sonra ifadenin hesaplaması (s + 2 = 6) ve en son olarak da 
+			atama (s = 6) yapılmaktadır (önek = önce arttırma).
+		</p>
+		<p class="indent" id="b2.7.2.3-uyg-8">
+			Aynı ifadede sonek şeklinde arttırma işlemcisinin kullanıldığı bir başka
+			<a href="../uygulamalar/b2.7.2.3-uyg-8.html">örneğin</a>,
+			<a href="../uygulamalar/b2.7.2.3-uyg-8-js.html">JavaScript kodları</a>, 
+			aşağıda görülmektedir.		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-50">function </span>başlat<span
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span> 3<span 
+			class="op">;</span>
+<span class="pl-75">s</span> <span 
+			class="op">= </span>s<span 
+			class="op">++ +</span> 2<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span
+			class="op">(</span>s<span class="op">,</span> <span
+			class="str">'b2.7.2.3-uyg-8-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span
+			class="op">(</span>başlat<span
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.7.2.3-uyg-8-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Bu ifade sonunda, s değeri  5 olmaktadır. Çünkü sonek durumunda önce 
+			ifadenin hesaplaması (s + 2 = 5) sonra  atama (s = 5) yapılmaktadır (sonek = sonra arttırma).
+			İşlem sonunda arttırma işlemcisi, işlevsiz kalmaktadır. Bu ifade bir çelişkidir ve 
+			JavaScript yorumlayıcısı bu çelişkiden çıkmak için, kendine verilen algoritmanın
+			sadece s = s + 2; kısmını gerçekleştirerek algoritmayı sonlandırmıştır. Rekürsif atama işlemlerinde
+			sonek arttırma/ eksiltme işlemcisinin kullanılmaması gerekir.
+		</p>
+		<p class="indent">
+			Bu örneklerde de görüldüğü gibi, ön ve son ekle
+			kullanım ile gerçekleştirilen atamalar farklı sonuç
+			vermektedir. Bu örnekler bir tür yol haritası gibi
+			saklanarak kontrol amacı ile kullanılabilir.
+		</p>
+		<p class="indent">
+			Yukarıdaki örneklerden de görüldüğü gibi, tekli
+			işlemciler, izlenmesi zor algoritmalar oluşturabilirler
+			ve bunları iyi kullanmayı bilmeyen bir programcının hata
+			yapması olasılığı yüksektir. Aslında, algoritmalarda bu gibi
+			yanlış değerlendirilebilecek algoritmalar kullanılmamalıdır.
+			Yine de profesyonel programlarda, atamalarda çoğunlukla bu işlemciler
+			kullanılmakta olduğundan, bu sayfadaki örnekler
+			iyi özümsenmelidir.
+		</p>
+		<p class="indent">
+			Kolay hatırda tutma : 
+		</p>
+		<p class="indent">
+			<strong>Önek :</strong>
+			<strong>önce</strong>
+			<span class="red">arttırma</span>
+			<strong>sonra</strong>
+			<span class="blue">hesaplama</span>
+			<strong>sonra</strong>
+			<span class="green">atama</span>
+		</p>
+		<p class="indent">
+			<strong>Sonek : </strong>
+			<strong>önce</strong>
+			<span class="blue">hesaplama</span>
+			<strong>sonra</strong>
+			<span class="green">atama</span>
+			<strong>sonra</strong>
+			<span class="red">arttırma</span>
+		</p>
+		<p class="navy" id="void"><strong>2.7.2.4 - void (boşluk) İşlemcisi</strong></p>
+
+		<p class="indent">
+				void İşlemcisi,işleneni değerlendirir, fakat geriye bir değer
+			döndürmez. Kullanımı, 
+		</p>
+		<p class="indent"> 
+		<span class="keyw">void</span> <em>geçerli bir JavaScript ifadesi</em> 
+		</p>
+		<p class="indent"> 
+			şeklindedir. <span class="keyw">void</span> İşlemcisi
+			genel olarak bir ifade sonucunu programın geri kalan adımlarından 
+			gizlemek için kullanılır. <span class="keyw">void</span> İşlemcisinin, işleneninin
+			parantez içine alınması zorunlu değilse de, parantez
+			kullanımı iyi bir programlama stili sayılmaktadır. 
+		</p>
+		<p class="indent" id="b2.7.2.4-uyg-1">
+			<span class="keyw">void</span> İşlemcisinin bir 
+			<a href="../uygulamalar/b2.7.2.4-uyg-1.html">uygulama</a> örneğinin,
+			<a href="../uygulamalar/b2.7.2.4-uyg-1-js.html">JavaScript kodları</a>
+			aşağıda görülmektedir: 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> jx <span 
+			class="op">=</span> 45<span 
+			class="op">;</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'void Değişkenin Değeri : '</span><span 
+			class="op">,</span> <span 
+			class="keyw">void</span> <span 
+			class="op">(</span>jx<span 
+			class="op">),</span><span 
+			class="str"> 'b2.7.2.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+		<p id="b2.7.2.4-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Programın çıktısından da görüldüğü gibi, <span 
+			class="keyw">void</span> işlemcisi, 
+			işlediği ifadenin (burada tek bir jx değişkeni) değerini 
+			döndürmediği için, program jx değişkenini tanımamış ve 
+			bu nedenle değerini <span class="keyw">undefined</span> olarak 
+			belirtmiştir. jx Değişkeninin değerinin programdaki geçerli değeri 
+			değişmemiş ve istendiğinde erişilebilir halde program belleğinde kalmıştır. 
+			Yukarıdaki örnekte kullanılan, veriYaz<span class="op">()</span>
+			fonksiyonu, <a href="../uygulamalar/bdelib-src.html">bdelib</a> fonksiyon
+			kitaplığında bulunmaktadır.
+		</p>
+		<p class="indent">
+			<span class="keyw">void</span> İşlemcisinin en çok kullanıldığı uygulamalardan biri
+			JavaScript pseudoprotokoludur. Bu konudaki açıklamalar,
+			<a href="../b1/b1s3.html#pseudo">1.1.3 den</a> yeniden okunabilir..
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s6.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s8.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/b2.7.2.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-5.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-6.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-7.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.3-uyg-8.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.7.2.4-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:50 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

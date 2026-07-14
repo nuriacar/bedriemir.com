@@ -1,0 +1,377 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b5/b5-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:27 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b5/b5-s2.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 5 Sayfa 2</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+ <body>
+   <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+   <a href="b5-s1.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+   <a href="../b6/b6-s1.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a>
+  </div>
+<p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+<p class="chapter">
+   Bölüm 5
+  </p>
+  <p class="chapter">
+   Program Akışının Yön Değiştirmesi
+  </p>
+  <p class="pagenum">
+  Bölüm 5 Sayfa 2
+ </p>
+  <p class="title-left" id="lojik">5.2 Mantıksal Program Dallanması (Devam)</p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_2.html">prosedürde</a>
+   çözümlenmeye çalışılan problemde aslında iki değil üç olasılık bulunmaktadır.
+   Bu olasılıklar, girilen verinin 20 den büyük, 20 ye eşit ve 20 den küçük
+   olabilme olasılıklarıdır. Problemin tam olarak çözümü için, iki ardışık
+   karar mekanizmasına gereksinme bulunmaktadır. Bu problem için,
+   tam çözümün sağlanacağı bir programın akış şeması aşağıda görülmektedir.
+  </p>
+  <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/else11.gif" 
+    alt="alternatif karar mekanizmaları else" width="326" height="463" /></p>
+  <p class="sayfaortala dikeyTab-25">Şekil 5.2-4 Çoklu Karar Mekanizması</p>
+  <p class="indent">
+   Çoklu karar mekanizmaları, programlarda çok rastlanılan bir yapılanmadadır. 
+   Şekl 5.2-4 deki akım şemasında, çoklu karar mekanizmasını çözümlesi gereken
+   programda olasılılar denenmekte ve gerçekleşen olasılığın belirttiği bildirim 
+   veya bildirimler çalıştırılmakta ve program bir alt satırdan devam etmektedir.
+  </p>
+  <p class="indent">
+   Çoklu karar sistemlerinde, ilk olarak, gerçekleştiği takdirde, diğerlerinin
+   kesin gerçekleşmeyeceği koşulun ilk denenecek karar mekanizmasında sınanması
+  	öoklu karar makanizmasının yüryüşüne hız kazandıracaktır. Burada ilk önce sınanan
+   koşul gerçekleşirse, diğerlerinin gerçaklaşma olasılığı olmadığından kontrol
+   diğer karar mekanizmalarında sınama yapmadan bir alt satıra geçecektir.
+  </p>
+  <p class="indent">
+   Modern programlama dilleri, çoklu karar mekanizmalarının çözümlenmesi
+   için klasik <span class="keyw">if</span>... , <span class="keyw">else if</span>...
+   <span class="keyw">else</span> yapılanması yanında, daha modern
+   <span class="keyw">case</span> yapılanmasını da sağlamaktadırlar. Burada her
+   iki yöntemi de uygulayacağız.
+</p>
+  <p class="indent">
+   Ada programlama dili, çoklu karar mekanizmalarının klasik yöntemle 
+   çözümlenmesi için <span class="keyw">if</span>... , 
+   <span class="keyw">elsif</span>..., <span class="keyw">else</span>
+   yapılanmasını sunmaktadır. Aşağıda, Şekil 5.2-4 deki akım şemasının, bu
+   yapılanma kullanılarak çözümlenmesini sağlayacak bir programın pseudocode
+   çalışması görülmektedir. Pseudo klasik Grekçe sahte anlamını taşımaktadır. 
+   Programcılıkta pseudocode, programlama diline benzeyen, fakat daha 
+   kısa ve sadece yapılacak işlemleri belirten bir tür program taslağı olarak
+   uygulanır. Pseudocode, bir tür sözel, akım şeması gibi düşünülebilir.
+  </p>
+  <pre class="app-25">
+  ..
+Oku G;
+<span class="keyw">if</span> G > 20 Print <span class="str">&quot; G &gt; 20&quot;</span>;
+<span class="keyw">elsif</span> G = 20 Print <span class="str">&quot; G = 20&quot;</span>;
+<span class="keyw">else</span> Print <span class="str">&quot; G &lt; 20&quot;</span>
+<span class="keyw">end if</span>;
+....
+  </pre>
+  <p class="indent">
+   Pseudocode, eğer ilk iki koşul gerçekleşmezse, üçüncüsünün mutlaka 
+   gerçekleşeği ve bunun için sorgulama gerekmediğini belirtmektedir. 
+   Ada <span class="keyw">if</span>... , 
+   <span class="keyw">elsif</span>..., <span class="keyw">else</span>
+   yapılanması, ilk iki sınamayı gerçekleştirecek ve ilk sınama gerçekleşirse,
+   konrolü otomatik olarak yapılanma sonu <span class="keyw">end if</span> 
+   bildiriminden bir sonraki satıra aktaracaktır. Eğer ilk sorgulama gerçek olmazsa,
+   ikincisine geçilecek ve eğer bu kontrol sonucu gerçek olursa, bir mesaj 
+   bastırarak kontrolü yine <span class="keyw">end if</span> 
+   bildiriminden bir sonraki satıra aktaracaktır. Eğer bu kontrol sonucu da
+   doğrulanmazsa, o vakit geriye sadece verinin 20 den küçük olması
+   olasılığı kalmakta ve kontrol <span class="keyw">else</span> 
+   bildirimine geçip bu mesajı görüntülemekte ve kontrolü 
+   <span class="keyw">if</span> bloğunu izleyen ilk satıra aktarmaktadır.
+   Aşağıda görülen <a href="../uygulamalar/b5_2_uyg_3.html">prosedürde</a>,
+   pseudokodun gerçek programı görülmektedir.
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b5_2_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+G<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Tamsayı Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">5</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Büyüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">elsif</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">=</span><span class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 ye Eşittir !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Küçüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Program Tamamlandı ! "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b5_2_uyg_3<span class="S4">;</span>
+</pre>
+  <p class="indent">
+   Yukarıdaki prosedürün çalışmasının sonucu, girilen G değerine göre üç 
+   olasılıklı olarak şekillenir. 
+  </p>
+  <p class="indent">Eğer girilen G değeri 20 den büyükse, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  60 </p>
+  <p class="indent green"> G Değeri 20 den Büyüktür !  </p>
+  <p class="indent green">Program Tamamlandı !</p>
+<p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="indent"> Eğer girilen G değeri 20 ye eşit ise, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  20 </p>
+  <p class="indent green"> G Değeri 20 ye Eşittir !</p>
+  <p class="indent green">Program Tamamlandı !</p>
+<p class="nonindent"> şeklinde olmaktadır. </p>
+<p class="indent"></p>
+<p class="indent">Eğer girilen G değeri 20 den küçükse, program sonucu, </p>
+<p class="indent green"> Lütfen Bir Tamsayı Giriniz :  15 </p>
+<p class="indent green"> G Değeri 20 den Küçüktür ! </p>
+<p class="indent green">Program Tamamlandı !</p>
+<p class="nonindent"> şeklinde olmaktadır. </p>
+<p class="indent">
+   Çoklu karar mekanizmalarının çözümlenmesi, prensip olarak 
+   <span class="keyw">if</span>... , <span class="keyw">else if</span>...
+   <span class="keyw">else</span> yapılanması ile çözümlenir. Durum uygun olursa, 
+   daha güncel ve modern <span class="keyw">case</span> yapılanması
+   da kullanılabilir. Burada dikkat edilecek nokta, iki yapılanma arasında 
+   temel bir farkın olduğuğur. İlk yapılanmanın sadece sonucu Boolean olan ifadeleri 
+   değerlendirebilmesine karşın, <span class="keyw">case</span> yapılanmasının
+   sadece sayılabilir ve tamsayı veri tiplerinin değerlerini değerlendirebilir.
+   Bunun yanında <span class="keyw">case</span> yapılanması, belirli bir ayrık 
+   veri tipinin değerlerinin belirli bir kapsam aralığında olup olmadığını da
+   kontrol eder ve bu olanak bazen bir değerden büyüklük veya küçüklük kontrolü
+   yerine kullanılabilir. 
+ </p>
+<p class="indent">
+   Ada programlama dilinde <span class="keyw">case</span>
+   yapılanmasının sözdizimi, 
+</p>
+  <p class="Examples-Maroon">
+   case_statement ::=<br />
+   case expression is<br />
+   case_statement_alternative<br />
+   {case_statement_alternative}<br />
+  end case; </p>
+  
+  <p class="Examples-Maroon">
+   case_statement_alternative ::=<br />
+   when discrete_choice_list =&gt;<br />
+   sequence_of_statements </p>
+  
+  <p class="indent">
+   Ada <span class="keyw">case</span> yapılanması oldukça karmaşık
+   kullanım koşullarını içerir. Tanımda görülen ifade, her türlü ayrık (discrete)
+   tipin ifadesi olabilir. her türlü ayrık seçenek listesi (discrete_choice_list)
+   biriminin veri tipinin, baştaki ifadenin veri tipi olması beklenir.
+  </p>
+  <p class="indent">
+   Eğer ifade kısıtlı ve isimli bir veri alt tipi ise, ( her isimli veri tipi isimsiz bir tipin alt tipi 
+   olarak kabul edilir!) bu durumda, seçenek listesi bu tipin tüm değerlerini kapsamalıdır.
+   Bu kapsam ya seçenek listesinde bu alt tipin tüm değerleri belirtilir ve derleyici
+  	veri tipinin tüm değerleri ile ne yapması gerektiğini belirsizliğe düşmeden algılar,
+   veya açık bir şekilde <span class="keyw">others</span> bildirimi ile seçenek listesi
+   dışındaki değerlerle ne yapılması gerektiği bildirilir.
+ </p>
+  <p class="indent">
+   Ada <span class="keyw">case</span> yapılanması, baştaki ifadenin veri tipinin
+   tüm değerlerini tarar ve sadece belirtilen değerleri konrol ile sınırlı kalmaz. Bu nedenle,
+   sayılabilir ver itpleri gibi, eleman sayısı sınırlı ve belli veri tiplerinin tüm 
+   değerlerinin ayrık seçenek listelerinde bulunması durıumunda, 
+   <span class="keyw">others</span> seçeneğinin belirtilmesine gerek kalmaz. Fakat, 
+   tamsayı alt tipleri geniş bir kapsam aralığına sahip veri tipleriinin ifadeleri tarandığında, 
+   mutlaka <span class="keyw">others</span> seçeneğinin belirtilmesine gerek
+   vardır. Aksi durumda, derleyici seçenek listelerinde belirtilmeyen değerlerle ne
+   yapacağını kestiremez ve çelişikiye düşer, program derlenemez.
+  </p>
+  <p class="indent">
+   Ada <span class="keyw">case</span> yapılanmasında her <span class="keyw">when</span>
+   saklı sözcüğünü izleyen değer veya kapsam aralıkları, mutlaka statik (değerleri,
+   derleme anından önce belli) olmalıdır.
+  </p>
+  <p class="indent">
+   Seçenek listelerinde aynı değer birden fazla kullanılamaz.
+  </p>
+  <p class="indent">
+   Seçenek listelerinde <span class="keyw">others</span> seçeneği, bir tür 
+   <span class="keyw">else</span> seçeneği gibi hareket eder, bu nedenle,
+   <span class="keyw">others</span> seçeneği, seçeneklistelerinin en sonuna 
+   konulur. Seçenek listesindeki tüm seçenekler tükenmeden, 
+   <span class="keyw">others</span> seçeneği değerlendirilmez.
+</p>
+  <p class="indent">
+   Seçenek listelerinde <span class="keyw">others</span> seçeneğinde yapılacak 
+   şey bilinmiyorsa, <span class="keyw">when others</span>
+   => <span class="keyw">null</span>; ifadesi konulur.
+  </p>
+  <p class="indent">
+   Ada <span class="keyw">case</span> yapılanmalarında, önce ifade değerlendirilir.
+   Eğer, ifadenin değerlerdirme sonucu, seçenekler listesindeki değerleri kapsamadığı
+   belirlenirse, kapsam aşımı hatası (Constraint Error) ortaya çıkar.
+  </p>
+<p class="indent">
+   Şekil 5.2-4 de görülen ve çoklu karar 
+   mekanizması içeren akım şemasının <span class="keyw">case</span>
+   yapılanması ile çözümlenmesinin pseudokod çalışması aşağıda görülmektedir.
+ </p>
+  <pre class="app-25">
+...
+Oku G;
+<span class="keyw">case</span> G <span class="keyw">is</span>
+<span class="keyw-25">when </span> 21 .. Integer'Last =&gt; Print <span 
+    class="str">&quot; G &gt; 20&quot;</span>;
+<span class="keyw-25">when</span> 20  =&gt; Print <span 
+    class="str">&quot; G = 20&quot;</span>;
+<span class="keyw-25">when others </span> =&gt; Print <span 
+    class="str">&quot; G &lt; 20&quot;</span>
+<span class="keyw">end case</span>;
+....
+  </pre>
+  <p class="indent">
+   Aşağıda görülen <a href="../uygulamalar/b5_2_uyg_4.html">prosedürde</a>,
+   pseudokodun gerçek programlanması görülmektedir.
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b5_2_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+G<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Tamsayı Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">5</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">case</span><span class="S0"> </span>G<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">when</span><span class="S0"> &nbsp;&nbsp;</span><span class="S3">21</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Integer<span class="S4">'</span>Last<span class="S0"> </span><span class="S4">=&gt;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Büyüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">when</span><span class="S0"> &nbsp;</span><span class="S3">20</span><span class="S0"> </span><span class="S4">=&gt;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S7">"G Değeri 20 ye Eşittir !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">when</span><span class="S0"> &nbsp;</span><span class="S1">others</span><span class="S0"> </span><span class="S4">=&gt;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"G Değeri 20 den Küçüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">case</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Program Tamamlandı ! "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b5_2_uyg_4<span class="S4">;</span></pre>
+  <p class="indent">
+   Yukarıdaki prosedürün çalışmasının sonucu, girilen G değerine göre üç 
+   olasılıklı olarak şekillenir. 
+  </p>
+  <p class="indent">Eğer girilen G değeri 20 den büyükse, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  40 </p>
+  <p class="indent green"> G Değeri 20 den Büyüktür !  </p>
+  <p class="indent green">Program Tamamlandı !</p>
+  <p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="indent"> Eğer girilen G değeri 20 ye eşit ise, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  20 </p>
+  <p class="indent green"> G Değeri 20 ye Eşittir !</p>
+  <p class="indent green">Program Tamamlandı !</p>
+  <p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="indent"></p>
+  <p class="indent">Eğer girilen G değeri 20 den küçükse, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  12 </p>
+  <p class="indent green"> G Değeri 20 den Küçüktür ! </p>
+  <p class="indent green">Program Tamamlandı !</p>
+  <p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="title-left" id="illojik">5.3 Mantıksal Olmayan Program Dallanması (GOTO Yöntemi)</p>
+  <p class="indent">
+   Ada programlama dili, salt eskiye uyum ve eksiklik kalmaması için, Pascal döneminden kalma
+   GOTO bildirimi ile program kontrolünü belirli bir koşul gerçekleştiğinde veya koşulsuz olarak 
+   etiketlendirilmiş (Label) bir satıra atlatır. Bu işlem aşağıdaki gibi uygulanabilir:
+  </p>
+  <pre class="app-25">
+...
+<span class="keyw">GOTO atla;</span>
+...
+-- Bu satırlar çalıştırılmayacaktır--
+...
+<&lt;<atla>atla>&gt;
+-- İlk Çalıştırılacak Satır --
+...
+  </pre>
+  <p class="indent">
+   <span class="keyw">GOTO</span> deyimi, istenirse koşullu olarak da 
+   aşağıdaki gibi uygulanabilir:
+  </p>
+    <pre class="app-25">
+<span class="keyw-25">if</span> KOŞUL <span class="keyw">then</span>
+<span class="keyw-50">GOTO</span> atla;
+<span class="keyw-25">end if</span>;
+  </pre>
+  <p class="indent">
+   <span class="keyw">GOTO</span> bildirimi salt eksiklik kalmasın diye
+   Ada programlama dili içinde bırakılmıştır ve kullanımı, programın mantıkla
+   ilgisi olmayan bir şekilde, kontrolsüz olarak yön değiştirmesi ile sonuçlanır. Bu şekilde, 
+   izlenmesi kolay olmayan, hatta bazen izlenmesi olanaksız hale gelen, düzensiz 
+   programlar ortaya çıkar. Günümüzde GOTO deyimi, Şeytanla eşdeğer tutulur ve aynı 
+   şekilde kaçınılır. Bu konuda tüm deneyimli programcılar, koro halinde bu bildirimi 
+   programlarda kullanmamayı sağlık verirler. Biz de tam olarak bu koroya katılıyoruz. 
+   Deneyimin değeri vardır.
+  </p>
+  <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+   </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+   <a href="b5-s1.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+   <a href="../b6/b6-s1.html"><em> Sonraki &raquo;</em></a>
+   </li>
+ </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b5/b5-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:27 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

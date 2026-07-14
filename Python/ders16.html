@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:56 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders16.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 16</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body class="indent">
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2</h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders15.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders17.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 16</p>
+    </div>
+    <p id="err" class="title-left verticalTab-10">
+      2.4 - Hataların Yakalanması</p>
+    <p class="indent">
+      Programcılık zor iştir. Yazılan programlarda mutlaka hatalar 
+      çıkar. Bunlardan bazıları program hatası, bazıları kullanıcıdan 
+      kaynaklanan yanlış ver girişleri, bazıları dosyaların 
+      okunmasında oluşabilen hatalı girişler, daha da akla gelmeyebilecek 
+      birçok hata kaynağı olabilir.
+    </p>
+    <p class="indent">
+      Programlarda hatalara bilgisayarcıların konuşma stilinde 
+      "istisnalar (exceptions)" adı verilir. Hata oluşumu, "istisna 
+      fırlatıldı (exception raised)" olarak kabul edilir.</p>
+    <p class="indent">
+      Güierden birgün, Nasreddin Hocayı cübbesinin cebinde kocaman 
+      bir bıçakla yakalamışlar ve "Hocam ne bu?" diye sormuşlar. 
+      Hoca hazırcevap, "ben bununla kitapların hatalarını düzeltiyorum" 
+      diye yanıtlamış. Bu sefer,"aman hocam bu kadar büyük bıçak 
+      gerekli mi?" demişler. O, da "bazen öyle hatalar oluyor 
+      ki, bu bile küçük geliyor!" demiş.</p>
+    <p class="indent">
+      Bilgisayar hatalarının sonuçları bazen ağır olur.&nbsp; 
+      Çok bilinen bir bilim kurgu filmi olan "Brezilya" filminde, 
+      bir insanın yaşamında, küçük bir bilgisayar hatasının 
+      neden olduğu, inanılmaz kötü sonuçlar gösterilir.</p>
+    <p class="indent">
+      Güncel, bir bilgisayar hatası olayı, Ariane5 füzesinin 
+      uzaya gönderilmesine yaşanmıştır. Ariane 5 roketinin uzaya 
+      gönderilmesi öncesinde, atış işlemlerini gerçekleştirilen 
+      bilgisayar programı, çok iyi çalışmış olam Ariane4 roketinin 
+      programı olarak alınmıştır. Oysa ki, Ariane4'ün iç yapısı 
+      32 bit, Ariane5'in iç yapısı 64 bit üzerine kurulmuştu. 
+      Bunun çözümü için, küçük bir dönüşüm modülü yazıldı ve 
+      roket ateşlendi. Aksi gibi, o modülde bir arıza çıktı 
+      ve veriler bir üst modüle uygun olarak gönderilemedi. 
+      Modülde, hata yakalama prosedürü yeterli değildi. Bunun 
+      üzerine hata, katmanlar üzerinden ana parograma kadar 
+      geldi ve alarm durumu oluştu. Yedek bilgisayar devreye 
+      girdi, fakat on da aynı bilgiler vardı. Sonuçta rotorlar 
+      aşırı hızla dönmeye başladı ve roket infilak etti.</p>
+    <p class="indent">
+      Ariane5 canlı taşımıyordu, o yüzden sonuçta en nihayet 
+      para ve vakit kaybı oldu. Ama bilgisayarlar, MR çekimleri, 
+      radyasyon tedavileri, Talyum taramaları, daha birçok insan 
+      yaşamı ile ilgili cihazlarda kullanılır. Burada hata cana 
+      zarar verecek sonuçlara neden olabilir. Bu yüzden bilgisayar 
+      programlarında hata yakalama prosedürleri önem taşır. 
+      Bir ticari bilgisayar programında, kodların yaklaşık yüzde 
+      ellisinin hata yakalama ile ilgili olabileceği düşünülür.</p>
+    <p class="indent">
+      Bu seksiyonda, genel olarak hata yakalama ve yönetme yöntemleri 
+      üzerinde duracağız.</p>
+    <p id="management" class="subheading">
+      2.4.1 - 
+      Hataların Yönetimi</p>
+    <p class="indent">
+      Bir bilgisayar programında, bir istisna fırlatıldığında, 
+      program derleyicisi (veya yorumlayıcısı) programı derhal 
+      bir hata mesajı görüntüleyerek durudurdur. Hata mesajlarının, 
+      pek kullanıcı dostu olmamalarının yanısıra, her istisna 
+      fırlatıldığında, programın durdurulması da gerekmez. Belki 
+      belirli düzeltmeler yapılarak, prograın sorunsuz olarak 
+      işlevini tamamlaması daha istenilen bir çalışma yöntemidir. 
+      En azından, daha kullnıcı dostu ve açıklayıcı hata mesajları 
+      oluşturulabilir. Bir log dosyasına oluşan istisna kaydı 
+      yapılabilir ve buna benzer birçok önlem alınabilir. Bütün 
+      bu yönlemlere, "İstisnaların Yönetimi" adı verilir</p>
+    <p class="indent">
+      Küçük programlarda herşey kontrol altında gibi görülebilir. 
+      Bu nedenle, küçük programlarda istisnaların yönetilmesi 
+      yapılmayabilir. Bu nedenle, uygulamalarımızda istisna 
+      yönetimi gerkli görülmememiştir. Buna rağmen, özellikle 
+      kullnıcının veri girdiği veya dosyalarla veri alışverişi 
+      yapılan programlarda, program küçük de olsa, istisnaların 
+      yönetilmesi yararlı olur.</p>
+    <p class="indent">
+      Python programlama dilinde, istisnaların yönetimi için 
+      aşağıdaki bildirimlerden yararlanılır.</p>
+    <pre style="color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><span 
+    class="keyw">try</span><span class="op">:</span>
+    &lt;statements&gt;
+<span class="keyw">except</span> [&lt;exception_name&gt; [, &lt;instance_variable&gt;]]:
+    &lt;exception handling statements&gt;
+[<span class="keyw">else</span><span class="op">:</span>
+    &lt;statements executed only when no exception is raised&gt;]
+[<span class="keyw">finally</span><span class="op">:</span>
+    &lt;statements always executed&gt;]</pre>
+    <p class="indent">
+      Burada, <span class="keyw">try</span> bloğu normal program 
+      adımlarını içerir. Eğer burada bir istisna fırlatılırsa, 
+      program kontrolü, <span class="keyw">except</span> bloğuna 
+      geçer. Burada istisnanın oluşması ile alınması gereken 
+      önlemler alınmaya çalışılır. Eğer bu yöntemler yeterli 
+      olmazsa, mutlaka çalışacak olan finally bloğunda olaylar 
+      kontrol altına alınmaya çalışılır.</p>
+    <p class="indent">
+      İstisna yönetiminin sağlanmasında, <span class="keyw">
+      try/except</span> dışında her bildirim terimin kullanımı 
+      isteğe bağlıdır. Ayrıca, <span class="keyw">except</span> 
+      bloğunda istisna ismi ve istisnanaın atanacağı istisna 
+      sınıf değişkeninin belirtilmesi de isteğe bağlı olmasına 
+      karşın, bunların kullanılması yararlı olur.</p>
+    <p class="indent">
+      Python 3.4.2
+      <a href="https://docs.python.org/3/library/exceptions.html">
+      dokümantasyonunda</a>, istisna sınıf hiyerarşisi, aşağıda 
+      görüldüğü gibi, belirtilmiştir.
+    </p>
+    <p class="indent">
+      The class hierarchy for built-in exceptions is:</p>
+    <pre><span class="ne">BaseException</span>
+ <span class="o">+--</span> <span class="ne">SystemExit</span>
+ <span class="o">+--</span> <span class="ne">KeyboardInterrupt</span>
+ <span class="o">+--</span> <span class="ne">GeneratorExit</span>
+ <span class="o">+--</span> <span class="ne">Exception</span>
+      <span class="o">+--</span> <span class="ne">StopIteration</span>
+      <span class="o">+--</span> <span class="ne">ArithmeticError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">FloatingPointError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">OverflowError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">ZeroDivisionError</span>
+      <span class="o">+--</span> <span class="ne">AssertionError</span>
+      <span class="o">+--</span> <span class="ne">AttributeError</span>
+      <span class="o">+--</span> <span class="ne">BufferError</span>
+      <span class="o">+--</span> <span class="ne">EOFError</span>
+      <span class="o">+--</span> <span class="ne">ImportError</span>
+      <span class="o">+--</span> <span class="ne">LookupError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">IndexError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">KeyError</span>
+      <span class="o">+--</span> <span class="ne">MemoryError</span>
+      <span class="o">+--</span> <span class="ne">NameError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">UnboundLocalError</span>
+      <span class="o">+--</span> <span class="ne">OSError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">BlockingIOError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">ChildProcessError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">ConnectionError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span 
+    class="o">+--</span> <span class="n">BrokenPipeError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span 
+    class="o">+--</span> <span class="n">ConnectionAbortedError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span 
+    class="o">+--</span> <span class="n">ConnectionRefusedError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span 
+    class="o">+--</span> <span class="n">ConnectionResetError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">FileExistsError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">FileNotFoundError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">InterruptedError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">IsADirectoryError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">NotADirectoryError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">PermissionError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">ProcessLookupError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="n">TimeoutError</span>
+      <span class="o">+--</span> <span class="ne">ReferenceError</span>
+      <span class="o">+--</span> <span class="ne">RuntimeError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">NotImplementedError</span>
+      <span class="o">+--</span> <span class="ne">SyntaxError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">IndentationError</span>
+      <span class="o">|</span>         <span class="o">+--</span> <span 
+    class="ne">TabError</span>
+      <span class="o">+--</span> <span class="ne">SystemError</span>
+      <span class="o">+--</span> <span class="ne">TypeError</span>
+      <span class="o">+--</span> <span class="ne">ValueError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span 
+    class="ne">UnicodeError</span>
+      <span class="o">|</span>         <span class="o">+--</span> <span 
+    class="ne">UnicodeDecodeError</span>
+      <span class="o">|</span>         <span class="o">+--</span> <span 
+    class="ne">UnicodeEncodeError</span>
+      <span class="o">|</span>         <span class="o">+--</span> <span 
+    class="ne">UnicodeTranslateError</span>
+      <span class="o">+--</span> <span class="ne">Warning</span>
+           <span class="o">+--</span> <span class="ne">DeprecationWarning</span>
+           <span class="o">+--</span> <span class="ne">PendingDeprecationWarning</span>
+           <span class="o">+--</span> <span class="ne">RuntimeWarning</span>
+           <span class="o">+--</span> <span class="ne">SyntaxWarning</span>
+           <span class="o">+--</span> <span class="ne">UserWarning</span>
+           <span class="o">+--</span> <span class="ne">FutureWarning</span>
+           <span class="o">+--</span> <span class="ne">ImportWarning</span>
+           <span class="o">+--</span> <span class="ne">UnicodeWarning</span>
+           <span class="o">+--</span> <span class="ne">BytesWarning</span>
+           <span class="o">+--</span> <span class="n">ResourceWarning</span>
+</pre>
+    <p class="indent">
+      Bu istisna sınıflarının oluştukları koşulların geniş açıklamaları 
+      aynı kaynakta verilmiştir.
+    </p>
+    <p id="uyg1" class="indent">
+      İlk olarak en basit bildirimlerin kullanıldığı bir istisna 
+      yönetim sekansını, aşağıdaki
+      <a href="uygulamalar/ders16/ders16program1.html">programda</a> 
+      görüldüğü gibi açıklayalım.
+    </p>
+    <pre class="pl-25">
+<span class="comm">#ders16program1.py</span>
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">input</span><span class="op">(</span><span 
+    class="str">&quot;Bir Sayı Giriniz = &quot;</span><span 
+    class="op">);</span>  
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a<span class="op">;</span>
+    
+<span class="keyw-25">print</span> <span class="op">(</span>b<span 
+    class="op">);</span>
+          
+<span class="keyw">except</span><span class="op">:</span>
+
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Bir İstisna Fırlatıldı !&quot;</span><span 
+    class="op">);</span>
+      
+<span class="maroon">Sonuç:
+Bir Sayı Giriniz :"qqq"
+Bir İstisna Fırlatıldı !</span></pre>
+    <p class="indent">
+      Eğer konsoldan input ile bir veri girilirse bu bir sözel 
+      tipte veridir. Bu veri üzerinde aritmetik işlemler yapılması 
+      için, sayısal bir veri tipine dönüştürülmesi gereklidir. 
+      Eğer konsoldan girilen sözel veri, sayısal bir değere 
+      dönüştürülemeyen nitelikte ise, dönüştürme işlemi anında 
+      bir istisnanın fırlatılması kaçınılmazdır.</p>
+    <p class="indent">
+      Yukarıdaki programda da beklenen olmuş ve istisnanın fırlatılması 
+      ile kontrol <span class="keyw">except</span> içeriğine 
+      geçerek ilk bildirimi çalıştırmıştır.</p>
+    <p id="uyg2" class="indent">
+      Eğer programda bir hata oluşmazsa, <span class="keyw">
+      try</span> bloğundaki bildirimler tamamen çalıştırılır, 
+      tüm bildirimler tamamlanınca, kontrol (varsa)
+      <span class="keyw">else</span> bloğuna geçer. Aşağıdaki
+      <a href="uygulamalar/ders16/ders16program2.html">programda</a> 
+      bu olay izlenebilir.</p>
+    <pre class="pl-25  verticalTab-50">
+<span class="comm"># ders16program2</span>
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">input</span><span class="op">(</span><span 
+    class="str">&quot;Bir Sayı Giriniz = &quot;</span><span 
+    class="op">);</span>
+
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">float</span><span class="op">(</span>a<span 
+    class="op">);</span>   
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a<span class="op">;</span>
+    
+<span class="keyw-25">print</span> <span class="op">(</span>b<span 
+    class="op">);</span>
+          
+<span class="keyw">except</span><span class="op">:</span>
+
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Bir İstisna Fırlatıldı !&quot;</span><span 
+    class="op">);</span>
+
+<span class="keyw">else</span><span class="op">:</span>
+
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;İşlem Başarı ile Gerçekleştirildi !&quot;</span><span 
+    class="op">);</span>
+
+
+<span class="maroon">Sonuç:
+Bir Sayı Giriniz :65
+0.18461538461538463
+İşlem Başarı ile Gerçekleştirildi !</span></pre>
+    <p id="uyg3" class="indent">
+      Bir istisna fırlatıldığında, programı
+      <span class="keyw">except</span> bloğunda düzelterek yoluna 
+      devam etmesi sağlanabilir. Bu konuda dikkatli olunması 
+      ve <span class="keyw">try</span> bloğunda çalışmayan bir 
+      yöntemin, <span class="keyw">except</span> bloğunda da 
+      çalışmayacağı hatırda tutulmalıdır. Hatanın giderilmesi 
+      amacını taşıyan <span class="keyw">except</span> bloğunda 
+      uygulanacak yöntemin, <span class="keyw">try</span> bloğunda 
+      uygulanan yönteme göre, hata verdirmeyecek farklı bir 
+      yöntem olması gerekir. Yoksa, <span class="keyw">try</span> 
+      bloğundaki yöntemin aynısını burada uygulamak,
+      <span class="keyw">try</span> bloğunda oluşan hatanın,
+      <span class="keyw">except</span> bloğunda da oluşmasını 
+      sağlamaktan başka bir yararı olmaz. Bu gibi üstüste yapılan 
+      hatalar, programın yeterliği üzerinde kuşku yaratır. Aşağıdaki
+      <a href="uygulamalar/ders16/ders16program3.html">programda</a>,
+      <span class="keyw">try</span> bloğunda uygulanan veri 
+      giriş yönteminin başarısızlığı üzerine,
+      <span class="keyw">except</span> bloğunda, bu hatanın 
+      bir öntanım ataması ile giderildiğini görüyoruz. Yani, 
+      aşağıdaki programda,<span class="keyw"> try</span> bloğunda 
+      uygulanan yöntem ile, <span class="keyw">excep</span>t 
+      bloğunda uygulanan yöntem birbirlerinden farklıdır ve 
+      her zaman da öyle olmalıdır. Bu aşamada, hiç değilse programın 
+      aniden devreden çıkması önlenmiş oluyor. Bundan sonra, 
+      programcı olayı izlemeli ve programın devam etmesi uygun 
+      değilse,&nbsp; kontrollü bir şekilde sonlandırılmasını 
+      sağlamalıdır.</p>
+    <pre class="pl-25">
+    <span class="comm"># ders16program3</span>
+
+kontrol = <span class="keyw">True</span>;
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">input</span><span class="op">(</span><span 
+    class="str">&quot;Bir Sayı Giriniz = &quot;</span><span 
+    class="op">);</span>  
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a<span class="op">;</span>
+    
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span>b<span class="op">);</span>
+      
+<span class="pl-25">kontrol</span> <span class="op">=</span> <span 
+    class="keyw">False</span><span class="op">;</span>
+
+          
+<span class="keyw">except</span><span class="op">:</span>
+
+<span class="keyw-25">print</span> <span class="op">(</span>kontrol<span 
+    class="op">);</span>
+
+<span class="pl-25">a</span> <span class="op">=</span> 0.1<span 
+    class="op">;</span>  
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a<span class="op">;</span>
+             
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span>b<span class="op">);</span>
+
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'Veri Girişi Başarısız, a ' ya öntanım değeri verildi !'</span><span 
+    class="op">);</span>
+    
+<span class="pl-25">kontrol</span> <span class="op">=</span> <span 
+    class="keyw">False</span><span class="op">;</span>
+
+    
+<span class="keyw">else</span><span class="op">:</span>
+
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">İşlem Başarı ile Gerçekleştirildi !</span><span 
+    class="op">);</span>
+
+
+<span class="keyw">finally</span><span class="op">:</span>
+
+<span class="keyw-25">if</span> kontrol<span class="op">:</span>
+
+<span class="pl-50">a</span> <span class="op">=</span> 0.1<span 
+    class="op">;</span>  
+
+<span class="pl-50">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a<span class="op">;</span> 
+             
+<span class="keyw-50">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span>b<span class="op">);</span>
+
+<span class="keyw-50">print</span> <span class="op">(</span><span 
+    class="str">'Veri Girişi Başarısız, a ' ya öntanım değeri verildi !'</span><span 
+    class="op">);</span>
+
+
+<span class="maroon">Sonuç:
+Bir Sayı Giriniz : 128
+b =  0.09375
+İşlem Başarı ile Gerçekleştirildi !
+False</span></pre>
+    <p class="indent">
+      Yukarıdaki program, kullanıcının gireceği değere göre 
+      iki farklı yöne doğru gelişebilecek türde bir programdır. 
+      Kullanıcı konsoldan bir sayısal değer girerse, Python 
+      derleyicisi bunu sayıya çevrilebilecek bir sözel veri 
+      olarak algılar. Sayısal bir değere çevrilebilecek uygun 
+      bir bir sözel veriyi, sayısal bir değere dönüştürebilecek 
+      bir program adımı ile, konsoldan girilmiş olan, uygun 
+      bir sözel veri, sayısal bir türe dönüştürülür ve üzerinde 
+      her türlü sayısal işlem yapılabilir. Bu şekilde,
+      <span class="keyw">try</span> bloğunun tüm program adımları 
+      çalıştırılır, kontrol izleme değişkeninin değeri
+      <span class="keyw">False</span> değerine dönüştürülür 
+      ve program kontrolü <span class="keyw">else</span> bloğuna 
+      girer, buradaki tüm program adımları çalıştırılır ve program 
+      kontrolü <span class="keyw">finally</span> bloğuna girer.</p>
+    <p class="indent">
+      Her <span class="keyw">try</span>/<span class="keyw">excep</span>t/<span 
+      class="keyw">finally</span> sekansında, program kontrolünün 
+      mutlaka girmek zorunda olduğu <span class="keyw">finally</span> 
+      bloğu, son kurtarma bloğudur. Yukarıdaki programda,
+      <span class="keyw">finally</span> bloğunda, önce izleme 
+      değişkeninin değeri incelenir. Bu değer hala
+      <span class="keyw">True</span> ise, herhangibir nedenden 
+      dolayı henüz a değişkenine bir değer atanamamış demektir. 
+      Burada bir acil düzeltme işlemi uygulanır ve a değişkenine 
+      bir öntanım değeri atanır. Ne <span class="keyw">except</span> 
+      , ne de <span class="keyw">finally</span> bloğunda, kullanıcının 
+      katkısının aranacağı hiçbir riskli işlem yapılmaz. Her 
+      şey önceden belirlenmiş bir kurtarma prosedürüne göre 
+      yürütülür. Burada kurtarma prosedürü, a değişkenine 0.1 
+      değerinde bir öntanım değeri atamaktır. İşlem bitip program 
+      kontrolü <span class="keyw">finally</span> bloğunu terkederken, 
+      artık a değişkenine bir değer atanması işlemi de mutlaka 
+      gerçekleşmiş olacaktır. Sorun, a değişkenine atanacak 
+      olan 0.1 ön tanım değerinin programın ileri aşamalarında 
+      bir sorun çıkarıp çıkarmayacağıdır. Sorun çıkabileceği 
+      saptanırsa, programı uygun bir şekilde sonlandırmak gerekir.</p>
+    <p class="indent">
+      Konsoldan sayıya çevrilemeyecek bir sözel veri girilirse,
+      <span class="keyw">try</span> bloğunda işler yolunda gitmeyecek 
+      demektir. Konsoldan girilen değerin sayısal bir türe çevrilmesi 
+      program adımında bir istisna oluşur, program kontrolü 
+      derhal <span class="keyw">try</span> bloğunu terkeder 
+      ve <span class="keyw">except</span> bloğuna girer. Bu 
+      durumda, sözel veriyi sayısal veriye çevirecek program 
+      adımından sonraki hiçbir program adımı, çalıştırılamayacak 
+      demektir. Bu durumda kontrol değişkeninin değeri hala
+      <span class="keyw">True</span> olarak kalacaktır.</p>
+    <p class="indent">
+      Program kontrolünün geçtiği <span class="keyw">except</span> 
+      bloğunda, bir kurtarma prosedürü uygulanır. İşler yolunda 
+      giderse, a değişkenine 0.1 değerinde bir öntanım değeri 
+      atanmıış, b değişkenin değeri hesaplanmış ve kontrol değişkeninin 
+      değeri <span class="keyw">False</span> olarak değişmiş 
+      olacaktır. Program kontrolü <span class="keyw">finally</span> 
+      bloğuna geçer.</p>
+    <p class="indent">
+      <span class="keyw">Finaly</span> bloğunda,
+      <span class="keyw">except</span> bloğunda işlerin yolunda 
+      gidip gitmediği, kurtarma işleminin başarılı olup olmadığı 
+      kontrol edilir. Bunu göstergesi, kontrol değişkenin değeridir. 
+      Eğer kontrol değişkeninin değeri, hala
+      <span class="keyw">True</span> ise, bir nedenden dolayı 
+      kurtarma işlemi çalışmamış demektir. Bu durumda, kurtarma 
+      işlemi tekrarlanır. Aksi halde, yani kontrol değişkeninin 
+      değeri <span class="keyw">False</span> ise, bu durumda
+      <span class="keyw">except</span> bloğunda işler yolunda 
+      gitmiş ve kurtarma işlemi gerçekleşmiş demektir. Bu şekilde,
+      <span class="keyw">finally</span> bloğunda hiçbir işleme 
+      gerek kalmamış demektir ve program kontrolu,
+      <span class="keyw">try</span>/<span class="keyw">except</span>/<span 
+      class="keyw">finally</span> bloğundan bir sonraki program 
+      adımına geçer. Uygunsuz bir verinin sonuçları aşağıda 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="maroon">Sonuç:Bir Sayı Giriniz :"qqq"
+True
+a =  0.1
+b =  120.0
+Veri Girişi Başarısız, a ' ya öntanım değeri verildi !
+False</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, <span class="keyw">except</span> bloğunda, 
+      kurtarma işlemi başarıya ulaşmış ve <span class="keyw">
+      finally</span> bloğunda yapacak bir şey kalmamış.</p>
+    <p class="indent">
+      Bir <span class="keyw">except</span> bildiriminde, hata 
+      türü bildirilmemişse, bu total bir <span class="keyw">
+      except</span> bildirimidir. Bu durumda,
+      <span class="keyw">try</span> bloğunda hangi tür bir hata 
+      oluşursa oluşsun, daima except bloğunda yakalanacaktır.</p>
+    <p class="indent">
+      Total veya anonim (isimsiz) bir <span class="keyw">except</span> 
+      bloğu sadece tek bir kurtarma işlemini organize edebilir. 
+      Eğer farklı istisna türleri için farklı kurtarma mekanizmalarının 
+      uygulanması söz konusu ise, o zaman her
+      <span class="keyw">except</span> bloğunun yakalayacağı 
+      istisna sınıfının belirtilmesi gerekir. Bir
+      <span class="keyw">try</span> bloğu için farklı istisna 
+      türlerini yakalayabilen birden fazla
+      <span class="keyw">except</span> &lt;istisna sınıfı&gt; bloğu olabilir.
+    </p>
+    <p class="indent">
+      Yukarıdaki listede, Python programlama dilinin tüm istisna 
+      türleri verilmiştir. Fakat doğal olarak, programcının 
+      her oluşabilecek hata türünü kesin olarak listeden seçebilmesi 
+      olası değildir. Bunun için, bazı boş deneyler yapmak, 
+      oluşabilecek istisna türlerini deneysel olarak algılamak 
+      ve kurtarma mekanizmalarını bu gözlemlere göre ayarlamak 
+      en doğrusu olacaktır.</p>
+    <p class="indent" id="uyg4">
+      Aşağıdaki
+      <a href="uygulamalar/ders16/ders16program4.html">programda</a> 
+      bir boş deneme yaparak hatanın türünü saptıyoruz.</p>
+    <pre class="pl-25">
+<span class="comm"># ders16program4</span>
+
+a <span class="op">=</span> <span class="keyw">input</span><span 
+    class="op">(</span><span class="str">&quot;Bir Sayı Giriniz = &quot;</span><span 
+    class="op">);</span>
+      
+a <span class="op">=</span> <span class="keyw">float</span><span 
+    class="op">(</span>a<span class="op">);</span>   
+
+b <span class="op">=</span> 12 <span class="op">/</span> a<span 
+    class="op">;</span>
+    
+print <span class="op">(</span><span class="str">'b = '</span> <span 
+    class="op">,</span> b<span class="op">);</span>
+    
+<span class="maroon">Sonuç:
+Traceback (most recent call last):
+  File "C:\abyss web server\htdocs\sites\bedriemir\Python\uygulamalar\ders16\ders16program4.py", line 4, in <module>
+    a = float(a)
+ValueError: could not convert string to float: '"qqq"'</span></pre>
+    <p class="indent" id="uyg5">
+      Fırlatılan istisnanın sınıfını saptadık : ValueError. 
+      Bu durumda, programımızın <span class="keyw">except</span> 
+      kodunu spesifik olarak sadece ValueError istisna sınıfındaki 
+      istisnaları yakalayacak şekilde belirtebiliriz. Aşağıdaki 
+      <a href="uygulamalar/ders16/ders16program5.html">programda</a>
+      bu değişiklik yapılmıştır.
+    </p>
+    
+    <pre class="pl-25">
+    <span class="comm"># ders16program5</span>
+
+kontrol = <span class="keyw">True</span>
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">input</span><span class="op">(</span><span 
+    class="str">&quot;Bir Sayı Giriniz&quot;</span><span
+    class="op">)</span>
+    
+<span class="pl-25">a</span> <span class="op">=</span> <span class="keyw">float</span><span
+    class="op">(</span>a<span class="op">)</span>    
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a
+    
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span><span class="op">,</span> b<span
+    class="op">)</span>
+      
+<span class="pl-25">kontrol</span> <span class="op">=</span> <span 
+    class="keyw">False</span>
+    
+          
+<span class="keyw">except</span> ValueError<span class="op">:</span>
+
+<span class="pl-25">a</span> <span class="op">=</span> 0.1
+
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'a = '</span><span class="op">, </span>a<span
+    class="op">)</span>
+
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a
+             
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span><span class="op">,</span> b<span class="op">)</span>
+
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">"Veri Girişi Başarısız, a ' ya öntanım değeri verildi !"</span><span 
+    class="op">)</span>
+    
+<span class="pl-25">kontrol</span> <span class="op">=</span> <span 
+    class="keyw">False</span>
+        
+<span class="keyw">else</span><span class="op">:</span>
+
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">"İşlem Başarı ile Gerçekleştirildi !"</span><span 
+    class="op">)</span>
+
+
+<span class="keyw">finally</span><span class="op">:</span>
+
+<span class="keyw-25">if</span> kontrol<span class="op">:</span>
+
+<span class="pl-50">a</span> <span class="op">=</span> 0.1
+
+<span class="keyw-50">print</span> <span class="op">(</span><span 
+    class="str">'a = '</span><span class="op">, </span>a<span
+    class="op">)</span>
+
+<span class="pl-50">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a
+             
+<span class="keyw-50">print</span> <span class="op">(</span><span 
+    class="str">'b = '</span><span class="op">,</span> b<span class="op">)</span>
+
+<span class="keyw-50">print</span> <span class="op">(</span><span 
+    class="str">'Veri Girişi Başarısız, a ' ya öntanım değeri verildi !'</span><span 
+    class="op">)</span>
+
+
+<span class="maroon">Sonuç:
+Bir Sayı Giriniz = "zzz"
+a =  0.1
+b =  120.0
+Veri Girişi Başarısız, a ' ya öntanım değeri verildi !</span></pre>
+    <p class ="indent">
+      Yukarıdaki en son durumu ile programımız sadece ValueError
+      hatasına karşı korumalı, diğer hata türlerine karşı korumasız
+      durumdadır. Buna rağmen, programın bu halinde, başka hata
+      olasılığı görünmüyor. Yine de, uzun vadede gözlemleri
+      sürdürmeli ve çalışma sırasında başka istisnalar fırlatılırsa, bunlara karşı
+      da savunma mekanizmalarını yeni <span class="keyw">
+      except</span> &lt;istisna sınıfı adı&gt; blokları ile 
+      geliştirmeliyiz.</p>
+
+    <p class="indent" id="uyg6">
+      Bir <span class="keyw">except</span> &lt;istisna sınıfı 
+      adı&gt; bildiriminde, koruma sağlanan istisna sınıfının, 
+      bir sınıf değişkeninin adını bildirim sırasında 
+      belirterek bu sınıf değişkeninin oluşmasını otomatik 
+      olarak sağlayabilir ve bu şekilde oluşan istisna türü
+      hakkında açıklayıcı bilgi alabiliriz. Aşağıdaki
+      <a href="uygulamalar/ders16/ders16program6.html">
+      programda</a> bu yöntem uygulanmaktadır.</p>
+    <pre class="pl-25">
+# ders16program6.py
+
+<span class="keyw">import</span> <span class="keyw">sys</span>
+
+<span class="keyw">try</span><span class="op">:</span>
+
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">input</span><span class="op">(</span>"Bir Sayı Giriniz = "<span 
+    class="op">)</span>
+
+<span class="pl-25">a</span> <span class="op">=</span> <span 
+    class="keyw">float</span><span class="op">(</span>a<span 
+    class="op">)</span>
+
+<span class="pl-25">b</span> <span class="op">=</span> 12 <span 
+    class="op">/</span> a
+
+<span class="keyw-25">print</span><span class="op">(</span>'b = '<span 
+    class="op">,</span> b<span class="op">)</span>
+
+
+<span class="keyw">except</span> ValueError <span 
+    class="op">as</span> e<span class="op">:</span>
+
+<span class="keyw-25">print</span><span class="op">(</span>"Hata Nedeni : "<span 
+    class="op">,</span> e<span class="op">)</span>
+
+<span class="keyw-25">print</span><span 
+    class="op">(</span>"Hata Sınıfı :", <span class="keyw">sys</span><span 
+    class="op">.</span>exc_info<span class="op">()[0])</span>
+
+<span class="maroon">
+Bir Sayı Giriniz = "zzz"
+Hata Nedeni :  could not convert string to float: '"zzz"'
+Hata Sınıfı : &lt;class 'ValueError'&gt;</span> 
+    </pre>
+    <p class ="indent">
+      Görüldüğü gibi, yukarıdaki yöntem, hataların belirlenmesi
+      için önemli bilgilerin toplanmasına olanak sağlamaktadır.
+    </p>
+    <p class ="subheading" id="gen">
+      2.4.2 - Hataların 
+      Oluşturulması</p>
+    <p class ="indent">
+      İstisnalar, gerektiğinde kullanıcılar tarafında da 
+      yaratılabilir. İstisnalar, öntanımlı bir sınıf 
+      ailesinin alt sınıfları olaraka organize 
+      edilmişlerdir. Kullanıcılar isterlerse mevcut 
+      öntanımlı sınıflardan birisinin türünde hataları 
+      oluşturabildikleri gibi, kendi hata sınıflarını da 
+      tanımlayarak hata oluşturabilirler. Bu konulara daha 
+      çok geniş çapta programlar için gerekli olabilecekleri 
+      için burada küçük örneklerle yetineceğiz. Bu konuda,
+      Python dokümentasyonunda geniş bilgi bulunmaktadır.
+    </p>
+    <p class ="indent" id="uyg7">
+      Aşağıdaki
+      <a href="uygulamalar/ders16/ders16program7.html">
+      uygulamada</a>, mevcut hata sınıflarından birinin 
+      kullanıcı tarafından oluşturulması açıklanmaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># ders16program7.py</span>
+
+<span class="keyw">raise NameError</span><span
+      class="op">(</span><span
+      class = "str">'Bir NameError istisnası fırlatıldı'</span><span
+      class="op">)</span>
+      
+<span class="maroon">******Program Sonucu************
+    
+Traceback (most recent call last):
+  File "C:\Abyss Web Server\htdocs\sites\bedriemir\Python\uygulamalar\ders16\ders16program7.py", line 8, in <module>
+    raise NameError('Bir NameError istisnası fırlatıldı')
+NameError: Bir NameError istisnası fırlatıldı</span></pre>
+    <p class ="indent">
+      Görüldüğü gibi çok kolay olay olan hata oluşturulması için
+      <span class="keyw">raise</span> bildirimi uygulanmaktadır.
+    </p>
+    <p class ="indent" id="uyg8">
+      Kullanıcılar isterlerse yeni hata sınıflarıda tanımlayabilirler.
+      Bunun için bir hata sınıfı tanımlanır ve bu hata sınıfının bir
+      sınıf örneği oluşturulur. Bu yöntem, aşağıdaki
+      <a href="uygulamalar/ders16/ders16program8.html">
+      programda</a> uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+
+<span class="comm"># ders16program8.py</span>
+
+<span class="keyw">class</span>BenimHatam<span
+class="op">(</span><span class="keyw">Exception</span><span
+class="op">):</span>
+<span class="keyw-25">def</span><span
+class="keyw">__init__</span><span
+class="op">(</span><span class="keyw">self</span><span
+class="op">,</span>değer <span class="op">):</span>
+<span class="keyw-50">self</span><span
+class="op">.</span>değer <span class="op">=</span> değer
+
+<span class="keyw-25">def</span><span
+class="keyw">__str__</span><span
+class="op">(</span><span class="keyw">self</span><span
+class="op">):</span>
+<span class="keyw-50">return</span><span
+class="keyw">repr</span><span class="op">(</span><span
+class="keyw">self</span><span class="op">.</span>değer<span
+class="op">)</span>
+
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="keyw-25">raise</span>BenimHatam<span
+class="op">(</span><span
+class = "str">'Benim Hatam, Özür Dilerim'</span><span
+class="op">)</span>
+
+
+<span class="keyw">except</span> BenimHatam <span
+class="op">as</span> hata<span class="op">:</span>
+<span class="keyw-25">print</span><span
+class="op">(</span>hata<span class="op">)</span>
+
+<span class="maroon">******Program Sonucu************
+'Benim Hatam, Özür Dilerim'</span></pre>
+
+    <p class ="subsubsub verticalTab-10">
+        Python programlama dilinin kullanılması üzerine yaptığımız
+        kısa tanıtımın ikinci bölümü olan
+        "Genl Yöntemler" bölümü burada tamamlanmış oluyor. 
+        Bundan sonra, üçüncü ve son bölüm olan "Veri 
+        Tipleri" bölümü ile devam ediyoruz.</p>
+
+
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders15.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders17.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:12 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

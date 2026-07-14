@@ -1,0 +1,544 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+<head>
+    <meta name="robots" content="noindex, follow">
+<meta http-equiv="Content-Language" content="tr">
+<meta name="description"
+  content="HTML learning,Document Organisation and Coding">
+<meta name="keywords" content="HTML, Generic Coding in Turkish Language">
+<meta name="s-Id" content="Bölüm 7 Sayfa 2">
+<meta name="Author" content="Prof. Dr. Bedri Doğan Emir">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="../CSS/newstyle.css"
+  media="all">
+<title>&lt;button&gt;, &lt;select&gt;, &lt;optgroup&gt; ve &lt;option&gt;Elementleri</title>
+</head>
+<body> 
+<table class="navtabletop" summary="layout"> 
+  <colgroup> 
+  <col width="80%"> 
+  <col width="20%"> 
+ </colgroup> 
+  <tbody> 
+    <tr> 
+      <td valign="middle"><img src="../images/reservedimages/b7s4resim1-map.png"
+        alt="Navigational Pane" width="456" height="140" usemap="#Map2"
+        class="x"> 
+        <map name="Map2"> 
+          <area shape="circle" coords="437,14,10" href="b7s5.htm" alt="b7s5"> 
+          <area shape="circle" coords="396,14,9" href="b7s3.htm" alt="b7s3"> 
+          <area shape="circle" coords="376,15,9" href="b7s2.htm" alt="b7s2"> 
+          <area shape="circle" coords="257,73,9" href="../ek1/ek1s1.htm"
+          alt="Ek1"> 
+          <area shape="circle" coords="256,13,9" href="../b1/b1s1.htm"
+          alt="b1s1"> 
+          <area shape="circle" coords="296,12,9" href="../b3/b3s1.htm"
+          alt="b3s1"> 
+          <area shape="circle" coords="296,73,9" href="../ek3/ek3s1.htm"
+          alt="Ek3"> 
+          <area shape="circle" coords="356,14,9" href="b7s1.htm" alt="b7s1"> 
+          <area shape="circle" coords="334,12,9" href="../b5/b5s1.htm"
+          alt="b5s1.htm"> 
+          <area shape="circle" coords="277,93,9" href="../ek7/catalogue.htm"
+          alt=" Ek7 Catalogue"> 
+          <area shape="circle" coords="316,73,9" href="../ek4/ek4s1.htm"
+          alt="Ek4"> 
+          <area shape="circle" coords="277,72,9" href="../ek2/ek2s1.htm"
+          alt="Ek2"> 
+          <area shape="circle" coords="276,12,9" href="../b2/b2s1.htm"
+          alt="b2s1"> 
+          <area shape="circle" coords="334,72,9" href="../ek5/ek5s1.htm"
+          alt="Ek5"> 
+          <area shape="circle" coords="315,12,9" href="../b4/b4s1.htm"
+          alt="b4s1"> 
+          <area shape="circle" coords="257,93,9" href="../ek6/ek6s1.htm"
+          alt="Ek 6"> 
+          <area shape="circle" coords="256,35,9" href="../b6/b6s1.htm"
+          alt="b6s6"> 
+          <area shape="rect" coords="327,114,374,125"
+          href="../ek7/attributes.htm" alt=" Ek7 Nitelikler"> 
+          <area shape="rect" coords="252,115,307,125"
+          href="../ek7/elements.htm" alt="Ek7 Elementler"> 
+     </map></td> 
+      <td class="align-right" valign="middle"><img src="../images/SharedImages/nav3buttons.png"
+					alt="Navigation 3 Buttons" width="127" height="40"   usemap="#Map"
+					class="x"> 
+        <map name="Map"> 
+          <area shape="rect" coords="2,3,38,38" href="../index.htm" alt="Index"> 
+          <area shape="rect" coords="44,1,81,39" href="../b7/b7s3.htm" alt="Previous"> 
+          <area shape="rect" coords="89,2,123,34" href="../b7/b7s5.htm" alt="Next"> 
+       </map></td> 
+   </tr> 
+ </tbody> 
+</table> 
+ <p class="chapter">Bölüm 7</p>
+ 
+ <p class="chapter-title">Formların Düzenlenmesi</p>
+ 
+ <p class="pagenum">Sayfa 4</p>
+ <hr>
+ <p class="title">&lt;button&gt;, &lt;select&gt;, &lt;optgroup&gt; ve &lt;option&gt;Elementleri</p>
+ 
+ <p class="title-left" id="button">
+       &lt;button&gt; Elementi
+ </p>
+ 
+ <p class="indent">&lt;button&gt; Elementi, &lt;<a href="../b7/b7s3.htm#input">input</a>&gt; elementinin &quot;button&quot; 
+  tipine benzer düğmeler oluşturur. Bu düğmeler, belge çözümleyicilerde aslında 
+  biraz daha güzel olarak görüntüleneceği belirtilmesine rağmen, uygulamada aynı
+     şekilde görüntülenir. Her iki yöntemle de oluşturulan düğmeler, belge çözümleyicilerce,
+     rollover tipinde, yeterince gözalıcı ve basma etkisi yapan düğmeler olarak görüntülenir.
+     Bu düğmeler, birçok büyük şirketin Web dahil geniş ölçüde kullanılmaktadır.
+     JavaScript kullanımı ile değişik şekillerden yararlanarak oluşturulan rollover
+     düğmeleri de çok çekici olabilmelerine rağmen, uygulamada özellikle üç konuda
+     sakıncası olduğundan eskisi kadar yaygın kullanılmamaktadır. Bu sakıncalardan
+     ilki, özel rollover düğmeleri içeren Web sayfalarının, içerdikleri Javascript
+     program adımlarından dolayı, hacımlarının genişlemesi ve iletim şürelerinin
+     artmasıdır. Bu sakınca eskiden de vardı ve iletişim bant genişliği bugünkünden
+     daha dar olmasına karşın, rollover düğmelerinin kullanımına engel sayılmıyordu.
+     Windows XP Service Pack 2 altında çalışan Internet Explorer 6.029 SP1 artık
+     script kodu içeren Web sayfalarını çözümledikten sonra, sayfayı görüntülemeden
+     önce, &quot;bu
+     sayfanın açılması işletim sistemine zarar verir&quot; gibi alarm verici bir
+     uyarı mesajı görüntülemektedir. Kullanıcıların tamamına yakın büyük bir çoğunluğu
+     tarafından kullanılan IE belge çözümleyicisinde bu mesajın verilmesi, en azından
+     sayfalarında bir script programına rollover düğme oluşturmaktan başka bir gereksinmeleri
+     olmayan kullanıcıların, JavaScript rollover düğmelerinden uzaklaşmalarına neden
+     olmuştur. Aslında belki doğrusu da budur. İletişim bant genişliği için ücret
+     ödendiği günümüz koşullarında, Web sayfalarının gereksiz yere yüklenmesi doğru
+     bulunmayabilir. Bundan başka resimlerle metin kısımlarının yükleme hızları farklı
+     olduğundan, rollover resimleri yükleninceye kadar, sayfanın görüntüsü güzel
+     olmayabilmektedir. Ayrıca, bir çok kullanıcı da saf HTML düğmelerini de yeterince
+     güzel bulmakta ve başka bir seçenek aramamaktadır. Bu konuda seçim yazarlara
+     kalmıştır. </p>
+ <p class="indent"><a href="../html401/sgml/dtd.html">DTD</a> deki &lt;button&gt; elementi tanımı,</p>
+ <p>&nbsp;</p>
+<div class="dtd-fragment">
+<pre class="navy">
+<span class="dtd">&lt;!ELEMENT <a href="../html401/interact/forms.html#edef-BUTTON">BUTTON</a> - -
+     (<a href="../html401/sgml/dtd.html#flow">%flow;</a>)* -(A|<a href=
+"../html401/sgml/dtd.html#formctrl">%formctrl;</a>|FORM|FIELDSET)
+     -- push button --&gt;
+&lt;!ATTLIST BUTTON
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/interact/forms.html#adef-name-BUTTON">name</a>        <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED
+  <a href="../html401/interact/forms.html#adef-value-BUTTON">value</a>       <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- sent to server when submitted --
+  <a href="../html401/interact/forms.html#adef-type-BUTTON">type</a>        (button|submit|reset) submit -- for use as form button --
+  <a href="../html401/interact/forms.html#adef-disabled">disabled</a>    (disabled)     #IMPLIED  -- unavailable in this context --
+  <a href="../html401/interact/forms.html#adef-tabindex">tabindex</a>    <a href=
+"../html401/types.html#type-number">NUMBER</a>         #IMPLIED  -- position in tabbing order --
+  <a href="../html401/interact/forms.html#adef-accesskey">accesskey</a>   <a href=
+"../html401/sgml/dtd.html#Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  <a href="../html401/interact/scripts.html#adef-onfocus">onfocus</a>     <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  <a href="../html401/interact/scripts.html#adef-onblur">onblur</a>      <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  <a href=
+"../html401/sgml/dtd.html#reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+</span><span class="dtd">&lt;!ENTITY % <a name=
+"formctrl">formctrl</a> &quot;INPUT | SELECT | TEXTAREA | LABEL | BUTTON&quot;&gt;</span>
+</pre>
+</div>
+<p>&nbsp;</p>
+
+ 
+ <p class="nonindent">şeklindedir. Buradan, &lt;button&gt; elementinin başlangıç 
+  ve sonuç iminin kullanımının zorunlu olduğu, içeriğinin boş olabileceği veya <a href="../b2/b2s4.htm#flow">akış grubu</a> ( <a href="../b2/b2s4.htm#block">blokdüzey</a> ve <a href="../b2/b2s4.htm#inline">satıriçi</a>) elementlerden oluşabileceği, fakat <a href="../b4/b4s2.htm#anchor">çapa elementi</a>, <a href="./b4/b4s1.htm">form kontrol 
+  grubu elementleri</a>(&lt;<a href="../b7/b7s3.htm#input">input</a>&gt;, &lt;<a href="../b7/b7s4.htm#select">select</a>&gt;, &lt;<a href="../b7/b7s5.htm#textarea">textarea</a>&gt;, &lt;<a href="../b7/b7s5.htm#label">label</a>&gt; ve &lt;button&gt;), &lt;<a href="../b7/b7s2.htm#form">form</a>&gt; ve &lt;fieldset&gt; elementlerinden birini içeremeyeceği 
+  anlaşılmaktadır. Sözdizimi:</p>
+  
+ <p class="nonindent"><span class="elements">&lt;button</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç 
+   imi :</span> gerekli )</p>
+ <p class="indent"><span class="attributes"><a href="../b2/b2s3.htm#common">Ortak 
+    Temel Nitelikler</a>(<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>, 
+   <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>, <a href="../b2/b2s3.htm#scriptable">Script 
+    Yazılabilecek Olaylar</a>)</span></p>
+ <p class="indent"><span class="attributes">type</span>=&quot;(button | submit| 
+  reset)&quot; [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">name</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">value</span>= <a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">disabled</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">tabindex</span> = <a href="../ek3/ek3s1.htm#number">Sayı</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="attributes">accesskey</span> = <a href="../ek3/ek3s2.htm#single-character">Karakter</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="attributes">onfocus</span> = &quot;Script&quot; 
+  &nbsp;<a href="../ek3/ek3s1.htm#tb">[TB]</a>&nbsp; 
+</p>
+ <p class="indent"><span class="attributes">onblur</span> = &quot;Script&quot; 
+  &nbsp;<a href="../ek3/ek3s1.htm#tb">[TB]</a>&nbsp; 
+</p>
+ <p class="indent"><span class="elements">&gt;</span></p>
+ <p class="indent"><span class="levels">İçerebileceği elementler :</span>&lt;<a href="../b4/b4s2.htm#anchor">anchor</a>&gt; 
+  elementi, <a href="../b2/b2s4.htm#form-control">form kontrol grubu elementleri</a>(&lt;<a href="../b7/b7s3.htm#input">input</a>&gt;, &lt;<a href="../b7/b7s4.htm#select">select</a>&gt;, &lt;<a href="../b7/b7s5.htm#textarea">textarea</a>&gt;, &lt;<a href="../b7/b7s5.htm#label">label</a>&gt; ve &lt;button&gt;), &lt;<a href="../b7/b7s2.htm#form">form</a>&gt; ve &lt;fieldset&gt; elementleri 
+  dışında, <a href="../b2/b2s4.htm#flow">akış grubu</a> ( <a href="../b2/b2s4.htm#block">blokdüzey</a> ve <a href="../b2/b2s4.htm#inline">satıriçi</a>) elementleri</p>
+ <p class="nonindent"><span class="elements">&lt;/button&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Bitiş 
+   imi :</span> gerekli )</p>
+ <p class="nonindent">şeklindedir.</p>
+ <p class="nonindent"><span class="levels">&lt;button&gt; Elementini içerebilecek 
+   elementler :</span>&nbsp;<a href="../b2/b2s4.htm#block">Blokdüzey</a> ve <a href="../b2/b2s4.htm#inline">satıriçi</a> elementler (&lt;button&gt; 
+  dışında).</p>
+  
+ <p class="subheading" id="button-attrs">
+       &lt;button&gt; Elementinin Nitelikleri
+ </p><p class="indent">&lt;button&gt; Elementinin nitelikleri, &lt;<a href="../b7/b7s3.htm#input">input</a>&gt; elementinin bazı nitelikleri ile tamamen aynıdır. Bu nedenle yeniden incelenmemişlerdir. Sadece, <span class="attributes">type</span> niteliği üzerine bir hatırlatma yapmakla yetineceğiz. Eğer, &lt;button&gt; elementi, bir &lt;<a href="../b7/b7s2.htm#form">form</a>&gt; elementinin içeriğinini oluşturuyorsa, ve formu sunma veya yenileme yaplılacaksa <span class="attributes">type</span> nitelik değeri için &quot;submit&quot; ve &quot;reset&quot; değerleri kullanılabilir. Diğer durumlarda <span class="attributes">type</span> nitelik değeri için &quot;button&quot; değeri kullanılmalıdır.</p>
+ <p class="subheading" id="button-apps">
+       &lt;button&gt; Elementinin Uygulanması
+ </p><p class="indent">&lt;button&gt; Elementi ile oluşturulan düğmelerin işlevselliği 
+  &lt;<a href="../b7/b7s3.htm#input">input</a>&gt; elementinin &quot;button&quot;, &quot;submit&quot; ve &quot;reset&quot; 
+  düğmeleri türleri ile tamamen aynıdır, fark &lt;button&gt; elementinin içeriğinin olmasıdır. 
+  İçerik olarak aşağıdaki örnekte olduğu gibi bir resim konulabilir. Yine de &lt;button&gt; 
+  elementinin içeriğindeki resmin  güzel bir görüntü oluşturması koşullara 
+  bağlıdır. Internet Explorer ile elde edilecek sonuç, ortalanan resmin iki tarafından 
+  taşan bir rollover düğmesi görüntüsü olurken, Netscape Navigator önyüzü resim 
+  ile kaplı çok güzel bir rollover düğmesi oluşturmaktadır. Örnek :</p>
+  
+ <pre class="navy">&lt;button name=&quot;deneme&quot; type=&quot;button&quot; onclick=&quot;alert('Teşekkürler !');&quot;&gt; 
+  &lt;img src=&quot;../images/Button3.png&quot;&gt;&lt;/button&gt;</pre>
+  
+ <p class="nonindent">
+                  <button name="deneme" type="button" onClick="alert('HELLO !');"> 
+                                <IMG src="../images/button3.png" width="133" height="30" alt="Button 3">
+                 </button>
+</p>
+ 
+ <p class="nonindent">Bu sayfa değişik belge çözümleyicilerle görüntülenerek düğmenin 
+  görüntü farkları incelenebilir. Bu tür düğmeler, değişik belge çözümleyicilerle değişik görüntüler 
+  oluşturduklarından,  kullanımları yaygınlık kazanamamıştır. &lt;button&gt; Elementi kullanımı ile yukarıdaki örnekte olduğu gibi her türlü script programına veri sağlanması olanağı bulunmaktadır. Burada &lt;<a href="../b7/b7s3.htm#input">input</a>&gt; elementi ve &lt;button&gt; elementinin kullanım koşulları eşdeğerdir. Normal görünümlü düğmeler için, &lt;<a href="../b7/b7s3.htm#input">input</a>&gt; elementi yeterlidir. Değişik görünüşlü resimli düğmeler oluşturmak istendiğinde &lt;button&gt; elementi kullanılabilir. &lt;button&gt; Elementinin içeriğinde &lt;<a href="../b4/b4s5.htm#map">map</a>&gt; elementi bulunabilmesine karşın, bu resimlere, görüntü haritalarının ilişkilendirilmesi 
+  yöntemi açıklanmamıştır. Bu konuda, şimdilik görüntü haritalarının, &lt;button&gt; elementi dışında, kendine özgü kullanımı ile yetinmek gerekecektir.</p>
+  
+ <p>&nbsp;</p>
+ 
+ <p class="title-left" id="sel-opt-option">&lt;select&gt;, &lt;optgroup&gt; ve &lt;option&gt; Elementleri 
+  :
+ </p><p>&nbsp;</p>
+ 
+ <p class="subheading" id="select">&lt;select&gt; Elementi :</p>
+ 
+ <p class="indent">Bu üç element seçenekli menüler oluşturarak, seçilen değerleri 
+  veri olarak script programlarına gönderirler. <a href="../html401/sgml/dtd.html">DTD</a> 
+  de &lt;select&gt; elementi tanımı,</p>
+ <p>&nbsp;</p>
+<div class="dtd-fragment">
+<pre class="navy">
+&lt;!ELEMENT <a href="../html401/interact/forms.html#edef-SELECT">SELECT</a> - - (OPTGROUP|OPTION)+ -- option selector --&gt;
+&lt;!ATTLIST SELECT
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/interact/forms.html#adef-name-SELECT">name</a>        <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- field name --
+  <a href="../html401/interact/forms.html#adef-size-SELECT">size</a>        <a href=
+"../html401/types.html#type-number">NUMBER</a>         #IMPLIED  -- rows visible --
+  <a href="../html401/interact/forms.html#adef-multiple">multiple</a>    (multiple)     #IMPLIED  -- default is single selection --
+  <a href="../html401/interact/forms.html#adef-disabled">disabled</a>    (disabled)     #IMPLIED  -- unavailable in this context --
+  <a href="../html401/interact/forms.html#adef-tabindex">tabindex</a>    <a href=
+"../html401/types.html#type-number">NUMBER</a>         #IMPLIED  -- position in tabbing order --
+  <a href="../html401/interact/scripts.html#adef-onfocus">onfocus</a>     <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  <a href="../html401/interact/scripts.html#adef-onblur">onblur</a>      <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  <a href="../html401/interact/scripts.html#adef-onchange">onchange</a>    <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the element value was changed --
+  <a href=
+"../html401/sgml/dtd.html#reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+</pre>
+</div>
+<p>&nbsp;</p>
+ <p class="nonindent">şeklindedir. Bu bilgilerden, &lt;select&gt; elementinin, 
+  başlangıç ve bitiş imlerinin kullanımları zorunlu, içeriği en az bir olmak üzere 
+  istendiği kadar &lt;<a href="../b7/b7s4.htm#optgroup">optgroup</a>&gt; veya &lt;<a href="../b7/b7s4.htm#option">option</a>&gt; elementinden oluşmalıdır. 
+  &lt;select&gt; Elementinin sözdizimi,</p> 
+ <p class="nonindent"><span class="elements">&lt;select</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç 
+   imi :</span> gerekli )</p>
+   
+ <p class="indent"><span class="attributes"><a href="../b2/b2s3.htm#common">Ortak 
+    Temel Nitelikler</a>(<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>, 
+   <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>, <a href="../b2/b2s3.htm#scriptable">Script 
+    Yazılabilecek Olaylar</a>)</span></p>
+    
+ <p class="indent"><span class="attributes">name</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+  
+ <p class="indent"><span class="attributes">size</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">disabled</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ 
+ <p class="indent"><span class="attributes">multiple</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ 
+ <p class="indent"><span class="attributes">tabindex</span> =<a href="../ek3/ek3s1.htm#number">Sayı</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="attributes">onfocus</span> = &quot;Script&quot; 
+  &nbsp;<a href="../ek3/ek3s1.htm#tb">[TB]</a>&nbsp; 
+</p>
+ <p class="indent"><span class="attributes">onblur</span> = &quot;Script&quot; 
+  &nbsp;<a href="../ek3/ek3s1.htm#tb">[TB]</a>&nbsp; 
+</p>
+ <p class="indent"><span class="attributes">onchange</span> = &quot;Script&quot; 
+  &nbsp;<a href="../ek3/ek3s1.htm#tb">[TB]</a>&nbsp; 
+</p>
+ <p class="indent"><span class="elements">&gt;</span></p>
+ <p class="indent"><span class="levels">İçerebileceği elementler :</span>En az 
+  bir tane olmak üzere, istendiği kadar &lt;<a href="../b7/b7s4.htm#optgroup">optgroup</a>&gt; veya &lt;<a href="../b7/b7s4.htm#option">option</a>&gt; elementi</p>
+ <p class="nonindent"><span class="elements">&lt;/select&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Sonuç 
+   imi:</span> gerekli)</p>
+ <p class="nonindent">şeklindedir.</p>
+ <p class="nonindent"><span class="levels">&lt;select&gt; Elementini içerebilecek 
+   elementler :</span>&nbsp;<a href="../b2/b2s4.htm#block">Blokdüzey</a> ve <a href="../b2/b2s4.htm#inline">satıriçi</a> elementler (&lt;<a href="../b7/b7s4.htm#button">button</a>&gt; dışında).</p>
+  
+ <p class="subheading" id="select-attrs">
+       &lt;select&gt; Elementinin Nitelikleri
+ </p><p class="nonindent"><span class="attributes">name</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>] Bu nitelik, &lt;select&gt; kontrolüne bir isim verir.</p>
+ <p class="nonindent"><span class="attributes">size</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yz">YZ</a>] <span class="attributes">Bu</span>nitelik, &lt;select&gt; 
+  elementi kaydırmalı liste kutusu halinde görüntülendiğinde, görünebilecek seçenek 
+  sayını belirtir. Belge çözümleyiciler, &lt;select&gt; elementini mutlaka kaydırmalı 
+  liste kutusu halinde görüntülemezler, bazıları açılan listeler halinde görüntüleyebilirler.  <span class="attributes">size</span> Niteliği, çoklu seçim listelerinde seçilmiş verilerin bazılarını saklı tutabilir. Kullanıcılar bu durumdan tedirgin olur ve seçtikleri verileri, bir kaç kez kontrol etmek durumunda kalırlar. Uzun ve tek seçimli listelerde ise, <span class="attributes">size</span> niteliği listenin görünen boyunu kısıtlayarak sunumun güzel görünmesini sağlar.</p>
+  
+ <p class="nonindent"><span class="attributes">multiple</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>] Bu nitelik, belirtildiğinde çoklu seçimlere olanak sağlar. 
+  Belirtilmediğinde, &lt;select&gt; elementi ile sadece tekli seçimler yapılabilir.</p>
+ <p class="subheading" id="optgroup">&lt;optgroup&gt; Elementi :</p>
+ 
+ <p class="indent">Bu element, birbirleri ile ilgili seçeneklerin bir seçenek 
+  grubu halinde biraraya toplanmasını sağlar. <a href="../html401/sgml/dtd.html">DTD</a> 
+  deki tanımı,</p>
+ <p>&nbsp;</p>
+<div class="dtd-fragment">
+<pre class="navy">
+&lt;!ELEMENT <a href="../html401/interact/forms.html#edef-OPTGROUP">OPTGROUP</a> - - (OPTION)+ -- option group --&gt;
+&lt;!ATTLIST OPTGROUP
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/interact/forms.html#adef-disabled">disabled</a>    (disabled)     #IMPLIED  -- unavailable in this context --
+  <a href="../html401/interact/forms.html#adef-label-OPTGROUP">label</a>       <a href=
+"../html401/sgml/dtd.html#Text">%Text;</a>         #REQUIRED -- for use in hierarchical menus --
+  &gt;
+</pre>
+</div>
+<p>&nbsp;</p>
+ <p class="nonindent">şeklindedir. Buradan &lt;optgroup&gt; elementinin başlangıç 
+  ve bitiş imlerinin kullanımının zorunlu, içeriğinin en az bir tane olmak üzere, 
+  istendiği kadar &lt;<a href="../b7/b7s4.htm#option">option</a>&gt; elementinden oluşması gerektiği görülebilir. 
+  &lt;optgroup&gt; elementinin sözdizimi,</p>
+  
+ <p class="nonindent"><span class="elements">&lt;optgroup</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç 
+   imi :</span> gerekli )</p>
+ <p class="indent"><span class="attributes"><a href="../b2/b2s3.htm#common">Ortak 
+    Temel Nitelikler</a>(<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>, 
+   <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>, <a href="../b2/b2s3.htm#scriptable">Script 
+    Yazılabilecek Olaylar</a>)</span></p>
+ <p class="indent"><span class="attributes">disabled</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">label</span>=<a href="../ek3/ek3s1.htm#text">text</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="elements">&gt;</span></p>
+ <p class="indent"><span class="levels">İçerebileceği elementler :</span>En az 
+  bir tane olmak üzere, istendiği kadar &lt;<a href="../b7/b7s4.htm#option">option</a>&gt; elementi</p>
+ <p class="nonindent"><span class="elements">&lt;/optgroup&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Sonuç 
+   imi:</span> gerekli)</p>
+ <p class="nonindent">şeklindedir.</p>
+ <p class="nonindent"><span class="levels">&lt;optgroup&gt; Elementini içerebilecek 
+   elementler :</span> Sadece &lt;<a href="../b7/b7s4.htm#select">select</a>&gt; elementi.</p>
+ <p class="subheading" id="optgroup-attrs">
+       &lt;optgroup&gt; Elementinin Nitelikleri
+ </p><p class="nonindent"><span class="attributes">label</span>=<a href="../ek3/ek3s1.htm#text">text</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>] Bu nitelik, &lt;optgroup&gt; elementine bir etiket metni sağlar.</p>
+ <p class="subheading" id="option">
+       &lt;option&gt; Elementi
+ </p>
+ <p class="indent">Bu element, &lt;select&gt; elementi ile birlikte bir menü seçeneği 
+  sağlar. <a href="../html401/sgml/dtd.html">DTD</a> deki tanımı,</p>
+  <p>&nbsp;</p>
+<div class="dtd-fragment">
+<pre class="navy">
+&lt;!ELEMENT <a href="../html401/interact/forms.html#edef-OPTION">OPTION</a> - O (#PCDATA)         -- selectable choice --&gt;
+&lt;!ATTLIST OPTION
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/interact/forms.html#adef-selected">selected</a>    (selected)     #IMPLIED
+  <a href="../html401/interact/forms.html#adef-disabled">disabled</a>    (disabled)     #IMPLIED  -- unavailable in this context --
+  <a href="../html401/interact/forms.html#adef-label-OPTION">label</a>       <a href=
+"../html401/sgml/dtd.html#Text">%Text;</a>         #IMPLIED  -- for use in hierarchical menus --
+  <a href="../html401/interact/forms.html#adef-value-OPTION">value</a>       <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- defaults to element content --
+  &gt;
+</pre>
+</div>
+<p>&nbsp;</p>
+ 
+ 
+ <p class="nonindent">şeklindedir. Bu bilgilerden, &lt;option&gt; elementinin 
+  başlangıç iminin zorunlu, bitiş iminin isteğe bağlı, içeriğinin seçilebilecek 
+  bir seçenek olduğu anlaşılır. &lt;option&gt; Elementinin sözdizimi,</p>
+ <p class="nonindent"><span class="elements">&lt;option</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç 
+   imi :</span> gerekli )</p>
+ <p class="indent"><span class="attributes"><a href="../b2/b2s3.htm#common">Ortak 
+    Temel Nitelikler</a>(<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>, 
+   <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>, <a href="../b2/b2s3.htm#scriptable">Script 
+    Yazılabilecek Olaylar</a>)</span></p>
+ <p class="indent"><span class="attributes">selected</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">disabled</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+ <p class="indent"><span class="attributes">label</span>=<a href="../ek3/ek3s1.htm#text">text</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="attributes">value</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>]</p>
+ <p class="indent"><span class="elements">&gt;</span></p>
+ <p class="indent"><span class="levels">İçerebileceği elementler :</span>Yok. Sadece 
+  bir tane <a href="../ek3/ek3s1.htm#pcdata">pcdata</a> formunda seçilebilir seçenek metni içerebilir .</p>
+ <p class="nonindent"><span class="elements">&lt;/option&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Sonuç 
+   imi:</span> isteğe bağlı)</p>
+ <p class="nonindent">şeklindedir.</p>
+ <p class="nonindent"><span class="levels">&lt;option&gt; elementini içerebilecek 
+   elementler :</span> Sadece &lt;<a href="../b7/b7s4.htm#select">select</a>&gt; ve &lt;<a href="../b7/b7s4.htm#optgroup">optiongroup</a>&gt; elementleri.</p>
+ <p class="indent">&lt;option&gt; Elementinin bitiş iminin kullanımı isteğe bağlı 
+  olmasına karşın, kodların okunabilirliğinin artması için bitiş iminin kullanılmasında 
+  yarar bulunmaktadır.</p>
+ <p class="indent">&lt;option&gt; Elementi, &lt;<a href="../b7/b7s4.htm#select">select</a>&gt; menüsü altında bir 
+  seçilebilir bir seçenek sağlar. Başarılı bir kontrol oluştuğunda, form ile birlikte sunucuya sunulan değer, kontrolun geçerli niteliğinin değeridir. Geçerli nitelik, eğer kullanıcı tarafından değiştirilmemişse <span class="attributes">value</span> niteliğinin belirttiği başlangıç değeridir. Kullanıcı tyarafından seçilmişse, geçerli değer, içeriğinin değeridir. Bir script programını tarafından değiştirlmişse, geçerli değer herhengibir değer olabilir. Ön seçimli olmayan veya kullanıcı tarafından seçilmemiş bir kontrol başarılı bir kontrol oluşturamaz ve değeri sunucuya aktarılamaz. Script programları görünen ve görünmeyen kontrolleri duruma göre seçebilir ve değerlerini  değiştirebilirler. Bu nedenle Web uygulamalarında güvenlik ve güvenirlik olağanüstü önem taşımaktadır.</p>
+ 
+ <p class="subheading" id="option-attrs">
+       &lt;option&gt; Elementinin Nitelikleri
+ </p><p class="nonindent"><span class="attributes">selected</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>] Bu Boole tipi (true/false) nitelik belirtildiğinde, kontrol ön seçimli duruma 
+  gelir.</p>
+ <p class="nonindent"><span class="attributes">disabled</span> [<a href="../ek3/ek3s1.htm#yz">YZ</a>] Bu nitelik, kontrolun değerinin seçilemeyeceğini belirtir. 
+  Bu niteliğin bazı belge çözümleyicilerde değerlendirilmediğini ve kontrolün 
+  seçilebilir kaldığı konusunda, kullanıcılar uyarılmaktadır.</p>
+ <p class="nonindent"><span class="attributes">label</span>=<a href="../ek3/ek3s1.htm#text">text</a> 
+  [<a href="../ek3/ek3s1.htm#yd">YD</a>] Bu nitelik, seçeneğin belge çözümleyicide gerçek içerik yerine gösterilmesi için kısaltılmış bir metin sağlar. Seçeneğin seçilimesi sonunda, sunucuya döndürülecek olan değer daima gerçek içerik olacaktır. <span class="attributes">label</span> Niteliği, bazen yararlı olabilirse de genellikle yanıltıcı olabilir. Kullanıcı, hiç düşünmediği bir değeri sunucuya kendi seçeneği gibi bilmeden aktarabilir. Bu nitelik şu anda hiçbir belge çözümleyici tarafından desteklenmemekte ve kullanımı da uygun karşılanmamaktadır.</p>
+ <p class="nonindent"><span class="attributes">value</span>=<a href="../ek3/ek3s1.htm#cdata">CDATA</a> [<a href="../ek3/ek3s1.htm#yd">YD</a>] Bu nitelik, seçeneğin başlangıç değerini belirtir. Bir form kontrolonünün bir başlangıç bir de sonuç değeri vardır. Başlangıç değeri <span class="attributes">value</span> niteliği ile belirlenir ve formun her yüklenmesi (load) veya yeniden başlamasında (reset), kontrol başlangıç değerine geri döner. Geçerli değer ise, form sunucuya sunulduğunda (submit), kontrolun sunucuya aktardığı değerdir.  Formun yüklenmesinde geçerli değer daima başlangıç değeridir. Formun dolduruluşu sırasında, kullanıcı etkisi veya bir script  programının çalışması ile kontrolun değeri değişmiş olursa, geçerli değer değişmiş olur. Aksi halde form sunucuya sunulduğunda, kontrolün geçerli değeri yine başlangıç değeri olarak kalır.  Eğer kontrolün <span class="attributes">value</span> niteliği belirlenmemiş ise, kontrolun başlangıç değeri, içeriğinin değeri olarak kabul edilir.</p>
+ <p class="subheading" id="preselection">
+       Ön Seçim Yapılması Zorunluğu
+ </p><p class="indent">Seçenekli menüler, birden çok &lt;option&gt; elementi içeriyorsa 
+  ve multiple veya size nitelikleri belirtilmemişse, bazı belge çözümleyiciler 
+  doğru olmayan şekilde bir seçeneği seçilmiş kabul edebilirler. Bunun önlenmesi 
+  için, ya bu niteliklerden birinin belirtilmesi, veya seçeneklerden birinin ön 
+  seçimli olarak bildirilmesi gerekir. Eğer ön seçimli olarak bildirilecek uygun 
+  bir seçenek bulunmazsa, bir dolgu seçeneği (dummy option) kullanılabilir.</p>
+  
+ <p class="indent">Seçenek menülerinin belge çözümleyicilerce doğru çözülmeleri 
+  için, her menünün bir ön seçimli seçeneği olmasına dikkat edilmesi gerekmektedir.</p>
+  
+ <p class="subheading" id="selection-menus">Seçenek Menülerinin Uygulanması :</p>
+ 
+ <p class="indent">Herşeyden önce, seçenek menülerinin uygulanmasında, en az iki (&lt;<a href="../b7/b7s4.htm#select">select</a>&gt; ve &lt;option&gt;) bazen de üç (&lt;<a href="../b7/b7s4.htm#select">select</a>&gt;, &lt;<a href="../b7/b7s4.htm#optgroup">optgroup</a>&gt; ve &lt;option&gt;) elementleri kullanılacaktır. Bu uygulamanın iyi tasarlanmış olması için, tüm bu elementlerin niteliklerinin doğru olarak belirtilmesi gerekmektedir.</p>
+ <p class="indent">Seçenek kontrolleri, önce &lt;<a href="../b7/b7s4.htm#select">select</a>&gt; elementi belirtilerek başlanacaktır. Bu elementin nitelikleri arasındaki, <span class="attributes">name</span> niteliği, kontrolun başarılı olması durumunda sunucuya aktarılacak değişken adını oluşturur. <span class="attributes">multiple</span> Niteliği, çoktan seçimin diğer seçenekleri dışayıp dışalamayacağını belirtir. Yani <span class="attributes">multiple</span> niteliği belirtilirse, çoktan çoklu seçim, belirtilmezse çoktan tekli seçim yapılabileceği bildirilir. <span class="attributes">size</span> Niteliği, seçenek menüsünün açılan listesinde kaç tane satır bulunacağını belirtir. Diğer satırlar, bir kaydırma çubuğu makanizması ile kullanıcının seçimine sunulurlar.</p>
+ <p class="indent"> &lt;<a href="../b7/b7s4.htm#optgroup">optiongroup</a>&gt; Elementinin  işlevi, label niteliği yardımı ile kullanıcıya kolaylık sağlayacak bir alt menü gösterimine olanak sağlamasıdır.</p>
+ <p class="indent">&lt;option&gt; elementin <span class="attributes">label</span> niteliği belge çözümleyicilerde henüz desteklenmemektedir. Önseçimli seçenekler varsa, bunların belirtilmesi gerekir. Birden çok seçeneğin seçilemediği durumlarda, birden çok önseçimli seçeneğin bulunmamasına dikkat edilmelidir.  Sadece seçilmiş seçenekler başarılı kontroller oluşturur ve değerleri sunucuya aktarılabilir. Aksi halde hiçbir değer sunucuya yüklenmez. Önseçimli seçenekler ise,  başarılı kontroller oluşturmanın ilk koşulu olan seçilmişlik koşuluna önden sahip olmuş ve değerinin sunucuya aktarımı hazır olan kontrollerdir. Formu içeren dosyanın sunucu ile ilişki kurabilecek bir konumda olması koşulu da gerçekleşirse, ön seçimli kontroller, otomatik olarak başarılı kontrol olurlar ve form sunucuya sunulduğunda değer aktarımları gerçekleşir.  iletişimin yükünü arttırmamak için, gerekli olmadığı durumlarda, seçenekleri önseçimli olarak belirtmemekte yarar bulunmaktadır.</p>
+ <p class="indent">İlk önce basit bir uygulama ile seçenek menülerinin kullanımı için 
+  bir örnek verelim:</p>
+ <pre class="navy">&lt;select name=&quot;sec&quot;&gt;<br>
+  &lt;option selected value=&quot;&quot;&gt;Seçiniz !&lt;/option&gt;<br>
+  	&lt;option&gt;Kedi&lt;/option&gt;<br>
+  	&lt;option&gt;Köpek&lt;/option&gt;<br>
+  	&lt;option&gt;Kuş&lt;/option&gt;<br>
+  	&lt;option&gt;Balık&lt;/option&gt;<br>
+  	&lt;option&gt;Hamster&lt;/option&gt;<br>
+  &lt;/select&gt;</pre>
+  
+ <p class="nonindent">Hangi ev hayvanınız var ? 
+  <select  name="select">
+   <option selected value="">Seçiniz !</option>
+   <option>Kedi</option>
+   <option>Köpek</option>
+   <option>Kuş</option>
+   <option>Balık</option>
+   <option>Hamster</option>
+ </select>
+</p>
+ 
+ <p class="nonindent">Bu örnek, <span class="attributes">multiple</span> 
+  niteliği bildirilmemiş olduğundan tekli bir seçim listesidir. size ve multiple nitelikleri belirtilmediği için, sunucuya yanlış bir veri gönderilmesini engellemek amacı ile önseçimli bir dolgu verisi kullanılmıştır. Bu dolgu verisi sunucuya aktarılsa bile hiçbir etki etmeyecek şekilde belirlenen ilk ön seçimli seçenektir ve aynı zamanda bir mesaj olarak da görev yapmaktadır.</p>
+ <p class="indent"> Bu seçenek listesinin, çoklu seçime olanak sağlayan şekli aşağıda görülmektedir.</p>
+ <pre class="navy">&lt;select name=&quot;sec&quot; multiple&gt;<br>
+  &lt;option&gt;Kedi&lt;/option&gt;<br>
+  &lt;option&gt;Köpek&lt;/option&gt;<br>
+  &lt;option&gt;Kuş&lt;/option&gt;<br>
+  &lt;option&gt;Balık&lt;/option&gt;<br>
+  &lt;option&gt;Hamster&lt;/option&gt;<br>
+&lt;/select&gt;</pre>
+
+ <p class="indent">Hangi ev hayvanınız var ? 
+  <select  name="sec"  multiple>
+   <option>Kedi</option>
+   <option>Köpek</option>
+   <option>Kuş</option>
+   <option>Balık</option>
+   <option>Hamster</option>
+ </select>
+</p>
+ 
+ <p class="indent">Aşağıda, aynı listenin tek seçimli ve sadece 3 satırı görüntülenen bir şekli görülmektedir.</p>
+ <pre class="navy"> &lt;select name=&quot;sec&quot; size=&quot;3&quot;&gt;<br>
+  &lt;option&gt;Kedi&lt;/option&gt;<br>
+  &lt;option&gt;Köpek&lt;/option&gt;<br>
+  &lt;option&gt;Kuş&lt;/option&gt;<br>
+  &lt;option&gt;Balık&lt;/option&gt;<br>
+  &lt;option&gt;Hamster&lt;/option&gt;<br>
+&lt;/select&gt;</pre>
+<p class="indent">Hangi ev hayvanınız var ? 
+  <select  name="sec"  size="3">
+   <option>Kedi</option>
+   <option>Köpek</option>
+   <option>Kuş</option>
+   <option>Balık</option>
+   <option>Hamster</option>
+ </select>
+</p>
+ <p class="indent">Bu örnekte ise, seçenekler iki seçenek grubunda toplanmıştır :</p>
+ <pre class="navy">&lt;select name=&quot;cicek&quot;  size=&quot;8&quot;&gt;<br>
+  &lt;optgroup label=&quot;Saksı Çiçekleri&quot;&gt;<br>
+  	  &lt;option&gt;Siklamen&lt;/option&gt;<br>
+  	  &lt;option&gt;Kamelya&lt;/option&gt;<br>
+  	  &lt;option&gt;Sardunya&lt;/option&gt; <br>  &lt;/optgroup&gt;
+  <br>  &lt;optgroup label=&quot;Bahçe Çiçekleri&quot;&gt;
+<br>     &lt;option&gt;Çuha Çiçegi&lt;/option&gt;<br>
+  	 &lt;option&gt;Lale&lt;/option&gt; <br>  &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
+
+ <p class="indent"> 
+  <select name="cicek"  size="4">
+   <optgroup label="Saksı Çiçekleri"> 
+    <option>Siklamen</option>
+    <option >Kamelya</option>
+    <option>Sardunya</option>
+  </optgroup>
+   <optgroup label="Bahçe Çiçekleri">
+    <option>Çuha Çiçeği</option>
+    <option>Lale</option>
+  </optgroup> 
+ </select>
+</p>
+ 
+ <p class="indent">Tüm bu örnekler, Internet Explorer 6.02 SP2, Mozilla 1.7,
+     Mozilla Firefox 1.5 beta, Opera 8 da ne Netscape 8 de düzgün bir şekilde görüntülenebilmektedir.    </p>
+ <p>&nbsp;</p>
+ <table class="navtablebottom" summary="layout"> 
+  <tbody> 
+    <tr> 
+      <td valign="top"><a href="../index.htm"><img class="x" src="../images/sharedimages/indeksbelgesi.png" alt="index"></a></td> 
+      <td valign="top"><a href="../b7/b7s3.htm"><img src="../images/sharedimages/oncekibelge.png" alt="prev"      class="x"></a></td> 
+      <td valign="top"><a href="../b7/b7s5.htm"><img src="../images/sharedimages/sonrakibelge.png" alt="next"       class="x"></a></td> 
+   </tr> 
+ </tbody> 
+</table> 
+<p>&nbsp;</p> 
+<!-- #BeginLibraryItem "/Library/Date.lbi" -->
+        <p style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:red;">                     
+            <!-- #BeginDate format:fcAm1m -->Wednesday, October 5, 2005  17:48<!-- #EndDate -->        
+         </p><!-- #EndLibraryItem --><p><a href="http://validator.w3.org/file-upload.html">validate in W3C !<img src="http://www.w3.org/Icons/valid-html401"   alt="Valid HTML 4.01!" height="31" width="88"></a></p> 
+</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1228613198" alt="setstats" border="0" width="1" height="1"></noscript>

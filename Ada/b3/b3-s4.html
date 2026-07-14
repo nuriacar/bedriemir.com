@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:16 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s4.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 4</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+  </head> 
+  <body> 
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="../b2/b2-s3.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s5.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 4
+</p>
+		<p class="subheading" id="int-ops">3.2.3.2 -  Integer Veri Tipi İçin Tanımlı İşlemciler</p>
+		<p class="indent">
+			Ada programlam dilininde, Integer veri tip gibi Standard pakette tanımlanmış bir 
+			öntanımlı veri tipi olsun, ister kullanıcılar tarafından yaratılmış özgün bir veri tipi
+			olsun her veri tipine uygulanabilecek tüm işlemciler, bu işlemcilerin işlenenleri ve
+			döndüreceği değerler kesin olarak tanımlanmış olmalıdır. Bu konuda, Standard pakette
+			Integer veri tipi gibi, tüm öntanımlı veri tiplerinin işlemcileri tüm ayrıntıları ile 
+			tanımlanmıştır. Kullanıcılar, kendi veri tiplerini daima Standard pakette tanımlanmış
+			veri tiplerinin alt tipleri olarak yaratabilirler. Kullanıcı tipi veriler, kendi üst veri 
+			sınıfının işlemcilerini kalıtım yolu ile elde ederler. Kullanıcı tanımlı verilerde, kullanıcılar 
+			isterlerse kendi veri tiplerinin işlemcilerini yeniden tanımlayarak (kalıtımla gelen tanım
+			üzerine bindirirerek) yeniden tanımlayabilirler. Fakat bu işlem çok alt düzey bir işlem 
+			olduğundan, sıradan bir kullanıcının kendi tipi için işlemcilerini bindirmesine çok az rastlanır. 
+			Genellikle tüm alt veri tipleri, kalıtım yolu ile elde ettikleri üst veri tipinin işlemcilerini
+			aynen muhafaza ederler. 
+		</p>
+		<p class="indent">
+			Ada programlama dilinde, beş tane tamsayı tipinin öntanımı yapılmıştır. Bunlardan ilki 
+			ve tamsayı tiplerinin ilk atası (ultimate ancestor) root_integer veri tipidr. Bu tip 
+			kuramsal bir tiptir ve Standart pakette sadece adı açıklanmıştır. İkinci üst tamsayı 
+			sınıfı, universal_integer tamsayı sınıfıdır ve bu da kısmen kuramsal bir veri tipi
+			olduğundan Standart pakette sadece ismi belirtilmiştir. Standart pakette kapsamı
+			ve işlemcileri tanımlanan ilk tamsayı veri tipi Integer veri aslında, ilk tanımlı 
+			tip olduğundan, tüm tamsayı alt tipleri Integer veri tipinin alt tipleri sayılır. Çünkü
+			diğer iki üst atanın spesifikasyonları açıklanmamıştır fakat, Integer veri tipinin
+			üst ataları olduğundan ve Integer veri tipi için geçerli olan tüm işlemcilere bu iki 
+			üst atanın da uygulanabileceği bildirildiğinden aynı işlemcileri paylaştıkları 
+			açıklanmış olmaktadır. Aslında, root_integer kök sınıfının yaratılması, universal_integer
+			tamsayı sınıfının işlemcilerinin her tarafındaki veri tipinin universal_integer olması gerekliğinden
+			kaynaklanmış bir kuramsal belirsizilik kuşkusudur.
+		</p>
+		<p class="indent">
+			Stanadrt pakette işlemcileri ve kapsamı tam olarak tanımlanmış olan Integer tipinin tüm 
+			operasyonel tamsayı alt tiplerin de atası olduğu ve işlemcilerini kalıtım yolu ile alt
+			öntanımlı (Natural ve Positive veri tipleri) ile kullanıcı tanımlı tamsayı alt tiplerine
+			aktardığı düşünülürse, Integer veri tipinin işlemcilerinin çalışma yönteminin çok
+			iyi özümsenmesi gerekir. Bu konuda ve her konuda en iyi öğrenme yöntemi, spesifikasyondaki 
+			tanımların iyi incelenmesi ve üzerinde uygulamalar yaparak çalışma yöntemininin
+			olabildiğince iyi anlaşılmasıdır. Bunuın için, çalışmalar sırasında daima gözönünde olması için,
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			ile birlikte gelen Standard paketin görünebilir kısmında tanımlanan tamsayı veri tiplerinin 
+			(Integer, Natural ve Positive veri tipleri) tanımı yeniden verilmiştir.
+		</p>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;integer&nbsp;type&nbsp;root_integer&nbsp;and&nbsp;the</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;corresponding&nbsp;universal&nbsp;type&nbsp;universal_integer&nbsp;are&nbsp;predefined.</em>
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Integer&nbsp;<b>is</b>&nbsp;<b>range</b>&nbsp;<em>implementation-defined</em>;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>subtype</b>&nbsp;Natural&nbsp;&nbsp;<b>is</b>
+			&nbsp;Integer&nbsp;<b>range</b>&nbsp;0&nbsp;..&nbsp;Integer'Last;<br />
+			&nbsp;&nbsp;&nbsp;<b>subtype</b>&nbsp;Positive&nbsp;<b>is</b>&nbsp;Integer&nbsp;<b>range</b>&nbsp;1&nbsp;..&nbsp;Integer'Last;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;predefined&nbsp;operators&nbsp;for&nbsp;type&nbsp;Integer&nbsp;
+			are&nbsp;as&nbsp;follows:</em>
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;=&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;/=&quot;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;
+			Integer'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;=&quot;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Boolean;<br />	
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;=&quot;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Boolean;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;+&quot;&nbsp;&nbsp;&nbsp;(Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;-&quot;&nbsp;&nbsp;&nbsp;(Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>abs</b>&quot;&nbsp;(Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Integer'Base;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;+&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;-&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;
+			Integer'Base)&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;*&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;/&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>rem</b>&quot;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Integer'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>mod</b>&quot;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Integer'Base)
+			&nbsp;<b>return</b>&nbsp;Integer'Base;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>
+			&nbsp;&quot;**&quot;&nbsp;&nbsp;(Left&nbsp;:&nbsp;Integer'Base;&nbsp;Right&nbsp;:&nbsp;Natural)<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b>&nbsp;Integer'Base;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;specification&nbsp;of&nbsp;
+			each&nbsp;operator&nbsp;for&nbsp;the&nbsp;type</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;root_integer,&nbsp;or&nbsp;for&nbsp;any&nbsp;additional&nbsp;
+			predefined&nbsp;integer</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;type,&nbsp;is&nbsp;obtained&nbsp;by&nbsp;replacing&nbsp;Integer
+			&nbsp;by&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;type</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;in&nbsp;the&nbsp;specification&nbsp;of&nbsp;the&nbsp;corresponding
+			&nbsp;operator&nbsp;of&nbsp;the&nbsp;type</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;Integer.&nbsp;The&nbsp;right&nbsp;operand&nbsp;of&nbsp;the&nbsp;
+			exponentiation&nbsp;operator</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;remains&nbsp;as&nbsp;subtype&nbsp;Natural.</em>
+		</div>
+		<p class="indent">
+			Standart paketteki tanımından, öntanımlı Integer tamsayı veri tipinin aritmetik ve ilişkisel işlemcilerinin
+			tanımlanmış olduğu görülmektedir. Aritmetik işlemciler,
+		</p>
+		<ul class="listNoMarker">
+			<li>- Tek İşlenenli (Tekli) (Unary) Aritmetik İşlemciler</li>
+			<li>- İki İşlenenli (İkili) (Binary) Aritmetik İşlemciler</li>
+			<li>- Yüksek Öncelikli İşlemci (Üs İşlemcisi)</li>
+		</ul>
+		<p class="nonindent">
+			olarak belirtilmiştir. 
+		</p>
+		<p class="indent">
+			Integer veri tipinin ilişkisel işlemcileri, iki işlenenli (binary)
+			işlemcilerdir.
+		</p>
+		<p class="indent">
+			Mantıksal (lojik) işlemciler, tüm veri tiplerinde olduğu gibi,
+			Integer veri tipinde değerlerden oluşan ve sonucu Boolean olan 
+			ilişkisel ifadelerin mantıksal işlemcilerin işlenenleri olarak 
+			kullanılması ile uygulanır. Mantıksal işlemciler Boolean veri tipi
+			ile birlikte incelenmişlerdir.
+		</p>
+		<p class="indent">
+			Standart pakette, Integer veri tipi işlemcilerinin işlenenlerin ve döndürülen değerlerin
+			bir kısmının veri tipleri, Integer'Base olarak belirtilmiştir. Bilindiği gibi, 
+			öntanımlı Integer veri tipi, kapsam sınırı olan bir alt tamsayı tipidir. Integer
+			veri tipinin işlemcilerini kalıtımsal olarak elde edecek kullanıcı tanımlı 
+			tamsayı alt tiplerinin kapsam alanları çok daha geniş olabilir. Bu nedenle,
+			öntanımlı Integer veri tipinin işlemcileri, kapsam sınırı olmayan genel bir tamsayı
+			sınıfı için tanımlanmışlardır. Eğer işlenen olarak aşağıdaki gibi, 
+		</p>
+		<p class="sayfaortala">34 + 48</p>
+		<p class="nonindent">
+			şeklinde tamsayı literalleri kullanılmış ise, bu literaller zaten kapsam alanı
+			sistemin destekleyebileyeceği kadar geniş olan universal_integer veri tipindedir.
+		</p>
+		<p class="subsub">
+			Aritmetik İşlemciler
+		</p>
+		<p class="indent">
+			<span class="pl-25 navy">Tekli Aritmetik İşlemciler</span>
+		</p>
+		<p class="indent">
+			<span class="pl-50 navy">Tekli Artı</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Tekli artı işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">+ (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması işlenende bir değişikliğe neden olmaz.
+				Bundan dolayı programlarda uygulanmaz.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Tekli Eksi</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Tekli eksi işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">- (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile işlenenin işareti değişir.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Mutlak Değer (abs)</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Mutlak Değer (abs) işlemcisi,
+			</p>
+			<p class="nonindent"> 
+				<span class="pl-75"><span 
+				class="keyw">abs</span> (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base </span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile işlenenin işareti gözönüne alınmaz ve
+				mutlak değeri kullanılır. Tekli aritmetik işlemcilerin uygulanması ile ilgili bir <a 
+				href="../uygulamalar/b3_2_3_2_uyg_1.html">prosedür</a> aşağıda görülmektedir.
+			</p>
+			<p class="indent">&nbsp;</p>
+			<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span 
+class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span 
+class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_2_uyg_1<span 
+class="S0"> </span><span class="S1">is</span>
+
+<span class="S11">Tamsayı_Değeri</span><span class="S0"> </span><span 
+class="S4">:</span><span class="S0"> </span>Integer<span 
+class="S0"> </span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span 
+class="S11">Tamsayı_Değeri</span><span class="S0"> </span><span 
+class="S4">:=</span><span class="S0"> </span><span class="S4">-</span><span 
+class="S3">16</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S7">"Tamsayı Verisi : "</span><span 
+class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S11">Tamsayı_Değeri</span><span 
+class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span 
+class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S7">"-Tamsayı Verisi : "</span><span 
+class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;-</span><span class="S11">Tamsayı_Değeri</span><span 
+class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S0"> </span><span class="S3">9</span><span 
+class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S7">"abs Tamsayı Verisi : "</span><span 
+class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span 
+class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span 
+class="S4">=&gt;</span><span class="S1">abs</span><span class="S0"> </span><span 
+class="S11">Tamsayı_Değeri</span><span class="S4">,</span><span class="S0"> </span>width<span 
+class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span 
+class="S3">4</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_2_uyg_1<span 
+class="S4">;</span></span>
+		</pre>
+		<pre class="app-25">
+Bu programın sonucu, 
+
+<span class="pl-25 green">Tamsayı Verisi :        -16</span>
+<span class="pl-25 green">-Tamsayı Verisi :        16</span>
+<span class="pl-25 green">abs Tamsayı Verisi :   16</span>
+
+olmaktadır.
+			</pre>
+			<p class="indent">
+				Yukarıdaki <a href="../uygulamalar/b3_2_3_2_uyg_1.html">prosedürde</a>, dikkat 
+				edilmesi gereken nokta, Tamsayı verisinin değerinin program sonuna kadar 
+				değişmediğidir. Tamsayı verisine program başlangıcında bir başlangıç değeri
+				verilmiş ve program sonuna kadar bu değişkene yeni bir değer atanmamıştır.
+				Programda değişen, sadece çeşitli ifadelerin değerleridir.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-25 navy">Çiftli Aritmetik İşlemciler</span>
+		</p>
+		<p class="indent">
+			<span class="pl-50 navy">Çiftli Artı</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Çiftli artı işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) + (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değerine sağ işlenenin değeri
+				eklenerek sonuç döndürülür.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Çiftli Eksi</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Çiftli eksi işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) - (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değerinden sağ işlenenin değeri
+				çıkarılarak sonuç döndürülür.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Çarpım İşlemcisi</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Çarpım işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) * (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değeri ile sağ işlenenin değeri
+				çarpılarak sonuç döndürülür.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Bölüm İşlemcisi</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Bölüm işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-100">(sol işlenen : Integer'Base) / (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değeri sağ işlenenin değerine bölünür.
+				Sonuç tamsayı değilse, ondalıklı kısım (kalan) kesilerek (truncation) tamsayı kısmı döndürülür.
+			</p>
+		<p class="indent">
+			Çiftli aritmetik işlemcilerin uygulanması aynen matematikte
+			olduğu gibidir. Ada programlama dilinde, ifadelerin tip tekdüzeliğinin sakınımı koşulu bulunmaktadır. 
+			Bu nedenle, tamsayı veri tiplerinin nesnelerinin matematiksel ifadelerde kullanımı uygun değildir.
+			Tamsayı nesneleri sayma, toplama dizi ve döngü indisleri oluşturma gibi tamsayı nesneleri gerektiren
+			işlemlerde kullanılır. Dört işlemde çiftli işlemcilerin uygulanmalarını konu alan bir <a 
+			 href="../uygulamalar/b3_2_3_2_uyg_2.html">prosedür</a> aşağıda görülmektedir.
+			</p>
+			<p class="indent">&nbsp;</p>
+			<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_2_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">23</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Tamsayı_Değeri_2</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">7</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Tamsayı Verisi_1 : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_1</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Tamsayı Verisi_2 : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">11</span><span class="S4">)</span><span class="S0"></span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4"></span><span class="S0"></span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Toplama : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> &nbsp;</span><span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">23</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;</span><span class="S0"></span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Çıkarma : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">23</span><span class="S4">);</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Çarpma : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">23</span><span class="S4">);</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölme : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_1</span><span class="S0"> </span><span class="S4">/</span><span class="S0"> </span><span class="S11">Tamsayı_Değeri_2</span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">27</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S0"></span>
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_2_uyg_2<span class="S4">;</span>
+<span class="S0"></span></span>
+			</pre>
+			<pre class="app-25">
+Bu programın sonucu,
+
+<span class="pl-25 green">Tamsayı Verisi_1 :         23</span>
+<span class="pl-25 green">Tamsayı Verisi_2 :           7</span>
+<span class="pl-25 green">Toplama :                      30</span>
+<span class="pl-25 green">Çıkarma :                      16</span>
+<span class="pl-25 green">Çarpma :                     161</span>
+<span class="pl-25 green">Bölme :                           3</span>
+
+olmaktadır.
+			</pre>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">rem İşlemcisi</span>
+		</p>
+		<div class="pl-75">
+			<p class="indent">
+				<span class="keyw">rem</span> işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) <span 
+					class="keyw">rem</span> (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değeri sağ işlenenin değerine bölünür.
+				Sonuç tamsayı değilse, sıfıra en yakın tamsayı değerine tamamlanır, <span class="keyw">rem</span>
+				 değeri, 
+			</p>
+			<p class="sayfaortala"><span class="keyw">rem</span> = Bölünen - Tamsayı Sonuç * Bölen</p>
+			<p class="nonindent">
+				olarak hesaplanır. Örnek : 11 / 5 = 5.5 , 5 &lt; 5..5 &lt; 6 , sıfıra en yakın tamsayı = 5 , <span 
+				class="keyw">rem</span> = 11 - 5 *2 , <span class="keyw">rem</span> = 1
+				olarak bulunur. 
+			</p>
+			<p class="indent">
+				Negatif sonuçlarda sıfıra en yakın tamsayı, en büyük değerdir. Örnek : Bölünen = 26 , Bölen = -3 , 
+				Sonuç = -8.66666  , -9 &lt; -8.6 &lt; -8 , sıfıra en yakın tamsayı = -8 , <span 
+				class="keyw">rem</span> = 26 - (-8 * -3) , <span class="keyw">rem</span> = 26 - 24 = 2.
+			</p>
+			<p class="indent">
+				Negatif sonuçlarda <span class="keyw">rem</span> değerinin işareti bölünen ile aynıdır. 
+				Örnek : Bölünen : -18 , Bölen : -4 , Sonuç = 4.5  , 4 &lt; 4.5 &lt; 5 , sıfıra en yakın tamsayı = 4 , <span 
+				class="keyw">rem</span> = -18 - (4 * -4) , <span class="keyw">rem</span> = -18 - 16 = -2 (<span 
+				class="keyw">rem</span> değeri daima bölünenin işaretindedir).
+			</p>
+			<p class="indent">
+				Aşağıda, <span class="keyw">rem</span> değerlerinin hesaplandığı etkileşimli bir
+			<a href="../uygulamalar/b3_2_3_2_uyg_3.html">prosedürün</a> program listesi verilmiştir. 
+			</p>
+			<p class="indent">&nbsp;</p>
+		<pre class="app-25">
+<span><span class="S0"></span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span></span>
+<span>	<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_2_3_2_uyg_3<span class="S0"> </span><span class="S1">is</span></span><span>	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölünen</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bölme_Sonucu</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Rem_Değeri</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span></span><span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span></span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bölüneni Giriniz : "</span><span class="S4">);</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span><span class="S0"> </span>Get<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bölünen</span><span class="S4">);</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Böleni Giriniz : "</span><span class="S4">);</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span><span class="S0"> </span>Get<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">);</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölme_Sonucu</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Bölünen</span><span class="S0"> </span><span class="S4">/</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">;</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölme İşlemi : &nbsp;"</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölünen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" / "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;Sonuç (Tamsayı Kısmı)(Ondalık Kısmı Kesilmiş) : &nbsp;"</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölme_Sonucu</span><span class="S4">))</span>;
+
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Rem_Değeri</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Bölünen</span><span class="S0"> </span><span class="S1">rem</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">;</span><span class="S0"> </span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölme işlemi Sonucunda Hesaplanan rem Değeri &nbsp;: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Rem_Değeri</span><span class="S4">));</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sağlama : Bölen * Bölme_Sonucu + rem = "</span><span class="S0"> &nbsp;</span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" * "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölme_Sonucu</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" + "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Rem_Değeri</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" = "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S11">Bölme_Sonucu</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Rem_Değeri</span><span class="S4">));</span><span class="S0"></span><span class="S0"></span><br />
+	<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_2_3_2_uyg_3<span class="S4">;</span>
+			</pre>
+			<pre class="app-25">
+Bu programın sonucu,
+
+<span class="pl-25 green">Lütfen Bölüneni Giriniz : -5</span>
+<span class="pl-25 green">Lütfen Böleni Giriniz : 3</span>
+<span class="pl-25 green">Bölme İşlemi :  -5 /  3   Sonuç (Tamsayı Kısmı)(Ondalık Kısmı Kesilmiş) :  -1</span>
+<span class="pl-25 green">Bölme işlemi Sonucunda Hesaplanan rem Değeri  : -2</span>
+<span class="pl-25 green">Sağlama : Bölen * Bölme_Sonucu + rem =  3 * -1 + -2 = -5</span>
+
+olmaktadır.
+			</pre>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">mod İşlemcisi</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				<span class="keyw">mod</span> işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) <span 
+					class="keyw">mod</span> (sağ işlenen : Integer'Base) geri döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				şeklinde uygulanır. Bu işlemcinin uygulanması ile sol işlenenin değeri sağ işlenenin değerine bölünür.
+				Sonuç tamsayı değilse, en küçük tamsayı değerine tamamlanır, <span class="keyw">mod</span>
+				 değeri, 
+			</p>
+			<p class="sayfaortala"><span class="keyw">mod</span> = Bölünen - Tamsayı Sonuç * Bölen</p>
+			<p class="nonindent">
+				olarak hesaplanır. Örnek : 11 / 5 = 5.5 , 5 &lt; 5..5 &lt; 6 , en küçük tamsayı = 5 , <span 
+				class="keyw">mod</span> = 11 - 5 *2 , <span class="keyw">mod</span> = 1
+				olarak bulunur. Görüldüğü gibi, pozitif sayılar için <span class="keyw">rem</span> 
+				ve <span class="keyw">mod</span> değerleri aynıdır.
+			</p>
+			<p class="indent">
+				Negatif sayılarda durum değişir. Negatif sayılarda en küçük değer sıfıra en uzak değerdir. 
+				Örnek : Bölünen = 26 , Bölen = -3 , 
+				Sonuç = -8.66666  , -9 &lt; -8.6 &lt; -8 , sıfıra en uzak (en küçük) tamsayı = -9 , <span 
+				class="keyw">mod</span> = 26 - (-9 * -3) , <span class="keyw">mod</span> = 26 - 27 = -1
+				(<span class="keyw">mod</span> değeri daima bölenin işaretindedir).
+			</p>
+			<p class="indent">
+				Aşağıda, <span class="keyw">mod</span> değerlerinin hesaplandığı etkileşimli bir
+			<a href="../uygulamalar/b3_2_3_2_uyg_4.html">prosedürün</a> program listesi verilmiştir. 
+			</p>
+			<p class="indent">&nbsp;</p>
+			<pre class="app-25">
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b3_2_3_1_uyg_4<span class="S0"> </span><span class="S1">is</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölünen</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Bölme_Sonucu</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Mod_Değeri</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bölüneni Giriniz : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span><span class="S0"> </span>Get<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S11">Bölünen</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Böleni Giriniz : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span><span class="S0"> </span>Get<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Mod_Değeri</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Bölünen</span><span class="S0"> </span><span class="S1">mod</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölme_Sonucu</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S11">Mod_değeri</span><span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S11">Bölünen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">/</span><span class="S0"> </span><span class="S4">(-</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölme İşlemi : &nbsp;"</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölünen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" / "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;&nbsp;Sonuç (Tamsayı Kısmı)(Sonucun En Yakınında Olan En küçük Tamsayı Değerine İndirgenmiş) : &nbsp;"</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölme_Sonucu</span><span class="S4">));</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S7">"Bölme işlemi Sonucunda Kalan (mod) Değeri &nbsp;: "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Mod_Değeri</span><span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S7">"Sağlama : Bölen * Bölme_Sonucu + mod = "</span><span class="S0"> &nbsp;</span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölen</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" * "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Bölme_Sonucu</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" + ("</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Mod_Değeri</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">") = "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span><span class="S0"> </span><span class="S11">Bölen</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span><span class="S11">Bölme_Sonucu</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Mod_Değeri</span><span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b3_2_3_1_uyg_4<span class="S4">;</span>
+			</pre>
+			<pre class="app-25">
+Bu programın sonucu,
+
+<span class="pl-25 green">Lütfen Bölüneni Giriniz : 26</span>
+<span class="pl-25 green">Lütfen Böleni Giriniz : -3</span>
+<span class="pl-25 green">Bölme İşlemi :   26 / -3   Sonuç (Tamsayı Kısmı)(Sonucun En Yakınında Olan En küçük Tamsayı Değerine İndirgenmiş) :  -9</span>
+<span class="pl-25 green">Bölme işlemi Sonucunda Kalan (mod) Değeri  : -1</span>
+<span class="pl-25 green">Sağlama : Bölen * Bölme_Sonucu + mod = -3 * -9 + (-1) =  26</span>
+
+olmaktadır.
+			</pre>
+			<p class="indent">
+				Yukarıdaki <a href="../uygulamalar/b3_2_3_2_uyg_4.html">prosedür</a> 
+				sonuçlarından da görüldüğü gibi,<br />
+			
+<span class="pl-50"><span class="keyw">rem</span> daima bölünenin</span><br />
+
+<span class="pl-50"><span class="keyw">mod</span> daima bölenin</span><br />
+
+işaretini taşır.
+			</p>
+		</div>
+		<p class="indent">
+			<span class="pl-50 navy">Üs Alma İşlemcisi (Yüksek Öncelikli İşlemci)(**)</span>
+		</p>
+		<div class="pl-100">
+			<p class="indent">
+				Ada programlama dili, çok az program dilinde bulunan üs alma işlemcisi içerir.
+				Üs alma işlemcisi diğer tüm işlemcileren daha yüksek önceliklidir. Bu yüzden,
+				&quot;Yüksek Öncelikli İşlemci&quot; olarak da tanımlanır. Üs alma işlemcisi,
+			</p>
+			<p class="nonindent">
+				<span class="pl-75">(sol işlenen : Integer'Base) ** (sağ işlenen : Natural) geri 
+				döndürülen değer  Integer'Base</span>
+			</p>
+			<p class="nonindent">
+				olarak uygulanır. Bu işlemcinin üs alma değeri, Stanadrt pakette bir Tamsayı alt
+				tipi olarak tanımlanmış olan Natural tamsayı tipindedir. Natural tamsayı tipinin
+				kapsam aralığı 0 .. yerleşime bağlı olarak tanımlanmıştır. Yani, üs alma değerleri 0 
+				olabilir fakat negatif değerler olamaz. Ayrıca, dikkat edilmezse kolaylıkla kapsam 
+				aşımı hatası oluşabilir. Bunun dışında, çok kullanışlı ve yararlı bir işlemcidir. 
+				Aşağıdaki <a href="../uygulamalar/b3_2_3_2_uyg_5.html">prosedürde</a>, 
+				bir üs alma işleminin uygulanması görülmektedir.
+			</p>
+			<pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span 
+			class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span 
+			class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_2_3_2_uyg_5<span 
+			class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span 
+			class="S4">.</span>Text_IO<span class="S4">.</span>Put<span 
+			class="S4">(</span><span class="S7">"2 + 12 **2 ifadesinin sonucu : "</span><span 
+			class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span 
+			class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span 
+			class="S4">(</span><span class="S3">2</span><span class="S4">+</span><span 
+			class="S3">12</span><span class="S4">**</span><span 
+			class="S3">2</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_2_3_2_uyg_5<span 
+			class="S4">;</span>
+			</pre>
+			<pre class="app-25">
+
+Bu programın sonucu,
+
+<span class="pl-25 green">2 + 12 **2 ifadesinin sonucu :         146</span>
+
+olmaktadır.
+			</pre>
+			<p class="indent">
+				Yukarıdaki <a href="../uygulamalar/b3_2_3_2_uyg_5.html">prosedür</a> çıkışında da
+				da açıkça görüldüğü gibi, üs alam işlemcisi en yüksek önceliklidir. Çünkü önce 12 **2
+				işlemi ile 144 sayısı bulunmuş, sonra buna 2 eklenerek sonuç 146 olmuştur. Yine de
+				ifadelerde, öncelik sıralarının iyi kestirilemediği durumlarda en güvenli yöntem, parantezlerin
+				kullanılması ile, ifade sonucunun hedeflendiği gibi hesaplanmasını sağlamaktır.
+			</p>
+		</div>
+		<p class="subsub">
+			İlişkisel İşlemciler
+		</p>
+		<p class="indent">
+			Integer öntanımlı veri tipi için, &lt; , &gt; &lt;= , &gt;= , = , /= ilişkisel işlemcileri
+			tanımlıdır. Bu işlemcilerin uygulanma yöntemleri daha önce incelemiş olduğumuz
+			Boolean veri tipinin ilişkisel işlemlerinin uygulanması ile aynıdır.
+		</p>
+		<p class="indent">
+			Intger veri tipi nesnelerinin büyüklüklerinin tanımı açıktır. Eğer Integer veri tipi,
+			sayılabilir bir veri tipi olarak düşünülürse, tamsayı elemanlarının önce küçük değerden
+			başlayarak giderek teker teker monotonik büyüyen değerler (sonraki = önceki +1) olarak yerleştiği
+			düşünülebilir. Buradan sayılabilir verilerin en son tanımlanan elemanlarının en büyük olarak
+			kabul edilmelerinin de mantığı açıklanmış olur.
+		</p>
+		<p class="indent">
+			Integer veri tipinin incelemelerini burada tamamlamış oluyoruz. Artık bu veri tipini
+			uygulamalarımızda bilinçli olarak kullanabilecek duruma gelmiş durumdayız.
+		</p>
+				<p class="subheading" id="long">3.2.4 - Long_Integer</p>
+	<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>, tüm
+			derleyicilerin Long_Integer veri tipini desteklemesini gerekli kılmıştır. Long_Integer veri tipi
+			eskiden 16 bit sistemlerin yaygın olduğu dönemlerde, sistemlere 32 bitlik tamsayı değişkeninin 
+			kapsamının sağlanması amacı ile oluşturulmuştur. Günümüzde 32 bit sistemler standart hale 
+			gelmiş ve 64 bitlik sistemler de yaygınlık kazanmaya başlamıştır. 32 bit sistemlerde Integer ve Long_Integer
+			farkı kalmadığından, Long_Integer veri tipinin kullanımı gereksiz hale gelmiştir. Bu veri tipi,
+			günümüzde sadece eskiye uyum için desteklenmektedir ve gelecekte kullanımdan kalkacağı kesindir.
+			Biz de bu çalışma kapsamında Long_Integer veri tipini kullanmayacağız. Kullanıcılar kendi özgün
+			tamsayı alt tiplerini kolaylıkla tanımlayabilmekte ve uygulayabilmektedirler. Bu nedenle standart
+			dışı veri tiplerinin kullanımı sağlık verilmemektedir.
+		</p>
+		<p class="subheading" id="long-long">3.2.5 - Long_Long_Integer</p>
+		<p class="indent">
+			Long_Long_Integer veri tipi 64 bit tanım genişliği ile, Integer ve Long_Integer veri tiplerinden
+			daha geniş kapsamlı tamsayı tanım aralığı sağlamaktadır. Buna rağmen, güncel eğilim
+			kullanıcıların öntanımlı tiplerden çok kendi gereksinmelerine göre kendi özgün veri tiplerini
+			tanımlayıp uygulamaları yönündedir. Bu düşünce ile, long_long_Integer veri tipinin
+			kullanımı yerine kullanıcıların kendi özgün tiplerini tanıtıp kullanmaları daha uygun olacaktır.
+		</p>
+		
+		<p class="subheading" id="wide">3.2.6 - Wide_Integer ve Wide_Wide_Integer</p>
+		<p class="indent">
+			Ada programlama dili, öntanımlı veri tipi tanımlamaz. Veri tipleri, prensip olarak bir
+			De-Facto veri tipi standardı oluşturan Standard pakette tanımlanır. Wide_Integer ve Wide_Wide_Integer
+			veri tipleri, <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			ile birlikte dağıtılan Standard pakette tanımlanmamışlardır. Bu veri tiplerini en çok kullanılan GNAT 
+			derleyicisi desteklememektedir. Bunun nedeni, kullanıcıların kendi özgün alt veri tiplerini kolaylaylıkla 
+			tanımlayarak uygulayabildikleri, çok esnek bir programlama dili olan Ada programlama dilinde, 
+			temel veri tipleri dışında alt veri tiplerinin öntanımının gereksiz görülmüş olmasıdır. Bu desteğin 
+			verilmemiş olmasının kullanıcıya kaybettireceği birşey yoktur. Kullanıcı kendi çalışmalarına 
+			uygun alt veri tiplerini, kolaylıkla kendisi tanımlayıp uygulayabilmektedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+		<a href="../b2/b2-s3.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b3-s5.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:16 GMT -->
+</html> 
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

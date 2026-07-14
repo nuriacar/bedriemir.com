@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:59 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.6-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>19.6.6.1 - Attr Arabiriminin name Özelliği</title>
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title></title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.5-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="b19.6.7-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a></p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19</p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.6 Sayfa 1 </p>
+<p class="subheading" id = "nitelikler">19.6.6 - Attr (Nitelikler) Arabirimi</p>
+		<p class="indent">
+			<span class="keyw">Attrs</span> arabirimi, bir element düğümünün niteliklerinin 
+			oluşturduğu nitelik düğümlerinin özelliklerini belirten arabirimdir. Net olarak, bir 
+			<span class="keyw">Node</span> generik düğüm tipinin, 
+			<span class="keyw">attributes</span> koleksiyonunun, her bir <span class="keyw">item</span> 
+			yani birimi, burada incelenen, <span class="keyw">Attr</span> arabirimi tanımına uyan 
+			nitelik düğümlerine karşılık gelir. Nitelik düğümleri sayfa ağaç yapısına tam olarak 
+			yerleştirilmiş sayılmazlar. Bunlar ilgili oldukları element düğümü ile birlikte yaşama 
+			geçen ve element düğümünü saran bir tür elektron bulutu gibi
+			düşünülebilrler. Bağlı oldukları element düğümü, belge ağacını terkederse, etrafındaki
+			nitelik düğümleri bulutu da belge ağacını terketmiş olur. Bunun sonucunda da özelliklerini
+			kalıtımla elde ettiği generik düğüm tipi <span class="keyw">Node</span> arabirimin,
+			<span class="keyw">parentNode</span>, <span class="keyw">previousSibling</span>, 
+			<span class="keyw">nextSibling</span> özellikleri, nitelik düğümleri için <span 
+			class="keyw">null</span> değerini döndürür. Özetle, nitelik düğümleri, generik 
+			düğüm nesnesinden katımla özellik elde eder, fakat diğer düğüm türlerine göre 
+			oldukça özeldir.
+		</p>
+		<p class="sayfaortala"><img src="../images/b19.6.6-img-1.png" 
+		alt="Attr Arabiriminin IDL Yazılımı" width="925" height="252" /></p>
+		<p class="sayfaortala">
+			Şekil 19.6.6- 1 - DOM Düzey 2 de Attr Arabiriminin  IDL Yazılımı
+		</p>
+		<p class="navy" id="name"><strong>19.6.6.1 - Attr Arabiriminin name Özelliği</strong></p>
+		<p class="indent">
+			<span class="keyw">Attr</span> arabirimin, <span class="keyw">name</span>
+			özelliği, niteliği ismin karakter dizgisi (String) tipinde olarak geri döndürür. Aynı sonuç,
+			generik düğüm türü <span class="keyw">Node</span> arabiriminin <span 
+			class="keyw">nodeName</span> niteliğinin sorgulanması ile de alınabilir. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">nitelikİsmi <span class="op">=</span> generikDüğümNesnesiÖrneği</span><span 
+			class="op">.</span><span class="keyw">attributes</span><span class="op">.</span><span 
+			class="keyw">item</span><span class="op">(</span>x<span class="op">)</span><span 
+			class="op">.</span><span class="keyw">name</span><span class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			veya eşdeğer olarak, 
+		</p>
+		<pre>
+<span class="pl-25">nitelikİsmi <span class="op">=</span> generikDüğümNesnesiÖrneği</span><span 
+			class="op">.</span><span class="keyw">attributes</span><span class="op">.</span><span 
+			class="keyw">item</span><span class="op">(</span>x<span class="op">)</span><span 
+			class="op">.</span><span class="keyw">nodeName</span><span class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir düğüm nesnesi örneğinin x inci niteliğinin ismine ulaşılabilir. </p>
+		<p class="indent">
+			<span class="keyw">Attrs</span> arabiriminin, <span 
+			class="keyw">name</span> özelliği salt okunur niteliktedir. Bu Özelliğin değerleri, 
+			DTD lerde önceden belirlenmiş değerlerdir. 
+		</p>
+		<p class="indent" id="b19.6.6.1-uyg-1">
+			Aşağıda kodları görülen 
+			<a href="../uygulamalar/b19.6.6.1-uyg-1-js.html">uygulama</a>,
+			bir element düğümünün niteliklerini bir 
+			<a href="../uygulamalar/b19.6.6.1-uyg-1-js.html">sayfaya</a>
+			yazdırmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">sonuçlar</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+<span class="pl-75">bilgiYaz(</span><span 
+			class="str">'nitelik item('</span> <span 
+			class="op">+</span> i <span 
+			class="op">+</span> <span 
+			class="str">').name : '</span> <span 
+			class="op">+</span> elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span> <span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçlar</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id="specified"><strong>19.6.6.2 - Attr Arabiriminin specified Özelliği</strong></p>
+		<p class ="indent"> <span class="keyw">Attr</span> arabiriminin tanımladığı nitelik düğümlerinin, 
+			salt okunur bir başka özelliği, mantıksal (boolean) tipte <span class="keyw">specified</span> değeridir. 
+			Bu özelliğin değeri, 
+		</p>
+		<ul class="listNoMarker">
+			<li>Eğer bu niteliğe bir değer verilmişse, <span class="keyw">true</span>, değeri de verilen değer olur.</li>
+			<li>Eğer bu niteliğe bir değer verilmemişse, değeri <span class="keyw">false</span> olur, Niteliğin değeri ise, 
+				DTD de belirtilen varsa, varsayılan değerdir.</li>
+			<li>Eğer bu niteliğe bir değer verilmemişse, değeri <span class="keyw">false</span> olur, Niteliğin değeri,
+				DTD de#IMPLIED olarak belirtiliyorsa, bu durumda nitelik belgenin yapılanmasında bulunmaz.</li>
+			<li>Eğer bu niteliğin, <span class="keyw">ownerElement </span>değeri 
+				<span class="keyw">null</span> ise, <span class="keyw">specified</span> 
+				niteliğinin de değeri <span class="keyw">true</span> olacaktır. Bir nitelik henüz yeni yaratılmış ve 
+				henüz bir elemente bağlanmamışsa, bu niteliğin 
+				<span class="keyw">ownerElement</span> nitelik değeri henüz 
+				<span class="keyw">null</span> durumundadır.
+				Ayrıca, çeşitli program adları ve kopyalama işlemleri sırasında niteliğin, 
+				<span class="keyw">ownerElement</span> nitelik değeri 
+				<span class="keyw">null</span> olabilir. </li>
+				<li>Eğer DTD de niteliğin varsayılan değeri varsa ve kullanıcı niteliğe 
+				bu değeri atamışsa, <span class="keyw">specified</span> özelliğinin
+				dedğeri yine <span class="keyw">true</span> olur. Bu özelliğin değerinin 
+				<span class="keyw">false</span> olması için, kullanıcı bu niteliği kaldırmalıdır. 
+				Bu durumda, nitelik DTD de bulunduğu ve varsayılan değeri de olduğu
+				için, otomatik olarak yeniden varsayılan değeri ile birlikte yaratılır ve 
+				hem <span class="keyw">specified</span> özelliğinin değeri 
+				<span class="keyw">false</span>, hem de değeri DTD de varsayılan değer olur.</li>
+		</ul>
+		<p class="indent">
+			Bu değerlendirilmesi kolay olmayan niteliğin kullanım alanı fazla değildir.
+		</p>
+		<p class="navy" id="value"><strong>19.6.6.3 - Attr Arabiriminin value Özelliği</strong></p>
+		<p class ="indent"> 
+			<span class="keyw">Attr</span> arabiriminin tanımladığı nitelik düğümlerinin, 
+			<span class="keyw">value</span> özellikleri, okunabilir ve yazılabilir tipte bir 
+			özelliktir. Eğer değer verilemeyen bir niteliğe değer verilmeye çalışılırsa, bir hata oluşur. 
+		</p>
+		<p class="indent">
+			Bu metot, değerin okunması amacı ile çağrılırsa, geriye bir karakter dizgisi tipinde veri
+			(string) döndürür. Değer belirtmek amacı ile çağrıldığında, bir <span class="keyw">Text</span>
+			tipi dğüm oluşturur. Bu düğümün içeriği, çözümlenmeiş olan karakter değerleridir.
+		</p>
+		<p class="indent" id="b19.6.6.3-uyg-1">
+			<span class="keyw">Attrs</span> arabiriminin <span class="keyw">value</span> özelliğinin,
+			bir element düğümünün içeriğinin stil sınıfının değerinin değiştirlmesi amacı ile uygulandığı bir
+			<a href="../uygulamalar/b19.6.6.3-uyg-1-js.html">programın</a> kodları aşağıda görülmektedir. 
+			Bu program, bağlantılı olduğu <a href="../uygulamalar/b19.6.6.3-uyg-1-js.html">sayfada</a>
+			çalışmaktadır.
+			</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b19.6.5-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="b19.6.7-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.6-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:59 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

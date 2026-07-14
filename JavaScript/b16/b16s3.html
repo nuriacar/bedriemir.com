@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:40 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b16/b16s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b16s3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b16s2.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b17/b17s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 16
+		</p>
+		<p class="chapter">
+					Diske Erişim (JScript Özelliği- Sadece Internet Explorer-)
+		</p>
+		<p class="pagenum">
+			Bölüm 16 Sayfa 3
+		</p>
+		<p class="title-left">
+			16.3 - Örnek Uygulama Projesi
+		</p>
+		<p class="subheading" id="file-app">
+			16.3.1 - Dosyalama Sisteminin Tasarımı
+		</p>
+		<p class="indent">
+			Bir dosya uygulaması, birbiribirine bağlı birçok
+			işlemden oluşur. Verilerin dosyaya yazılması,
+			verilerin dosyadan okunması, verilerin çeşitli
+			bileşenlere göre aranması, verilerin silinmesi,
+			verilerin düzeltilmesi bir dosyalama işleminin
+			çeşitli aşamalarıdır ve bir dosyalama işleminde, bu
+			aşamaların tümünün bulunması gerekir. Bu detaylı
+			çalışma, ancak önceden iyi planlarak başarıya
+			ulaştırılabilir.
+		</p>
+		<p class="indent">
+			Dosyalama işleminde her aşamanın son derece ayrıntılı
+			olarak düşünülmesi ve bu düşüncelerin programa
+			yansıtılması gerekir. Herşeyden önce, bir veri
+			dosyasının yapısı sadece tekrarlı verileri
+			içermelidir. Bu konu aşağıda incelenmiştir.
+		</p>
+		<p class="subheading" id="data-structures">
+			16.3.2 - Veri Yapıları
+	</p>
+		<p class="indent">
+			Veri yapıları, daha önce incelemiş olduğumuz 
+			nesnelerin yapılarını belirleyen <span 
+			class="keyw">prototype</span> özelliğidir. 
+			her nesne yapısı bir nesne ailesini oluşturur ve 
+			her nesne ailesinin sonsuz sayıda özelliklerinin 
+			değeri farklı olan örnekleri yaratılabilir.
+		</p>
+		<p class="indent">
+			Dosyalanacak verinin yapısının önceden çok iyi ve
+			geleceğe yönelik olarak belirlenmesi gerekir. Dosyaya
+			yazılmış bir veri topluluğunun veri yapısını
+			değiştirmek ileride çok zor olabilir.
+		</p>
+		<p class="indent">
+			Örnek olarak bir malzeme listesi dosyalama programını
+			düşünelim. Her malzeme verisi, belirli ve sabit bir veri 
+			yapısı olan bir malzeme sınıfının örnekleri olarak
+			düşünülebilir. Bu durumda, ilk olarak bir Malzeme sınıfı 
+			veri yapısının saptanması gerekir. Bu da Malzeme nesne
+			ailesinin prototipinin belirlenmesi anlamına gelmektedir.
+		</p>
+		<p class="indent">
+			Yeni bir nesne sınıfı olan Malzeme nesne sınıfının prototipi, 
+			aşağıda belirtildiği gibi, saptanmıştır. 
+		</p>
+		<ul class="listNoMarker">
+			<li>
+				<span class="cursive-green">stokNr</span> : <span 
+				class="cursive-red">sayısal (tamsayı)</span>
+			</li>
+			<li>
+				<span class="cursive-green">malzemeAdı</span> : <span 
+				class="cursive-red">sözel</span>
+			</li>
+			<li>
+				<span class="cursive-green">depoNr</span> : <span 
+				class="cursive-red">sayısal (tamsayı)</span>
+			</li>
+		</ul>
+		<p class="nonindent">
+			Bu prototipe uyan nesne örneklerine kayıt adı verilir. 
+			Her kaydın, nesne sınıfının prototipi ile belirlenmiş 
+			özelliklerinin değerleri bulunacaktır. Örneğimizde, 
+			her kaydın sayısal bir stokNr alanı, sözel bir malzemeAdı
+			alanı ve son olarak sayısal bir depoNr alanı bulunmaktadır. 
+			Javascript programlama dilinde, veri alanlarına atanan değerlerinin
+			tip kontrolu yapılmaz. Bu kontrollerin veri girişleri sırasında
+			programcılar tarafından yapılarak, veri alanlarına uygun 
+			olmayan değer atamalarının engellenmesi gerekmektedir.
+		</p>
+		<p class="subheading" id="data-file">
+			16.3.3 - Veri Dosyalarının Yapıları
+	</p>
+		<p class="indent">
+			Veri dosyalarının yapılandırılması geniş bir konudur.
+			Bu konu üzerinde, üniversitede dosya organizasyonu
+			adı altında özel bir ders verilmektedir. Bu satırların 
+			yazarı da bir zamanlar bu dersi vermiştir. Özet olarak,
+			dosyalama sistemleri, 
+		</p>
+		<ul class="listNoMarker">
+			<li class="cursive-green">
+				Sözel Dosyalar (Text Files)
+			</li>
+			<li class="cursive-green">
+				İkili Dosyalar (Binary Files)
+			</li>
+		</ul>
+		<p class="nonindent">
+			olarak ikiye ayrılır. Jscript programlama dili
+			şimdilik sadece sözel dosyaları destekleyebilmektedir.
+			İkili dosyalar da iki temel gruba ayrılır. Bunlar
+		</p>
+		<ul class="listNoMarker">
+			<li class="cursive-green">
+				Sıralı Dosyalar (Sequential Files)
+			</li>
+			<li class="cursive-green">
+				Gelişigüzel Erişilebilen Dosyalar (Random Access Files)
+			</li>
+		</ul>
+		<p class="nonindent">
+			olarak adlandırılırlar. Bunlardan en basit olanı sıralı dosyalardır.
+			Bunların yapısı basit sözel dosyalara benzer. Burada veriler,
+			ardarda sıralanarak (contigious) bir yapıda sıralanır. Dosya göstergesi daima
+			ileriye doğru hareket edebilir ve bir veriye erişim için öncekilerin tümünün
+			olunması gerekir. Yani veriye erişim yavaş gerçekleşir. Gelişigüzel erişimli
+			dosyalar gelişmiş teknolojiili dosyalama sistemleridir. Dosya göztergesi 
+			ileri-geri hareket edebilir ve veriye erişim, kullanılan erişim teknlojisine
+			bağlı olarak hızlı olabilir. Özel bir hibrid dosyalama sistemi, birçok 
+			modern veri temeli programının kullandığı İndeksli Sıralı Erişimli
+			(Indexed Sequential Access ISAM) dosyaları olarak adlandırılır. 
+			Veri temelleri arasında veriye erişim hızı açısından bir yarış 
+			vardır ve her program özel dosyalama sistemleri ile bu yarışta
+			iyi bir performans gösterme çabasındadır. ISAM dosyaları, özel
+			programlarla birçok programlama dili için, özel olarak satın alınabilmektedir.
+			Javascript programlama dili için de özel ISAM dosyalama sistemi
+			satın alınabilir, fakat biz burada sadece JScript için özel olan 
+			standart olanaklardan yararlanacağız. JScript dosyalama
+			olanakları sunucu gerektirmez. Sunucu gerektiren, fakat çok 
+			etkili ve kullanışlı olan bir veri temeli sistemi PHP/MySQL ikilisidir. 
+			MySQL bugün için ücretsizdir, fakat SUN Microsystems tarafından
+			satın alınmış olduğundan gelecekte ücretsiz olup olmayacağı 
+			belli değildir. Burada geliştireceğimiz JScript dosyalama uygulamaları,
+			doğal olarak profesyonel bir veri temeli gibi profesyonel bir 
+			performans vermyecektir. Fakat, hem sıfırdan yaratıldığı için
+			dosyalama sistemi üzerine tam bir bilgi sahibi olacabileceğiz,
+			hem sunucuya gerek kalmayacak, hem de standart olanaklardan
+			yararlanıldığı için ücretsiz kalacağı garanti olan ayrıca, hem yeni
+			bir programlama diline gerek göstermeyecek, hem de kullanıcı
+			arayüzleri (X)HTML işaretleme dilinin rakipsiz görselliğinden yararlanacak
+			uygulamalar geliştirilebilecektir. Performans farkı ise 
+			küçük veri temellleri için hissedilmeyecek kadar az olabilir.
+		</p>
+		<p class="indent">
+			Sözel dosyalarda veriler sıralı dosyalarda olduğu gibi 
+			kesintisiz olarak ardarda sıralanabilir. Böyle bir dosyada yerleşim,	
+		</p>
+		<pre class="navy">
+1Dış Dişli11İç Dişli2...
+		</pre>
+		<p class="nonindent">
+			şeklinde olacaktır. Bu tam kompakt dosyanın boyutu,
+			oluşturulabilecek en küçük boyuttur. Dosyanın boyutu
+			küçük olunca, doğal olarak yüklenmesi de hızlı
+			olacaktır. Bu kuralın hoş olmayan tarafı ise, dosya
+			yapısı ne kadar kompakt ise verilerin okunmasının da
+			aynı ölçüde zor olacağı yani veri okuma
+			programlarının daha zor oluşturulabileceğidir. Bu
+			konuda bir uzlaşmaya (optimizasyona) gerek vardır.
+			Özellikle başlangıç düzeyinde programcılar için daha
+			kolay ve hızlı program geliştirmeye uygun veri
+			dosyası yerleşimlerinin seçilmesinde yarar
+			bulunmaktadır. Bu çalışmada kolaylık için
+			performanstan vazgeçebilir ve tam kompakt dosya
+			yapısının simetriği olan uçtaki tam şişkin bir veri
+			dosya yapılanmasını seçebiliriz. Bu dosyada veri
+			yapısının her bileşeni aşağıda görüldüğü gibi, ayrı
+			bir satıra yerleştirilecektir:
+		</p>
+		<ul class="listNoMarker">
+			<li>
+				1
+			</li>
+			<li>
+				Dış Dişli
+			</li>
+			<li>
+				1
+			</li>
+			<li>
+				2
+			</li>
+			<li>
+				İç Dişli
+			</li>
+			<li>
+				2
+			</li>
+		</ul>
+		<p class="indent">
+			Dosyada veriler, veri yapıları olarak, tekrarlı bir
+			düzen içinde yerleştirilmiştir. Biribiribirini takip
+			eden veri yapılarının birbirlerinden ayrılmaları için
+			özel bir yöntem (örnek olarak bir satır atlama gibi)
+			uygulanmamıştır. Satır başı ya eski veri yapısının
+			yeni bir bileşenini ya da yeni bir veri yapısının ilk
+			bileşenini içermektedir. Eğer ilk yerleşimin (tam
+			kompakt dosya) performansı 100 ise, bu yapılanmanın
+			performansı kesin 0 olacaktır. Daha kötü yerleşimler
+			de olabilir, örnek olarak her yeni veri yapısında da
+			bir satır atlatılabilir, fakat buna gerek olmadığı
+			için en kötü durum bizim çalışacağımız durum olarak
+			kabul edilmiştir. Aradaki bir yerleştirme de
+			performans ne olabilir? Aşağıda görüldüğü gibi, veri
+			yapısının bileşenleri aynı satırda bir ayrım
+			karakteri ile ayrılabilir,
+		</p>
+		<pre>
+<span class="pl-25">1</span>@Dış Dişli@1
+<span class="pl-25">2</span>@İç Dişli@2
+<span class="pl-25">...</span>
+		</pre>
+		<p class="indent">
+			Bu dosyanın performansı alt ve üst sınırların
+			arasında bir performans düzeyinde olacaktır.
+			Verilerin okunması en kolaydan (bizim örneğimizden)
+			daha zor, en zordan (ilk örnek) daha kolay, dosya
+			boyu da ikisi arasında bir değer olacaktır.
+		</p>
+		<p class="subheading" id="data-file-creation">
+			16.3.4 - Veri Dosyasının Oluşturulması
+	</p>
+		<p class="indent">
+			JScript dialektinde sadece sözel dosyaların 
+			desteklendiği belirtilmişti. Sözel dosyalarla çalışmak, 
+			sıralı dosyalarla çalışmakla benzerlik gösterir ve her 
+			ikisi ile de çalışmanın benzer güçlükleri vardır. Veri dosyası
+			bu güçlükler düşünülerek organize edilmelidir. Bu konuda
+			fazla ayrıntıya girmeden sadece her kaydı tek satıra ve 
+			veri alanları arasına bir virgül (comma) koyarak 
+			kaydedeceğiz. Bu tür düzenlenmiş sözel dosyalara
+			virgülle ayrılmış değişkenler (Comma Separated Variables veya CSV)
+			dosyaları adı verilir. CSV dosyaları, MS ACCESS, MS EXCEL, MySQL gibi
+			tüm veri temeli dosyalarına birebir kayıpsız (seamless) 
+			dönüştürülebilir. Bu durumda, veri dosyası,
+		</p>
+		<pre>
+<span class="pl-25">1</span>,Dış Dişli,1
+<span class="pl-25">2</span>,İç Dişli,2
+<span class="pl-25">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde olacaktır. 
+		</p>
+		<p class="indent">
+			Veri dosyası oluşturmasının ilk adımı, veri dosyasının 
+			ilk kayıt ile birlikte yaratılmasıdır. Bu aşama son derece
+			kritiktir ve eğer bir yanlışlık yapılır ve mevcut veri dosyası
+			ile aynı adla bir veri dosyası yaratılmak istenirse, 
+			eski dosya silinir ve aynı adla sadece tek başlangıç
+			kaydı yazılı yeni bir veri dosyası açılarak TÜM VERİLER KAYBOLUR.
+			Bu da veri güvenliği sorununu ön plana çıkarır. 
+			Bu örnekten de görüldüğü gibi, veriler olabilecek 
+			en güncel şekli ile yedeklenmelidir. Ayrıca, yetkisiz kişilerin 
+			veri dosyalarını silebilmesi engellenmeli, verilerin güncellenmesi
+			sadece yetkililere bırakılmalı ve veri girişçilerinin 
+			yetkileri sadece veri eklenmesi ile sınırlandırılmalıdır. 
+			Doğal olarak bu gibi önlemler, veri türüne göre 
+			daha değişik olabilir. Fakat, veriler önemli olmasa bile
+			veri güvenliği önlemlerine her zaman gereksinme olacaktır.
+		</p>
+		<p class="indent">
+			Veri dosyası, önceki örneklerde gördüğümüz dosya
+			yaratma programları gibi programlarla ile kolayca 
+			yaratılabilir. Bu veri temeli için bir ana kontrol paneli
+			tasarımı yapılıp burada yeni bir veri dosyası açma seçeneği
+			sağlanabilir. Önemli olan bu seçeneği uygulayabilme yetkisinin 
+			veri temeli yöntecisi ile sınırlı olmasıdır. Veri dosyasının 
+			yaratılmasından sonra, normal olarak artık hiç silinmesi ve 
+			yenilenmesi gerekmez. Bu dosyanın sürekli yedeği alınarak 
+			her türlü bilgisayar çökmelerinde verilerin kaybı önlenmeye çalışılır.
+			Veri dosyası ve yaratılması, bir tek kez yapılacak çok kritik bir 
+			işlem olmasından dolayı, dosyayı yaratan program sadece 
+			veri temeli yöneticisinde olmalı ve bir tek kez uygulandıktan sonra 
+			kişisel erişime kapatılmalı veya en doğrusu bir flash bellek te 
+			gizli bir köşe de saklanmalıdır. İlk veri dosyasını yaratarak, 
+			ilk satıra ilk kaydı yazacak program, 
+			<a href="../uygulamalar/yeniVeriSistemi.html">yeniVeriSistemi.htm</a>
+			olarak kaydedilmiştir.
+		</p>
+		<p class="indent" id="anapanel">
+			Veri dosyasının yaratılmasından sonra, veri girişçilerinin kullanacağı 
+			programlara erişim için bir Ana Kontrol Paneli tasarlanmıştır. Bu 
+			program, <a href="../uygulamalar/anapanel.html">anapanel.htm</a>
+			olarak kaydedilmiştir. Bu program, aşağıda görüldüğü
+			gibi, basit bir dağıtım merkezinden ibarettir.
+		</p>
+		<div class="pl-200">
+			<table width="600" border="1" cellspacing="5"
+			summary="Ana Panel">
+				<caption class="chapter">
+					Malzeme Listesi <br />
+					Ana Panel
+				</caption>
+				<col class="st1"  width="50%" />
+				<col class="st1"  width="50%" />
+				<tbody>
+					<tr align="center" valign="middle">
+						<td>
+							<a href="../uygulamalar/yeniVeriSistemi.html">Yeni Veri Eklenmesi</a>					</td>
+						<td>
+						<a href="../uygulamalar/veriListesi.html">Verilerin Listelenmesi</a>						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			Bu sayfanın <a href="../uygulamalar/anapanel-src.html">XHTML</a> kodları incelendiğinde, 
+			bu sayfanın veri girişçilerinin gereksinme duydukları programları Ana Panelden çağırabildikleri 
+			ve çağırdıkları programla çalışmaları tamamlandığında, yeniden Ana Panele dönüp, 
+			yeni bir işleme başlayabilecekleri bir bağlantı merkezi şeklinde çalıştığı görülecektir. Bu 
+			sayfanın kendine özgü bir JavaScript programı bulunmamaktadır.
+		</p>
+		<p class="subheading" id="append">
+			16.3.5 - Dosyaya Yeni Verilerin Eklenmesi
+	</p>
+		<p class="indent">
+			Dosyaya yeni verilerin eklenmesi, son derece kolay
+			olacaktır. Veri eklenmesi için, dosya
+			<em class="str">append</em> modunda
+			açılırsa, yeni veriler, dosyanın sonuna eklenir. Her
+			defasında bir satıra tek bir kayıt (malzeme nesne 
+			sınıfının yeni bir örneği) yazılıp dosyanın kapatılması 
+			en güvenli bir çalışma sistemi olacaktır.
+		</p>
+		<p class="indent">
+			Dosyaya yeni veri eklenmesi süreci, verilerin
+			girilmesi, verilerin hazırlanması, dosyanın ekleme için
+			açılması, verilerin eklenmesi, dosyanın kapatılması
+			aşamalarından oluşmaktadır.
+		</p>
+		<p class="indent">
+			Buradaki asıl sorun, verilerin en kolay şekilde okunabilmesi için,
+			nasıl biçimleneceğidir. Bilindiği gibi veriler birer nesne 
+			örneği olarak düzenlenmiştir. Sözel dosyalar ise, verilerin nesne örnekleri
+			olarak kaydedilmelerine olanak vermemektedir. Bu 
+			dosyalara kayıt yapılabilmesi için, verilerin karakter dizgisi
+			tipinde sözel veriler olması gerekmektedir. Verilerin 
+			kolay okunabilmesi ve gereğinde başka dosya tiplerine
+			dönüştürülebilmesi için, CSV tipinde kayıtlar olmasını 
+			öngörmüştük. Burada uygulanabilecek yöntem, nesne örneğinin 
+			alanlarını karakter dizgisi tipine dönüştürüp araya virgüller
+			ekleyerek tek bir karakter dizgisi verisi olarak toplamak 
+			(string concatenation) ve bu tek karakter dizigisi veriyi, 
+			tek bir dosya satırına yazmaktır. Veriler, 
+			metin kutularına girilecek tip kontrolleri ve 
+			bir temizleme işlemi ile gerçek verilere 
+			dönüştürülecek, alanların arasına virgüller
+			eklenerek tek bir karakter nesnesi verisi olarak 
+			toplanacak ve dosyaya tek satır halinde yazıldıktan 
+			sonra dosya kapatılacaktır.
+		</p>
+		<p class="indent">
+			(X)HTML veri giriş formlarında en büyük sorun, global 
+			veya gizli global değişkenler kullanılmadan veri giriş
+			düğmesinin birden fazla tıklanması ile aynı verinin birden fazla 
+			veri dosyasına kaydedilmesinin engellenmesidir. Bu sorun
+			şık bir şekilde 
+			<a href="../uygulamalar/b15.6-uyg-1-js.html">b15.6-uyg-1-js.htm</a>
+			programında çözülmüş ve çözüm yöntemi, 
+			<a href="../b15/b15s7.html">b15s7.htm</a> de geniş olarak tartışılmıştır.
+			Burada veri giriş formunun birden fazla kayıt yapmasının engellenmesi için,
+			yine aynı yöntemden yararlanılacaktır.
+		</p>
+		<p class="indent" id="veriKayıt">
+			Malzeme Takip projesi giriş çıkış fonksiyonlarının bir kısmı için, kodları 
+			<a href="../uygulamalar/bdelib-src.html">bdelib-src.htm</a> sayfasında görülebilen,
+			bdelib.js fonksiyon kitaplığından (framework) yararlanmaktadır. Projenin
+			ana fonksiyon  kitaplığı, Malzeme sınıfının veri yapısını (yapılandırıcı
+			fonksiyonunu) ve modüller arası ortak kullanılan fonksiyonları içermektedir.
+			Bu fonksiyonların içeriği, 
+			<a href="../uygulamalar/malzeme-js.html">malzeme-js.htm</a> sayfasından izlenebilir.
+			 Ana fonksiyon kitaplığı malzeme.js dosyasının içeriği aşağıda da verilmiştir.
+		</p>
+		<pre>
+<span class="comm-25">malzeme.js</span>
+<span class="comm-25">(Malzeme Veri Temeli Sisteminin Ana Fonksiyon Kitaplığı</span>)
+
+<span class="comm-25">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> Malzeme <span 
+			class="op">(</span>nr,<span 
+			class="op"></span> ad,<span 
+			class="op"></span> yer<span 
+			class="op">)</span><span 
+			class="op">{</span>
+<span 
+			class="keyw-50">this</span><span 
+			class="op">.</span>stokNum <span 
+			class="op">=</span> nr <span 
+			class="op">||</span> <span 
+			class="str">'veriYok'</span><span 
+			class="op">;</span>
+<span 
+			class="keyw-50">this</span><span 
+			class="op">.</span>malzemeAdı <span 
+			class="op">=</span> ad <span 
+			class="op">||</span> <span 
+			class="str">'veriYok'</span><span 
+			class="op">;</span>
+<span 
+			class="keyw-50">this</span><span 
+			class="op">.</span>depoNum <span 
+			class="op">=</span> yer <span 
+			class="op">||</span> <span 
+			class="str">'veriYok'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> nesneYap <span 
+			class="op">(</span>veri<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> b <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> c <span 
+			class="op">=</span> <span 
+			class="keyw">null</span> <span 
+			class="op">;</span> 
+<span class="keyw-50">var</span> bileşen <span 
+			class="op">=[];</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">=</span> veri<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">bileşen</span> <span 
+			class="op">=</span> veri<span 
+			class="op">[</span>i<span 
+			class="op">].</span><span 
+			class="keyw">split</span><span 
+			class="op">(</span><span 
+			class="str">','</span><span 
+			class="op">);</span>
+<span class="pl-75">x</span><span 
+			class="op">[</span>i<span 
+			class="op">]</span> <span 
+			class="op">=</span>  <span 
+			class="keyw">new</span> Malzeme<span 
+			class="op">(</span>bileşen<span 
+			class="op">[</span>0<span 
+			class="op">]</span>,<span 
+			class="op"></span> bileşen<span 
+			class="op">[</span>1<span 
+			class="op">]</span>,<span 
+			class="op"></span> bileşen<span 
+			class="op">[</span>2<span 
+			class="op">]);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">return</span> x<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Bu projenin, malzeme.txt adlı ana kayıt dosyasına veri eklenmesini
+			sağlayan program, <a href="../uygulamalar/veriKaydet.html">veriKaydet.htm</a> sayfasına
+			ilişkilendirilmiştir. Bu sayfa web temelli bir kayıt formu işlevini yapmaktadır.
+			Bu sayfanın XHTML kodları, <a href="../uygulamalar/veriKaydet-src.html">veriKaydet-src.htm</a> sayfasında
+			görülebilir. Bu sayfa ile ilişkili olan veriKaydet.js dış JavaScript program
+			sayfasında bulunan JavaScript programının kodları, <a href="../uygulamalar/veriKaydet-js.html">veriKaydet-js.htm</a>
+			sayfasında görülebilir. Bu programın yazılımı aynı zamanda aşağıda da görülebilir:
+		</p>
+		<pre>
+<span class="comm-25">veriKayıt.js</span>
+<span class="comm-25">(Malzeme Veri Temeli Sisteminin Veri Giriş Fonksiyon Kitaplığı</span>)
+
+<span class="comm-25">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> VeriGir<span 
+class="op">(</span>stokNr<span 
+class="op">)</span> {
+
+<span class="keyw-50">var</span> _gizli <span class="op">= </span><span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>stokNum <span 
+			class="op">=</span> stokNr<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>sınırlama <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>_gizli<span 
+			class="op">) {</span>
+<span class="pl-100">kaydaGir</span><span 
+			class="op">();</span>
+<span class="op-75">}</span>
+<span class="pl-75">_gizli</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> stokNumarasıBul<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span><span 
+			class="str">'f:/sites/opus/veriler/malzeme.txt'</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri,<span 
+			class="op"> </span>saltOkunur,<span 
+			class="op"> </span>saltEskiDosya,<span 
+			class="op"></span> unicode<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> stokNr <span 
+			class="op">=</span> 1<span 
+			class="op">;</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>dosya<span class="op">) {</span>
+<span class="keyw-100">while</span><span 
+			class="op">(!</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">AtEndOfStream</span><span 
+			class="op">) {</span>
+<span class="pl-125">bilgi</span><span 
+			class="op">[</span>i<span 
+			class="op">] = </span>dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadLine</span><span 
+			class="op">() ;</span>
+<span class="pl-125">stokNr</span><span 
+			class="op">++</span>
+<span class="op-100">}</span>
+
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">(</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="op-50">}
+
+<span class="keyw-50">return</span></span> stokNr<span 
+			class="op">;</span>
+<span class="op-25">}</span><span class="keyw-25">function</span> veriYap<span 
+class="op">(</span>yeniVeri<span class="op">) {</span>
+	<span class="keyw-50">var</span> veri <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yeniVeri<span 
+			class="op">.</span>stokNum<span 
+			class="op">)</span> <span 
+			class="op">+</span> <span 
+			class="str">','</span> <span 
+			class="op">+</span> yeniVeri<span 
+			class="op">.</span>malzemeAdı <span 
+			class="op">+</span> <span 
+			class="str">','</span> <span 
+			class="op">+</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yeniVeri<span 
+			class="op">.</span>depoNum<span 
+			class="op">)</span><span 
+			class="op">;</span>
+	<span class="keyw-50">return</span> veri<span 
+			class="op">;</span>
+	<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kaydet<span 
+			class="op">(</span>yeniSatır<span class="op">) {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span>ASCII <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile(</span>dosyaYeri,<span 
+			class="op"> </span>ekleme,<span 
+			class="op"> </span>saltEskiDosya,<span 
+			class="op"></span> Unicode<span 
+			class="keyw">)</span><span 
+			class="op">;
+		</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>dosya<span class="op">) {</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">WriteLine</span><span 
+			class="op">(</span>yeniMalzeme<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">(</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>yeniMalzeme <span 
+			class="op">+</span> <span 
+			class="str">'bilgisi Malzeme.txt Dosyasına Eklendi'</span>,<span 
+			class="op"></span> <span 
+			class="str">'yazmaKontrol'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+
+			class="str">'Verileri Kaydedildi Yeni Veri Girişi İçin Yeni Bir Giriş Formu Sayfası Açınız !'</span>,<span 
+			class="op"></span> <span 
+			class="str">'yazmaMesaj'</span><span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kaydaGir<span 
+			class="op">(</span>stokNr<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> b <span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'malzemeAdı'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> c <span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'depoNr'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> bilgi <span 
+		class="op">=</span> <span 
+		class="keyw">null</span><span 
+		class="op">;</span>
+<span class="keyw-50">if</span> <span 
+		class="op">(</span><span class="keyw">isFinite</span> <span 
+		class="op">(</span>verileriGir<span 
+		class="op">.</span>stokNr<span 
+		class="op">)</span> <span class="op">&amp;&amp; </span><span 
+		class="keyw">isFinite<span 
+		class="op">(</span>c</span><span class="op">)</span> <span class="op">{</span>
+<span class="pl-75">yeniMalzeme</span> <span 
+		class="op">=</span> <span 
+		class="keyw">new</span> Malzeme<span 
+		class="op">(</span>stokNr<span 
+		class="op">,</span> b<span 
+		class="op">,</span> c<span 
+		class="op">)</span><span 
+		class="op">;</span>
+<span class="pl-75">bilgi</span> <span 
+		class="op">=</span>veriYap<span 
+		class="op">(</span>yeniMalzeme<span 
+		class="op">)</span><span 
+		class="op">;</span>
+<span class="pl-75">kaydet</span><span 
+		class="op">(</span>bilgi <span 
+		class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+		class="op">() {</span>
+<span class="keyw-50">var</span> sözelDizi <span 
+		class="op">=</span> <span 
+		class="keyw">null</span><span 
+		class="op">, </span>stokNr <span 
+		class="op">=</span> <span 
+		class="keyw">null</span><span 
+		class="op">,</span> düğme <span 
+		class="op">=</span> <span 
+		class="keyw">null</span><span class="op">, </span>tıklama<span 
+		class="op">=</span> <span 
+		class="keyw">null</span><span class="op">;</span>
+
+<span class="pl-50">stokNr</span> <span 
+			class="op">=</span> stokNumarasıBul<span 
+			class="op">();</span>
+<span class="pl-50">tıklama</span> <span 
+			class="op">=</span> <span class="keyw">new</span> VeriGir<span 
+			class="op">(</span>stokNr<span 
+			class="op">);</span>
+
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'stokNr'</span>,<span 
+			class="op"></span> <span 
+			class="str">'stokNr'</span><span 
+			class="op">);</span>
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'malzemeAdı'</span>,<span 
+			class="op"></span> <span 
+			class="str">''</span><span 
+			class="op">);</span>
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'depoNr'</span>,<span 
+			class="op"></span> <span 
+			class="str">''</span><span 
+			class="op">);</span>
+
+<span class="pl-50">çalıştır</span><span 
+			class="op">(</span><span 
+			class="str">'gir'</span><span 
+			class="op">,</span> tıklama<span 
+class="op">.</span>sınırlama<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">&nbsp;
+		</p>
+			
+			
+			
+			
+			
+			
+			
+			
+		<p class="subheading" id="list">
+			16.3.6 - Verilerin Listelenmesi
+	</p>
+		<p class="indent">
+			Verilerin Listelenmesi süreci, dosyanın açılması, tüm
+			verilerin okunması, dosyanın kapanması, verilerin
+			kod çözümü ve listelenmesi aşamalarını kapsayacaktır. Programın
+			dosyadan veri okunmasını öngören kısmının
+			program tasarım ön kodları (pseudocode), aşağıdaki
+			gibi olacaktır. Pseudo antik grekçe sahte, gerçek
+			olmayan, göstermelik anlamına gelmektedir.
+			Programcılıkta pseudokod, her programlama diline uygulabilecek
+			kod sistematiği anlamında kullanılmaktadır.
+			Pseudokod, akım şemasının yazı ile ifade edilmesi
+			gibi de düşünülebilir.		</p>
+		<pre class="navy">
+i=0; // döngü sayacı
+dosyayı aç	
+&nbsp;&nbsp;dosya sonuna kadar tekrar et
+&nbsp;&nbsp;&nbsp;&nbsp;i++;// döngü sayacının bir arttır
+&nbsp;&nbsp;&nbsp;&nbsp;sözelDizi[i]= dosyadan bir satır oku
+&nbsp;&nbsp;döngü sonu
+dosyayı kapat
+i=0;
+i&lt;sözelDizi.length oluncaya kadar devam et 
+&nbsp;nesneDizisi[i] = nesneYap(sözelDizi[i]);
+&nbsp;i++; // döngü sayacını bir arttır
+döngü sonu
+görüntüle nesneDizisi
+
+</pre>
+		<p class="nonindent">
+			şeklinde olacaktır. Bu kodların ilk aşaması tum dosya
+			bilgilerinin, her satırının bir bilgi dizisinin
+			elemanları olarak atanmasıdır. Dosya okunduktan
+			sonra derhal kapatılmalıdır. Bundan sonra verilerin
+			üretimi bu bilgi dizisinden yararlanılarak yapılacak ve
+			bu dizi, görevi tamamlanınca program belleğinden
+			silinerek sistem kaynaklarının gereksiz yere
+			kullanılması engellenecektir. sözelDizi Dizisinin elemanları
+			şu şekilde dizilmişlerdir:
+		</p>
+		<pre class="navy">
+<span class="pl-25">stokNr,malzemeAdı,depoNr</span>
+<span class="pl-25">stokNr,malzemeAdı,depoNr</span>
+<span class="pl-25">...</span>
+</pre>
+		<p class="nonindent">
+			Her satırdaki sözel veriler, öntanımlı <span 
+			class="keyw">String</span> nesnesinin 
+			split<span class="op">(</span><span 
+			class="str">'ayrım karakteri'</span><span 
+			class="op">)</span> metodu ile, bileşenlerine
+			ayrılabilmektedir. Bu konuda, split(',') fonksiyonu
+			CSV dosyalarıın kod çözümü için eşsiz bir araç
+			oluşturmaktadır. Fakat, istendiğinde özel bir
+			başka kod çözücüsü (dekoder) fonksiyonunu yazmak 
+			son derece kolay olacaktır. Bileşenlerine ayrılmış olan sözel dizi
+			elemanları, bir nesne dizisi elemanları olarak yeniden 
+			birleştirilecektir. Bunun nedeni, nesne verilerinin daha düzenli,
+			dolayısı ile erişimi kolay, listelenmesi kolay olmasıdır. Görevi 
+			tamamlanan sözel dizi silinerek program belleğini daha fazla 
+			gereksiz olarak kullanması engellenmekte ve nesne dizisi 
+			uygun bir tablolama fonksiyonu ile görüntülenmektedir. Tüm 
+			bu işlemler, <a href="../uygulamalar/veriListesi.html">veriListesi.htm</a>
+			sayfası ile gerçekleştirilmektedir. Bu sayfanın XHTML kodları, 
+			<a href="../uygulamalar/veriListesi-src.html">veriListesi-src.htm</a> 
+			sayfasında görülebilir. 
+		</p>
+		<p class="indent">
+			VeriListesi.js programı , giriş çıkış fonksiyonlarının bir kısmı için,
+						kodları 
+			<a href="../uygulamalar/bdelib-src.html">bdelib-js.htm</a> sayfasında görülebilen,
+			bdelib.js fonksiyon kitaplığından (framework) yararlanmaktadır. Aynı zamanda,
+			 projenin ana fonksiyon kitaplığı olan malzeme.js kitaplığından da yararlanmaktdır.
+			 VeriListesi.js programınde, sonuçların görüntülenmesi için kullanılan
+			 tabloDüzenle<span class="op">()</span> fonksiyonu, modülün kendi program
+			 sayfası olan VeriListesi.js program sayfasındadır. Bu program sayfasının
+			 içeriği, 
+			<a href="../uygulamalar/veriListesi.html">veriListesi.htm</a> sayfasında görülebilir.
+			 Bu fonksiyonun yazılımı aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function </span>tabloDüzenle<span 
+			class="keyw">(</span>tabloİsmi,dizi<span 
+			class="keyw">)</span><span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> tablo <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> caption <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> tabloBaşlığı <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> başlıkSatırı <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> yeniBaşlık <span 
+			class="op">=</span> <span class="keyw">null</span>,<span 
+			class="op"></span>
+<span class="pl-75">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> yeniSatır <span 
+			class="op">=</span> <span 
+			class="keyw">null</span>,<span 
+			class="op"></span> yeniSütun <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">tablo</span><span 
+			class="op">=</span><span 
+			class="keyw">getElementById(</span>tabloİsmi<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">border </span><span 
+			class="op">= </span><span 
+			class="str">&quot;1&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">width</span><span 
+			class="op"> = </span><span 
+			class="str">&quot;400&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">font</span><span 
+			class="op"> = </span><span 
+			class="str">&quot;18px verdana&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">marginLeft </span><span 
+			class="op">= </span><span 
+			class="str">&quot;200px&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">capt</span><span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;caption&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">capt</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span><span 
+			class="op"> = </span><span 
+			class="str">&quot;red&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">capt</span>.<span 
+			class="keyw">appendChild(</span><span 
+			class="keyw">document</span>.<span 
+			class="keyw">createTextNode(</span><span 
+			class="str">&quot;Tablo Başlığı&quot;</span><span 
+			class="keyw">)</span><span 
+			class="keyw">)</span>;
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span>capt<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi </span><span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;tbody&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">tablo</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span>tabloGövdesi<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniSatır</span><span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;tr&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">background</span><span 
+			class="op">=</span><span 
+			class="str">&quot;FFCC99&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span>yeniSatır<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+
+<span class="pl-50">yeniBaşlık </span><span 
+			class="op">=</span><span 
+			class="keyw"> document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;th&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">&quot;Element&quot;</span><span 
+			class="keyw">)</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniBaşlık </span><span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;th&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniBaşlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode(</span><span 
+			class="str">&quot;Element Değeri&quot;</span><span 
+			class="keyw">)</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild(</span>yeniBaşlık<span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">for(var i</span>=0<span 
+			class="op">; </span>i&lt;dizi.<span 
+			class="keyw">length</span><span 
+			class="op">; ++</span>i<span 
+			class="keyw">)</span>{
+<span class="pl-75">yeniSatır </span>=<span 
+			class="keyw"> document</span>.<span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;tr&quot;</span><span 
+			class="keyw">)</span>;
+<span class="pl-75">tabloGövdesi</span>.<span 
+			class="keyw">appendChild(</span>yeniSatır<span 
+			class="keyw">)</span>;
+
+<span class="pl-75">yeniSütun </span>= <span 
+			class="keyw">document</span>.<span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;td&quot;</span><span 
+			class="keyw">)</span><span class="op">;</span>
+<span class="pl-75">yeniSütun</span>.<span 
+			class="keyw">appendChild(</span><span 
+			class="keyw">document</span>.<span 
+			class="keyw">createTextNode(</span><span 
+			class="str">&quot;s[&quot;</span><span 
+			class="op"> + </span>i<span 
+			class="op"> +</span><span 
+			class="str"> ]&quot;</span><span 
+			class="keyw">))</span><span class="op">;</span>
+<span class="pl-75">yeniSatır</span>.<span 
+			class="keyw">appendChild(</span>yeniSütun<span 
+			class="keyw">)</span><span class="op">;</span>
+
+
+<span class="pl-75">yeniSütun</span> = <span 
+			class="keyw">document</span>.<span 
+			class="keyw">createElement(</span><span 
+			class="str">&quot;td&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span>.<span 
+			class="keyw">appendChild(</span><span 
+			class="keyw">document</span>.<span 
+			class="keyw">createTextNode(</span>dizi[i]<span 
+			class="keyw">)</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSatır</span>.<span 
+			class="keyw">appendChild(</span>yeniSütun<span 
+			class="keyw">)</span>;
+
+<span class="keyw-75">if(</span>dizi[i]<span 
+			class="op"> === </span><span 
+			class="keyw">undefined)</span> yeniSütun<span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span><span 
+			class="op"> = </span><span 
+			class="str">&quot;blue&quot;</span><span 
+			class="op">;</span>
+<span class="pl-50">}</span>
+
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent" id="veriListe">
+			Verilerin listelenmesini sağlayan, 
+			<a href="../uygulamalar/veriListesi.html">veriListesi.htm</a> 
+			sayfasına ilişkilendirilmiş, veriListesi.js program sayfasının diğer kodları, 
+			<a href="../uygulamalar/veriListesi-js.html">veriListesi-js.htm</a>
+			sayfasında ve aşağıda görülmektedir:
+	</p>
+		<pre>
+<span class="keyw-25">function</span> verileriOku<span 
+class="op">() {</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>kaydet<span 
+			class="op">.</span>ilkKez <span class="op">=== </span><span 
+			class="keyw">true</span>) {
+<span class="keyw-75">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> <span 
+			class="keyw">true</span>, <span 
+			class="op"></span>ASCII <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-75">var</span> dosyaYeri <span 
+			class="op">=</span><span 
+			class="str">'f:/sites/opus/veriler/malzeme.txt'</span><span 
+			class="op">;</span>
+<span class="keyw-75">var</span> dosya <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri,<span 
+			class="op"> </span>saltOkunur,<span 
+			class="op"> </span>saltEskiDosya,<span 
+			class="op"></span> Unicode<span 
+			class="op">);</span>
+<span class="keyw-75">var</span> bilgi <span 
+			class="op">=[];</span>
+<span class="keyw-75">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>dosya<span class="op">) {</span>
+<span class="keyw-100">while</span><span 
+			class="op">(!</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">AtEndOfStream</span><span 
+			class="op">) {</span>
+<span class="pl-125">bilgi</span><span 
+			class="op">[</span>i<span 
+			class="op">] = </span>dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadLine</span><span 
+			class="op">() ;</span>
+<span class="op-100">}</span>
+
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">(</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bilgiler Malzeme.txt Dosyasından Okundu'</span>,<span 
+			class="op"></span> <span 
+			class="str">'veriKontrol'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Verileri Okundu, Yeni Bir İşlem İçin Lütfen Ana Panele Dönünüz !'</span>,<span 
+			class="op"></span> <span 
+			class="str">'mesaj'</span><span 
+			class="op">);</span>
+<span class="op-50">}
+
+<span class="keyw-50">return</span></span> bilgi<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> listeYap<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> sözelDizi <span 
+			class="op">= [];</span>
+<span class="keyw-50">var</span> nesneDizisi <span 
+			class="op">= [];</span>
+
+<span class="pl-50">sözelDizi</span> <span 
+			class="op">=</span> verileriOku<span 
+			class="op">();</span>
+<span class="pl-50">nesneDizisi</span> <span 
+			class="op">=</span> nesneYap<span 
+			class="op">(</span>sözelDizi<span 
+			class="op">);</span>
+<span class="keyw-50">delete</span><span 
+			class="op">(</span>sözelDizi<span 
+			class="op">);</span>
+<span class="pl-50">tabloKontrol</span><span 
+			class="op">(</span><span 
+			class="str">'veriler'</span>,<span 
+			class="op"></span> nesneDizisi<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> Liste<span 
+class="op">(</span><span 
+class="op">)</span> {
+
+<span class="keyw-50">var</span> _gizli <span class="op">= </span><span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>sınırlama <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>_gizli<span 
+			class="op">) {</span>
+<span class="pl-100">listeYap</span><span 
+			class="op">();</span>
+<span class="op-75">}</span>
+<span class="pl-75">_gizli</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> listeleme <span 
+			class="op">=</span> <span 
+			class="keyw">new</span>Liste<span 
+			class="op">();</span>
+<span class="pl-50">çalıştır</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span> <span 
+			class="op">,</span> listeleme <span 
+			class="op">.</span>sınırlama<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+sayfaYüklendiktenSonraÇalıştır(başlat);
+		</pre>
+		<p class="indent">
+			Burda görülen <a href="../uygulamalar/veriListesi.html">veriListesi.htm</a>
+			Programı, ana kontrol tablosu olan
+			<a href="../uygulamalar/anapanel.html">anapanel.htm</a>
+			programının seçenekleri arasına eklenmiştir. 
+		</p>
+		<p class="indent">
+			Bu program örneğinde, verilerin silinmesi,
+			verilerin düzeltilmesi , yazıcıdan çıktı alma
+			gibi modüller eksik kalmıştır. Bu modüller de 
+			istendiğinde, programa eklenerek, Ana Panel 
+			seçenekleri arasına eklenebilecektir.
+		</p>
+		<p class="indent">
+			Bu program, düzgün bir şekilde çalışmakta ve
+			öngörülen işlevi yapmaktadır. Program kodları
+			incelenirken, pseudokod gözönünde bulundulursa,
+			sistematik kolayca algılanabilecektir. özellikle
+			verilerin XHTML kodları kullanımı ile
+			yazdırılabilmesi, ve Türkçe karakterlerin
+			desteklenmesi dikkat çekicidir. Sonuçta, JavaScript
+			ile JScript birlikte kullanıldıklarında, dosyalama
+			özelliği de kazanmış, gelişkin, görsel (visual) ve
+			ücretsiz bir programlama ortamı oluşturulabileceği
+			görülmektedir.
+		</p>
+		<p class="indent">
+			Bu program, sadece dosyalama işleminin çalışma şeklinin incelenmesi
+			amacı ile yapıldığı için , veri yapısı çok kısıtlı tutulmuş ve sayfaların
+			görselliği üzerinde fazla çalışılmamıştır. İstendiğinde daha profesyonel
+			bir stok kontrol programı nın yazılması için veri yapısı genişletilebilir,
+			yeni modüller yazılabilir ve profesyonel bir imaj ekibi tarafından
+			sayfaların görselliği çekici hale getirilebilir. Bu program, JavaScript
+			Javascript programlama dilinin olağanüstü zenginliği, programın arayüzünü
+			sağlayan XHTML işaretleme dilinin sonsuz görsellik olanakları, kodların
+			salt yazarına ait olması, yani dosyalama için ek maliyet sayılan
+			bir dış dosyalama sistemine gerek duyulmaması, uygulanacak bilgisayarlarda
+			özel bir programa gerek duyulmaması, sunucu platformu gerektirmemesi
+			ve herşeyin özgür ve ücretsiz olması ile öne çıkmaktadır. Projenin
+			diğer bir avantajlı tarafı, sunucu gerktirmemesi ve Internet Explorer'in
+			güncel biir sürümüne sahip herhangibir Windows platformu üzerinden
+			çalışabilmesidir. Yani herşey programcı tarafından istenilen makineye
+			yerleştirilebilecek durumdadır ve Web üzerinden birşeylerin indirilmesine
+			gerek bulunmamaktadır. Profesyonel bir ekibin elinde en az onbin
+			kaydın kolayca yönetilebileceği bir orta boy işletmenin personel
+			yönetimi, bordro, muhasabe, demirbaş yönetimi, stok kontrol gibi, tüm gereksinmeleri
+			bu tip programlarla gerçekleştirilebilecektir. Bu gerçeğin dünyada
+			da giderek daha çok farkedildiğini belirtmek de ayrı bir zevk olmaktadır.
+		</p>
+    <ul id="navbottom">
+      <li id="index">
+        <a href="../index.html"><em>« Indeks</em></a>
+      </li>
+      <li id="denge"></li>
+      <li id="sayfa">
+        <a href="b16s2.html"><em>« Önceki</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama">
+        <a href="../b17/b17s1.html"><em>Sonraki »</em></a>
+      </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <p class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload"><img
+           src="../images/valid-xhtml11.png"
+           alt="Valid XHTML 1.1" height="31"
+           width="88" /></a>
+    </p>
+    <!--Script Alanı Başlangıcı -->
+    <script type="text/javascript" src="../js/lastmodified.js">
+    </script>
+    <!--Script Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:40 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

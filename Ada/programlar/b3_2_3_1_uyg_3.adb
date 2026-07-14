@@ -1,0 +1,15 @@
+with Ada.Text_IO;
+
+procedure b3_2_3_1_uyg_3 is
+
+Tamsayý : constant  Integer := 26;
+
+begin
+
+    Ada.Text_IO.Put_Line(" Bir Önceki Deðer :   " & Integer'Image(Integer'Pred(Tamsayý)));
+
+    Ada.Text_IO.Put_Line(" Deðer :                      " & Integer'Image(Tamsayý));
+
+    Ada.Text_IO.Put_Line(" Bir Sonraki Deðer :  " & Integer'Image(Integer'Succ(Tamsayý)));
+
+end b3_2_3_1_uyg_3;<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

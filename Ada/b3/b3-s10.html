@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:21 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s10.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 10</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <p>
+      <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+    </p>
+    <div class="navtop">
+      <p>
+        <a href="../index.html"><img class="navbutton"
+          alt="index" src="../resimler/index.gif" /></a>
+        <a href="b3-s9.html"><img class="navbutton"
+          alt="previous" src="../resimler/previous.gif" /></a>
+        <a href="b3-s11.html"><img class="navbutton"
+          alt="next" src="../resimler/next.gif" /></a></p>
+    </div>
+    <p class="chapter">
+      Ada Programlama Dili Temelleri	
+    </p>
+    <p class="chapter">
+      Bölüm 3
+    </p>
+    <p class="chapter">
+      Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+    </p>
+    <p class="chapter">
+      Character ve String Veri Tipleri
+    </p>
+    <p class="pagenum">
+      Bölüm 3 Sayfa 10
+    </p>
+		<p class="title-left" id="character">3.4 - Character Veri Tipi </p>
+		<p class="indent">
+			Character veri tipi, Standard pakette tanımlanmış olan sayılabilir bir veri tipidir. Bu veri tipi,
+			karakter verilerine erişim sağlamak amacı ile oluşturulmuştur. Karakter verileri, literal olarak 
+			tek tırnak içinde 'u' şeklinde gösterilirler. Literal olarak &quot;u&quot; şeklinde
+			girilen karakterler, karakter verisi olarak değil, tek elemanlı bir karakter dizisi (String) olarak algılanır.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			Annex A , Standard pakette, tanımlanmış olan Character veri tipi aşağıda görülmektedir.
+		</p>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+			<em>&nbsp;The&nbsp;declaration&nbsp;of&nbsp;type&nbsp;Character&nbsp;is&nbsp;based&nbsp;on
+			&nbsp;the&nbsp;standard&nbsp;ISO&nbsp;8859-1&nbsp;character&nbsp;set.</em>
+<br />
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>&nbsp;There&nbsp;are&nbsp;no&nbsp;
+			character&nbsp;literals&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;positions&nbsp;for&nbsp;control&nbsp;
+			characters.</em>
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>&nbsp;They&nbsp;are&nbsp;indicated&nbsp;in
+			&nbsp;italics&nbsp;in&nbsp;this&nbsp;definition.&nbsp;See&nbsp;3.5.2.</em>
+<br />
+<br />
+			&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Character&nbsp;<b>is</b>
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<em>nul</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<em>soh</em>,&nbsp;&nbsp;&nbsp;<em>stx</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>etx</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>eot</em>,&nbsp;&nbsp;&nbsp;<em>enq</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;<em>ack</em>,&nbsp;&nbsp;&nbsp;<em>bel</em>,&nbsp;&nbsp;&nbsp;
+			--<em>0&nbsp;(16#00#)&nbsp;..&nbsp;7&nbsp;(16#07#)</em>
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>bs</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<em>ht</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>lf</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>vt</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>ff</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>cr</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>so</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>si</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;--<em>8&nbsp;(16#08#)&nbsp;..&nbsp;15&nbsp;(16#0F#)</em>
+<br />
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>dle</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<em>dc1</em>,&nbsp;&nbsp;&nbsp;<em>dc2</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>dc3</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>dc4</em>,&nbsp;&nbsp;&nbsp;<em>nak</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;<em>syn</em>,&nbsp;&nbsp;&nbsp;<em>etb</em>,&nbsp;&nbsp;&nbsp;
+			--<em>16&nbsp;(16#10#)&nbsp;..&nbsp;23&nbsp;(16#17#)</em>
+<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>can</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<em>em</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>sub</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>esc</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>fs</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>gs</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>rs</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>us</em>,
+			&nbsp;&nbsp;&nbsp;&nbsp;--<em>24&nbsp;(16#18#)&nbsp;..&nbsp;31&nbsp;(16#1F#)</em>
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'!',&nbsp;&nbsp;&nbsp;'&quot;',&nbsp;&nbsp;&nbsp;&nbsp;'#',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'$',&nbsp;&nbsp;&nbsp;'%',&nbsp;&nbsp;&nbsp;&nbsp;'&amp;',&nbsp;&nbsp;&nbsp;''',&nbsp;&nbsp;&nbsp;--<em>32&nbsp;(16#20#)&nbsp;..&nbsp;39&nbsp;(16#27#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'(',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')',&nbsp;&nbsp;&nbsp;'*',&nbsp;&nbsp;&nbsp;&nbsp;'+',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',',&nbsp;&nbsp;&nbsp;'-',&nbsp;&nbsp;&nbsp;&nbsp;'.',&nbsp;&nbsp;&nbsp;'/',&nbsp;&nbsp;&nbsp;--<em>40&nbsp;(16#28#)&nbsp;..&nbsp;47&nbsp;(16#2F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'0',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'1',&nbsp;&nbsp;&nbsp;'2',&nbsp;&nbsp;&nbsp;&nbsp;'3',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'4',&nbsp;&nbsp;&nbsp;'5',&nbsp;&nbsp;&nbsp;&nbsp;'6',&nbsp;&nbsp;&nbsp;'7',&nbsp;&nbsp;&nbsp;--<em>48&nbsp;(16#30#)&nbsp;..&nbsp;55&nbsp;(16#37#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'8',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'9',&nbsp;&nbsp;&nbsp;':',&nbsp;&nbsp;&nbsp;&nbsp;';',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&lt;',&nbsp;&nbsp;&nbsp;'=',&nbsp;&nbsp;&nbsp;&nbsp;'&gt;',&nbsp;&nbsp;&nbsp;'?',&nbsp;&nbsp;&nbsp;--<em>56&nbsp;(16#38#)&nbsp;..&nbsp;63&nbsp;(16#3F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'@',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'A',&nbsp;&nbsp;&nbsp;'B',&nbsp;&nbsp;&nbsp;&nbsp;'C',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'D',&nbsp;&nbsp;&nbsp;'E',&nbsp;&nbsp;&nbsp;&nbsp;'F',&nbsp;&nbsp;&nbsp;'G',&nbsp;&nbsp;&nbsp;--<em>64&nbsp;(16#40#)&nbsp;..&nbsp;71&nbsp;(16#47#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'H',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'I',&nbsp;&nbsp;&nbsp;'J',&nbsp;&nbsp;&nbsp;&nbsp;'K',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'L',&nbsp;&nbsp;&nbsp;'M',&nbsp;&nbsp;&nbsp;&nbsp;'N',&nbsp;&nbsp;&nbsp;'O',&nbsp;&nbsp;&nbsp;--<em>72&nbsp;(16#48#)&nbsp;..&nbsp;79&nbsp;(16#4F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'P',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Q',&nbsp;&nbsp;&nbsp;'R',&nbsp;&nbsp;&nbsp;&nbsp;'S',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'T',&nbsp;&nbsp;&nbsp;'U',&nbsp;&nbsp;&nbsp;&nbsp;'V',&nbsp;&nbsp;&nbsp;'W',&nbsp;&nbsp;&nbsp;--<em>80&nbsp;(16#50#)&nbsp;..&nbsp;87&nbsp;(16#57#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'X',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Y',&nbsp;&nbsp;&nbsp;'Z',&nbsp;&nbsp;&nbsp;&nbsp;'[',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'\',&nbsp;&nbsp;&nbsp;']',&nbsp;&nbsp;&nbsp;&nbsp;'^',&nbsp;&nbsp;&nbsp;'_',&nbsp;&nbsp;&nbsp;--<em>88&nbsp;(16#58#)&nbsp;..&nbsp;95&nbsp;(16#5F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'`',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'a',&nbsp;&nbsp;&nbsp;'b',&nbsp;&nbsp;&nbsp;&nbsp;'c',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'d',&nbsp;&nbsp;&nbsp;'e',&nbsp;&nbsp;&nbsp;&nbsp;'f',&nbsp;&nbsp;&nbsp;'g',&nbsp;&nbsp;&nbsp;--<em>96&nbsp;(16#60#)&nbsp;..&nbsp;103&nbsp;(16#67#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'h',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'i',&nbsp;&nbsp;&nbsp;'j',&nbsp;&nbsp;&nbsp;&nbsp;'k',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'l',&nbsp;&nbsp;&nbsp;'m',&nbsp;&nbsp;&nbsp;&nbsp;'n',&nbsp;&nbsp;&nbsp;'o',&nbsp;&nbsp;&nbsp;--<em>104&nbsp;(16#68#)&nbsp;..&nbsp;111&nbsp;(16#6F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'p',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'q',&nbsp;&nbsp;&nbsp;'r',&nbsp;&nbsp;&nbsp;&nbsp;'s',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'t',&nbsp;&nbsp;&nbsp;'u',&nbsp;&nbsp;&nbsp;&nbsp;'v',&nbsp;&nbsp;&nbsp;'w',&nbsp;&nbsp;&nbsp;--<em>112&nbsp;(16#70#)&nbsp;..&nbsp;119&nbsp;(16#77#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'x',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'y',&nbsp;&nbsp;&nbsp;'z',&nbsp;&nbsp;&nbsp;&nbsp;'{',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'|',&nbsp;&nbsp;&nbsp;'}',&nbsp;&nbsp;&nbsp;&nbsp;'&#126;',&nbsp;&nbsp;&nbsp;<em>del</em>,&nbsp;&nbsp;&nbsp;--<em>120&nbsp;(16#78#)&nbsp;..&nbsp;127&nbsp;(16#7F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>reserved_128</em>,&nbsp;&nbsp;&nbsp;<em>reserved_129</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>bph</em>,&nbsp;&nbsp;&nbsp;<em>nbh</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>128&nbsp;(16#80#)&nbsp;..&nbsp;131&nbsp;(16#83#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>reserved_132</em>,&nbsp;&nbsp;&nbsp;<em>nel</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>ssa</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>esa</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>132&nbsp;(16#84#)&nbsp;..&nbsp;135&nbsp;(16#87#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>hts</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>htj</em>,&nbsp;&nbsp;&nbsp;<em>vts</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>pld</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>plu</em>,&nbsp;&nbsp;&nbsp;<em>ri</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>ss2</em>,&nbsp;&nbsp;&nbsp;<em>ss3</em>,&nbsp;&nbsp;&nbsp;--<em>136&nbsp;(16#88#)&nbsp;..&nbsp;143&nbsp;(16#8F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>dcs</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>pu1</em>,&nbsp;&nbsp;&nbsp;<em>pu2</em>,&nbsp;&nbsp;&nbsp;&nbsp;<em>sts</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>cch</em>,&nbsp;&nbsp;&nbsp;<em>mw</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>spa</em>,&nbsp;&nbsp;&nbsp;<em>epa</em>,&nbsp;&nbsp;&nbsp;--<em>144&nbsp;(16#90#)&nbsp;..&nbsp;151&nbsp;(16#97#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>sos</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>reserved_153</em>,&nbsp;&nbsp;<em>sci</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>csi</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>152&nbsp;(16#98#)&nbsp;..&nbsp;155&nbsp;(16#9B#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>st</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>osc</em>,&nbsp;&nbsp;&nbsp;<em>pm</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>apc</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<em>156&nbsp;(16#9C#)&nbsp;..&nbsp;159&nbsp;(16#9F#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&iexcl;',&nbsp;&nbsp;&nbsp;'&cent;',&nbsp;&nbsp;&nbsp;&nbsp;'&pound;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&curren;',&nbsp;&nbsp;&nbsp;'&yen;',&nbsp;&nbsp;&nbsp;&nbsp;'&brvbar;',&nbsp;&nbsp;&nbsp;'&sect;',&nbsp;&nbsp;&nbsp;--<em>160&nbsp;(16#A0#)&nbsp;..&nbsp;167&nbsp;(16#A7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&uml;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&copy;',&nbsp;&nbsp;&nbsp;'&ordf;',&nbsp;&nbsp;&nbsp;&nbsp;'&laquo;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&not;',&nbsp;&nbsp;&nbsp;<em>soft_hyphen</em>,&nbsp;&nbsp;&nbsp;'&reg;',&nbsp;&nbsp;&nbsp;'&macr;',&nbsp;--<em>168&nbsp;(16#A8#)&nbsp;..&nbsp;175&nbsp;(16#AF#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&deg;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&plusmn;',&nbsp;&nbsp;&nbsp;'&sup2;',&nbsp;&nbsp;&nbsp;&nbsp;'&sup3;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&acute;',&nbsp;&nbsp;&nbsp;'&micro;',&nbsp;&nbsp;&nbsp;&nbsp;'&para;',&nbsp;&nbsp;&nbsp;'&middot;',&nbsp;&nbsp;&nbsp;--<em>176&nbsp;(16#B0#)&nbsp;..&nbsp;183&nbsp;(16#B7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&cedil;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&sup1;',&nbsp;&nbsp;&nbsp;'&ordm;',&nbsp;&nbsp;&nbsp;&nbsp;'&raquo;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&frac14;',&nbsp;&nbsp;&nbsp;'&frac12;',&nbsp;&nbsp;&nbsp;&nbsp;'&frac34;',&nbsp;&nbsp;&nbsp;'&iquest;',&nbsp;&nbsp;&nbsp;--<em>184&nbsp;(16#B8#)&nbsp;..&nbsp;191&nbsp;(16#BF#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Agrave;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Aacute;',&nbsp;&nbsp;&nbsp;'&Acirc;',&nbsp;&nbsp;&nbsp;&nbsp;'&Atilde;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Auml;',&nbsp;&nbsp;&nbsp;'&Aring;',&nbsp;&nbsp;&nbsp;&nbsp;'&AElig;',&nbsp;&nbsp;&nbsp;'Ç',&nbsp;&nbsp;&nbsp;--<em>192&nbsp;(16#C0#)&nbsp;..&nbsp;199&nbsp;(16#C7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Egrave;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Eacute;',&nbsp;&nbsp;&nbsp;'&Ecirc;',&nbsp;&nbsp;&nbsp;&nbsp;'&Euml;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Igrave;',&nbsp;&nbsp;&nbsp;'&Iacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&Icirc;',&nbsp;&nbsp;&nbsp;'&Iuml;',&nbsp;&nbsp;&nbsp;--<em>200&nbsp;(16#C8#)&nbsp;..&nbsp;207&nbsp;(16#CF#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&ETH;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Ntilde;',&nbsp;&nbsp;&nbsp;'&Ograve;',&nbsp;&nbsp;&nbsp;&nbsp;'&Oacute;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Ocirc;',&nbsp;&nbsp;&nbsp;'&Otilde;',&nbsp;&nbsp;&nbsp;&nbsp;'&Ouml;',&nbsp;&nbsp;&nbsp;'&times;',&nbsp;&nbsp;&nbsp;--<em>208&nbsp;(16#D0#)&nbsp;..&nbsp;215&nbsp;(16#D7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Oslash;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&Ugrave;',&nbsp;&nbsp;&nbsp;'&Uacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&Ucirc;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Ü',&nbsp;&nbsp;&nbsp;'&Yacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&THORN;',&nbsp;&nbsp;&nbsp;'&szlig;',&nbsp;&nbsp;&nbsp;--<em>216&nbsp;(16#D8#)&nbsp;..&nbsp;223&nbsp;(16#DF#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&agrave;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&aacute;',&nbsp;&nbsp;&nbsp;'&acirc;',&nbsp;&nbsp;&nbsp;&nbsp;'&atilde;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&auml;',&nbsp;&nbsp;&nbsp;'&aring;',&nbsp;&nbsp;&nbsp;&nbsp;'&aelig;',&nbsp;&nbsp;&nbsp;'ç',&nbsp;&nbsp;&nbsp;--<em>224&nbsp;(16#E0#)&nbsp;..&nbsp;231&nbsp;(16#E7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&egrave;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&eacute;',&nbsp;&nbsp;&nbsp;'&ecirc;',&nbsp;&nbsp;&nbsp;&nbsp;'&euml;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&igrave;',&nbsp;&nbsp;&nbsp;'&iacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&icirc;',&nbsp;&nbsp;&nbsp;'&iuml;',&nbsp;&nbsp;&nbsp;--<em>232&nbsp;(16#E8#)&nbsp;..&nbsp;239&nbsp;(16#EF#)</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&eth;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&ntilde;',&nbsp;&nbsp;&nbsp;'&ograve;',&nbsp;&nbsp;&nbsp;&nbsp;'&oacute;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&ocirc;',&nbsp;&nbsp;&nbsp;'&otilde;',&nbsp;&nbsp;&nbsp;&nbsp;'ö',&nbsp;&nbsp;&nbsp;'&divide;',&nbsp;&nbsp;&nbsp;--<em>240&nbsp;(16#F0#)&nbsp;..&nbsp;247&nbsp;(16#F7#)</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&oslash;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&ugrave;',&nbsp;&nbsp;&nbsp;'&uacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&ucirc;',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ü',&nbsp;&nbsp;&nbsp;'&yacute;',&nbsp;&nbsp;&nbsp;&nbsp;'&thorn;',&nbsp;&nbsp;&nbsp;'&yuml;');--<em>248&nbsp;(16#F8#)&nbsp;..&nbsp;255&nbsp;(16#FF#)</em>
+<br />
+</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;predefined&nbsp;operators&nbsp;for&nbsp;the&nbsp;type&nbsp;Character&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;for</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;any&nbsp;enumeration&nbsp;type.</em><br />
+</div>
+
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;declaration&nbsp;of&nbsp;type&nbsp;Wide_Character&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;standard&nbsp;ISO/IEC&nbsp;10646:2003&nbsp;BMP&nbsp;character</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;set.&nbsp;The&nbsp;first&nbsp;256&nbsp;positions&nbsp;have&nbsp;the&nbsp;same&nbsp;contents&nbsp;as&nbsp;type&nbsp;Character.&nbsp;See&nbsp;3.5.2.</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Wide_Character&nbsp;<b>is</b>&nbsp;(<em>nul</em>,&nbsp;<em>soh</em>&nbsp;...&nbsp;<em>Hex_0000FFFE</em>,&nbsp;<em>Hex_0000FFFF</em>);
+</div>
+
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;declaration&nbsp;of&nbsp;type&nbsp;Wide_Wide_Character&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;full</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;ISO/IEC&nbsp;10646:2003&nbsp;character&nbsp;set.&nbsp;The&nbsp;first&nbsp;65536&nbsp;positions&nbsp;have&nbsp;the</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;same&nbsp;contents&nbsp;as&nbsp;type&nbsp;Wide_Character.&nbsp;See&nbsp;3.5.2.</em><br />
+<br />
+&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Wide_Wide_Character&nbsp;<b>is</b>&nbsp;(<em>nul</em>,&nbsp;<em>soh</em>&nbsp;...&nbsp;<em>Hex_7FFFFFFE</em>,&nbsp;<em>Hex_7FFFFFFF</em>);<br />
+&nbsp;&nbsp;&nbsp;<b>for</b>&nbsp;Wide_Wide_Character'Size&nbsp;<b>use</b>&nbsp;32;
+</div>
+
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>package</b>&nbsp;ASCII&nbsp;<b>is</b>&nbsp;...&nbsp;<b>end</b>&nbsp;ASCII;&nbsp;&nbsp;--<em>Obsolescent;&nbsp;see&nbsp;J.5</em>
+		</div>
+		<p class="indent">
+			Yukarıdaki bilgilerden görüldüğü gibi, Ada Standard Paketinde Character, 
+			Wide_Character ve 	Wide_Wide_Character olarak adlandırılan üç tip karakter 
+			verisi tanımlanmıştır. 
+		</p>
+		<p class="indent">
+			Character veri tipinin kökenleri eski 7 bit ASCII kodlamasına kadar gider. Burada, 
+			karakterlerin uygulamasında kolaylık sağlanması amacı ile, 7 bit genişliğinde veri ile 
+			tanımlanabilecek 2<sup>7</sup> = 128 tane bellek
+			noktasına sabit 7 bitlik sekanslar halinde karakter tanımları yerleştirilmiş ve Buna 
+			American Standadrd Code For Information Interchange adı verilmişti. Bu kod sayısı, 
+			dünyanın en az sayıda karakter içeren Ingiliz alfabesiiçin yeterli olabilmiş fakat, 
+			karakterlerini ekranda görüp, printyerde yazdırmak isteyen farklı diller konuşan
+			insanlar, kod genişliğinin 8 bite kodlanabilen bellek alanı sayısını da 128 e arttırılmasına
+			neden olmuşlardır. 8 bit ASCII karakter kümesi ANSI standardı olarak tanımlanmıştır. 
+			Bilgisayarların gitgide bir bilgi aracına dönüşmesi sonucunda, her özel karakteri olan
+			alfabesin gösterimi gerekmiş ve bunun için zaten dolu olan 128 kod noktası kullanılamaz
+			olduğundan kod sayfası (Code Page) adında bir yöntem geliştirilmiştir. Kod sayfası 
+			yönteminde ilk 126 kod noktasının üstündeki yarı (upper half) içinde bulunan 
+			bazı kod noktalarına atanan kakarkterler değiştirlmiş ve buna özel kod sayfası adları
+			verilmiştir. Kod sayfaları gigitgide kurumsallaşmış ve ilk ANSI kod sayfası, 
+			ECMA (Avrupa Bilgisayar Üreticileri Birliğ) tarafından geliştirilerek ISO Standardı 
+			oluşturulması için sunulmuştur. Ne yazık ki bu ve belki de daha önceki aşamalarda,
+			Türkçe karakterlerin bazıları yerine çok az kullanılan eski karakterler ve Izlanda gibi, 
+			Türkiye ile kıyaslanmayacak kadar az kullanıcı sayısı olan ülkelerin karakterleri alınmıştır.
+			ECMA tarafından yapılmış ve ISO 'ya sunulmuş olan çalışma, ISO tarafından 1985 yılında I
+			ISO-8859-1 standardı olarak kabul edilmiş ve bu standart aynı zamanda Latin-1 standardı 
+			olarak da adlandırılmıştır.. Latin-1 standardı 256 karakter içermekte ve genişletilmiş ASCII 
+			kodları temel alınarak düzenlenmiştir. Bu düzenlemede Türkçe alfabesinin 6 harfi, 
+			Ğ , ğ , İ , ı , Ş , ş ISO-8859-1 (Latin-1) standardı dışında kalmıştır.
+		</p>
+	<p class="indent">
+			Ada-83 programlama dili Latin-1 standadına dayalıdır. Bu nedenle Standard paketinde 
+			öntanımlı olarak sadece yukarıda görülen 256 kod noktası içeren Character tipi veri tanımlıdır.
+			Character tipi veriler içinde Ğ , ğ , İ , ı , Ş , ş karakterleri tanımlı olmadığından, Ada-83 de 
+			bu karakteri içeren Türkçe tanımlayıcıların kullanılması olanağı yoktur. Ada-83 de karakter 
+			repertuvarı Latin-1 karakter kümesi ile sınırlıdır. 
+		</p>
+		<p class="indent">
+			ISO-8859-1 (Latin-1) standardı, sadece 8 bit (1 byte) genişliğindedir ve standardı kesinleşmiş
+			olduğundan genişletilmesi söz konusu değildir. Bu nedenle kapalı bir sistemdir ve ölçeklenebilir 
+			yani yeni gereksinmelere göre genişletilebilir değildir. Bu nedenle başka alfabe karakterlerinin 
+			bu sistemde kullanılabilmesi için ilk yarı olan ilk 128 kod noktası içinde tanımlı esas ANSI karakterleri
+			yerinde bırakılarak üst yarıdaki 126 kod noktası içinde kalan bazı karakterler yenileri ile değiştirilmiş ve 
+			yeni 256 lık kod sıraları oluşturulmuştur. Sadece üst yarıdaki bazı karakterleri farklı olan bu kod 
+			sayfaları, çesitli 	ISO-8859-X ler halinde ISO standardı olarak tanımlanmışlardır. Bu standartlardan 
+			birisi de 1999 da kabul edilmiş olan, üst yarıdaki 6 kod noktasındaki karakterlerin Türkçe karakterler 
+			ile değiştirilmesi ile oluşturulan,ISO-8859-9 standardıdır. Bu standart aynı zamanda Latin-5 veya 
+			kaynaklandığı kod sayfası olan Windows-1254 veya CP-1254 olarak da adlandırılmaktadır. Bu standart 
+			ile tanımlı karakter kümesi aşağıda görülmektedir.
+		</p>
+		<p class="sayfaortala"><span class="red">ISO-8859-9 Standardı Karakterleri </span></p>
+			<p class="sayfaortala"><span class="red">(Karakter Kodları Bu Standart ile İlgili Değildir. Sadece Bilgi Amacı ile Verilmiş Olan Unicode Giriş Noktalarıdır)</span></p>
+		<p class="sayfaortala"><img src="../resimler/utf-8-3.png" width="1000" height="1650" 
+					alt="codepage1254" /></p>
+		<p class="indent">
+			Yeni kod sayfası standartları, Ada-83 için bir değişikliğe neden olmamıştır. Ada-83 sadece
+			Latin-1 standardı ile aynı karakter kümesine sahip olan Character veri tipine sahiptir ve bunun
+			dışındaki bir veri tanımlayıcılarda kullanılmışsa programı kabul etmemektedir. Sadece karakter 
+			dizigisi tipinde veriler, karakterleri program içinde değiştirilmemiş olmak koşulu ile, 
+			belirli kod sayfalarında, girildikleri şekilde görüntülendirilebiilmektedir.
+		</p>
+	<p class="indent">
+			ISO-8859-X şeklinde yapılanmaların, fazla verimli olmayacağı sonucuna varmak fazla 
+			süre almamıştır. Bu sistemde karakterlerin bir kimlik numaraları yoktur. Karakterler 
+			bir veri temeline yerleştirilmememiştir. Sadece 256 tane kod noktası
+			tanımlıdır ve bunlara değişik kod sayfalarında 1 ve 0 lardan oluşan ikili kodlar atanmaktadır. 
+			Belirli bir kod noktasında tanımlı olan karakter sadece kod sayfasının bilinmesi koşulu ile
+			izlenebilmektedir. Kod noktalarına girilen karakterlerin görüntü kodları karakter 
+			kodlarından bağımsız değildir. Özetle bu sistem modern teknolojiye yakışan bir sistem 
+			değildir ve son yıllarda ISO için en kötü standart sistemi olarak nitelendirilmekte olup 
+			bir an önce kullanımdan kaldırılması istenmektedir.
+		</p>
+		<p class="indent">
+			Bu konuda bir çözüm önerisi Unicode Konsorsiyumu adı altında örgütlenen bir 
+			topluluktan gelmişlir. Bu topluluk, tüm dünyada geçerli karakterlerin bir çatı altında 
+			toplanması, her karaktere bir kod numarası verilmesi ve her karakterin kod numarası 
+			ile görüntüsünün (Glyph = Kılıf) birbirinden ayrılmasının gerçekleştirilmesi amacı 
+			ile kurulmuştur. Bu kuruluşun çalışmaları sonunda ilk yönergesi, Unicode 1.0.0 olarak 
+			(Ekim, 1991) de yayınlanmıştır. Burada tamamen farklı bir teknoloji kullanılmıştır. Karakterler
+			düzlemler halinde yerleştirilmiş ve her karaktere konum numarasına denk gelen bir 
+			sabit kod numarası verilmiştir. Bu kodlara U+Hex_Karakter_Kodu şeklinde Unicode 
+			giriş noktaları adı verilmiştir. Unicode karakter kodları 16 bit (2 byte) genişliğindedir. 
+			İlk 2<sup>16</sup> = 65536 kod noktası içeren ilk düzleme Temel Çok Dilli Düzlem 
+			(Basic Multilingual Plane) (BMP)  adı verilmiştir. Temel çok dilli düzlemin ilk 256 kod noktası, 
+			eskiye uyum amacı ile, Latin-1 olarak tanımlanmış olan karakter kümesindeki karakterlere 
+			ayrılmıştır. Bunun dışındaki karakterlere özel kod numaraları verilmiştir. Dünyada ilk defa
+			bir karakterin numarası olmakta, karakterler kataloglar halinde düzenlenebilmekte ve
+			veri temellerine yerleştirilebilmektedir. Unicode bunu başarmıştır. 
+		</p>
+		<p class="indent">
+			Aşağıdaki, tabloda, Temel Çok Dilli Düzlem içinde olup kod giriş noktaları ilk 256 giriş 
+			noktasından sonra olan Türkçe karakterler ve kod giriş numaraları görülmektedir.
+		</p>
+		<div class="sayfaortala">
+			<table class="tablo1" border="1" summary="entities">
+			<caption class="captionred">ISO/IEC 10646: 2003 (E)-  Table 4 - Row 01: Latin Extended-A<br />&nbsp;</caption> 
+				<thead> 
+					<tr class="color8"> 
+						<th scope="col">Karakter</th> 
+						<th scope="col">Desimal</th> 
+						<th scope="col">Hex</th> 
+					</tr> 
+				</thead>
+				<tr>
+					<td scope="row">Ç</td> 
+					<td>199</td> 
+					<td>16#C7#</td> 
+				</tr>
+				<tr> 
+					<td scope="row">Î</td> 
+					<td>206</td> 
+					<td>16#CE#</td> 
+				</tr>
+				<tr> 
+					<td scope="row">Ö</td> 
+					<td>214</td> 
+					<td>16#D6#</td> 
+				</tr>
+				<tr> 
+					<td scope="row">Ü</td> 
+					<td>220</td> 
+					<td>16#DC#</td> 
+				</tr>
+				<tr> 
+					<td scope="row">ç</td> 
+					<td>231</td> 
+					<td>16#E7#</td> 
+				</tr>
+				<tr>
+					<td scope="row">ö</td> 
+					<td>246</td> 
+					<td>16#F6#</td>
+				</tr> 
+				<tr> 
+					<td scope="row">ü</td> 
+					<td>252</td> 
+					<td>16#FC#</td> 
+				</tr>
+				<tr>
+					<td scope="row"><span class="str">Ğ</span></td> 
+					<td><span class="str">286</span></td> 
+					<td><span class="str">16#11E#</span></td> 
+				</tr>
+				<tr> 
+					<td scope="row"><span class="str">ğ</span></td> 
+					<td><span class="str">287</span></td> 
+					<td><span class="str">16#11F#</span></td> 
+				</tr>
+				<tr> 
+					<td scope="row"><span class="str">İ</span></td> 
+					<td><span class="str">304</span></td> 
+					<td><span class="str">16#130#</span></td> 
+				</tr>
+				<tr> 
+					<td scope="row"><span class="str">ı</span></td> 
+					<td><span class="str">305</span></td> 
+					<td><span class="str">16#131#</span></td> 
+				</tr>
+				<tr> 
+					<td scope="row"><span class="str">Ş</span></td> 
+					<td><span class="str">350</span></td> 
+					<td><span class="str">16#15E#</span></td> 
+				</tr>
+				<tr>
+					<td scope="row"><span class="str">ş</span></td> 
+					<td><span class="str">351</span></td> 
+					<td><span class="str">16#15F#</span></td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			Burada ISO-8859-9 standardı ile belirlenen karakter kümesinin yukarıda verilmiş olan
+			tablosuna yeniden bakmak gerekmektedir. Bu tabloda yeşil harflerle verilen ve her
+			karakterin altında görülen Hex kodları, ISO-8859-9 'ait değildir. ISO-8859-X hiçbir
+			karaktere belirli bir kod numarası tanımlamaz. Bu kodlar, karakterlerin Unicode giriş
+			noıktalarıdır ve tabloda bulunmalarının tek nedeni, ISO-8859-9 standardında tanımlı 
+			karakterlerin Unicode giriş noktalarının belirtilmesidir.
+		</p>
+		<p class="indent">
+			Unicode kuruluşu, çalışmalara başlaması ile birlikte, ISO ile birlikte Universal 
+			Character Set (UCS) adı ile bir Standart geliştirme çalışması başlatmıştır. Bu çalışmalar 
+			sonucunda, ISO/IEC 10646:1990 Universal Multiple-Octet Coded Character Set 
+			bir standart teklifi olarak yayınlanmıştır. Kısaca UCS olarak adlandırılan bu standart,
+			karakterler için iki tür kodlama getirmiştir. Bunlardan ilki, 16 bitlik karakter kodlaması 
+			olan UCS-2 diğeri 32 bitlik karakter kodlaması oloan UCS-4 variyantlarıdır. 
+			O zamanlar Unicode sadece 16 bitlik ilk kodlamayı desteklemekteydi. 
+		</p>
+		<p class="indent">
+			ISO/IEC 10646:1990 standardı yayınlandıktan sonra, yeni ADA 95 sürümü, 
+			UCS-2 krakter kodlama sistemini desteklemiştir. Bu nedenle, Standard pakete
+			Wide_Character adı ile yeni bir veri tipi eklenmiştir. Wide_Character veri tipi, 
+			Unicode giriş noktaları 0 ile 16#0000FFFF# ( 0 .. 65536) arası tüm karakterleri
+			içermekte ve bunun sonucu olarak, ilk 256 elemanı, Character veri kümesindeki 
+			elemanlar ile aynı olmaktadır. ADA 95 sürümünün UCS-2 yi desteklemesi sonunda, 
+			Temel Çok Dilli Düzlemin ilk 256 kod giriş noktasının ötesinde olan Türkçe
+			karakterlerin de tanımlayıcılarda kullanılabilmeleri olanağı sağlanmış ve ADA 95,
+			Türkçe için çok mutluluk verici bir sürüm olmuştur. 
+		</p>
+	<p class="indent">
+			Universal Multiple-Octet Coded Character Set standardı, 2003 yılında ISO ISO/IEC 10646:2003
+			olarak kabul edilmiş, ve yapılmış olan eklentilerle günümüzde, ISO/IEC 10646:2003/Amd.7:2010(E)
+			sürümüne ulaşmıştır. Unicode günümüzde 6.0.0 sürümündedir. Zaman içinde, UCS-2 nin
+			yeterli olmayacağı düşüncesi kabul görmüş ve UCS-2 geçersiz kılınmıştır. Günümüzde 32 bitlik
+			UCS-4 karakter kodlaması geçerlidir ve Unicode bu standardı gerektiğinde desteklemektedir. 
+			UCS-4 standardını destekleyen Unicode 6 yı da desteklemeiş olmakta, fakat sadece Unicode 6 
+			yı destekleyen tam olarak UCS-4 ü desteklemiş olmamakta, bizim ilgilendiğimiz karakterler
+			bakımından ise ikisi arasında hiçbir farklılık bulunmamaktadır. UCS-4 ve Unicode 6 karakter kodları, 
+			birbiri ile aynıdır ve gerek Unicode, gerekse UCS-4 aynı teknolojiyi paylaşmaktadırlar.
+		</p>
+		<p class="indent">
+			UCS-4 karakter kodlarının genel kabul görmesi ile, ADA 2012 sürümü, UCS-4 karakter
+			kodlarını desteklemiştir. Bunun için Ada 2012 Standard paketine Wide_Wide_Character
+			veri tipi eklenmiş ve bu veri tipinin elemanlarının ilk 256 sının Character veri tipi, sonra gelen
+			65536 elemanının Wide_Character tipi elemanlardan oluşacağı ve gerisinin
+			16#<em>7FFFFFFF</em># (2<sup>32</sup> = 4294967296) e kadar karakter 
+			kodlamasını destekleyebilceği belirtilmektedir. Bugün için bu veri tipine sadece Çin 
+			ideogramları için gerek duyulmaktadır. 
+		</p>
+		<p class="indent">
+			Bit sekanslarının karakter kodlarına , karakter kodlarının bit sekanslarına 
+			dönüştürülmesi için, Unicode Transformation Format (UTF) dönüştürücüleri 
+			kullanılır. Kullanılabilecek UTF dönüştürücüleri, UTF-8, UTF-16, UTF-16BE (Big Endian), 
+			UTF-16LE (Little Endian), UTF-32, UTF-32BE (Big Endian),  UTF-32LE (Little Endian) 
+			arasında, Ada 2012 sadece UTF-8 ile kodlanmış program sayfalarını ve text olarak 
+			kodlanmış program sayfalarını kabul eder. UTF-8 dışında Unicode dönüştürücülerinin 
+			kodlaması ile saklanmış program listelerini kabul etmez. UTF-8 adının 8 biti çağrıştırması 
+			bir yanılsamadır ve UTF-8 tüm Unicode repertuvarını destekleyebilir, fakat Ada 2012 UTF-8 
+			ile kodlanmış program listelerini kabul etmekle birlikte UTF-8 dönüştürümünü desteklemez 
+			ve UTF-8 altında karakterleri görüntülemez, sadece kodlarını verir. Ada 2012 ye UTF-8 
+			desteği kazandıracak kullanıcıların geliştirdiği ve özgürce kullanılabilen paketler olmasına 
+			karşın, bunlar standard pakete dahil olmadığından ancak uzun süre denendikten sonra 
+			kullanılabilir. Bu durumda, Ada programlarının geliştirildiği IDE lerdeki komut satırı 
+			emülatörlerinin Türkçe karakterleri görüntülemeleri için henüz Türkçe kod sayfası 
+			(ISO-8859-9 veya CP-1254) ile kodlanarak saklanmış program listelerinin kullanılması 
+			gerekir.	Qwined, SciTe ve JGrasp gibi, program listesi yazımı ve program sonuçlarının 
+			görüntülenmesini sağlayabilen, metin editörü ve komut satırı emülatörlerinin kodlama 
+			sistemi (encoding) CP-1254 eya ISO-8859-9 a ayarlı olmalıdır. Ada derleyicilerinin bir 
+			an önce resmi UTF-8 desteğini sağlayabilir olmaları gerekmektedir. Bu destek sağlanana
+			kadar, istemeyerek de olsa, kod sayfası yöntemine zorunlu olarak devam edilmesi 
+			gerekmektedir. Bunu koskoca bir Türk Dünyasının hergün kullandığı 6 karakter yerine,
+			saçma sapan karakterleri Latin-1 standardına yerleştiren önyargılı ekibin bir ayıbı olarak ve 
+			verdikleri zararı hergün yaşamak zorunda olduğumuzun bilncinde olarak kullanmalıyız.
+		</p>
+		<p class="indent">
+			Karakter verilerinin giriş/çıkış işlemleri için iki seçenek bulunmaktadır. Bunlardan ilki Ada.Text_IO pakerinin
+			kullanılmasıdır. Ada.Text_IO paketi, tüm temel veri tiplerinin ve bunlar arasında karakter ve karakter dizgisi 
+			şeklinde sözel verilerin giriş/çıkış işlemlerini gerçekleştirmek amacı ile oluşturulmuştur.  Ada.Text_IO paketi
+			görüntülediği karakater ve karakter dizgisi (String) verilerin görüntülenmesinde tek veya çift tırnak 
+			içine almamaktadır. Aşağıda görülen 
+			<a href="../uygulamalar/b3_4_uyg_1.html">prosedürde</a>, bir karakter verisinin Ada.Text_IO öntanımlı
+			paketinden yararlanılarak standart ortam (klavye-ekran kısaca konsol) giriş/çıkış işlemleri gerçekleştirilmiştir.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_4_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+Karakter_Verisi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Character<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Karakter Giriniz : &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Karakter_Verisi<span class="S0"> </span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Girilen Karakter : &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Karakter_Verisi<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_4_uyg_1<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+Bu prosedürün sonucu : 
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="pl-25 green">Lütfen Bir Karakter Giriniz :  Ğ</span>
+<span class="pl-25 green">Girilen Karakter :  Ğ</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+olmaktadır.</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_4_uyg_1.html">prosedür</a>, Qwined,
+			tümleşik geliştirme ortamının (IDE) yazım kısımlarında yazılarılarak Windows gerçerli Kod sayfası 
+			olan CO-1254 altında kaydedilmiştir. Derlenen program, yine Qwined IDE sisteminin Windows Komut 
+			Satırı (Shell) emülasyon kısmında çalıştırılmış ve hem mesajın görüntülenmesindeki Türkçe karakterler
+			tam olarak görüntülenmiş , hem de program çalışması gereği gibi olmuştur. Istendiğinde  SciTe, JGrasp
+			gibi aynı desteği verebilien IDE sistemleri de kullanılabilir. Programın Windows komut satırı üzerinden 
+			çalışmasında sadece mesaj kısmındaki bazı Türkçe karakterler değişik bir şekilde görüntülenmekte,
+			fakat program çalışması yine gerektiği gibi yürümektedir. Tüm programların bu şekilde, IDE sistemlerinin
+			DOS emülasyon ortamlarında çalıştırılması ile hiçbir sorun yaşanmamaktadır. Windows komut satırında, 
+			karakterlerin iyi görüntülenmemesi Ada ile değil Windows ile ilgili bir sorundur ve aynı sorun Java, C ,
+			c<sup>++</sup> gibi program dillerinde de aynen yaşanmaktadır. Tüm bu programlar, aynı IDE lerin
+			DOS emülasyon sistemlerinde sorunsuzca çalıştırılmaktadır.
+		</p>
+		<p class="indent">
+			Karakter verilerinin standart ortamda giriş/çıkış işlemlerinin gerçekleştirilebilmesinin ikinci yöntemi,
+			karakter veri tipinin sayılabilir bir veri tipi olmasından yararlanılarak, Ada.Text_Io öntanımlı paketinin
+			generik Enumeration_IO alt paketinin, karakter veri tipi için güncelleştirilmiş özel spesifik bir örneğinin 
+			yaratılmasıdır. Bu tip generik alt paketlerden spesifik özgün paketlerin oluşturulması, daha önce 
+			birçok kez gerçekleştirilmiş olduğunudan bu uygulama bizim için artık sıradan hale gelmiş sayılabilir. 
+			Aşağıda görülen <a href="../uygulamalar/b3_4_uyg_2.html">prosedürde</a>, bu yöntem
+			uygulanmıştır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_4_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+Karakter<span class="S0"> </span><span class="S4">:</span><span class="S0"> &nbsp;</span>Character<span class="S4">;</span>
+
+<span class="S1">package</span><span class="S0"> </span>Karakter_IO<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Enumeration_IO<span class="S0"> </span><span class="S4">(</span>Enum =&gt; Character<span class="S4">);</span>
+
+Karakter_Verisi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Character<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Karakter Giriniz : &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Karakter_Verisi<span class="S0"> </span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Girilen Karakter : &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Karakter_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Karakter_Verisi<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_4_uyg_2<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+Bu prosedürün sonucu : 
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="pl-25 green">Lütfen Bir Karakter Giriniz :  Ğ</span>
+<span class="pl-25 green">Girilen Karakter :  'Ğ'</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+olmaktadır.</pre> 
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_4_uyg_2.html">prosedürde</a>, uygulanan 
+			yöntemde, karakter verilerinin, aynı literal değer olarak girildikleri şekilde, tek tırnak ile 
+			verildiğine dikkat edilmelidir.
+		</p>
+		<p class="indent">
+			Geliştirilmesi tamamlanmış programlar için, özel Windows ara yüzleri, her programda 
+			olduğu gibi, Ada ile de gerçekleştirilebilir. Yani kesinlikle Windows konut satırına veya 
+			emülasyonlarına bağlı değiliz. Özellikle QtAda bu çalışmalar için destek sağlamaktadır. 
+			Arayüz tasarımı için öncelikle program gelişmesinin tamamlanmış olması gerekmektedir.
+			Bu nedenle, başlangıçta öncelikle komut satırı kullanıyoruz. Program gelişmesi tamamlanınca, 
+			bu programa özel, özgün bir arayüz tasarımı çalışmaları başlatılabilir. Bunu ileride 
+			uygulamaya çalışacağız.
+		</p>
+		<p class="indent">
+			Ada öntantımlı paketlerinde çok sayıda karakter veri tipi ile ilgili çalışmalara yardımcı olmak
+			amacı ile hazırlanmış öntanımlı paketler bulunmaktadır. Ada programlama dilinde yeterli 
+			temel bilgiye sahip oldukça bu paketlerin uygulanmalarını inceleyeceğiz. Bu konuları
+			ileriye bırakarak temel bilgilerimizi ilerletmeye devam ediyoruz.
+		</p>
+    <ul id="navbottom">
+        <li id="index">
+          <a href="../index.html"><em>« İndeks</em></a>
+        </li>
+        <li id="denge"></li>
+        <li id="sayfa">
+    <a href="b3-s9.html"><em> &laquo;Önceki</em></a></li>
+        <li id="denge1"></li>
+        <li id="kodlama">
+    <a href="b3-s11.html"><em> Sonraki &raquo;</em></a></li>
+        <li id="navbottom-sonlama"></li>
+      </ul>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:21 GMT -->
+</html>
+
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

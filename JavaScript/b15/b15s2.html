@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:31 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b15/b15s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b15s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b15s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b15s3.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 15
+		</p>
+		<p class="chapter">
+			Kullanıcı Tanımlı Nesneler
+		</p>
+		<p class="pagenum">
+			Bölüm 15 Sayfa 2
+		</p>
+	<p class="title-left" id="buildup">15.2 - Kullanıcı Tanımlı Nesnelerin Yapılandırılması	</p>
+		<p class="subheading" id="prototip">15.2.1 - Kullanıcı Tanımlı Nesnelerin Prototip 
+		Arttırımı Yöntemi İle Yapılandırılması</p>
+		<p class="indent">
+			Kullanıcı tanımlı nesne sınıflarında, kullanıcılar oluşturacakları nesne sınıflarının yapısını 
+			düzenleyip, sınıfın prototipine yerleştirmek zorundadır. Nesne sınıfının prototipinde 
+			bulunmayan hiçbir özellik, oluşan nesne sınıf örneğinde başlangıçta bulunamaz. 
+		</p>
+		<p class="indent" id="b15.2.1-uyg-1">
+			Nesne özelliklerinin prototiplerine kullanıcılar tarafından katkıda bulunabileceği
+			bundan önce birçok kez  açıklanmıştı. Bu konu en son biraz önce 
+			<a href="b15s1.html#hierarchy">bölüm 15.1.3</a> de nesne 
+			hiyerarşileri incelendiğinde yeniden ele alınmıştı. Kullanıcı tanımlı nesne
+			sınıflarının yapılarının prototip  katkısı ile oluşturulması geçerli
+			bir yöntemdir. Nesne sınıfı veri giriş fonksiyonu boş olarak tanımlandıktan
+			sonra, her özellik için, sadece bir kez, prototip katkısı yapılması
+			yeterlidir. Sonuçta, sınıfın prototipinin yapısı belirlenmiş olur. Bu yöntem bir 
+			<a href ="../uygulamalar/b15.2.1-uyg-1-js.html">JavaScript programında</a> uygulanmıştır.
+			Bu programın bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.2.1-uyg-1.html">uygulama sayfasında</a>, 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">function</span> Kutu<span 	class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> hacım<span 	class="op">() {</span>
+<span class="keyw-50">var</span> v <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy<span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+
+<span class="keyw-50">return</span> v <span 
+			class="op">/</span> 1000 <span 
+			class="op">+</span> <span 
+			class="str">'litre'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>en <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-25">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>boy <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-25">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>yükseklik <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-25">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>hacım <span 
+			class="op">=</span> hacım<span class="op">;</span>
+
+
+<span class="keyw-25">var</span> kutu1 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kutu<span 
+			class="op">();</span>
+
+<span class="pl-25">kutu1</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-25">kutu1</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> 20<span 
+			class="op">;</span>
+
+<span class="pl-25">kutu1</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> 20<span 
+			class="op">;</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu1 Hacmı = '</span>, kutu1<span 
+			class="op">.</span>hacım<span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b15.2.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.2.1-uyg-1-sonuç-1"></p>
+		<p class="indent" id="b15.2.1-uyg-2">
+			Yukarıdaki, <a href ="../uygulamalar/b15.2.1-uyg-1.html">yöntemde</a> herşey
+			iyi  yürümektedir. Sorun sadece, yeni oluşturulan nesne örneklerinin öntanımlı
+			değerlerle oluşmalarıdır. Her defasında bu örneklere özellik değerlerinin
+			girilmesi gerekecektir. Bu da biraz sıkıcı bir veri giriş yöntemi sayılabilir.
+			Bu sorunu azaltmak için, çeşitli formlar, nesne örneği veri giriş fonksiyonları
+			yazılabilir. Bu tip bir nesne örneği veri giriş fonksiyonu, aşağıda görülen
+			<a href ="../uygulamalar/b15.2.1-uyg-2.html">programda</a> uygulanmış ve programın
+			iliştirildiği
+			<a href ="../uygulamalar/b15.2.1-uyg-2.html">sayfada</a> verdiği sonuç, aşağıda
+			gösterilmiştir.
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">function</span> Kutu<span class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> hacım<span 	class="op">() {</span>
+<span class="keyw-50">var</span> v <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy<span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+
+<span class="keyw-50">return</span> v <span 
+			class="op">/</span> 1000 <span 
+			class="op">+</span> <span 
+			class="str">'litre'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> prototipOluştur<span 	class="op">() {</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>en <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>boy <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>yükseklik <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>hacım <span 
+			class="op">=</span> hacım<span class="op">;</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">prototipOluştur</span><span class="op">();</span>
+
+<span class="keyw-25">function</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutuSınıfÖrneğiAdı<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(!(</span>kutuSınıfÖrneğiAdı<span 
+			class="keyw"> instanceof</span> Kutu<span 
+			class="op">)) {</span>
+<span class="pl-75">kutuSınıfÖrneğiAdı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kutu<span 
+			class="op">();</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> eni<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">var</span> kutu2 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kutu<span 
+			class="op">();</span>
+
+<span class="pl-25">kutu2</span> <span 
+			class="op">=</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutu2<span 
+			class="op">,</span> 20<span 
+			class="op">,</span> 30<span 
+			class="op">,</span> 20<span class="op">);</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu2 Hacmı = '</span>, kutu2<span 
+			class="op">.</span>hacım<span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b15.2.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.2.1-uyg-2-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href ="../uygulamalar/b15.2.1-uyg-2.html">uygulamada</a>, nesne örneği 
+			veri giriş fonksiyonuna, aktarılan ilk argümanın gerçek bir Kutu sınıfı nesne örneği olmaması 
+			durumunda, fonksiyon bu argümanın değerini tahrip edici bir atama ile, gerçek bir Kutu sınıf 
+			örneğine dönüştürmektedir. Fonksiyonun bundan sonraki görevi, oluşmuş olan Kutu sınıfı 
+			nesne örneğinin özelliklere verilen argümanların değerlerinin atanmasıdır. Fonksiyon, sonuçta 
+			veri girişi tamamlanmış Kutu sınıf örneğini geri döndürmektedir. 
+		</p>
+		<p class="indent" id="b15.2.1-uyg-3">
+			Nesne örneği veri giriş fonksiyonun, aktarılan ilk argümanın değerinin bir Kutu sınıf örneği 
+			olmasını şart koşmamaktadır. Bu yüzden aşağıda görülen 
+			<a href ="../uygulamalar/b15.2.1-uyg-3-js.html">JavaScript programında</a>
+			olduğu gibi, nesne örneğinin de nesne örneği veri giriş programı tarafından oluşturulması 
+			sağlanabilir. Biraz daha kısalan bu programın bir 
+			<a href ="../uygulamalar/b15.2.1-uyg-3.html">uygulama sayfasında</a> verdiği 	sonuç, aşağıda 
+			görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">function</span> Kutu<span class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> hacım<span 	class="op">() {</span>
+<span class="keyw-50">var</span> v <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy<span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+
+<span class="keyw-50">return</span> v <span 
+			class="op">/</span> 1000 <span 
+			class="op">+</span> <span 
+			class="str">'litre'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> prototipOluştur<span 	class="op">() {</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>en <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>boy <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>yükseklik <span 
+			class="op">=</span> 0<span class="op">;</span>
+
+<span class="pl-50">Kutu</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>hacım <span 
+			class="op">=</span> hacım<span class="op">;</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">prototipOluştur</span><span class="op">();</span>
+
+<span class="keyw-25">function</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutuSınıfÖrneğiAdı<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(!(</span>kutuSınıfÖrneğiAdı<span 
+			class="keyw"> instanceof</span> Kutu<span 
+			class="op">)) {</span>
+<span class="pl-75">kutuSınıfÖrneğiAdı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kutu<span 
+			class="op">();</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> eni<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">var</span> kutu3 <span 
+			class="op">=</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutu3<span 
+			class="op">,</span> 20<span 
+			class="op">,</span> 30<span 
+			class="op">,</span> 20<span class="op">);</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu3 Hacmı = '</span>, kutu3<span 
+			class="op">.</span>hacım<span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b15.2.1-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.2.1-uyg-3-sonuç-1"></p>
+
+		<p class="indent" id="b15.2.1-uyg-4">
+			Bazı durumlarda, öntanımlı değerlerden farklı olarak, bazı standart değerler de verilmek
+			istenebilir. JavaScript programlama dilinde, bu işlevi sağlayabilecek bir olanak bulunmaktadır.
+			Bu tür esnek bir veri giriş <a href="../uygulamalar/b15.2.1-uyg-4-js.html">fonksiyonu</a> aşağıda 
+			verilmiştir. Bu fonksiyonun ilişkli olduğu <a href="../uygulamalar/b15.2.1-uyg-4.html">sayfada</a>
+			verdiği sonuçlar, aşağıda görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutuSınıfÖrneğiAdı<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(!(</span>kutuSınıfÖrneğiAdı<span 
+			class="keyw"> instanceof</span> Kutu<span 
+			class="op">)) {</span>
+<span class="pl-75">kutuSınıfÖrneğiAdı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kutu<span 
+			class="op">();</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> eni <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuSınıfÖrneğiAdı</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> eni <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">var</span> kutu4 <span 
+			class="op">=</span> kutuSınıfÖrneğiVeriGirişi<span 
+			class="op">(</span>kutu4<span 
+			class="op">,</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> 30<span 
+			class="op">);</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu4 Hacmı = '</span>, kutu4<span 
+			class="op">.</span>hacım<span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b15.2.1-uyg-4-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.2.1-uyg-4-sonuç-1"></p>
+
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b15.2.1-uyg-4.html">uygulamada</a>, fonksiyon içinde özellik 
+			değeri atanırken ilk olarak argümanın sağladığı özellik değerine bakılmaktadır. Bu değer, 
+			<span class="keyw">undefined</span> veya <span class="keyw">null</span> ise,
+			<span class="op">||</span> işlemcisi sağ tarafı değerlendirerek 10 değerini atamaktadır. 
+			Burada argümanda sözel bir değer de varsa argüman atanır ve sözel değer sayıya çözümlenemezse 
+			sonuç <span class="keyw">NaN</span> olarak görüntülenir. Yani bu ifade şekli, yanlış değerler 
+			girilirse bir kurtarma yöntemi olamaz. Sadece pas geçmek istenen argümanların yerine örnekteki gibi
+			<span class="keyw">null</span> yazılırsa, OR işlemcisi sağ işleneni değerlerdirir ve çözümlenen 
+			değeri özelliğe atar. Yine örnekteki gibi, en son argüman pas geçilmek isteniyorsa, hiçbirşey yazılmaz.
+			Örnekteki sonuç, 10 X 30 X 10 luk (cm olmalı çünkü sonuç litre olarak veriliyor) bir kutunun hacmıdır.
+		</p>
+		<p class="indent">
+			Örnekteki hacım<span class="op">()</span> metodunda <span class="keyw">this</span>
+			saklı sözcüğü, daha önce <a href="../b2/b2s6.html#this">bölüm 2.6.3 de</a> kısa olarak
+			açıklanmıştı. Metotlardaki <span class="keyw">this</span> saklı sözcüğü, metodu çağıran
+			nesnenin yerine geçer. Bu durumda, hacım metodunu Kutu sınıfı nesne örnekleri 
+			çağırdığından, metodu çağıran her Kutu sınıfı nesne örneği, <span class="keyw">this</span>
+			saklı sözcüğü ile yer değiştirir. Örnek olarak, hacım metodunu, kutu1 adlı Kutu sınıfı nesne örneği
+			çağırırsa, <span class="keyw">this</span><span class="op">.</span>en , kutu1<span 
+			class="op">.</span>eb anlamına gelir. <span class="keyw">this</span> saklı sözcüğü çok güçlü
+			bir programlama aracıdır, fakat değişik durumlarda değişik anlamlar alabilmektedir. Dolayısı
+			kullanımı için, variyasyonlarına iyi hakim olunması gerekmektedir. Bu nedenle ileride, 
+			<span class="keyw">this</span> saklı sözcüğü üzerinde daha ayrıntılı olarak duracağız.
+		</p>
+		<p class="indent">
+			Nesne örneklerini oluşturup, özelliklerine verilerin atanmasını kolaylaştıran veri giriş
+			fonksiyonlarının işlevleri sadece yapısı belli olan sınıf örneklerinin özelliklerine 
+			değerler atamaktır. Eğer, bu işlevin sınırları aşılır ve veri giriş fonksiyonunda, 
+			nesnenin prototipinde olmayan özelliklerin de tanımlanıp değerlerinin girilmesi 
+			yoluna gidilirse, sorun yaratılmış olur. Bu durumda, sınıf yapılandırıcı fonksiyonu olan 
+			örnek olarak Kutu<span class="op">()</span> fonksiyonu kullanılarak yaratılan nesne 
+			sınıf örnekleri ile, veri giriş fonksiyonunda özellikleri arttırılarak yaratılan nesne sınıf örnekleri 
+			arasında yapı farkı oluşur. 	Nesne Yönelimli Programlama düzen demektir. Bir sınıf örnekleri 
+			arasında yapı 	düzensizliği oluşması, sınıf üyelerinin integritesinin kaybolmuş olması anlamına 
+			gelir. Bu durumda, sınıfın prototipal yapısı gözetilerek oluşturulmuş otomatizasyon programları, 
+			bir kısım sınıf örnekleri ile uyumsuz hale gelir. Bu nedenle dikkatli olunmalı ve sınıf örneklerinin 
+			bazılarına gerekli olmaya başlayan her türlü yeni özellik, nesne sınıfının prototipine eklenmeli, o 
+			vakte kadar yaratılmış nesne örneklerinin (ki nesne sınıf örnekleri genellikle diziler halinde organize 
+			edilip disklerde saklanırlar), çağrılıp, bilinçli uyum programları ile yapılarının güncellenmesi gerekir. 
+			Bunun dışında, tek nesne örneklerine eklenecek özellikler, ayrıca eklenmeli, aynı özelliği birden .
+			çok nesne örneğine kaydedecek veri giriş fonksiyonları ile eklenmemelidir. Veri giriş fonksiyonları, 
+			sadece nesne sınıfının prototipine işlenmiş özelliklerin değerlerini nesne sınıf örneklerine atamakla 
+			sınırlı kalmalıdır.
+		</p>
+		<p class="indent" id="b15.2.1-uyg-5">
+			Yukarıdaki uygulamalara bakıldığında, özellikle nesne özelliklerine veri girişi yapmayı
+			kolaylaştıran fonksiyonlar geliştirildiğinde, Kutu nesne sınıfına gerek olmadığı ve 
+			aynı işlerin generik nesne sınıfının aynı özellikli örnkeleri ile de yapılabileceği görülür. Bu konuda bir 
+			<a href="../uygulamalar/b15.2.1-uyg-5-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b15.2.1-uyg-5.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">function</span> hacım<span 	class="op">() {</span>
+<span class="keyw-50">var</span> v <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy<span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+
+<span class="keyw-50">return</span> v <span 
+			class="op">/</span> 1000 <span 
+			class="op">+</span> <span 
+			class="str">'litre'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kutuÖrneğiVeriGirişi<span 
+			class="op">(</span>kutuÖrneğiAdı<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(!(</span>kutuÖrneğiAdı<span 
+			class="keyw"> instanceof</span> Kutu<span 
+			class="op">)) {</span>
+<span class="pl-75">kutuÖrneğiAdı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">kutuÖrneğiAdı</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> eni <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuÖrneğiAdı</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuÖrneğiAdı</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği <span 
+			class="op">||</span> 10<span 
+			class="op">;</span>
+
+<span class="pl-50">kutuÖrneğiAdı</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span> hacım<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">var</span> kutu5 <span 
+			class="op">=</span> kutuÖrneğiVeriGirişi<span 
+			class="op">(</span>kutu5<span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 30<span 
+			class="op">, </span>10<span 
+			class="op">);</span>
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu5 Hacmı = '</span>, kutu5<span 
+			class="op">.</span>hacım<span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b15.2.1-uyg-5-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">...</span>
+				</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.2.1-uyg-5-sonuç-1"></p>
+
+<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b15.2.1-uyg-5.html">uygulamadan</a> da 
+			görüldüğü gibi, eşdeğer sonuçlar, yeni bir Kutu nesne sınıfı tanımlanmasına gerek 
+			olmadan nesne literalleri ile de alınabilmektedir. Buna rağmen, nesne literalleri, birbirine
+			benzemez, tek olan nesne örnekleri için uygundur. Aynı yapıyı paylaşan çok
+			sayıda potansiyel örnek bulunuyorsa, bunların ayrı bir sınıf halinde organize edilmeleri daha
+			doğru olacaktır. Ayrı bir  sınıf olunca, sınıfın bir prototipi olacak, sınıfların çalışmasını kolaylaştıran
+			bazı öntanımlı yardımcı fonksiyonlardan yararlanılabilecek ve en önemlisi, sınıfın kendi 
+			yapılandırıcı fonksiyonu olacaktır. Ayrıca, bir sınıf olarak tanımlanınca, bu sınıfın alt sınıfları da 
+			tanımlanabilecektir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b15s1.html"><em>« Önceki</em></a>
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b15s3.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.2.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.2.1-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.2.1-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.2.1-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.2.1-uyg-5.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:31 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

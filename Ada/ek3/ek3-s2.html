@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/ek3/ek3-s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACAdas.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/Ada" />
+		<meta name="Title" content="WEBTECH Ada Turkish Tutorial" />
+ <!-- Turkish Ada Tutorial -->
+		<meta name="Subject" content="Ada Turkish Tutorial" />
+		<meta name="Description" 
+					content="Ada Tutorial in Turkish Language " />
+		<meta name="Keywords" content="Ada Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="Ada Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/Adastyle.css" />
+		<title>Ek 3 Sayfa 1</title></head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="../b2/b2-s2.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Ek3
+</p>
+		<p class="chapter">Ada.Integer_Text_IO Program Paketi</p>
+		<p class="chapter">(Standart Giriş/Çıkış Ortamı Uygulamaları)</p>
+		<p class="pagenum">
+			Ek-3  Sayfa 2
+	</p>
+<p class="title-left" id="intro">Ada.Text_IO.Integer_Text_IO Öntanımlı Paketinin Tanıtımı</p>
+		<p class ="indent">
+			Ada öntanımlı paketinin bir alt paketi olan Text_IO paketi, bir alt paket olan Integer_Text_IO
+			paketini içerir bu paketin amacı dosya ve standart giriş/çıkış ortamlarında tamsayı tipinde verilerin
+			giriş ve çıkışlarının yönetilmesidir. Bu kısımda sadece standart giriş /çıkış ortamı olarak tanımlanmış 
+			olan klavye/ekran sisteminde tamsayı tipinde verilerin giriş/çıkış işlemlerini sağlayan prosedürler
+			incelenecektir.
+	</p>
+		<p class="title-left" id="text">Ada.Text_IO.Integer_Text_IO Paketinden Yararlanılarak Tamsayı 
+			Verilerin Standart Ortamdan Giriş/Çıkışlarının Gerçekleştirilmesi</p>
+		<p class="indent">
+			Ada.Text_IO paketi, dosya sistemleri, konsol çıkış ortamının konfigürasyonu, Character, String, Integer, 
+			Modular, Float, Fixed, Decimal, Enumeration tipleri için giriş/çıkış ortamları sağlar. Tüm bu öntanımlı
+			skaler tipler için, Ada.Text_IO paketi içinde ayrı generik alt paketlerde tanımlanır. Bu bağlamda, tamsayı 
+			tiplerinin giriş/çıkış prosedürleri, Integer_IO generik alt  paketinde tanımlanmıştır. Generik alt paketler 
+			doğrudan kullanılamazlar. Bu paketler bir tür yapılandırıcı fonksiyon gibidir. Kullanılabilir olmaları için, 
+			generik paket, uygun bir veri türü için örneklenir. Yani generik ailenin özel değişkene özgü bir örneği 
+			yaratılır. Ada progreamlama diline bu olaya Instantaniation adı verilir. Ada.Text_IO paketindeki, 
+			Integer_IO generik alt paketinin Integer tipi için örneklenmesi istenirse,
+	</p>
+		<p class="nonindent">
+<span class="keyw">with</span> Ada.Text_IO; <br />
+Ada.Integer_Text_IO  <span class="keyw">is new</span> Ada.Text_IO.Integer_IO(Integer) </p>
+		<p class="nonindent">
+			şeklinde bir tanımla gerçekleştirilebilir. Fakat, derleyiciler, öntanımlı tipler için paket 
+			güncelleştirilmesine gerek olmayacak şekilde yapılandırılmıştır. Ada.Integer_Text_IO 
+			generik olmayan, tipe özgü kitaplık paketi, istenirse <span class="keyw">renames</span> 
+			bildirimi ile yeniden adlandırılabilir. Fakat bu tür alias kullanımları, programların 
+			okunurluğunu  azaltabileceğinden 	kullanımları sağlık verilmemektedir.
+		</p>
+		<p class="indent">
+			Ada tamsayı tipleri için, non generik Ada.Integer_Text_IO kitaplık paketi öntanımlı olarak
+			verilmiş olduğundan, dış prosedürler için bu metotlara erişim, <span class="keyw">with</span>
+			Ada.Integer_Text_IO; bildirimi ile gerçekleşebilecektir. 
+		</p>
+	<p class="indent">
+			Ada.Text_IO.Integer_Text_IO paketinde, aşağıdaki tanımlar yapılır:
+</p>
+	<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>generic</b><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Num&nbsp;<b>is</b>&nbsp;<b>
+			range</b>&nbsp;&lt;&gt;;<br />
+			&nbsp;&nbsp;&nbsp;<b>package</b>&nbsp;Integer_IO&nbsp;<b>is</b>
+	</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Width&nbsp;:&nbsp;Field&nbsp;:=&nbsp;Num'Width;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Base&nbsp;&nbsp;:&nbsp;
+			Number_Base&nbsp;:=&nbsp;10;
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;
+			Get(File&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;&nbsp;File_Type;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;:&nbsp;<b>out</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Get(Item&nbsp;&nbsp;:&nbsp;<b>out</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;&nbsp;Field&nbsp;:=&nbsp;0);
+		</div>
+
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Put(File&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;File_Type;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Width;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Number_Base&nbsp;:=&nbsp;Default_Base);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Put(Item&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Width;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Number_Base&nbsp;:=&nbsp;Default_Base);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Get(From&nbsp;:&nbsp;<b>in</b>&nbsp;&nbsp;String;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<b>out</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;:&nbsp;<b>out</b>&nbsp;Positive);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Put(To&nbsp;&nbsp;&nbsp;:&nbsp;<b>out</b>&nbsp;String;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base&nbsp;:&nbsp;<b>in</b>&nbsp;Number_Base&nbsp;:=&nbsp;Default_Base);
+	</div>
+	<p class="indent">
+			Bu tanımların anlamlarını birlikte inceleyelim. İlk olarak Field olarak adlandırılmış olan alt tip, 
+			tamsayı değerinin hane sayısıdır. Normal olarak en çok 11 haneli tamsayı değerler ile çalışılabildiği 
+			gözönüne alınırsa, bu özelliğin en yüksek değerinin 11 civarında olabileceği düşünülebilir. 
+			Bu değer, yerleşime bağlı olarak tanımlanmıştır ve genelde çoğu yerleşimlerde bu değer 8 
+			karakterdir. Bu değişkene 0 değerinin atanmasının özel bir anlamı bulunmaktadır.
+			Bu durumda,
+</p>
+		<ul class="listNoMarker">
+			<li>öndeki boşluklar, satır sonlandırıcıları, veya sayfa sonlandırıcıları atlanır.</li>
+			<li>Eğer varsa artı işareti ve sadece işaretli veriler için, varsa eksi işareti okunur.</li>
+	</ul>
+	<p class="indent">
+			Bu tanım, gerektiği kadar karakter genişliğinin kullanılarak boşluk bırakılmayacağı 
+			anlamına gelmektedir. 
+</p>
+		<p class="indent">
+			Çalışılacak sayı temelinin belirtilmesi için, Ada_Text_IO paketinin başında,
+		</p>
+	<p class="nonindent">
+			<span class="keyw-25">subtype</span> Number_Base <span class="keyw">is</span> 
+			Integer <span class="keyw">range</span> 2..16;
+		</p>
+			<p class="nonindent">
+			tanımı yapılmıştır. Bu tanım 2 ile 16 arası sayı temeli kullanılabileceği ve varsayılan sayı 
+			temelinin 10 olacağını belirtmektedir. Gündelik yaşamda 10 temelli (desimal) sayılar 
+			kullanıldığı için, bu tanım gayet doğaldır. Genelde 2 temelli (ikili) (binary), 8 temelli (oktal), 
+			ve onaltı temelli (hex) sayılarla çalışıldığı için, sayı temeli sınırlaması yeterli olacaktır.
+			Eğer on temelli (desimal) sayılarla çalışılıyorsa, sayı temeli belirtmeye gerek kalmayacaktır, çünkü 10
+			temelli sayılar varsayılan sayı sistemidir. 
+		</p>
+	<p class="indent"> 
+			Sayıların genişliği veya başka bir deyişle alan genişliğinin belirtilmesi 
+			için ise, yine Ada.Text_IO  paketinin başında, 
+	</p>
+		<p class="nonindent">
+			<span class="keyw-25">subtype</span> Field <span class="keyw">is</span> 
+			Integer <span class="keyw">range</span>0..implementation-defined;
+		</p>
+	<p class="indent">
+			olarak tanımlanmıştır. Integer_IO alt generik alt paketinde tanımlanmış olan 
+			Default_Width : Field := Num'Width; ifadesi, Default_Width adında tanımlanan 
+			değişkenin veri tipinin daha önceden 	tanımlanmış Field tipinde olduğunu ve 
+			bunun varsayılan değerinin de generik Num değişeninin alan genişliği olan 
+			Num'Width değeri olacağı belirtilmektedir. Burada generik Num değeri yerine,
+			spesifik  bir tamsayı değeri alacaktır. Alan genişliği olarak da, uygulanmakta olan 
+			derleyici mimarisinde Integer tiplerinin varsayılan alan genişliği değeri uygulanacaktır. 
+		Bu değer, genellikle 8 değerindedir.</p>
+		<p class="indent">
+			Ada.Integer.Text_IO olarak adlandırılmış Integer veri tipi için spesifik kitaplık 
+			paketinde standart olarak belirlenmiş konsol giriş/çıkış ortamında, klavyeden veri girişlerinin
+			sağlanması için tanımlanmış bir Get metodu,
+	</p>
+		<div class="Examples-Maroon"><b>procedure</b>&nbsp;Get(Item&nbsp;:&nbsp;<span class="keyw">out</span>&nbsp;Num;&nbsp;Width&nbsp;:&nbsp;<span class="keyw">in</span>&nbsp;Field&nbsp;:=&nbsp;0);</div>
+<p class="nonindent">
+			şeklinde çağrılabilmektedir. Buradaki ilk argüman bir tamsayı değişkenin okunup bu değerin 
+			geri döndürüleceğini açıklamaktadır. İkinci argüman, sayı genişliğinin verideki karakter 
+			sayısına eşit olacağını varsayılan olarak belirlemektedir. Bunun dışında bir değer belirtilirse, 
+			verinin de tam olarak beliritilen karakter sayısında olması gerekecektir. Get prosedürü 
+			konsoldan bir tamsayı değerinin okunmasında, yani etkileşimli program
+			türlerinde gerekli olmaktadır. Get prosedürü sadece desimal sayı sisteminde değil,
+			desteklenebilen tanım aralığındaki tüm sayı sistemlerinde belirtilmiş olan tamsayıları 
+			konsoldan okuyabilmektedir. 
+		</p>
+		<p class="indent">
+			Ada.Integer.Text_IO paketinde, standart konsol çıkışı olarak tanımlanmış olan ekranda bir 
+			tamsayı değerinin gösterimi için kullanılacak bir Put prosedürünün tanımı, aşağıdaki gibi yapılmıştır. 
+		</p>
+		<div class="Examples-Maroon">
+			&nbsp;<b>procedure</b>&nbsp;Put(Item&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Width;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Number_Base&nbsp;:=&nbsp;Default_Base);
+		</div>
+	<p class="nonindent">
+			Burada ilk argüman gösterimi yapılacak tamsayı değeridir. İkinci argüman, tamsayı değerinin genişliğinin 
+			varsayılan genişlik olacağını belirtmektedir. Bu değer yerleşime bağlı bir değerdir ve genellikte 8 kolondur. 
+			Gösterimi yapılacak veri, varsayılan sütuntun sayısında sağa yaslanmış olarak gösterilecektir. Eğer, sayının 
+			sağa yaslanacağı sütuntun sayısının varsayılandan farklı olması isteniyorsa, kendi sayı genişliğimizin 
+			argüman olarak verilmesi gerekecektir. Eğer varsayılan sütuntun sayısı yeterli olacaksa bu argümanın 
+			verilmesi gerekli değildir. Son argüman, gösterimi yapılacak tamsayı verisinin sayı temelinin
+			belirtilmesidir. Eğer sayı on temelli (desimal) bir tamsayı ise, sayı temelinin belirtilmesi gereği
+			yoktur. Aksi durumda, sayı temelinin açıkça (explicit olarak) belirtilmesi gerekecektir.
+</p>
+		<p class="indent">
+			Put prosedürünün görüntüleyeceği tamsayı değeri, bir tamsayı literali şeklinde olacak, üste 
+			gösterim ve öndeki sıfırlar olmayack, sıfır için sadece bir tek sıfır olacak şekilde düzenlenmiş olacaktır.
+			On temelinden farklı sayı temelleri için, uygun biçimlendirme yöntemi uygulanacaktır. Eğer,
+			uygulanacak syı temeli harfler içeriyorsa, bu harfler büyük harf olarak görüntülenecektir. Eğer 
+			tamsayı verisinin içerdiği karakter sayısı, alan genişliği (width) değerinden daha az ise,
+			alanı doldurmak başlangıçta boşluklar bırakılacaktır. Yani görüntüleme varsayılan
+			sütün sayısına sağ yaslanarak yapılacaktır.
+		</p>
+	<p class="indent">
+			Aşağıdaki GET ve PUT prosedürleri daha ileri tekniklerle gerektiğinde kullanılabilir. 
+	</p>
+<div class="Examples-Maroon"><b>procedure</b>&nbsp;Get(From&nbsp;:&nbsp;<b>in</b>&nbsp;String;&nbsp;Item&nbsp;:&nbsp;<b>out</b>&nbsp;Num;&nbsp;Last&nbsp;:&nbsp;<b>out</b>&nbsp;Positive);</div>
+
+<div class="Examples-Maroon"><b>procedure</b>&nbsp;Put(To&nbsp;&nbsp;&nbsp;:&nbsp;<b>out</b>&nbsp;String;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base&nbsp;:&nbsp;<b>in</b>&nbsp;Number_Base&nbsp;:=&nbsp;Default_Base);</div>
+		<p class="indent">
+			Bir kullanım örneği, <a href="http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations">http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations</a> sayfasında görülebilir.
+		</p>
+		<p class="indent">
+			Aşağıda program listesi görülen bir <a href="../uygulamalar/b2_14_uyg_1.html">uygulamada</a> 
+			öntanımlı Integer tipinin çalışılan işletim sisteminde geçerli olan alt ve üst sınırları saptanmaktadır.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Integer_Text_IO ;
+<span class="keyw">procedure</span> b2_14_uyg_1 <span class="keyw">is</span>
+<span class="keyw">begin</span>
+<span class="pl-25">Put</span>(Item =&gt; <span> 
+   class="str">&quot;Bu Makinenin En Alt Integer Veri Tipi Değeri : &quot;</span>);
+<span class="pl-25">Ada.Integer.Text_IO</span>.Put(Item =&gt; Integer'First, width =&gt; 11);
+<span class="pl-25">New_Line</span>;
+<span class="pl-25">Put</span>(Item =&gt; <span> 
+   class="str">&quot;Bu Makinenin En Üst Integer Veri Tipi Değeri :&quot;</span> );
+<span class="pl-25">Ada.Integer.Text_IO</span>.Put(Item =&gt; Integer'Last, width =&gt; 12);
+<span class="keyw">end</span> b2_14_uyg_1;
+		</pre>
+		<p class="nonindent">
+			Bu programın Sonucu :
+		</p>
+		<p class="green">
+			Bu Makinenin En Alt Integer Veri Tipi Değeri : -2147483648<br />
+			Bu Makinenin En Üst Integer Veri Tipi Değeri : 2147483647
+		</p>
+		<p class="indent">
+			Yukarıdaki programda iki ayrı paket kullanılmakta ve her iki pakette de Put prosedürü gibi aynı adlı 
+			prosedürler bulunmakta ve programda put prosedürü bazen sözel, bazen de sayısal verilerin 
+			konsol gösterimleri için kullnılmak istenmektedir. Oysa her iki paketteki Put prosedürlerinin
+			spesifikasyonları farklıdır ve birbirlerinin yerine kullanılamazlar. Buna metot bindirmesi, 
+			(method overloading) adı verilir ve programın öngörüldüğü gibi çalışabilmesi için metot
+			çakışması sorununun bir şekilde çözümlenmesi gerekir. Aksi halde bir belirsizlik (ambiguity) 
+			durumu ortaya çıkar, bu durumda bir çalışma süreci (run-time) hatası oluşur ve programın 
+			yürüyüşü kesilir. 
+		</p>
+		<p class="indent">
+			Metot çakışmasından doğan belirsizlik iki şekilde aşılabilir. Bunlardan ilki otomatiktir ve
+			programcının hiçbir şey yapması gerekmez. Ada derleyicisi, metot çakışmalarını çözümlemek 
+			için yeterince gelişmiştir. Metodun argümanlarını inceleyerek işleve uygun metodun hangi paketten 
+			alınması gerektiğini saptar ve işlemi gereği gibi sonuçlandırır. Normal olarak, Ada programlarında
+			programcının metot çakışmalarından çekinmemesi gerekir.
+		</p>
+		<p class="indent">
+			Metot çakışmalarının aşılabilmesi için uygulanabilecek ikinci yöntem, programcının kullanmak
+			istediği metodun handi kaynaktan alınması gerktiğini derleyiciye açık olarak bildirmesidir. Bu durumda
+			çakışan metotlar, Ada.Text_IO.Put(...  veya Ada.Integer_IO.Put şeklinde paket kaynakları
+			belirtilerek çağrılırlar. Bu durumda metot çakışması ve metot çakışması nedeni ile ortaya çıkabilecek
+			çelişki de ortadan kalkar ve programın öngörülen şekilde çalışmasına hiçbir engel kalmaz.
+		</p>
+		<p class="indent">
+			Modern derleyicilere güveni az olan tutucu programcılar, ikinci yolun daha güvenli olacağını ve bu şekilde
+			hiçbir sorun yaşanmayacağını sanabilirler. Oysa bu düşünce doğru değildir. Ada derleyicisi, 
+			bugüne kadar gerçekleştirilmiş olan en karmaşık programlama dili olan Ada programlama dilinin 
+			programlarını derleyebilecek kadar üstün nitelikli bir derleyicidir. 
+			Bu derleyici için metot çakışmalarını çözümlemek sorun değildir. Programlarda esas sorunlar, bu 
+			gibi çözümleneceği kesin olan basit metot çakışmalarından değil, öngörülmemiş 
+			sorunlardan doğan ve öngörülmediği için yakalama yöntemi belirtilmememiş olan, bu nedenle giderek 
+			yaygınlaşabilen ve sonunda programı devreden çıkaran hatalardan kaynaklanır. Ariane-5 füzesi de bu nedenle 
+			rampada yanmıştır. Programcılar, dikkatlerini bu konulara vermekle daha verimli işler yapmış olurlar. Örnek olarak,
+			konsoldan bir tamsayı girmesi beklenen bir kullanıcı, tamsayı yerine ondalıklı bir sayı girer ve enter
+			tuşuna basarsa ne olabilecektir? Programların öngörülen şekilde çalışmasının sağlanabilmesi için,
+			programcıların,bu gibi sorunlara eğilmeleri ve programın çalışması sırasında doğabilecek sorunları daha 
+			önceden belirleyerek gereken önlemleri almaları gerekir.
+		</p>
+				<p class="indent">
+			Program sonucunda, Integer değişkeninin destekleyebildiği tamsayı değerlerinin 10
+			karakterlik tamsayılarla sınırlı olduğu görülmektedir. Bu değer aralığının yetmediği durumlarda 
+			kullanıcı kendi tipini tanımlayabilir. Fakat bu durumda taşınabilirlik garanti edilemez.
+		</p>
+		<p class="indent">
+			Programlarda hiç negatif değerler almayacak tamsayı değişkenleri için, Integer yerine, Natural veya 
+			Positive öntanımlı tamsayı veri tiplerini kullanmaları daha uygun olur. Bu şekilde negatif değer atanmaması gereken 
+			bir değişkene yanlışlıkla negatif bir değer atandığında, programın hata vererek programcıyı uyarması sağlanabilir. 
+			Öntanımlı Natural veya Positive veri tipleri, Integer tipinin alt tipleri olduklarından Integer tipi ile 
+			uyumludurlar ve Integer.Text_IO paketinin metotlarından yararlanabilirler. Aşağıda 
+			listesi görülen <a href="../uygulamalar/b2_14_uyg_2.html">programda</a> bu yöntem uygulanmıştır.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Integer_Text_IO; <span class="keyw">use</span> Ada.Integer_Text_IO;
+<span class="keyw">procedure</span> b2_14_uyg_2 <span class="keyw">is</span>
+   Bir_yıldaki_hafta_sayısı :Positive := 52;
+   Bir_haftadaki_gün_sayısı: Positive := 7;
+   Bir_yıldaki_gün_sayısı : Positive := 365;
+<span class="keyw">begin</span>
+   Put(Item =&gt; <span class="str">&quot;Bir yıldaki hafta sayısı :  &quot;</span>);
+   Put(Item =&gt; Bir_yıldaki_hafta_sayısı, width =&gt; 11);
+   New_Line;
+   Put(Item =&gt; <span class="str">&quot;Bir haftadaki gün sayısı : &quot;</span>);
+   Put(Item =&gt; Bir_haftadaki_gün_sayısı, width =&gt; 12);
+   New_Line;
+   Put(Item =&gt; <span class="str">&quot;Bir yıldaki gün sayısı :   &quot;</span>);
+   Put(Item =&gt; Bir_yıldaki_gün_sayısı, width =&gt; 12);
+   New_Line;
+   <span class="keyw">end</span> b2_14_uyg_2;
+		</pre>
+		<p class="green">
+			Bu programın Sonucu:
+		</p>
+		<p class="green">
+Bir yıldaki hafta sayısı :           52
+Bir haftadaki gün sayısı :           7
+Bir yıldaki gün sayısı :           365
+		</p>
+		<p class="green">
+			olmaktadır.
+		</p>
+		<p class="nonindent">
+			Yukarıdaki programda görüldüğü gibi, sayıların aynı sütüna sağ yaslanmaları için, aynı uzunlukta 
+			yazdırılmaları yeterli olmaz. Her satırdaki mesajın karakter sayısı da aynı olacak şekilde düzenlenmeli, 
+			kısa kalan mesajlar, en uzun mesajın boyuna gelinceye kadar boşluklarla genişletilmelidir.
+		</p>
+		<p class="indent">
+			Aşağıda listesi görülen <a href="../uygulamalar/b2_11_uyg_1.html">programda</a>
+			konsoldan bir tamsayı değeri okunmakta, bu sayının karesi hesaplanmakta ve sonuç konsoldan
+			görüntülenmektedir.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Integer_Text_IO; <span class="keyw">use</span> Ada.Integer_Text_IO;
+<span class="keyw">procedure</span> b2_14_uyg_3 <span class="keyw">is</span>
+   Değer : Integer;
+   Değerin_Karesi : Integer;
+<span class="keyw">begin</span>
+   Put(Item =&gt; &quot;Lütfen Bir Tamsayı Giriniz : &quot;);
+   Get(Item =&gt; Değer);<br />   New_Line;
+   Değerin_Karesi := değer**2;
+   Put(Item =&gt; &quot;Girilen Değer :  &quot;);
+   Put(Item =&gt;Değer, width =&gt; 10);
+   New_Line;
+   Put(Item =&gt;&quot;Değerin Karesi : &quot;);
+   Put(Item =&gt;Değerin_Karesi, width =&gt; 10);
+<span class="keyw">end</span> b2_14_uyg_3;
+		</pre>
+		<p class="nonindent"> 
+			Program Sonucu:
+		</p>
+		<p class="green">
+Lütfen Bir Tamsayı Giriniz : 2#01001#
+Girilen Değer :             9
+Değerin Karesi :         81
+		</p>
+		<p class="green">
+			olmaktadır.
+		</p>
+		<p class="nonindent">
+			Programın çalışmasından da görülebileceği gibi, 2 ile 16 arası temelli tüm tamsayı
+			değerleri sisteme girilebiliyor. Fakat, hesaplamalar desimal temelda yapılıyor, sonuç desimal 
+			temelli olarak oluşuyor ve desimal olarak görüntüleniyor. 
+		</p>
+		<p class="indent">
+			Bu sonuç, sayı temeli 10 lu sistemden farklı olan verilerle çalışıldığında, sonuçların daima on temelli (desimal) 
+			değerlere çevrildiğini belirtmektedir. Sayı temelei farklı olan sayılarla yapılan çalışmalarda, değer aşımı 
+			kontrolu desiamal temelli olarak yapılır, kullanıcı desimal sayılardan farklı temelli sayı sistemlerine alışık 
+			olmadığından değer aşımı yaratacak sınırlara eriştiğini geç farkedebilir ve değer aşımı hatası oluşur. Yakalanmazsa,
+			gerçek zamanlı sistemlerde ağır sonuçlara neden olabilir.
+		</p>
+		<p class="indent">
+			Aşağıda listesi görülen <a href="../uygulamalar/b2_14_uyg_4.html">programda</a>
+			Girilen bir tamsayı değerinden önceki tamsayı değeri belirlenmektedir.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Integer_Text_IO; <span class="keyw">use</span> Ada.Integer_Text_IO;
+<span class="keyw">procedure</span> b2_14_uyg_4 <span class="keyw">is</span>
+   Değer : Integer;
+   Önceki_Değer : Integer;
+<span class="keyw">begin</span>
+   Put(Item =&gt; &quot;Lütfen Bir Tamsayı Giriniz : &quot;);
+   Get(Değer);<br />   New_Line;
+   Önceki_Değer :=Integer'Pred(Değer);;
+   Put(Item =&gt; &quot;Girilen Değer :  &quot;);
+   Put(Item =&gt; Değer, width =&gt; 11);
+   New_Line;
+   Put(Item =&gt;&quot;Önceki Değer :  &quot;);
+   Put(Item =&gt;Önceki_Değer, width =&gt; 12);
+<span class="keyw">end</span> b2_14_uyg_4;
+		</pre>
+		<p class="nonindent"> 
+			Program Sonucu:
+		</p>
+		<p class="green">
+Lütfen Bir Tamsayı Giriniz : 16#A12BC#
+Girilen Değer :        660156
+Önceki Değer :        660155
+		</p>
+		<p class="green">
+			olmaktadır.
+		</p>
+		<p class="nonindent">
+			Bu program sonucundan görüldüğü gibi, veri onaltı temelli (hex) bir tamsayı
+			olmasına karşın desimal temelli bir tamsayıya çevrilerek, tamsayılar skalasında
+			kendinden bir önce gelen (değerden 1 çıkartılarak bulunan) sayı hesaplanarak konsoldan
+			görüntüleniyor.
+		</p>
+		<p class="indent">
+			Daha önceki bir programda, stanadrt pakette tanımlı olan Integer veri tipinin kapsamı
+			kullanıcılara yetrli görünmezse, kullanıcılar kendi tamsayı tiplerini tanıtıp kullanabilecekleri
+			belitilmişti. Ada olanakları sonsuz denecek kadar geniş bir programlama dilidir. Kullanıcı tanımlı
+			veri tipleriileride detyalı olarak incelenecektir.. Fakat, salt bir bilgi vermek amacı ile 
+			kullanıcı tanımlı bir tamsasyı veri tipinin tanıtımı aşağıda 
+		<a href="../uygulamalar/b2_14_uyg_5.html">listesi</a> görülen programda yapılmıştır.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+
+<span class="keyw">procedure</span> b2_14_uyg_5 <span class="keyw">is</span>
+<span class="keyw-25">type</span> Tamsayı <span class="keyw">is range</span> -2**62 - 2**61 -2**60 - 2** 59 - 2**58 - 2** 57 - 2**56 - 2**55 - 2** 54 - 2**53 - 2**52 - 2**51 - 2**50 - 2**49 .. 
+2**62 + 2**61 +2**60 + 2** 59 + 2**58 + 2** 57 + 2**56 + 2**55 + 2** 54 + 2**53 + 2**52 + 2**51 + 2**50 + 2**49;
+<span class="pl-25">kimlikNo</span> : Tamsayı := 18_545_676_582;
+<span class="keyw">begin</span>
+<span class="pl-25">Put</span>(Item =&gt; "Tamsayı veri tipi en düşük değer :   ");
+<span class="pl-25">Put</span>(Item =&gt; Tamsayı'Image(Tamsayı'First));
+<span class="pl-25">New_Line</span>;
+<span class="pl-25">Put</span>(Item =&gt; "Tamsayı tipi en yüksek değer :       ");
+<span class="pl-25">Put</span>(Item=&gt; Tamsayı'Image(Tamsayı'last));
+<span class="pl-25">New_Line</span>;
+<span class="pl-25">Put</span>(Item =&gt; "Abdullah Okumaz Kimlik Numarası :            ");
+<span class="pl-25">Put</span>(Item =&gt; Tamsayı'Image(kimlikNo));
+<span class="pl-25">New_line</span>;
+<span class="pl-25">Put</span>(Item =&gt; "Integer verilerinin en üst sınırı :           ");
+<span class="pl-25">Put</span>(Item =&gt; Integer'Image(Integer'Last));
+<span class="pl-25">New_Line</span>;
+<span class="pl-25">Put</span>(Item =&gt; &quot;Tamsayı Veri Tipi bit Sayısı :           &quot;);
+<span class="pl-25">Put</span>(Item =&gt; Integer'Image(Integer'Last));
+<span class="keyw">end</span>  b2_14_uyg_5;
+		</pre>
+		<p class="nonindent">
+			Program Sonucu :
+		</p>
+		<p class="green">
+Tamsayı veri tipi en düşük değer :   -9222809086901354496
+Tamsayı tipi en yüksek değer :          9222809086901354496
+Abdullah Okumaz Kimlik Numarası :                 18545676582
+Integer verilerinin en üst sınırı :                         2147483647<br />Tamsayı Veri Tipi bit Sayısı :            64
+		</p>
+		<p class="green">
+			olmaktadır.
+		</p>
+		<p class="indent">
+			Programın incelenmesi ile makinenin desteklediği ve Standard Integer olarak da 
+			adlandırılan, standart pakette tanımlı Inteder veri tipinin kapsamını çok aşan
+			yeni bir Tamsayı veri tipi tanımlamış oluyoruz. Bu veri tipi, Integer veri tipinin
+			bir alt tipi değildir fakat bir tamsayı tipi olduğu için, Standart Integer ile uyumludur.
+			Bu bir kullanıcı tanımlı tamsayı veri tipidir ve temel veri tipi root_integer dir. Program 
+			sonucundan Tamsayı veri tipinin 64 bit lik word üzerinden tanımlanmış olduğu görülmektedir.
+			Ada derleyicisi, bu gibi kullanıcı tanımlı verilerin istenen kapsam sınırına göre en uygun 
+			word uzunluğuna ayarlayarak sistem belleğini optimal olarak kullandırma yeteneğine sahiptir. 
+			Bu da üstün taraflarından biridir. 
+		</p>
+		<p class="indent">
+			Tamsayı veri tipi her türlü aritmetik işlemde kullanılabilir. Fakat sonuçları konsolda, Ada.Integer_Text_IO
+			paketinden yararlanarak gösterilemez, çünkü Tamsayı veri tipi Integer veri tipinde (Integer veya Alt Türleri)
+			değildir. Kendine özgü kullanıcı tanımlı bir tamsayı veri tipidir. Bu veri tipinin kendi özel giriş/çıkış paketine
+			gerksinmesi vardır. Bu da hiçbir kullanıcı tanımlı veri tipi için gerçekleştirilmediği için, kullanıcı tipi
+			veri tipi işlem sonuçları, programda görüldüğü gibi, karakter dizisi (string) tipine çevrllir ve Ada.Text_IO
+			program paketinden yararlanılarak giriş/çıkış işlemleri yapılabilir.
+		</p>
+		<p class="indent">
+			Sonuçlar incelendiğinde, bu yeni kullanıcı tanımlı Tamsayı veri tipinin olağanüstü geniş bir kapsam aralığı 
+			olduğu görülüyor. Kapsam aralığı Standart Integer kapsamını kata kat aşıyor ve ülke kimlik numaralarının 
+			verilebilmesi için fazlası ile yeterli olduğu görülüyor. Eğer istenirse, tüm dünya insanlarına bu veri tipi
+			kullanılarak bir kimlik numarası verilebilir ve daha kullanılmamış çok numara kalabilir.
+		</p>
+		<p class="indent">
+			Tamsayı veri tipleri, cebirsel çalışmalarda hemen hemen hiç kullanılmaz. Bu değişkenler,daha çok sayım,
+			numaralandırma, kimlik verileri, sosyal sigorta numaraları , emtia numaraları gibi tamsayı gerektiren 
+			işlemlerde kullanılırlar.
+		</p>
+		<p class="indent">
+			Günümüzde, donanım konusu son derece kolaylaşmış ve ekonomik hale gelmiştir. Programların
+			taşınabilirliğine fazla önemsememek gerekir. Artık özel sistemler sadece çok özel donanımlar için
+			geçerlidir. Normal programlama ortamlarında 64 bit Windows 7 işletim sistemi, fazla pahalı olmayan 
+			taşınabilir bilgisayarlarda bile bulunmaktadır. İstendiğinde bir programın gerektirdiği sistemin kurulması
+			çok kısa zaman ve çok ekonomik koşullarda gerçekleşebilir.Yukarıda görülen ve 64 bitlik Windows 7 sisteminde
+			çalışan <a href="../uygulamalar/b2_14_uyg_5.html">program</a>, sorunsuz olarak bir laptop üzrindeki 
+			32 bit Windows Vista işletim sistemi üzerinde de çalışmış ve 32 bitlik sistem üzerinde 64 bit uzunluğunda 
+			tamsayı veri tipi açabilmiştir. Bu sonuçla taşınabilirlik sorununun artık önemli olmadığı söylenebilir. 
+		</p>
+		<p class="indent">
+			Ada derleyicisinin tanımlanan kullanıcı tipi tamsayı veri tipinin, tanımlanan kapsamının gerektirdiği 
+			kadar veri genişliği uyguladığı aşağıdaki <a href="../uygulamalar/b2_14_uyg_6.html">örnekten</a> de 
+			anlaşılabilir.
+		</p>
+		<pre class="app-25">
+
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+
+<span class="keyw">procedure</span> b2_14_uyg_6 <span class="keyw">is</span>
+<span class="keyw-25">type</span> Say <span class="keyw">is range</span> -100 .. 100;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Put</span>(Item =&gt; <span class="str">&quot;Say veri tipinin bit uzunluğu : &quot;</span>);
+<span class="pl-25">Put</span>(Item =&gt; Integer'Image(Say'Size));
+<span class="keyw">end</span> b2_14_uyg_6;
+		</pre>
+		<p class="nonindent">
+			Bu problemin sonucu,
+		</p>
+		<p class="green">
+Say veri tipinin bit uzunluğu :  8
+		</p>
+		<p class="nonindent">
+			olarak bulunur. 
+		</p>
+		<p class="indent">
+			Bu sonuç, Ada derleyicisinin kullanıcı tanımlı veri tipleri için veri uzunluğu oluşturmakta
+			olağanüstü esneklğini göstermektedir. Yeni veri tipi tanımlanan kapsam daraldıkça
+			bu kapsamda çalışabilecek en düşük veri uzunluğu ayrılmaktadır. Bu 
+			<a href="../uygulamalar/b2_14_uyg_6.html">örnek</a> sonucunda gözlenen 8 bit
+			(1 byte) (1 oktet) (okto grekçe sekiz) lik veri uzunluğu en alt sınır değildir. Daha dar bir kapsam için,
+			veri uzunluğunun 5 bit olarak düzenlendiği gözlenmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em> &laquo;İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="kodlama">
+				<a href="ek3-s3.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+</ul>
+		 <p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+			src="http://www.w3.org/Icons/valid-xhtml11"
+			alt="Valid XHTML 1.1" height="31" width="88" /></a>
+	</p>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:34 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

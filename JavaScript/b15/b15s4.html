@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:33 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b15/b15s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5
+		at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b15s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html">
+					<img class="navpad" alt="index" src="../images/index.gif" id="img1" />
+				</a>
+				<a href="b15s3.html">
+					<img class="navpad" alt="previous" src="../images/previous.gif" id="img2" />
+				</a>
+				<a href="b15s5.html">
+					<img class="navpad" alt="next" src="../images/next.gif" id="img3" />
+				</a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 15
+		</p>
+		<p class="chapter">
+			Kullanıcı Tanımlı Nesneler
+		</p>
+		<p class="pagenum">
+			Bölüm 15 Sayfa 4
+		</p>
+		<p class="title-left" id="inheritance">
+			15.4 -Üst Sınıf / Alt Sınıf - Nesne Hiyerarşisi
+		</p>
+		<p class="indent">
+			Nesne sisteminde üstSınıf, üst sınıf olarak nitelendirilen bir sınıfın 
+			özelliklerinin, alt sınıf olarak nitelendirilen bir başka sınıfa aktarılmasıdır. 
+			JavaScript programlama dili, üstSınıfı destekler, fakat üstSınıfla ilgili olan  
+			çalışmalar, kullanıcılar tarafından tanımlanmalıdır. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, nesne hiyerarşisi iki türlü
+			gerçekleştirilebilir. İlki yapılandırıcı fonksiyonların birbirini çağırması 
+			yöntemidir. Bu  yöntem, dinamik üstSınıfı, yani, hiyerarşi oluşturulduktan sonra, 
+			üst sınıfta yaratılacak yeni bir özelliğin alt sınıflara aktarılması sağlamaz. Ama bu  
+			kullanıcı tarafından tanıtılabilir. Ayrıca bu yöntem, prototip transferi yöntemi ile 
+			gerçekleştirilen gerçek dinamik prototip zincirinin desteklemediği,  birden çok üst
+			sınıftan üstSınıfın yani çoklu üstSınıfın da gerçekleşebilmesine olanak sağlar.
+		</p>
+		<p class="indent">
+			İkinci yöntem, prototip transferi ile protip zincirinin oluşturulmasıdır. Bu yöntem, dinamik
+			üstSınıfı sağlar, fakat çoklu üstSınıf desteklenmez. Bunun için, ek düzenlemeler yapılması
+			gerekir. Her iki yöntem de, ayrı ayrı incelenecektir.
+		</p>
+		<p class="subheading" id="functional">
+			15.4.1 - Yapılandırıcı Fonksiyonlardan Yararlanılarak Gerçekleştirilen Üst
+			Sınıf / Alt Sınıf Hiyerarşisi 
+		</p>
+		<p class="indent" id="b15.4.1-uyg-1">
+			Yapılandırıcı fonksiyonlaran yararlanılarak gerçekleştirilen üstSınıf, prototip zinciri yaratmaz fakat 
+			bu yöntem, birden çok sınıftan kaynaklanan özelliklerinin üstSınıfla kazanımına olanak sağlar. 
+			Bu konuda bir 
+			<a href="../uygulamalar/b15.4.1-uyg-1-js.html">
+				JavaScript programı
+			</a>
+			ve bağlantılı 
+			olduğu 
+			<a href="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulama
+			</a>
+			sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Üretim<span 
+			class="op">(</span>nr<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> nr <span 
+			class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Yapım<span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> şekil<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> şekil || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> Kare<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> kenar<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> kenar || 0<span 
+			class="op">;
+</span><span class="keyw-50">this</span> üstSınıf1 <span 
+			class="op">=</span> Üretim<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf1<span 
+			class="op">(</span>seriNr<span 
+			class="op">);</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">=</span> Yapım<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> <span 
+			class="str">'Kare'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return</span> <span 
+class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>en<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Dikdörtgen<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği || 0i<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf <span 
+			class="op">=</span> Kare<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> eni<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'DikDörtgen'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> çokluKalıtım<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> kutu24 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kare<span 
+			class="op">(</span>34688<span 
+			class="op">,</span> <span 
+			class="str">'Karton'</span><span 
+			class="op">,</span> 12<span 
+			class="op">),</span> kutu25 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(</span>45786<span 
+			class="op">,</span> <span 
+			class="str">'Teneke'</span><span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">); </span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu24 Özellikleri =  '</span>, kutu24<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>malzeme<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu25 Özellikleri =  '</span>, kutu25<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>malzeme<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>,  <span 
+			class="str">'b15.4.1-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.24 Özellikleri : </span>
+			<span class="cursive-red">34688 Kare Karton 1728</span>
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.25 Özellikleri : </span>
+			<span class="cursive-red">45786 Dikdörtgen Teneke 1000</span>
+		</p>
+		<p class="indent">
+			Alınımış olan sonuçların iyi anlaşılması için, programın adım adım izlenmesi
+			ve açıklanması yararlı olabilir. Programda ilk fonksiyonlar olan Üretim<span class="op">()</span>
+			ve Yapım<span class="op">()</span>
+			fonksiyonları, 
+			yapılandırıcı fonksiyonlardır fakat bu fonksiyonların amacı, örnek üretmek
+			değildir. Bu iki fonksiyon, birer üst sınıf olarak özelliklerini alt sınıflara aktarmak 
+			amacı ile oluşturulmuştur. 
+		</p>
+		<p class="indent">
+			Bundan sonraki Kare<span class="op">()</span>
+			fonksiyonu ise gerçek bir yapılandırıcı fonksiyondur ve bu yapılandırıcı
+			fonksiyon,  üretilen kare şeklindeki kutuların kaydedilmesi amacı ile yapılmıştır.
+			Kare geometrik şeklinin tüm kenarları birbirine eşittir. Bu şekil, en az boyut
+			özelliklerine sahip olduğu için hiyerarşide üst sınıflara en yakın düzeyde
+			alt sınıf olarak seçilmiştir.  Kare kenar boyutu Kare<span class="op">()</span>
+			yapılandırıcı 	fonksiyonunun tek  boyut argümanı ile girilmektedir. Bu argüman, ilginç olarak
+			en adı verilmiş olan bir özelliğe  atanmaktadır. Bu özelliğin niçin en olarak
+			adlandırıldığı  biraz sonra görülecektir. Bundan sonra hacım olarak adlandırılmış
+			olan bir özelliğin değerine, bir anonim (isimsiz fonksiyon) atanmaktadır.
+			Doğal olarak istendiğinde bu  fonksiyon, bir dış fonksiyon olarak tanımlanabilir
+			ve referansı yapılandırıcı fonksiyona  aktarılabilirdi. Bu konuda seçim, programcıya
+			kalmıştır. Bundan sonra,  Kare<span class="op">()</span>
+			yapılandırıcı fonksiyonunda yeni bir üstSınıf1 özelliği tanımlandığı ve bu özelliğe Üretim fonksiyonunun
+			referansının atandığı görülmektedir. Kalıtımı sağlayan işlemi bu atama başlatmaktadır.
+			İkinci aşamada bu özelliğe atanmış olan fonksiyonun çalıştırıldığı görülmektedir.
+			Bu aşama ile ilk alt sınıf oluşturlması  gerçekleştirilmekte ve 
+			Üretim<span class="op">()</span> üst sınıfının tüm özellikleri,
+			 Kare<span class="op">()</span> alt sınıfına aktarılmakta
+			ve üstSınıfla aktarılan seriNumarası  özelliğine, Kare<span class="op">()</span>
+			yapılandırıcı fonksiyonunun seriNr argümanı  atanmaktadır. 
+		</p>
+		<p class="indent">
+			Kare<span class="op">()</span>
+			yapılandırıcı fonksiyonunda bundan sonra, yeni bir 
+			üst sınıf tanımı yapılmış, bu sefer Yapım<span class="op">()</span>
+			sınıfı, Kare nesne sınıfı için üst sınıf olarak belirtilmiştir. Buradan üstSınıf ile aktarılan 
+			malzeme özelliğinin varsayılan değeri olarak Kare<span class="op">()</span>
+			yapılandırıcı fonksiyonunun materyel argümanı değeri atanmıştır. Yine üst Yapım 
+			sınıfından kalıtımla gelen kutuŞekli özelliğinin varsayılan değeri yerine Kare seklinin 
+			sabit olan geometrik şekli olan <span class="str">'Kare'</span> sabit değeri atanmıştır. 
+			Bu durumda, Kare sınıfı, iki üst sınıftan özellik alır duruma gelmiş ve çoklu kalıtım olayı 
+			gerçekleşmiştir. 
+		</p>
+		<p class="indent">
+			Bir sonraki, Dikdörtgen<span class="op">()</span> yapılandırıcı fonksiyonunda ise, 
+			çok daha ilginç yöntemler uygulanmıştır. Bu fonksiyonun seriNr, materyel, eni, boyu, yüksekliği  
+			olmak üzere, beş tane argümanı vardır. son iki argüman üst sınıflardan kalıtımla aktarılmayan 
+			özelliklere aittir ve hemen atanmaktadırlar. Bundan sonra, Dikdörtgen sınıfının bir düzey  
+			üst sınıfı olarak 	Kare sınfının tanımlanması yapılmaktadır. Kare üst sınıfından seriNumarası, 
+			malzeme ve kutuŞekli özellikleri, Kare sınıfında atanmış değerleri ile, Dikdörtgen sınıfına kalıtımla
+			aktarılacaklardır. Bu değerlere Dikdörtgen sınfının özellik değerlerinin atanması için ,
+			üstSınıf<span class="op">()</span> fonksiyonuna Kare<span class="op">()</span>
+			yapılandırıcı fonksiyonunun referansı atanmıştır. Artık üstSınıf<span class="op">()</span>
+			fonksiyonu, Kare<span class="op">()</span> yapılandırıcı fonksiyonunu gibi hareket etmekte 
+			ve burada <span class="keyw">this</span>
+			saklı sözcüğü artık Dikdörgen nesne sınfıını işaret etmektedir. Bu şekilde, 
+			üstSınıf<span class="op">()</span> fonksiyonunun argümanlarına, aynı 
+			Kare<span class="op">()</span> yapılandırıcı fonksiyonunun sırasında, sıra ile,
+			Dikdörtgen<span class="op">()</span> 	yapılandırıcı fonksiyonun seriNr, materyel ve eni argümanları
+			atanmaktadır. Burada, Kare sınfında kenar uzunluğu için en özellik adının niçin seçilmiş 
+			olduğu da ortaya çıkmaktadır. Kare ve Dikdörtgen sınıfında aynı özelliği belirten özellik 
+			isimlerinin aynı olması için, Kare sınıfında kenar uzunluğu özelliği en olarak adlandırılmış ve  
+			bu özelliğin değeri, dikdörtgen sınıfında yeniden tanımlanmıştır. Bu yönteme, özellik 
+			değerine bindirme adı verilir ve hiyeraşik yapılanmada çok önemlidir. Bu şekilde aynı  
+			işlevi gören özelliklere her sınıfta ayrı isimler verimesi gerekmeyerek, programın kolay 
+			izlenebilmesi ve bakımı sağlanmış olmaktadır.
+		</p>
+		<p class="indent">
+			Dikdörtgen sınıfı yapılandırıcı fonksiyonunda gerçekleşen önemli yapılanmalardan birisi de, 
+			üst düzey Kare sınıfından gelen, fakat hiçbir yapılandırıcı fonksiyonun argüman listesinde 
+			bulunmayan, kutuŞekli özelliğine Dikdörtgen sınıfı için özel değerin atanmasıdır. Burada kutuŞekli 
+			özelliği, bir üst düzey Kutu sınıfından kalıtımla fakat üst Kutu sınıfında atanmış 
+			olduğu <span class="str">'Kare'</span> öntanımlı değeri ile gelmektedir. Hiçbir argüman listesinde
+			olmadığı için, bu özelliğin değerine, Dikdörgen sınfında açık (explicit) olarak bindirilmekte ve 
+			dikdörgen 	geometrik seklinin sabit değeri olan <span class="str">'Dikdörtgen'</span>
+			değeri 	atanmaktadır. 
+		</p>
+		<p class="indent">
+			Dikdörtgen sınıfına, bir düzey üst sınıf olan Kare sınıfından kalıtımla gelen 
+			hacım<span class="op">()</span> metodunun içeriği, Dikdörgen sınıfı için uygun 
+			olmadığından, bir alt düzey alt sınıf olan Dikdörtgen sınıfında içeriği değiştirilmiştir.
+			Buna metot bindirme adı verilmektedir. Hiyerarşik yapılanmalarda metot bindirmeleri
+			çok önemlidir. Her sınıf için aynı isim fakat farklı içerikte metotlatla çalışma olanağını
+			vermekte bu şekilde aynı işlevi yapan metotların her sınıfta farklı olabilecek isimlerinin
+			tek ve tanınabilen bir isim olması sağlanabilmektedir.
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulamanın
+			</a>
+			sonuçlarının incelenmesinden tüm değerlerin istendiği gibi, sınıf özelliklerine atanabildiği ve 
+			metotların her sınıfta gerektiği gibi çalıştığı anlaşılmaktadır. Özetle, 
+			yapılandırıcı fonksiyonlarının birbirleri içinden çağrılması yöntemi ile 
+			oluşturulan sınıf hiyerarşisi iyi çalışmaktadır ve biraz sonra görülecek protoip  
+			transferi yöntemi ile gerçekleştirilemeyen çoklu kalıtım da bu yöntemle 
+			gerçekleştirilebilmektedir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulamada
+			</a>
+			hiyeraşinin oluşturulması ve nesne sınıf örneklerinin başarı ile yaratılması ile birlikte 
+			sistemin programlama aşaması tamamlanmış ve veri girişi aşaması başlamış olmaktadır.  
+			Veri girişi programları, hiyerarşik nesne yapılanması sisteminin, belirlenmiş olan veri 
+			yapılarına dayanır. Bir kez belirlendikten ve sistemin yapılanması tamamlandıktan 
+			sonra, veri girişi aşamasına geçildikten sonra, asla veri yapılarında değişiklik yapılamaz.
+		</p>
+		<p class="indent">
+			Veri sişstemleri, az sayıda nesne örneği yaratılması için tasarlanmaz. Nesne örnekleri, 
+			dizilerin elemanları olarak oluşturulur. Veri dizileri ileride göreceğimiz gibi disklerde
+			saklanır. Verilere uygun programlarla erişilir ve gerekli bilgiler alnır.
+		</p>
+		<p class="indent">
+			Veri giriş programları, verilerin yapılarına uygun olan veri girişleri , verilerin dizilerde 
+			düzenlenmesi, disk dosyalarının yönetimi, girilmiş verilerin düzeltilmesi, silinmesi, 
+			görüntülenmesi ve baılı çıktılar (printout) alınması programlarını içerir. Eğer veriler 
+			bir veri temeline yerleştirilecekse, veri temeline yerleştirme programlar da bu aşamada 
+			düzenlenir. Sonunda üretinm aşamasına geçilebilir. 
+		</p>
+		<p class="indent">
+			Tüm kontroller tamamlandıktan sonra veri Üretim aşamasına geçilir. Bu aşamada veriler girilir
+			ve disk veya naşka depolama alanlarında saklanılır. Verilere ikinci aşamada geliştirilmiş 
+			programlar kullanılarak erişilir, baskılı veya görüntü listeleri alınır. 
+		</p>
+		<p class="indent">
+			Üretim aşamasındaki sistemin sonsuza kadar bu şekilde devam edileceği ve değiştirilmeyeceği 
+			varsayılır. Aslında gerçek böyle değildir. Veri sisteminin eskimesi diye bir kavram vardır.
+			Üretim aşamasında, sistem çalışırken, kullanıcılar veri yapısında bazı eksiklikler olduğunu, 
+			istedikler bazı bilgilerin veri temelinde bulunmadığını farkederler ve veri yapılarına yeni 
+			özellikler eklenmesini isteyebilirler. Örnek olarak, yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulamada
+			</a>
+			üretilen kutuların renginin de kaydedilmesini isteyebilirler. Bazen bu baskılar bunaltıcı olur ve acil çözüm  
+			aranır. Aslında acil çözüm yoktur, değişimin de bir sistematiği vardır ve buna uyulmadığında 
+			sorunlar yaşanır. 
+		</p>
+		<p class="indent">
+			Bazı durumlarda, üst sınıflardan birinin prototipine yeni özellikler eklenmesi önerilir. 
+			Aslında, 	bu en kötü öneridir. Bu çalışmada, öntanımlı  olsun, kullanıcı tanımlı  olsun,  
+			hiçbir nesne sınıfının tanımlamış prototipini değiştirmeyi önermiyoruz. Bu işlemin yan 
+			etkileri çok olumsuz olabilir.
+		</p>
+		<p class="indent">
+			Herşeyden önce, yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulamada
+			</a>
+			olduğu gibi, nesne sınıflarının yapılandırıcı fonksiyonların birbirleri
+			içinden çağrılması ile oluşturulan hiyerarşik yapılanmada, sınfların prototipleri
+			birbirinden bağımsızdır ve sınıflar arasında kurulmuş olan alt sınıf/üst
+			sınıf ilişkisi sınıf prototipleri yolu ile kurulmamamıştır. Bu nedenle, üst
+			sınıfta yeni tanımlanmaış bir özelliğin alt sınıfa kalıtımla aktarılması olanağı 
+			yoktur. Bira ileride incelenek olduğu gibi, Bu durumun düzeltilmesi, 
+			prototiplerin basit bir ifade ile birbirlerine ilişkilendirilmesi ile çözülür.  
+			Bu şekilde, bundan sonra yaratılacak nesne sınıf örneklerinde bu yeni özellik 
+			bulunacaktır, fakat oluşturulmuş eski örnekler, bir disk üzerinde saklanıyorsa, 
+			bu yapı değişikliği onların yapısını uyumsuz duruma getirmiş olacaktır.
+		</p>
+		<p class="indent" id="b15.4.1-uyg-2">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-1.html">
+				uygulamada
+			</a>
+			belirtilmiş
+			olan hiyerarşik yapılanmanın, prototiplerin de birbirlerine ilişkilendirilmesi
+			ile pekiştirilmesi ve yapılanma tamamlandıktan sonra üst sınıfa eklenen bir 
+			kutuRengi özelliğinin alt sınıfa  kalıtımla aktarılması, aşağıda görülen 
+			<a href ="../uygulamalar/b15.4.1-uyg-2-js.html">
+				JavaScript programında
+			</a>
+			gerçekleştirilmiş ve bu programın bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.4.1-uyg-2.html">
+				sayfada
+			</a>
+			vermiş olduğu sonuç, aşağıda görüntülenmiştir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Üretim<span 
+			class="op">(</span>nr<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> nr <span 
+			class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Yapım<span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> şekil<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> şekil || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Kare</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Yapım<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Kare<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> kenar<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> kenar || 0<span 
+			class="op">;
+</span><span class="keyw-50">this</span> üstSınıf1 <span 
+			class="op">=</span> Üretim<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf1<span 
+			class="op">(</span>seriNr<span 
+			class="op">);</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">=</span> Yapım<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> <span 
+			class="str">'Kare'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return</span> <span 
+class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>en<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Dikdörtgen</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Kare<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Dikdörtgen<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf <span 
+			class="op">=</span> Kare<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> eni<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'DikDörtgen'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Yapım</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+			class="op">.</span>kutuRengi <span class="op">=</span> <span 
+			class="str">'Beyaz'</span><span 
+			class="op">;</span>
+
+
+<span class="keyw-25">function</span> çokluKalıtım<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> kutu24 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kare<span 
+			class="op">(</span>34688<span 
+			class="op">,</span> <span 
+			class="str">'Karton'</span><span 
+			class="op">,</span> 12<span 
+			class="op">),</span> kutu25 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(</span>45786<span 
+			class="op">,</span> <span 
+			class="str">'Teneke'</span><span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">); </span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu24 Özellikleri =  '</span>, kutu24<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24.kutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu25 Özellikleri =  '</span>, kutu25<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25.kutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.1-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.24 Özellikleri : </span>
+			<span class="cursive-red">34688 Kare Karton Beyaz 1728</span>
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.25 Özellikleri : </span>
+			<span class="cursive-red">45786 Dikdörtgen Teneke Beyaz 1000</span>
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.1-uyg-2.html">
+				uygulamada
+			</a>
+			prototip zincirinin oluşturulduğu ve üst sınıf olan Yapım sınıfının prototipine eklenen kutuRengi 
+			özelliğinin kalıtımla alt düzey sınıflarına geçtiği görülmektedir. Burada sadece kutuRengi özelliğinin 
+			öntanımlı değeri kalıtımla aktarılmaktadır. Gerçek kutuRengi değerlerinin girilebilmesi için 
+			yapılandırıcı fonksiyonlarda değişiklik yapılması gerekmektedir. 
+		</p>
+		<p class="indent" id="b15.4.1-uyg-3">
+			Yapılandırıcı fonksiyonların yeniden yapılanması sırasında, yeni eklenen kutuRengi
+			özelliğinin de Yapım sınıfının yapılandırıcı fonksiyonuna eklenmesi doğru 
+			davranış olacaktır. Ayrıca, her zaman prototip zincirininde oluşması sağlanmalıdır ki, 
+			sistem alt/üst sınıf düzenlemesinden haberli olsun ve üst düzeyde yeni eklenen  
+			bir özellik, alt düzeye kalıtımla aktarılabilsin. Bu düzenleme, aşağıda görülen 
+			<a href ="../uygulamalar/b15.4.1-uyg-3-js.html">
+				JavaScript programında
+			</a>
+			gerçekleştirilmiş ve bu programın bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.4.1-uyg-3.html">
+				uygulamada sayfasında
+			</a>
+			verdiği sonuç aşağıda görüntülenmiştir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Üretim<span 
+			class="op">(</span>nr<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> nr <span 
+			class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Yapım<span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> şekil<span 
+			class="op">,</span> renk<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> şekil || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuRengi <span 
+			class="op">=</span> renk || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Kare</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Yapım<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Kare<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> kenar<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> 0 || kenar<span 
+			class="op">;
+</span><span class="keyw-50">this</span> üstSınıf1 <span 
+			class="op">=</span> Üretim<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf1<span 
+			class="op">(</span>seriNr<span 
+			class="op">);</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">=</span> Yapım<span 
+			class="op">;</span>
+<span class="keyw-50">this</span> üstSınıf2 <span 
+			class="op">(</span>materyel<span 
+			class="op">,</span> <span 
+			class="str">'Kare'</span><span 
+			class="op">,</span> renk<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op"> {</span>
+
+<span class="keyw-75">return</span> <span 
+class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>en<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Dikdörtgen</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Kare<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Dikdörtgen<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf <span 
+			class="op">=</span> Kare<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> eni<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'DikDörtgen'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy <span 
+
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> çokluKalıtım<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> kutu24 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kare<span 
+			class="op">(</span>34688<span 
+			class="op">,</span> <span 
+			class="str">'Karton'</span><span 
+			class="op">,</span> <span class="str">'Mavi'</span><span 
+			class="op">,</span> 12<span 
+			class="op">),</span> kutu25 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(</span>45786<span 
+			class="op">,</span> <span 
+			class="str">'Teneke'</span><span 
+			class="op">,</span> <span 
+			class="str">'Metalik Kırmızı'</span><span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">); </span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu24 Özellikleri =  '</span>, kutu24<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24.kutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.1-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu25 Özellikleri =  '</span>, kutu25<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25.KutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.1-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.4.1-uyg-3-sonuç-1">
+		</p>
+		<p class="indent" id="b15.4.1-uyg-3-sonuç-2">
+		</p>
+		<p class="indent">
+			Bu son 
+			<a href="../uygulamalar/b15.4.1-uyg-3.html">
+				düzenleme
+			</a>, yeni eklenen kutuRengi, 
+			özelliğinin Yapım<span class="op">()</span>
+			fonksiyonuna alınması ile yapılandırıcı fonksiyonların
+			biribirlerini çağırması yöntemi ile hiyerarşinin oluşturulmasını yine sağlamış, fakat her olasılığa karşın, 
+			prototip transferi yöntemi ile de alt/üst sınıf ilişkisini, protip zincirini kurarak da oluşturmuştur. 
+			Hem yapılandırıcı fonksiyonlar, hem de prototip transferi yöntemini birlikte içerdiğinden bu tip bir
+			hiyerarşi kurulması belki de en sağlam hiyerarşi oluşturma yöntemidir.
+		</p>
+		<p class="indent">
+			Bu son 
+			<a href="../uygulamalar/b15.4.1-uyg-3.html">
+				program
+			</a>
+			sadece kalıtım problemini çözmüş olmaktadır.
+			Bunun dışında, veri giriş fonksiyonlarının yeni veti yapısına göre yeniden düzenlenmesi ve eskiden
+			yaratılıp disk üzerinde saklanılan eski nesne örneklerinin yeni veri yapısına göre yeniden düzenlemesi 
+			sorunları henüz çözüm beklemektedir. Veri yapısının değişmiş olması nedeni ile, disk üzerinde dosyalarda 
+			kayıtlı büyük sayıda eski veri, sınıfsız kalmış ve birer nesne literali niteliğine dönüşmüşlerdir. Bu yerilerin  
+			yeni girilen veriler ile uyumunu sağlamak, yani eski verileri de yenilenmiş hiyerarşik sınıflardan birinin 
+			örnekleri haline getirmek için, uyum fonksiyonları yazılıp uygulanmalıdır. 
+		</p>
+		<p class="indent">
+			Bütün bu sorunlar, oluşmuş ve veri üretimi aşamasında olan, büyük çapta veri girilimiş bir sistemin
+			yapısını bozmanın ne kadar yanlış olduğunu açıkça ortaya koymaktadır. Burada incelenen örneklerde
+			bile, ikinci örnekte eklenen bir tek özellik bile, yapılandırıcı fonksiyonların yeniden yazılarak son
+			<a href="../uygulamalar/b15.4.1-uyg-3.html">
+				uygulama
+			</a>
+			daki hale getirilmeleri gereğini
+			doğurmaktadır.
+		</p>
+		<p class="indent">
+			Bu durumda çalışan bir sitemde veri yapısında değişiklik yapılması gerekirse, sisteme eklemeler 
+			yapmak yerine yeni bir sistem oluşturulmalıdır. Yeni veriler bu yeni sistemle girilmeye devam edilirken,
+			eski üretimiş verileri, uyum programları ile yeni veri yapısına uyumlu hale getirilmelidir. En sonunda,
+			herşey çalışır hale gelince, yeni sistemin adı eski sistemin adına dönüştürülmelidir. Bu şekilde
+			veri yapısının sorunsuzca güncellenmesi sağlanabilecektir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p>
+					<a href="../index.html">
+						<em>« Indeks</em>
+					</a>
+				</p>
+			</li>
+			<li id="denge">
+			</li>
+			<li id="sayfa">
+				<p>
+					<a href="b15s3.html">
+						<em>« Önceki</em>
+					</a>
+				</p>
+			</li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<p>
+					<a href="b15s5.html">
+						<em>Sonraki »</em>
+					</a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama">
+			</li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload">
+				<img src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1" height="31" width="88" />
+			</a>
+		</p><!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.4.1-uyg-3.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:33 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

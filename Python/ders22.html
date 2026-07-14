@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders22.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 22</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders21.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders23.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 22
+      </p>
+    </div>
+    <p id="dict-methods" class="subheading">
+      3.3.3 - Sözlük Tipi Verilere Uygulanabilen Metotlar</p>
+    <p class="indent">
+      Sözlükler, öntanımlı <span class="keyw">len</span><span 
+      class="op">()</span> metodunu destekler. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+<span class="comm"># ispanyolca adlı sözlük yukarıda oluşturulmuştu
+</span>
+print (len(ispanyolca))  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">8</span></pre>
+    <p class="indent">
+      Bir başka örnek:
+    </p>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+n = len(sx)
+print('sx sözlüğünün uzunluğu : {0}'.format(n))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left"></span>2</pre>
+    <p class="indent">
+      Sözlük tipi metotlara uygulanan <span class="keyw">item</span>
+      <span class="op">()</span> metodu, sözlüğün tüm elemanlarını 
+      bir topluluk içinde toplar ve bu topluluğu görüntüler. 
+      Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+print(q.items())
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_items([(('Istanbul', 1), 'Beşiktaş'), (('Istanbul', 4), 'Adalar'), (('Istanbul', 2), 'Kadıköy'), (('Istanbul', 3), 'Bakırköy')])</span></pre>
+    <pre class="pl-25 navy">
+data = {0.25 : 16, 0.50 : 20,  0.75 :  40}
+print(data.items())
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_items([(0.25, 16), (0.5, 20), (0.75, 40)])</span></pre>
+    <p class="indent">
+      Sözlüklere uygulanan <span class="keyw">items</span><span 
+      class="op">()</span> metodu, anahtar değeri tekli olsun, 
+      çoklu olsun, sözlükteki tüm elemanları bir topluluk içinde 
+      bir liste olarak geri döndürüyor. Bu topluluğun tek elemanı, 
+      sözlüğün tüm anahtar: değer verilerini eleman olarak içeren 
+      bir listedir. Bu listenin elemanlarına indisleri ile doğrudan 
+      erişim olanağı yoktur. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qt = q.items() # qt tek elemanlı bir topluluktur.
+
+qtl= qt[1] # qtl tüm sözlük elemanlarını içeren bir listedir.
+
+print(qtl)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-34-6275969c9f7a&gt; in &lt;module&gt;()
+      3 qt = q.items() # qt tek elemanlı bir topluluktur.
+      4 
+----&gt; 5 qtl= qt[1] # qtl tüm sözlük elemanlarını içeren bir listedir.
+      6 
+      7 print(qtl)
+
+TypeError: 'dict_items' object does not support indexing</span></pre>
+    <p class="indent">
+      Sözlüklere uygulanan <span class="keyw">items</span><span 
+      class="op">()</span> metodunun geri döndürdüğü koleksiyonun 
+      elemanlarına indisleri ile erişim sağlanamasının nedeni, 
+      bu koleksiyonun,"görüntü (view)" olarak adlandırılan bir 
+      tipte olmasıdır. Görüntü tipleri sadece sonucun görüntülenmesi 
+      için oluşturulurlar. Bu tipi koleksiyonlar küme (set) 
+      tipindedir ve kümelere uyulanan metotlar ugulanarak elemanlarına 
+      erişilebilirler. Bu yöntemler belirli değerlerin belirli 
+      bir sözlükte olup olmadığı sorgulanabilir. Bu metotları, 
+      kümeleri incelediğimizde, görüntü kümelerine de uygulayarak 
+      sonuçları alabileceğiz.</p>
+    <p class="indent">
+      Buna rağmen,&nbsp; <span class="keyw">items</span><span 
+      class="op">()</span> metodunun geri döndürdüğü koleksiyon<span 
+      class="keyw">, for</span> <span class="op">in</span> döngüleri 
+      ile iterasyon yapılmasına uygundur ve bu yöntemle sözlük 
+      elemanlarına erişilebilir. Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+for item in q.items():
+    print(item[0],item[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">('Istanbul', 3) Bakırköy
+('Istanbul', 4) Adalar
+('Istanbul', 1) Beşiktaş
+('Istanbul', 2) Kadıköy</span></pre><pre class="pl-25 navy">
+for item in q.items():
+    print(item[0][0],item[0][1],item[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Istanbul 3 Bakırköy
+Istanbul 4 Adalar
+Istanbul 1 Beşiktaş
+Istanbul 2 Kadıköy</span></pre>
+    <p class="indent">
+      Sözlük anahtarlarının görüntülenmesi için
+      <span class="keyw">keys</span><span class="op">()</span> 
+      metodu uygulanabilir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qkeys = q.keys() # qt sözlüğünün anahtar değerlerinin görüntü kümesi
+
+print(qkeys  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_keys([('Istanbul', 1), ('Istanbul', 4), ('Istanbul', 2), ('Istanbul', 3)])</span></pre>
+    <p class="indent">
+      Sonuç, sözlüğün tüm anahtarlarının görüntüsünü içeren 
+      bir görüntü kümesidir. Bu kümenin erişim metotlarını, 
+      kümeler ile birlikte inceleyeceğiz. Buna rağmen bu koleksiyon<span 
+      class="keyw"> for</span> <span class="op">in</span> döngüleri 
+      ile taranmaya uygundur. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qkeys = q.keys() # qt sözlüğünün anahtar değerlerinin görüntü kümesi
+
+for anahtar in q.keys():
+    if anahtar[1]&lt;4:
+        print(anahtar[0], anahtar[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Istanbul 3
+Istanbul 1
+Istanbul 2</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">del</span> metodu, bellekteki 
+      bir veriyi bellekten kaldırır. Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+del(sx)
+print(sx)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">NameError                                 Traceback (most recent call last)
+&lt;ipython-input-33-b48448a69a43&gt; in &lt;module&gt;()
+      1 sx = {'ocak': 16, 'şubat': 18}
+      2 del sx
+----&gt; 3 print(sx)
+
+NameError: name 'sx' is not defined</span></pre>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+
+del sx['ocak']
+
+print(sx)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'şubat': 18}</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">fromkeys</span><span 
+      class="op">()</span> metodu, hash edilebilen bir koleksiyondan 
+      yani float, frozenset, int, str, ve hash edilebilen toplulukların 
+      elemanlarını anahtar olarak kullanarak, sözlükler oluşturan, 
+      son derece yararlı bir metottur. Kullanılışı,
+    </p>
+    <pre class="pl-25">
+sözlük<span class="op">.</span><span class="keyw">fromkeys</span><span 
+    class="op">(</span>s ,v<span class="op">)</span>
+    </pre>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <ul class="listNoMarker">
+      <li>sözlük : Daha önce tanıtılmış bir sözlük verisidir. 
+      Bunun boş bir sözlük olatak tanıtılmış olması durumunda 
+      bu sözlüğün elemanları yeni elemanlar olarak oluşturulur. 
+      Eğer tanıtılmış sözlükte elemanlar atanmış ise, eski elemanlar 
+      silinerek, belirtilen değerlerle yeniden yaratılır.</li>
+      <li>s : hash edilebilen bir koleksiyon.</li>
+      <li>v : Koleksiyon elemanlarından oluşacak anahtarlara 
+      karşı gelecek bir değer.</li>
+    </ul>
+    <p class="indent">
+      Örnek:
+    </p>
+    <pre class="pl-25 navy">
+qs = ('Ocak','Şubat', 'Mart', 'Nisan')
+sözlük ={}
+sözlük = sözlük.fromkeys(qs, 0)
+print(sözlük)  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'Mart': 0, 'Şubat': 0, 'Ocak': 0, 'Nisan': 0}</span></pre>
+    <p class="indent">
+      Bundan sonra, elemanlara değer vermek için sözlük['Ocak'] 
+      = 19 şeklinde bir program adımı yeterli olacaktır.
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">get</span><span 
+      class="op">(</span>k<span class="op">)</span> metodu, 
+      bir sözlükte bulunan k anakatarına karşı gelen değeri 
+      döndürür. Eğer, anahtar sözlükte bulunamazsa, None değeri 
+      görüntülenir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+sözlük['Ocak'] = 18
+print(sözlük.get('Ocak'))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">18</span></pre>
+    <p class="indent">
+      Benzer metot, sözlük<span class="op">.</span><span 
+      class="keyw">get</span><span class="op">(</span>k, v<span 
+      class="op">)</span> metodu, yine bir sözlükte, k anahtarına 
+      karşı gelen değeri döndürür. Fakat burada, eğer belirtilen 
+      anahtar sözlükle bulunamazsa, kullanıcının tanımladığı, 
+      bir mesaj görüntülenir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+print(sözlük.get('Temmuz', 'Bu veri listede yok '))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Bu veri listede yok</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">clear</span><span 
+      class="op">()</span> metodu, bir sözlüğün tüm elemanlarını 
+      siler. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+sZ1 = {"Pazar" : 11, "Pazartesi" : 23, "Salı" :12, "Çarşamba": 12, "Perşembe" : 23, "Cuma" : 35, "Cumartesi" : 11}
+sZ1.clear()
+print (sZ1)  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{}</span></pre>
+    <p class="indent">
+      Öntaımlı <span class="keyw">copy</span><span 
+      class="op">()</span> metodu, sözlüğün sığ kopyasını başka 
+      bir değişkene aktarır. Kullanım yöntemi, aşağıdaki programda 
+      görülebilir.
+    </p>
+    <pre class="pl-25 navy">
+sZ1 = {"Pazar" : 11, "Pazartesi" : 23, "Salı" :12, "Çarşamba": 12, "Perşembe" : 23, "Cuma" : 35, "Cumartesi" : 11}
+sZ2 = sZ1.copy()
+print("Orijinal Kopyalama Sonucu : \n" , "sZ1 : " , sZ1 , "\n", "sZ2 :" , sZ2)
+a = {'Pazar' : 16}
+sZ1.update(a)
+print("sZ1 'in güncellenmesinden sonra : \n" , "sZ1 : " , sZ1 , "\n", "sZ2 :" , sZ2)
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Orijinal Kopyalama Sonucu : 
+ sZ1 :  {'Cumartesi': 11, 'Pazar': 11, 'Cuma': 35, 'Perşembe': 23, 'Pazartesi': 23, 'Çarşamba': 12, 'Salı': 12} 
+ sZ2 : {'Pazar': 11, 'Cuma': 35, 'Pazartesi': 23, 'Perşembe': 23, 'Cumartesi': 11, 'Çarşamba': 12, 'Salı': 12}
+sZ1 'in güncellenmesinden sonra : 
+ sZ1 :  {'Cumartesi': 11, 'Pazar': 16, 'Cuma': 35, 'Perşembe': 23, 'Pazartesi': 23, 'Çarşamba': 12, 'Salı': 12} 
+ sZ2 : {'Pazar': 11, 'Cuma': 35, 'Pazartesi': 23, 'Perşembe': 23, 'Cumartesi': 11, 'Çarşamba': 12, 'Salı': 12} </span></pre>
+    <p class="indent">
+      Sonuçlar incelendiğinde, içiçe olmayan sözlükler için, 
+      sığ kopyalamanın yeterli olduğu ve kopyalamanın değer 
+      kopyalması olarak yürüdüğü görülebilir. Kopyalama sonunda, 
+      orijinal ve kopya, birbirinden bağımsız bellek bloklarını 
+      işaret etmektedirler. Bu yüzden her iki değişken de birbirinden 
+      bağımsızdır ve birinin güncellenmesi diğerini etkilememektedir. 
+      İçiçe sözlüklerde, yani anahtar veya değeri, güncellenebilir 
+      bir koleksiyon tipi olan sözlüklerde, derin kopyalama 
+      gereklidir. Fakat bu çalışmada içiçe koleksiyon tiplerini 
+      incelemeyeceğiz.
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">keys</span><span 
+      class="op">()</span> fonksiyonu, bir sözlüğün anahtarlarını,
+      <span class="keyw">values</span><span class="op">()</span> 
+      fonksiyonu ise değerlerini döndürür. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+sZ1 =  {'Cumartesi': 11, 'Pazar': 16, 'Cuma': 35, 'Perşembe': 23, 'Pazartesi': 23, 'Çarşamba': 12, 'Salı': 12} 
+print(sZ1.keys())
+print(sZ1.values())
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_keys(['Pazartesi', 'Çarşamba', 'Salı', 'Cumartesi', 'Cuma', 'Perşembe', 'Pazar'])
+dict_values([23, 12, 12, 11, 35, 23, 16])</span></pre>
+    <p class="indent">
+      Bu iki metodun da çok yararlı olduklarını belirtmek kolay 
+      değil. Sözlükler, sadece anahtar veya değer değil, anahtar 
+      : değer çiftleri için bir anlam taşırlar. Örnekte, anahtar 
+      görüntüleme sırası ile değer görüntüleme sırasının aynı 
+      olduğunu belirtiyor ve bu da önemli bir bilgidir.
+    </p>
+    <p class="indent">
+      Öntanımlı sözlük<span class="op">.</span><span 
+      class="keyw">pop</span><span class="op">(</span>k<span 
+      class="op">)</span> metodu, sözlükteki k anahtarına karşı 
+      gelen değeri döndürür ve bu değeri anahtar k ile birlikte 
+      sözlükten siler. Eğer, incelenenen sözlükte aranılan k 
+      anahtarı bulunmazsa, KeyError hatası oluşur.
+    </p>
+    <pre class="pl-25 navy">
+bahar = {1 : 'İlkbahar' , 2 : "Sonbahar"}
+bahar.pop(2)
+print(bahar)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{1: 'İlkbahar'}</span></pre>
+    <p class="indent">
+      Öntanımlı sözlük<span class="op">.</span><span 
+      class="keyw">pop</span><span class="op">(</span>k<span 
+      class="op">,</span> v<span class="op">)</span> metodu, 
+      sözlükteki k anahtarına karşı gelen değeri döndürür ve 
+      bu değeri anahtar k ile birlikte sözlükten siler. Eğer, 
+      incelenenen sözlükte aranılan k anahtarı bulunmazsa, v 
+      ile belirtilen değeri döndürür. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+kayıtlar = {'Selim' : 25, 'Hüseyin' : 12,'Seda' : 16, 'Savaş' : 25,'Tamer' : 25,}
+print(kayıtlar)
+{'Selim': 25, 'Savaş': 25, 'Hüseyin': 12, 'Tamer': 25, 'Seda': 16}
+
+print(kayıtlar.pop('Aysel' , 'Kaydı Bulunamadı'))
+
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Kaydı Bulunamadı</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">popitem</span><span 
+      class="op">() </span>metodu, sözlükten geligüzel bir elamanı 
+      kaldırır ve bu elemanı geri döndürür.. Eğer sözlük boş 
+      bir sözlük ise, KeyError istisnası fırlatılır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+kayıtlar = {'Selim' : 25, 'Hüseyin' : 12,'Seda' : 16, 'Savaş' : 25,'Tamer' : 25,}
+print(kayıtlar.popitem())
+print(kayıtlar)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">('Selim', 25)
+{'Savaş': 25, 'Hüseyin': 12, 'Tamer': 25, 'Seda': 16}</span></pre>
+    <p class="indent">
+      Bir başka metot olan <span class="keyw">setdefault</span><span 
+      class="op">(</span>k<span class="op">,</span> v<span 
+      class="op">)</span> metodu, aynen <span class="keyw">get</span>
+      <span class="op">()</span> metodu gibidir. Bu metodun 
+      farkı, eğer k anahtarı ile belirtilmiş olan değer sözlükte 
+      bulunamıyorsa, k anahtarı ile ve eğer v değeri belirtilmiş 
+      ise v değeri ile yoksa None değeri ile yeni bir elemanın 
+      sözlüğe yerleştirilmesidir. Bu metot, geriye varsa v değerini, 
+      yoksa None değerini döndürür. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+kayıtlar = {'Selim' : 25, 'Hüseyin' : 12,'Seda' : 16, 'Savaş' : 25,'Tamer' : 25,}
+print(kayıtlar.setdefault('Aysel' , 22))
+print(kayıtlar)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">22
+{'Savaş': 25, 'Aysel': 22, 'Seda': 16, 'Selim': 25, 'Hüseyin': 12, 'Tamer': 25}</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">update</span><span 
+      class="op">()</span> metodu, sözlük<span class="op">.</span><span 
+      class="keyw">update</span><span class="op">(</span>a<span 
+      class="op">)</span> şeklinde kullanılır. Burada a argümanı, 
+      bir sözlük olabilir, bir iterasyon yapılabilecek anahtar, 
+      değer sekansı olabilir veya sadece keyword argümanı olabilir.Bu 
+      konuda, <span class="keyw">copy</span><span 
+      class="op">()</span> metodunda bir örnek bulunmaktadır.
+    </p>
+    <p id="dict-default" class="subheading">
+      3.3.4 - Varsayılan Sözlükler</p>
+    <p class="indent">
+      Varsayılan sözlükler (default dictionaries) , collections 
+      modülünde bulunan nesnelerdir. Bu tip sözlükler, eğer 
+      sözlüklte buluınmayan bir anahtarın değeri çağrıldığında 
+      hata vermezler ve bu anahtar ile önceden belirtilen bir 
+      değeri çiftleştirerek sözlüğe eleman olarak yerleştirirler. 
+      Kullanımı,
+    </p>
+    <pre class="pl-25">
+sözlük  <span class="op">=</span>  <span class="keyw">collections</span><span 
+    class="op">.</span><span class="keyw">defaultdict</span><span 
+    class="op">(</span>a<span class="op">)</span></pre>
+    <p class="nonindent">
+      şeklindedir. Burada a, çağrılabilen bir nesne olmalıdır. 
+      Bu int olabilir. Çünkü int çağrıldığında,
+      <span class="keyw">int</span><span class="op">()</span> 
+      fonksiyonunu çağırır ve geriye 0 döndürür. En anlamlısı 
+      kendi yazacağımız bir fonksiyonun geriye döndüreceği değerin 
+      kullanılmasıdır. Bir örnek aşağıda verilmiştir.
+    </p>
+    <pre class="pl-25 navy">
+import collections
+
+def fc ():
+    return 0
+    
+xc = collections.defaultdict(fc)
+
+x = xc['Kış']
+
+print(xc)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">defaultdict(&lt;function fc at 0x7f2ac172e4d0&gt;, {'Kış': 0})</span></pre>
+    <p id="dict-ordered" class="subheading">
+      3.3.5 - Sıralı Sözlükler</p>
+    <p class="indent">
+      Sözlükler, varsayılan olarak sıralı değillerdir. Sırasız 
+      olma özelliği, doğal olarak varsayılan özellik kabul edilmiştir. 
+      Sözlükler statil değil , dinamik nesnelerdir ve sık değişebilir 
+      güncelleştirilebilirler. Sıralanmış bir sözlük, güncelleştirlince, 
+      suarsı bozulabilir. Güncelleştirmeden sonra sırası bozulan 
+      bir sözlüğün yeniden sıralanması gerekir ve bu sürekli 
+      sıralama işlemleri, bigisayarrın sistem kaynaklarını zorlar. 
+      Bu nedenle, çok gerekli olmadıkça sözlüklerin sıralanmalarının 
+      yapılmaması akıllıca bir seçim olabilir.
+    </p>
+    <p class="indent">
+      Bazı durumlarda ise, sözlükler tamamen statik durumdadır. 
+      Örnek olarak, belirli bir deney süreci içinde okumalar, 
+      bir sözlükte toplanmış olsun, deney bitince, artık yeni 
+      okuma şansı kalmayacağından, sözlüğe yeni eleman ekleme 
+      şansı da kalmayacaktır. Bu tip statik sözlüklerin sıralanması, 
+      verilerin izlenme kolaylığının sağlanması açısından yararlı 
+      olacaktır.
+    </p>
+    <p class="indent">
+      Python programlama dilinin collections modülünde tanımlı 
+      OrderedDict() metodu, eleman sırası, veri giriş sırası 
+      olan sözlükler oluşturulmasına olanak sağlar. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+import collections
+listgen = [('Balık', 246), ('Japon', 554) , ('Uçuk', 166), ('Hafız', 332)]
+sabitSz = collections.OrderedDict(listgen)
+print(sabitSz)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">OrderedDict([('Balık', 246), ('Japon', 554), ('Uçuk', 166), ('Hafız', 332)])</span></pre>
+    <p class="indent">
+      Sonuçtan da görüldüğü gibi, yaratılan sözlük, koleksiyon 
+      listgen ile aynı sıralamaya sahitir. Bu sıralamayı değiştirmek 
+      için, bir elemanı iptal edip,
+    </p>
+    <pre class="pl-25 navy">
+del sabitSz['Balık']
+    </pre>
+    <p class="nonindent">
+      sözlük güncellenir ve eleman listenin sonuna kaydırılmış 
+      olur.
+    </p>
+    <pre class="pl-25 navy">
+sabitSz.update({'Balık'  :  246})
+print(sabitSz)
+
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">OrderedDict([('Japon', 554), ('Uçuk', 166), ('Hafız', 332), ('Balık', 246)])</span></pre>
+    <p class="indent">
+      Bu sözlüğün anahtarlarının sıralanmış listesi,
+    </p>
+    <pre class="pl-25 navy">
+xz = sorted(sabitSz)
+print(xz)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">['Balık', 'Hafız', 'Japon', 'Uçuk']</span></pre>
+    <p class="nonindent">
+      şeklinde elde edilebilir. Bunun x, y değerlerindeki deney 
+      noktalarının gözden geçirilmesinde, çok yararlı olabileceği 
+      açıktır. Nihayet tam sıralanmış bir sözlük,
+    </p>
+    <pre class="pl-25 navy">
+xxz = collections.OrderedDict(sorted(sabitSz.items()))
+print(xxz)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">OrderedDict([('Balık', 246), ('Hafız', 332), ('Japon', 554), ('Uçuk', 166)])</span></pre>
+    <p class="nonindent">
+      şeklinde elde edilir. Bu sözlükten her eleman çıkarılmasında 
+      veya her eleman eklenmesinde, sıralama bozulabileceğinden, 
+      yeniden sıralanma yapılması gerekli olacaktır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders21.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders23.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

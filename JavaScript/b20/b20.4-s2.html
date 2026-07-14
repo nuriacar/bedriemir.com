@@ -1,0 +1,2461 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:07:51 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b20/b20.4-s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b20.4 Tarih Uygulamaları</title>
+	</head>
+	<body>
+		<p>
+		<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b20.4-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b20.4-s3.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 20
+		</p>
+		<p class="chapter">
+			Uygulamalar
+		</p>
+		<p class="pagenum">
+			Bölüm 20.4 Sayfa 2
+		</p>
+		<p class="title-left" id="tarih">20.4 - Tarih,Takvim,Saat Uygulamaları (Devam)</p>
+		<p class="subheading" id="kronometre">20.4.4 - Sayısal Kronometre</p>
+		<p class="indent" id="b20.4.4-uyg-1">
+			Literatürde bulunabilen Javascript sayısal kronometre uygulama sayısı çok azdır. 
+			Bunlar arasında en tanınmış olanı  
+			<a href="http://www.emanueleferonato.com/">Emmanuel Feronato</a>'nun yazmış 
+			olduğu programdır. Bu program, anlaşılması zor ve tekniği eski durumdadır. Bunun için,
+			tamamen sıfırdan başlanarak, kolay anlaşılabilen, modern tekniklerin kullanıldığı bir  
+			<a href="../uygulamalar/b20.4.4-uyg-1-js.html">program</a> geliştirilmiştir. Bu programın
+			kodları aşağıda görülmekte ve ilgili olduğu 
+			<a href="../uygulamalar/b20.4.4-uyg-1.html">web sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>İzleme<span 
+			class="op">(</span>başlangıçDüğmesi<span
+			class="op">,</span> durdurmaDüğmesi<span
+			class="op">,</span> yenilemeDüğmesi<span
+			class="op">) {</span>
+<span class="keyw-50">var</span> _süreçKontrol <span
+			class="op">=</span> 0<span
+			class="op">,</span>
+<span class="pl-50">_süreçBaşlangıcı</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span>,
+<span class="pl-50">düğme1</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'başlangıçDüğmesi'</span><span 
+			class="op">),</span>
+<span class="pl-50">düğme2</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'dırdurmaDüğmesi'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">kronograf</span> <span
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">var</span> girişNoktası <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'saat'</span><span
+			class="op">),</span>
+<span class="pl-75">ata</span> <span 
+			class="op">=</span> girişNoktası<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">,</span>
+<span class="pl-75">altDüğümler</span> <span 
+			class="op">=</span> ata<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">,</span>
+<span class="pl-75">span</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span
+			class="op">),</span>
+<span class="pl-75">süreçSonu</span> <span
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-75">fark</span> <span
+			class="op">=</span> süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">()</span> <span
+			class="op">-</span> _süreçBaşlangıcı<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">(),
+</span><span class="pl-75">geçenSaat</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenDakika</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSaniye</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSüre</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">süreç</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">;</span>
+
+
+<span class="pl-75">süreçSonu</span><span
+			class="op">.</span><span 
+			class="keyw">setTime</span><span
+			class="op">(</span>fark<span 
+			class="op">),</span>
+
+<span class="pl-75">geçenSaat </span><span
+			class="op">= </span><span 
+			class="keyw">String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getUTCHours</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenDakika</span><span
+			class="op"> =</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenSaniye </span><span
+			class="op">=</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">();</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaat <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaat</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaat<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenDakika <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenDakika</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenDakika<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaniye <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaniye</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaniye<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="pl-75">süreç</span> <span
+			class="op">=</span> <span 
+			class="str">'Geçen Süre : '</span> <span
+			class="op">+</span> geçenSaat <span
+			class="op">+</span> <span 
+			class="str">' Saat '</span> <span
+			class="op">+</span> <span 
+			class="str">'   '</span> <span
+			class="op">+</span> geçenDakika <span
+			class="op">+</span> <span 
+			class="str">' Dakika '</span> <span
+			class="op">+</span> <span 
+			class="str">'   '</span> <span
+			class="op">+</span> geçenSaniye <span
+			class="op">+</span> <span 
+			class="str">' Saniye '</span> <span
+			class="op">;</span>
+
+<span class="pl-75">geçenSüre</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span 
+			class="keyw">createTextNode</span><span
+			class="op">(</span>süreç<span 
+			class="op">);</span>
+<span class="pl-75">span</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>geçenSüre<span 
+			class="op">);</span>
+<span class="pl-75">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">, </span><span 
+			class="str">'saat'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class</span><span 
+			class="op">,</span><span 
+			class="str">'outbox'</span><span 
+			class="op">);</span>
+
+<span class="keyw-75">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+
+<span class="keyw-100">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">+ +) {</span> 
+<span class="keyw-125">if</span><span 
+			class="op">(</span>altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-150">ata</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span<span 
+			class="op">,</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">);</span>
+<span class="op-125">}</span>
+<span class="op-100">}</span>
+
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="keyw-100">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Sayfa Yerleştirme Hatası !'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">};</span>
+
+<span class="pl-50">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'startbuttonpressed'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>başlat <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="pl-75">_süreçBaşlangıcı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+<span class="keyw-75">if</span><span
+			class="op">(</span>_gizli<span
+			class="op">) {</span>
+<span class="pl-100">_süreçKontrol</span> <span
+			class="op">=</span> <span 
+			class="keyw">setInterval</span><span
+			class="op">(</span><span 
+			class="str">'kronograf()'</span><span
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="pl-100">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">false</span><span
+			class="op">;</span>
+<span class="pl-100">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #CC9963; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="pl-100">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #FF3366; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>durdur <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="pl-75">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span><span
+			class="op">;
+</span><span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #00C100; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str"> 'background-color : #6666FF; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>yenileme <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="keyw-75">location</span> <span 
+			class="op">=</span> <span 
+			class="keyw">location</span><span
+			class="op">.</span><span 
+			class="keyw">href</span><span 
+			class="op">;</span>
+<span class="op-50">};</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function </span>başlagıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> süreç <span 
+			class="op">=</span> <span
+			class="keyw">new</span> İzleme<span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">,</span> <span 
+			class="str">'stop'</span><span
+			class="op">,</span> <span 
+			class="str">'reset'</span><span
+			class="op">),</span>
+<span class="pl-50">başlamaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">),</span>
+<span class="pl-50">durdurmaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'stop'</span><span
+			class="op">),</span>
+<span class="pl-50">yenilemeDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'reset'</span><span
+			class="op">);</span>
+
+<span class="pl-50">başlamaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'startbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">durdurmaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'stopbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">yenilemeDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'resetbutton'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>başlamaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>başlat<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>durdurmaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>durdur<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>yenilemeDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>yenileme<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.4.4-uyg-1-js.html">programda</a>,
+			global değişkenlerin kullanımından sakınılmış ve çalışmalar, birkullanıcı tanımlı,
+			İzleme nesne sınıfı örneği çerçevesinde yürütülmüştür. Program oldukça karmaşık 
+			bir yapıda olmasına karşılık, kolay izlenebilecek bir şekilde tasarlanmıştır.
+		</p>
+		<p class="indent" id="b20.4.4-uyg-2">
+			Sayısal kronometre, istendiğinde, gösterge olarak önceden hazırlanmış sayı resimleri
+			kullanılacak şekilde düzenlenebilir. Bu resimlerin kaynaklarından biri 
+			<a href="http://www.fortochka.com/">http://www.fortochka.com</a> adresinde 
+			bulunmaktadır. Bu siteden indirilen sayı resimleri, 0.gif, 1.gif, 2.gif vb.. şeklinde
+			adlandırılarak, <span class="str">'../images/'</span> klasörüne konulmuştur. 
+			Bu sayı resimlerini gösterge olarak kullanan bir 
+			<a href="../uygulamalar/b20.4.4-uyg-2-js.html">programın</a> kodları aşağıda
+			görülmektedir. Bu program, bağlantılı olduğu
+			<a href="../uygulamalar/b20.4.4-uyg-2.html">sayfada</a> çalışmaktadır.
+		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>İzleme<span 
+			class="op">(</span>başlangıçDüğmesi<span
+			class="op">,</span> durdurmaDüğmesi<span
+			class="op">,</span> yenilemeDüğmesi<span
+			class="op">) {</span>
+<span class="keyw-50">var</span> _süreçKontrol <span
+			class="op">=</span> 0<span
+			class="op">,</span>
+<span class="pl-50">_süreçBaşlangıcı</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span>,
+<span class="pl-50">düğme1</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'başlangıçDüğmesi'</span><span 
+			class="op">),</span>
+<span class="pl-50">düğme2</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'dırdurmaDüğmesi'</span><span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'saat'</span><span
+			class="op">),</span>
+<span class="pl-50">ata</span> <span 
+			class="op">=</span> girişNoktası<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">,</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> ata<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">,</span>
+
+<span class="pl-50">span1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+
+<span class="pl-50">resim1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">);</span>
+
+<span class="pl-50">span1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge1'</span><span 
+			class="op">);</span>
+<span class="pl-50">span2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge2'</span><span 
+			class="op">);</span>
+<span class="pl-50">span3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge3'</span><span 
+			class="op">);</span>
+<span class="pl-50">span4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge4'</span><span 
+			class="op">);</span>
+<span class="pl-50">span5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge5'</span><span 
+			class="op">);</span>
+<span class="pl-50">span6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge6'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);</span>
+<span class="pl-50">span2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);</span>
+<span class="pl-50">span3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);</span>
+<span class="pl-50">span4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);</span>
+<span class="pl-50">span5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+<span class="pl-50">span6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span1<span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span2<span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span3<span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span4<span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span5<span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span6<span 
+			class="op">);</span>
+
+<span class="pl-50">span1</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim1<span 
+			class="op">);</span>
+<span class="pl-50">span2</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim2<span 
+			class="op">);</span>
+<span class="pl-50">span3</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim3<span 
+			class="op">);</span>
+<span class="pl-50">span4</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim4<span 
+			class="op">);</span>
+<span class="pl-50">span5</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim5<span 
+			class="op">);</span>
+<span class="pl-50">span6</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim6<span 
+			class="op">);</span>
+
+
+<span class="pl-50">resim1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="pl-50">resim6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">kronograf</span> <span
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">var</span> süreçSonu <span
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-75">fark</span> <span
+			class="op">=</span> süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">()</span> <span
+			class="op">-</span> _süreçBaşlangıcı<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">(),
+</span><span class="pl-75">geçenSaat</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenDakika</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSaniye</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSüre</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">süreç</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span>
+
+<span class="pl-75">span1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-75">span2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-75">span3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-75">span4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-75">span5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-75">span6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+
+<span class="pl-75">resim1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-75">resim2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-75">resim3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-75">resim4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-75">resim5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-75">resim6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">);</span>
+
+<span class="pl-75">span1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge1'</span><span 
+			class="op">);</span>
+<span class="pl-75">span2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge2'</span><span 
+			class="op">);</span>
+<span class="pl-75">span3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge3'</span><span 
+			class="op">);</span>
+<span class="pl-75">span4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge4'</span><span 
+			class="op">);</span>
+<span class="pl-75">span5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge5'</span><span 
+			class="op">);</span>
+<span class="pl-75">span6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge6'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">span1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);</span>
+<span class="pl-75">span2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);</span>
+<span class="pl-75">span3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);</span>
+<span class="pl-75">span4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);</span>
+<span class="pl-75">span5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+<span class="pl-75">span6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">süreçSonu</span><span
+			class="op">.</span><span 
+			class="keyw">setTime</span><span
+			class="op">(</span>fark<span 
+			class="op">),</span>
+
+<span class="pl-75">geçenSaat </span><span
+			class="op">= </span><span 
+			class="keyw">String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getUTCHours</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenDakika</span><span
+			class="op"> =</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenSaniye </span><span
+			class="op">=</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">();</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaat <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaat</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaat<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenDakika <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenDakika</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenDakika<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaniye <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaniye</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaniye<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="pl-75">süreç</span> <span
+			class="op">=</span> geçenSaat <span
+			class="op">+</span> geçenDakika <span
+			class="op">+</span> geçenSaniye<span
+			class="op">;</span>
+
+<span class="pl-75">x1</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-75">resim1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-75">x2</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>1<span
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="pl-75">resim2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-75">x3</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>2<span
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="pl-75">resim3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x3 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-75">x4</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>3<span
+			class="op">,</span> 4<span 
+			class="op">);</span>
+<span class="pl-75">resim4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x4 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-75">x5</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>4<span
+			class="op">,</span> 5<span 
+			class="op">);</span>
+<span class="pl-75">resim5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x5 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-75">x6</span> <span
+			class="op">=</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>5<span
+			class="op">,</span> 6<span 
+			class="op">);</span>
+<span class="pl-75">resim1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x6 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-75">span1</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim1<span 
+			class="op">);</span>
+<span class="pl-75">span2</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim2<span 
+			class="op">);</span>
+<span class="pl-75">span3</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim3<span 
+			class="op">);</span>
+<span class="pl-75">span4</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim4<span 
+			class="op">);</span>
+<span class="pl-75">span5</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim5<span 
+			class="op">);</span>
+<span class="pl-75">span6</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>resim6<span 
+			class="op">);</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a1</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span1<span 
+			class="op">,</span> a1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a2<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a2<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a2</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span2<span 
+			class="op">,</span> a2<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a3<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a3<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a3</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span3<span 
+			class="op">,</span> a3<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a4<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a4<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a4</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span4<span 
+			class="op">,</span> a4<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a5<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a5<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a5</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span5<span 
+			class="op">,</span> a5<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> a6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>a6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">a6</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span6<span 
+			class="op">,</span> a6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'startbuttonpressed'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>başlat <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="pl-75">_süreçBaşlangıcı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+<span class="keyw-75">if</span><span
+			class="op">(</span>_gizli<span
+			class="op">) {</span>
+<span class="pl-100">_süreçKontrol</span> <span
+			class="op">=</span> <span 
+			class="keyw">setInterval</span><span
+			class="op">(</span><span 
+			class="str">'kronograf()'</span><span
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="pl-100">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">false</span><span
+			class="op">;</span>
+<span class="pl-100">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #CC9963; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="pl-100">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #FF3366; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>durdur <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="pl-75">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span><span
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str"> 'background-color : #6666FF; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>yenileme <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="keyw-75">location</span> <span 
+			class="op">=</span> <span 
+			class="keyw">location</span><span
+			class="op">.</span><span 
+			class="keyw">href</span><span 
+			class="op">;</span>
+<span class="op-50">};</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function </span>başlagıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> süreç <span 
+			class="op">=</span> <span
+			class="keyw">new</span> İzleme<span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">,</span> <span 
+			class="str">'stop'</span><span
+			class="op">,</span> <span 
+			class="str">'reset'</span><span
+			class="op">),</span>
+<span class="pl-50">başlamaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">),</span>
+<span class="pl-50">durdurmaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'stop'</span><span
+			class="op">),</span>
+<span class="pl-50">yenilemeDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'reset'</span><span
+			class="op">);</span>
+
+<span class="pl-50">başlamaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'startbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">durdurmaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'stopbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">yenilemeDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'resetbutton'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>başlamaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>başlat<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>durdurmaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>durdur<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>yenilemeDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>yenileme<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent" id = "b20.4.4-uyg-3">
+			Yukarıda kodları görülren program, diziler kullanıldığında önemli ölçüde
+			kısalır. Bu yöntemin kullanıldığı bir 
+			<a href="../uygulamalar/b20.4.4-uyg-3-js.html">programın</a> kodları aşağıda görülmekte ve
+			bağlı olduğu <a href="../uygulamalar/b20.4.4-uyg-3.html">sayfada</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>İzleme<span 
+			class="op">(</span>başlangıçDüğmesi<span
+			class="op">,</span> durdurmaDüğmesi<span
+			class="op">,</span> yenilemeDüğmesi<span
+			class="op">) {</span>
+<span class="keyw-50">var</span> _süreçKontrol <span
+			class="op">=</span> 0<span
+			class="op">,</span>
+<span class="pl-50">_süreçBaşlangıcı</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span>,
+<span class="pl-50">düğme1</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'başlangıçDüğmesi'</span><span 
+			class="op">),</span>
+<span class="pl-50">düğme2</span> <span
+			class="op">=</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'dırdurmaDüğmesi'</span><span 
+			class="op">);</span>
+<span class="pl-50">girişNoktası</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'saat'</span><span
+			class="op">),</span>
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">resim</span> <span 
+			class="op">=</span><span 
+			class="keyw">new Array</span><span 
+			class="op">();</span>
+
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> 6<span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">);
+</span><span class="pl-75">resim</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">);</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">]</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge'</span> <span 
+			class="op">+</span> i<span 
+			class="op">);</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim<span
+			class="op">[</span>i<span 
+			class="op">]);</span>
+<span class="pl-75">girişNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>span<span
+			class="op">[</span>i<span 
+			class="op">]);</span><span
+			class="op">
+</span><span class="pl-75">resim</span><span
+			class="op">[</span>i<span
+			class="op">]</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/0.gif'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">span</span><span
+			class="op">[</span>0<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);
+</span><span class="pl-50">span</span><span
+			class="op">[</span>1<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);
+</span><span class="pl-50">span</span><span
+			class="op">[</span>2<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);
+</span><span class="pl-50">span</span><span
+			class="op">[</span>3<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);
+</span><span class="pl-50">span</span><span
+			class="op">[</span>4<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);
+</span><span class="pl-50">span</span><span
+			class="op">[</span>5<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">kronograf</span> <span
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">var</span> süreçSonu <span
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-75">fark</span> <span
+			class="op">=</span> süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">()</span> <span
+			class="op">-</span> _süreçBaşlangıcı<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">(),
+</span><span class="pl-75">geçenSaat</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenDakika</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSaniye</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">geçenSüre</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span><span 
+			class="op">
+</span><span class="pl-75">süreç</span><span
+			class="op">=</span> <span
+			class="str">''</span><span
+			class="op">,</span>
+
+<span class="pl-75">x</span> <span
+			class="op">=</span> <span
+			class="keyw">new Array</span>(),
+<span class="pl-75">a</span> <span
+			class="op">=</span> <span
+			class="keyw">new Array</span>();
+
+
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> 6<span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+
+<span class="pl-100">span</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">);
+</span><span class="pl-100">resim</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">);</span>
+<span class="pl-100">span</span><span
+			class="op">[</span>i<span
+			class="op">]</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge'</span> <span 
+			class="op">+</span> i<span 
+			class="op">);</span>
+<span class="pl-100">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim<span
+			class="op">[</span>i<span 
+			class="op">]);</span>
+<span class="pl-100">girişNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>span<span
+			class="op">[</span>i<span 
+			class="op">]);</span><span class="op-75">}</span>
+
+<span class="pl-75">span</span><span
+			class="op">[</span>0<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);
+</span><span class="pl-75">span</span><span
+			class="op">[</span>1<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #FFF8DC'</span><span 
+			class="op">);
+</span><span class="pl-75">span</span><span
+			class="op">[</span>2<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);
+</span><span class="pl-75">span</span><span
+			class="op">[</span>3<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #E6E6FA'</span><span 
+			class="op">);
+</span><span class="pl-75">span</span><span
+			class="op">[</span>4<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);
+</span><span class="pl-75">span</span><span
+			class="op">[</span>5<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'background-color : #DEFFFF'</span><span 
+			class="op">);</span>
+
+
+
+
+
+<span class="pl-75">süreçSonu</span><span
+			class="op">.</span><span 
+			class="keyw">setTime</span><span
+			class="op">(</span>fark<span 
+			class="op">),</span>
+
+<span class="pl-75">geçenSaat </span><span
+			class="op">= </span><span 
+			class="keyw">String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getUTCHours</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenDakika</span><span
+			class="op"> =</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">();</span>
+<span class="pl-75">geçenSaniye </span><span
+			class="op">=</span><span 
+			class="keyw"> String</span><span
+			class="op">(</span>süreçSonu<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">();</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaat <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaat</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaat<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenDakika <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenDakika</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenDakika<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span
+			class="op">(</span>geçenSaniye <span 
+			class="op">&lt;</span> 10 <span
+			class="op">{</span>
+<span class="pl-100">geçenSaniye</span> <span
+			class="op">=</span> <span 
+			class="str">'0'</span> <span
+			class="op">+</span> geçenSaniye<span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="pl-75">süreç</span> <span
+			class="op">=</span> geçenSaat <span
+			class="op">+</span> geçenDakika <span
+			class="op">+</span> geçenSaniye<span
+			class="op">;</span>
+
+
+
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> 6<span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+<span class="pl-100">x</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> süreç<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>i<span
+			class="op">,</span> i <span
+			class="op">+</span> 1<span 
+			class="op">);</span>
+<span class="pl-100">resim</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> x<span
+			class="op">[</span>i<span
+			class="op">] +</span> <span 
+			class="str">'.gif'</span><span 
+			class="op">);</span>
+<span class="pl-100">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim<span
+			class="op">[</span>i<span
+			class="op">]</span><span 
+			class="op">);</span>
+<span class="pl-100">a</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'gösterge'</span><span
+			class="op">+</span> i<span 
+			class="op">);</span>
+<span class="keyw-100">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> j <span 
+			class="op">=</span> 0<span
+			class="op">;</span> j<span 
+			class="op"> &lt;</span> a<span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> j <span 
+			class="op">++) {</span> 
+<span class="keyw-125">if</span><span 
+			class="op">(</span>a<span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>j<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-150">a</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span<span
+			class="op">[</span>i<span
+			class="op">]</span><span 
+			class="op">, </span>a<span
+			class="op">[</span>i<span
+			class="op">]</span><span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>j<span 
+			class="op">));</span>
+<span class="keyw-150">break</span><span
+			class="op">;</span>
+<span class="op-125">}</span>
+<span class="op-100">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>başlat <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="pl-75">_süreçBaşlangıcı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+<span class="keyw-75">if</span><span
+			class="op">(</span>_gizli<span
+			class="op">) {</span>
+<span class="pl-100">_süreçKontrol</span> <span
+			class="op">=</span> <span 
+			class="keyw">setInterval</span><span
+			class="op">(</span><span 
+			class="str">'kronograf()'</span><span
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="pl-100">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">false</span><span
+			class="op">;</span>
+<span class="pl-100">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #CC9963; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="pl-100">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #FF3366; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>durdur <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="pl-75">_gizli</span> <span
+			class="op">=</span> <span 
+			class="keyw">true</span><span
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'background-color : #00C100; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str"> 'background-color : #6666FF; color : #ffffff;'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>;
+
+<span class="keyw-50">this<span
+			class="op">.</span></span>yenileme <span 
+			class="op">=</span> <span
+			class="keyw">function</span><span
+			class="op">() {</span>
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreçKontrol<span 
+			class="op">);</span>
+<span class="keyw-75">location</span> <span 
+			class="op">=</span> <span 
+			class="keyw">location</span><span
+			class="op">.</span><span 
+			class="keyw">href</span><span 
+			class="op">;</span>
+<span class="op-50">};</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function </span>başlagıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> süreç <span 
+			class="op">=</span> <span
+			class="keyw">new</span> İzleme<span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">,</span> <span 
+			class="str">'stop'</span><span
+			class="op">,</span> <span 
+			class="str">'reset'</span><span
+			class="op">),</span>
+<span class="pl-50">başlamaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'start'</span><span
+			class="op">),</span>
+<span class="pl-50">durdurmaDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'stop'</span><span
+			class="op">),</span>
+<span class="pl-50">yenilemeDüğmesi</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'reset'</span><span
+			class="op">);</span>
+
+<span class="pl-50">başlamaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'startbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">durdurmaDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'stopbuttonready'</span><span 
+			class="op">);</span>
+<span class="pl-50">yenilemeDüğmesi</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">, </span><span 
+			class="str">'resetbutton'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>başlamaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>başlat<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>durdurmaDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>durdur<span 
+			class="op">);</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span>yenilemeDüğmesi<span
+			class="op">,</span> <span 
+			class="str">'click'</span><span 
+			class="op">, </span> süreç<span
+			class="op">.</span>yenileme<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b20.4-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b20.4-s3.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:07:58 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

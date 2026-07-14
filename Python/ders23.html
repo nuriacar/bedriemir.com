@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders23.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 23</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders22.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders24.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 23
+      </p>
+    </div>
+    <p id="sets" class="title-left">
+      3.4 - Kümeler (Sets)</p>
+    <p class="indent">
+      Python Programlama dili, iki türlü küme nesnesini destekler. Bunlardan
+      ilki, değişebilir bir tip olan set (küme) diğeri de değişmez (immutable)
+      bir tip olan frozenset (donmuş küme) veri tipleridir. Bu iki tipin değişme
+      (mutability) özelliği dışında oluşturulmaları ve elemanlarına erişim yöntemleri
+      aynıdır. Tek farkettikleri alan, uygulanabilecek öntanımlı metotların değişme
+      yeteneğine göre seçilmesidir. 
+    </p>
+    <p class ="indent">
+      Öntanımlı bir küme veri tipi, Python programlama dilinin matemetikçilere
+      armağanı sayılabilir. Çok az sayıda bilgisayar dili, kümeleri
+      öntanımlı olarak desteklemektedir.
+    </p>
+    <p class ="indent">
+      Küme elemanları, tanım gereği sıralı değillerdir. Kümelerin elemanlarına
+      iteratif yöntemlerle gelişigüzel olarak erişilebilir. Küme elemanları,
+      tüm diğer koleksiyon tiplerinde olduğu gibi, <span class="keyw">in</span>
+      aidiyet testlerini ve <span class="keyw">len</span><span
+      class="op">()</span> uzunluk saptamasını desteklerler.
+    </p>
+    <p class ="indent">
+      Küme elemanları, sadece hash edilebilen nesneleri elaman
+      olarak içerebilir. Bunun sonucunda sadece int, float, string ve topluluk tipinde veriler
+      küme elemanları olabilirler. Fakat, liste, sözlük ve bizatihi küme
+      tipleri küme elamanı olamazlar.
+    </p>
+    <p class ="subheading" id="genesis">
+        3.4.1 - Küme Oluşumu
+    </p>
+    <p class ="indent">
+      Kümelerin oluşturulması diğer koleksiyon tiplerinden farksızdır. Eleman içeren bir 
+      kümenin literal olarak oluşturulması için, süslü parantezlerin
+      arasına virgülle ayrılmış elemanların yazılması yeterlidir.    </p>
+    <pre class="pl-25 navy">
+küme1 = {1, 2, 3, 3, 4}
+print(küme1)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{1, 2, 3, 4}</span></pre>
+    <p class ="nonindent">
+      şeklinde olur. Görüldüğü gibi, oluşan küme sadece bir tek 3 
+      içermektedir. Literal olarak bir kümeye iki tane yanı değerde eleman
+      yerleştirmek istesek de Python derleyicisi bu isteği kabul etmeyerek, 
+      kümenin, kuramın öngördüğü gibi, her eşit değerden sadece bir
+      tek eleman içerecek şekilde  oluşturmuştur.
+    </p>
+    <p class ="indent">
+      Kümeler, öntanımlı küme oluşturucu fonksiyon 
+      <span class="keyw">set</span><span
+      class="op">()</span> kullanımı ile de oluşturulabilirler. 
+      Bu fonksiyon tek bir hash edilebilecek elemanı argüman olarak kabul eder. 
+      Örnek, 
+    </p>
+    <pre class="pl-25 navy">
+küme2  = set(['Aslı', 45, 6.98, ('Önder', 48)])            
+print(küme2)    
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{('Önder', 48), 45, 6.98, 'Aslı'}</span></pre>
+    <p class ="nonindent">
+      Veya, listenin ayrı olarak belirtilmesine de olanak bulunmaktadır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+liste3 = ['Aslı', 45, 6.98, ('Önder', 48)]
+küme3 = set(liste1)
+print(küme3)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{('Önder', 48), 45, 6.98, 'Aslı'}</span></pre>
+    <p class ="indent">
+      Program çıktıları incelendiğinde, eleman sıralarının gözetilmediği görülecektir.
+    </p>
+    <p class ="indent">
+      Sadece hash edilebilen topluluklar bir kümenin elemanı olabilirler. Bunlar,
+      içeriklerinde hiç değişebilen tipte eleman içermeyen topluluklardır. Örnek olarak,
+      aşağıda görülen tipte bir topluluk, bir kümenin elemanı olamaz. 
+    </p>
+    <pre class="pl-25 navy">
+liste6 = [22, 56, 89, 'Ali',(23, [67,56])]
+küme6= set( i for i in liste6)
+print(küme6)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-1-95a49338dd71&gt; in &lt;module&gt;()
+      1 liste6 = [22, 56, 89, 'Ali',(23, [67,56])]
+----&gt; 2 küme6= set( i for i in liste6)
+      3 print(küme6)
+
+TypeError: unhashable type: 'list'</span></pre>
+    <p class ="indent">
+      Boş bir küme, &empty; olarak gösterilir. Boş küme, literal olarak, 
+      boş {} olarak yaratılamaz. Boş kümenin mutlaka argümansız
+      <span class="keyw">set</span><span class="op">()</span>
+      fonksiyonu kullanılarak, d <span class="op">=</span>  <span
+      class="keyw">set</span><span class="op">()</span> şeklinde
+      yaratılması gerekir. Bu şekilde d ye &empty; atanmış olur.
+    </p>
+
+    <p class ="indent">
+      Kümeler, diğer koleksiyon tipleri gibi set comprehension yöntemi ile de
+      oluşturulabilirler. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+ liste4 = [22, 56, 89, 'Ali']
+küme4 = set( i for i in liste4)
+print(küme4)
+ 
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{56, 89, 22, 'Ali'}</span></pre>
+    <p class ="indent">
+      Küme içerikleri (set comprehension) belirli bir koşulu sağlayabilecek
+      elemanları da seçebilir.  Örnek,
+    </p>
+    <pre class="pl-25 navy">
+liste5 = liste = [12, 5, 33, 2]
+küme5 = set( i for i in liste5 if i &lt; 30)
+print(küme5)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{2, 12, 5}</span></pre>
+    <p class ="indent">
+      Tekrar hatırlayalım. Bu ifadede, ilk i,  oluşacak kümenin bir elamanını,
+      <span class="keyw">for</span> i
+      <span class="op">in</span> &lt;uygun iteratör&gt; daki i ise, taranan iteratördeki
+      bir elemanı belirtmektedir. İfadenin değerlendirilmesi sağdan başlar ve
+      ilk olarak ikinci i tanımlanmaya çalışılır. İkinci i tanımlanmış olduğunda,
+      küme elemanı olan i de tanımlanmmış olur ve küme oluşturulabilirse 
+      oluşturulur. Örnek olarak yukarıdaki ifade, küme4 = set( j for i in liste4)
+      olarak belirtilirse, Python derleyicisi bu ifadeyi kabul etmez ve J nin
+      tanımlı olmadığı yanıtını verir.
+    </p>
+    <p class ="subheading" id="traverse">3.4.2 - Küme Elemanlarına Erişim</p>
+    <p class ="indent">
+      Kümeler, koleksiyon ailesi içinde olan bir veri türüdür. Buna rağmen,
+      küme tipi verilerin elemanları kuramsal olarak sıralı değillerdir ve
+      buna uygun olarak Python derleyicisi, küme elemanlarına
+      indis değeri vermez. Bu durumda, küme elemanlarının elemanlarına
+      sıralı erişim, sadece o andaki sıralama için geçerlidir ve 
+      görüntülendiğinde de sonuçlar o anda geçerli olan sıralamayı bile
+      yansıtmaz, Python derleyicisi, görüntülemeden önce, görüntülenecek
+      sonuçta, eleman sırasını karıştırır ve karıştırılmış sonucu görüntüler.
+      Örnek olarak,
+    </p>
+    <pre class="pl-25 navy">
+A = {23, 16, 45}
+for i in A:
+    print(i ," ", end="")
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">
+16  45  23</span></pre>
+    <p class ="nonindent">
+      şeklinde erişim standarttır. Alınan görüntü, küme elemanlarına erişim
+      sonucunun, eleman sırası karıştırılarak kullanıcıya yansıtılmasıdır. 
+      Doğal olarak kümenin eleman sayısı artar veya eksilirse,  görüntülenen
+      karıştırılmış eleman indisleri de değişecektir.     
+    </p>
+    <p class ="indent">
+      Küme elemanlarının anlık sıralamasını <span
+      class="keyw">enumerate</span><span class="op">()</span>
+      fonksiyonunu uygulayarak alabiliriz. Fakat, <span
+      class="keyw">enumerate</span> <span
+      class="op">()</span> fonksiyonu da  sadece küme elemanlarının
+      o anki kompozisyonuna göre karıştırılmış sonuçları verir.  Kümenin
+      eleman sayısı artar veya eksilirse, eleman indisleri de değişecektir.    
+      Örnek:
+    </p>
+    <pre class="pl-25 navy">
+L = {22, 44, 56, 77, 55, 44}
+
+L= enumerate(L)
+
+for i, j in L:
+    print('indis = {0}  Eleman = {1}'.format(i, j))
+    
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+<span class= "maroon-left">
+indis = 0  Eleman = 56
+indis = 1  Eleman = 44
+indis = 2  Eleman = 77
+indis = 3  Eleman = 22
+indis = 4  Eleman = 55
+</span></pre>
+    <p class ="indent">
+      Küme elemanlarının yerleşim sıralarının belli olması ve
+      elemanlara değişmeyen sıra numaraları ile erişim amaçlanıyorsa,
+      <span class="keyw">frozenset</span> veri tipi ile çalışılmalıdır.
+    </p>
+    <p class ="subheading" 
+    id="methods">3.4.3 - Kümelere Uygulanabilecek Metotlar</p>
+    <p class ="indent">
+      Küme veri sınıfı, matematikte tanımmlı ve işlem kuralları belli
+      olan bir veri tipidir. Bu nedenle, Python programlama dilinde
+      tanımlı tüm küme işlemlerinin yapılabilmesini sağlayacak
+      öntanımlı fonksiyonlar sağlanmıştır. 
+    </p>
+    <p class ="indent">
+      Kümelere eleman eklenmesi, <span class="keyw">add</span><span
+      class="op">()</span> fonksiyonundan yararlanılarak yapılabilir. Bufonksiyon
+      eklenmesi istenen elemanı inceler ve bu eleman zaten kümenin bir
+      elemanı ise, ekleme isteğini geri çevirir. Örnek : (Eğer eklenecek elaman
+      kümenin bir elemanı ile aynı ise)
+    </p>
+    <pre class="pl-25 navy">
+küme22 = {2, (3, 6, 8), 33, 47}
+küme22.add(3)
+print(küme22)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{33, 2, 3, (3, 6, 8), 47}</span></pre>
+    <p class ="indent">
+      Eğer eklenecek eleman daha önce kümede bulunuyorsa,
+    </p>
+    <pre class="pl-25 navy">
+küme22 = {2, (3, 6, 8), 33, 47}
+küme22.add((3, 6, 8))
+print(küme22)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{33, 2, (3, 6, 8), 47}</span></pre>
+    <p class ="indent">
+      Görüldüğü gibi, hiçbir uyarı veya  kabul etmeme mesajı yok.
+      Elemanın eklenip eklemedğini bilmiyoruz. Kümenin yapısı
+      değişmemiş gibi duruyor.
+    </p>
+    <p class ="indent">
+      Küme lemenlarından birini kümeden çıkarmak için,
+      <span class="keyw">discard</span><span class="op">()</span>
+      fonksiyonu kullanılır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+DF = {i**2 for i in {2, 3, 4}}
+DF.discard(17)
+print(DF)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{16, 9, 4}</span></pre>
+    <p class ="indent">
+      Yukarıdaki örnekte görüldüğü gibi, <span class="keyw">discard</span><span
+      class="op">()</span> foksiyonu, çıkartılmak istenen eleman kümede
+      bulunmuyorsa, hiçbir işlem yapmaz ve hiçbir mesaj vermez. Oysaki
+      <span class="keyw">remove</span><span class="op">()</span>
+      fonksiyonu, aşağıdaki örnekte görüldüğü gibi, eğer eleman kümede
+      yoksa bir hata mesajı verir.
+    </p>
+    <pre class="pl-25 navy">
+topluluk = (66, 77, 88, 99)
+FG = set (topluluk)
+FG.remove(26)
+print(FG)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+&lt;ipython-input-51-edd9a8f8c5f0&gt; in &lt;module&gt;()
+      1 topluluk = (66, 77, 88, 99)
+      2 FG = set (topluluk)
+----&gt; 3 FG.remove(26)
+      4 print(FG)
+
+KeyError: 26</span></pre>
+    <p class ="indent">
+      Bir kümedeki tüm elemanların kaldırılması için,
+      aşağıdaki örnekte görüldüğü gibi, <span class="keyw">clear</span><span
+      class="op">()</span> metodu çağrılır.
+    </p>
+    <pre class="pl-25 navy">
+VT = {7, 'Niğde', 8, 'Adana'}
+VT.clear()
+print(VT)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set()</span></pre>
+    <p class ="indent">
+      Program sonucundan da görüldüü gibi, <span class="keyw">clear</span><span
+      class="op">()</span> metodu uygulandığında, VT kümesi,
+      boş küme &empty; ye eşit olmaktadır.
+    </p>
+    <p class ="indent">
+      Bir kümenin, sığ kopyalanması için, <span class="keyw">copy</span><span
+      class="op">()</span> metodu çağrılabilir.
+    </p>
+    <pre class="pl-25 navy">
+P = {pow(i ,3) for i in {2,3,4,5}}
+T = P.copy()
+print(T)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{8, 64, 27, 125}</span></pre>
+    <p class ="indent">
+     Tanımlı  A ve B kümelerinin farkı, A-B ifadesi ile gerçekleştirilebilir.
+     Bu ifade hem A hem de B kümesinde bulunan her elemanı, A kümesinden
+     çıkartarak, yeni bir kümeyi sonuç olarak geri dönürür.
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A-B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{66, 55}</span></pre>
+    <p class ="indent">
+      Aynı sonuç, <span class="keyw">difference</span><span class="op">()</span>
+      metodu çağrılarak da alınır.  Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A.difference(B))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{66 55}</span></pre>
+
+<p class ="indent">
+      A ve B kümelerinin farkı, A-=B ifadesi ile gerçekleştirilebilir.
+      Bu işlem sonucunda, hem A hem de B kümesinde bulunan her eleman, A kümesinden
+      çıkartılarak A kümesinin içeriği güncellenmiş olur. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A = A-B
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{66, 55}</span></pre>
+    <p class ="indent">
+      Aynı sonuç, <span class="keyw">difference_update</span><span class="op">()</span>
+      metodu çağrılarak da alınır.  Fakat dikkat, önce güncelleştirmek sonra görüntülemek
+      gerekir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A.difference_update(B)
+for i in A:
+    print(i)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">66
+55</span></pre>
+    <p class ="indent">
+      Eğer, print(A.difference_update(B)) dersek, geriye None döner, çünkü, tüm update metotlerı
+      veriyi güncelleştirir ve geriye None döndürür fakat hiçbir zaman bu fonksiyonların geri
+      döndürdükleri değer kullanılmaz. Bu fonksiyonlar güncellemelerini yaptıktan sonra, 
+      güncellenen nesne ile işlem yapılır. Aynen, yukarıdaki program da olduğu gibi, küme
+      nesnesi önce güncelleniyor, sonra da güncellenen değeri görüntüleniyor. 
+      Eğer A = A.difference_update(B) sonra da print(A) denilirse yine None yanıtı alınır.
+      Çünkü, A kümesinin değeri None olarak güncellenmiş olur ve bu da hiç istenmeyen bir şeydir.
+    </p>
+    <p class ="indent">
+      A ve B kümelerinin kesişmeleri A &amp; B , A.intersection(B) ve A.intersection_update(B) 
+      metotları ile incelenir. Dikkatli kullanılırsa her üçü de aynı sonucu verir.
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A &amp; B)
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([34, 12])
+set([66, 12, 34, 55])</span></pre>
+    <p class ="indent">
+      A kümesinin güncellenmemiş oduğu görülüyor.
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print (A.intersection(B))
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([34, 12])
+set([66, 12, 34, 55])</span></pre>
+    <p class ="indent">
+      A kümesinin güncellenmemiş oduğu görülüyor.
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A &amp;=B # intersection_update(B) anlamında
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left"></span></pre>
+
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A.intersection_update(B)
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([34, 12])</span></pre>
+    <p class ="indent">
+      A kümesinin güncellenmiş oduğu görülüyor. Diğer metotlar A kümesini olduğu
+      gibi bırakıyor sadece sonucu sanal ortamda oluşturup görüntülüyor. Bir tek
+      A.intersection update(B) metodu A kümesini güncelliyor.
+    </p>
+    <p class ="indent">
+      A ve B kümelerinin ayrık kümeler olup olmadıkları, 
+      <span class="keyw">isdisjoint</span><span class="op">()</span>
+      metodu çağrılarak saptanabilir.
+    </p>
+    <pre class="pl-25 navy">
+
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A.isdisjoint(B))
+
+<span class= "maroon-left">False</span></pre>
+    <p class ="indent">
+      A ve B kümelerinin ortak elemanları olduğu böylece belirlenmiş olmaktadır.
+    </p>
+    <p class ="indent">
+      A ve B kümelerinin birbirlerinin alt kümeleri olduğu, simgesel olarak,
+      A &gt;= B ve fonksiyon olarak A<span class="op">.</span><span
+      class="keyw">issubset</span><span class="op">(</span>B<span
+      class="op">)</span> ifadeleri ile sınanabilir. Bu fonksiyon,
+      eğer A kümesi B ye eşit veya A kümesi B kümesinin bir alt kümesi ise
+      <span class="keyw">True</span> aksi halde <span class="keyw">False</span>
+      sonucunu verir.
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A &gt;=B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left"></span>False</pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A. issubset(B))
+
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">False</span></pre>
+    <p class ="indent">
+      Bir A kümesinin bir B kümesinin özalt kümesi olup olmadığı
+      s &lt; t karşılaştırılması yapılarak saptanabilir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A &lt; B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left"></span>False</pre>
+    <p class ="indent">
+      Bir A kümesinin, bir B kümesinin üst kümesi olup olmadığı,
+      simgesel olarak A &gt; = B ifadesi ile, fonksiyonel olarak da
+      A<span class="op">.</span><span
+      class="keyw">issuperset</span><span class="op">(</span>B<span
+      class="op">)</span> şekli,nde sınanabilir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A &gt;= B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">False</span></pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A.issuperset(B))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">False</span></pre>
+    <p class ="indent">
+      Bir A kümesinin, bir B kümesinin özüst kümesi olup olmadığı,
+      simgesel olarak A &gt;  B ifadesi ile sınanır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A &lt; B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">False</span></pre>
+    <p class ="indent">
+      Bir A kümesinin, bir B kümesi  ile simetrik farkı, simgesel olarak,
+      A ^ B ifadesi ile, fonksiyonel olarak da A<span
+      class="op">.</span><span class="keyw">symmetric_difference</span><span
+      class="op">(</span>B<span class="op">)</span> ifadesi ile sınanabilir. Bu ifade
+      uygulandığında, elemanları ayrı ayrı A ve B kümelerinde bulunan, fakat her iki
+      kümede birden bulunan elemanlar dışındaki elemanları içeren yeni bir
+      küme oluşturulur. Örnek, 
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A ^ B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 54, 55, 25])</span></pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A.symmetric_difference(B))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 54, 55, 25])</span></pre>
+    <p class ="indent">
+      Abir A kümesinin içeriğinin, bir B kümesi ile simetrik fark sonucu ile güncellenmesi,
+      simgesel olarak A ^= B veya fonksiyonel olarak, A<span class="op">.</span><span
+      class="keyw">symmetric_difference_update</span><span
+      class="op">(</span>B<span class="op">)</span> şeklinde gerçekleştirilebilir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A ^= B
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 54, 55, 25])</span></pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A.symmetric_difference_update(B)
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 54, 55, 25])</span></pre>
+    <p class ="indent">
+      Bir A kümesi ile bie B kümesinin birleşimi, A daki tüm elamanları ve B deki, 
+      A da bulunmayan elemanları içeren yeni bir kümedir. Bu küme ,
+      simgesel olarak A | B ve fonksiyonel olarak da, A<span
+      class="op">.</span><span class="keyw">union</span><span
+      class="op">(</span>B<span class="op">)</span> şeklinde oluşturulur.
+      Örnek,
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A | B)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 12, 34, 54, 55, 25])</span></pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+print(A.union(B))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 12, 34, 54, 55, 25])</span></pre>
+    <p class ="indent">
+      Bir A kümesinin bir B kümesinin içeriği ile güncellenmesi, A nın elemanlarına A olan
+      tüm elamanların ve B de olan fakat A da olmayan elemanların eklenerek genişletilmesidir.
+      Bu olay simgesel olarak A |= B veya fonksiyonel olarak, A<span
+      class="op">.</span><span class="keyw">update</span><span
+      class="op">(</span>B<span class="op">)</span> şeklinde gerçekleştirilir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A |= B
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 12, 34, 54, 55, 25])</span></pre>
+    <pre class="pl-25 navy">
+A = {34, 55, 66, 12,}
+B = {12, 34, 54, 42, 25,}
+A.update(B)
+print(A)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">set([66, 42, 12, 34, 54, 55, 25])</span></pre>
+
+   <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders22.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders24.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

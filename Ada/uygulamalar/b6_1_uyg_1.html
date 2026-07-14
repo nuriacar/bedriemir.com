@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b6_1_uyg_1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:43 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/uygulamalar/b6_1_uyg_1.html"> 
+    <meta charset="utf-8">
+    <title>b6_1_uyg_1</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial">
+    <meta name="Description" content="Ada Tutorial in Turkish Language ">
+    <meta name="Keywords" content="Ada Tutorial Turkish">
+    <meta name="Abstract" content="Ada Turkish Tutorial">
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Distribution" content="Local">
+    <meta name="Robots" content="Index">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+    <link href="../css/Adastyle.css" rel="stylesheet"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+<body>
+<div class="sayfaortala">
+<table class="apptable">
+        <tbody>
+          <tr>
+            <td colspan="2" class="apptable-td-1">Ada Program Örnekleri</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="apptable-td-2">Programı Yazan : Prof.Dr.Bedri Doğan Emir</td>
+          </tr>
+          <tr>
+            <td colspan="1" class="apptable-td-3"><div class="dikeyTab-5"><span 
+              class="maroon">procedure :</span> <a 
+              href="../programlar/b6_1_uyg_1.adb">b6_1_uyg_1.adb</a></div></td>
+            <td class="apptable-td-4"><div 
+              class="dikeyTab-5"><a 
+              href="javascript:void window.history.back(-1)">Çağıran Sayfaya Geri Dönüş</a></div></td>
+          </tr>
+        </tbody>
+  </table> 
+  </div>
+
+<pre class="app-25"><span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">With</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">With</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span>b6_1_uyg_1<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">,</span>x2<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>C<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">Constant</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0.001</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>I<span class="S0"> </span><span class="S4">:</span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">function</span><span class="S0"> </span>f_x<span class="S0"> </span><span class="S4">(</span><span class="S0"> </span>x<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S4">)</span><span class="S0"> </span><span class="S1">return</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">return</span><span class="S0"> </span>x<span class="S4">**</span><span class="S3">3</span><span class="S4">-</span><span class="S3">18.0</span><span class="S4">*</span>x<span class="S4">**</span><span class="S3">2</span><span class="S4">+</span><span class="S3">25.0</span><span class="S4">*</span>x<span class="S4">+</span><span class="S3">100.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>f_x<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">-</span><span class="S3">4.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">loop</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x2<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>x1<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span>C<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span><span class="S4">(</span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>f_x<span class="S4">(</span>x2<span class="S4">))</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök içeren aralığın alt sınırı : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x1<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök içeren aralığın üst sınırı : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x2<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">exit</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">elsif</span><span class="S0"> </span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>f_x<span class="S4">(</span>x2<span class="S4">)</span><span class="S0"> </span><span class="S4">=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>f_x<span class="S4">(</span>x1<span class="S4">)</span><span class="S0"> </span><span class="S4">=</span><span class="S0"> </span><span class="S3">0.0</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x1<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span><span class="S0"> </span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kök Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>x2<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Kaydedilen Iterasyon Sayısı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Integer<span class="S4">'</span>Image<span class="S4">(</span>I<span class="S4">));</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x1<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>x2<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>I<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span><span class="S3">10000</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Maksimum Iterasyon Sayısına Ulaşıldı ve Fonkiyonun bir Kökü Saptanamadı !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">exit</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span>b6_1_uyg_1<span class="S4">;</span></pre>
+  <p class="indent">Bu programın sonucu, </p>
+  <p class="indent green">Kök içeren aralığın alt sınırı : -1.70599999999999995E+00</p>
+  <p class="indent green">Kök içeren aralığın üst sınırı : -1.70499999999999995E+00</p>
+  <p class="indent green">Kaydedilen Iterasyon Sayısı :  2294</p>
+    <p class="indent">olmaktadır.</p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/uygulamalar/b6_1_uyg_1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 01:53:44 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:46 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders15.html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Python 3 Ders 15</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body class="indent">
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2</h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders14.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders16.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 15</p>
+    </div>
+    <p id="functions" class="title-left">
+      2.3 - Fonksiyonların Uygulanması (Devam)</p>
+    <p id="keywargs" class="subheading">
+      2.3.4 - Anahtar Değerli Argümanlar
+    </p>
+    <p class="indent">
+      Bir laboratuvarda deney yaptığınızı düşünün. Her deneyde, 
+      bir cihazdan okumalar yapıyor ve okuduğumuz kadar noktanın 
+      ortalamasını alıyoruz. Ortalama için en az iki değere 
+      gereksinme olduğu için, her deneyde en az iki okuma yapmalıyız. 
+      Daha fazla okuma doğal olarak daha iyi olur, ama çeşitli 
+      nedenleden dolayı, yeterince okuma yapamıyoruz. Her deneyde, 
+      sayısı belli olmayan okumalar yapabiliyoruz.
+    </p>
+    <p id="uyg1" class="indent">
+      Bu deneyde okumalar 'A' = 12.34 ,'B' = 13.08 gibi, bir 
+      isim, bir değer şeklinde yapılıyor. Bir okuma<span 
+      class="op">()</span> fonksiyonu yaratıp okunan değerlerin 
+      ortalamasını almak istiyoruz. Bu fonksiyon,
+      <span class="keyw">def</span> okuma<span class="op">(</span><span 
+      class="str">'A'</span> <span class="op">=</span> 12.34
+      <span class="op">,</span> <span class="str">'B'</span>
+      <span class="op">=</span> 13.08<span class="op">):</span> 
+      olarak tanıtılabilir. Fazla okumalar için, Python programlama 
+      dilinin anahtar sözcüklerle tanıtılan argümanlar olanağından 
+      yararlanabiliriz. Aşağıdaki
+      <a href="uygulamalar/ders15/ders15program1.html">program</a>, 
+      bu tip bir uygulamayı açıklamaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="comm">Ders15program1.py</span>
+    
+<span class="keyw">from</span> test.test_configparser <span 
+    class="keyw">import</span> SortedDict<span class="op">;</span>
+
+<span class="keyw">def</span> okuma<span class="op">(</span>A <span 
+    class="op">=</span> 23.5 <span class="op">,</span> B <span 
+    class="op">=</span> 23.8<span class="op">, **</span> ötekiler<span 
+    class="op">):</span>
+    
+<span class="pl-25">ötekiler</span><span class="op">=</span>SortedDict<span 
+    class="op">(</span>ötekiler<span class="op">);</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span>list<span 
+    class="op">(</span>ötekiler<span class="op">.</span>keys<span 
+    class="op">()));</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span>A<span 
+    class="op">,</span> <span class="str">'  '</span><span 
+    class="op">,</span> B <span class="op">,</span> <span 
+    class="str">'  '</span> <span class="op">,</span> end <span 
+    class="op">=</span> <span class="str">''</span><span 
+    class="op">);</span>
+
+<span class="pl-25">toplam</span> <span class="op">=</span> A <span 
+    class="op">+</span> B<span class="op">;</span>
+ 
+<span class="keyw">for</span> k <span class="op">in</span> ötekiler<span 
+    class="op">.</span>keys<span class="op">():</span>
+<span class="pl-25">toplam</span> <span class="op">=</span> toplam <span 
+    class="op">+ </span>ötekiler<span class="op">[</span>k<span 
+    class="op">];</span>
+
+<span class="keyw-25">print</span>(ötekiler[k] , '  '<span 
+    class="op">,</span> end <span class="op">=</span> <span 
+    class="str">''</span><span class="op">);</span>
+        
+<span class="pl-25">g</span> <span class="op">=</span> len<span 
+    class="op">(</span>ötekiler<span class="op">);</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'ortalama = '</span><span class="op">,</span> toplam<span 
+    class="op">/(</span>g<span class="op">+</span>2<span 
+    class="op">));</span>
+
+okuma<span class="op">(</span>22.2<span class="op"> ,</span> 22.4 <span 
+    class="op">,</span> C <span class="op">=</span> 22.6 <span 
+    class="op">,</span> D <span class="op">=</span> 22.4<span 
+    class="op">);</span>
+          
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+['C', 'D']
+22.2    22.4   22.6   22.4   ortalama =  22.4</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, açıklanacak çok nokta bulunmaktadır. 
+      Herşeyden önce, program verilerinden ilk ikisi zorunlu 
+      verilerdir ve bu yüzden formal parametre listesinde isimleri 
+      açıkça belirtilmilştir İki zorunlu veri olmasının nedeni, 
+      okumaların ortalaması alınırken, en az iki okuma değerinin 
+      gerekli olmasıdır. Diğer veriler gerekli değildir, fakat 
+      ortalama ne kadar çok veri noktası ile alınırsa, o kadar 
+      çok gerçeğe (kayma dışında) yakın olur. Bu nedenle olanaklar 
+      ölçüsünde çok nokta ile okuma yapıldığında, ortalamanın 
+      alabilmesi için, ikiden sonraki nokta sayısı, her deneye 
+      uyabilecek şekilde değişebilecek sayıda değer çiftleri 
+      olacak şekilde programlanmıştır.
+    </p>
+    <p class="indent">
+      Yukarıdaki programda, okuma<span class="op">()</span> 
+      fonksiyonunun <span class="op">**</span>ötekiler olarak 
+      belirtilen argümanında tanımlanan veriler, Python programlama 
+      dilinde, &quot;Sözlük&quot; olarak tanımlanan bir veri 
+      tipindedir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, sözlük tipi veriler,
+      <span class="op">{</span>anahtar<span class="op">:</span>değer
+      <span class="op">,</span> anahtar<span class="op">:</span>değer<span 
+      class="op">,</span> ...<span class="op">}</span> şeklinde 
+      tanımlanan veri tipini oluşturur. Bu veri tipinde anahtar 
+      değerleri sözel değerler (string), topluluk (tuple) gibi, 
+      değiştirilemeyen (immutable) veri tipinde olmalıdır. Değer 
+      ise, istenen veri tipinde olabilir. Python programlama 
+      dilinde, sözlük tipi veriler, JavaScript programlama dilinde, 
+      ilişkisel diziler olarak, tanımlanır.
+    </p>
+    <p class="indent">
+      Örneğimizde, ötekiler adındaki, formal parametre değerlerine 
+      istenilen sıra ile C <span class="op">=</span> okunan 
+      değer, D <span class="op">=</span> okunan değer, şeklinde 
+      istenildiği kadar veri çifti şekilnde gerçek argümanlar 
+      tanımlanabilir.
+    </p>
+    <p class="indent">
+      Python derleyicisi, sözlük verilerini anahtar değerlerine 
+      göre sıralı olarak değil gelişigüzel olarak değerlendirir. 
+      Bu nedenle, insanlara göre daha anlamlı sonuçların alınması 
+      için, öncelikle girilmiş olan sözlük verilerinin anahtar 
+      değerlerine göre sıralanması uygun olur. Bu sıralama Python 
+      programlama dilinin hazır sortedDict<span class="op">()</span> 
+      fonksiyonunun programa ithal edilmesi ile sağlanır. Bu 
+      ithal, program kodlarının yazıldığı Eclipse platformunun 
+      pyDev eklentisinin, programın yükünü arttırmayacak şekilde 
+      düzenlemesi ile gerçekleştirilmiştir.
+    </p>
+    <p class="indent">
+      Programa girilmiş olan veri noktalarının belirtilmesi 
+      için, sözlük değerlerinin anahtar değerlerine erişim yapmak 
+      gereklidir. Bu erişim, önce sözlük verilerinin anahtar 
+      değerlerinin bir listede toplanması ve bu listenin görüntülenmesi 
+      ile sağlanmıştır.</p>
+    <p class="indent">
+      Ortalamanın alınması için, sözlük verilerinin değerlerine 
+      erişmek gereklidir. Bu erişim, bir döngü yapısı ile gerçekleştirilmiştir. 
+      Döngü, sözlük verilerinin, anahtar değerlerini toplayan 
+      liste elemanlarının taranması ile gerçekleştirimiş, her 
+      liste elemanına karşı gelen sözlük değeri, bir akümülatörde 
+      toplanarak, önce toplam değeri, sonra da ortalaması alınmıştır.</p>
+    <p class="indent">
+      Yukarıdaki program, veri noktalarının görüntülenmsi için, 
+      detaylı olarak yazılmıştır. Salt ortalamanın görüntülenmesi 
+      için, daha kısa bir program da yeterli olabilir.
+    </p>
+    <p class="indent">
+      Python programlama dilinin sözlük (dict) tipi verilerinin 
+      anahtar (keyword) değerleri argüman olarak alan fonksiyonların 
+      argümanlarına kwargs (keyword arguments) adı verilir. 
+      Bunlar,
+    </p>
+  <pre class="pl-25">
+<span class="keyw">def</span> fnFoo<span class="op">(**</span>kwargs<span 
+    class="op">):</span>
+    </pre>
+    <p id="uyg2" class="nonindent">
+      olarak tanımlanırlar.Burada kwargs, sözlük anahtarlarıdır. 
+      Formal parametre olarak kwargs tanımlanır, gerçek argüman 
+      olarak, tanımlanmış anahtar isimlerinin değerleri fonksiyon 
+      tarafından bulunur ve kullanılır. Bunun bir uygulaması yukarıdaki 
+      programda görülmüştü. İkinci bir örnek olarak, aşağıdaki
+      <a href="uygulamalar/ders15/ders15program2.html">program</a> 
+      yine böyle bir uygulamayı içermektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Ders15program2.py</span>
+
+sözlük <span class="op">= {</span> <span class="str">'x'</span><span 
+    class="op">:</span> 1<span class="op"> , </span><span 
+    class="str">'y'</span><span class="op">:</span> 2 <span 
+    class="op">, </span><span class="str">'z'</span><span 
+    class="op">:</span>16<span class="op">};</span>
+
+<span class="keyw">def</span> topla<span class="op">(</span>kwargs<span 
+    class="op">):</span>
+<span class="pl-25">s</span> <span class="op">=</span> 0<span 
+    class="op">;</span>
+<span class="keyw-25">for</span> i <span class="op">in</span> kwargs<span 
+    class="op">:</span>
+<span class="pl-50">s</span> <span class="op">=</span> s<span 
+    class="op"> + </span>kwargs<span class="op">[</span>i<span 
+    class="op">];</span>
+<span class="keyw-25">return</span> s<span class="op">;</span>
+
+q <span class="op">=</span> topla<span class="op">(**</span>sözlük<span 
+    class="op">);</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'Toplam = '</span> <span class="op">,</span> q<span 
+    class="op">);</span>
+    
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+Toplam =  19</span></pre>
+    <p class="indent">
+      Yukarıdaki programdan görüldüğü gibi, istenilen sayıda 
+      eleman içeren sözlük verilerinin, her anahtar değerine 
+      karşı gelen değerler üzerinde her türlü işlemin yapılabilmesinin 
+      olanağı bulunmaktadır.
+    </p>
+  <p id="generator" class="subheading">
+      2.3.5 - Generator Fonksiyonlar
+    </p>
+    <p class="indent">
+      Python programlama dilinde, Javascript ve Java gibi dillerde 
+      alışılagelmiş for/next döngülerinin bulunmadığı görülmüştü. 
+      Buna rağmen, buna benzer bir sekansı kendi generator fonksiyonlarımızla 
+      oluşturabiliriz.</p>
+    <p class="indent" id="uyg3">
+      Generator fonksiyonları, kendi iteratorlarımızı tanımlayıp 
+      uygulamamıza yardımcı olur. Bu fonksiyonlar, içlerinde 
+      bir <span class="keyw">while</span> döngüsü taşırlar. 
+      Bu, onları belirli sayıda döngü gerçekleştirerek, sonsuz 
+      döngüye girmelerini engeler. Bu konuda bir örnek,
+      <a href="uygulamalar/ders15/ders15program3.html">aşağıdaki programda</a> 
+      verilmiştir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Ders15program3.py</span>
+
+<span class="keyw">def</span> generator1 <span class="op">(</span>n <span 
+    class="op">=</span> 0<span class="op">):</span>
+<span class="pl-25">i </span><span class="op">=</span> s <span 
+    class="op">=</span> 0<span class="op">;</span>
+<span class="keyw-50">while</span> i &lt; n <span 
+    class="op">:</span>
+<span class="pl-75">s</span> <span class="op">+=</span> i <span 
+    class="op">**</span> 2<span class="op">;</span>
+<span class="keyw-75">yield</span> s<span class="op">;</span>
+<span class="pl-75">i</span> <span class="op">+=</span> 1<span 
+    class="op">;</span>
+<span class="keyw-75">return</span> s<span class="op">;</span>
+
+k <span class="op">=</span> 0<span class="op">;</span>
+
+<span class="keyw">for</span> i <span class="keyw">in</span> generator1<span 
+    class="op">(</span>5<span class="op">):</span>
+<span class="keyw-25">print</span> <span class="op">(</span><span 
+    class="str">&quot;k =&quot;</span><span class="op">,</span> k <span 
+    class="op">,</span> <span class="str">'i = '</span><span 
+    class="op">,</span> i<span class="op">);</span>
+<span class="pl-25">k</span> <span class="op">+=</span> 1<span 
+    class="op">;</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+k = 0 i =  0
+k = 1 i =  1
+k = 2 i =  5
+k = 3 i =  14
+k = 4 i =  30</span></pre>
+    <p class="indent">
+      Yukarıdaki program, ilk n tamsayılarının karelerinin toplamını 
+      hesaplamaktadır.
+    </p>
+    <p id="decorator" class="subheading">
+      2.3.6 - Dekorator Fonksiyonlar
+    </p>
+    <p class="indent" id="uyg4">
+      Dekorator fonksiyonlar, bir üst fonksiyonu, bir iç fonksiyona 
+      bağlar. İlk önce
+      <a href="uygulamalar/Ders15/Ders15program4.html">aşağıdaki</a> 
+      dış fonksiyonu gözönüne alalım.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Ders15program4</span>
+
+<span class="keyw">def</span> dışFonksiyon<span class="op">(</span>fonksiyon<span 
+    class="op">):</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;fonksiyonçağrısı :&quot;</span> , fonksiyon<span 
+    class="op">.</span><span class="keyw">__name__</span><span 
+    class="op">);</span>
+<span class="keyw-25">def</span> içFonksiyon<span 
+    class="op">(*</span>argümanlar<span class="op">):</span>
+<span class="keyw-50">print</span><span class="op">(</span><span 
+    class="str">&quot;çalıştırılıyor : &quot;</span><span 
+    class="op">,</span> fonksiyon<span class="op">.</span><span 
+    class="keyw">__name__</span><span class="op">);</span>
+<span class="keyw-50">return</span> fonksiyon<span 
+    class="op">(*</span>argümanlar<span class="op">);</span>
+<span class="keyw-25">return</span> içFonksiyon;
+
+<span class="keyw">def</span> benim_fonksiyonum<span 
+    class="op">(</span>parametre<span class="op">):</span>
+<span class="keyw-25">print</span><span class="op">(</span>parametre<span 
+    class="op">);</span>    
+benim_fonksiyonum <span class="op">=</span> dışFonksiyon<span 
+    class="op">(</span>benim_fonksiyonum<span class="op">);</span> 
+
+benim_fonksiyonum<span class="op">(</span><span class="str">&quot;Günaydın&quot;</span><span 
+    class="op">)</span>
+ 
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+fonksiyonçağrısı :  benim_fonksiyonum
+çalıştırılıyor :  benim_fonksiyonum
+Günaydın</span></pre>
+    <p class="indent">
+      Yukarıdaki fonksiyonun yürüşü klasik Pyhthon programlama 
+      yöntemlerinin uygulanması ile gerçekleşir ve bir dış fonksiyon 
+      bir iç fonksiyonu döndürür.
+    </p>
+    <p id="uyg5" class="indent">
+      Aşağıdaki <a href="uygulamalar/ders15/ders15program5.html">program</a> 
+      ise, aynı işlevi bir decorator bildirimi ile gerçekleştirmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Ders15program5</span>
+
+<span class="keyw">def</span> dışFonksiyon<span class="op">(</span>fonksiyon<span 
+    class="op">):</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;fonksiyonçağrısı :&quot;</span> , fonksiyon<span 
+    class="op">.</span><span class="keyw">__name__</span><span 
+    class="op">);</span>
+<span class="keyw-25">def</span> içFonksiyon<span 
+    class="op">(*</span>argümanlar<span class="op">):</span>
+<span class="keyw-50">print</span><span class="op">(</span><span 
+    class="str">&quot;çalıştırılıyor : &quot;</span><span 
+    class="op">,</span> fonksiyon<span class="op">.</span><span 
+    class="keyw">__name__</span><span class="op">);</span>
+<span class="keyw-50">return</span> fonksiyon<span 
+    class="op">(*</span>argümanlar<span class="op">);</span>
+<span class="keyw-25">return</span> içFonksiyon;
+
+
+<span class="op">@</span>dışFonksiyon
+
+<span class="keyw">def</span> benim_fonksiyonum<span 
+    class="op">(</span>parametre<span class="op">):</span>
+<span class="keyw-25">print</span><span class="op">(</span>parametre<span 
+    class="op">);</span>    
+
+
+benim_fonksiyonum<span class="op">(</span><span class="str">&quot;Günaydın&quot;</span><span 
+    class="op">)</span>
+ 
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+fonksiyonçağrısı :  benim_fonksiyonum
+çalıştırılıyor :  benim_fonksiyonum
+Günaydın</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, yukarıdaki programda, bağlama işlemi daha 
+      kısa bir kodla bir decorator uygulaması ile geçekleştirilmiş olmaktadır.
+    </p>
+    <p class="indent">
+      Daha önce <span class="op">** </span>ile açıklanan istenilen 
+      sayıda sözlük veri tipinin anahtar değerlerini argüman 
+      olarak alan fonksiyonları incelemiştik.
+    </p>
+    <p id="change" class="subheading">
+      2.3.7 - Fonksiyon içinde Değer Değişimi
+  </p>
+    <p class="indent">
+      Bu konuda, daha önce birçok uygulama yapmış ve temel bilgileri 
+      almış durumdayız. Fakat, bu kısımda, bilgilerimizi hem 
+      tekrar etmek, hem de -özellikle yeni başlayanlar için- 
+      daha netleştirmenin faydalı olacağı kuşkusuzdur.</p>
+    <p class="indent">
+      Herşeyden önce, bir değişkenin değerine erişim, bir değişkenin 
+      değerinin güncellenmesi, bir değişkene yeni değer atanması 
+      tamamen farklı olaylardır ve aralarındaki farkın iyice 
+      özümsenmesi gerekmektedir.
+    </p>
+    <p class="indent">
+      Bir değişken değerine erişim, bu değeri kullanma ve değiştirme 
+      hakkına sahip olunması anlamına gelir.</p>
+    <p class="indent">
+      Global bir değişkene tüm alt programlardan erişilebilir. 
+      Örnek:</p>
+    <pre class="pl-25">
+
+global1 <span class="op">=</span> 999<span class="op">;</span>
+
+<span class="keyw">def</span> fn1<span class="op">():</span>
+   
+<span class="keyw">print</span>(global1)<span class="op">;</span> <span 
+    class="comm">#erişim</span>
+
+fn1<span class="op">();</span></pre><pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+999</pre>
+    <p class="indent">
+      Bir alt programdan, global bir değişkene, değerini yazdırarak 
+      erişiliyor. Erişim, değerin kullanılması anlamına gelir. 
+      Bir alt programdan, global değişkenlere erişim ve güncelleme 
+      olanağı sağlanmıştır. Burada global değişkenin veri tipi, 
+      kısmen güncellenemeyen (immutable) bir veri tipi olan sayısal veri tipi olduğundan, 
+      sadece erişim hakkı bulunmaktadır.</p>
+    <p class="indent">
+      Global değişkeni, bir alt programa argüman olarak geçmek 
+      de olasıdır. Bu durumda, global değişkene hem kendi adı 
+      ile hem de argüman adı ile erişim olanağı bulunabilir. 
+      Örnek:
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> 999<span class="op">;</span>
+
+<span class="keyw">def</span> fn1<span class="op"></span>(x<span 
+    class="op">):</span>
+<span class="pl-25">x</span> <span class="op">=</span> 16<span 
+    class="op">;</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> x<span class="op">);</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+fn1<span class="op">(</span>global1<span class="op">);</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon içinde : 16
+Fonksiyon içinde : 999
+Fonksiyon Uygulandıktan Sonra : 999</pre>
+    <p class="indent">
+      Görüldüğü gibi, global alanda tanımlı bir global değişken, 
+      bir alt fonksiyona argüman olarak uygulanıyor. Fonksiyon 
+      içinde argüman değeri değişiyor, fakat bu değer değişmesi, 
+      fonksiyon dışına yansımıyor. Bunun nedeni, argüman 
+      olarak aktarılan değerin, gerçek verinin sadece bir 
+      kopyası olmasıdır. Bu durumda, fonksiyon içindeki 
+      değer değişimi, sadece koyanın değerini değiştiriyor 
+      ve bundan dolayı, değer değişimi, sadece fonksiyon
+      içinde geçerli oluyor ve fonksiyon dışına yansımıyor.
+    </p>
+    <p class="indent">
+      Fonksiyon içinde, global &lt;global değişken&gt; bildirimi 
+      yapılırsa, durum değişir bu durumda, global değişkenin 
+      değerinde, fonksiyon içinde 
+      yapılan her değişiklik, global değişkenin dış değerine 
+      de yansır. Fakat burada da çok 
+      dikkatli olmak gerekir. Örnek:
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> 999<span class="op">;</span>
+
+<span class="keyw">def</span> fn1<span class="op"></span>(x<span 
+    class="op">):</span>
+<span class="keyw-25">global</span> global1<span class="op">;</span>
+<span class="pl-25">x</span> <span class="op">=</span> 16<span 
+    class="op">;</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> x<span class="op">);</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+fn1<span class="op">(</span>global1<span class="op">);</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span></pre>
+    <pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon içinde : 16
+Fonksiyon içinde : 999
+Fonksiyon Uygulandıktan Sonra : 999</pre>
+    <p class ="indent">
+      Yukarıdaki fonksiyonda, bir global değişken, bir alt programda
+      argüman olarak aktarılmış ve argüma olarak alt program içinde
+      değeri değiştirilmiş olmasına karşın, bu değişim, global değişkenin
+      değerine yansımamamıştır. Bunun nedeni, argüman olarak atanan
+      değerin, esas değer değil bunun bir kopyası olmasıdır. Bundan
+      sonra, <span class="keyw">global</span> global1 bildirimi
+      yapılmış ve ancak bu bildirimden sonra alt programda global değişken
+      üzerinde yapılan değişiklik, global değişkenin değerini
+      fonksiyon dışında da değiştirmiştir.
+    </p>
+    <p class ="indent">
+      Bir de kısmen değiştirilebilir (mutable verilerin davranışı
+      üzerinde duralım. 
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3<span class="op">];</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulanmadan önce : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+<span class="keyw">def</span> fn1<span class="op"></span>(x<span 
+    class="op">):</span>
+    
+<span class="pl-25">x</span> <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3 <span class="op">,</span> 4<span
+class="op">];</span>
+
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> x<span class="op">);</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+fn1<span class="op">(</span>global1<span class="op">);</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span></pre>
+    <pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon Uygulanmadan Önce : [1, 2, 3]
+Fonksiyon içinde : [1, 2, 3, 4]
+Fonksiyon içinde : [1, 2, 3]
+Foksiyon Uygulandıktan Sonra : [1, 2, 3]</pre>
+    <p class ="indent">
+      Yukarıdaki uygulama incelendiğinde, değiştirilebilir (mutable)
+      tipte bir verinin, bir alt programa, argüman olarak aktarıldığını,
+      fonksiyon içinde argümanın değerinin yenilendiğini, fakat bu değer
+      değişiminin, global değişkenin ne fonksiyhon içindeki ne de
+      fonksiyon dışındaki değerini etkilemediği görülmektedir.       
+    </p>
+    <p class ="indent">
+      Bir global değişkene, bir fonksiyon içinde yeni bir değer
+      atandığında, bunun fonksiyon dışındaki değerini etkileyip
+      etkilemediğini kontrol edelim.
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3<span class="op">];</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulanmadan önce : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+<span class="keyw">def</span> fn1<span class="op">() :</span>
+    
+<span class="pl-25">global1</span> <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3 <span class="op">,</span> 4<span
+class="op">];</span> <span
+class="comm-25"># Sadece yeni bir bellek adresi açılıyor (Yerel değişken)</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># Sadece yerel değişkene erişim</span>
+
+fn1<span class="op">();</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span></pre>
+    <pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon Uygulanmadan Önce : [1, 2, 3]
+Fonksiyon içinde : [1, 2, 3, 4]
+Foksiyon Uygulandıktan Sonra : [1, 2, 3]</pre>
+    <p class ="indent">
+      Burada, alt program içinde global1 adlı değişken tanımlanıp yeni
+      bir değer ataması yapılıyor. Bu işlem, asla kısmen güncellenebilir
+      bir değişken tipi olan liste tipindeki global değişkenin değerine
+      ekleme yapıldığı anlamına gelmez. Aksine, burada kapsam alanı
+      fonksiyon içi ile sınırlı bir yerel değişken tanımlandığı anlamına
+      gelir. Yerel değişkene, global değişken ile aynı adın verilmesi bir
+      talihsizlikten den de öte, bir densizlik olayı sayılabilir.
+      Bu, Python derleyicisini de yoran, programın sonradan bakım için,
+      okunmasında da sorun yaratan bir eylemdir. En iyisi,
+      yerel ve global değişkenlerinin isimlerinin çakışmamasının
+      sağlanmasıdır.
+    </p>
+    <p class ="indent">
+      Eğer alt program içinde,&nbsp; <span class="keyw">global</span> 
+      global1 bildirimi yapılmış ise, alt programda global 
+      değişken1 üzerinde yapılan değişiklik fonksiyon 
+      dışındaki değeri de etkiler. Örnek,
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3<span class="op">];</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulanmadan önce : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+<span class="keyw">def</span> fn1<span class="op">() :</span>
+
+<span class="keyw-25">global</span> global1<span class="op">;</span>
+    
+<span class="pl-25">global1</span> <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3 <span class="op">,</span> 4<span
+class="op">];</span> <span
+class="comm-25"># global değişkenin değeri değişiyor.</span>
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># Sadece yerel değişkene erişim</span>
+
+fn1<span class="op">();</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span></pre>
+    <pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon Uygulanmadan Önce : [1, 2, 3]
+Fonksiyon içinde : [1, 2, 3, 4]
+Fonksiyon Uygulandıktan Sonra : [1, 2, 3, 4]</pre>
+    <p class ="indent">
+      Kısmen değiştirilebilir (mutable) bir verinin, bir alt programda
+      güncelenebileceği tek durum, aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+global1 <span class="op">=</span> <span
+class="op">[</span>1 <span class="op">,</span> 2 <span
+class="op">,</span> 3<span class="op">];</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulanmadan önce : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+<span class="keyw">def</span> fn1<span class="op">() :</span>
+
+<span class="pl-25">global1</span><span
+class="op">.</span><span class="keyw">add</span><span
+class="op">(</span>4<span class="op">);</span><span
+class="comm-25"># global değişken güncelleniyor.</span>
+
+    
+    
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon içinde :&quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span>
+
+fn1<span class="op">();</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">&quot;Fonksiyon uygulandıktan sonra : &quot;</span> <span 
+    class="op">,</span> global1<span class="op">);</span>  <span 
+    class="comm"># erişim</span></pre>
+    <pre class="pl-25">
+
+<span class="maroon">Sonuç:</span>
+Fonksiyon Uygulanmadan Önce : [1, 2, 3]
+Fonksiyon içinde : [1, 2, 3, 4]
+Fonksiyon Uygulandıktan Sonra : [1, 2, 3, 4]</pre>
+
+
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders14.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders16.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:56 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

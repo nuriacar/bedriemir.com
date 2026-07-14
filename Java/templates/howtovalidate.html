@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" 
+   lang="en" xml:lang="en">
+  <!--<![endif]-->
+  <!-- the "no-js" class is for Modernizr. -->
+  
+<!-- Mirrored from www.bedriemir.com/Java/templates/howtovalidate.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:09:02 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Java/templates/howtovalidate.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>
+      howtovalidate.html
+    </title>
+    <meta name="Description" content="Java SE 7 Tutorial" />
+    <meta name="Keywords" content="Java, Java SE 7" />
+    <meta name="Robots" content="INDEX,FOLLOW" />
+    <meta name="revisit-after" content="30 days" />
+    <link rel="stylesheet" type="text/css" href="../css/javastyle.css" />
+    <!-- all our JS is at the bottom of the page, except for Modernizr. -->
+
+    <script type="text/javascript" src="../javascript/modernizr-2.5.3.js">
+</script>
+  </head>
+  <body>
+    <div id="header">
+      <p class="banner-box">
+        <img alt="Banner" class="banner" src="../images/banner.png" />
+      </p>
+      <p class="navigation-box">
+        <a href="../index.html"><img alt="index"
+        src="../images/index.gif" /></a><a href="javascript:void(0);window.history.back(-1);return false;"><img 
+        alt="previous" src="../images/previous.gif" /></a>
+      </p>
+      <p class="chapter">
+        Java SE7 Programming Language Lectures
+      </p>
+      <p class="chapter">
+        Note
+      </p>
+      <p class="title">
+        HTML5 and XHTML5
+      </p>
+    </div>
+    <div id="content">
+      <p class="title">
+        HTML5
+      </p>
+      <p class="indent">
+        HTML5 specification is too much forgiving about the codes of the web
+        pages too much is allowed and well formedness is not required. This
+        wiill lead to the sloppy codes and tendendency to more inconsistency
+        and confusion in the page codes.
+      </p>
+      <p class="indent">
+        XHTML in contrary, force to well formedness, consistent codes,
+        lowercase attributes, closing of all the tags, thus consistent and
+        clear web pages. With XHTML when encouncountering errors one is sure
+        they are originating from the programmer's wrong markup and not from
+        browser unforgivness about insconsistent codes even validated as valid
+        HTML5.
+      </p>
+      <p class="indent">
+        The solution is stick with the XHTML system and HTML5 specification
+        aloows XMTHL coding style as a subset of HTML5. This is called
+        XHTML5.This is not a new spec. because XHTML5 need not to have a new
+        spec.everything is included in HTML. The XHTML5 is just a way coding
+        web pages but it serving XHTML pages is different from serving HTML.
+      </p>
+      <p class="indent">
+        Web servers serve by default all web pages as <span class=
+        "yellow-back">text/html</span>. We do not need to include,
+      </p>
+      <pre>
+     <span class="keyw-25"><span class="op">&lt;</span>meta</span> <span class=
+"att">http-equiv</span> <span>=</span><span class=
+"str">"content-type"</span><span class="att"> content</span><span class=
+"op">=</span> <span class="str">"text/html"</span><span class=
+"op">;</span><span class="att">charset</span><span>=</span><span class=
+"str">"utf-8"</span> <span class="op">/&gt;</span>
+
+</pre>
+      <p class="nonindent">
+        instead ,
+      </p>
+      <pre>
+     <span class="op-25">&lt;!</span><span class=
+"keyw">DOCTYPE</span> html<span class="op">&gt;</span>
+     <span class="op-25">&lt;</span><span class="keyw">meta</span> <span class=
+"att">charset</span><span>=</span><span class="str">"utf-8"</span><span class=
+"op">/&gt;</span>
+
+</pre>
+      <p class="nonindent">
+        will suffice for HTML for the web server defaults to <span class=
+        "str">"text/html"</span> for serving the web page.
+      </p>
+      <p class="nonindent">
+        For the XHTML the situation is much more restrictive. Web server does
+        not parse XHTML codes as HTML and serve as <span class=
+        "str">"text/html"</span>, but they parse as XML and serve as
+        <span class="str">"application/xhtml+xml"</span>. This impose
+        additional complexity because XML parsing is completly different in a
+        sense that all XML files are distict and require defined parsing rules
+        for the particular XML files. We do not wnt this. We do not want our
+        files becomes XML. We want our pages stay as NTHL but have solid codes
+        as XML files, the solution is Polyglott XHTML tthat is a we page which
+        is valid HTML5 but in the same time also XHTML compliant. This is
+        defined in ?W3C in <a href=
+        "http://dev.w3.org/html5/html-xhtml-author-guide/">
+        http://dev.w3.org/html5/html-xhtml-author-guide/</a>.
+        Read this document and apply it carefully. The things to do are defined
+        shortly in <a href=
+        "http://www.xmlplease.com/xhtml/xhtml5polyglot/">
+        http://www.xmlplease.com/xhtml/xhtml5polyglot/</a>
+        as:
+      </p>
+      <ol class="list">
+        <li>Declare namespaces explicitly.
+        </li>
+        <li>Use both the <code>lang</code> and the <code>xml:lang</code>
+        attribute.
+        </li>
+        <li>Use <code>&lt;meta charset="UTF-8"/&gt;</code> .
+        </li>
+        <li>Use <code>tbody</code> or <code>thead</code> or <code>tfoot</code>
+        in tables.
+        </li>
+        <li>When <code>col</code> element is used in tables, also use
+        <code>colgroup</code> .
+        </li>
+        <li>Don't use <code>noscript</code> element.
+        </li>
+        <li>Don't start <code>pre</code> and <code>textarea</code> elements
+        with newline.
+        </li>
+        <li>Use <code>innerHTML</code> property instead of
+        <code>document.write()</code> .
+        </li>
+        <li>In script element, wrap JavaScript in out-commented CDATA section.
+        </li>
+        <li>Many names in SVG and one in MathML use lowerCamelCase.
+        </li>
+      </ol>
+      <p class="indent">
+        <a href=
+        "http://dev.w3.org/html5/html-xhtml-author-guide/#dfn-polyglot-markup"
+        title="polyglot markup">Polyglot markup</a> uses only the following
+        named entity references:
+      </p>
+      <ul>
+        <li>amp
+        </li>
+        <li>lt
+        </li>
+        <li>gt
+        </li>
+        <li>apos
+        </li>
+        <li>quot
+        </li>
+      </ul>
+      <p class="indent">
+        The entity &amp;nbsp; can not be used in XHTML but istead we may use
+        &amp;#xA0; securely.
+      </p>
+      <p class="indent">
+        We can use <a href="http://validator.nu/">http://validator.nu</a> for
+        validating XHTML5 pages. For validation use Text Field option and do
+        not upload your file to to validator.nu, because MIME type declaration
+        is still HTML5 and not XHTML but with Text Field option we can copy and
+        paste our source codes as text field and validate against XHTML5
+        +SVG1.1+MathML 2.0+RDF a Lite 1.1 schema. These codes are validated as
+        valid XHTML:
+      </p>
+      <pre>
+           &lt;!DOCTYPE html&gt;
+    <br />    &lt;!--[if lt IE 7 ]&gt; &lt;html class="ie ie6 no-js"
+    lang="en"&gt; &lt;![endif]--&gt;
+    <br />    &lt;!--[if IE 7 ]&gt; &lt;html class="ie ie7 no-js"
+    lang="en"&gt; &lt;![endif]--&gt;
+    <br />    &lt;!--[if IE 8 ]&gt; &lt;html class="ie ie8 no-js"
+    lang="en"&gt; &lt;![endif]--&gt;
+    <br />    &lt;!--[if IE 9 ]&gt; &lt;html class="ie ie9 no-js"
+    lang="en"&gt; &lt;![endif]--&gt;
+    <br />    &lt;!--[if gt IE 9]&gt;&lt;!--&gt;
+    <br />    &lt;html class="no-js"
+    xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xml:lang=
+    <br />    "en"&gt;
+    <br />    &lt;!--&lt;![endif]--&gt;
+    <br />    &lt;!-- the "no-js" class is for Modernizr. --&gt;
+    <br />    &lt;head&gt;
+    <br />    &lt;meta charset="utf-8" /&gt;
+    <br />    &lt;title&gt;
+    <br />    howtovalidate.html
+    <br />    &lt;/title&gt;
+    <br />    &lt;meta name="Description" content="Java SE 7
+    Tutorial" /&gt;
+    <br />    &lt;meta name="Keywords" content="Java, Java SE 7"
+    /&gt;
+    <br />    &lt;meta name="Robots" content="INDEX,FOLLOW" /&gt;
+    <br />    &lt;meta name="revisit-after" content="30 days" /&gt;
+    <br />    &lt;link rel="stylesheet" type="text/css"
+    href="../css/javastyle.css" /&gt;
+    <br />    &lt;!-- all our JS is at the bottom of the page, except for Modernizr.
+    --&gt;
+    <br />    &lt;script type="text/javascript"
+    src="../javascript/modernizr-2.5.3.js"&gt;
+    <br />    &lt;/script&gt;
+    <br />    &lt;/head&gt;
+    <br />    &lt;body&gt;
+    <br />    &lt;div id="header"&gt;
+    <br />    &lt;p class="banner-box"&gt;
+    <br />    &lt;img alt="Banner" class="banner"
+    src="../images/banner.png" /&gt;
+    <br />    &lt;/p&gt;
+    <br />    &lt;p class="navigation-box"&gt;
+    <br />    &lt;a href="../index.html"&gt;&lt;img alt="index" src=
+    <br />    "../images/index.gif" /&gt;&lt;/a&gt; &lt;a href=""
+    onclick=
+    <br />    "history.back(-1);"&gt;&lt;img alt="previous" src=
+    <br />    "../images/previous.gif" /&gt;&lt;/a&gt;
+    <br />    &lt;/p&gt;
+    <br />    &lt;p class="chapter"&gt;
+    <br />    Java SE7 Programming Language Lectures
+    <br />    &lt;/p&gt;
+    <br />    &lt;p class="chapter"&gt;
+    <br />    Note
+    <br />    &lt;/p&gt;
+    <br />    .......
+    <br />    &lt;/div&gt;
+    <br />    &lt;/body&gt;
+    <br />    &lt;/html&gt;
+    <br />
+</pre>
+      <p class="indent">
+        Remember again that we do not intetend to produce an XML page and make
+        it parse as an XML file by the browsers. We intend to produce a web
+        page in HTML5 and we will use all the new elements and attributes of
+        the HTML5. But, we also wish that our page codes will be as robust,
+        well-formed, consistent and tidy as XML codes. This page is <a href=
+        "http://validator.w3.org/check">valid HTML5</a> but,HTML5 specification
+        is very loose and validates the codes inacceptable by XHTML5 as valid 
+        HTML5. But, validating as valid XHTML5 brings extra strict coding style
+        to the valid HTML5 codes. Further validation of valid HTML5 codes as
+        XHTML5 has a value appreciated by good code crawlers. This means that
+        you are producing tidy, acceptable and dependable codes. Also, any page
+        validating as a valid XHTML can be converted easily to an XML page for
+        the application of new techniques developed for XML files.
+      </p>
+      <p id="bottomline">
+         <span><a href="../index.html" id="index">&lt;&lt; Index</a></span>
+        <span><a href="javascript:void(0);window.history.back(-1);return false;" id="prev">&lt;&lt;previous</a></span> 
+        <span><a href="#" id="next">next &gt;&gt;</a></span>
+        </p>
+        <hr class="verticaltab-25 navy" />
+         <small class="nonindent">
+           <span class="yellow-back">Polyglott HTML5(<a 
+           href="http://validator.nu/">XHTML5 compliant</a>
+           <a href="http://validator.w3.org/check">HTML5 code)</a></span>
+         </small>
+
+    </div>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Java/templates/howtovalidate.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:09:02 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

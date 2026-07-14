@@ -1,0 +1,685 @@
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:12 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b2/b2-s3.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 2 Sayfa 3</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b2-s2.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="../b3/b3-s1.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Başlangıç Bilgileri
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 3
+		</p>
+		<p class="title-left" id ="paket">2.17 - Ada 2012 Öntanımlı Paketleri</p>
+		<p class="indent">
+			Ada çekirdek sisteminde tanımlanmamış olan veri giriş çıkışları, dosya sistemleri, işletim sistemi ile
+			ilişki kurulması gibi yöntemler, Ada derleyicisi ile birlikte verilen öntanımlı paketler halinde
+			verilir. <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> derleyici
+			ile birlikte verilmesi gereken öntanımlı paketleri belirlemiştir. Bu paketlere Standard Kitaplıklar (Standart Libraries)
+			adı verilmiştir. 
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> Standard paketi, 
+			program dilinin ayrılmaz bir parçası olarak kabul eder ve  Standard paket, her programın otomatik olarak 
+			tanıyacağı bir bilgi olarak düşünülür. Bir program <span class="keyw">with</span> bildirimine gerek 
+			duymadan Standard paketten yararlanır.  Bu pakette Boolean, Integer, Float, Character, Wide_Character, 
+			Wide_Wide_Character, String, Wide_String, Wide_Wide_String, Duration tipi veriler tanımlanır. 
+			Standard paket, bu şekilde,tüm öntanımlı veri sistemini tanımlar ve kullanıcının yaralanmasına hazır hale 
+			getirir. Bu nedenle, <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>, 
+			Standard paketi diğer öntanımlı kitaplık paketleri arasında saymaz ve daha çok Ada derleyicisi ile kaynaşmış 
+			olarak kabul eder.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>, Öntanımlı Ada 
+			Programlama Dili Ortamının üç tane kök kitaplık biriminden oluşacağını belirtmiştir. Bunlar,
+		</p>
+		<ul class="listNoMarker">
+			<li>Ada</li>
+			<li>Interfaces</li>
+			<li>System</li>
+		</ul>
+		<p class="indent">
+			paketleridir. Diğer paketler bunların alt paketleridir. 
+		</p>
+		<p class="indent">
+			Ada öntanımlı kitaplık paketleri masif bir kaynak olarak programcıların yararlanması
+			için hazırlanmıştır. Yaklaşık 860 sayfadan oluşan 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunun</a>
+			sadece ilk 350 sayfası Ada çekirdek dili tanımına ayrılmışken, geri kalan kısmı standart kitaplıkların
+			tanımı için kullanılmıştır.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a>,
+			standart kitaplıkların sadece kullanım yöntemlerini belirten spesifikasyon kısımları açıklanır. 
+			Kitaplıkların iç yazılımları yani gövde (body) kısımları, yerleşim (implementation) yani derleyici
+			yazılımını yapanlara bırakılmıştır. Kullanıcıların, kitaplıkların iç yazılımına gereksinmeleri yoktur.
+			Fakat, GNAT derleyicisi GNU açık kaynak lisansı ile dağıtıldığından, kullanıcıların kaynak kodlarına
+			ulaşabilmesi olanağı bulunabilmektedir.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a>,
+			standart kitaplıkların kullanımı kolay anlaşılabilir ve açık bir şekilde açıklanmıştır. Kitaplıklar,
+			kolayca çağrılabilecek prosedürler halinde düzenlenmiştir. Standart kitaplıklar, programcıların
+			temel gereksinmelerini büyük ölçüde karşılayabilecek sayı ve niteliktedir. Kitaplıkları ile birlikte,
+			Ada Programlama Ortamı, birçok programcının katıldığı düşünceye göre dünyanın en üstün 
+			programlama dili niteliğindedir.
+		</p>
+		<p class="indent">
+			Ada standart kitaplıkları içinde Ada kitaplığının Text_IO alt kitaplıkları (paketleri), kullanıcılarının giriş/ çıkış
+			prosedürleri için en çok kullandığı genel kolaylıkları içeren kitaplıklardır. Bu paketin alt paketleri
+			aşağıda görülmektedir:
+		</p>
+		<p class="indent">
+			<span class="pl-50">Text_IO (Metin giriş/çıkışları için)</span>
+		</p>
+		<p class="indent">
+			<span class="pl-50">Text_IO Alt Paketleri :</span>
+		</p>
+		<p class="indent">
+			<span class="pl-75">Integer_IO :</span>(Ada.Text_IO.Integer_IO) (Tamsayı tipleri giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			<span class="pl-75">Float_IO :</span>(Ada.Text_IO.Float_IO) (Ondalıklı (sayı temeli değişebilen) veri tipleri giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			<span class="pl-75">Fixed_IO :</span>(Ada.Text_IO.Fixed_IO) (Sabit ondalık sayısı olan ondalıklı veri tipleri giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			<span class="pl-75">Modular_IO :</span>(Ada.Text_IO.Modular_IO) (Modüler sayısal veri tipleri giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			<span class="pl-75">Enumeration_IO :</span>(Ada.Text_IO.Enumeration_IO) (Sayılabilir veri tipleri giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			<span class="pl-75">Decimal_IO :</span>(Ada.Text_IO.Decimal_IO) (Ondalıklı (10 temeline göre) veri tipleri 
+			giriş/çıkışları için)
+		</p>
+		<p class="indent">
+			Tüm öntanımlı kitaplık paketlerinin listesi için 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunun</a> incelenmesi gerekir.
+		</p>
+		<p class="indent">
+			Bundan sonraki konumuzda Ada veri sisteminin öntanımlı verilerini inceleyecek ve standart giriş ve çıkışlar için
+			öntanımlı kitaplıklardan yararlanacağız. Ada öntanımlı kitaplık paketlerinin kullanımı için 
+			<a href="../ek2/RM12-Final.pdf">ek-2</a> de tüm Ada 2012 draft spesifikasyonunu görebiliriz. Programlarda 
+			kullanılabilecek basit giriş/çıkış prosedürleri için tanıtım ve uygulama 
+			örnekleri <a href="../ek3/ek3-s1.html">ek3</a> de verilmiştir. 
+		</p>
+		<p class="indent">
+			Standard ve Ada.Text_Io paketleri, çalışmalarda çok kullanıldığı için, aşağıda verilmiştir.
+		</p>
+		<p class="Examples-Maroon" id="st">
+			A.1 The Package Standard<br />
+			This clause outlines the specification of the package Standard containing all predefined identifiers in the<br />
+			language. The corresponding package body is not specified by the language.<br />
+			The operators that are predefined for the types declared in the package Standard are given in comments<br />
+			since they are implicitly declared. Italics are used for pseudo-names of anonymous types (such as<br />
+			root_real) and for undefined information (such as implementation-defined).<br />
+			Static Semantics<br />
+			The library package Standard has the following declaration:<br />
+			package Standard is<br />
+			pragma Pure(Standard);<br />
+			type Boolean is (False, True);<br />
+			-- The predefined relational operators for this type are as follows:<br />
+			-- function &quot;=&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- function &quot;/=&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- function &quot;&lt;&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- function &quot;&lt;=&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- function &quot;&gt;&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- function &quot;&gt;=&quot; (Left, Right : Boolean'Base) return Boolean;<br />
+			-- The predefined logical operators and the predefined logical<br />
+			-- negation operator are as follows:<br />
+			-- function &quot;and&quot; (Left, Right : Boolean'Base) return Boolean'Base;<br />
+			-- function &quot;or&quot; (Left, Right : Boolean'Base) return Boolean'Base;<br />
+			-- function &quot;xor&quot; (Left, Right : Boolean'Base) return Boolean'Base;<br />
+			-- function &quot;not&quot; (Right : Boolean'Base) return Boolean'Base;<br />
+			-- The integer type root_integer and the<br />
+			-- corresponding universal type universal_integer are predefined.<br />
+			type Integer is range implementation-defined;<br />
+			subtype Natural is Integer range 0 .. Integer'Last;<br />
+			subtype Positive is Integer range 1 .. Integer'Last;<br />
+			-- The predefined operators for type Integer are as follows:<br />
+			-- function &quot;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;/=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&lt;&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&lt;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&gt;&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;&gt;=&quot; (Left, Right : Integer'Base) return Boolean;<br />
+			-- function &quot;+&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;-&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;abs&quot; (Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;+&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;-&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;*&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;/&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;rem&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;mod&quot; (Left, Right : Integer'Base) return Integer'Base;<br />
+			-- function &quot;**&quot; (Left : Integer'Base; Right : Natural)<br />
+			-- return Integer'Base;<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			A.1 The Package Standard 11 June 2010 324<br />
+			-- The specification of each operator for the type<br />
+			-- root_integer, or for any additional predefined integer<br />
+			-- type, is obtained by replacing Integer by the name of the type<br />
+			-- in the specification of the corresponding operator of the type<br />
+			-- Integer. The right operand of the exponentiation operator<br />
+			-- remains as subtype Natural.<br />
+			-- The floating point type root_real and the<br />
+			-- corresponding universal type universal_real are predefined.<br />
+			type Float is digits implementation-defined;<br />
+			-- The predefined operators for this type are as follows:<br />
+			-- function &quot;=&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;/=&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;&lt;&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;&lt;=&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;&gt;&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;&gt;=&quot; (Left, Right : Float) return Boolean;<br />
+			-- function &quot;+&quot; (Right : Float) return Float;<br />
+			-- function &quot;-&quot; (Right : Float) return Float;<br />
+			-- function &quot;abs&quot; (Right : Float) return Float;<br />
+			-- function &quot;+&quot; (Left, Right : Float) return Float;<br />
+			-- function &quot;-&quot; (Left, Right : Float) return Float;<br />
+			-- function &quot;*&quot; (Left, Right : Float) return Float;<br />
+			-- function &quot;/&quot; (Left, Right : Float) return Float;<br />
+			-- function &quot;**&quot; (Left : Float; Right : Integer'Base) return Float;<br />
+			-- The specification of each operator for the type root_real, or for<br />
+			-- any additional predefined floating point type, is obtained by<br />
+			-- replacing Float by the name of the type in the specification of the<br />
+			-- corresponding operator of the type Float.<br />
+			-- In addition, the following operators are predefined for the root<br />
+			-- numeric types:<br />
+			function &quot;*&quot; (Left : root_integer; Right : root_real)<br />
+			return root_real;<br />
+			function &quot;*&quot; (Left : root_real; Right : root_integer)<br />
+			return root_real;<br />
+			function &quot;/&quot; (Left : root_real; Right : root_integer)<br />
+			return root_real;<br />
+			-- The type universal_fixed is predefined.<br />
+			-- The only multiplying operators defined between<br />
+			-- fixed point types are<br />
+			function &quot;*&quot; (Left : universal_fixed; Right : universal_fixed)<br />
+			return universal_fixed;<br />
+			function &quot;/&quot; (Left : universal_fixed; Right : universal_fixed)<br />
+			return universal_fixed;<br />
+			-- The type universal_access is predefined.<br />
+			-- The following equality operators are predefined:<br />
+			function &quot;=&quot; (Left, Right: universal_access) return Boolean;<br />
+			function &quot;/=&quot; (Left, Right: universal_access) return Boolean;<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			325 11 June 2010 The Package Standard A.1<br />
+			-- The declaration of type Character is based on the standard ISO 8859-1 character set.<br />
+			-- There are no character literals corresponding to the positions for control characters.<br />
+			-- They are indicated in italics in this definition. See 3.5.2.<br />
+			type Character is<br />
+			(nul, soh, stx, etx, eot, enq, ack, bel, --0 (16#00#) .. 7 (16#07#)<br />
+			bs, ht, lf, vt, ff, cr, so, si, --8 (16#08#) .. 15 (16#0F#)<br />
+			dle, dc1, dc2, dc3, dc4, nak, syn, etb, --16 (16#10#) .. 23 (16#17#)<br />
+			can, em, sub, esc, fs, gs, rs, us, --24 (16#18#) .. 31 (16#1F#)<br />
+			' ', '!', '&quot;', '#', '$', '%', '&amp;', ''', --32 (16#20#) .. 39 (16#27#)<br />
+			'(', ')', '*', '+', ',', '-', '.', '/', --40 (16#28#) .. 47 (16#2F#)<br />
+			'0', '1', '2', '3', '4', '5', '6', '7', --48 (16#30#) .. 55 (16#37#)<br />
+			'8', '9', ':', ';', '&lt;', '=', '&gt;', '?', --56 (16#38#) .. 63 (16#3F#)<br />
+			'@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', --64 (16#40#) .. 71 (16#47#)<br />
+			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', --72 (16#48#) .. 79 (16#4F#)<br />
+			'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', --80 (16#50#) .. 87 (16#57#)<br />
+			'X', 'Y', 'Z', '[', '\', ']', '^', '_', --88 (16#58#) .. 95 (16#5F#)<br />
+			'`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', --96 (16#60#) .. 103 (16#67#)<br />
+			'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', --104 (16#68#) .. 111 (16#6F#)<br />
+			'p', 'q', 'r', 's', 't', 'u', 'v', 'w', --112 (16#70#) .. 119 (16#77#)<br />
+			'x', 'y', 'z', '{', '|', '}', '~', del, --120 (16#78#) .. 127 (16#7F#)<br />
+			reserved_128, reserved_129, bph, nbh, --128 (16#80#) .. 131 (16#83#)<br />
+			reserved_132, nel, ssa, esa, --132 (16#84#) .. 135 (16#87#)<br />
+			hts, htj, vts, pld, plu, ri, ss2, ss3, --136 (16#88#) .. 143 (16#8F#)<br />
+			dcs, pu1, pu2, sts, cch, mw, spa, epa, --144 (16#90#) .. 151 (16#97#)<br />
+			sos, reserved_153, sci, csi, --152 (16#98#) .. 155 (16#9B#)<br />
+			st, osc, pm, apc, --156 (16#9C#) .. 159 (16#9F#)<br />
+			' ', '&iexcl;', '&cent;', '&pound;', '&curren;', '&yen;', '&brvbar;', '&sect;', --160 (16#A0#) .. 167 (16#A7#)<br />
+			'&uml;', '&copy;', '&ordf;', '&laquo;', '&not;', soft_hyphen, '&reg;', '&macr;', --168 (16#A8#) ..<br />
+			175 (16#AF#)<br />
+			'&deg;', '&plusmn;', '&sup2;', '&sup3;', '&acute;', '&mu;', '&para;', '&middot;', --176 (16#B0#) .. 183 (16#B7#)<br />
+			'&cedil;', '&sup1;', '&ordm;', '&raquo;', '&frac14;', '&frac12;', '&frac34;', '&iquest;', --184 (16#B8#) .. 191 (16#BF#)<br />
+			'&Agrave;', '&Aacute;', '&Acirc;', '&Atilde;', '&Auml;', '&Aring;', '&AElig;', '&Ccedil;', --192 (16#C0#) .. 199 (16#C7#)<br />
+			'&Egrave;', '&Eacute;', '&Ecirc;', '&Euml;', '&Igrave;', '&Iacute;', '&Icirc;', '&Iuml;', --200 (16#C8#) .. 207 (16#CF#)<br />
+			'&ETH;', '&Ntilde;', '&Ograve;', '&Oacute;', '&Ocirc;', '&Otilde;', '&Ouml;', '&times;', --208 (16#D0#) .. 215 (16#D7#)<br />
+			'&Oslash;', '&Ugrave;', '&Uacute;', '&Ucirc;', '&Uuml;', '&Yacute;', '&THORN;', '&szlig;', --216 (16#D8#) .. 223 (16#DF#)<br />
+			'&agrave;', '&aacute;', '&acirc;', '&atilde;', '&auml;', '&aring;', '&aelig;', '&ccedil;', --224 (16#E0#) .. 231 (16#E7#)<br />
+			'&egrave;', '&eacute;', '&ecirc;', '&euml;', '&igrave;', '&iacute;', '&icirc;', '&iuml;', --232 (16#E8#) .. 239 (16#EF#)<br />
+			'&eth;', '&ntilde;', '&ograve;', '&oacute;', '&ocirc;', '&otilde;', '&Ouml;', '&divide;', --240 (16#F0#) .. 247 (16#F7#)<br />
+			'&oslash;', '&ugrave;', '&uacute;', '&ucirc;', '&uuml;', '&yacute;', '&thorn;', '&yuml;');--248 (16#F8#) .. 255 (16#FF#)<br />
+			-- The predefined operators for the type Character are the same as for<br />
+			-- any enumeration type.<br />
+			-- The declaration of type Wide_Character is based on the standard ISO/IEC 10646:2003 BMP character<br />
+			-- set. The first 256 positions have the same contents as type Character. See 3.5.2.<br />
+			type Wide_Character is (nul, soh ... Hex_0000FFFE, Hex_0000FFFF);<br />
+			35/3<br />
+			36<br />
+			36.1/2<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			A.1 The Package Standard 11 June 2010 326<br />
+			-- The declaration of type Wide_Wide_Character is based on the full<br />
+			-- ISO/IEC 10646:2003 character set. The first 65536 positions have the<br />
+			-- same contents as type Wide_Character. See 3.5.2.<br />
+			type Wide_Wide_Character is (nul, soh ... Hex_7FFFFFFE, Hex_7FFFFFFF);<br />
+			for Wide_Wide_Character'Size use 32;<br />
+			package ASCII is ... end ASCII; --Obsolescent; see J.5<br />
+			-- Predefined string types:<br />
+			type String is array(Positive range &lt;&gt;) of Character;<br />
+			pragma Pack(String);<br />
+			-- The predefined operators for this type are as follows:<br />
+			-- function &quot;=&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;/=&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;&lt;&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;&lt;=&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;&gt;&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;&gt;=&quot; (Left, Right: String) return Boolean;<br />
+			-- function &quot;&amp;&quot; (Left: String; Right: String) return String;<br />
+			-- function &quot;&amp;&quot; (Left: Character; Right: String) return String;<br />
+			-- function &quot;&amp;&quot; (Left: String; Right: Character) return String;<br />
+			-- function &quot;&amp;&quot; (Left: Character; Right: Character) return String;<br />
+			type Wide_String is array(Positive range &lt;&gt;) of Wide_Character;<br />
+			pragma Pack(Wide_String);<br />
+			-- The predefined operators for this type correspond to those for String.<br />
+			type Wide_Wide_String is array (Positive range &lt;&gt;)<br />
+			of Wide_Wide_Character;<br />
+			pragma Pack (Wide_Wide_String);<br />
+			-- The predefined operators for this type correspond to those for String.<br />
+			type Duration is delta implementation-defined range implementation-defined;<br />
+			-- The predefined operators for the type Duration are the same as for<br />
+			-- any fixed point type.<br />
+			-- The predefined exceptions:<br />
+			Constraint_Error: exception;<br />
+			Program_Error : exception;<br />
+			Storage_Error : exception;<br />
+			Tasking_Error : exception;<br />
+			end Standard;<br />
+			Standard has no private part.<br />
+			In each of the types Character, Wide_Character, and Wide_Wide_Character, the character literals for the<br />
+			space character (position 32) and the non-breaking space character (position 160) correspond to different<br />
+			values. Unless indicated otherwise, each occurrence of the character literal ' ' in this International Standard<br />
+			refers to the space character. Similarly, the character literals for hyphen (position 45) and soft hyphen<br />
+			(position 173) correspond to different values. Unless indicated otherwise, each occurrence of the character<br />
+			literal '&ndash;' in this International Standard refers to the hyphen character.<br />
+			Dynamic Semantics<br />
+			Elaboration of the body of Standard has no effect.<br />
+			Implementation Permissions<br />
+			An implementation may provide additional predefined integer types and additional predefined floating<br />
+			point types. Not all of these types need have names.<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			327 11 June 2010 The Package Standard A.1<br />
+			Implementation Advice<br />
+			If an implementation provides additional named predefined integer types, then the names should end with<br />
+			&quot;Integer&quot; as in &quot;Long_Integer&quot;. If an implementation provides additional named predefined floating point<br />
+			types, then the names should end with &quot;Float&quot; as in &quot;Long_Float&quot;.<br />
+			NOTES<br />
+			1 Certain aspects of the predefined entities cannot be completely described in the language itself. For example, although<br />
+			the enumeration type Boolean can be written showing the two enumeration literals False and True, the short-circuit<br />
+			control forms cannot be expressed in the language.<br />
+			2 As explained in 8.1, &quot;Declarative Region&quot; and 10.1.4, &quot;The Compilation Process&quot;, the declarative region of the package<br />
+			Standard encloses every library unit and consequently the main subprogram; the declaration of every library unit is<br />
+			assumed to occur within this declarative region. Library_items are assumed to be ordered in such a way that there are no<br />
+			forward semantic dependences. However, as explained in 8.3, &quot;Visibility&quot;, the only library units that are visible within a<br />
+			given compilation unit are the library units named by all with_clauses that apply to the given unit, and moreover, within<br />
+			the declarative region of a given library unit, that library unit itself.<br />
+			3 If all block_statements of a program are named, then the name of each program unit can always be written as an<br />
+			expanded name starting with Standard (unless Standard is itself hidden). The name of a library unit cannot be a<br />
+			homograph of a name (such as Integer) that is already declared in Standard.<br />
+			4 The exception Standard.Numeric_Error is defined in J.6.
+		</p>
+		<p class="indent" id="T_O">
+			Ada.Text_IO paketi aşağıda görülmektedir.
+		</p>
+	<p class="Examples-Maroon">
+		A.10.1 The Package Text_IO<br />
+			Static Semantics<br />
+			The library package Text_IO has the following declaration:<br />
+			with Ada.IO_Exceptions;<br />
+			package Ada.Text_IO is<br />
+			type File_Type is limited private;<br />
+			type File_Mode is (In_File, Out_File, Append_File);<br />
+			type Count is range 0 .. implementation-defined;<br />
+			subtype Positive_Count is Count range 1 .. Count'Last;<br />
+			Unbounded : constant Count := 0; -- line and page length<br />
+			subtype Field is Integer range 0 .. implementation-defined;<br />
+			subtype Number_Base is Integer range 2 .. 16;<br />
+			type Type_Set is (Lower_Case, Upper_Case);<br />
+			-- File Management<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			A.10.1 The Package Text_IO 11 June 2010 398<br />
+			procedure Create (File : in out File_Type;<br />
+			Mode : in File_Mode := Out_File;<br />
+			Name : in String := &quot;&quot;;<br />
+			Form : in String := &quot;&quot;);<br />
+			procedure Open (File : in out File_Type;<br />
+			Mode : in File_Mode;<br />
+			Name : in String;<br />
+			Form : in String := &quot;&quot;);<br />
+			procedure Close (File : in out File_Type);<br />
+			procedure Delete (File : in out File_Type);<br />
+			procedure Reset (File : in out File_Type; Mode : in File_Mode);<br />
+			procedure Reset (File : in out File_Type);<br />
+			function Mode (File : in File_Type) return File_Mode;<br />
+			function Name (File : in File_Type) return String;<br />
+			function Form (File : in File_Type) return String;<br />
+			function Is_Open(File : in File_Type) return Boolean;<br />
+			-- Control of default input and output files<br />
+			procedure Set_Input (File : in File_Type);<br />
+			procedure Set_Output(File : in File_Type);<br />
+			procedure Set_Error (File : in File_Type);<br />
+			function Standard_Input return File_Type;<br />
+			function Standard_Output return File_Type;<br />
+			function Standard_Error return File_Type;<br />
+			function Current_Input return File_Type;<br />
+			function Current_Output return File_Type;<br />
+			function Current_Error return File_Type;<br />
+			type File_Access is access constant File_Type;<br />
+			function Standard_Input return File_Access;<br />
+			function Standard_Output return File_Access;<br />
+			function Standard_Error return File_Access;<br />
+			function Current_Input return File_Access;<br />
+			function Current_Output return File_Access;<br />
+			function Current_Error return File_Access;<br />
+			--Buffer control<br />
+			procedure Flush (File : in File_Type);<br />
+			procedure Flush;<br />
+			-- Specification of line and page lengths<br />
+			procedure Set_Line_Length(File : in File_Type; To : in Count);<br />
+			procedure Set_Line_Length(To : in Count);<br />
+			procedure Set_Page_Length(File : in File_Type; To : in Count);<br />
+			procedure Set_Page_Length(To : in Count);<br />
+			function Line_Length(File : in File_Type) return Count;<br />
+			function Line_Length return Count;<br />
+			function Page_Length(File : in File_Type) return Count;<br />
+			function Page_Length return Count;<br />
+			-- Column, Line, and Page Control<br />
+			procedure New_Line (File : in File_Type;<br />
+			Spacing : in Positive_Count := 1);<br />
+			procedure New_Line (Spacing : in Positive_Count := 1);<br />
+			procedure Skip_Line (File : in File_Type;<br />
+			Spacing : in Positive_Count := 1);<br />
+			procedure Skip_Line (Spacing : in Positive_Count := 1);<br />
+			function End_Of_Line(File : in File_Type) return Boolean;<br />
+			function End_Of_Line return Boolean;<br />
+			procedure New_Page (File : in File_Type);<br />
+			procedure New_Page;<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			399 11 June 2010 The Package Text_IO A.10.1<br />
+			procedure Skip_Page (File : in File_Type);<br />
+			procedure Skip_Page;<br />
+			function End_Of_Page(File : in File_Type) return Boolean;<br />
+			function End_Of_Page return Boolean;<br />
+			function End_Of_File(File : in File_Type) return Boolean;<br />
+			function End_Of_File return Boolean;<br />
+			procedure Set_Col (File : in File_Type; To : in Positive_Count);<br />
+			procedure Set_Col (To : in Positive_Count);<br />
+			procedure Set_Line(File : in File_Type; To : in Positive_Count);<br />
+			procedure Set_Line(To : in Positive_Count);<br />
+			function Col (File : in File_Type) return Positive_Count;<br />
+			function Col return Positive_Count;<br />
+			function Line(File : in File_Type) return Positive_Count;<br />
+			function Line return Positive_Count;<br />
+			function Page(File : in File_Type) return Positive_Count;<br />
+			function Page return Positive_Count;<br />
+			-- Character Input-Output<br />
+			procedure Get(File : in File_Type; Item : out Character);<br />
+			procedure Get(Item : out Character);<br />
+			procedure Put(File : in File_Type; Item : in Character);<br />
+			procedure Put(Item : in Character);<br />
+			procedure Look_Ahead (File : in File_Type;<br />
+			Item : out Character;<br />
+			End_Of_Line : out Boolean);<br />
+			procedure Look_Ahead (Item : out Character;<br />
+			End_Of_Line : out Boolean);<br />
+			procedure Get_Immediate(File : in File_Type;<br />
+			Item : out Character);<br />
+			procedure Get_Immediate(Item : out Character);<br />
+			procedure Get_Immediate(File : in File_Type;<br />
+			Item : out Character;<br />
+			Available : out Boolean);<br />
+			procedure Get_Immediate(Item : out Character;<br />
+			Available : out Boolean);<br />
+			-- String Input-Output<br />
+			procedure Get(File : in File_Type; Item : out String);<br />
+			procedure Get(Item : out String);<br />
+			procedure Put(File : in File_Type; Item : in String);<br />
+			procedure Put(Item : in String);<br />
+			procedure Get_Line(File : in File_Type;<br />
+			Item : out String;<br />
+			Last : out Natural);<br />
+			procedure Get_Line(Item : out String; Last : out Natural);<br />
+			function Get_Line(File : in File_Type) return String;<br />
+			function Get_Line return String;<br />
+			procedure Put_Line(File : in File_Type; Item : in String);<br />
+			procedure Put_Line(Item : in String);<br />
+			-- Generic packages for Input-Output of Integer Types<br />
+			generic<br />
+			type Num is range &lt;&gt;;<br />
+			package Integer_IO is<br />
+			Default_Width : Field := Num'Width;<br />
+			Default_Base : Number_Base := 10;<br />
+			<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			A.10.1 The Package Text_IO 11 June 2010 400<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Get(Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Num;<br />
+			Width : in Field := Default_Width;<br />
+			Base : in Number_Base := Default_Base);<br />
+			procedure Put(Item : in Num;<br />
+			Width : in Field := Default_Width;<br />
+			Base : in Number_Base := Default_Base);<br />
+			procedure Get(From : in String;<br />
+			Item : out Num;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Num;<br />
+			Base : in Number_Base := Default_Base);<br />
+			end Integer_IO;<br />
+			generic<br />
+			type Num is mod &lt;&gt;;<br />
+			package Modular_IO is<br />
+			Default_Width : Field := Num'Width;<br />
+			Default_Base : Number_Base := 10;<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Get(Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Num;<br />
+			Width : in Field := Default_Width;<br />
+			Base : in Number_Base := Default_Base);<br />
+			procedure Put(Item : in Num;<br />
+			Width : in Field := Default_Width;<br />
+			Base : in Number_Base := Default_Base);<br />
+			procedure Get(From : in String;<br />
+			Item : out Num;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Num;<br />
+			Base : in Number_Base := Default_Base);<br />
+			end Modular_IO;<br />
+			-- Generic packages for Input-Output of Real Types<br />
+			generic<br />
+			type Num is digits &lt;&gt;;<br />
+			package Float_IO is<br />
+			Default_Fore : Field := 2;<br />
+			Default_Aft : Field := Num'Digits-1;<br />
+			Default_Exp : Field := 3;<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Get(Item : out Num;<br />
+			Width : in Field := 0);<br />
+	<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			401 11 June 2010 The Package Text_IO A.10.1<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Put(Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Get(From : in String;<br />
+			Item : out Num;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Num;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			end Float_IO;<br />
+			generic<br />
+			type Num is delta &lt;&gt;;<br />
+			package Fixed_IO is<br />
+			Default_Fore : Field := Num'Fore;<br />
+			Default_Aft : Field := Num'Aft;<br />
+			Default_Exp : Field := 0;<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Get(Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Put(Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Get(From : in String;<br />
+			Item : out Num;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Num;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			end Fixed_IO;<br />
+			generic<br />
+			type Num is delta &lt;&gt; digits &lt;&gt;;<br />
+			package Decimal_IO is<br />
+			Default_Fore : Field := Num'Fore;<br />
+			Default_Aft : Field := Num'Aft;<br />
+			Default_Exp : Field := 0;<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Num;<br />
+			Width : in Field := 0);<br />
+			procedure Get(Item : out Num;<br />
+			Width : in Field := 0);<br />
+		<br />
+			ISO/IEC 8652:201z(E) Ed. 3 &mdash; Ada Reference Manual<br />
+			A.10.1 The Package Text_IO 11 June 2010 402<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Put(Item : in Num;<br />
+			Fore : in Field := Default_Fore;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			procedure Get(From : in String;<br />
+			Item : out Num;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Num;<br />
+			Aft : in Field := Default_Aft;<br />
+			Exp : in Field := Default_Exp);<br />
+			end Decimal_IO;<br />
+			-- Generic package for Input-Output of Enumeration Types<br />
+			generic<br />
+			type Enum is (&lt;&gt;);<br />
+			package Enumeration_IO is<br />
+			Default_Width : Field := 0;<br />
+			Default_Setting : Type_Set := Upper_Case;<br />
+			procedure Get(File : in File_Type;<br />
+			Item : out Enum);<br />
+			procedure Get(Item : out Enum);<br />
+			procedure Put(File : in File_Type;<br />
+			Item : in Enum;<br />
+			Width : in Field := Default_Width;<br />
+			Set : in Type_Set := Default_Setting);<br />
+			procedure Put(Item : in Enum;<br />
+			Width : in Field := Default_Width;<br />
+			Set : in Type_Set := Default_Setting);<br />
+			procedure Get(From : in String;<br />
+			Item : out Enum;<br />
+			Last : out Positive);<br />
+			procedure Put(To : out String;<br />
+			Item : in Enum;<br />
+			Set : in Type_Set := Default_Setting);<br />
+			end Enumeration_IO;<br />
+			-- Exceptions<br />
+			Status_Error : exception renames IO_Exceptions.Status_Error;<br />
+			Mode_Error : exception renames IO_Exceptions.Mode_Error;<br />
+			Name_Error : exception renames IO_Exceptions.Name_Error;<br />
+			Use_Error : exception renames IO_Exceptions.Use_Error;<br />
+			Device_Error : exception renames IO_Exceptions.Device_Error;<br />
+			End_Error : exception renames IO_Exceptions.End_Error;<br />
+			Data_Error : exception renames IO_Exceptions.Data_Error;<br />
+			Layout_Error : exception renames IO_Exceptions.Layout_Error;<br />
+			private<br />
+			... -- not specified by the language<br />
+			end Ada.Text_IO;<br />
+			The type File_Type needs finalization (see 7.6) 
+		</p>
+
+<ul id="navbottom">
+	<li id="index"><a href="../index.html"><em>indeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b2-s2.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="../b3/b3-s1.html"><em> Sonraki &raquo;</em></a></li>
+</ul>
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer"><img
+				src="http://www.w3.org/Icons/valid-xhtml11"
+				alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:12 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

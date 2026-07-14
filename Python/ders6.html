@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders6.html">
+    <meta http-equiv="content-type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 6</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders5.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders7.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 6
+      </p>
+    </div>
+    <p id="programming" class="title-left verticalTab-10">
+      1.16 -
+      Python Programlarının Oluşturulması</p>
+    <p class="indent">
+      Python programları, *.py dosyaları halinde diskte saklanır. 
+      Python2x programlarından *.exe dosyaları yapılması olanağı 
+      üçüncü parti programları ile gerçekleştirilebilirken, 
+      Python3x programları için henüz bu olanak sağlanamamıştır. 
+      Python programlarının yazımı ve çalıştırılması için, başta 
+      ECLIPSE olmak üzere birçok IDE 'den yararlanılabilir. 
+      Bu konuda, <a href="Python-kurulumu.html">Python-kurulumu.html</a> 
+      sayfasında bilgi verilmiştir.
+      Daha yeni bir tümlenmiş geliştirme ortamı (Integrated Development 
+	  Environment = IDE) Pyton notebook'larıdır. Notebook lar defter olarak 
+	  düşünülmemelidir. Bu Matematica'da başlatılmış bir hücresel yazılım ve 
+	  derleme yöntemidir. Python notebook ları, IPython geliştirme ortamı olarak 
+	  da adlandırılmaktadır. IPython notebook'ları, Anaconda ve WinPtython 
+	  aglomeratlarında çalıştırlabilir. En gelişmiş IPython ortamı, Jupiter 
+	  notebookları olarak adlandırılır ve
+	  <a href="http://sourceforge.net/projects/winpython/files/WinPython_3.5/3.5.1.2/betas/WinPython-64bit-3.5.1.2build3.exe/download">
+	  WinPython</a> sisteminde çalıştırılabilir. Bir&nbsp; WinPython aglomaratı,&nbsp; 
+	  Jupiter notebook'ları yanında, çok kullanışlı bir tümlenmiş geliştirme 
+	  ortamı olan Spyder ortamını da içermektedir.</p>
+    <p id="encoding" class="subheading">
+      1.16.1 -
+      Kodlama Dili</p>
+    <p class="indent">
+      Python programlarının ilk satırında, program yazımın karakter 
+      kodlaması belirtilebilir. Program kodlamasındaki kodlama 
+      dili Python derleyicisinin tanıdığı dillerden birisi olmalı 
+      ve kodlama yorum satırı, sadece bu amaçla yazılmış bir 
+      yorum satırı olmalıdır. Python 3 , orijinal olarak UTF-8 
+      kodlamasını kullanır. Bu nedenle, UTF-8 kodlaması için 
+      özel bir bildirim yapılması gerekli değildir. Türkçe tanıtıcı 
+      isimler kullanılması halinde UTF-8 kodlaması kullanılabileceğinden, 
+      hiçbir kodlama bildirimi yapmaya gerek olmamaktadır. Kodlama 
+      bildirimi,
+    </p>
+    <pre class="pl-25"><span class="comm"># -*- coding: &lt;encoding name&gt; -*-</span></pre>
+    <p class="nonindent">
+      şeklindedir.
+    </p>
+    <p class="indent">
+      UTF-8 kodlaması altında Türkçe tanıtıcıların kullanılmasının 
+      bazı hatalara neden olduğu bildirilmiştir. Bu hatalara 
+      rastlanması küçük bir olasılık dahi olsa, yine de bir 
+      önlem olarak Türkçe tanıcılar kullanılmamalıdır. Bir başka 
+      sorun da, Python derleyicisinin ASCII karakterler dışındaki 
+      karakterler için <span class="blue">unicode</span> modülünde 
+      karakterin geçerli olup olmadığının araştırması ile yaşanacak 
+      zaman kaybıdır. Bu nedenlerle, UTF-8 altında çalışılmalı 
+      fakat, eğitim çalışmaları dışında Türkçe tanıtıcıların 
+      kullanımı en aza indirilmelidir. İleride, Türkçe Python 
+      derleyicilerinin yazılması en iyi çözüm olacaktır
+    </p>
+    <p id="modular" class="subheading">
+      1.16.2 -
+      Modüler Yapı
+    </p>
+    <p class="indent">
+      Modüler yapı, Python programlama dilinin üstün noktalarından 
+      biridir. Python programları önceden hazırlanmış isim alanları 
+      altında çalışırlar. Her program, başlangıçta
+      <span class="blue">builtins</span>adında bir temel modül 
+      altında başlar. Bu modül, varsayılan modüldür ve hçbir 
+      bildirime gerek olmadan programa otomatik olarak import 
+      edilir.
+    </p>
+    <p class="indent">
+      Programa varsayılan olarak ithal edilmiş olan
+      <span class="blue">builtins</span> modülü programın varsayılan 
+      olarak bu modülün isim alanında çalışmasını belirler. 
+      Bu modül programda gerek duyulacak birçok özelliği içerir. 
+      Bu modülün değer özellikleri ve fonksiyon özellikleri 
+      her Python programında erişilebilir niteliktedir.</p>
+    <p class="indent">
+      Varsayılan olarak <span class="blue">builtins</span> modülü 
+      alında çalışmakta olan her Python programında, yeni bir 
+      değişken deklare etmek,<span class="blue"> builtins</span> 
+      modülüne yeni bir özellik eklemekle eşdeğerdir. Örnek 
+      olarak bir Python programında a <span class="op">=
+      </span>1 şeklinde yeni bir değişken tanımlanması, prensip 
+      olarak builtins.a<span class="op"> = </span>1 şeklinde
+      <span class="blue">builtins</span> modülünde yeni bir 
+      değer özelliği tanımlanması ile eşdeğerdir. Buna rağmen,
+      <span class="blue">builtins</span> modülü, varsayılan 
+      modül olduğundan, bu modül isim alanındaki özellklerin 
+      kalifiye ismine builtins eklenmsi gerekmez. Yani, porgramınızda 
+      yeni bir a değişkeni tanımlamışsanız bunu program içinde 
+      yine a olarak çağırabilirsiniz. Bu tüm
+      <span class="blue">builtins</span> modülünde varsayılan 
+      olarak bulunan değer özellikleri ve metotlar için de geçerlidir. 
+      Yani hiçbirinin kalifiye ismine builtins<span 
+      class="op">.</span> eklenmesi gerekmez.
+    </p>
+    <p class="indent">
+      Python programlarının doğrudan doğruya
+      <span class="blue">builtins</span> isim alanında çalışmaları, 
+      programcıya bazı yükümlüklükler getirir. Prensip olarak,
+      <span class="blue">builtins</span> isim alanında tanımlı 
+      değer özellikleri ve modüller, programlama alanında varsayılan 
+      sabitler ve hazır fonksiyonlar işlevini yaparlar. Programcılar 
+      bu öntanımlı sabit ve fonsiyonların tanıtıcıları ile aynı 
+      tanıtıcıları kullanarak yeni değişken ve fonksiyonlar 
+      tanımlarsa, bunlar varsayılan sabitler ve foksiyonlarla 
+      bir isim çakışması (name clash) yaratırlar ve eski sabit 
+      veya fonksiyonları yeniden tanımlayarak eski tanımlarının 
+      üstüne çıkarlar (overriding). Bu durumda programlar istendiği 
+      gibi çalışmaz. Bu konuda dikkatli olunmalı,
+      <span class="blue">builtins</span> modülünün içeriği iyi 
+      incelenerek isim çakışmalarına olanak verilmemelidir.
+    </p>
+    <table class="table-x tablewidth70">
+      <caption class="captionred">builtins Modülünde Tanımlı 
+      Tip/Sınıf İsimleri<br><br></caption>
+      <tbody class="navy">
+        <tr>
+          <td>bool</td>
+          <td>enumerate</td>
+          <td>map</td>
+          <td>set</td>
+          <td>type</td>
+        </tr>
+        <tr>
+          <td>bytearray</td>
+          <td>filter</td>
+          <td>memoryview</td>
+          <td>slice</td>
+          <td>zip</td>
+        </tr>
+        <tr>
+          <td>bytes</td>
+          <td>float</td>
+          <td>object</td>
+          <td>staticmethod</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>classmethod</td>
+          <td>frozenset</td>
+          <td>property</td>
+          <td>str</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>complex</td>
+          <td>int</td>
+          <td>range</td>
+          <td>super</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dict</td>
+          <td>list</td>
+          <td>reversed</td>
+          <td>tuple</td>
+          <td></td>
+        </tr>
+    </table>
+    <table class="table-x tablewidth70">
+      <caption class="captionred">builtins Modülünde Tanımlı 
+      Fonksiyon İsimleri<br></caption>
+      <tbody class="navy">
+        <tr>
+          <td>abs</td>
+          <td>dir</td>
+          <td>help</td>
+          <td>max</td>
+          <td>round</td>
+        </tr>
+        <tr>
+          <td>all</td>
+          <td>divmod</td>
+          <td>hex</td>
+          <td>min</td>
+          <td>setattr</td>
+        </tr>
+        <tr>
+          <td>any</td>
+          <td>eval</td>
+          <td>id</td>
+          <td>next</td>
+          <td>sorted</td>
+        </tr>
+        <tr>
+          <td>ascii</td>
+          <td>exec</td>
+          <td>input</td>
+          <td>oct</td>
+          <td>sum</td>
+        </tr>
+        <tr>
+          <td>bin</td>
+          <td>format</td>
+          <td>isinstance</td>
+          <td>open</td>
+          <td>vars</td>
+        </tr>
+        <tr>
+          <td>callable</td>
+          <td>getattr</td>
+          <td>issubclass</td>
+          <td>ord</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>chr</td>
+          <td>globals</td>
+          <td>iter</td>
+          <td>pow</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>compile</td>
+          <td>hasattr</td>
+          <td>len</td>
+          <td>print</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>delattr</td>
+          <td>hash</td>
+          <td>locals</td>
+          <td>repr</td>
+          <td></td>
+        </tr>
+    </table>
+    <p class="indent">
+      Python programlarında varsayılan modül olan
+      <span class="blue">builtins</span> modülü, birçok kullanışlı 
+      özellik içermesine karşın hiçbir zaman her program projesinin 
+      gereksinmelerini karşılayamaz. Her program projesinin 
+      hedefleri farklıdır, gereksinmeleri farklıdır. Her program 
+      projesi, bulunabildiği ölçüde eski alt programlardan yararlanır. 
+      Hedeflerine ulaşmasını sağlayabilecek eskiden yapılmış 
+      olan alt programların bulunamadığı durumlarda, gerekli 
+      program kodları proje içinde geliştirilir. Bu durumda, 
+      herkadar kullanılabilir eski alt program bulunabilirse, 
+      proje de o kadar hızlı ilerler. Dolayısı ile önceden geliştirilmiş 
+      olan alt programlar, proje çalışmaları için çok değerlidir. 
+      Python bu gereksinmeyi modül bazında çalışmalarla karşılamaya 
+      çalışmaktadır. Modüller, aslında Python derleyicisinin 
+      bulabileceği yerlere yerleştirilmiş dosyalardır. Python 
+      modülleri nesne yapısındadır. Modül kodları Python programlama 
+      dilinde veya derlenmiş C kodları ile yazılmış fonksiyon 
+      (metod) ve değerlerden oluşur.
+    </p>
+    <p class="indent">
+      Bir Python programında varsayılan modül olan
+      <span class="blue">builtins</span> modülü dışında başka 
+      modül veya modüllerin kullanılması istendiğinde, ilkönce 
+      bu modüllerin program isim anaında erişilebilir olmasının 
+      sağlanması gerekir. Bu erşim ise, istenilen modülün program 
+      isim alanına ithal (import) edilmesi ile sağlanır.
+    </p>
+    <p class="indent">
+      Bir modülün, bir program isim alanına ithal (import) etmek 
+      için aşağıda belirtilen program adımları uygulanabilir:
+    </p>
+    <pre class="pl-25">
+<span class="keyw">import</span> &lt;modül adı&gt;<span class="op">;</span>
+    </pre>
+    <p class="indent">
+      Bu tür bir erişim sağlanması en okunabilir kod sağlayan 
+      ve programlamada isim çakışmalarını engelleyen en sağlam 
+      erişim sağlama şeklidir. Bu yöntemle, sadece ithal edilen 
+      modülün isim alanına erişim sağlanabilir ve builtins modülü 
+      içindeki özelleikler öneksiz, ithal edilen modülün isim 
+      alanına ise, modül ismi öneki ile erişilir. Bu şekilde, 
+      builtins modülü ile ithel edilen modül isim alanları birbirinden 
+      ayrı tutulur ve isim çakışması olasılığı azaltılmış olur. 
+      Örnek olarak, bir Python programının çalıştığı IDE nin 
+      modül arama yolu, sys modülünün path değer özelliğindedir. 
+      Bunu bir IDE'nin örnek olarak ECLİPSE ide sinin interaktif 
+      konsolunu kullanarak saptayalım:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>import sys <span class="op">;</span><img 
+    alt="enter" src="images/enter.fw.png">
+<span class="op">&gt;&gt;&gt;</span>sys<span class="op">.</span>path<span
+class="op">;</span><img 
+    alt="enter" src="images/enter.fw.png">
+<span class="op">&gt;&gt;&gt;</span>Out[3]: 
+['J:\\eclipse-standard-luna-R-win32-x86_64\\eclipse\\plugins\\org.python.pydev_3.6.0.201406232321\\pysrc',
+ 'C:\\Python34\\lib\\site-packages\\ipython-3.0.0_dev-py3.4.egg',
+ 'C:\\Python34\\DLLs',
+ 'C:\\Python34\\lib',
+ 'C:\\Python34',
+ 'C:\\Python34\\lib\\site-packages',    
+    </pre>
+    <p class="indent">
+      Buradan eğer bir modül yazarsak nereye kaydetmemiz gerektiğini 
+      bulabiliyoruz. Artık kendi modülümüzü yazıp import edebiliriz. 
+      Kullandığımız bir IDE yi açıp aşağıdaki fonksiyonu yazıyoruz:
+    </p>
+    <pre>
+<span class="keyw">def</span> alan<span class="op">(</span>x<span 
+    class="op"> , </span>y<span class="op">):</span>
+&nbsp;&nbsp;<span class="pl-25">s</span><span class="op"> = </span>str<span 
+    class="op">(</span>x<span class="op"> * </span>y<span 
+    class="op">);</span>
+&nbsp;&nbsp;<span class="pl-25">s</span><span class="op"> = </span><span 
+    class="str">'Bu karenin alanı :\t'</span>&nbsp;<span 
+    class="op">+</span>&nbsp;s&nbsp;<span class="op">+</span>&nbsp;<span 
+    class="str">'\tbirimdir.'</span><span class="op">;</span>
+&nbsp;&nbsp;<span class="keyw-25">return</span> s<span class="op">;</span></pre>
+    <p class="indent">
+      Bu programı, satır satır açıklayalım. İlk olarak alan 
+      bir fonksiyon tanıtıcısı, tanıttığı fonksiyonun x ve y 
+      olarak iki formal parametresi var. Bu fonsiyonun içeriği,
+    </p>
+    <pre>
+&nbsp;&nbsp;<span class="pl-25">s</span><span class="op"> = </span>str<span 
+    class="op">(</span>x<span class="op"> * </span>y<span 
+    class="op">);</span></pre>
+    <p class="nonindent">
+      satırı bir tek ifadeden oluşmaktadır. Bu ifadede
+      en düşük işlemci, atama işlemcisi olan
+      <span class="op">=</span> dir. Bundan dolayı ilk olarak en 
+      yüksek öncelikli işlemci olan <span class="op">*</span>
+      işlemcisinin işlemi gerçekleştiriliyır. Oluşan 
+      sonuç builtins modülünün str<span class="op">()</span> 
+      sayısal verileri sözel tipe dönüştürme fonksiyonu ile 
+      sözel tipe dönüştürülüyor. En sonunsa, sağ işlenenin oluşan 
+      sonucu, sol işlenen olan s tanıtıcısı ile erişim sağlanabilen 
+      bir bellek alanına yerleştiriliyor. Bundan sonraki program 
+      adımı,
+    </p>
+    <pre>
+&nbsp;&nbsp;<span class="pl-25">s</span><span class="op"> = </span><span 
+    class="str">'Bu karenin alanı :\t'</span>&nbsp;<span 
+    class="op">+</span>&nbsp;s&nbsp;<span class="op">+</span>&nbsp;<span 
+    class="str">'\tbirimdir.'</span><span class="op">;</span></pre>
+    <p class="nonindent">
+      şeklinde bir ifadedir. Bu ifadede en düşük öncelikli işlemci, atama 
+      işlemcisi <span class="op">=</span> dir. Bu işlemcinin 
+      öncelikle sağ işleneninin çözümlenmesi yapılacak ve oluşan 
+      değer sol işlemcinin belirttiği bellek alanına yerleştirilecektir. 
+      Sağ işlenende ise iki tane eşit öncelikli
+      <span class="op">+ </span>işlemcisi bulunmaktadır. Burada 
+      öncelik sırası soldan sağadır. Yani ilk olarak,
+      <span class="str">Bu karenin alanı : \t'</span><span 
+      class="op"> + </span>s işlemi yapılacaktır. Bu işlem bir 
+      sözel veri birleştirilmesidir. İlk veri bir sözel literal, 
+      ikinci veri, s tanıtıcısının belirttiği bellek adresinde 
+      saklı olan güncel, sözele dönüştürülmüş sayısal veridir. 
+      Bu işlem sonucunda iki sözel veri birleştirlir. Sonra 
+      ikinci birleştirme işlemi de yapılarak tek bir sözel veri 
+      oluşturulur ve bu sözel veri yine s tanıtıcısının erişim 
+      sağladığı bellek alanına eski veri silinerek yerleştiriliyor.
+      Bilindiği gibi, bu tahrip edici bir işlemdir.
+    </p>
+    <p class="indent">
+      En sonunda,
+    </p>
+    <pre class="pl-25">
+<span class="keyw">return</span> s<span class="op">;</span>
+    </pre>
+    <p class="nonindent">
+      bildirimi ile, s tanıtıcısının işaret ettiği bellek alanında 
+      bulunan güncel değerin döndürüleceği bildirilerek fonksiyon 
+      tanımı tamamlanıyor.
+    </p>
+    <p class="indent">
+      Bu programı, yukarıdaki path bilgisinin belirttiği bir 
+      klasöre örnek olarak c:\python34\site-packages\bedriemir.py 
+      olarak yazıyoruz. Sonra yine IDE 'ye geçip aşağıdaki programı 
+      yazıyoruz:
+    </p>
+    <pre class="pl-25">
+<span class="keyw">import</span> bedriemir
+a <span class="op">=</span> bedriemir<span class="op">.</span>alan<span 
+    class="op">(</span>25<span class="op">,</span>100<span 
+    class="op">)</span>
+print <span class="op">(</span>a<span class="op">)</span></pre>
+    <p class="cursive-maroon">
+      Bu programın sonucu:
+    </p>
+    <p class="cursive-green">
+      Bu karenin alanı : 2500 birimdir.
+    </p>
+    <p class="indent">
+      Bu programda ilk olarak bedriemir modülünün program isim 
+      alanına ek bir isim alanı erişimi olarak import edilmesi 
+      yapılıyor. Daha önce bedriemir.py programı Python derleyicisinin 
+      aradığı klasörlerin birinde yerleştirilmiş olduğu için 
+      bulunması garantidir. Burada,
+    </p>
+    <pre class="pl-25">
+a <span class="op">=</span> bedriemir<span class="op">.</span>alan<span 
+    class="op">(</span>25<span class="op">,</span>100<span 
+    class="op">);</span></pre>
+    <p class="nonindent">
+      program adımı bir ifadedir. Bu ifadede en düşük öncelikli 
+      işlemci, atama işlemcisi <span class="op">=</span> dir. 
+      Bu işlemcinin öncelikle sağ işleneninin çözümlenmesi yapılacak 
+      ve oluşan değer sol işlemcinin belirttiği bellek alanına 
+      yerleştirilecektir. Sağ işlenende ise bir fonksiyon çağrısı 
+      yapılmaktadır. Bu fonksiyon imğpoert edilen bedriemir 
+      modülünün bir fonksiyonudur ve çağrının yapıldığı fonksiyonun 
+      kalifiye isminde, önce fonksiyonun tanımlanmış olduğu 
+      ve programın da erişim sağlayabildiği (import ederek) 
+      modülün ismi, sonra da fonksiyonun ismi bulunmaktadır. 
+      Bu fonksiyon gerektirdiği gibi, iki sayısal argüman ile 
+      çarılmaltra ve geri döndürülen değer, a tanıtıcısın erişim 
+      sağladığı bellek alanına yerleştirilmektedir.
+    </p>
+    <p class="indent">
+      En son,
+    </p>
+    <pre class="pl-25">
+print <span class="op">(</span>a<span class="op">);</span></pre>
+    <p class="nonindent">
+      program adımı, a tanıtıcısının erişim sağladığı bellek 
+      alanındaki güncel değerin standart çıktı cihazında (burada 
+      monitördür) görüntülenmesini sağlayan öntanımlı print<span 
+      class="op">()</span> fonksiyonudur. Bu fonksiyonun çalışmasını 
+      ileride daha detaylı olarak inceleyeceğiz. Bu fonksiyon 
+      her türlü sözel veriyi doğrudan, sayısal veriyi de otomatik 
+      olarak, sözele çevirerek görüntüleyebilir. Sonuçta print<span 
+      class="op">()</span> fonsiyonu görüntülenen program sonucu 
+      eğer alan<span class="op">(</span>x<span class="op">,</span>y<span 
+      class="op">)</span> fonksiyonun cağrılmasında kullanılan 
+      x ve y argümanları aynı birimden iseler, görüntülenen 
+      alan birimi, her iki uzunluğun belirtildiği birim sisteminin 
+      alan birimindedir.
+    </p>
+    <p class="indent">
+      Bu arada kutlarız, ilk programınızı gerçekleştirdiniz. 
+      İlk programı gerçekleştirmekten başka üstelik ilk modülünüzü 
+      de yazdınız. Bu programı yazacak bilgimiz oluşmuş olduğuna 
+      göre artık her türlü Python programını yazabiliriz.
+    </p>
+    <p class="indent">
+      Bir modülün global isim alanına (program alanına) ithal 
+      etmek için, bir başka yol,
+    </p>
+    <pre class="pl-25">
+<span class="keyw">import</span> &lt;modül adı&gt;<span 
+    class="op">*</span>
+veya eşdeğer olarak,
+from &lt;modül adı&gt; <span class="keyw">import</span><span 
+    class="op">*</span></pre>
+    <p class="nonindent">
+      şeklindedir. Bu yolla program isim alanına (global isim 
+      alanına) ithal edilen bir modülün bütün özellikleri global 
+      isim alanına akar ve tüm özellikleri, modül adı verilmesine 
+      gerek olmadan yani kalifiye isimlerine gerek olmadan erişilebilir. 
+      Bunun yanıda her türlü isim çakışması olasılığı da beraber 
+      gelir. Global isim alanı, zaten builtins modülünün otomatik 
+      ithal edilmesi dolayısı ile builtins + program içi ortak 
+      isim alanıdır. Buraya gelişigüzel isim doldurulması doğru 
+      değildir. Bu kadar isim programın hızını azaltır, ayrıca 
+      hemen yaratmasa da potansiyel bir isim çakışması kaynağını 
+      oluşturur. Erişilen fonksiyonlar da, modül ismine gerek 
+      olmadan erişilebildiğinden, hangi fonksiyonun hangi modülden 
+      geldiğinin anlaşılması da uzun inceleme gerektirir. En 
+      iyisi bu tür ithal işleminden tümüyle vazgeçmektir. Yine 
+      de, bu çalışma dahil birçok çalışmada bu kolay yolun kullanıldığı 
+      görülebilir. Bunun nedeni, kalifiye isim kullanımı gerekli 
+      olmadığından, daha az klavye kullanımı ile yazılım yapılabilmesidir. 
+      Buna bir noktada, insanların kolaya kaçma eğiliminin bir 
+      göstergesi olarak da bakılması gerekir.
+    </p>
+    <p class="indent">
+      Bir başka yöntem,
+    </p>
+    <pre class="pl-25">
+from &lt;modül adı&gt; <span class="keyw">import</span> fonksiyon1 <span 
+    class="op">,</span> fonksiyon2 <span class="op">,</span> ... </pre>
+    <p class="nonindent">
+      şeklindedir. Bu en iyi modül ithal etme şeklidir. Fakat, 
+      hangi modülden hangi fonksiyonun ithal edileceğinin önceden 
+      iyi incelenmiş olması gerekir. Ne yazık ki programcılar 
+      bu kadar çalışkan olmuyorlar.
+    </p>
+    <p class="indent">
+      Bu kısımda modüllerin ana programa nasıl edileceğini inceledik, 
+      bu arada global ve moüdül ve yerel (kendi yarattığımız 
+      nesnelerin içi) isim alanlarını da tanımış olduk. Bir 
+      sonraki kisimda program giriş-çıkış ve sonuçların biçimlendirilmesi 
+      (formatlanmması) üzerinde duracağız.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders5.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders7.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

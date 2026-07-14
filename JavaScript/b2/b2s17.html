@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s17.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:00 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s17.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta 	content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5	at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s17</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1"/></a>
+				<a href="b2s16.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s18.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.14 - Verilerin Değer ve Referansla Aktarımı</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 17
+		</p>
+		<p class="indent">
+			Bilgisayar programcılığında, belirli değerler bir kez değişkenlere atandıktan
+			sonra, program içinde başka değişkenlere atanabilir veya bir fonksiyonda
+			argüman olarak kullanılabilirler. Değişkenlere atanmış olan değerlerin
+			aktarımları sırasında ortaya gerçekleşecek olan mekanizimaların önceden
+			bilinmesi ve aktarımların bu bilgilere göre yapılması, bilgisayar programcıları
+			için yaşamsal önem taşır.  Programcıların yaptıkları programların doğru
+			olarak çalışabilmesi, programcının verilerin  aktarım yöntemlerini iyice
+			özümsemiş olmalarına bağlıdır. Bu konu çerçevesinde,  JavaScript programlarında
+			verilerin aktarım yöntemleri incelenecektir. Bunun için  JavaScript programlama
+			dilinde, veri türleri ve programların yürüyüşü sırasında bu veri tiplerinin
+			davranışları tüm açıklığı ile ele alınacaktır.
+		</p>
+		<p class="subheading" id="byVal">
+					2.14.1 - Değerle Aktarım
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, bölüm <a href="b2s2.html">2.2</a> de, 
+			<span class="keyw">undefined</span>, <span 
+			class="keyw">null</span>, <span 
+			class="keyw">boolean</span> , <span
+			class="keyw">number</span>, <span 
+			class="keyw">string</span>, olmak üzere beş tane ilkel (primitif) veri tipi olduğunu 
+			görmüştük. Bunlardan sadece son üçü, kullanıcılar tarafından program girdileri olarak 
+			kullanılabilecek veri türleridir. Mantıksal ve sayısal veri ilkel veri tipleri sabit sayıda bit ile
+			bit ile tanımlanabilecek verilerdir. Bunlar şematik olarak 8 bit uzunluğunda küçük bir 
+			veri belleği bölgesine yerleştirilebilirler.  Mantıksal ve sayısal veri ilkel veri tipleri,
+			bir değişkene atandıklarında, bu değişkene gerçek değerleri atanır. Örnek olarak,
+		</p>
+		<pre>
+<span class="keyw-50">var</span> A <span 
+			class="op">=</span> 12.9<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Bazı durumlarda, bir değişkene atanmış değerlerin, başka değişkenlere
+			aktarılması gerekir. Örnek,
+		</p>
+		<pre>
+<span class="keyw-50">var</span> A <span 
+			class="op">=</span> 12.9<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> B <span 
+			class="op">=</span> A<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Eğer, aktarılan değer, sabit sayıda bit ile tanımlanabilen bir veri türü ise, 
+			verinin bir kopyası çıkarılır ve yeni bir değişken ile belirtilen yeni bir bellek bölgesine
+			yerleştirilir. İşlem sona erdiğinde ilk değişken ve aktarılan değişken değerleri, 
+			birbiribirinden bağımsız olurlar. Bunlar iki farklı bellek bölgesine 
+			yerleştirilmiş iki farklı veri durumundadır ve birinin değerinin değişmesi 
+			diğerinin değerini değiştirmez. Bu mekanizmaya kısa olarak 
+			<span class="red">&quot;Değerle Aktarım&quot;</span> adı verlir. Değerle
+			aktarım mekanizmasında aktarılacak değerin bir kopyası çıkaraılarak yeni 
+			değişkene atanır ve yeni değişken başka bir bellek bölgesine yerleştirilir. Bu şekilde
+			orijinal veri ve aktarılan veri biribirinden bağımsız olur. Değerle aktarım mekanizmasının
+			yürüyüşü aşağıdaki gibidir:
+		</p>
+		<p class="sayfaortala"><img src="../images/b2.14-img-1.gif" alt="Değerle Aktarım Mekanizması" width="252" height="237" />
+		</p>
+		<p class="sayfaortala">Değerle Aktarım Mekanizması</p>
+		<p class="indent" id="b2.14.1-uyg-1">
+			Değerle kopyalama sınmak için, yukarıdaki şekilde görülen program akışını uygulayan bir
+			<a href="../uygulamalar/b2.14.1-uyg-1-js.html">JavaScript programı</a> ve 
+			ilişikli olduğu, <a href="../uygulamalar/b2.14.1-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> A <span 
+			class="op">= </span>12.9<span 
+			class="op">, </span> B <span 
+			class="op">= </span>0<span 
+			class="op">;</span>
+<span class="pl-50">B</span> <span 
+			class="op">= </span>A<span 
+			class="op">;</span>
+<span class="pl-50">B<span 
+			class="op">=</span> 25<span 
+			class="op">;</span></span> <span class="comm-50">// Dikkat B Değişkeni Güncellendi !!</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">( <span 
+			class="str">'A = '</span>,</span> A<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">( <span 
+			class="str">'B = '</span>,</span> B<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.1-uyg-1-sonuç-1"></p>
+		<p class="indent" id="b2.14.1-uyg-1-sonuç-2"></p>
+		<p class="indent">
+			Program sonucundan, kopyalanarak değerle aktarılan bir veri olan A değişkeni 
+			değerinin, kopyalandığı B değişkeninde değeri değişse bile orijinal veri olan A 
+			değişkenin değerinin bundan etkilenmediği görülmektedir. Bu davranış türü, 
+			değerle aktarılan tüm veri tipleri için geçerlidir. 
+		</p>
+		<p class="indent" id="b2.14.1-uyg-2">
+			İlkel veri tipleri arasındaki karakter dizigisi (string) veri tipi özel duruma sahiptir.
+			Karakter dizigisi verileri, diğer ilkel veri tipleri gibi sabit veri uzunluğuna sahip
+			değildir. Karakter dizigisi verileri istendiği kadar uzun olabilirler ve bellekte 
+			büyük bir yer kaplayabilirler. Bu durumda bu verilerin değerle kopyalanmasının çok
+			uygun olmayacağı ve büyük karakter dizigisi tipinde ilkel değişkenlerin aşırı bir
+			şekilde kokpyalanmasının, kullanılabilir program belleğini (stack memory) 
+			kısa süre sonra tüketebileceği düşünülebilir. JavaScript yorumlayıcısı bunun
+			önlenmesi için kendine özgü önlemler almış olabilir. Fakat, pratikte aşağıdaki 
+			<a href="../uygulamalar/b2.14.1-uyg-2-js.html">JavaScript programının</a> ve 
+			ilişikli olduğu, <a href="../uygulamalar/b2.14.1-uyg-2.html">uygulama</a> 
+			sayfasında verdiği sonuçtan açıkça ilkel karakter dizigisi (string) verilerin, 
+			değerle aktarıldığı görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> A <span 
+			class="op">=</span> <span 
+			class="str">'İyi Yıllar !'</span><span 
+			class="op">,</span> B <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="pl-50">B</span> <span 
+			class="op">=</span> A<span 
+			class="op">;</span>
+<span class="pl-50">B<span 
+			class="op">=</span> <span 
+			class="op">=</span> <span 
+			class="str">'Yeni Yılınız Kutlu Olsun !'</span><span 
+			class="op">;</span></span> <span class="comm-50">// Dikkat B Değişkeni Güncellendi !!</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'A = '</span><span 
+			class="op">,</span> A<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'B = '</span>, B<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.1-uyg-2-sonuç-1"></p>
+		<p class="indent" id="b2.14.1-uyg-2-sonuç-2"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b2.14.1-uyg-1.html">uygulama</a> sonuçları, açıkça
+			ilkel karakter dizigisi (string) verilerin değerle aktarıldığını veya en azından görünür
+			mekanizmanın böyle olduğunu açıklamaktadır. Çünkü, aktarıldığı değişkenin değeri 
+			değişmekte olmasına karşın, orijinal değişken değeri bundan etkilenmemektedir.
+		</p>
+		<p class="indent">
+			JavaScript programlama dili, nesne yönelimli programlamayı destekleyen bir
+			programlama dilidir. Nesne tipleri kullanıcılar tarafından oluşturulabileceği gibi, 
+			<a href="b2s2.html#object">2.2.6 bölümünde</a> belirtildiği gibi, öntanımlı olarak da
+			bulunurlar.
+		</p>
+		<p class="indent">
+			Öntanımlı nesneler arasında <span class="keyw">Boolean</span>, 
+			<span class="keyw">Number</span>, <span class="keyw">String</span>, nesneleri özel 
+			önem taşır. Bu nesneler, ilkel veri tiplerine karşı gelirler. JavaScript programlama dilinde, 
+			verilier istenirse, ilkel veri tipinde, istenirse öntanımlı nesne tipinde tanımlanabilir. 
+			Örnek olarak, bir mantıksal veri, 
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">true</span><span class="op">;</span> 
+		</pre>
+		<p class="nonindent">
+			şeklinde bir ilkel mantıksal tip olarak tanımlanabilidiği gibi,
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">new Boolean</span><span class="op">(</span> <span 
+			class="keyw">true</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde, bir öntanımlı mantıksal nesne sınıf örneği olarak da tanımlanabilir.
+			Sayılar  ve karakter dizgilerinin de aynı şekilde hem ilkel veri hem de
+			öntanımlı nesne  örnekleri olarak tanıtılmaları olanağı bulunmaktadır. Diğer öntanımlı nesne
+			örnekleri de kendi sııflarının örnekleri olarak tanıtılırlar.
+		</p>
+		<p class="indent" id="b2.14.1-uyg-3">
+			JavaScript programlama dilinde, mantıksal, sayısal ve sözel verilerin ilkel veri tipi olarak veya 
+			öntanımlı nesne sınıf örnekleri olarak tanıtılmaları programlarda kullanılmalarını etkilemez. 
+			Bu veriler, birer nesne olmalarına karşın aynı ilkel veri tipindeki karşılıkları gibi değerle
+			aktarılırlar. Ayrıca, öntanımlı, <span class="keyw">Date</span>, 
+			<span class="keyw">RegExp</span>, <span class="keyw">Function</span> ve 
+			<span class="keyw">Error</span> nesne sınıf örnekleri de, değerle aktarılır. Bu konuda bir 
+			<a href="../uygulamalar/b2.14.1-uyg-3-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.14.1-uyg-3.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+	</p><pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> A <span 
+			class="op">=</span> <span 
+			class="keyw">new Boolean</span><span 
+			class="op">(</span><span 
+			class="keyw">false</span><span 
+			class="op">),</span> B <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> 
+<span class="pl-50">C</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>34<span 
+			class="op">),</span> D <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> 
+<span class="pl-50">E</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Atatürk Mozolesi'</span><span 
+			class="op">),</span> F <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span> 
+
+<span class="pl-50">B</span> <span 
+			class="op">=</span> A<span 
+			class="op">;</span>
+<span class="pl-50">B</span> <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span> <span class="comm-50">// Dikkat B Değişkeni Güncellendi !!</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'A = '</span>, A<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">D</span> <span 
+			class="op">=</span> C<span 
+			class="op">;</span>
+<span class="pl-50">D</span> <span 
+			class="op">=</span> 180<span 
+			class="op">;</span> <span class="comm-50">// Dikkat D Değişkeni Güncellendi !!</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'C = '</span>, C<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">F</span> <span 
+			class="op">=</span> E<span 
+			class="op">;</span>
+<span class="pl-50">F</span> <span 
+			class="op">=</span> <span 
+			class="str">'Anıtkabir'</span><span 
+			class="op">;</span> <span class="comm-50">// Dikkat F Değişkeni Güncellendi !!</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'E = '</span>, E<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-3-sonuç-3'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.1-uyg-3-sonuç-1"></p>
+		<p class="indent" id="b2.14.1-uyg-3-sonuç-2"></p>
+		<p class="indent" id="b2.14.1-uyg-3-sonuç-3"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b2.14.1-uyg-3.html">uygulama</a> sonuçları, açıkça
+			bazı öntanımlı nesne tiplerinin de değerle aktarıldığını açıklmaktadır. Çünkü, aktarıldığı 
+			değişkenin değeri değişmesine karşın, orijinal değişken değeri bundan etkilenmemektedir.
+		</p>
+		<p class="indent" id="b2.14.1-uyg-4">
+			Programlarda bir değişkene atanmış değerlerin bir başka kullanım yöntemi de fonksiyonlarda 
+			argüman olarak kullanılmalarıdır. Değerle aktarılan büyüklükler, fonksiyonlarda parametre
+			olarak kullanıldıklarında, fonksiyonda değerlerinin bir kopyası argüman olarak kullanılır. 
+			Fonkssiyon içinde, parametrenin değeri değişirse bu değişiklik yerel olarak kalır ve fonksiyon
+			dışına yansımaz yani, orijinal değer fonksiyondaki değişikliklerden etkilenmez. Bir örnek olarak,
+			değerle aktarılan karakter dizgisi nesne örneğinin, fonksiyonda argüman (parametre) olarak
+			kullanılmasında, fonksiyon içinde gerçekleşen değer değişiminin, fonksiyon dışındaki 
+			orijnal değeri etkilemediği, aşağıdaki 
+			<a href="../uygulamalar/b2.14.1-uyg-4-js.html">JavaScript programında</a> uygulanmış ve 
+			bu programın iliştirildiği <a href="../uygulamalar/b2.14.1-uyg-4.html">sayfada</a> verdiği
+			sonuç aşağıda görüntülenmiştir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">function</span> değerDeğiştir<span 
+			class="op">(</span>değer<span 
+			class="op">) {</span>
+<span class="pl-75">değer</span> <span 
+			class="op">=</span> <span 
+			class="str">'Güneş'</span>
+<span class="pl-50">}</span>
+
+<span class="keyw-50">var</span> sözelVeri <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Dünya'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">değerDeğiştir</span><span 
+			class="op">(</span>sözelVeri<span 
+			class="op">);</span> 
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'SözelVeri = '</span>, sözelVeri<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.1-uyg-4-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.1-uyg-4-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b2.14.1-uyg-4.html">uygulama</a> sonuçları, değerle
+			yani kopyalanarak aktarılan veri tiplerinin, fonksiyonlarda parametre olarak 
+			kullanıldıklarında, kopyalarının parametre olarak kullanıldığını ve fonksiyon içinde kopyalarının
+			değerleri değişirse bu değişikliklerin örijinal değeri etkilemeyeceğini göstermektedir.
+		</p>
+		<p class="indent">
+			Özetle, mantıksal,sayısal ve sözel ilkel veri tipleri ile, öntanımlı 
+			<span class="keyw">Boolean</span>, 	<span class="keyw">Number</span>, 
+			<span class="keyw">String</span>, <span class="keyw">Function</span>,
+			<span class="keyw">Date</span>, <span class="keyw">RegExp</span>, 
+			<span class="keyw">Error</span>  nesne sınıfı örnekleri değerle (kopyalanarak)
+			 aktarılır, fonksiyonlarda parametre olarak kopyaları  kullanılır.  Tüm
+			bu veri tipleri kopyalanarak aktarıldığından, kopyalarının değer değiştirmesi
+			orijinal verileri etkilemez.
+		</p>
+		
+		<p class="indent">
+			lkel veri tipleri değerleri ile karşılaştırılırlar. Bunların değerleri ve tipleri aynı ise, 
+			<span class="op">===</span> işlemcisi ile, salt değerleri aynı fakat tipleri farklı ise, 
+			<span class="op">==</span> işlemcisi ile olumlu sonuç vereceklerdir.
+		</p>
+		<p class="indent">
+			Örnekleri değerle aktarılanlar dahil, tüm nesne sınıf örnekleri referans ile karşılaştırılırlar. 
+			Bu konu, <a href="b2s10.html">bölüm 2.10 de</a> ayrıntılı olarak incelenmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s16.html"><em>« Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s18.html"><em>Sonraki »</em></a
+			></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.1-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.1-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.1-uyg-4.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s17.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:00 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

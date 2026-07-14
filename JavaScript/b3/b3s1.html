@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:02 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b3/b3s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b2/b2s18.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b3s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Global JavaScript Nesnesi</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 1
+		</p>
+		<p class="title-left" id="intro">
+			3.1 - Global JavaScript Nesnesinin Tanıtımı</p>
+		<p class="indent">
+			JavaScript yorumlayıcıları belirli bir konukçu (host) ortam içinde konuk edilmeleri ve 
+			JavaScript programlarına bu ortam aracılığı erişlmesi gerekir. Deeysel çalışmlar dışında,
+			kendi başına çalışan (stand alone) bir JavaScript yorumlayıcısı yoktur. JavaScript programları 
+			Web sayfaları düzenlenmesi ile yakından ilgili olduklardan, JavaScript yorumlayıcısını 
+			konuk eden ortamların en önde gelenleri, Web belge çözümleyicileridir. Web belge 
+			çözümleyicileri değişik ticari kuruluşlara ait patentli yazılımlardır. Her kuruluşun
+			kendi ortamına uygun, kendi özel JavaScript yorumlayıcısı bulunmaktadır.
+		</p>
+		<p class="indent">
+			Eğer etkili bir standartlaşma sağlanamazsa, JavaScript programları farklı ortamlarda farklı
+			programlma öğeleri içerebilirler ve bu uyumsuzluk ortak olarak her ortamda çalışan 
+			programların yazılabilmesini olanaksız hale getirir. 
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcıları nesne temeline dayalı yazılımlardır. Bu yazazılımın en tepesine
+			bir süper sınıf bulunur. Tüm diğer programlama ögeleri bu süper sınıfın alr sınıfları olarak 
+			tasarlanmışlardır. Standartlaşmanın gereği olarak, her JavaScript yorumlayıcısı standartlarla 
+			belirlenmiş bir nesne gurubunu yorumlamak zorundadır.
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcılarının minimum standartlarını belirleyen kuruluş ECMA tarafından
+			belirlenmiş 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm"> ECMA-262 üçüncü sürüm</a>
+			spesifikasyonuna göre, JavaScript yorumlayıcıları en az bu spesifikayonda belirlenmiş nesneleri 
+			içermelidirler. Bu nesnelere çekirdek nesneler adı verilir. JavaScript yorumlayıcıları çekirdek nesnelere ek olarak
+			kendi özel nesnelerini de içerebilirler. Bunlara konuk eden ortam nesneleri adı verilir. 
+			Konuk eden ortamların özel eklentileri belirli bir standardla sınırlanmamıştır. Her ortam kendi 
+			özel nesnelerini kendi JavaScript yorumlayıcısına ekleyebilir.
+		</p>
+		<p class="indent">
+			ECMA tarafından standartlaştırılmış çekirdek nesneleri, bilgi-işlem amacına yöneliktir. Sonuçların,
+			görüntülenmesi, JavaScript yorumlayıcısı tarafından aktarılan bilgilerin  belirli (X)HTML elementlerinin
+			içeriği haline getirilmesi ile gerçekleşir. JavaScript yorumlayıcısının (X)HTML elementleri ile etkileşimini
+			sağlayan program öğeleri, konuk eden ortamın özel eklentileridir. Bu konuda da belirli bir standart
+			sağlanamadığı durumlarda programcılar için ortak olarak her ortamda çalışacak yazılımların geliştirilebilmesi
+			çok güçleşecektir. Bu konuda da <a href="http://w3.org/">W3C</a> DOM standartlarını sağlayarak,
+			her belge çözümleyicinin içermesi gereken etkileşim yöntemlerini belirtmiştir. Bu iki standart, programcılara 
+			rahat bir nefes aldırmış ve her ortamda çalışabilecek belge çözümleyiciler arası JavaScript programlarının
+			yazılmasını sağlamıştır. Bu çalışmalarda da bu hedef gözetilmiştir. Bu konuda ilk olarak JavaScript Çekirdek 
+			Nesneleri incelenecek daha sonra <a href="http://w3.org/">W3C</a> DOM standartları ele alınacaktır.
+		</p>
+		<p class="indent">
+			Bir JavaScript program çalıştırma ortamına girildiğinde, JavaScript yorumlayıcısı da çalışmaya başlar. 
+			JavaScript yorumlayıcısı ilk olarak Global JavaScript Nesnesi olarak adlandırılan süper sınıfı oluşturur. 
+			Belge çözümleyici ortamlarda bu tepe nesne, her konuk eden ortamın <span class="keyw">window</span>
+			nesnesidir.
+		</p>
+		<p class="indent">
+			Her konuk eden ortamın <span class="keyw">window</span> nesnesi, konuk eden ortama özgüdür ve 
+			konuk eden ortamın desteklediği standartlarda belirtilen alt nesneleri içerir. 
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısını konuk eden ortamlar arasında, belge çözümleyicisi olmayan ilginç
+			bir ortam, biraz sonra inceleyeceğimiz,
+			Global JavaScript Nesnesinin ( bir noktada <span class="keyw">window</span> nesnesinin) <span 
+			class="keyw">eval</span><span class="op">()</span> metodunun içeriğidir. Bu metodun 
+			içeriği, başlı başına bir Javascript programlama ortamı olarak etki eder ve 
+			içerik kodlarının yorumu için ayrı bir Global JavaScript Nesnesi 
+			oluşur. <span class="keyw">eval</span><span class="op">()</span> kodlarının çözümlenmesi 
+			tamamlandığında, bu kodların çözümünü sağlayan Global JavaScript Nesnesi de kaybolur.
+		</p>
+		<p class="indent">
+			Her çalıştırma ortamında, sadece bir tek Global JavaScript
+			Nesnesi (global nesne olarak adlandırılabilir) altında çalışılabilir. Kullanıcı
+			Global JavaScript Nesnesinin ön tanımlı metot ve özelliklerine serbestçe ulaşabilir,
+			fakat, ileride göreceğimiz nesne yapılandırıcısı <span class="keyw">new()</span> ile
+			yeni bir Global JavaScript Nesnesi yaratamaz.
+		</p>
+		<p class="indent">
+			Global nesnenin bir çağrı yazılımı yoktur, bir fonksiyon olarak çağrılamaz.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin metotlarına, üst düzey programlama alanı
+			olarak adlandırılan, herhangibir,
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">...</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			elementi içeriğinde, fonksiyon tanımı dışında olan herhangibir satırdan, 
+			<span class="keyw">this</span> saklı sözcüğü ile erişilebilir, fakat bu gerekli 
+			değildir. Örnek, 
+		</p>
+		<pre>
+<span class="keyw-25">this</span><span 
+			class="op">.</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">alert(</span><span 
+			class="str">&quot;x&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span><span 
+			class="pl-25">ile,</span><span 
+			class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">alert(</span><span 
+			class="str">&quot;x&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span><span 
+			class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">alert(</span><span 
+			class="str">&quot;x&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span><span 
+			class="pl-25">ve</span><span 
+			class="keyw-50">alert(</span><span 
+			class="str">&quot;x&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent"> 
+			aynı işlevi görür. İçinde çalışılan Global JavaScript Nesnesinin
+			ve içinde çalışılan pencerenin belirtilmesi gereği yoktur. Bunlar,
+			varsayılan pencere ve varsayılan Global JavaScript Nesnesi olarak algılanır.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin hiç bir öntanımlı değer özelliği
+			( özellik) fonksiyon özelliği (metot) ve nesne özelliği (öntanımlı nesne)
+			silinemez, fakat yeni değer ve fonksiyon özellikleri (metotlar) sınırsız olarak
+			yaratılabilir. Örnek:
+		</p>
+		<pre>
+<span class="keyw-25">this</span><span 
+			class="op">.</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span>x<span 
+			class="op">=</span>8<span 
+			class="op">;</span><span 
+			class="pl-25">ile,</span><span 
+			class="keyw-25">window</span><span 
+			class="op">.</span>x<span 
+			class="op">=</span>8<span 
+			class="op">;</span><span 
+			class="keyw-50">this</span><span 
+			class="op">.</span>x<span 
+			class="op">=</span>8<span 
+			class="op">;</span><span 
+			class="pl-25">ve</span><span 
+			class="pl-25">x</span><span 
+			class="op">=</span>8<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			aynı işlevi görür. Bu ifade bir global değişken ataması veya global nesneye
+				yeni bir  global değer özelliği (özellik) eklenmesi olarak düşünülebilir.
+				Her ikisi de aynı anlama gelir.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesine eklenen her yeni özellik, global kapsamdadır.
+			Yani, üst düzey çalışma alanında, fonksiyon tanımı dışında bir değişken
+				tanımlanırsa bu global kapsamda bir değişken olur. 
+		</p>
+		<p class="indent">
+			Fonksiyon içeriklerinde yerel (lokal) çağrı nesneleri (call objects) oluşur. 
+			Yerel (lokal) değişkenler de bu yerel çağrı nesnelerinin özellikleridir. 
+		</p>
+		<p class="indent">
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm"> ECMA-262
+			üçüncü sürüm</a> Spesifikasyonu, Çekirdek JavaScript Özellikleri olarak da
+			adlandırılan, Global JavaScript Nesnesinin özellikleri aşağıda görüldüğü
+			şekilde tanımlamıştır: 
+		</p>
+		<p class="sayfaortala"><img src="../images/GlobalObject.png" alt="GlobalJavaScriptObject" /></p>
+				<p class="indent sayfaortala">Şekil 3.1 - Global JavaScript Nesnesinin Öntanımlı Özellik ve Metotları
+		</p><p class="nonindent">
+			Bu şekil 3-1 de, en soldaki sütunda Global JavaScript Nesnesinin değer
+				özelliklerini (kısaca özelliklerini) görüyoruz. Global JavaScript Nesnesi,
+				tek süper sınıf olduğu ve başka hiçbir nesnenin alt nesnesi olmadığından,
+				özellikleri bir tür öntanımlı global değişken olarak kabul edilebilir.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin metotları, yani fonksiyon özellikleri iki (hatta üç, hatta 
+			yapılandırıcı fonksiyonların bir de tür dönüştürücü fonksiyon olarak kullanılabilmelerinden dolayı
+			 dört) tür metot tipini içerir.
+		</p>
+		<p class="indent">
+			Bunlardan ilki şekil 3.1 de soldan ikinci sütunda, fonksiyon özellikleri olarak belirtilen 
+			metotlardır. Global JavaScript 	Nesnesi hiçbir nesnenin alt nesnesi olmadığından bu metotlar 
+			bağımsız olarak çağrılabilen hazır fonksiyonlar olarak görev yaparlar.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin metotlarının bir kısmı, ayrı bir sütünda toplanmışlardır. Bu metotlar, 
+			Global JavaScript Nesne sınıfının, öntanımlı alt nesne sınıflarının örneklerini üretmeye yarayan,
+			öntanımlı yapılandırıcı fonksiyonlardır. Bu yapılandırıcı fonksiyonların yazılımı 
+			kullanıcıya kapalı, kullanımları açık ve sınırsızdır.	
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin üçüncü tür olarak adlandırılabilecek türde
+			tek metodu, <span class="keyw">Math</span><span 	class="op">()</span>
+			metodudur. Bu metoda, metot olmayan metot adı verilir. Bunun nedeni, 
+			bu metodun yapılandırıcı bir fonksiyon olmaması, metot olarak çağrılamamasıdır.
+			<span class="keyw">Math</span> bir nesne sınıfı değildir ve örnekleri üretilemez.
+			<span class="keyw">Math</span><span 	class="op">()</span> metodu daha çok
+			 Global JavaScript Nesnesinin, <span class="keyw">Math</span> adında bir 
+			 öntanımlı nesnesi olarak, global bir nesne şeklinde görev yapar.
+		</p>
+		<p class="indent">
+			<span class="keyw">Math</span> Nesnesinin yapısı, günümüzde Java gibi,
+			katı sınıf temeline dayalı programlama dillerinin yapılarının büyük bir 
+			yaygınlıkla sorgulanmasına yol açmıştır. Java belki gösterici (pointer) aritmetiği 
+			ile uğraşmak istemeyen programcılar için bir kolaylık sağlamıştır. Fakat, 
+			programcılar, C<sup>++</sup> den Java 'ya geçerken kazandıkları kolaylıklar 
+			yanında, katı sınıf hiyerarşisine uymak zorunda kalmışlardır. İlk zamanlar
+			büyük bir ilerleme gibi kabul edilen katı nesne teknolojisi, bugün
+			sorgulanmaktadır. Programcılar, hiç örnek üretilmeyecekse,
+			<span class="keyw">Math</span> nesnesinin gereğinin ne olduğunu sorgulamakta
+			ve belki bunun yerine hazır fonksiyonların daha kullanışlı olacağını düşünmektedirler.
+			Bugün yavaş yavaş en iyi programlama yönteminin ADA ve C<sup>++</sup> de
+			olduğu gibi, hibrid bir teknoloji olacağı, gereğinde prosedüral
+			gereğinde nesne yönelimli yöntemlerin kullanılmasının daha uygun olacağı düşünülmektedir.
+			JavaScript tam burada en doğru noktada bulunmaktadır. JavaScript programlama
+			dili kullanıcıya Java teknolojisinin olanak ve kolaylıklarını sağlarken, ADA gibi
+			hibrid teknolojilerinin kullanımına da olanak sağlamaktadır. JavaScript programlama dili
+			bu yönü ile, çağının ilerisinde bir programlama dili ile çalışmanın mutluğunu yaşatmaktadır.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesinin bir başka ilginç metot gurubu da gizli global
+				fonksiyonlar olarak tanımlanabilecek, öntanımlı nesne sınıfı yapılandırıcı
+				foksiyonları, <span class="keyw">Boolean()</span>, <span 
+			class="keyw">Number()</span>, <span class="keyw">String()</span>, <span 
+			class="keyw">Object()</span> yapılandırıcı fonksiyonlarının, fonksiyon olarak
+			uygun argümanlarla çağrıldıklarında, global nesnenin bir metodu olarak
+				hareket ederek açık (explicit) veri tipi değişimini gerçekleştirmeleridir.</p>
+		<p class="indent"> Global JavaScript Nesnesinin tüm özellikleri (değer ve fonksiyon
+			özellikleri), herhangibir nesne ile ilişkili olmadıklarından, üst düzey
+			özellikler olarak da adlandırılırlar.
+		</p>
+		<p class="title-left" id="prop">3.2 - Global JavaScript Nesnesinin Değer Özellikleri
+			(Özellikleri)</p>
+		<p class="subheading" id="NaN">3.2.1 -NaN</p>
+				<p class="indent">
+			<span class="keyw">NaN</span> saklı sözcüğü, <span class="keyw">NaN </span> 
+			(<span class="keyw"><strong>N</strong>ot <strong>a N</strong>umber)</span> 
+			sözcüklerinin kısaltılmış şeklidir. Bu değer, kullanıcı tarafından bir değişkene 
+			atanmaz, fakat bir işlemcide uygun olmayan işlenenlerin kullanılması gibi 
+			durumlarda, JavaScript yorumlayıcısı tarafından üretilir.
+		</p>
+		<p class="subheading" id="sonsuz">3.2.2 - Infinity</p>
+		<p class="indent">
+			<span class="keyw">Infinity</span> özelliğinin başlangıç 
+			değeri, +&#x221E; değeridir. <span class="keyw">Infinity</span> 
+			değeri, kullanıcı tarafından kullanılmaz, hesapların sonuçlarında 
+			ortaya çıkar.
+		</p>
+		<p class="subheading" id="undefined">3.2.3 - Undefined</p>
+		<p class="indent">
+			<span class="keyw">Undefined</span> özelliğinin başlangıç 
+			değeri, <span class="keyw">undefined</span> 
+			değeridir. Bu değer program adımlarında, tanıtılmamış bir değerin 
+			kullanılmak istenmesi gibi durumlarda ortaya çıkar.  Veri tipi olarak <span 
+			class="keyw">undefined</span>, JavaScript programlama 
+			dilinin beş ilkel (primitif) veri tipinden biridir. Gerektiğinde, kullanıcı 
+			tarafından değişkenlere literal olarak atanabilir. 
+		</p>
+		<p class="indent">
+			Programlarda değişkenlere <span class="keyw">undefined</span> 
+			değerinin atanması, aslında gerekli olmayan bir program adımıdır. 
+			JavaScript yorumlayıcısı, kullanıcılar tarafından atanmış olan 
+			<span class="keyw">undefined</span> değerlerini bilinen bir değer 
+			olarak kabul eder ve program çalışmasını bir hata mesajı ile kesmez. Bu
+			konuda bir uygulama <a href="../uygulamalar/b2.2.1-uyg-1.html">2.2.1</a>
+			de verilmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p>
+					<a href="../index.html"><em>« Indeks</em></a>
+				</p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p>
+					<a href="../b2/b2s18.html"><em>« Önceki</em></a>
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p>
+					<a href="b3s2.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:02 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:16 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s6.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b8s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b8s5.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b9/b9s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 6
+		</p>
+		<p class="title-left" id="forinLists">8.5.2 - for .. in Döngülerinin Dizi Elemanlarına Erişim için Kullanılması</p>
+		<p class="indent">
+			Nesne sınıf örneklerinin özelliklerine erişim için, <span class="keyw">for..in</span> döngüleri
+			çok kullanışlıdır. Bu döngülerin yapısı,<a href="../b2/b2s16.html#forin"> Bölüm 2.13.5</a> de
+			açıklandığı gibi, 
+		</p>
+		<pre>
+<span class="keyw-50">for</span><span 
+			class="op">(</span>anahtar <span 
+			class="keyw">in</span> nesneÖrneği<span 
+			class="op">) {</span>
+<span class="pl-75">Bildirimler</span>
+<span class="op-50">}</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">for..in</span> döngüleri, nesne örneklerinin tüm sayılabilir
+			(enumearable) özelliklerini yani, öntanımlı olmayan tüm özelliklerini tararlar. Nesne örnekleri 
+			için bu istenen bir şeydir, çünkü tüm kullanıcı tipli nesne sınıf örneklerinin özellikleri, 
+			sayılabilir niteliktedir. <span class="keyw">for..in</span> döngüleri erişecekleri nesne özelliklerine,
+			belirli bir sıra gözetmeden erişebilirler. Nesne özellikleri için bu da fazla bir sakınca sayılmaz, 
+			çünkü özellik adları sözeldir ve hangi sıra ile görüntüleneceği fazla farketmez. Aslında hemen her
+			defasında görüntülenen özellikler, tanım sırasına göredir. 
+		</p>
+		<p class="indent">
+			Dizilerin elemanlarına, <span class="keyw">for..in</span> döngüleri yardımı ile erişilmesi kullanıcılara
+			çekici gelebilir. Bu döngülerin kullanılması çok kolaydır ve kullanıcının kendisinin seçeceği bir anahtar
+			sözcük yardımı ile, döngünün başlangıç ve sonucunu gözetmeden, işlemin yazılıma bırakılabileceği
+			düşünülür. Aslında bu kısmen doğrudur. 
+		</p>
+		<p class="indent">
+			Diziler özel bir nesne sınfıdır. ve <a href="b8s1.html">Bölüm 8.1 ve 8.2</a> de, dizilerin
+			eleman özelliklerinin adlarının bir tamsayı olduğu, bu tamsayılara eleman indisi adı verildiğini ve 
+			başka nesne sınıflarının aksine, dizi sınıfının örneklerinin eleman özelliklerine nokta notasyonu ile 
+			erişlemediği açıklanmıştı. Dizilerin eleman indisleri sıfırdan başlayarak birbirini takip ederek artan
+			bir şekilde verilmişlerse bu dizi, bitişik sürekli bir dizi olur. Fakat, her dizinin, bitişik sürekli bir dizi 
+			olarak tanımlanması zorunluğu yoktur.
+		</p>
+		<p class="indent">
+			Dizilerin, eleman özelliklerinden başka, kullanıcılar tarafından tanımlanmış, özel isimli statik
+			özellikler olarak adlandırılan, özellileri de olabilir. Eleman özelliklerinin aksine, bunlara nokta
+			notasyonu ile erişilebilir ve bunlar da <span class="keyw">for..in</span> döngüleri ile taranan
+			özellikler arasındadır ve bu istenmez. Dizilerde sadece eleman özelliklerinin taranması istenir. 
+		</p>
+		<p class="indent">
+			Dizilerde statik özelliklerin <span class="keyw">for..in</span> döngüleri ile taranmasının
+			önlenmes için, statik özelliklerin isimlerinin sayısal olmamasıından yararlanılır. Statik özellikler, 
+		sayısal veya sayısala çevrilebilir karakterde değildir ve aşağıdaki gibi bir filtreleme ile, eleman 
+		olmayan özelliklerin filtrelenmesi sağlanabilir : 
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="keyw-25">for</span><span 
+			class="op">(</span>anahtar <span class="keyw">in </span>a<span 
+			class="op">) {</span>
+<span class="keyw-50">...</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">isNaN</span><span 
+			class="op">(</span>anahtar<span 
+			class="op">){</span> 
+<span class="keyw-75">continue</span>
+<span class="op-50">}</span>
+<span class="keyw-50">...</span>
+<span class="op-25">}</span>
+<span class="keyw">...</span></pre>
+		<p class="indent">
+			Filtrelenmiş <span class="keyw">for..in</span> döngüleri ile, statik özellikleri olan tüm dizilerde 
+			görüntülenme dışında tüm işlemler güvenle yapılabilir. 
+		</p>
+		<p class="indent">
+			Filtrelenmiş <span class="keyw">for..in</span> döngüleri ile, tüm bitişik-sürekli
+			dizilerin görüntülenmesi sorunsuz olarak gerçekleştirilebilir. Bitişik-sürekli
+			olmayan diziler ise önce uygun bir <a href="b8s3.html#proto-sort">sıralama </a> yöntemi
+			ile sıralandıktan sonra, filtrelenmiş <span class="keyw">for..in</span> döngüleri
+			ile görüntülenebilirler.  Doğal olarak, bu işlemler yazılım yükünü azaltacak
+			yerde, arttırılabilir. Bu yüzden belki de tam ticari uygulamalarda, dizilerin
+			görüntülenmesi için, <span class="keyw">for..in</span> 
+			döngülerinden uzak durmak gerekir. Fakat, gerekli önlemler alındığında,
+			bunun bir  sakıncası olmayabilir. Özellikle, program geliştirme aşamasında
+			ve görüntüleme dışı  çalışmalarında, <span class="keyw">for..in</span> döngülerinin
+			kolaylığından yararlanmak gerekir.
+		</p>
+		<p class="indent">
+			Burada, kullanıcılara bir uyarının tekrarlanması gerekir. Normal olarak
+				diziler,  statik özellikler eklenmeden, bitişik-sürekli ve homojen (eleman
+				değerlerinin  veri tipi hep aynı) olacak şekilde oluşturulur. Bunun
+				dışına çıkıldığında, erişim otomatizasyonu gibi konularda sorunlar çıkar.
+				Kullanıcıların bu konulara  dikkat etmesinde yarar bulunmaktadır.
+		</p>
+		<p class="title-left" id="multidim">8.5.3 - Çok Boyutlu Diziler</p>
+		<p class="indent">
+			Tek bir eksen üzerinde yerleşmiş bilgilere skaler adı verilir. İtalyada Milano 
+			şehrinde La Scala operasının adı da aynı kökenden gelmektedir. Ama, belki de
+			bu sözcüğün en yakın aynı kökenden geleni, hergün kullandığımız iskele sözcüğüdür.
+			JavaScript programlama dilinde, koordinat eksenleri, sol üst köşeden başlar. Skaler
+			büyüklüklerinin koordinat ekseni üzerindeki yerleşim yerini tek bir absis değeri belirler.
+		</p>
+		<p class="sayfaortala"><img src="../images/b8s6-img-1.png" alt="skaler yerleşim" 
+		width="526" height="104" />
+		</p>
+		<p class="sayfaortala">Şekil 8.5.2-1 - Tek Boyutlu Dizinin Geometik Yerleşimi</p>
+		<p class="indent">
+			Yukarıdaki yerleşim, dizi <span class="op">= [</span> <span 	class="str">'Ahmet'</span><span 
+			class="op">,</span> <span 	class="str">'Mehmet'</span><span 
+			class="op">,</span> <span 	class="str">'Hasan'</span><span 
+			class="op">,</span> <span 	class="str">'Hüseyin'</span><span 
+			class="op">];</span> şeklinde bir diziye aittir. Bu dizinin ilk elemanı,
+			dizi<span class="op">[</span>0<span class="op">] =</span> <span 	class="str">'Ahmet'</span> 
+			elemanıdır ve diğerleri de sırası ile bunu izlemektedir. Bu dizi bitişik-sürekli
+			ve homojen bir dizidir.
+		</p>
+		<p class="indent">
+			Bazı durumlarda, elemanlar sadece bir doğrultuda değil, iki doğrultuda yayılım gösterirler, Bu durumda, 
+			bilginin yerinin belirlenmesi için iki koordinata gereksinme duyulur. Bunlardan birisi, yatay eksen 
+			koordinatı yani absis, diğeri de düşey eksen koordinatı yani ordinattır. İki boyutlu yerleşimlere 
+			Matris adı verilir. Matrisler, Vektör olarak adlandırılan çok boyutlu büyüklüklerin, en küçük
+			boyutlu temsilcisidir. Matrisler bir yüzey boyunca yayılım gösterirler.
+		</p>
+		<p class="sayfaortala"><img src="../images/b8s6-img-2.png" alt="Matris" /></p>
+		<p class="sayfaortala">Şekil 8.5.2-2 - İki Boyutlu Dizinin Geometik Yerleşimi</p>
+		<p class="indent">
+			JavaScript programlama dili, çok boyutlu dizileri kusursuz bir şekilde destekler. Çok boyutlu
+			dizişer, doğrudan öngörülen boyutla açılamaz, Tüm JavaScript dizileri prensip olarak tek boyutludur. 
+			Çok boyutlu olan elemanlardır. Önce boş bir matris dizisi açılır:
+		</p>
+		<pre>
+<span class="pl-50">matris</span><span 
+			class="op">= [];</span> 
+		</pre>
+		<p class="nonindent">
+			Bundan sonra iki alternatif olabilir. İstenirse, Her biri dört eleman içeren üç tane eleman, 
+			açılmış boş diziye eklenebilir :
+		</p>
+		<pre>
+<span class="pl-50">matris</span><span 
+			class="op">= [[</span> <span 
+			class="str">'Ahmet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Pelin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aylin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Orhan'</span><span 
+			class="op">], [</span>  <span 
+			class="str">'Mehmet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Güler'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tüzün'</span><span 
+			class="op">,</span> <span 
+			class="str">'Selin'</span><span 
+			class="op">], [...], [...]];</span> 
+		</pre>
+		<p class="nonindent">
+			Veya önce tek boyutlu diziler değişkenlere atanr,
+		</p>
+		<pre>
+<span class="pl-50">dizi1</span><span 
+			class="op">= [</span> <span 
+			class="str">'Ahmet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Pelin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aylin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Orhan'</span><span 
+			class="op">];</span>
+<span class="pl-50">dizi2</span><span 
+			class="op">= [</span> <span 
+			class="str">'Mehmet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Güler'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tüzün'</span><span 
+			class="op">,</span> <span 
+			class="str">'Selin'</span><span 
+			class="op">];</span>
+<span class="pl-50">dizi3</span><span 
+			class="op">= [</span> <span 
+			class="str">'Hasan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Müge'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ali'</span><span 
+			class="op">,</span> <span 
+			class="str">'Vasfi'</span><span 
+			class="op">];</span>
+<span class="pl-50">dizi4</span><span 
+			class="op">= [</span> <span 
+			class="str">'Hüseyin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Jale'</span><span 
+			class="op">,</span> <span 
+			class="str">'Semahat'</span><span 
+			class="op">,</span> <span 
+			class="str">'Vural'</span><span 
+			class="op">];</span>
+		</pre>
+		<p class="nonindent">
+			Sonra, bu diziler, matris dizisine eleman olarak atanır:
+		</p>
+				<pre>
+<span class="pl-50">matris</span><span 
+			class="op">= [</span>dizi1<span 
+			class="op">,</span> dizi2<span 
+			class="op">,</span> dizi3<span 
+			class="op">,</span> dizi4<span 
+			class="op">];</span>
+		</pre>
+		<p class="indent">
+			Çok boyutlu dizilerde, elemanların absis değerleri, matris dizisinin eleman indisleri, ordinat değerleri
+			ise, iç dizilerin element indisleridir. Bu şekilde, matris[1][1] elemanının değeri <span 
+			class="str">'Güler'</span> olacaktır.
+		</p>
+		<p class="indent">
+			Üç boyutlu dizilere uzay vektörü (spatial vector), adı verilir. Uç boyutlu uzay, insan beynin algılayabildiği 
+			en son boyuttur. Üç boyutlu vektörler aynı iki boyutlu dizilerin tanımlandığı gibi tanımlanabilir. Örnek olarak, 
+			Aynı yukarıda olduğu gibi önce diziler tanımlanır,
+		</p>
+		<pre>
+<span class="pl-50">dizi1</span><span 
+			class="op">= [</span> <span 
+			class="str">'Hasan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Müge'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ali'</span><span 
+			class="op">,</span> <span 
+			class="str">'Vasfi'</span><span 
+			class="op">];</span>
+<span class="pl-50">dizi2</span><span 
+			class="op">= [</span> <span 
+			class="str">'Hüseyin'</span><span 
+			class="op">,</span> <span 
+			class="str">'Jale'</span><span 
+			class="op">,</span> <span 
+			class="str">'Semahat'</span><span 
+			class="op">,</span> <span 
+			class="str">'Vural'</span><span 
+			class="op">];</span>
+<span class="pl-50">dizi0</span><span 
+			class="op">= [</span> <span 
+			class="str">'Günsel'</span><span 
+			class="op">,</span> dizi1<span 
+			class="op">,</span> <span 
+			class="str">'Semahat'</span><span 
+			class="op">,</span> <span 
+			class="str">'Vural'</span><span 
+			class="op">];</span>
+		</pre>
+		<p class="nonindent">
+			sonra hepsi bir vektör dizisine yerleştirilir:
+		</p>
+						<pre>
+<span class="pl-50">vektör</span><span 
+			class="op">= [</span>dizi0<span 
+			class="op">,</span> dizi2<span 
+			class="op">];</span>
+		</pre>
+		<p class="indent">
+			Üç boyutlu bir vektör, uzayda bir hacım içinde yayılım gösterir :
+		</p>
+		<p class="sayfaortala"><img src="../images/b8s6-img-3.png" alt="Vektör" /></p>
+		<p class="sayfaortala">Şekil 8.5.2-3 - Üç Boyutlu Dizinin Geometik Yerleşimi</p>
+		<p class="indent">
+			vektör dizisinde sadece ilk elemanın ikinci elemanı üç boyutludur ve vektör<span 
+			class="op">[</span>0<span 
+			class="op">]</span><span 
+			class="op">[</span>1<span 
+			class="op">]</span><span 
+			class="op">[</span>1<span 
+			class="op">]</span> elemanın değeri <span 
+			class="str">'Müge'</span> olacaktır.
+		</p>
+		<p class="indent">
+			Bilgisayar programlanması için, çok boyutlu dizilerin geometrik anlamının önemi yoktur. 
+			Dizi elemanlarına içiçe döngülerle ulaşılır ve dizinin boyutu çoğaldıkça, kullanılması gereken,
+			içiçe döngü sayısı artacağından işlem pratik olmaktan çıkar. Çok boyutlu uzayların üç boyutlu
+			olanları daha çok matematik amaçlı kullanılır. Daha fazla boyut kullanımı alışılmış değildir.
+		</p>
+		<p class="indent">
+			Günümüzde nesne teknolojisinin gelişmesi ile, sosyal çalışmalarda çok boyutlu dizilerin kullanılması
+			gereği ortadan kalkmıştır. Çok boyutlu uzay çalışmalarının sadece matematik önemi bulunmaktadıır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b8s5.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b9/b9s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:16 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b10/b10s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:21 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b10/b10s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b10s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b9/b9s4.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b11/b11s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 10
+		</p>
+		<p class="chapter">
+			RegExp (Düzenli Deyim) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 10 Sayfa 1	
+		</p>
+		<p class="title-left" id="RegExpConstructor">10.1 - RegExp (Düzenli Deyim)
+			Nesne Sınıfı Örnekleri Yapılandırıcısı</p>
+		<p class="indent">
+			Düzenli deyimler 1950 lerden beri matematiksel olarak bilinmekte olmalarına
+			karşın ilk olarak PERL script dili ile bilgisayar programcılığında geniş
+				olarak  kullanım alanı bulmuştur. PERL kadar olmasa da, JavaScript programlama
+				dili,  düzenli deyimlere geniş destek sağlamaktadır. Düzenli deyimler
+				üzerinde başlangıç bilgileri, <a href="../ekler/ek2/ek2s1.html">ek-2</a> de
+				verilmiştir. Düzenli deyim literalleri, <a href="../b2/b2s12.html#RegExp">bölüm
+				2.10.5.1</a>
+			de tanıtılmıştır. Düzenli deyim sınıfı nesne örneklerini de işlevi düzenli
+			deyim literalleri ile aynıdır. Her ikisi de belirli karakter dizigisi verilerinin
+			belirli düzenl deyim şablonları ile uyuşup uyuşmadığının kontrolü amacı
+			ile kullanılırlar. Düzenli deyim nesne sınıf örnekleri, Öntanımlı düzenli
+			deyim nesne sınıfı örnekleri yapılandırıcısının yardımı ile oluşturulur. Düzenli
+			deyim yapılandırıcısının kullanımı:
+		</p>
+		<pre>
+<span class="str-50"><em>DüzenliDeyimSınıfıNesneÖrneği</em></span> <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span>şablon<span 
+			class="op">,</span> anahtar<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada şablon, bir karakter dizigisi verisi olarak
+			<a href="../ekler/ek2/ek2s1.html">ek-2</a> de açıklanan birdüzenli deyim şablonu, 
+			anahtar da yine karakter dizigisi verisi olarak g, i,m karakterlerinden oluşabilir. Eğer 
+			anahtarlar arasında, 
+		</p>
+		<ul class="list">
+			<li>
+				<span class="str">'g'</span> karakteri belirtilmişse, global arama anahtarı açık (<span 
+				class="keyw">true</span>) aksi halde kapalı (<span class="keyw">false</span>) olur. 
+			</li>
+			<li>
+				<span class="str">'i'</span> karakteri belirtilmişse, küçük/büyük harf yazımını gözardı et
+				(ignore case) anahtarı açık (<span class="keyw">true</span>) aksi halde kapalı (<span 
+				class="keyw">false</span>) olur. 
+			</li>
+			<li>
+				<span class="str">'m'</span> karakteri belirtilmişse, çok satırlı düzenli deyim
+				(multiline) anahtarı açık (<span class="keyw">true</span>) aksi halde kapalı (<span 
+				class="keyw">false</span>) olur. 
+			</li>
+		</ul>	
+		<p class="indent" id="b10.1-uyg-1">
+			Düzenli deyim yapılandırıcısından yararlanılarak, yeni bir 
+			düzenli deyim sınıfı nesne örneği oluşturulmasını sağlayan bir
+			<a href="../uygulamalar/b10.1-uyg-1-js.html">JavaScript programı </a> ve
+			ilişikli olduğu <a href="../uygulamalar/b10.1-uyg-1.html">sayfada</a> 
+			verdiği sonuç, aşağıda görülmektedir. 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> b <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'d*'</span><span 
+			class="op">,</span> <span 
+			class="str">'gi'</span><span 
+			class="op">);</span>
+<span class="pl-50">veriTipiYaz</span><span 
+			class="op">(</span>b<span 
+			class="op">,</span> <span 
+			class="str">'b10.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b10.1-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b10.1-uyg-1.html">program</a> sonucundan
+			görülebildiği gibi, oluşan yeni düzenli deyim nesne örneğinin içeriği, 
+		</p>
+		<pre>
+<span class="keyw-50">var</span> b <span 
+			class="op">= /</span>d*<span 
+			class="op">/</span>ig<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi sonucunda oluşturulan düzenli deyim literali ile aynı olmaktadır.
+		</p>
+		<p class="title-left" id="RegExpConstructorProperties">10.2 - RegExp (Düzenli
+			Deyim) Nesne Sınıfı Örnekleri Yapılandırıcısının Özellikleri</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıfı yapılandırıcısı olan <span class="keyw">RegExp</span><span 
+			class="op">()</span> bir fonksiyondur. Bu fonksiyonun içsel [[Prototype]]
+			özelliğinin değeri, doğal olarak fonksiyon prototip nesnesidir (<span class="keyw">function</span><span 
+			class="op">.</span><span class="keyw">prototype</span>)
+		</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıfı yapılandırıcısı olan <span class="keyw">RegExp</span><span 
+			class="op">()</span> fonksiyonunun en önemli özelliği <span class="keyw">prototype</span>
+			özelliğidir.
+		</p>
+		<p class="subheading" id="RegExpPrototype">10.2.1 - RegExp (Düzenli Deyim)
+			Nesne Sınıfı Örnekleri Yapılandırıcısının prototype Özelliği</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıfı yapılandırıcısı olan <span class="keyw">RegExp</span><span 
+			class="op">();</span> fonksiyonunun <span class="keyw">prototype</span> özelliğinin
+			(<span class="keyw">Regexp</span><span class="op">.</span><span 
+			class="keyw">prototype</span>) başlangıç değeri, yine bir düzenli deyim sınıfı
+			nesne örneği olan öntanımlı düzenli deyim prototip nesnesidir. Buna kısaca
+			düzenli deyim sınıfı prototip nesnesi adı verilir. Düzenli deyim sınıfı
+			prototip nesnesinin özellikleri aşağıda incelenmiştir.
+		</p>
+		<p class="title-left" id="RegExpPrototypeObject">10.3 - RegExp (Düzenli Deyim)
+			Nesne Sınıfı Prototip Nesnesinin Özellikleri</p>
+		<p class="indent">
+			Düzenli deyim sınıfı prototip nesnesinin, içsel [[Prototype]] özelliğinin
+			değeri generik nesne sınıfı prototipidir (Object prototype). Yine içsel
+			[[Class]] özelliği ise, &quot;Object&quot; 
+			olarak belirlenmiştir. Bu değer, düzenli deyim nesne sınıfının, generik
+			nesne sınıfının bir alt sınıfı olduğunu ve generik nesne sınıfının tüm
+			özellik ve metotlarını kalıtımla kazanacağını belirtir.	
+		</p>
+		<p class="indent">
+			Düzenli deyimler nesne sınıfı prototip nesnesinin kendine özgü bir 
+			<span class="keyw">valueOf</span><span 	class="op">()</span> metodu yoktur. 
+			Buna rağmen, generik nesne sınıfının prototip nesnesinin <span 
+			class="keyw">valueOf</span><span class="op">()</span> metodunu kalıtım yolu
+			ile elde eder.
+		</p>
+		<p class="indent">
+			Düzenli deyimler nesne sınıfı prototip nesnesinin özellik ve metotları, düzenli deyim nesne
+			sınıfına özgüdür. Bu özellikleri çağıran <span class="keyw">this</span> nesnesinin 
+			veri tipi düzenli deyim değilse bir <span class="keyw">TypeError</span> istisnası fırlatılır.
+		</p>
+		<p class="subheading" id ="RegExpPrototypeConstructor">10.3.1 - RegExp (Düzenli
+			Deyim) Nesne Sınıfı Prototip Nesnesinin constructor Özelliği</p>
+			<p class="indent" id="b10.3.1-uyg-1">
+			Düzenli deyim nesne sınıfı prototipinin <span class="keyw">constructor</span> özelliğinin
+			değeri,  ((<span class="keyw">Regexp</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span><span class="keyw">constructor</span>),
+			öntanımlı düzenli deyim nesne sınıf örnekleri yapılandırıcısı (constructor'u) olan 
+			<span class="keyw">RegeExp</span><span class="op">()</span> fonksiyonudur.
+			Bu bu fonksiyon,  JavaScript yorumlayıcısının standart bir yazılımı olduğundan
+			içeriği kullanıcılara kapalıdır ve görüntülenemez. Bunu açıklayan bir 
+			<a href="../uygulamalar/b10.3.1-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b10.3.1-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'RegExp.prototype.constructor'</span><span 
+			class="op">,</span> RegExp.prototype.constructor<span 
+			class="op">,</span> <span 
+			class="str">'b10.3.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b10.3.1-uyg-1-sonuç-1"></p>
+		<p class="subheading" id ="RegExpPrototypeExec">10.3.2 - RegExp (Düzenli
+			Deyim) Nesne Sınıfı Prototip Nesnesinin exec() Metodu</p>
+			<p class="indent">
+			Bu metot, karakter dizgisi nesne sınıfı (String) nesne sınıfı prototipinin, <span 
+			class="keyw">match</span><span class="op">()</span> metodunun da temelini oluşturur.
+			Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">exec</span><span 
+			class="op">(</span>KarakterDizgisi<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada <span class="keyw">this</span> bir düzenli deyim nesne örneği veya literali, 
+			KarakterDizigisi ise, aranmanın yapılacağı kd literali veya nesne örneğidir. 
+		</p>
+		<p class="indent">
+			Eğer uyuşma sağlanamasa, geriye <span class="keyw">null</span> döndürülür.
+		</p>
+		<p class="indent">
+			Eğer uyuşma sağlanırsa, geriye bir dizi döndürülür. Bu dizinin ilk elemanı, aranan kd içinde, 
+			uyuşmanın sağlandığı kısım, bunu takip eden elemanların değeri de eğer düzenli deyimde
+			varsa, çeşitli parantezlerin aranan kd de uyuştuğu kısımlardır. Bu dizinin, <span 
+			class="keyw">index</span> özelliği, uyuşmanın sağlandığı karakterin konumu, <span 
+			class="keyw">input</span> özelliği, aranan kd verisini, eğer g anahatarı açıksa, 
+			<span class="keyw">lastIndex</span> özelliği, uyuşmanın tamamlandığı son karakterin 
+			konumunu içerir.
+		</p>
+		<p class="indent" id="b10.3.2-uyg-1">
+			Düzenli deyim nesne sınıfı prototipinin <span class="keyw">exec</span><span 
+			class="op">()</span> metodu, global arama anahtarından etkilenmez ve rastladığı
+			 ilk uyuşma sonuçlarını döndürerek devreden çıkar. Eğer g anahatarı açıksa, 
+			<span class="keyw">lastIndex</span> özelliği, uyuşmanın tamamlandığı son karakterin
+			 konumunu kaydeder ve ayanı kd verisi için aynı düzenli deyim ifadesi yeniden
+			çağrılırsa,  ikinci aramayı bu kaydettiği <span class="keyw">lastIndex</span> değerinden
+			başlayarak yapar. Yani, bir kd verisi boyunca bir döngü sistemi içinde 
+			<span class="keyw">exec</span><span class="op">()</span> metodunun ardışık olarak 
+			uygulanması ile sağlanabilecek tüm uyuşmalar saptanabilir. Bu konuda bir 
+			<a href="../uygulamalar/b10.3.2-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b10.3.2-uyg-1.html">uygulama</a> sayfasında
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> şablon <span 
+			class="op">= /</span>a<span 
+			class="op">/</span>ig<span 
+			class="op">,</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'Arabalar'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="op">[];</span>
+<span class="keyw-50">do</span> <span 
+			class="op">{</span>
+<span class="pl-75">sonuç</span> <span 
+			class="op">=</span> şablon<span 
+			class="op">.</span><span 
+			class="keyw">exec</span><span 
+			class="op">(</span>kd<span 
+			class="op">);</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>sonuç <span 
+			class="op">!=</span><span 
+			class="keyw"> null</span><span 
+			class="op">) {</span>
+<span class="pl-100">bilgiYaz(</span><span 
+			class="str">' Uyuşma :'</span> <span 
+			class="op">+</span> sonuç<span 
+			class="op">[</span>0<span 
+			class="op">] + </span><span 
+			class="str">'konum : '</span>sonuç<span 
+			class="op">.</span><span 
+			class="keyw">index</span><span 
+			class="op">,</span> <span 
+			class="str">'b10.3.2uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-100">bilgiYaz(</span><span 
+			class="str">' şablon.lastIndex :'</span> <span 
+			class="op">+</span> şablon<span 
+			class="op">.</span><span 
+			class="keyw">lastIndex</span><span 
+			class="op">,</span> <span 
+			class="str">'b10.3.2uyg-1-sonuç-2'</span><span 
+			class="op">);
+</span><span class="op-75">}
+</span><span class="op-50">}</span>
+<span class="keyw-50">while</span><span 
+			class="op">(</span>şablon<span 
+			class="op">.</span><span 
+			class="keyw">exec</span><span 
+			class="op">(</span>kd <span 
+			class="op">!= </span><span 
+			class="keyw">null</span><span 
+			class="op">)</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b10.3.2-uyg-1-sonuç-1"></p>
+		<p class="cursive-red" id="b10.3.2-uyg-1-sonuç-2"></p>
+		<p class="subheading" id ="RegExpPrototypeTest">10.3.3 - RegExp (Düzenli
+			Deyim) Nesne Sınıfı Prototip Nesnesinin test() Metodu</p>
+			<p class="indent">
+			Düzenli deyim nesne sınıfının <span class="keyw">test</span><span class="op">()</span>
+			metodu, prensip olarak uyuşma oladuğunda geriye <span class="keyw">true</span>
+			döndüren <span class="keyw">exec</span><span class="op">()</span> metodu ile aynıdır. 
+			Bu metodun kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">test</span><span 
+			class="op">(</span>KarakterDizgisi<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada <span class="keyw">this</span> bir düzenli deyim nesne örneği veya literali, 
+			KarakterDizigisi ise, aranmanın yapılacağı kd literali veya nesne örneğidir. 
+		</p>
+		<p class="indent" id="b10.3.3-uyg-1">
+			Eğer uyuşma sağlanırsa, geriye <span class="keyw">true</span> yoksa, 
+			<span class="keyw">false</span> döndürülür. Bu konuda bir e-mail kontrolunu içeren 
+			<a href="../uygulamalar/b10.3.3-uyg-1-js.html">JavaScript programı</a> ve ilişkilendirilmiş
+			olduğu <a href="../uygulamalar/b10.3.3-uyg-1.html">uygulama sayfasında</a> verdiği sonuç 
+			aşağıda görülmektedir. Bu program, 
+			<a href="http://www.webreference.com/js/column5/form.html">webreference.com</a>
+			dan alınmıştır. Sunucu isimleri Türkçe karakterler içermeye başladığında bu programdaki 
+			düzenli deyim ifadelerini değiştirmek gerekecektir. 
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> reg1 <span 
+			class="op">=</span> /(@.*@)|(\.\.)|(@\.)|(\.@)|(^\.)/<span 
+			class="op">;</span> <span class="comm-25">// geçerli Değil !</span>
+
+<span class="keyw-50">var</span> reg2 <span 
+			class="op">=</span>/^.+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/<span 
+			class="op">;</span> <span class="comm-25">// geçerli!</span>
+
+<span class="keyw-50">var</span> adres <span 
+			class="op">=</span> <span 
+			class="str">'emir_bedri@hotmail.com'</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">( ! </span>reg1<span 
+			class="op">.</span><span 
+			class="keyw">test</span><span 
+			class="op">(</span>adres<span 
+			class="op">)</span> <span 
+			class="op">&amp;&amp; </span>reg2<span 
+			class="op">.</span><span 
+			class="keyw">test</span><span 
+			class="op">(</span>adres<span 
+			class="op">)</span> <span 
+			class="op">) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Adres Doğru'</span><span 
+			class="op">,</span> <span 
+			class="str">'b10.3.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op"> {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Adres Yanlış'</span><span 
+			class="op">,</span> <span 
+			class="str">'b10.3.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">...</span>
+				</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b10.3.3-uyg-1-sonuç-1"></p>
+		<p class="cursive-red" id="b10.3.3-uyg-1-sonuç-2"></p>
+		<p class="indent">
+			Aynı programın 
+			<a href="../uygulamalar/e-mailDeneme.html">on-line sürümü</a> 
+			de geliştirilmiştir.
+		</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıfının 
+			<span class="keyw">test</span><span class="op">()</span>
+			metodu, prensip olarak aynı nesne sınıfının 
+			<span class="keyw">exec</span><span class="op">()</span>
+			metodu temeline dayandığından, bir kd verisinin bir düzenli 
+			deyim ifadesi ile tüm uyuşan kısımlarının aynı 
+			<span class="keyw">exec</span><span class="op">()</span>
+			metodunda yapıldığı gibi, bir döngü sistemi içinde çalıştırırak
+			saptanma olanağı bulunabilir.
+		</p>
+		<p class="subheading" id ="RegExpPrototypetoString">10.3.4 - RegExp (Düzenli Deyim)
+			Nesne Sınıfı Prototip Nesnesinin toString() Metodu</p>
+		<p class="indent" id="b10.3.4-uyg-1">
+			Bu metot, uygulandığı düzenli deyim ifadesinin <span 
+			class="op">/</span>, düzenli deyim içeriği ve <span 
+			class="str">'i'</span>, <span 
+			class="str">'g'</span>, <span 
+			class="str">'m'</span> anahtarlarını birleştirerek ilkel bir kd verisine 
+			dönüştürür ve bu veriyi döndürür.  Aşağıda bu konuda bir 
+			<a href="../uygulamalar/b10.3.4-uyg-1-js.html">JavaScript programı</a> ve 
+			ilişkilendirilmiş olduğu bir 	<a href="../uygulamalar/b10.3.4-uyg-1.html">uygulama</a> 
+			sayfasında verdiği sonuç görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> düzenliDeyim <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'j?\.{1,3}'</span><span 
+			class="op">,</span> <span 
+			class="str">'gi'</span><span 
+			class="op">);</span>
+<span class="pl-50">veriTipiYaz</span><span 
+			class="op">(</span>düzenliDeyim<span 
+			class="op">.</span><span 
+			class="keyw">toString</span><span 
+			class="op">(),</span> <span 
+			class="str">'b10.3.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="cursive-red" id="b10.3.4-uyg-1-sonuç-1"></p>
+		<p class="title-left" id="RegExpInstances">10.4 - RegExp (Düzenli Deyim)
+			Nesne Sınıfı Prototip Nesnesi Örneklerinin Özellikleri</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıf örnekleri, öntanımlı düzenli deyim yapılandırıcısı
+			yardımı ile oluşturulur. Bu ssınıf örnekleri, sınıf prototipinin sahip olduğu tüm özellik
+			ve metotları kalıtım yolu ile elde ederler. Bunlar ayrıca beş ilave özelliğe sahiptirler. Bunlar,
+			<span class="keyw">source</span>, <span class="keyw">global</span>, 
+			<span class="keyw">ignoreCase</span> <span class="keyw">multiline</span>, ve 
+			<span class="keyw">lastIndex</span> özellikleridir.
+		</p>
+		<p class="indent" id="b10.4-uyg-1">
+			Düzenli deyim nesne sınıf örneklerinin <span class="keyw">source</span> özelliği, 
+			bu örneklerin içeriğinin karakter dizigisi değeri olan bir salt okunur kd verisidir. Bu özellik,
+			her düzenli deyim nesne sınıf örneğinde erişilebilir durumdadır. Bu konuda bir 
+			<a href="../uygulamalar/b10.4-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b10.4-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> düzenliDeyim <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'j?\.{1,3}'</span><span 
+			class="op">,</span> <span 
+			class="str">'gi'</span><span 
+			class="op">);</span>
+<span class="pl-50">veriTipiYaz</span><span 
+			class="op">(</span>düzenliDeyim<span 
+			class="op">.</span><span 
+			class="keyw">source</span><span 
+			class="op">,</span> <span 
+			class="str">'b10.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+	</p>
+		<p class="cursive-red" id="b10.4-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b10.4-uyg-1.html">program</a> sonuçlarından
+			da görülebildiği gibi, düzenli deyim nesne örneklerinin <span class="keyw">source</span>
+			metodu, sadece düzenli deyim yazılımını içerir ve durum değiştirici <span 
+			class="str">'g'</span>, <span class="str">'i'</span> ve <span 	class="str">'m'</span> 
+			anahtarlarını içermez. Bu değerlerin de kontrol edilebilmesi için, her özellik ayrı ayrı 
+			sorgulanmalı veya, düzenli deyim nesne örneklerinin 
+			<span class="keyw">toString</span><span class="op">()</span> metodu kullanılmalıdır.
+		</p>
+		<p class="indent">
+			Düzenli deyim nesne sınıf örneklerinin <span class="keyw">global</span>, 
+			<span class="keyw">ignoreCase</span> <span class="keyw">multiline</span>
+			özellikleri,, bu deyimler oluşturulurken belirtilmiş anahtarlardır. Bu özellikler,
+			salt okunur karakterdedir ve her düzenli deyim nesne sınıf örneği için, her 
+			zaman erişilebilir değerlerdir. 
+		</p>
+		<p class="indent">
+			En sonuncu özellik olan <span class="keyw">lastIndex</span> özelliği ise,
+			okunabilir ve değiştirilebilr niteliktedir. Bu değer, düzenli deyimin kontrol
+			ettiği  kd verisinde uyuşmanın yeniden kontrol edilmesinin başlanacağı karakter
+			 konumudur. Sadece g anahatarı açık olan düzenli deyimlerde 
+			<span class="keyw">lastIndex</span> özelliğinin bulunabildiği anımsanmalıdır.
+			Bu değer, <span class="keyw">exec</span><span class="op">()</span> ve
+			<span class="keyw">test</span><span class="op">()</span> metotları tarafından
+			 kullanılır. Kullanıcılar isterlerde bu değeri değiştirebilirler. 
+		</p>
+		<p class="title-left" id="RegexpFunction">RegExp (Düzenli Deyim) Nesne Sınıfı 
+						Yapılandıcısının Fonksiyon Olarak Kullanımı</p>
+		<p class="indent">
+			Düzenli deyim yapılandırıcısının fonksiyon olarak kullanımı fazla alışılmış bir uygulama değildir. 
+			bu kullanım,
+		</p>
+		
+		<pre>
+<span class="str-50"><em>DüzenliDeyimSınıfıNesneÖrneği</em></span> <span 
+			class="op">=</span> <span 
+			class="keyw">RegExp</span><span 
+			class="op">(</span>şablon<span 
+			class="op">,</span> anahtar<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şekklindedir. Eğer şablon zaten bir düzenli deyim nesne örneği ise değiştirilmeden geri
+			döndürülür. Aksi halde, düzenli deyim yapılandırıcısı çağrılarak yeni bir düzenli
+			deyim nesne sınıf örneği oluşturulur.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="../b9/b9s4.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b11/b11s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b10.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b10.3.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b10.3.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b10.3.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b10.4-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b10/b10s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:21 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

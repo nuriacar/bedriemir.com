@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page4/k2s4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:19:59 GMT -->
+<head>
+    <meta name="description" content="Julia Programlama Dili">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Julia/chapter2/page4/k2s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Julia Konu 2 Sayfa 3</title>
+    <meta content="Julia Programming Language Tutorial, in Turkish" name="description" />
+    <meta content="Julia Tutorial, in Turkish" name="keywords" />
+    <meta content="Prof. Dr. Bedri Doğan Emir" name="author">
+    <meta content="INDEX,FOLLOW" name="Robots" />
+    <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+    <link href="../../css/juliastyle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <p class="chapter">
+      Julia Programlama Dili
+    </p>
+    <p class="chapter">
+      Bölüm 2
+    </p>
+    <p class="chapter">
+      Veri Tipleri Sistematiği
+    </p>
+    <p class="pagenum">
+      Sayfa 4</p>
+    <p class="verticalTab-10">
+    </p>
+    <p id="annandconv" class="title-left">
+      2.3 - Veri Tipi Belirtilmesi ve Dönüştürülmesi
+    </p>
+    <p id="annotation" class="subheading">
+      2.3.1 - Veri Tipi Belirtilmesi
+    </p>
+    <p class = "indent">
+      Julia programlama dilinin son derece gelişmiş ve daha önceki hiçbir programlama dilinde
+			görülmemiş bir veri tipi sistemi ile donatılmış olduğu daha önce açıklanmıştı. Bu gelişmiş veri sistemi,
+			Julia yorumlayıcısının önceden tanımlanmış veri tipi kodlarının kullanımı ile olağanüstü rahat 
+			çalışmasına olanak sağlar. Julia programlama dilinin, yorumlanan bir dil olarak çok yüksek
+			uygulama hızları sağlamasının nedenlerinden biri, bu olağanüstü gelişmiş veri tipi sistematiğidir.
+    </p>
+    <p class = "indent">
+      Bu geniş ve karmaşık veri tipilerine sahip olan verilerin sorunsuz olarak ortak aritmetik
+			işlemlere girilebilmesi, Julia programlama diline özgü, şahane bir tip promosyon sistemi
+			sayesinde gerçekleşir. Bu sistemin varlığı sayesinde, Julia programlama dilinde, hiçbir
+			işlemde veri tipi belirtilmesine gerek kalmamaktadır.
+    </p>
+    <p class = "indent">
+      Buna rağmen, Julia programlama dilinde, her işlem için, işleme girecek verilerin veri tiplerinin
+			belirtilmesi olanağı bulunmaktadır. Bu bildirim için, <span class="op">::</span> (çift kolon) (double colon)
+			işlemcisi kullanılır.
+    Örnek:</p>
+		<img src="images4/image1.png" width="850" height="153" alt="global veriler tip kısıtlamasını kabul etmez"/>
+    <p class = "indent">
+      Ortada kalmış, hiçbir yere bağlı olmayan, n gibi değişkenler,
+			Julia programlama dilinde global değişken olarak kabul edilirler.
+			Bu nedenle, atamada tip belirtilmesini henüz desteklemezler.
+			Bu olay yukarıdaki programda açıkça görülmektedir. Hiçbir yere
+			bağlı olmayan, n adlı değişken için, tanımlama sırasında, uygulanmaya
+			çalışılan veri tipi belirlenmesini Julia yorumlayıcısı, bugün için kabul etmemiştir.
+			Belki ilerideki sürümlerde bu kısıtlama kalkacaktır. Verilen hata mesajında bu
+			bilgi hissedilmektedir.
+    </p>
+    <p class = "indent">Oysa, örnek olarak, fonksiyon içi konumlarda yerel değişken
+			olarak tanımlanan n değişkeni için, atanma sırasında veri tipi tanımlanması
+			sorunsuz olarak gerçekleşmektedir. Yerel (lokal) ve genel (global) kapsam (scope) olayları
+			ileride detaylı olarak incelenecektir. İncelenmekte olan konuda, sadece veri tipi tanımlanması
+			üzerinde durulmaktadır.
+		</p>  <p class = "indent">
+       Bir fonksiyonun tanımı sırasında varsa, argümanlarının (parametrelerinin) alabileceği veri
+		   tipinin belitilmesi son derece önemlidir. Fonkssiyonları ayrıca inceleyeceğiz. fakat,
+		   konumuz veri tipi tanımlanması olduğu için, bu olayın üzerinde durulması gerekli olmaktadır.
+    </p>
+    <p class = "indent">
+      Eğer tanımlanmakta olan bir fonksiyonun argümanları varsa ve eğer bu argümanların veri tipleri
+			fonksiyonun tanımı sırasında belirlenmiş olursa, veri tipi belirtilmiş olan veri tipinden farklı olan,
+			hiçbir veri bu fonksiyonu çalıştıramaz. Bu kısıtlama bazen sıkıcı olabilir. Fakat,
+			özellikle farkında olmadan program içinde veri tipleri değişmiş olan değişkenlerin bu
+			fonksiyonu çağırmaya çalışırken, bir hata fırlatılması, eğer bu hata usulune uygun yakalanabilirse,
+			hayat kurtarıcı olur. Aşağıdaki örnekte bu olgu açıkça gözlenebilmektedir.
+    </p>
+		<img src="images4/image2.png" width="719" height="388" alt="argümanların tiplerinin belirtilmesi"/>
+    <p class = "indent">
+       Verilen örnekte, bir swap<span class="op">(</span> a,b<span class="op">)</span>
+			fonksiyonu, sadece Float64 tipi verilerle çağrılacak şekilde tanımlanmıştır.
+			Bu fonksiyon, Int64 tipindeki verilerle çağrıldığında bir kuraldışılık (exception) (hata)
+			oluşmuştur. Oysa, örnekten de görülebildiği gibi, aynı fonksiyon, tanımlanmış
+			olduğu gibi, Float64 tipi verilerle sorunsuz olarak çağrılabilmektedir.
+    </p>
+    <p class = "indent">
+      Tanımlanmış olan swap<span class="op">()</span> fonksiyonunun içeriğinde,
+			temp adlı bir değişken tanımlanmıştır. Bu değişken, bir fonksiyon içeriğinde tanımlanmış
+			olduğundan, yerel bir değişken niteliğindedir. Bu nedenle, yukarıdaki örnekte de olduğu
+			gibi, tanımında veri tipi belirlenebilmiştir. Eğer temp değişkeninin fonksiyon içinde tanımlanmış
+			olduğu gibi vurgulanmak istenirse, açık (explicit) olarak <span class="keyw">local</span>
+			olarak tanımlanması yararlı olur. Aşağıdaki örnek, bunu açıklamaktadır.
+		</p>
+		<img src="images4/image3.png" width="524" height="249" alt="lokal değişken"/>
+    <p class = "indent">
+      Bu şekilde, temp değişkeninin dokunulmazlığı garanti edilmektedir. Bu tanımdan sonra,
+			temp değişkeni fonksiyon tanımı dışında tanımlı olmayacak ve ne bilinçli ne de bilinçsiz olarak tanımı
+			değiştirilemeyecektir.
+    </p>
+    <p class = "indent">
+      Bir fonksiyonun sadece belirli bir veri tipinde argümanlar ile çağrılabilmesine Julia programlama dilinde,
+			fonksiyonun metodu (çağırma metodu) olarak adlandırılır. Bu isimlendirme Java gibi nesne yönelimli
+			programlama dillerinde, nesneye uygulanan fonksiyonlara, nesnenin metodu adı verildiği için,
+			Julia programlama dilinde tamamı ile farklı bir anlam taşımaktadır.
+    </p>
+		<pre>
+function swap(a::Float64,b::Float64)
+    local temp::Float64 = b
+    b=a
+    a=temp
+    return(a,b)
+end
+function swap(a::Int,b::Int)
+    local temp::Int = b
+    b=a
+    a=temp
+    return(a,b)
+end
+(a,b)=swap(12,45)
+(x,y)=swap(1.23,6.34)
+println("a = $a b = $b\nx = $x y = $y")
+</pre>
+		<ul class="listNoMarker">
+			<li>a = 45<span class="pl-25">b = 12</span></li>
+			<li>x = 6.34 <span class="pl-10">b = 1.23</span></li>
+		</ul>
+    <p class = "indent">
+      Yukarıdaki programda görüldüğü gibi, bir fonksiyon adı aynı olduğu halde,
+			farklı veri tipinde argümanlarla çağrılabilecek şekilde tanımlanabilmektedir.
+			Çok önemli ve Julia programlama dilinin ayrıcalıklarından biri olan bu yönteme,
+			&quot;Çoklu İletişim&quot; (Multiple Dispatch) adı verilir.
+		</p>
+    <p class = "indent">
+			Örnek olarak basit bir çoklu iletişim sistemini REPL üzerinde deneyelim:
+		</p>
+    <img src="images4/image4.png" width="687" height="285" alt="methods   of functions"/>
+    <p class = "indent">
+      Görüldüğü gibi, Julia yorumlayıcısı, argümanları farklı veri tipinde tanımlanan bir fonksiyon
+			için, her farklı veri tipi tanımını farklı metotlar olarak algılamaktadır. Bu şekilde trigexpression
+			fonksiyonu, 2 metotlu bir fonksiyon olarak bellekte saklanmaktadır. Metotlardan ilki, 32 bitlik
+			ikincisi ise 64 bitlik ondalıklı sayı ile çağırma yöntemleri olarak belirlenmiştir. 
+    </p>
+    <p class = "indent">
+      Çağrılan trigexpression(60) sonucunun 1.0 olması, Julia yorumlayıcısının yüksek duyarlıkla
+			hesaplama yeteneğinin bir göstergesidir.
+    </p>
+    <p class = "indent">
+      	Julia programlama dilinde, tanım sırasında veri tipinin belirtilmesi hiçbir zaman gerekli bir işlem
+			değildir. Grek klayden girilen, gerekse dosyalardan okunun veriler, Julia yorumlayıcısı tarafından,
+			işletim sitemi ve makine niteliklerine göre belirli bir varsayılan veri değerleri olarak algılanır.
+			Julia öntanımlı fonksiyonları varsayılan veri tipleri ile sorunsuz çalışabilecek şekilde çoklu iletişim
+			sağlayabilecek şekilde oluşturulmuş olduklarından, öntanımlı fonksiyonların çağrılması için,
+			veri tipi belirtilmesine gerek kalmamaktadır. Programlarda hesapların sorunsuz yürütülmesini
+			sağlamak amacı ile, Julia yorumlayıcısın bir otomatik tip yükselteme sistemi bulunmaktadır. Bu tip
+			yükseltme sistemi, hesaplara katılan tüm verileri ortak bir veri tipinde buluşturmaya ve hesap
+			sonuçlarını oluşturmaya çalışır. Bu işleme uygun veriler arasında tip yükseltme (type promotion)
+			işlemine uygun olanlar için bu yöntem başarılı olur ve hesap sonuçları oluşturulabilir.
+			Birbirleri ile uyumsuz veri tiplerinin iştirak ettiği işlemlerde tip yükseltme çabaları başarılı olmaz ve
+			bir hata mesajı ile programın çalışması durdurulur.
+    </p>
+    <p class = "indent">
+      Programın ilk sürümlerinde programcı, programın çalışmasına odaklanmalıdır. Bunun için,
+			hesaplamalarda uyumlu veri tipleri kullanılmalı, fakat bu verilerin varsayılan tipleri ile yetinmeli
+			ve tip belirtilmesine girilmemelidir. Başlangıçta önemli olan, programın doğru sonuç vermesidir.
+			Programın ilk aşamalarında doğru sonuç vermesi sağlandığında, ileri sürümlerinde hata yakalama
+			yöntemleri eklenerek sağlamlık veri tipleri belirtilerek programın daha kontrollü bir
+			şekilde çalışması ve daha etkili yöntemler denenerek optimizasyon denenebilir. C.A.R. Hoare, 
+			&quot;Başlangıçta optimizasyon, her türlü kötülüğün kaynağıdır.&quot; uyarısını yapmıştır.
+			Bu uyarıya kulak vererek, başlangıçta veri tipi tanımlarından kaçınmakta yarar bulunmaktadır.
+    </p>
+    <p id="conversion" class="subheading">
+      2.3.2 - Veri Tipi Dönüştürülmesi
+    </p>
+    <p class = "indent">
+      Veri tiplerinin birbirlerine dönüştürülmesi çoğunlukla basit bir iş gibi görülebilmesine karşın,
+			bir programlama dili için olağanüstü önemli bir işlemdir. Öneminin vurgulanması için,
+			ARIANE5 füzesinin çıkışta patlaması, Londra borsasının Linux'a dönüşümü sırasındaçakılması,
+			MR cihazlarında hastanın yaşamını tehlikeye atan yanlış işlemler hep bu veri dönüştürme
+			işlemlerinde beklenmedik sonuçlar oluşmasından kaynaklanmıştır.
+    </p>
+    <p class = "indent">
+      Program tasarımlarının, veri dönüştürme gerekmeyecek şekilde yapılması temel hedef olmalıdır.
+			Genellikle veri uyumsuzlukları, başka programlar tarafından kaydedilmiş veri dosyalarının okunması ile
+			ortaya çıkar. Bu gibi veri dosyalarının, yardımcı programlarla okunması ve okunan verilerin
+			ana programın kullanımına açılması, birçok sorunun daha oluşmadan ortadan kaldırılmasına 
+			olanak sağlar.
+    </p>
+    <p class = "indent">
+      Julia programlarında, artık çoğu ciddi sistemler 64 bitlik işletim sistemleri ile
+			çalıştığından, tamsayılar için Int (Int64'ün kısa adı) (alias Int64), ondalıklı sayıları da
+			Float64 olarak kullanmak birçok uyumsuzluk sorununu daha oluşmadan engelleyebilir.
+			Bu veri tipleri de Julia yorumlayıcısı tarafından, tam ve ondalıklı sayı tipleri için varsayılan
+			veri tipleri sayıldığından, durup dururken kendi seçtiğimiz veri tipni itiştirmeye çalışmak
+			gereksiz ve boş bir çaba sayılabilir. veri tipleri ile ancak çok gerekirse oynanmalıdır.
+			Aksi halde birçok gereksiz uyumsuzluklar oluşabilir.
+    </p>
+    <p class = "indent">
+      Veri tiplerinin dönüştürülmesi, sık kullanım için değil, ancak bir sorun çıkarsa
+			uygulanacak bir yöntem olarak konulmuştur. Veri tipleri basitçe, 
+    </p>
+    <p class = "nonindent">
+      dönüştürülecek veritipi(dönüşecek veri) 
+    </p>
+    <p class = "nonindent">
+      olarak uygulanabilir. Bu konuda, öntanımlı bir fonksiyon, 
+    </p>
+    <p class = "nonindent">
+      <span class="keyw">convert</span><span class="op">(</span>
+			dönüştürülecek veritipi , dönüşecek veri)
+    </p>
+    <p class = "nonindent">
+    olarak kullanılır. Her iki yöntem de önceden <a href="../page2/k2s2.html#real">incelenmişti</a>. 
+			Burada daha detaylı bir tanıtım yapmaya çalışacağız.
+		</p>
+    <p class = "indent">
+      İlk olarak, Int16 veri tipinde, değeri 9 olan, bir a1 değişkeni yaratalım,
+    </p>
+    <p class = "nonindent">
+<span class="blue">julia&gt;</span>a1<span class="op"> = </span>
+			<span class="keyw">Int16</span><span class="op">(</span>9<span class="op">;)</span>
+			<span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class = "indent">
+      İlk bakışta kolay ve basit görülen bu atamanın oluşum şekli çok basit değildir.
+			Burada, ,lk olarak değeri 9 olan ve veritipi varsayılan olarak Int64 olan bir değer oluşturuluyor.
+			Bu değerin veri tipi Int16 veri tipine döndürülüyor. Daha sonra veri tipi Int16 ya dönüştürülmüş olan
+			bu değer, erişim adresi bir hex sayı olan, belirli bir bellek alanına yerleştiriliyor. Bu bellek alanına erişimin
+			kolaylaştırılması için, bellek erişim adresi olan hex sayısının a1 olarak adlandırılan bir eş ismi (alias)
+			yaratılıyor. Artık, her a1 değişkeni çağrıldığında, eriştiği bellek alanında bulunan geçerli değere ulaşılmış oluyor.
+    </p>
+    <p class = "indent">
+      Görüldüğü gibi bu oldukça detaylı bir mekanizmadır. Bu işlemde önemli olan 9 olarak girilen değerin
+			veri tipinin, Julia yorumlayıcısınca, çalışılan makine işletim sistemine uygun olarak, Int64  olarak algılanmasıdır.
+			Eğer oluşturulacak olan veri tipinin 16 bitlik tamsayı veri tipi olması istenmeseydi, doğrudan atama gerçekleştirilebilirdi.
+    </p>
+    <p class = "nonindent">
+      <span class="blue">julia&gt;</span>a1<span class="op"> = </span> 9;
+			<span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class = "indent">
+      Oysa, atanacak verinin 16 bitlik tamsayı tipinde olması istendiği için, oluşmuş olan değer,
+			16 bitlik tamsayı veri tipine dönüştürüldükten sonra, kalıcı bellek alanına yerleştirilmiş olmaktadır.
+    </p>
+    <p class = "indent">
+      Bir değerin geçici bellek alanında oluşturulması ayrı bir aşamadır, geçici bellekte oluşmuş olan değerin
+			kalıcı bellek alanına kaydedilerek ileride kullanılabilecek duruma getirilmesi ayrı bir aşamadır. 
+			Bir değerin geçici bellek alanında oluşturulması,
+    </p>
+    <p class = "nonindent">
+			<span class="blue">julia&gt;</span>9<span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class = "nonindent">
+      9
+    </p>
+    <p class = "nonindent">
+      şeklinde olur. Oluşan değer geçici bellek alnıda oluşmuştur. Görüntüsü geçicidir. 
+			Bir sonraki program adımı aynı geçici bellek alanına yazar ve bir önceki 9 değeri kaybolur. 
+    </p>
+    <p class = "indent">
+      Oluşturulan değerin kalıcı olabilmesi için mutlaka adresi belli bir sabit bellek alanına
+			yerleştirilmesi gerekir. Değişken adı a1 bu görevi yapar ve her a1 çağrıldığında a1 'in eriştiği
+			bellek alanında kayıtlı değere erişilir. Anahtar bilgi, bir kez belirli bir bellek alanına
+			kaydedilmiş verinin, silinmedikçe veya üstüne yeni bir değer yazılmadıkça, program sonuna kadar
+			değişmeden kalacağıdır.
+    </p>
+    <p class = "indent">
+       Bu işlemde üstüne yazmak olayı da ayrı dikkat isteyen bir konudur. Bazen belirli bir değişken adı
+			çağrılarak erişilebilecek bir bellek alanına yazılmış veri değerinin yenilenmesi gerekir. Bu bellek
+			alanına erişim değişkeni a1, değeri kullanılarak bu bellek alanına erişilebilir ve eski değer yerine yeni değer
+			yerleştirilebilir. Buna değişken değerinin yenilenmesi adı verilir. Atamada değişken adına bir değer yerleştirilmez.
+			Değer, değişken adı le erişilebilecek kalıcı bellek alanına yazılır.
+    </p>
+    <p class = "indent">
+      Değer dönüştürme işleminde, bu bilgiler, yaşamsaldır. Aşağıdaki uygulama izlendiğinde,
+			bu bilgilerin ne kadar önemli olduğu görülür.
+    </p>
+    <img src="images4/image5.png" width="322" height="408" alt="conversion of Integer types"/>
+    <p class = "indent">
+      Buraya kadar açıklanmış olan tüm mekanizmalar, yukarıdaki örnekte görülmektedir. İlk adım verinin,
+			a1 ile erişilebilen kalıcı bellek alanına yerleştirilmesidir.
+    </p>
+    <p class = "indent">
+      İkinci adım çok ilginçtir. Bu aşamada, a1 değişkeninin eriştiği bellek alanında bulunan veri çağrılmış ve bu veri
+			64 bitlik tamsayı değerine dönüştürülmüştür. Sonuç satırından da izlenebileceği gibi,
+			bu dönüşüm gereçekleşmiştir. Ama ne yazık ki bu veri dönüşümü, geçici bellek alanında oluştuğu için kalıcılığı yoktur.
+			bir sonraki işlem, a1 değişkeni ile erişilebilen bellek alanında bulunan veri tipinin belirlenmesi istemidir.
+    </p>
+    <p class = "indent">
+      Bu veri tipinin hala 16 bitlik tamsayı tipi olması, yeterli bilgisi olmayan birçok izleyici için şaşkınlık verici bir sonuç
+			olacaktır. Oysa yeterli bilgisi olanlar için, şakınlık verecek hiçbir şey yoktur. Bir önceki işlemde, a1 ile ağrılan veri geçici
+			bellek alanında yeni bir veri tipine dönüştürülmüş, bu işlem geçici bellekte (on the fly) oluştuğu için
+			klıcılığı olmamıştır. Kalıcılığı olmamasının nedeni, a1 bellek alanında bulunan verinin hiçbir yenilenme
+			geçirmemiş, aynen kayıtlı olduğu gibi kalmış  olmasıdır. Bu nedenle, a1 ile erişilen bellek alanında bulunan
+			verinin veri tipi sorulduğunda, başlangıçta atanmış ve henüz değişmemiş olan veri tipi yanıt olarak verilmiştir.
+			Veri tipi değişiminin kalıcı olabilmesi için, a1 ile ile erişilebilen bellek alanındaki verinin yenilenmesi gerekir.
+    </p>
+    <p class = "indent">
+      Bu yenilenme, son aşamada gerçeklştirilmiş ve geçici bellekte oluşan yeni değerin a1 bellek
+			alanına yerleştirilmesi yapılmıştır. Bu şekilde kalıcı hale gelmiş olan yenilenmiş değerin veri tipi sorgulandığında
+			Int64 olarak yeni veri tipi yanıt olarak verilmişir.
+    </p>
+    <p class = "indent">
+      Istenen her veripi dönüşümü gerçekleşemeyebilir. Örnek olarak, sözel veriler (String) sayısal veri tiplerine dönüştürülemez.
+			Sayısal veri tiplerinin birbirlerine dönüştürülebilmesi duyarlık kaybı yaşanacaksa gerçeklşemez. Örnek olarak Int6 4(93.9) döşümü gerçekleşemez.
+			Fakat, duyarlık kaybı yaşanmayacak Int64(93.00) dönüşümü gerçekleşir.
+    </p>
+    <p class = "indent">
+      Julia programlama dilinde, kullanıcılar kendilerine özgü dönüştürme programları oluşturabilirler.
+			Bu ve benzeri standart dışı programlar ancak çok gereksinme olunca oluşturulmalıdırlar.
+    </p>
+    <p class = "indent">
+      Julia yorumlayıcısı, hesaplamaların yürütülebilmesi için ortak bir veri tipine dönüştürebilecek
+			tip yükseltme sistemine sahiptir. Bu yükselteme sistemi el ile <span class="keyw">promote</span>
+			<span class="op">(</span>öge1,öge2,....,öge n<span class="op">)</span> olarak
+			çağrılabilen öntanımlı bir fonksiyon da verilmiştir. Buna rağmen, sadece tip dönüşümü
+			mümkün değişik tipte ögelerin iştirak ettiği ifadelerde, promosyon otomatik olarak sağlandığından,
+			açık (explicit) <span class="keyw">promote</span><span class="op">()</span> fonksiyonun çağrılmasına
+			gerek kalmayacaktır.
+    </p>
+    <p class = "indent">
+      Özetle, çok kesin gereksinmeler olmadıkça, Julia yorumlayıcısının algıladığı veri tipi
+			sistemlerinin benimsenmesinde yarar bulunmaktadır. Bu şekilde değişik veri tiplerinin kullanımının
+			sakıncalarından korunulmuş olacak ayrıca Julia yorumlayıcısının aşırı yüklenmesi engellenecektir.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../index-2.html"><em>« Site Ana Sayfa</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../index.html"><em>« Julia Ana Sayfa</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../page3/k2s3.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../../inpreparation.html"><em>Sonraki Sayfa»</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../../../Library/lastmodified.js" type="text/javascript">
+      </script>
+    <p style="font-family: Helvetica; color: red; font-size: 14px; width: 100%; border: 1px none #999999; 
+							border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      Created With Microsoft Expression Web 4
+    </p>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+      <img alt="Geçerli html5" src="../../images/html5-small-1.gif" /></a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page4/k2s4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:05 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

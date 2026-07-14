@@ -1,0 +1,1433 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:45 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- Made with AC Meta Tag Generator ver. 1.5 at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+					content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type"
+					content="text/css" />
+		<meta http-equiv="Content-Script-Type"
+					content="text/JavaScript" />
+		<meta name="Title"
+					content="WEBTECH JavaScript Turkish Tutorial" />
+		<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Description"
+		content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords"
+					content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher"
+					content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>
+			Bölüm 18 Sayfa 2
+		</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+				<a href="../index.html"><img alt="index" src="../images/index.gif" /></a> 
+				<a href="b18s1.html"><img alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s3.html"><img alt="next" src="../images/next.gif" /></a>		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 2
+		</p>
+		<p class="subheading" id="blur">
+			18.3.2 - window.blur Metodu
+		</p>
+		<p class="indent">
+			Bu metot, Javascript program adımları tarafından
+			<span class="keyw">open</span><span class="op">()</span> metodu
+			ile ve açılan pencere nesnesinin bellek işaretçisinin bir 
+			pencere referans değişkenine atanmış olan açılmış 
+			pencereler üzerinden ilgi odağını
+			kaldırır. Bu metodun uygulanması sonucunda, geçerli
+			pencere, geçerli pencere olma niteliğini kaybederek,
+			arka plana geçer. Arka plandaki bir pencereden okuma
+			yapılamaz ve böyle bir pencereye bilgi yazılamaz.
+			JavaScript pencere nesnesinin 
+			<span class="keyw">blur</span><span class="op">()</span> Metodu,
+			sadece Javascript program adımları tarafından
+			açılmış ve referansı bir değişkene atanmış yani bir
+			pencere referansı belirlenmiş olan pencerereler üzerinde
+			etkilidir. İşletim sistemi tarafından açılmış olan pencere 
+			refransı belli olmayan pencerelere JavaScript program adımları
+			ile erişilemediğinden, bu pencerelerin üstündeki ilgi odağının bu metot ile
+			kaldırılması olanağı yoktur. İşletim sistemi tarafından açılmış olan 
+			pencerelerin üzerindeki ilgi odağı, ancak kullanıcı başka bir pencereye geçtiğinde
+			kalkarak, yeni pencereye geçer.
+		</p>
+		<p class="indent" id="b18.3.2-uyg-1">
+			Bu yöntemin uygulanması aşağıda JavaScript kodları görülen bir
+			<a href="../uygulamalar/b18.3.2-uyg-1-js.html">örnekle</a>
+			açıklanmıştır.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;Tarifeler&quot;</span><span 
+			class="op">,</span>
+<span class="str-200">'left = 400, top = 10, width = 600, height = 450,' </span><span 
+			class="op">+</span>
+<span class="str-200">'toolbar = no, menubar = no, location = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'directories = no, scrollbars = yes,' </span><span 
+			class="op">+</span>
+<span class="str-200">'resizable = no, status = yes'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">blur()</span><span 
+			class="op">;</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. </span>
+
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> otobüsTarifesi<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> URI <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">URI</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">);</span>
+<span class="pl-50">pencereAç</span><span 
+			class="op">(</span>URI<span 
+			class="op">);</span>
+<span class="keyw-50">return</span><span 
+			class="keyw"> false</span><span 
+			class="op">;</span>
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= []</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>5<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> otobüsTarifesi<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu örnekte, açılan pencerenin, açıldığı anda ortadan
+			kaybolduğu görülmektedir. Aslında pencere kapanmamış,
+			fakat arka plana atılmış ve üzerinden ilgi
+			kalkmıştır. Bu olaya blur (gözönünden uzaklaştırma)
+			adı verilmektedir. İlgi odağının değiştirilmesi, bir
+			kullanıcının sürekli yaptığı bir eylemdir. Açık
+			pencerelerden birisi ile çalışılırken, mouse ile
+			başka bir pencerenin içeriğine tıklanması, anında
+			ilgi odağının yeni penceye aktarılmasına neden olur.
+			Çalışmanın akışı içinde bir kullanıcı bunu doğal
+			kabul eder ve geçişi farketmeyebilir. Olayların
+			oluşunu gözleyen, olay yöneticileri ise, bu gibi
+			olayları anında algılar ve vermeleri programlanmış
+			olan tepkileri verirler. Böylece, bir
+			<span class="keyw">blur</span> olayını
+			gözleyen
+			<span class="keyw">onblur</span> olay
+			yöneticisi, ilgi değişikliğini algıladığı anda,
+			örnek olarak bir
+			<span class="keyw">alert()</span> mesajı
+			verdirebilir.
+		</p>
+		<p class="indent">
+			Kullanıcılar, ilgilenmekte oldukları pencerelerin,
+			kendi kontrolleri dışında, gözönünden kaybolmasından
+			hoşlanmazlar. Bu nedenle,
+			<span class="keyw">blur</span> olay
+			yaratıcısının ve olay yöneticisinin fazla
+			kullanılmaması yönünde genel bir eğilim oluşmuştur.
+		</p>
+		<p class="subheading" id="interval">18.3.3 - setInterval() ve clearInterval()
+		Metotları </p>
+		<p class="indent">
+			<span class="keyw">setInterval</span><span class="op">()</span>
+			Metodu, bir program kodunu belirli aralıklar
+			(interval) ile tekrar eder. Kullanımı,
+	</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">setInterval</span><span 
+			class="op">(</span>Program Kodu,milisaniye<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada, program kodu bir ifade veya
+			fonksiyon olabilir. Milisaniye türünden aralık
+			süreci, 60000 milisaniye=1dakika olacak şekilde
+			hesaplanır.
+			<span class="keyw">setInterval()</span>
+			Metodunda, her yeniden başayan aralık süreci, kendisi
+			için spesifik bir tamsayı değer olan süreçKimlikDeğeri kimlik
+			değerini geri döndürür. Bu kimlik değerinden yararlanılarak, 
+			başlatılmış bir aralık işlemi,
+			<span class="keyw">clearInterval</span><span class="op">()</span>
+			metodu ile sona erdirilebilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">clearInterval</span><span class="op">()</span>
+			Metodu,
+			<span class="keyw">setInterval</span><span class="op">()</span>
+			metodu ile konulan bir aralık sürecini durdurur. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">clearInterval</span><span 
+			class="op">(</span>süreçKimlikDeğeri<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metot, belirli bir aralık sürecini
+			durdurmak için, süreçKimlikDeğerinden yararlanır. Birden fazla
+			aralık süreci çalışıyorsa, durdurulacak aralık süreci, özgün süreçKimlikDeğeri
+			değerlerinden yararlanılarak durdurulabilir.
+		</p>
+		<p class="indent" id="b18.3.3-uyg-1">
+			Aşağıda, bu konudaki <a href="../uygulamalar/b18.3.3-uyg-1.html">uygulama sayfasının</a>
+			ilgili kısmı görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;sayfaortala&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;button&quot;</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;sil&quot; </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;50&quot; <span 
+			class="att">value</span><span 
+			class="op">=</span>&quot;Başlat!&quot;</span> <span class="op">/</span>&gt;
+</span><span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type<span 
+			class="op">=</span><span 
+			class="str">&quot;button&quot;</span> class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;kaydet&quot; </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;50&quot; <span 
+			class="att">value</span><span 
+			class="op">=</span>&quot;Sonlandır!&quot;</span> <span class="op">/</span>&gt;
+</span><span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;indent&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot; </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;30&quot; <span class="op">/</span></span>&gt;
+</span><span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type<span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot;</span> </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;70&quot;</span> <span class="op">/</span>&gt;
+</span><span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;indent&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot; </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;23&quot; <span class="op">/</span></span>&gt;
+</span><span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type<span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot;</span> </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;30&quot;</span> <span class="op">/</span>&gt;
+</span><span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span></pre>
+		<p class="nonindent">
+			Program kodları ise,
+	</p>
+<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>Başlangıç<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByTagNames</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">),</span> süreç1KimlikDeğeri <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> _gizli <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>başlat <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>_gizli<span 
+			class="op">) {</span>
+<span class="pl-100">süreç1KimlikDeğeri</span> <span 
+			class="op">=</span> <span 
+			class="keyw">setInterval</span><span 
+			class="op">(</span>alarm<span 
+			class="op">(),</span> 5E3<span 
+			class="op">);</span>
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Başlatıldı !'</span><span 
+			class="op">;</span>
+
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">''Süreç1 Başlatıldı, Süreç1 Kimlik Değeri Üretildi, Göstergeyi Bekleyiniz !'</span><span 
+			class="op">;</span>
+
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'brown'</span><span 
+			class="op">;</span>
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Kimlik Değeri'</span><span 
+			class="op">;</span>
+
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'brown'</span><span 
+			class="op">;</span>
+<span class="pl-100">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> Süreç1KimlikDeğeri<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="pl-75">_gizli</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">this</span> sonlandır <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">clearInterval</span><span 
+			class="op">(</span>süreç1KimlikDeğeri<span 
+			class="op">);</span>
+
+<span class="pl-75">süreç1KimlikDeğeri</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Durduruldu !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Durduruldu, Yeniden Başlamak İçin Lütfen Başlat Düğmesine Yeniden Basınız !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> alarm<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> zaman<span 
+			class="op">=</span><span 
+			class="keyw">new Date</span><span 
+			class="op">();</span>
+	
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>zaman<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleString</span><span 
+			class="op">());</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> buton <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByTagNames</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">)</span><span 
+			class="op">,</span> süreç1 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Başlangıç<span 
+			class="op">();</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>0<span 
+			class="op">].</span><span 
+			class="keyw">onclick</span><span 
+			class="op">=</span> süreç1<span 
+			class="op">.</span>başlat<span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>1<span 
+			class="op">].</span><span 
+			class="keyw">onclick</span><span 
+			class="op">=</span> süreç1<span 
+			class="op">.</span>sonlandır<span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Yeni Süreç !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreçi Başlatmak İçin Lütfen Başlat Düğmesine Basınız !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç Kimlik Değeri'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Henüz Verilmedi!'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.3.3-uyg-1-js.html">program</a>, basit görünmesine
+			karşın çözümü çok zor olan duyarlı konuların üstesinden gelebilmiş orijinal bir yazılımdır. Herşeyden 
+			önce bu program, sayfa kodlarını engellemeyen bir JavaScript programı niteliğindedir. Sayfa kodlarında 
+			hiç JavaScript kodu görülmemektedir. Tüm JavaScript kodları ayrı bir kod sayfasında toplanmıştır. 
+			Sayfa kodlarında hiç JavaScript kodu görülmemesinin sağlanabilmesi için, XHTML olay yöneticileri
+			kullanılmamış, bunun yerine JavaScript olay yöneticileri kullanılmıştır. Bunun programlama açısından 
+			çeşitli ek güçlükler getirdiği bilinmektedir. Buna rağmen kodların temizliği adına zorluklar göze 
+			alınmış ve aşılmaya çalışılmıştır. Yine bu programda, hiç global değişken kullanılmamış ve bunun
+			da getirdiği zorlukların üstesinden gelinmeye çalışılmıştır.
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısı, <span class="keyw">setInterval</span><span class="op">()</span> 
+			Metodu ile başlatılan her sürece özgün bir tamsayı olan bir süreçKimlikDeğeri verir. Bu değer
+			belirtilmeden, yaratılmış bir süreç <span class="keyw">clearInterval</span><span class="op">()</span> 
+			metodu ile durdurulamaz. Global değişken kullanılmadan Bu değerin olay yöntecisi fonksiyonlar arası 
+			akatrımı çok güçtür, çünkü, JavaScript olay yönetiminde, bir olaya bağlanacak fonksiyonlarda, 
+			argüman kullanılamamaktadır.
+		</p>
+		<p class="indent">
+			<span class="keyw">setInterval</span><span class="op">()</span> ve
+			<span class="keyw">clearInterval</span><span class="op">()</span> Metotları ile çalışmanın 
+			ek bir zorluğu, kullanıcının bir sürecin başlatılmasından sonra yeniden bilinçsizce
+			başlat düğmesine sürekli basmasıdır. Bu durumda, sürecin kimlik değeri yenileceğinden, 
+			saklanan süreç kimlik değeri ile sürecin <span class="keyw">clearInterval</span>
+			<span class="op">()</span> metodu ile iptal edilmesi olanağı ortadan kalkacaktır.
+			Bu konudaki programlarda, üstüste tıklamanın etkisiz kalması için bir yöntem
+			bulunmalıdır. 
+		</p>
+		<p class="indent">
+			Tüm bu sorunların aşılması için, yukarıdaki <a href ="../uygulamalar/b18.3.3-uyg-1-js.html">programda</a>
+			olağanüstü önlemler alınmıştır. Süreç kimlik değeri ve üstüste tıklamanın etkisizleştirilmesi için,
+			kullanıcı tipli nesnelerin özel üyeleri kullanılmıştır. Burada Başlangıç<span class="op">()</span>
+			sınıfının özel üyeleri, süreç1KimlikDeğeri ve _gizli adlı değişkenlerdir. Bu değişkenler sayesinde
+			değer aktarımı ve üstüste tıklamanın etkisizleştirilmesi sağlanabilmektedir. Yukarıdaki 
+			<a href ="../uygulamalar/b18.3.3-uyg-1-js.html">programın</a> çok iyi izlenmesi
+			gerekmektedir.
+		</p>
+		<p class="indent">
+			Yukarıdaki programda, örnek olarak tek bir sürecin başlatılıp
+			durdurulması yapılmıştır. Bu program istendiğinde birden çok sürecin
+			kontrolünü sağlayabilir. Bunun için, birinci süreçte
+			gerçekleştirilen program adımları, bundan sonraki
+		süreçler için de tekrar edilmelidir.
+		</p>
+		<p class="subheading" id="timeout">
+					18.3.4 - setTimeout() ve clearTimeout() Metotları (Gecikmeli Kod Çalıştırılması)
+		</p>
+		<p class="indent">
+			<span class="keyw">setTimeout()</span> Metodu, belirli bir fonksiyon
+			veya ifadenin gecikmeli olarak çalıştırılması için kullanılır. Kullanımı
+		</p>
+		<pre>
+<span class="keyw-25">setTimeout(</span><span 
+			class="str">'fonksiyon veya ifade',milisaniye olarak zaman</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu sözdiziminin <span class="keyw">setInterval</span><span class="op">()</span> 
+			metodu ile aynı olduğu görülmektedir.
+		</p>
+		<p class="indent">
+			<span class="keyw">setTimeout</span><span class="op">()</span> Metodu, yarattığı olayın 
+			sadece bir kez gerçekleşebilmesi açısından, <span class="keyw">setInterval</span>
+			<span class="op">()</span> metodundan farklıdır. Bu nedenle, bu metodun durdurulmasına
+			yarayan <span class="keyw">clearTimeout</span><span class="op">()</span> metoduna 
+			fazla gereksinme olmaz. Kullanıcının ancak <span class="keyw">setTimeout</span><span class="op">()</span>
+			metodu ile gerçekleşecek olayın gerçekleşmesine kadar olan süre içinde, geröekleşecek olayı
+			<span class="keyw">clearTimeout</span><span class="op">()</span> metodu ile durdurma
+			şansı vardır ve normalde, kullanıcı bu süre içinde olayı durdurmakta başarılı olamaz. Bu nedenle,
+			olayın gerçekleşmeden durdurulması için kullanıcıya güvenmemek gerekir. Web sitelerinin 
+			izleyicilerinin sitede ne kadat duracakları belli olmaz. Bu nedenle ne kadar uzun süreli gerçekleşme 
+			süreçleri yaratılırsa olayın izlenme şansı da o kadar düşer. Bu nedenle, önemli bilgilerin görüntülenmesi
+			hiçbir şekilde <span class="keyw">setTimeout</span><span class="op">()</span> metoduna 
+			bağlanmamalıdır. Çünkü, bu durumda kullanıcıların bu bilgiden yoksun kalma olasılıkları yüksek olacaktır.
+		</p>
+		<p class="indent">
+			<span class="keyw">setTimeout</span><span class="op">()</span> Metodunun en çok kullanıldığı
+			uygulamalar, animasyon tipi ugulamalar, resimlerin yer değiştirmesi reklem pencerelerinin açılması 
+			ve benzeri işlemlerdir. <span class="keyw">clearTimeout</span><span class="op">()</span> Metodu ise
+			çoğunlukla turunu tamamlamış bir animasyonun otomatik olarak durdurulması amacı ile kullanılır.
+		</p>
+		<p class="indent" id="b18.3.4-uyg-1">
+			<span class="keyw">setTimeout</span><span class="op">()</span> Metodunun programlanması da
+			<span class="keyw">setInterval</span><span class="op">()</span> metodundan daha kolaydır. 
+			Burada olay sadece bir kez gerçekleştiğinden tıklama kontrolüne gerek kalmamaktadır. Çünkü, 
+			olay zaten bir kez gerçekleşecektir ve <span class="keyw">clearTimeout</span><span class="op">()</span> 
+			metodu en son oluşan süreçKimilkDeğerini izleyecektir. Bu konuda, oluşturulmuş örnek 
+			<a href="../uygulamalar/b18.3.4-uyg-1-js.html">program</a>, bir önceki 
+			<span class="keyw">setInterval</span><span class="op">()</span> metodu
+			<a href="../uygulamalar/b18.3.3-uyg-1.html">örnek programına</a> kıyasla, önemli değişiklikler
+			içermektedir. Bu <a href="../uygulamalar/b18.3.4-uyg-1-js.html">programda</a>, tıklama kontrolü
+			yapılmamaktadır. Başlatılan bir sürecin durdurulabilmesini sağlayan, süreçKimlikDeğerinin, 
+			<span class="keyw">clearTimeout</span><span class="op">()</span> metoduna global değişken 
+			kullanılmaksızın aktarılabilmesinin sağlanması için, olayın başlatılma ve durdurulması aynı fonksiyonun 
+			alt fonksiyonları olarak düzenlenmiştir. Bu bir kapalı devre (closures) uygulamasıdır. 
+			<span class="keyw">setTimeout</span><span class="op">()</span>
+			Metodunun uygulama <a href="../uygulamalar/b18.3.4-uyg-1-js.html">programının</a> 
+			yazılımı aşağıda görülmektedir. Bu programın ilişkili olduğu 
+			<a href="../uygulamalar/b18.3.4-uyg-1.html">sayfada</a> verdiği sonuç yerinde denenebilir. 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> alarm<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> zaman<span 
+			class="op">=</span><span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByTagNames</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+	
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>zaman<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleString</span><span 
+			class="op">());</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-50">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Olay Gerçekleşti !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-50">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Olayı Yeniden Başlatmak İçin Lütfen Sayfayı Yenileyiniz Veya Başlat Düğmesine Yeniden Basınız !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByTagNames</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">),</span> süreç1KimlikDeğeri <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Yeni Süreç !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreçi Başlatmak İçin Lütfen Başlat Düğmesine Basınız !'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç Kimlik Değeri'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'navy'</span><span 
+			class="op">;</span>
+<span class="pl-50">buton</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Henüz Verilmedi!'</span><span 
+			class="op">;</span>
+
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>0<span 
+			class="op">].</span><span 
+			class="keyw">onclick</span><span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="pl-75">süreç1KimlikDeğeri</span> <span 
+			class="op">=</span> <span 
+			class="keyw">setTimeout</span><span 
+			class="op">(</span><span 
+			class="str">'alarm()'</span><span 
+			class="op">,</span> 2E3<span 
+			class="op">);</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Başlatıldı !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">''Süreç1 Başlatıldı, Süreç1 Kimlik Değeri Üretildi, Göstergeyi Bekleyiniz !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'brown'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>4<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Kimlik Değeri'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'brown'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> Süreç1KimlikDeğeri<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">buton</span><span 
+			class="op">[</span>1<span 
+			class="op">].</span><span 
+			class="keyw">onclick</span> <span class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">clearTimeout</span><span 
+			class="op">(</span>süreç1KimlikDeğeri<span 
+			class="op">);</span>
+
+<span class="pl-75">süreç1KimlikDeğeri</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Süreç1 Durduruldu !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span 
+			class="str">'Yeniden Başlamak İçin Lütfen Sayfayı Yenileyiniz Veya Başlat Düğmesine Yeniden Basınız !'</span><span 
+			class="op">;</span>
+
+<span class="pl-75">düğme</span><span 
+			class="op">[</span>5<span 
+			class="op">].</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="modal">
+					18.3.5 - Modal Pencereler
+		</p>
+		<p class="indent">
+			Modal pencereler, JavaScript tarafından açılan ve kullanıcıdan bir etki
+			bekleyen ve bu etki gerçekleştiğinde otomatik olarak kapanan pencerelerdir. 
+			Modal bir pencere açıldığında, JavaScript program çalışması durur ve 
+			kullanıcının vereceği tepkiye göre yeniden devam eder. 
+		</p>
+		<p class="indent">
+			JavaScript programlamasında, iki tür modal pencere oluşturulabilir. Bunlardan
+			ilki, <span class="keyw">window</span> nesnesinin, öntanımlı hazır metotları olan
+			 <span class="keyw">alert</span><span class="op">()</span>, 
+			 <span class="keyw">confirm</span><span class="op">()</span> ve 
+			<span class="keyw">prompt</span><span class="op">()</span> metotları ile açılan
+			modal diyalog pencereleridir. İkinci tür modal pencereler, 
+			<a href="http://www.scottandrew.com/examples/domwindow-pre6.html">Scott Andew</a>
+			tarafından örneklerinin verildiği ve <a href="http://www.w3.org/DOM/">W3C-DOM</a>
+			yöntemlerinden yararlanılarak görüntülenen pencerelerdir. Bu tür pencereler, 
+			<a href="../b19/b19s1.html">Bölüm 19</a> da açıklanacaktır. Burada sadece 
+			<span class="keyw">window</span> nesnesinin üç hazır metodundan yararlanılarak
+			açılabilen modal diyalog pencereleri incelenecektir.
+		</p>
+		<p class="navy" id="alert"><strong>18.3.5.1 - alert() Metodu</strong></p>
+		<p class="indent">
+			Bu metot, modal bir mesaj penceresi açar ve <span class="keyw">window</span>
+			nesnesinin, modal pencere açan metotlarından biridir. Modal pencere, kullanıcı
+			tarafından kapanması gereken bir pencere türüdür. Modal pencerelere, dialog
+			kutusu adı da verilmektedir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25"><em>window</em></span><span 
+			class="op">.</span><span 
+			class="keyw">alert</span><span 
+			class="op">(</span><span 
+			class="str">[<em>sMesaj</em>]</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada, metodun argümanı olan ve karakter dizgisi 
+			tipinde olacağı belirtilen veri, bir karakter dizgisi literal veya
+			program akışı içinde sayısal bir değeri olan ve değeri otomatik
+			olarak karakter dizgisi tipine çevrilen bir değer de olabilir.
+			Bu metodun açtığı modal pencerenin (diyalog kutusunun) başlığı
+			kullanıcı tarafından değiştirilemez.
+		</p>
+		<p class="indent">
+			<span class="str"><em>window</em></span><span 
+			class="op">.</span><span 
+			class="keyw">alert()</span> hazır fonksiyonu, 
+			geriye bir değer döndürmez. Bu metodun içeriği olan karakter 
+			dizgisi, (X)HTML değil düz metin formatındadır ve mesajın 
+			görüntülenmesi için sadece standart metin düzenleme kodlarından
+			yararlanılabilir. Bu kodlar, 
+		</p>
+		<table border="1" cellspacing="0" cellpadding="5px" style=
+    "position:relative;left:15%;font-family:verdana;font-size:0.8em;color:green;">
+			<caption>Table 18.6 - Standart Metin Düzenleme Kodları</caption>
+			<tr>
+				<th> kontrol/kaçış </th>
+				<th> Unicode değeri </th>
+				<th> etkisi </th>
+			</tr>
+			<tr>
+				<td> t </td>
+				<td> \u0009 </td>
+				<td> yatay tab </td>
+			</tr>
+			<tr>
+				<td> n </td>
+				<td> \u000A </td>
+				<td> Satırbaşı </td>
+			</tr>
+			<tr>
+				<td> v </td>
+				<td> \u000B </td>
+				<td> dikey tab </td>
+			</tr>
+			<tr>
+				<td> f </td>
+				<td> \u000C </td>
+				<td> form feed </td>
+			</tr>
+			<tr>
+				<td> r </td>
+				<td> \u000D </td>
+				<td> tekrar aynı satırın başına </td>
+			</tr>
+		</table>
+
+		<p class="nonindent" id="b18.3.5.1-uyg-1">
+			şeklindedir. Bu konuda, aşağıda görülen bir 
+			<a href="../uygulamalar/b18.3.5.1-uyg-1.html">örnek</a>, girilen 
+			bir sayısal verinin kullanılması ile gerçekleştirilebilecek 
+			her türlü matematik işlemin sonucun hesaplayacak kapasitede 
+			bir hesapla() fonksiyonunu kullanarak sonucu bir <span 
+			class="str"><em>window</em></span><span 
+			class="op">.</span><span 
+			class="keyw">alert()</span> penceresinde 
+			görüntülemektedir. Bu sayfanın ilgili elementlerinin
+			XHTML kodları aşağıda görülmektedir:
+		</p>
+		<pre>
+
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;indent green pl-50 dikeyTab-10&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">Sonucu hesaplamakiçin lütfen düğmeye basınız !</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;indent green pl-200 dikeyTab-10&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot; </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;4&quot;<span 
+			class="att"> value</span><span 
+			class="op">=</span>&quot;&amp;#x221A&quot; <span class="op">/</span></span>&gt;
+</span><span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type<span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot;</span> </span><span 
+			class="keyw"><span 
+			class="att">size</span><span 
+			class="op">=</span><span 
+			class="str">&quot;20&quot; <span 
+			class="att">id</span><span 
+			class="op">=</span>&quot;veri&quot;</span> <span class="op">/</span>&gt;</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">&lt;</span><span 
+			class="elm">p</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;dikeyTab-50&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">input</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text&quot;</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;option-2&quot;</span> <span 
+			class="att">value</span><span 
+			class="op">=</span>&quot;<span 
+			class="str">Sonucu Hesapla !</span>&quot; <span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+		Görüldüğü sayfanın içerik (XHTML), görütelenme(CSS) ve davranış (JavaScript)
+		kodları, birbirinden kesinlikle ayrılmıştır. Tüm kodlar, kendilerine özgü, 
+		ayrı sayfarda bulunmaktadır. Kodların birbirbirini engellememesi amacı ile,
+		XHTMl olay yöneticileri değil, JavaScript olay yöneticileri kullanılmıştır. Bu sayfanın,
+		<a href="../uygulamalar/b18.3.5.1-uyg-1-js.html">Program kodları</a> ise,
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByTagNames</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">),</span> 
+<span class="pl-50">veriGirişi</span> <span 
+			class="op">=</span> giriş<span 
+			class="op">[</span>1<span 
+			class="op">],</span>
+<span class="pl-50">düğme</span> <span 
+			class="op">=</span> giriş<span 
+			class="op">[</span>2<span 
+			class="op">];</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> veri <span 
+			class="op">=</span> veriGirişi<span 
+			class="op">.</span><span 
+			class="keyw">value</span><span 
+			class="op">,</span>
+<span class="pl-75">sonuç</span> <span 
+			class="op">=</span> <span 
+			class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">sqrt</span><span 
+			class="op">(</span>veri<span 
+			class="op">);</span>
+
+<span class="keyw-75">alert</span><span 
+			class="op">(<span 
+			class="str">'Sonuç = '</span></span> <span 
+			class="op">+</span> sonuç<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			<span class="keyw">alert</span><span class="op">()</span> 
+			Modal pencereleri, bir tür kullanıcıyı bilgilendirme
+			pencereleridir. Bunları mesaj pencereleri olarak tanımlamak daha doğru olacaktır.
+			 Bu pencereler, son derece yararlı enstrümanlardır ve kullanıcılara her türlü
+			 verilerin iletilmesi için kullanılabilirler. Bu pencerelerde, yanlış girilen
+			veriler,  bulunmayan aranan bilgiler, hesap sonuçları gibi bilgiler kullanıcılara
+			kolaylıkla  iletilebilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">alert</span><span class="op">()</span> Mesaj pencereleri,
+			daha önce incelenmiş olan, havada uçan (on the fly pop-up) 
+			mesaj pencerelerinin yaratabileceği sorunları yaratmaz. Pop-up pencere 
+			önleyicileri, <span class="keyw">alert</span><span class="op">()</span>
+			pencerelerini engellemez. <span class="keyw">alert</span><span class="op">()</span>
+			Pencerelerinin kullanımları daha güvenli, fakat içerik olarak salt metin 
+			temelli olduklarından, verebilecekleri salt metin mesaj daha 
+			renksiz ve formatlanması daha zordur. Havada uçan pencerelerin
+			kullanımında ise, bu pencerelerin içerikleri (X)HTML 
+			formatında olduğundan tüm mültimedya olanaklarından 
+			yararlanma olanağı elde edilerek. gözalıcı mesajlar
+			verilebilir. Fakat, açılan pencere önleyicileri bu pencereleri engelleyecektir.
+		</p>
+		<p class="navy" id="prompt"><strong>18.3.5.2 - prompt() Metodu</strong></p>
+		<p class="indent">
+			Bu metodun amacı, bir diyalog kutusunun 
+			(modal bir pencerenin) açılarak kullanıcıya 
+			bir değişkenin değerini belirleme olanağı sağlamaktır. Diyalog 
+			kutusu kapatıldığında, program değişkenin yeni değeri ile 
+			kaldığı yerden devam eder.
+		</p>
+		<p class="indent"><span 
+			class="keyw">prompt<span class="op">()</span></span> 
+			Metodunun kullanım şekli, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span style="padding-left:60px;"><em>değer</em></span><span 
+			class="op">=</span><span 
+			class="keyw">prompt</span><span 
+			class="op">(</span><span 
+			class="str">'[<em>Mesaj]'</em></span><span 
+			class="op">[,</span><em>varsayılan değer</em><span 
+			class="op">]);</span>
+		</pre>
+		<p class="indent">
+			<span class="keyw">prompt</span><span class="op">()</span> Metodu, etkili fakat
+			demode bir veri girişi sağlar. Açılan <span 
+			class="keyw">prompt</span><span class="op">()</span> penceresi,
+			sakil bir görüntü verir. JavaScript yeni W3C-DOM yöntemleri
+			ile sayfaya girilecek tüm veri kaynaklarını değerlendirebilecek
+			durumdadır. Yani, <span class="keyw">prompt</span>
+			<span class="op">()</span>pencerelerine artık gerek kalmamıştır. 
+			Yine de, metodun çalışmasının bilinmesi gerekir.
+		</p>
+		<p class="navy" id="confirm"><strong>18.3.5.3 - confirm() Metodu</strong></p>
+		<p class="indent">
+			Bu metot, modal alt pencere açan JavaScript 
+			hazır pencere metotlarının sonuncusudur. Bu metodun
+			amacı kullanıcının onay yanıtı verebileceği bir mesaj
+			penceresinin açılmasıdır. Bu metodun sözdizimi,
+		</p>
+		<pre>
+<span style="padding-left:50px;"><em>onay</em></span><span 
+			class="op">=</span><span 
+			class="str"><em>window</em></span><span 
+			class="op">.</span><span 
+			class="keyw">confirm</span> <span 
+			class="str">([<em>sMesaj</em>]</span><span 
+			class="op">);</span>
+		</pre>
+	<p class="nonindent">
+			şeklindedir. <span class="keyw">window</span> sözcüğü diğerlerinde 
+			olduğu gibi istenirse ihmal edilebilir. Burada onay, isteğe bağlı bir 
+			mantıksal değişken, Mesaj isteğe bağlı bir karakter dizgisi (str) 
+			değişkendir. Bu Metot geriye mantıksal bir değer 
+			döndürmektedir. Kullanıcı onay kutusunun önermesini 
+			onaylarsa, geri döndürülen değer <span 
+			class="keyw">true</span>, aksi halde <span 
+			class="keyw">false</span> olacaktır. Bu metot da aynı 
+			bir önceki metot gibi demode olmuştur ve günümüzde daha etkili 
+			etkileşim yöntemleri kullanılmaktadır.
+	</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>&laquo; İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s1.html"><em>&laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s3.html"><em> Sonraki &raquo; </em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:45 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

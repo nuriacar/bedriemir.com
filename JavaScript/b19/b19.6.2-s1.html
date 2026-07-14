@@ -1,0 +1,1841 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.2-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:56 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.2-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b19s2</title>
+	</head>
+	<body><p><img class="banner" alt="Banner"
+			src="../images/banner.png" /></p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b19.6.1-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b19.6.3-s1.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 19
+		</p>
+		<p class="chapter">
+			W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum">
+			Bölüm 19.6.2 Sayfa 1
+		</p>
+		<p class="subheading" id="node">19.6.2 - Node (Düğüm) Arabirimi</p>
+		<p class ="indent">
+			Node (Düğüm) arabirimi, W3C-DOM'un temel düğüm veri tipidir. Bu düğüm tipi tüm tüm düğüm tiplerinin atasıdır. Yani
+			Node (Düğüm) tipi tüm düğüm tipleri için generil düğüm tipini oluşturur. Aynı <span class="keyw">Object</span><span 
+			class="op">()</span> tipinin diğer nesne tiplerinin generik tipi olması gibi. Tek başına bir Node düğümü yoktur. Düğümler bu 
+			tanımda olduğu gibi, 12 ayrı tipte düğüm olabilirler. Her bir düğüm tyipi kendisi için tanımlanan özellikler yanında
+			generik Node (Düğüm) tipinin de özellilerini kalıtımla elde eder. Özellikler arasında 
+			metotların da bulunduğu her zaman hatırlanmalıdır. 
+		</p>
+		<p class ="indent">
+		 Node arabirimin OMG-IDL yazılımı aşağıda görülmektedir: </p>
+		<p class="sayfaortala"><img src="../images/b19.6.2-img-1.png" alt="node" width="969" height="1051" /></p>
+		<p class="sayfaortala">Şekil 19.6.2-1 - DOM Düzey 2 de Node Arabiriminin  IDL Yazılımı</p>
+		<p class ="indent">
+			IDL tanımları, nesne özelliklerine attributes adını vermektedir. Arabirim özellik ve metotlarına, JavaScript
+			nesne özelliklerine erişildiği gibi erişilebilmektedir.
+		</p>
+		<p class="navy" id="nodetype"><strong>19.6.2.1 - Node Arabiriminin nodeType Özelliği</strong></p>
+		<p class ="indent"  id="b19.6.2.1-uyg-1">
+			Node arabiriminde bir Node nesnesinin <span class="keyw">nodeType</span> 
+			özelliğininin değeri olarak, salt okunur ve unsigned short tipinde 12 tamsayı sabit 
+			tanımlanmıştır. Bu öntanımlı sabitler, düğümü oluşuran nesne tipine göre 
+			<span class="keyw">nodeType</span> özelliğininin öntanımlı
+			değeri olarak verilmektedir. W3C-DOM API'sinin unsigned short tipi, W3C-DOM API'sinin 
+			C<sup>++</sup> ile yazılımını ilgilendirmektedir. Bu özellik değeri, W3C-DOM API'sinin 
+			JavaScript bağlantısı (binding) için, sayısal tipte değer olarak yansıyacaktır. Düğüm tipini 
+			belirten <span class="keyw">nodeType</span> değerlerine, aşağıdaki yöntemle erişilebilir: 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> düğümTipi<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> sözelVeri <span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'xxxx '</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Sözel Veri Düğümünün Tipi : '</span>  <span 
+			class="op">+</span> sözelVeri<span 
+			class="op">.</span><span 
+			class="keyw">nodeType</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> düğümTipi <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span>düğümTipi<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent"> 
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.1-uyg-1-js.html">program</a> bağlantılı
+			olduğu <a href="../uygulamalar/b19.6.2.1-uyg-1.html">sayfada</a> çalışmaktadır. </p>
+		<p class ="indent"> Bu <a href="../uygulamalar/b19.6.2.1-uyg-1-js.html">programda</a>, bir düğüm
+			noktası yaratılmış fakat, belge ağacına eklenmemiştir. Buna rağmen, bir düğüm
+			noktası yaratıldıktan sonra, tüm düğüm nesnesinin özelliklerini elde eder. Bu nedenle, 
+			oluşmuş fakat henüz havada olan yani belge ağacına eklenmemiş düğüm türlerinin de
+			düğüm türleri sorgulanabilir.
+		</p>
+		<p class ="indent" id="b19.6.2-uyg-2">
+			Bir düğüm noktasını dolduran herhangibir düğüm türü, düğüm nesnesinin tüm özelliklerini
+			(metotların da birer özellik oldukları hatırlanmalıdır) kalıtım yolu ile elde eder. Örnek olarak,
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.1-uyg-1.html">programında</a> görüldüğü gibi,
+			yeni oluşturulan paragraf düğümü, bir düğüm olduğu için, genel Node arabiriminin tüm özelliklerini,
+			bu arada <span class="att">nodeType</span> özelliğini içermiş ve Text düğüm tipinin ileride 
+			görmüş olacağımız <span class="att">data</span> özelliğini de içermektedir. Bir düğüm 
+			verisi belge kütüğüne katıldığında, spesifikasyonda tanımlı tüm özellikleri edinmiş olur ve bu özelliklere
+			varsayılan değerler varsa atanmış olur.
+		</p>
+		
+		<p class="navy" id="nodename"><strong>19.6.2.2 - Node Arabiriminin nodeName ve nodeValue Özellikleri</strong></p>
+		<p class ="indent">
+			Node arabirimi, değeri karakter dizigisi tipinde 
+			<span class="keyw">nodeName</span> ve <span class="keyw">nodeValue </span>
+			adlı salt okunur iki nitelik tanımlamaktadır. Bu niteliklerin değerleri de düğüm noktasını 
+			oluşturan nesne tipine göre öntanımlı değerler almaktadırlar. Aşağıdaki tablo, bir düğümü 
+			oluşturan çeşitli arabirimlerin düğüm adlarını, düğüm değerlerini ve niteliklerinin olup 
+			olmadığını açıklamaktadır. 
+		</p>
+		<p class="sayfaortala"> Tablo 19.6..2.2 -1 - DOM Düzey 2 de Node Arabirimini Oluşturan Düğüm Türlerinin İsim, Değer ve Nitelikeri </p>
+		<p class="sayfaortala"><img src="../images/b19.6.2-img-2.png" width="904" height="377" id="b1961img2" alt="node 2" /></p>
+		<p class ="indent">
+			Bu tablodan en çok kullanılan düğüm türlerinin <span class="att">nodeName</span> ve 
+			<span class="att">nodeValue</span> özelliklerinin değerlerini saptamak için 
+			kullanabiliriz. Bir sayfada aşağıda görülen bir paragaf düğümü yerleştirilmiş olsun :
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="keyw-25">&lt;</span><span 
+			class = "elm">p</span> <span 
+			class="att">class</span><span 
+			class="op">=</span><span 
+			class="str">&quot;cursive-red&quot; </span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;hedef&quot;</span><span 
+			class="keyw">&gt;&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">p</span><span 
+			class="keyw">&gt;</span> 
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class ="indent" id = "b19.6.2.2-uyg-1">
+		Kodları aşağıda görülen bir 
+			<a href="../uygulamalar/b19.6.2.2-uyg-1-js.html">programda</a>, 
+			sayfada bulunan bu paragraf düğümünün <span class="att">class</span> nitelik düğümünün (Attr) 
+			<span class="att">nodeType</span>, <span class="att">nodeName</span> ve 
+			<span class="att">nodeValue</span> özelliklerinin  değerleri saptanmaktadır. 
+			Bu program bağlantılı olduğu <a href="../uygulamalar/b19.6.2.2-uyg-1.html">uygulama sayfasında</a>,
+			çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> düğümTipi<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">nitelikler</span> <span 
+			class="op">=</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span
+			class="op">;</span>
+			
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Nitelik (Attrs) Düğümünün nodeType Özelliğinin Değeri'</span> <span 
+			class="op">+</span> nitelikler<span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">)</span>.<span 
+			class="keyw">nodeType</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Nitelik (Attrs) Düğümünün nodeName Özelliğinin Değeri'</span> <span 
+			class="op">+</span> nitelikler<span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">)</span>.<span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Nitelik (Attrs) Düğümünün nodeValue Özelliğinin Değeri'</span> <span 
+			class="op">+</span> nitelikler<span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">)</span>.<span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç3'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>düğümTipi<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.2-uyg-1-js.html">programda</a>, dikkat edilecek 
+			bir nokta, nitelik (Attrs) düğüm tipinin düğüm nesnesinin değil, sayfaya yerlerşik olan elementin 
+			spesifikasyonlarda belirtilen nitelikleri olduğudur. Düğüm nesnesinin nitelikleri, düğüm nesnesinin 
+			özellikleridir ve düğümNesnesininBellekReferansı.nodeName veya 
+			düğümNesnesinin BellekReferansı<span class="op">[</span><span 
+			class="str">'nodeName'</span><span class="op">]</span> şeklinde erişilirler. Nitelik düğümleri ise 
+			sadece sayfada yerleşik bir elementin nitelikleri olarak tanımlıdırlar. Sayfada yerleşik bir elementin
+			niteliklerine elementinBellekReferansı<span class="op">.</span><span class="keyw">attributes</span>
+			olarak ulaşılabilir. Bu ifade geriye bir tür ilişkisel dizi benzeri nesne türü olan, <span 
+			class="keyw">namedNodeMap</span> tipi bir topluluk döndürür. Elementin nitelikleri bu <span 
+			class="keyw">namedNodeMap</span> topluluğunun elemanlarıdır ve her elemana ilişkisel diziler gibi
+			<span class="keyw">attributes</span><span class="op">.</span><span 
+			class="keyw">item</span><span class="op">(</span><span class="str">'nitelikİsmi'</span><span 
+			class="op">)</span> şeklinde erişilir. Nitelik (Attrs) düğümleri,
+			sayfada yerleşik değillerdir. Bunlar bir tür elektron bulutu gibi, sayfada yerleşik bir elemente 
+			göre tanımlı, bu elementin etrafını saran ve sadece bağlı oldukları element sayfada yerleşik olduğu 
+			sürece tanımlı olan değerlerdir. Nitelik düğümleri ve <span class="keyw">namedNodeMap</span> 
+			toplulukları kısa süre sonra detaylı olarak incelenecektir.
+		</p>
+		<p class="indent" id="b19.6.2.2-uyg-2">
+			Bir element düğümünün <span class="keyw">nodeName</span> 
+			özelliğinin değeri, element ismidir. Bir element düğümünün 
+			<span class="keyw">nodeName</span> özelliğinin değeri sorgulandığında, 
+			geri döndürülen değer, büyük harfle yazılmış olan, örnek olarak 
+			<span class="str">'P'</span> gibi bir element ismi olacaktır. Bu özellikten, 
+			bir element düğümü koleksiyonundan, <span class="att">id</span>
+			değeri belli olan bir element türüne erişim için yararlanabiliriz. Aşağıda kodları görülen
+			<a href="../uygulamalar/b19.6.3-uyg-1-js.html">programı</a>, hem 
+			<span class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">getElementById</span><span class="op">()</span> metodunun 
+			nasıl çalıştığının anlaşılmasına yardım edecek, bir yandan, kendi özel 
+			idNiteliğiİleElementeErişim<span class="op">()</span> 
+			fonksiyonumuzun yazılmasına olanak sağlayacaktır. Bu program, bağlantılı olduğu,	
+		<a href="../uygulamalar/b19.6.2.2-uyg-2.html">web sayfasında</a> çalışmaktadır.</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+<span class="keyw-25">function</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span>id<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> bodyDüğümü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'BODY'</span><span
+			class="op">),</span>
+<span class="pl-50">düğümler</span> <span 
+			class="op">=</span> bodyDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">).</span>childNodes<span
+			class="op">;</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;düğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>düğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span> <span 
+			class="op">===</span> <span 
+			class="str">'P'</span><span 
+			class="op">) {</span>
+<span class="keyw-100">if</span><span 
+			class="op">(</span>düğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span>)<span 
+			class="op">.</span><span 
+			class="keyw">nodeValue</span> <span 
+			class="op">===</span> id<span 
+			class="op">) {</span>
+<span class="keyw-125">break</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> düğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> bilgiNotuYeri <span 
+			class="op">=</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span><span 
+			class="str">'bilginotu'</span><span
+			class="op">);
+</span>
+<span class="pl-50">bilgiNotuYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Aranan Element Düğümü Bulundu ve Bu Mesaj Yazıldı !'</span><span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlati<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.2-uyg-2-js.html">program</a>, argümanı 
+			sözel tip olan id değişkeni olan bir idNiteliğiİleElementeErişim<span 
+			class="op">()</span> fonksiyonun içermektedir. Bu fonksiyon ilk olarak,
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="keyw-50">var</span> bodyDüğümü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'BODY'</span><span
+			class="op">),</span>
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			program adımı ile, tipi <span class="str">'BODY'</span> sayfadaki tüm element düğümlerinin bellek 
+			referansları bir <span class="keyw">nodeList</span> arabirimine uyan bir nesne ailesi örneğinin 
+			bellek referansı olan değeri, bodyDüğümü değişkenine atamaktadır. Belgede sadeece bir tane 
+			<span class="keyw">&lt;</span><span class="elm">body</span><span class="keyw">&gt;</span>
+			elementi olduğundan, döndürülen bodyDüğümü değişkeninin değeri, sadece bir tek elemanlı bir 
+			<span class="keyw">nodeList</span> nesne örneğinin bellek referansıdır. Biraz ileride göreceğimiz gibi,
+			dizi benzeri <span class="keyw">nodeList</span> arabirimine uygun yapıda bir nesne örneğinin 
+			elemanlarına, aynı diziler gibi tamsayı sıralı indisleri yardımı ile erişilebilir. Dizilerin indis sıraları 
+			0 dan başladığı için, burada geri döndürülen <span class="keyw">nodeList</span> arabirimi 
+			yapısındaki nesne örneği, sadece indisi 0 olan bir tane eleman içermektedir. Bu eleman da, sayfada
+			yerleşik olan tek <span class="keyw">&lt;</span><span class="elm">body</span><span class="keyw">&gt;</span>
+			elementinin bellekteki erişim referansıdır.
+		</p>
+		<p class="indent">
+			İkinci adım olarak, sayfadaki tek 
+			<span class="keyw">&lt;</span><span class="elm">body</span><span class="keyw">&gt;</span>
+			elementinin alt düğümlerinin bellek referanslarını içeren bir <span class="keyw">nodeList</span>
+		</p>
+				<pre>
+<span class="keyw-25">...</span>
+<span class="pl-50">düğümler</span> <span 
+			class="op">=</span> bodyDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">).</span>childNodes<span
+			class="op">;</span>
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			program adımı ile düğümler değişenine atanmaktadır. W3C-DOM belge nesne yapılanmasına göre
+			sayfadaki tek 
+			<span class="keyw">&lt;</span><span class="elm">body</span><span class="keyw">&gt;</span>
+			elementi, alt nesneler olarak tüm sayfa elementlerini içerdiğinden, düğümler değişkeninin de
+			elemanları tüm sayfa elementleri olan bir <span class="keyw">nodeList</span> olacaktır. Yani daha
+			doğru bir tanımla, düğümler değişkenin değeri, elemanları, tüm sayfa elementleri olan, 
+			yapısı <span class="keyw">nodeList</span> arabirimi tanımına uyan bir nesne sınıfı örneğinin bellek
+			referansı olacaktır. Bu ifade kısa bir söylem türü olarak, düğümler değişkeni, tümsayfa elementlerini
+			eleman olarak içeren bir düğüm listesidir şeklinde ifade edilmektedir. Bu düğüm listesi baştan sona doğru
+			taranır ve türü paragraf türü olan ve <span class="att">id</span> değişkeninin değeri, 
+			fonksiyona beslenen argüman ile tür ve değer olarak aynı olan eleman bulununca arama sona
+			erdirilir ve uyuşma sağlanan eleman (bellek referansı) geri döndürülür. Burada, düğümler düğüm
+			listesinin elemanları olan her element elemanın, <span class="keyw">namedNodeMap</span> 
+		tipinde bir toplulukta toplanmış alt nesneleri olan nitelik (Attrs) düğümleri vardır. Bu nitelik düğümleri 
+		arasında <span class="att">id</span> niteliğimin değerine,
+		</p>
+				<pre>
+<span class="keyw-25">...</span>
+<span class="pl-50">düğümler</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span>)<span 
+			class="op">.</span><span 
+			class="keyw">nodeValue</span><span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilmeltedir. Daha başka erişim yolları da bulunmaktadır. Bunlardan birisi de 
+				<span class="keyw">Element</span> arabiriminin, <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">),</span>
+			metodudur. Sonuçta, oluşturulan idNiteliğiİleElementeErişim<span class="op">()</span> fonksiyonu,
+			genel amaçlı olması için aşağıdaki gibi düzenlenmiştir :
+		</p>
+			
+			<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+<span class="keyw-25">function</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span>id<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> bodyDüğümü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'BODY'</span><span
+			class="op">),</span>
+<span class="pl-50">düğümler</span> <span 
+			class="op">=</span> bodyDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">).</span>childNodes<span
+			class="op">;</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;düğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>düğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span>)<span 
+			class="op">.</span><span 
+			class="keyw">nodeValue</span> <span 
+			class="op">===</span> id<span 
+			class="op">) {
+</span><span class="keyw-100">break</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> düğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+		</pre>
+			<p class="indent">
+			Yukarıda görüldüü gibi son hali verilmiş olan idNiteliğiİleElementeErişim<span 
+			class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığına alınarak, bu 
+			kitaplığın kullanıldığı programlarda, <span class="keyw">document</span><span
+			class="op">.</span><span class="keyw">getElementById</span><span 
+			class="op">()</span> metodu ile eşdeğer olarak kullanılabilmesi sağlanmıştır. 
+		</p>
+		<p class="indent" id="b19.6.2.2-uyg-3">
+			Yine çok kullanılan bir düğüm tipi olan sözel tipte verilerin oluşturduğu,
+			<span class="keyw">Text</span> arabiriminde tanımlı nesne yapısındaki düğüm türlerinin
+			<span class="keyw">nodeName</span> ve <span class="keyw">nodeValue</span> 
+			değerlerinin incelendiği bir <a href="../uygulamalar/b19.6.2.2-uyg-3-js.html">program</a> 
+			aşağıda görülmekte ve bağlantılı olduğu <a href="../uygulamalar/b19.6.2.2-uyg-3.html">sayfada</a> 
+			çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> bilgiNotuYeri <span 
+			class="op">=</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span><span 
+			class="str">'bilginotu'</span><span
+			class="op">);</span>
+<span class="pl-50">bilgiNotuYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Bu Bir Sözel Veridir !'</span><span
+			class="op">));</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt; bilgiNotuYeri<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>bilgiNotuYeri<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 3<span 
+			class="op">) {</span>
+<span class="pl-100">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Text tipi düğümün nodeName Değeri : '</span><span 
+			class="op">,</span> bilgiNotuYeri<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+<span class="pl-100">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Text tipi düğümün nodeValue Değeri : '</span><span 
+			class="op">,</span> bilgiNotuYeri<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlati<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.2-uyg-3-js.html">programda</a>, dikkat edilecek bir
+			nokta, bilgiNotu element düğümünün (unutmayalım bu söylem şekli sadece bir kısayol söylemidir !) 
+			alt düğümlerinin tiplerinin sınandığı döngüde, bir Text düğümü tipi bulunduğunda döngü çıkış
+			bildirimi verilmemiştir çünkü bir element düğümü sadece bir tek Text tipi alt düğüm içerebilmektedir.
+			Bu nedenle, bir döngüde bir element düğümünün Text tipi alt düğümü arandığnda, bir kez uyuşma 
+			sağlandığında, bir başka Text tipi alt düğüm olmadığından, bir kez daha uyuşma sağlanması 
+			olanaksızdır. Bu yüzden ilk uyuşma sağlanmasından sonra çıkış bildirimi yapılması gereksiz olmaktadır.
+			Çünkü uyuşma sağlandıktan sonra döngü devam edebilir, fakat başka Text tipi düğüm olamayacağından,
+			başka bir uyuşma gerçekleşmeyecektir ve döngüden otomatik olarak çıkılacaktır.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.2-uyg-3-js.html">programda</a>, alınan sonuç, Tablo 19.6.1
+			de belirtilmiş olan sonuçlarla aynıdır ve bir <span class="keyw">Text</span> tipi düğümüm
+			<span class="keyw">nodeName</span> değerinin <span class="keyw">#text</span> ve 
+			<span class="keyw">nodeValue</span> değerinin, düğümüm içeriği olduğu görülmektedir.
+			Bu sonuçlar, programlarda <span class="keyw">Text</span> tipi düğümlerin ayırdedilmesi 
+			amacı ile kullanılabilecektir.
+		</p>
+		<p class="navy" id="parentnode"><strong>19.6.2.3 - Node Arabiriminin parentNode Özelliği</strong></p>
+		<p class ="indent" id="b19.6.2.3-uyg-1">
+			Bundan sonra inceleyeceğimiz özellik, düğüm nesnesi tipinde, salt okunur bir özellik olan 
+			<span class="keyw">parentNode</span> yani düğümün bir üst düzey düğümü özelliği
+			olacaktır. W3C-DOM belge ağacının karmaşık yapısı nedeni ile, bilinen bir düğümün
+			üst düzey düğümünün öngörülmesi kolay değildir. Bu nedenle, bu saptamayı,
+			program adımları ile yaptırmak tek çıkar yol sayılabilir. Bu işlemin yapıldığı
+			bir <a href="../uygulamalar/b19.6.2.3-uyg-1-js.html">programın</a> kodları aşağıda 
+			görülmektedir. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b19.6.2.3-uyg-1.html">sayfada</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> düğümTipiniBelirle<span 
+			class="op">(</span>düğüm<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> düğümTipi <span 
+			class="op">=</span> düğüm<span 
+			class="op">.</span><span 
+			class="keyw">nodeType</span><span 
+			class="op">,</span>
+<span class="pl-50">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">switch</span><span 
+			class="op">(</span>düğümTipi<span 
+			class="op">) {</span>
+<span class="keyw-75">case</span> 1 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">ELEMENT_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 2 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span><span 
+			class="keyw">ATTRIBUTE_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 3 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">TEXT_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 4 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">CDATA_SECTION_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 5 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">ENTITY_REFERENCE_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 6 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">ENTITY_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 7 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">PROCESSING_INSTRUCTION_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 8 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">COMMENT_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 9 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">DOCUMENT_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 10 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">DOCUMENT_TYPE_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 11 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">DOCUMENT_FRAGMENT_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+<span class="keyw-75">case</span> 12 <span 
+			class="op">:</span>
+<span class="pl-100">düğümTürü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">NOTATION_NODE</span><span 
+			class="op">;</span>
+<span class="keyw-100">break</span> <span 
+			class="op">;</span>
+
+<span class="keyw-50">return</span> düğümTürü<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-25">function</span> birÜstDüzeyDüğüm<span 
+			class="op">(</span>altDüğüm<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> üstDüzeyDüğüm <span 
+			class="op">=</span> altDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">,</span>
+<span class="pl-50">düğümTipi</span> <span 
+			class="op">=</span> düğümTipiniBelirle <span 
+			class="op">(</span>üstDüzeyDüğüm<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Üst Düzey Düğümün Tipi : '</span>  <span 
+			class="op">+</span> düğümTipi<span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Üst Düzey Düğümün nodeName Değeri : '</span>  <span 
+			class="op">+</span> üstDüzeyDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Üst Düzey Düğümün nodeValue Değerii : '</span>  <span 
+			class="op">+</span>üstDüzeyDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç3'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> düğüm <span 
+			class="op">=</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span><span 
+			class="str">'sonuç1'</span><span
+			class="op">);</span>
+<span class="pl-50">birÜstDüzeyDüğüm</span><span 
+			class="op">(</span>düğüm<span 
+			class="op">);
+</span><span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.3-uyg-1-js.html">programda</a>, görülen
+			düğümTipiniBelirle <span class="op">()</span> alt programı, 
+			<a href="../uygulamalar/bdelib-src.html">program kitaplığına alınmıştır.</a>		</p>
+		<p class="navy" id="childnodes"><strong>19.6.2.4 - Node Arabiriminin childNodes Özelliği</strong></p>
+		<p class="indent">
+			Bir düğümün alt düğümlerine, düğümün <span class="keyw">childNodes</span> özelliği ile
+			erişilebilir. Bir düğümün alt düzey düğümleri birden çok olabilir. Bu nedenle, 
+			<span class="keyw">childNodes</span> özelliği geriye 
+			<span class="keyw">NodeList</span> tipinde bir nesne örneğine erişim sağlayan 
+			bir bellek referansı döndürür. Eğer düğüm hiç alt düzey düğüm içermiyorsa, döndürülen 
+			düğüm listesi boş bir düğüm listesi olacaktır. 
+		</p>
+		<p class="indent" id="b19.6.2.4-uyg-1">
+			Bu tip bir <span class="keyw">nodeList</span> (düğüm listesi) tipinde koleksiyonlarla daha önceden
+			karşılaşmış durumdayız. Bu konuda  listeden belirli elemanlara erişim yöntemleri, Düğüm listeleri incelenirken ele 
+			alınacaktır. Buna rağmen burada gerekli olduğu için düğüm listeleri üzerine 
+			açıklayıcı bilgi verilmesi yararlı olacaktır. Düğüm listeleri nesne yapısı, dizi nesne yapısına çok benzer, 
+			dizilerde olduğu gibi <span class="keyw">length</span> özelliği tanımlıdır ve bir düğüm listesi aynı dizi 
+			gibi çalışılabilir. Ne var ki bu şekilde çalışma artık desteklenmemektedir. Yeni yönteme göre, dizi listeleri 
+			<span class="keyw">item</span> (birim) adı verilen elemanlardan oluşur ve her birime tamsayı dizi 
+			indisleri ile erişilmelidir. Programlarımızın bundan sonra desteklenmesini istersek, programlarımızda 
+			eski değil, aşağıdaki <a href="../uygulamalar/b19.6.2.4-uyg-1-js.html">programda</a> görüldüğü gibi 
+			yeni yöntemleri kullanmalıyız. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b19.6.2.4-uyg-1.html">web sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> altDüğümleriSapta<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> topnavlist <span 
+			class="op">=</span> idNiteliğiİleElementeErişim<span 
+			class="op">(</span><span 
+			class="str">'topnavlist1'</span><span 
+			class="op">),</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> topnavlist<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span> <span 
+			class="op">,</span> 
+<span class="pl-50">altDüğümlerUzunluğu</span> <span 
+			class="op">=</span> altDüğümler</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span
+			class="op">,</span>
+<span class="pl-50">i</span> <span 
+			class="op">=</span> 0</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>altDüğümlerUzunluğu <span 
+			class="op">&gt;</span> 0<span 
+			class="op">) {</span>
+<span class="keyw-75">do</span> <span 
+			class="op">{</span>
+<span class="pl-100">sonuçYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'Alt Düğüm('</span> <span 
+			class="op">+</span> i <span 
+			class="op">+</span> <span 
+			class="str">') : '</span><span 
+			class="op">,</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">);</span>
+<span class="pl-100">i</span><span 
+			class="op">++;</span>
+<span class="keyw-100">document</span><span 
+			class="op">.</span> <span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">).</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-75">}</span> <span 
+			class="keyw">while</span><span 
+			class="op">(</span>i <span 
+			class="op">&gt;</span> altDüğümlerUzunluğu<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Toplam'</span><span 
+			class="op">,</span> altDüğümlerUzunluğu <span 
+			class="op">+</span> <span 
+			class="str">'Alt Düğüm Saptanmıştır.'</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>altDüğümleriSapta<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bir düğümün alt düğüm türleri ve sayısı belge çözümleyiciye özgü JavaScript Yorumlayıcısının
+			yazılımına bağlıdır. Bu nedenle, yukarıdaki <a href="../uygulamalar/b19.6.2.4-uyg-1-js.html">program</a>,
+			gibi programlarda elde edilecek sonuçlar, farklı belge çözümleyicilerinde farklı olabilir. 
+		</p>
+		<p class="navy" id="siblings"><strong>19.6.2.5 - Node Arabiriminin previousSibling ve nextSibling Özellikleri, Kardeş (Eşdüzey) Düğümler (Siblings)</strong></p>
+		<p class ="indent" id="b19.6.2.5-uyg-1">
+			Bir düğüm ile aynı düzeyde olan diğer düğümlere bu düğümün kardeşleri (siblings)
+			adı verilir. Kardeş düğümler, bağlantı düğümüne göre daha önce veya daha sonra konumlanmış
+			olabilirler. Bağantı düğümünden daha önce konumlanmış olan düğüme, bağlantı düğümünün
+			<span class="keyw">previousSibling</span> niteliği yardımı ile ulaşılabilir. Bu özelliğin
+			kullanıldığı bir  <a href="../uygulamalar/b19.6.2.5-uyg-1-js.html">program</a> aşağıda
+			görülmektedir. Bu program iliştirildiği, 
+			<a href="../uygulamalar/b19.6.2.5-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> birÖncekiEşdüzeyDüzeyDüğüm<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantı <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">öncekDüğümTipi</span> <span 
+			class="op">=</span> düğümTipiniBelirle<span 
+			class="op">(</span>bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">previousSibling</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Önceki Düğümün Tipi : '</span>  <span 
+			class="op">+</span> öncekiDüğümTipi<span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);
+</span><span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>birÖncekiEşdüzeyDüzeyDüğüm<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu program sonucunda, önceki düğümün bir element düğümü değil, bir metin düğümü 
+			olduğunun ortaya çıkması, çözümlenmiş belgelerin düğüm yapılanmasının önceden 
+			kestirilemeyecek kadar karışık olabileceği konusunda programcılar için bir uyarı sayılmalıdır.
+		</p>
+		<p class ="indent" id="b19.6.2.5-uyg-2">
+			Bir belgedeki bağlantı düğümünün <span class="keyw">nextSibling</span> özelliği de benzer 
+			bir programla, bir sonraki eşdüzey düğümün tipini belirleyebilir. Bu özelliğin uygulandığı bir 
+		<a href="../uygulamalar/b19.6.2.5-uyg-2-js.html">programın kodları</a> aşağıda
+		görülmekte ve bu program, bağlantılı olduğu
+		<a href="../uygulamalar/b19.6.2.5-uyg-2.html">uygulama sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> birSonrakiEşdüzeyDüzeyDüğüm<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantı <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">sonraki</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">(</span>bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">),</span>
+<span class="pl-50">sonrakiDüğümTipi</span> <span 
+			class="op">=</span> düğümTipiniBelirle<span 
+			class="op">(</span>sonraki<span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonraki Düğümün Tipi : '</span> <span 
+			class="op">+</span>sonrakiDüğümTipi<span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);
+</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>birSonrakiEşdüzeyDüzeyDüğüm<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu programın sonucunda, bir sonraki düğümün tipinin bir element düğümü olması şaşırtıcı değildir.
+			Çünkü önce element düğümü, sonra da içeriği olan metin düğümü yerleşmektedir.
+		</p>
+		<p class="navy" id="attributes"><strong>19.6.2.6 - Node Arabiriminin attributes Özelliği</strong></p>
+		<p class ="indent">
+			Düğüm arabirimi bir element düğümü ise, bu elementin niteliklerine, düğümün
+			<span class="keyw">attributes</span> özelliği ile erişilebilir. Örnek olarak, 
+		</p>
+		<pre>
+<span class="pl-25">altDüğümler</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>bağlantı<span
+			class="op">).</span><span 
+			class="keyw">attribues</span><span
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			program adımı, <span class="att">id</span> değeri <span class="str">'bağlantı'</span> olan
+			bir sayfa elementinin nitelik değerlerini, altDüğümler adında bir 
+			<span class="keyw">NamedNodeMap</span> koleksiyonuna atamaktadır. 
+		</p>
+		
+		<p class ="indent">
+			Bu özellik geriye bir
+			koleksiyon nesnesi olan <span class="keyw">namedNodeMap</span> türünde
+			bir nesne örneğine erişim sağlayabilen bir bellek referansı döndürür. Bu bellek 
+			referansından yararlanılarak düğümün niteliklerine nasıl ulaşılabileceği, 
+			<span class="keyw">namedNodeMap</span> arabirimi incelenirken görülecektir. Buna rağmen,
+			buradaki uygulamalar için, kısaca, <span class="keyw">namedNodeMap</span> arabiriminin
+			nesne yapısının, ilişkisel dizilere çok benzediğini söyleyebiliriz. Bu koleksiyonun, 
+			eleman sayısını veren <span class="keyw">length</span> isimli bir özelliği, elemanlarına erişimi
+			sağlayan <span class="keyw">item</span> isimli bir başka özelliği bulunmaktadır. 
+			Koleksiyon içinde elemanların sıralanması belirli bir sıraya bağlı değildir. Elemanlara,
+			<span class="keyw">item</span><span class="op">(</span>tamsayı indis değeri<span class="op">)</span>
+			ile ulaşılabildiği gibi, koleksiyonun 
+			<span class="keyw">getNamedItem</span><span 
+			class="op">(</span>DOM String tipinde item ismi<span class="op">)</span>, 
+			<span class="keyw">setNamedItem</span><span 
+			class="op">(</span>DOM String tipinde item ismi<span class="op">)</span>, 
+			<span class="keyw">removeNamedItem</span><span 
+			class="op">(</span>DOM String tipinde item ismi<span class="op">)</span>, 
+			metotları kullanılrak da erişilebilir.
+		</p>
+		<p class ="indent">
+			Çözümlenmiş belgenin düğüm ağacında <span class="keyw">Element</span> tipi
+			düğümlerden başka hiçbir düğüm tipinin <span class="keyw">attributes</span>
+			özelliği yoktur. Bu nedenle, <span class="keyw">Element</span> tipi
+			düğümlerden başka tüm düğüm tiplerinde <span class="keyw">attributes</span>
+			niteliği geriye <span class="keyw">null</span> değerini döndürür.
+		</p>
+		<p class="indent">
+			Bir element düğümünün <span class="keyw">attributes</span> özelliğinin değeri, 
+			belge ağacına yerleşmiş olsun veya olmasın, elemanları bu elementin varsayılan 
+			veya kullanıcı eliyle değeri atanmış nitelikleri olan bir 
+			<span class="keyw">namedNodeMap</span> koleksiyonudur. 
+		</p>
+		<p class="indent">
+			<span class="keyw">namedNodeMap</span> ve <span class="keyw">nodeList</span> 
+			koleksiyonları statik değildir. Sayfa yapısında bir değişiklik olduğunda, bu koleksiyonların 
+			içerikleri güncellenir ve <span class="keyw">length</span> özelliklerinin değeri yenilenir.
+		</p>
+		<p class="navy" id="ownerdocument"><strong>19.6.2.7 - Node Arabiriminin ownerdocument Özelliği</strong></p>
+		<p class ="indent">
+			Bir düğümün <span class="keyw">ownerDocument</span> özelliği, düğümün bağlı olduğu 
+			<span class="keyw">Document</span> düğümünün bellek referansını döndürür. Eğer düğüm 
+			yaratılmış fakat henüz belge ağacına monte edilmemişse, geriye <span class="keyw">null</span>
+			döndürülür.
+		</p>
+		<p class="navy" id="insertbefore"><strong>19.6.2.8- insertBefore() Metodu</strong></p>
+		<p class ="indent">
+			Oluşturulmuş bir düğümün belge ağacına eklenmesini sağlayan generik düğüm metotlarından 
+			bir diğeri, <span class="keyw">insertBefore</span><span class="op">()</span> metodudur. 
+			Bu metot, oluşturulmuş yeni düğümü, bağlantı düğümünün ilk üst düzey atasının alt düğümleri 
+			arasında olan bağlantı düğümünün önüne ekler. Bu metodun uygulaması aşağıda görüldüğü şekildedir:
+		</p>
+		<pre>
+<span class="pl-25">bağlantıDüğümününİlkAtasınınBellekReferansı</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniDüğümBellekReferansı<span 
+			class="op">,</span> bağlantıDüğümüBellekReferansı<span 
+			class="op">);</span>
+		</pre>
+		<p class ="indent">
+			Metodun ilk parametresi yeni düğümün bellek referansını döndüren 
+			bağlantıDüğümüBellekReferansı<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span> gibi bir ifade olabilir. Metot geriye eklenecek olan düğümün bellek
+			referansını döndürür, buna gereksinme yoksa, bir değişkene atanmadan kullanılır. Eğer yeni düğüm bir
+			<span class="keyw">documentFragment</span> ise, tüm alt düğümleri aynı sıra ile yerleştirilir. Eğer
+			yeni düğüm daha önceden yerleştirilmişse, önce kaldırılır, sonra yeniden belirtilen yere yerleştirilir.
+		</p>
+		<p class ="indent" id="b19.6.2.8-uyg-1">
+			Oluşturulmuş bir düğümü, belirtilen bir düğümden önce belge ağacına yerleştiren bir
+			<a href="../uygulamalar/b19.6.2.8-uyg-1.html">programın</a> kodları
+			aşağıda görülmektedir. Bu program, bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.2.8-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> düğümünÖnüneEkle<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+<span class="keyw-50">document</span><span 
+			class="op">.</span>getElementById<span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">).</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="str">'button'</span><span 
+			class="op">),</span> <span class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">));</span>
+
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>önüneEkle<span class="op">);</span>
+			
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu program, hernekadar çalışıyor olsa da, okunurluğun sağlanması için, değişkenlerin kullanılması daha 
+			alışılmış olacaktır. Eklenmiş olan düğme elementinin hiçbir niteliği atanmamış olduğundan, sayfaya
+			minimum boyutta eklenmektedir.
+		</p>
+		<p class ="indent">
+			Bir düğümün bir başka düğümün önüne eklenmesi için, kolay kullanılan bir fonksiyon aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-25">function</span> önüneEkle <span 
+			class="op">(</span>yeniDüğümünBellekReferansı<span 
+			class="op">,</span> bağlantıDüğümününBellekReferansı<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> ilkAta = bağlantıDüğümününBellekReferansı<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="pl-50">ilkAta</span><span 
+			class="op">.</span>insertBefore<span 
+			class="op">(</span>yeniDüğümünBellekReferansı<span 
+			class="op">,</span> bağlantıDüğümününBellekReferansı<span 
+			class="op">);
+<span class="op-25">}</span></span>
+		</pre>
+		<p class ="indent" id="b19.6.2.8-uyg-2">
+			Bu fonksiyon, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> fonksiyon
+			kitaplığına eklenmiştir. Bu fonksiyonun kullanıldığı, bir
+			<a href="../uygulamalar/b19.6.2.8-uyg-2.html">programın</a> kodları
+			aşağıda görülmektedir. Bu program, bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.2.8-uyg-2.html">uygulama sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantı <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniDüğüm</span> <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">içerik</span> <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Bu İçerik Belgeye Yeni Eklenmiştir ! '</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniElement</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>içerik<span 
+			class="op">);</span>
+			
+<span class="pl-50">önüneEkle</span><span 
+			class="op">(</span>yeniDüğüm<span 
+			class="op">,</span> bağlantı<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			W3C-DOM  yöntemlerinde 
+			<span class="keyw">insertBefore</span><span class="op">()</span>
+			metodu tanımlanmış olmasına karşın, bir düğümü bir öncekinden 
+			sonra yerleştirebilecek insertAfter<span class="op">()</span> 
+			metodu tanımlanmamıştır. Bu metodun yararlı olabileceğini belirten Jeremy Keith 
+			<span class="keyw">insertBefore</span><span class="op">()</span> 
+			metodundan yararlanarak bu metodu yazılımı yapmış ve kullanma 
+			açmıştır. Bu metot, 18.11.1.2-uyg-1 de ve başka birçok uygulamada
+			uygulanmıştır. Bu metodun yazılımı aşağıda görülmektedir :
+		</p>
+		<pre>
+<span class="keyw-25">function</span> insertAfter<span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> ata<span 
+			class="op">=</span> hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">lastChild</span> <span 
+			class="op">===</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> {
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span>hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="indent">
+			Bu fonksiyonun kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">insertAfter</span><span 
+			class="op">(</span>yeniDüğümünBellekReferansı<span 
+			class="op">,</span> bağlantıDüğümününBellekReferansı<span 
+			class="op">)</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Aynı fonksiyonun türkçe karşılığı,
+		</p>
+		<pre>
+<span class="keyw-25">ardınaEkle</span><span 
+			class="op">(</span>yeniDüğümünBellekReferansı<span 
+			class="op">,</span> bağlantıDüğümününBellekReferansı<span 
+			class="op">)</span>
+		</pre>
+		<p class ="indent">
+			şeklindedir. Her iki fonksiyon da, <a href="../uygulamalar/bdelib-src.html">bdelib</a>
+			fonksiyon kitaplığına alınmıştır.
+		</p>
+		<p class="navy" id ="replacechild"><strong>19.6.2.9-Node Arabiriminin replaceChild() Metodu</strong></p>
+		<p class ="indent">
+			Düğüm arabiriminin, <span class="keyw">replaceChild</span><span 
+			class="op">()</span> metodu, bağlantı yapılan düğümün bir alt düzey düğümünün yerine yeni 
+			düğümü yerleştirir. Eğer düğüm önceden yerleşmişse, ilkönce yerinden kaldırılır ardından eski 
+			düğüm yer değiştirir. Bu metot geriye eski düğüm noktasının bellek referansını döndürür. 
+			Burada dikkat edilmesi gereken nokta, eski düğümün özellikle <span 
+			class="att">id</span> niteliğinin de kaldırıldığı ve başka program adımlarının bu 
+			niteliğe erişim istekleri varsa ve yer değiştiren düğümde bu nitelik değeri yok veya eskisinin
+			aynı değilse, programın hata vereceğidir. Ayrıca yer değiştiren alt düzey düğümün de
+			istenilen düğüm olup olmadığı dikkatle saptanmalıdır. Bu metodun uygulanması
+			aşağıda görüldüğü gibidir: 
+		</p>
+		<pre>
+<span class="pl-25">üstDüzeyDüğüm</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>yerleştirilecekDüğümünBellekReferansı<span 
+			class="op">,</span> kaldırılacakAltDüğümünBellekReferansı<span 
+			class="op">);</span>
+		</pre>
+		<p class="indent" id="b19.6.2.9-uyg-1">
+			Bu konudaki 
+			bir <a href="../uygulamalar/b19.6.2.9-uyg-1-js.html">program</a> aşağıda görülmekte ve bağlantılı 
+			olduğu <a href="../uygulamalar/b19.6.2.9-uyg-1.html">sayfada</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> paragrafDüğümü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'ilkparagraf'</span><span
+			class="op">),</span>
+<span class="pl-50">yeniMetinDüğümü</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Yeni İçerik'</span><span
+			class="op">),</span>
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span
+			class="op">),</span>
+<span class="pl-50">ata</span> <span 
+			class="op">=</span> paragrafDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">,</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> ata<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">;</span><span class="comm-25">// tüm alt düğümler saptanıyor !</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-green'</span><span
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">,</span> <span 
+			class="str">'ilkparagraf'</span><span
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>yeniMetinDüğümü)<span
+			class="op">;</span>
+
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 1 <span 
+			class="op">&quot;&quot;</span> <span 
+			class="op">) {</span><span class="comm-25">// eğer alt  düğüm bir Text düğümü ise ....</span>
+<span class="keyw-100">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Degişimi İzleyin ! '</span><span 
+			class="op">);</span>
+<span class="pl-100">ata</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">,</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="pl-100">değişim</span> <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.9-uyg-1-js.html">program</a>, sayfada bulunan
+			bir elementin içeriği ile birlikte kaldırılarak yerine yenisinin konulması için genel amaçlı
+			bir uygulama olarak uygulanabilir.		</p>
+		<p class="navy" id ="removechild"><strong>19.6.2.10.-Node Arabiriminin removeChild() Metodu</strong></p>
+		<p class ="indent">
+			Düğüm arabiriminin, <span class="keyw">removeChild</span><span 
+			class="op">()</span> metodu, bağlantı yapılan düğümün bir alt düzey düğümünü ortadan kaldırır
+			ve bu düğümün bellek referansını döndürür. Bu konuda dikkat edilmesi gereken nokta, kaldırılan 
+			düğümün istenilen düğüm olup olmadığı ve başka program adımlarının kaldırılan düğüme erişim 
+			istekleri varsa, düğümün kaldırılmasının programda hata yaratacağıdır. Bu metodun kullanımı
+			aşağıdaki gibidir:
+		</p>
+		<pre>
+<span class="pl-25">üstDüzeyDüğüm</span><span 
+			class="op">.</span><span 
+			class="keyw">removeChild</span><span 
+			class="op">(</span>kaldırılacakAltDüğümünBellekReferansı<span 
+			class="op">);</span>
+		</pre>
+		<p class="indent" id="b19.6.2.10-uyg-1">
+			Bu metot geriye, kaldırılan düğümün bellek referansını döndürür. Aşağıda kodları
+			görülmekte olan <a href="../uygulamalar/b19.6.2.10-uyg-1-js.html">program</a>,
+			bir paragraf düğümünün içeriği (alt düğümü) olan bir metin düğümünü kaldırma ve 
+			yerine başka bir metin düğümünü yerleştirmektedir. Bu program, bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.2.10-uyg-1.html">web sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> yeniMetinDüğümü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Yeni İçerik'</span><span
+			class="op">),</span>
+<span class="pl-50">paragrafDüğümü</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'ilkparagraf'</span><span
+			class="op">),</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> paragrafDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">,</span><span class="comm-25">// tüm alt düğümler saptanıyor !</span>
+<span class="pl-50">değişim</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Düğüm Tipi : '</span> <span 
+			class="op">+</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span> <span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span><span 
+			class="op">);</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 3<span 
+			class="op">) {</span><span class="comm-25">// eğer alt  düğüm bir Text düğümü ise ....</span>
+<span class="pl-100">paragrafDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">removeChild</span><span 
+			class="op">(</span>altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">));</span>
+<span class="pl-100">değişim</span> <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>değişim<span 
+			class="op">) {</span>
+<span class="pl-75">paragrafDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniMetinDüğümü<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.2.10-uyg-1-js.html">program</a>, değişimin
+			izlenebilmesi için bir <span class="keyw">alert</span><span class="op">()</span>
+			kutusu içermektedir. Bu <a href="../uygulamalar/b19.6.2.10-uyg-1-js.html">programın</a>
+			çalışmasından, paragraf düğümünün sadece bir tek metin alt düğümü içerdiği 
+			görülmektedir. Metin içerebilen elementler sadece bir tek metin alt düğümü
+			içerebilirler. Bu <a href="../uygulamalar/b19.6.2.10-uyg-1-js.html">programdan</a>
+			metin içeriği değiştirilecek her durum için genel amaçlı olarak yararlanılabilir.		</p>
+		<p class="navy" id="appendchild"><strong>19.6.2.11 - Node Arabiriminin appendChild() Metodu</strong></p>
+		<p class ="indent">
+			Generik düğüm metotlarından birisi, olşturulmuş bir düğümün belge ağacına monte
+			edilmesine olanak sağlayan <span class="keyw">appendChild</span><span 
+			class="op">()</span> metodudur. Bu metodun kullanımı aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="pl-25">düğümBellekReferansı</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniDüğümBellekReferansı<span 
+			class="op">);</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Bu metot, yeni düğümü belirtilen düğümün alt düğüm listesinin en 
+			sonuna ekler. Eğer eklenecek düğüm zaten önceden bu alt düğüm listesine ekli 
+			ise, önce listedeki yerinden çıkarılır, sonra listenin sonuna eklenir. Eğer yeni eklenecek düğüm, 
+			bir <span class="keyw">documentFragment</span> düğümü ise, tüm belge parçacığı, eski 
+			düğümün alt düğümlerinin listesinin sonuna eklenir.
+		</p>
+		<p class ="indent" id="b19.6.2.11-uyg-1">
+			Eski bir düğümün alt düğüm listesinin sonuna yeni bir düğümün eklenmesinin,
+			<span class="keyw"> appendChild</span><span class="op">()</span> yöntemi ile
+			gerçekleştirildiği bir <a href="../uygulamalar/b19.6.2.11-uyg-1.html">programın</a> kodları
+			aşağıda görülmektedir. Bu program, bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.2.11-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> düğümEkle<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantı <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniDüğüm</span> <span 
+			class="op">=</span><span 
+			class="keyw"> document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'button'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">bağlantı</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniDüğüm<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>düğümEkle<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id="haschildnodes"><strong>19.6.2.12 - Node Arabiriminin hasChildNodes() Metodu</strong></p>
+		<p class ="indent" id ="b19.6.2.12-uyg-1">
+			Bir düğüm sınıfı nesne örneğinin, alt sınıftan nesneleri olup olmadığının belirlenmesi
+			için <span class="keyw">hasChildNodes</span><span class="op">()</span> metodu
+			kullanılabilir. Bu metodun uygulandığı bir
+		<a href="../uygulamalar/b19.6.2.12-uyg-1-js.html">programın kodları</a> aşağıda
+		görülmekte ve bu program, bağlantılı olduğu
+		<a href="../uygulamalar/b19.6.2.12-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">hasChildNodes</span><span 
+			class="op">()) {</span>
+<span class="pl-75">altDüğümler</span> <span 
+			class="op">=</span> <span 
+			class="str">'İncelenen Düğümün Alt Düğümleri Var !'</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+<span class="pl-75">altDüğümler</span> <span 
+			class="op">=</span> <span 
+			class="str">'İncelenen Düğümün Alt Düğümleri Yok !'</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>altDüğümler<span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu <a href="../uygulamalar/b19.6.2.12-uyg-1-js.html">programın</a> sonucunda, incelenen
+			<span class="att">id</span> nitelik değeri  <span class="str">'hedef'</span> olan,
+			<span class="keyw">Element</span> tipi Düğüm nesne örneğinin alt düzey düğümleri 
+			olduğu saptanmıştır. Bu sonuç doğaldır, çünkü bu <span class="keyw">Element</span> 
+			tipi Düğüm nesne örneğinin, bir içeriği yani, alt düzey bir <span class="keyw">Text</span>
+			tipi bir düğüm nesne sınıfı örneği bulunmaktadır.		</p>
+		<p class="navy" id="clonenode"><strong>19.6.2.13 - Node Arabiriminin cloneNode() Metodu</strong></p>
+		<p class ="indent">
+			Düğüm sınıfı arabiriminin <span class="keyw">cloneNode</span><span 
+			class="op">()</span> metodu bu düğümün bir kopyasını çıkarır ve kopyanın bellek
+			referansını döndürür. Duplikat düğümün ebeveyn düğümü olmadığı için,
+			<span class="keyw">paentNode</span> özelliğinin değeri <span class="keyw">null</span> dur.
+		</p>
+		<p class ="indent">
+			Bir element düğümünün kopyalanması eğer metodu kullanırken <span class="keyw">deep</span>
+			parametresi kullanılmazsa, eleman düğmünün bir alt düğümü olan içerik metin düğümünü kopyalamaz. 
+			Bir düğümün alt düğümleri ancak derin kopyalama yöntemi ile kopyalanabilir. 
+		</p>
+		<p class ="indent" id="b19.6.2.13-uyg-1">
+			Bir düğümün  <span class="keyw">cloneNode</span><span 
+			class="op">()</span> metodu ile kopyalanması için aşağıdaki 
+			<a href="../uygulamalar/b19.6.2.13-uyg-1-js.html">programda</a> yöntem uygulanabilir. 
+			Bu program bağlantılı olduğu <a href="../uygulamalar/b19.6.2.13-uyg-1.html">sayfada</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniDüğüm</span> <span 
+			class="op">=</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">cloneNode</span><span 
+			class="op">(</span><span 
+			class="keyw">true</span><span 
+			class="op">);</span>
+
+<span class="pl-50">refDüğüm</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniDüğüm<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b19.6.1-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b19.6.3-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.2-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:56 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

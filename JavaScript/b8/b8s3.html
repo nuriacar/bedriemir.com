@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:13 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b8s3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b8s2.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b8s4.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 3
+		</p>
+<p class="subheading" id="proto-slice">8.2.10- slice() Metodu</p>
+		<p class="indent">
+			Dizilere uygulanan <span class="keyw">slice</span><span 
+			class="op">()</span>	(dilimleme) metodu, bir diziden birbirine bitişik
+			belirli elemanları kopyalar. <span class="keyw">slice</span><span 
+			class="op">()</span> (dilimleme) Metodu, dizileri değer olarak kopyalar.
+			Orijinal dizi, kopyalama işleminden etkilenmez. Oluşan dizi orijinalden
+			bağımsızdır ve kopyalanan dizide yapılacak değişiklikler orijinal diziyi
+			 etkilemez. Bu metot, sadece sayısal indisli elemanları gözönüne alır.
+			 Sözel indisli özellikler, <span class="keyw">slice</span><span 
+			class="op">()</span> metodu ile kopyalanmaz. Bu nedenle, birr dizinin tam
+			 bağımsız yedeğini almak yani, bir diziyi tam olarak değerle kopyalamak
+			 için, 
+			<span class="keyw">slice</span><span class="op">()</span> metodu 
+			kullanılamaz. Bunun için daha önce <a href="b8s1.html#dizikopya">8.2</a>
+			bahsinde açıklanmış olan diziKopyala<span 	class="op">()</span> 
+			programı kullanılmalıdır. 
+		</p>
+		<p class="indent">
+			Bu metodun sözdizimi,
+		</p>
+		<p class="indent">
+			<span class="str"><em>dizi</em></span><span 
+			class="op"><em>.</em></span><span 
+			class="keyw">slice</span><em><span 
+			class="op">(</span><span class="comm">başlangıç</span><span 
+			class="op">,</span> <span class="comm">[son]</span><span 
+			class="op">);</span></em>
+		</p>
+				<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			Burada,
+		</p>
+		<p class="indent">
+			<span class="str"><em>dizi</em></span> : Bir dizi (Dizi nesne sınıfının 
+			bir örneği) <span class="str">(Gerekli)</span>
+		</p>
+		<p class="indent">
+			<span class="comm"><em>başlangıç</em></span>
+			<em>:</em> Kopyalamanın kendisinden sonra başlanacağı elemanın sıra numarası 
+			(dizinin ilk elemanın indisi sıfır olduğu düşünülerek)	<span class="str">(Gerekli)</span>
+		</p>
+		<p class="indent">
+			<span class="comm"><em>son : </em></span> Kopyalamanın kendisinden önce
+			tamamlanacağı elemanın sıra numarası (dizinin ilk elemanın indisi sıfır olduğu düşünülerek).
+			<span class="str">(İsteğe Bağlı)</span>
+		</p>
+		<p class="nonindent">
+			olarak belirlenmiştir.
+		</p>
+		<p class="indent">
+			Eğer <span class="keyw">slice</span><span 	class="op">()</span> metodununda 
+			son eleman belirtilmemişse, kopyalama, belirtilen başlangıç değerinden başlayarak, 
+			dizinin sonuna kadar, tüm elemanları, kapsar.
+		</p>
+		<p class="indent">
+			Eğer, kopyalanacak başlangıç elemanına 
+			erişilemeden dizinin sonuna gelinirse, ikinci
+			diziye hiç bir eleman kopyalanmaz.
+		</p>
+		<p class="indent">
+			Kopya dizi, başlangıç olarak belirtilen indisli
+			eleman ile son olarak belirtilen indisli elemanlar
+			hariç arada kalan tüm elemanları içerecektir.
+		</p>
+		<p class="nonindent">
+		Genel bir hatırlatma formülü :
+		</p>
+		<p class="indent">
+			<span class="str"><em>dizi</em></span><span 
+			class="op"><em>.</em></span><span 
+			class="keyw">slice</span><em><span 
+			class="op">(</span><span class="comm">n<sub>B</sub></span><span 
+			class="op">,</span> <span class="comm">[n<sub>S</sub>]</span><span 
+			class="op">);</span></em>
+		</p>
+		<p class="nonindent">
+			<span class="red">n<sub>B</sub></span>Kopya başlangıç noktası, 
+			kopyalanacak ilk eleman = <span class="red">dizi[n<sub>B</sub>]</span> dir.
+		</p>
+		<p class="nonindent">
+			<span class="red">n<sub>S</sub></span>Kopya son noktası, 
+			varsa kopyalanacak son eleman = <span 
+			class="red">dizi[n<sub>S</sub>-1]</span> dir
+			(n<sub>B </sub>, n<sub>S</sub>-1 kuralı), yoksa dizinin son sayısal indisli
+			elemanına kadar kopyalanır.
+		</p>
+		<p class="nonindent">
+			Eğer n<sub>s</sub> belirtilmişse, sonuç :
+		</p>
+		<p class="nonindent">
+			<span class="cursive-green">Kopyalanan Dizi : </span><span class="pl-10"></span><span 
+			class="cursive-red">|dizi[n<sub>B</sub>]...dizi[n<sub>S</sub>-1]|</span>
+		</p>
+		<p class="nonindent">
+			olacaktır. 
+		</p>
+		<p class="indent" id="b8.2.10-uyg-1">
+		Dizilerin, bir kısmının <span class="keyw">slice</span><span class="op">()</span>metodu
+		ile kopyalanması için bir uygulamanın 
+		<a href="../uygulamalar/b8.2.10-uyg-1-js.html">JavaScript</a> kodları aşağıda
+		görülmektedir: 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib-style.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> aralıkKopya()<span 
+			class="op"> {
+
+</span><span class="keyw-50">var</span> F <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Element 1'</span><span 
+			class="op">,</span> <span 
+			class="str">'Element 2'</span><span 
+			class="op">,</span> <span 
+			class="str">'Element 3'</span><span 
+			class="op">,</span> <span 
+			class="str">'Element 4'</span><span 
+			class="op">,</span> <span 
+			class="str">'Element 5'<span 
+			class="op">,</span> 'Element 6'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var </span>B <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span>5<span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>F<span 
+			class="op">,</span> <span 
+			class="str">' | '</span><span 
+			class="op">,</span> <span 
+			class="str">''b8.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">B <span 
+			class="op">=</span> F</span><span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>2<span 
+			class="op">,</span> 4<span 
+			class="op">);</span>
+
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>B<span 
+			class="op">,</span> <span 
+			class="str">' | '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.10-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">diziYaz</span>F<span 
+			class="op">(</span>F<span 
+			class="op">,</span><span 
+			class="str">' | '</span><span 
+			class="op">,</span><span 
+			class="str">'b8.2.10-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>aralıkKopya<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			Bu <a href="../uygulamalar/b8.2.10-uyg-1.html">uygulamanın</a> sonuçları 
+			aşağıda görülmektedir :
+		</p>
+		<p class="cursive-green">
+			(Orijinal Dizi) F : <span class="cursive-red" id="b8.2.10-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="cursive-blue">
+			B = F.slice(2, 4);
+		</p>
+		<p class="cursive-green">
+			(Oluşan Dizi) B : <span class="cursive-red" id="b8.2.10-uyg-1-sonuç-2"></span>
+		</p>
+		<p class="cursive-blue">
+			B[1] = 99;
+		</p>
+		<p class="cursive-green">
+			(Oluşan Dizinin Güncellenmesi) B : <span class="cursive-red" id="b8.2.10-uyg-1-sonuç-3"></span>
+		</p>
+		<p class="cursive-green">
+			(Kalan Dizi) F : <span class="cursive-red" id="b8.2.10-uyg-1-sonuç-4"></span>
+		</p>
+		<p class="cursive-maroon">
+			Oluşan Dizi, Orijinal F Dizisinin Kopyalanmış Elemanlarından Oluşuyor ! 
+		</p>
+		<p class="cursive-maroon">
+			Orijinal Dizi, Kopyalama İşleminden Etkilenmiyor !
+		</p>
+		<p class="cursive-maroon">
+			Oluşan Dizide Değişiklik , Orijinal Diziyi Etkilemiyor !
+		(Değerle Kopyalama) </p>
+		<p class="nonindent">
+			Altın kuralı tekrar edelim:
+		</p>
+		<p class="nonindent">
+			<span class="str"><em>Kopyalanacak Elemanlar : 
+			(Başlangıç İndisli eleman Dahil, [Son-1] İndisli Eleman dahil, 
+			Tüm Aradaki Elemanlar) (n<sub>B</sub> , n<sub>S</sub>-1 Kuralı)</em></span>		</p>
+		<p class="nonindent">
+			Bu <a href="../uygulamalar/b8.2.10-uyg-1.html">uygulamanın</a> sonuçları,
+			aşağıdaki şemaya bakılınca, daha iyi anlaşılabilir:
+		</p>
+		<p class="nonindent">
+			<img alt="slice() Metodu" src ="../images/b8s3-img1.png" width=852 height=368 />		</p>
+		<p class="nonindent">
+			6 Elemanlı bir F dizisi, F.slice<span class="op">(</span>2<span
+			 class="op">,</span> 4<span class="op">)</span> şeklinde
+			kopyalandığında(F<span 	class="op">[</span>2<span class="op">]</span> dahil,
+			F<span 	class="op">[</span>4-1<span class="op">]</span> yani F<span 
+			class="op">[</span>3<span class="op">]</span> dahil, tüm aradaki
+			elemanlar diye okunabilir), kopyalanmış dizide, sadece 3 üncü ve 4 üncü
+			elemanlar, F<span 	class="op">[</span>2<span class="op">]</span> ve
+			F<span class="op">[</span>3<span class="op">]</span> bulunacaktır. 
+		</p>
+		<p class="indent">
+			Bazı bildirimler, bir kalıp gibi, programcıların belleğinde yer almalıdır. 
+			Örnek olarak,
+		</p>
+		<pre>
+<span class="pl-50">b</span> <span 
+			class="op">=</span> a<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>0<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			bildirimi, a dizisinin tüm sayısal indisli elemanlarını b dizisine kopyalayacaktır. 
+			Burada son kopyalanacak eleman n<sub>S</sub> belirtilmediğinden, 
+			kopyalama dizinin son elemanına kadar sürecektir. Kopyalamanın başlayacağı
+			n<sub>B</sub> değeri, dizinin ilk elemanı olan a<span 
+			class="op">[</span>0<span class="op">]</span> elemanın belirttiği için,
+			dizinin tüm sayısal indisli elemanları, b dizisine kopyalanacaktır. Kopyalama değerle
+			gerçekleşeceğinden, b dizisine, a dizisinin tüm tüm sayısal indisli elemanlarının
+			orijinal diziden bağımsız kopyaları yerleştirilecektir. Fakat b dizisine, a dizi nesnesi 
+			örneğinin hiçbir özel sözel indisli özelliği kopyalanmayacağından, bu kopyalama tam bir 
+			dizi yedeklemesi sayılmaz. Amaç dizi yedeklemesi ise, başka yöntemler kullanılmalıdır.
+		</p>
+		<pre>
+<span class="pl-50">b</span> <span 
+			class="op">=</span> a<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>1<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Bu bildirim, a dizisinin ilk elemanı dışında, tüm elemanlarını b dizisine
+				yedekleyeyecektir. Bazı durumlarda, dizilerin ilk elemanına dizinin içeriğini
+				tanıtıcı bir metin yerleştirilir. Bu bildirim ile, dizilerin homojen
+				(türdeş) elemanları tanıtıcı elemandan ayrılarak, tüm elemanları türdeş
+				olacak bir diziye yerleştirilmektedir.
+		</p>
+		<pre>
+<span class="pl-50">b</span> <span 
+			class="op">=</span> a<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>0<span 
+			class="op">, </span> a<span 
+			class="op">.</span><span class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Bu bildirim, a dizisinin son elemanı dışında, tüm elemanlarını b dizisine
+				yedekleyeyecektir. Bazı durumlarda, dizilerin son elemanına dizinin içeriğini
+				tanıtıcı bir metin yerleştirilir. Bu bildirim ile, dizilerin homojen
+				(türdeş) elemanları tanıtıcı elemandan ayrılarak, tüm elemanları
+				türdeş olacak bir diziye yerleştirilmektedir.
+		</p>
+		<p class="indent">
+			<span class="keyw">slice<span 
+			class="op">()</span> </span> Metodunun uygulanmasında, 
+			kullanım kolaylığı açısından negatif indisler de 
+			kullanılabilir. JavaScript yorumlayıcısı, negatif bir indisi,
+			dizinin dizi uzunluğuna eşit olarak negatif yöne 
+			kaymış olduğu varsayımı ile, negatif indise dizi 
+			uzunluğunu ekleyip normalleştirerek yorumlar. Eksen 
+			orijinin kayması, aşağıdaki şemadan daha kolay izlenebilecektir:
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/b8s3-img-2.png" alt="bias" width="1264" height="508" />		</p>
+		<p class="nonindent">
+			Bu şemada büyük eksenler, kartezyen eksenler olarak adlandırılan birbirine
+			dik eksen sistemidir. Analitik geometride aynı eksen sisteminden yararlanılır.
+			Burada incelediğimiz diziler tek boyutlu olduklarından skaler büyüklüklerdir ve sadece
+			absis ekseni üzerinde yer alırlar, ordinat ekseni burda işlevsizdir. Dizi elemanları fiziksel
+			büyüklüklerdir ve sadece kartezyen eksenin pozitif tarafında bulunurlar. 
+		</p>
+		<p class="indent">
+			Dizinin orijini ile, kartezyen eksenin orijini çakışık oldukları sürece, 
+			dizi indisleri, kartezyen absislerle çakışık durumdadır. Dizi indisleri daima pozitif
+			değerler alırlar ve indis değerleri, kartezyen eksende konumlarının bir ölçütüdür. 
+		</p>
+		<p class="indent">
+			Bazı durumlarda ise bir algılama hatası belirir. Bu hata, dizi eksenin orijinini,
+			kartezyen eksenin negatif bir noktasına kadar kaymış olarak algılatır. Aslında, 
+			gerçekte bir kayma yoktur. Gerçekleşen bir algılama hatasıdır. Bu hata her zaman aynı 
+			miktarda kayam algılattığı için, buna sistematik hata, kayma (bias) gibi adlar verilir. Sistematik
+			hataları ölçme aletlerinin kalibrasyon eksikliği, algılama eksiklikleri, hesaplama kaymaları gibi nedenler
+			ortaya çıkarabilir. Sistematik hata gerçek değil bir hesap kayması olduğundan, bu sistematik hataların 
+			düzeltilmesi, yani algılamanın normalleştirilmesi (normalizasyon) sistematik bir algoritmanın uygulanması
+			ile gerçekleştirilebilir. Sistematik hata basit ise, düzeltim faktörü de basit bir algoritma olacaktır.
+		</p>
+		<p class="indent">
+			Burada, dizinin koordinat eksenin orijini, kartezyen koordinatlarının orijinine
+				göre, eleman  uzunluğu kadar negatif yöne kaymış olarak algılanmakta olduğu
+				kabul edilir. Bu durumda, kartezyen  absise göre x<sub>gerçek</sub> <span 	class="op">=</span> 1
+				olması gereken değer, dizi uzunluğu  kadar bir sağa kayma ile algılandığı
+				varsayıldığından, x<sub>görünen</sub>= x<sub>gerçek</sub> - eleman sayısı
+				 şeklinde algılanır. Bu sistematik hatanın normalizasyonu ise, algılama kaymasını
+				giderecek  x<sub>gerçek</sub> <span class="op">=</span> x<sub>görünen</sub> <span 
+			class="op">+</span> sabit düzeltim terimi, burada, x<sub>gerçek</sub> <span 
+			class="op">=</span> x<sub>görünen</sub> <span class="op">+</span> eleman sayısı,
+				yani  x<sub>gerçek</sub> <span class="op">=</span> x<sub>görünen</sub> <span class="op">+</span>
+			dizi<span class="op">.</span><span class="keyw">length</span> ifadesidir.
+		</p>
+		<p class="indent">
+			Yukarıdaki şemaya bakıldığında, küçük eksen sistemi ile göterilmiş olan dizi koordinat sisteminde 
+			gerçek bir değişimin yaşanmadığı, elemanların dizi orijinine göre göreli pozisyonlarının aynı olduğu, 
+			yine tüm elemanların, dizi ekseninin pozitif tarafında yerleşik oldukları görülür. Sadece bir algılama kayması ile 
+			mutlak değerler kayma yapmaktadır, yoksa göreli değerler değişmeden kalmıştır. Algılama hatası giderildiğinde,
+			yani değerler normalize edildiğinde eskisi gibi, dizi koordinat ekseni ile kartezyen koordinat ekseni 
+			çakışık hale gelecek ve gerçek ile görünen absis değerleri, yani dizi indisleri eskisi gibi birbirinin aynı olacaktır.
+		</p>
+		<p class="indent">
+			Aslında, bir koordinat ekseninde kayıklık görülürse, tüm element indisleri kayık olmalıdır. Fakat, ilgiç olarak,
+			JavaScript yorumlayıcısı <span class="keyw">slice</span><span class="op">()</span> metodunun argümanlarının
+			her ikisinin de ayrı ayrı, ister gerçek ister kayık koordinatlarla ifade edilebilmesine olanak sağlamaktadır. Yine de 
+			dikkatli olunmalı, dizinin gerçek olarak küçükten büyüğe doğru yerleştirildiğini gözönüne almalı ve dilimleme 
+			aralığı gerçek koordinatlarla veya gerçek koordinat karşılıkları ile tutarlı olarak belirtilmelidir.
+		</p>
+		<p class="indent">
+			Negatif koordinatlarla çalışmak pek akıllıca sayılmaz, çünkü insanlar negatif
+				koordinatları hesaplamak için,
+		</p>
+		<p class="indent">
+				x<sub>görünen</sub> <span class="op">=</span> x<sub>gerçek</sub> <span class="op">-</span> dizi<span 
+			class="op">.</span><span class="keyw">length</span>
+		</p>
+		<p class="nonindent">
+					hesaplamasını yaparken, bu koordinatları alan JavaScript yorumlayıcısının
+			yaptığı ilk iş, bu koordinatları, 
+		</p>
+		<p class="indent">
+			x<sub>gerçek</sub> <span class="op">=</span> x<sub>görünen</sub> <span class="op">+</span> dizi<span 
+			class="op">.</span><span class="keyw">length</span>
+		</p>
+		<p class="nonindent">
+			şeklinde normalize etmektir.
+		</p>
+		<p class="indent" id="b8.2.10-uyg-2">
+			Aşağıda, negatif indislerin kullanıldığı bir dizi dilimleme 
+			<a href="../uygulamalar/b8.2.10-uyg-2.html">örneğinin</a>
+			uygulama sonuçları ve
+			<a href="../uygulamalar/b8.2.10-uyg-2-js.html">JavaScript programı</a>
+			görülmektedir
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib-style.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> diziYenile<span class="op">() {</span>
+
+<span class="keyw-50">var</span> tk <span 
+			class="op">=</span> <span 
+			class="keyw">new Array(</span>20<span 
+			class="keyw">)</span><span 
+			class="op">,</span>
+<span class="pl-50">tk</span><span 
+			class="op">[</span>0<span 
+			class="op">] =</span> -20<span 
+			class="op">;</span>  
+<span class="pl-50">tk</span><span 
+			class="op">[</span>1<span 
+			class="op">] =</span> -19<span 
+			class="op">;
+</span><span class="pl-50">tk</span><span 
+			class="op">[</span>2<span 
+			class="op">] =</span><span 
+			class="str">'Cessna'</span><span 
+			class="op">;
+</span><span class="pl-50">tk</span><span 
+			class="op">[</span>3<span 
+			class="op">] =</span> -17<span 
+			class="op">;
+</span><span class="pl-50">tk</span><span 
+			class="op">[</span>4<span 
+			class="op">] =</span> -16<span 
+			class="op">;
+</span><span class="pl-50">tk</span><span 
+			class="op">[</span>5<span 
+			class="op">] =</span> <span 
+			class="str">'Beechcraft'</span><span 
+			class="op">;</span>
+<span class="pl-50"></span>tk<span 
+			class="op">[</span>6<span 
+			class="op">] =</span> -14<span 
+			class="op">;
+</span><span class="pl-50">tk</span><span 
+			class="op">[</span>7<span 
+			class="op">] =</span> <span 
+			class="str">'Fokker'</span><span 
+			class="op">;</span>
+<span class="pl-50">tk</span><span 
+			class="op">[</span>8<span 
+			class="op">] =</span> -12<span 
+			class="op">;</span>
+
+<span class="pl-50">diziYaz</span>(tk <span 
+			class="op">,</span><span 
+			class="str"> ' | '</span> <span 
+			class="op">,</span> <span 
+			class="str">'b8.2.10-uyg-2-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">yedek</span><span 
+			class="op">=</span> tk<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span class="op">(</span>0<span 
+			class="op">);</span><span 
+			class="comm-50">// tk Dizisi Yedekleniyor !</span>
+
+<span class="pl-50">tk</span><span 
+			class="op">=</span>tk<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span class="op">(-</span>18<span 
+			class="op">, -</span>12<span class="op">);</span><span 
+			class="comm-50">// Rekürsif Kopyalama ! (20-18, 20-12) = (2, 8) orijinal tk dizisi kayboldu, ama yedeği var !</span>
+
+<span class="pl-50">diziYaz</span>(tk <span 
+			class="op">, </span><span 
+			class="str">' | '</span> <span 
+			class="op">,</span> <span 
+			class="str">'b8.2.10-uyg-2-sonuç-2'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">tk <span 
+			class="op">= </span>yedek</span><span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span class="op">(</span>0<span class="op">);</span><span 
+			class="comm-50">// Orijinal tk Dizisinin Yeniden Oluşturulması !</span>
+
+<span class="pl-50">tk</span><span 
+			class="op"> = </span>tk<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span class="op">(</span>2<span class="op">,</span> 8<span 
+			class="op">);</span><span class="comm-50">// Normaiize Koordinatların Sınanması !</span>
+
+
+<span class="pl-50">diziYaz</span><span class="op">(</span>tk <span 
+			class="op">, </span><span 
+			class="str">' | '</span> <span 
+			class="op">,</span> <span 
+			class="str">'b8.2.10-uyg-2-sonuç-3'</span><span class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(diziYenile)</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			Sonuç :
+		</p>
+		<p class="cursive-green">
+			Orijinal tk Dizisi : <span class="cursive-red" id="b8.2.10-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="cursive-blue">
+			yedek = tk.slice(0); (Orijinal Dizi Yedekleniyor) <br />
+			tk = tk.slice(-18, -12); (Rekürsif Kopyalama)
+		</p>
+		<p class="cursive-green">
+			Güncellenmiş tk Dizisi : <span class="cursive-red" id="b8.2.10-uyg-2-sonuç-2"></span>
+		</p>
+		<p class="cursive-blue"> Normalize Koordinatlarla : <br />
+			tk = yedek.slice(0); (Orjinal tk Dizisi Yeniden Oluşturuluyor) <br />
+			/* tk = tk.slice((-18 + tk.length), (-12 + tk.length)); (Koordinat Normalizasyonu
+			ile Rekürsif Kopyalama) <br />
+			tk = tk.slice((-18 + 20), (-12 + 20)); (Eşdeğer İfade) */ <br />
+			tk <span class="op">=</span> tk<span class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>2, 8<span 
+			class="op">);</span> <span class="comm-50">// (Eşdeğer İfade)</span>
+		</p>
+		<p class="cursive-green">
+			Güncellenmiş tk Dizisi : <span class="cursive-red" id="b8.2.10-uyg-2-sonuç-3"></span>
+		</p>
+		<p class="cursive-maroon">
+			Negatif ve Normalize Koordinatlar Eşdeğerdir !
+		</p>
+		<p class="nonindent">
+			<strong>Bu kodların yorumlanması :</strong> Dizi 20
+			elemanlı olarak tanımlanmıştır. <span class="keyw">slice</span> <span 
+			class="op">()</span>Metodunda, ilk elemanın 
+			indisi -18 olarak belirtilmiştir. JavaScript yorumlayıcısı, 
+			bu negatif indisi, -18 + 20 = +2 olarak normalleştirecektir.
+			İkinci indis, -12 olarak verilmiştir, (negatif sayılarda -12, 
+			sıfıra daha yakın olduğundan, -18 den büyüktür), JavaScript 
+			yorumlayıcısı, bu negatif indisi de, -12 + 20 = +8 olarak 
+			normalleştirecektir. Bu durumda, 
+		</p>
+		<pre>
+<span class="keyw-25">slice</span><span 
+			class="op">(</span>-18, -12<span class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi,
+		</p>
+		<pre>
+<span class="keyw-25">slice</span><span 
+			class="op">(</span>2, 8<span class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			olarak yorumlanacaktır. Sonuçta, dizideki indisi 2 
+			olan üçüncü eleman (<span class="str">'Cessna'</span>) dahil, indisi 7 olan
+			sekizinci eleman (<span class="str">'Fokker'</span>) dahil, aradaki tüm elemanlar
+			kopyalanacaktır. Negatif ve normalleştirilmiş indisler aynı sonucu vermektedir.		</p>
+		<p class="indent">
+			Yukarıda görülen programın bir özelliği, kopyalanan
+			dizinin rekürsif olarak orijinal diziye atanmasıdır.
+			Aslında kopyalama orijinal dizi içeriğini etkilemez.
+			Bu durumda ise, kopyalanan dizi, yeniden orijinal diziye
+			atanmış olduğundan bir tahrip edici atama
+			gerçekleşmiş ve orijinal dizinin içeriği kaybolarak
+			yerine kopyalanan dizinin içeriği geçmiştir
+		</p>
+		<p class="indent">
+			Negatif başlangıç ve bitiş noktalarının yararları olabilir. 
+			Aşağıdaki :
+		</p>
+		<pre>
+<span class="pl-25">Ekip2 <span class="op">=</span> Ekip1</span><span 
+			class="op">.</span><span class="keyw">slice</span><span 
+			class="op">(</span>0 <span 
+			class="op">, -</span>1<span 
+			class="op">);</span></pre>
+		<p class="nonindent">
+			kopyalama işlemi, Ekip1 dizisinin son elemanı hariç, tüm elemanlarını 
+			Ekip2 dizisine kopyalayacaktır. Bu işlemin açıklaması, kayma 
+			dengelemesinde yatar. Dizinin Başlangıç noktası ilk elemanın indisine eşittir. Bu
+				değer 0 olduğundan, ilk eleman kopyalanacaktır. Son nokta -1 olarak belirtilmiştir.
+				Kayma dengelenmesi için, bu değere, dizi uzunluğu +L eklenmesi ile, son
+				nokta L-1 olur. Bu durumda, kopyalama bildirimi,
+		</p>
+		<pre><span class="pl-25">Ekip2 <span class="op">=</span> Ekip1</span><span 
+			class="op">.</span><span class="keyw">slice</span><span 
+			class="op">(</span>0<span 
+			class="op">,</span> Ekip1<span 
+			class="op">.</span><span class="keyw">length</span> <span 
+			class="op">-</span>1<span 
+			class="op">);</span></pre>
+		<p class="nonindent">
+			haline gelir. [Ekip1.length - 1], Ekip1 dizisinin son elemanının indisidir.
+				Kopyalama,  Ekip1[0] elemanından başlayarak Ekip1[Ekip1.length-1] elemanı,
+				yani dizinin  son elemanından bir önceki elemanı dahil devam edecek,
+				fakat dizinin son elemanı kopyalama dışında kalarak, Ekip2 dizisi elemanları
+				içinde bulunmayacaktır. Başka	bir dilimleme,
+		</p>
+				<pre>
+<span class="pl-25">Ekip2 <span class="op">=</span> Ekip1</span><span 
+			class="op">.</span><span class="keyw">slice</span><span 
+			class="op">(</span> <span 
+			class="op">-</span> 1<span 
+			class="op">);</span></pre>
+		<p class="nonindent">
+			ifadesi, Ekip1 dizisinin,
+		</p>
+				<pre>
+<span class="pl-25">Ekip2 <span class="op">=</span> Ekip1</span><span 
+			class="op">.</span><span class="keyw">slice</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">.</span><span class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">);</span></pre>
+		<p class="nonindent">
+			eşdeğer normalleştirilmiş koordinatla yapılan bildirimin belirttiği gibi, son elemanını
+			ekip2 dizisine kopyalayacaktır.
+		</p>
+		<p class="subheading" id="proto-sort">8.2.11  -  sort() (Sıralama) Metodu</p>
+		<p class="indent">
+			<span class="keyw">sort<span 
+			class="op">()</span> </span>Metodu bir dizinin elemanlarını sıralama amaçlı 
+			bir metottur. Kullanımı,
+		</p>
+		<pre>
+<span class="str-25"><em>dizi</em></span><span class="op">.</span><span 
+			class="keyw">sort</span><span class="op">(</span><span 
+			class="comm"><em>karşılaştırma fonksiyonu</em></span><span 	class="op">);</span>
+</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="nonindent">
+			<span class="str"><em>dizi</em></span>
+			: Tanımlı bir dizi.
+		</p>
+		<p class="nonindent">
+			<span class="comm"><em>karşılaştırmafonksiyonu</em></span> : Kullanıcı tarafından
+			yazılmış bir sıralama fonksiyonudur. Bu fonksiyonun,
+		</p>
+		<ul class="list">
+		<li>
+			Birinci argüman ikinci argümandan küçük ise, negatif bir değeri, 
+		</li>
+		<li>
+			ikisi birbirine eşitse sıfır değerini, 
+		</li>
+		<li>
+			Birinci argüman ikinci argümandan büyük ise, pozitif bir değeri, 
+		</li>
+		</ul>
+				<p class="nonindent">
+			geri döndürmesi gerekmektedir.
+		</p>
+		<p class="indent">
+			Kullanıcı tarafından yazılması gereken karşılaştırma fonksiyonu olmadığı
+			veya  karşılaştırma fonksiyonu spesifikasyona uymadığı durumlarda, işlemin
+			sonucu spesifikasyonda belirtilmemiş ve JavaScript yorumlayıcılarını yazanların inisyatifine
+			bırakılmıştır. Genel olarak,<span class="keyw">sort</span><span class="op">()</span>
+			metodu argümansız olarak kullanılırsa, sadece argümanlarının değeri sözel olan dizileri
+			tutarlı olarak sıralayabilecekir. Çünkü, bu metot, eleman değerlerini önce, karakter dizgisi tipine
+			çevirmekte ve sonra sıralamaktadır. Sayısal değerlerin karakter dizgisi olarak 
+			sıralanması yanlış sayısal sıralamaya neden olacaktır. 
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısının destekleklediği, kullanıcı
+			tarafından yazılması gereken sıralama fonksiyonu için
+			gereken yazılım açık ve basittir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> sayısalSıralama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> a <span class="op">-</span> b<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+				<p class="nonindent">
+			Bu fonksiyon tüm elemanları sayısal veya sayıya 
+			çevrilebilir nitelikte karakter dizgisi (string) olan 
+			dizlerde uygulanabilmekte ve kesin sonuçlar vermektedir.
+		</p>
+		<p class="indent">
+			Elemanları sayısal veya sözel olabilecek tüm dizilerde evrensel 
+			olarak kullanılabilecek sıralama yöntemleri için kullanıcıların geliştireceği 
+			programlar daha yararlı olabilecektir.
+		</p>
+		<p class="indent">
+			Sıralama programları, bilgisayar bilimlerinde çok çalışılmış ve çok iyi
+			yöntemler geliştirilmiş olan bir konudur. Bu konuda en basit 
+			örneklerden birisi kabarcıklı Sıralama (Bubble Sort) algoritmasıdır.
+		</p>
+		<p class="indent">
+			Bir sıvıda oluşturulan kabarcıkların sıvı yüzeyine
+			ulaşırken sıralanmaları davranışına analaog olarak bu metoda, Kabarcıklı
+			Sıralama (Bubble Sort) adı verilmiştir. Kabarcıklı sıralama yönteminde, 
+			dizi eleman sayısı kadar taranmakta, her taramada değeri en küçük ( veya en büyük) 
+			olan eleman dizi başlangıcına doğru ötelenmektedir.
+		</p>
+		<p class="indent">
+			Kabarcıklı Sıralama yöntemi,
+			sıralama algoritmalarının, yazılımı ve anlaşılması en basit, çalışması ise en yavaş olan 
+			bir örneğidir. Buna rağmen, günümüzdeki bilgisayar donanımındaki gelişmeler, 
+			çalışma yavaşlığını bir sorun olmaktan çıkarmıştır. Bu algoritma, bin veya
+			daha az elemanlı bir diziyi ortalama bir bilgisayar konfigürasyonu ile donanmış 
+			masaüstü sistemlerinde, rahatlıla sıralayabilecek bir kapasitededir. Daha büyük
+			diziler için, doğal olarak, php/MySQL gibi veri tabanları 
+			kullanımı gerekli olacaktır.
+		</p>
+		<p class="indent">
+			Kabarcıklı Sıralama yönteminın akım şeması aşağıda
+			görülmektedir.
+		</p>
+		<p class="indent"
+		style="text-align:center;padding:25px;">
+			<img src="../images/bubblesort.png"
+			alt="Karacıklı Sıralama" width="531" height="688" />
+		</p>
+				<p class="nonindent">
+			Kabarcıklı Sıralama Algoritmasının JavaScript programı kaynak
+			kodları aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> bubbleSort<span 
+			class="op">(</span>a<span class="op">) {</span>
+			
+<span class="keyw-50">for</span><span class="op">(</span>i <span 
+			class="op">= </span>0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> a<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++) {</span>
+<span class="keyw-75">for</span><span class="op">(</span>j <span 
+			class="op">=</span> a<span 
+			class="op">.</span><span 
+			class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">;</span> j <span 
+			class="op">&gt;</span> i<span 
+			class="op">; </span>j<span 
+			class="op">--){</span>
+			
+<span class="keyw-100">if</span><span class="op">(</span>a<span 
+			class="op">[</span>j<span class="op">] &lt; </span>a<span 
+			class="op">[</span>i<span class="op">]) {</span>
+<span class="pl-125">temp</span> <span 
+			class="op">=</span> a<span 
+			class="op">[</span>j<span class="op">];</span>
+<span class="pl-125">a</span><span class="op">[</span>j<span 
+			class="op">] = </span>a<span 
+			class="op">[</span>i<span class="op">];</span>
+<span class="pl-125">a</span><span class="op">[</span>i<span 
+			class="op">] = </span>temp<span 
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="keyw-50">return</span> a<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+		</pre>
+		<p class="indent">
+			Kabarcıklı sıralama algoritmasını kullanan bubbleSort<span class="op">()</span>
+			programı, hem sayısal hem de sözel elemanlı dizilerin
+			sıralanması için, son derece kesin sonuçlar vermektedir.
+		</p>
+		<p class="indent" id="b8.2.11-uyg-1">
+			JavaScript programlama dilinde, elemanlarının değerleri sözel olan dizilerin sıralanması, 
+			<span class="keyw">sort</span><span class="op">()</span> metodu ile,
+			elemanlarının değerleri sayısal olan dizilerin sıralanması, 
+			<span class="keyw">sort</span><span class="op">(</span>sayısalSıralama<span class="op">)</span>
+			metodu ile yapılabilir. Burada açıklanan ve <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			program kitaplığına konulmuş olan, bubbleSort<span class="op">(</span>dizi<span class="op">)</span> 
+			programı ise elamanları hem sayısal hem de sözel olan diziler için ortak olarak kullanılabilir.
+			Bu konuda örnekler veren bir <a href="../uygulamalar/b8.2.11-uyg-1-js.html">JavaScript programı</a>, 
+			ve bağlı olarak çalıştığı bir <a href="../uygulamalar/b8.2.11-uyg-1.html">uygulama</a> sayfasında 
+			verdiği sonuç aşağıda görülmektedir.
+		</p>
+		<pre>
+
+<span class="keyw-50">var</span> t <span 
+			class="op">= [</span>32<span 
+			class="op">,</span> 38<span 
+			class="op">,</span> 8<span 
+			class="op">,</span> 2<span 
+			class="op">,</span> 16<span 
+			class="op">,</span> 23<span 
+			class="op">,</span> 78<span 
+			class="op">],</span>
+
+<span class="pl-50">p</span> <span 
+			class="op">= [</span><span 
+			class="str">'Çamlıca'</span><span 
+			class="op">,</span> <span 
+			class="str">'Acıbadem'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kozyatağı'</span><span 
+			class="op">,</span> <span 
+			class="str">'Çengelköy'</span><span 
+			class="op">,</span> <span 
+			class="str">'Beykoz'</span><span 
+			class="op">];
+</span> 
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">,</span> <span 
+			class="str">' , '</span><span class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>p<span 
+			class="op">,</span> <span 
+			class="str">' , '</span><span class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>p<span 
+			class="op">.</span><span class="keyw">sort</span><span 
+			class="op">(),</span> <span 
+			class="str">' , '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">.</span><span 
+			class="keyw">sort</span><span 
+			class="op">(</span>sayısalSıralama<span 
+			class="op">),</span> <span 
+			class="str">' , '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>bubbleSort<span 
+			class="op">(</span>p<span 
+			class="op">),</span><span 
+			class="str">' , '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>bubbleSort<span 
+			class="op">(</span>t<span 
+			class="op">),</span><span 
+			class="str">' , '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b8.2.11-uyg-1.html">programın</a>
+			uygulama sonucu:
+	</p>
+		<p class="cursive-green">
+			Orijinal Dizi t :<span class="cursive-red" id="b8.2.11-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="cursive-green">
+			Orijinal Dizi p :<span class="cursive-red" id="b8.2.11-uyg-1-sonuç-2"></span>
+		</p>
+		<p class="cursive-green">
+			p.sort(); ile Sıralama Sonunda Sıralanmış p Dizisi : <span class="cursive-red" id="b8.2.11-uyg-1-sonuç-3"></span>
+		</p>
+		<p class="cursive-green">
+			t.sort(sayısalSıralama); ile Sıralama Sonunda Sıralanmış t Dizisi :		<span class="cursive-red" id="b8.2.11-uyg-1-sonuç-4"></span>
+		</p>
+		<p class="cursive-green">
+			bubbleSort(p); ile Sıralama Sonunda Sıralanmış p Dizisi :
+												<span class="cursive-red" id="b8.2.11-uyg-1-sonuç-5"></span>
+		</p>
+		<p class="cursive-green">
+			bubbleSort(t); ile Sıralama Sonunda Sıralanmış t Dizisi :
+												<span class="cursive-red" id="b8.2.11-uyg-1-sonuç-6"></span>
+		</p>
+		
+		<p class="cursive-maroon">
+			JavaScript sort() metodu Sayısal Elemanlı Diziler İçin Çalışmaz !
+		</p>
+		<p class="indent">
+			<strong>Kodların Açıklaması:</strong>
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2.11-uyg-1.html">programda</a>, 
+			elamanları sayısal olan bit t dizisinin, istenirse, 
+			<span class="keyw">sort</span><span class="op">(</span>sayısalSıralama<span class="op">)</span>
+			metodu ile, istenirse kullanıcı tanımlı bir sıralama metodu olan,
+			bubbleSort<span 	class="op">[</span>t<span class="op">]</span> 
+			metodu ile etkin ve doğru olarak sıralanabileceği görülmektedir. 
+		</p>
+		<p class="indent">
+			Yine yukarıdaki <a href="../uygulamalar/b8.2.11-uyg-1.html">programda</a>, 
+			tüm elemanlarının değeri sözel olan bit p dizisinin, istenirse, öntanımlı
+			<span class="keyw">sort</span><span class="op">()</span>
+			metodu ile, istenirse kullanıcı tanımlı bir sıralama metodu olan,
+			bubbleSort<span 	class="op">[</span>p<span class="op">]</span> 
+			metodu ile sıralanabileceği görülmektedir. Sıralama sonuçları, uygulanan metoda göre doğrudur.
+			Burada sözel birimlerdeki tüm harfler sayısal eşdeğerlerine çevrilmekte, toplanmakta ve tek bir 
+			birimin sayısal eşdeğeri bulunmakta ve sayısal eşdeğeri en küçük olan sözel birim, dizinin
+			başına getirilmektedir. Bu sıralama sonucu, sözcüklerin baş harflerine göre, 
+			yapılan sıralama sonuçlarından farklıdır. Bu tip bir sıralamayı gerçekleştirmek için, 
+			yeni kullanıcı tanımlı algoritmalar geliştirmek geekir. Bunu ileride gerçekleştireceğiz.
+		</p>
+		<p class="indent">
+			Dizilerin sıralanmasında kullanılan bubbleSort<span class="op">()</span>
+			algoritması çok basit ve çok yavaş bir algoritmadır. Sıralama için, insertion
+			sort  veya quick sort gibi daha etkin algoritmalar kullanılabilir.
+		</p>
+		<p class="indent">
+			Dizilerin sıralanması kararını verirken dikkatli olunmalıdır. Dizi elemanlarının
+			sırası, önemli bir bilgi kaynağı olabilir. Örnek olarak bir sonraki konuda inceleyeceğimiz 
+			iki paralel dizinin ilkinde aynı şahsın ismini, öteki dizide ise ilkindeki ile aynı sırada
+			olarak, adres bilgileri saklanmış olabilir. Bu dizilerin birisinin bilinçsiz
+			olarak yeniden sıralanması, iki dizi arasındaki eleman sıralanmasından kaynaklanan
+			bilgi ilişkisinin kaybolmasına neden olur. Genel olarak, dizilerin sıralanmasında dikkatli olmak
+			gerekmektedir. 
+		</p>
+		<p class="indent" id="b8.2.11-uyg-2">
+			<a href="http://www.aymanh.com/">Eyman Huriye</a> sayısalSıralama<span class="op">()</span>
+			fonksiyonun , nesne literallerinin sayısal değerlikli özelliklerine bağlanabileceğini göstermiştir. Bu çok yararlı
+			teknik, aşağıda çok kısa olarak bir <a href="../uygulamalar/b8.2.11-uyg-2-js.html">JavaScript programında</a>
+			açıklanmış ve bir <a href="../uygulamalar/b8.2.11-uyg-2.html">uygulama</a> sayfasında verdiği sonuçlar, aşağıda 
+			gösterilmiştir.		</p>
+		<pre>
+<span class="keyw-25">function</span> nesneSıralama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> a<span 
+			class="op">.</span>nr <span 
+			class="op">-</span> b<span 
+			class="op">.</span>nr<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> genişletilmişSıralama<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> t <span 
+			class="op">= [{</span>nr <span 
+			class="op">:</span> 425<span 
+			class="op">,</span> ad <span 
+			class="op">:</span> <span 
+			class="str">'Elif'</span><span 
+			class="op">},</span><span 
+			class="op"> {</span>nr <span 
+			class="op">:</span> 78<span 
+			class="op">,</span> ad <span 
+			class="op">:</span> <span 
+			class="str">'Atalay'</span><span 
+			class="op">}];</span>
+
+<span class="pl-50">t</span> <span 
+			class="op">=</span> t<span 
+			class="op">.</span><span 
+			class="keyw">sort</span><span 
+			class="op">(</span>nesneSıralama<span 
+			class="op">);</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">[</span>0<span 
+			class="op">]</span><span 
+			class="op">.</span>nr<span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">[</span>0<span 
+			class="op">]</span><span 
+			class="op">.</span>ad<span 
+			class="op">,</span> <span 
+			class="str">'b8.2.11-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>genişletilmişSıralama<span 
+			class="op">);</span>
+		</pre>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b8.2.11-uyg-2.html">programın</a>
+			uygulama sonucu:
+	</p>
+		<p class="cursive-green">
+			Dizi Başlangıç Elemanı nr Özelliği :<span class="cursive-red" id="b8.2.11-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="cursive-green">
+			Dizi Başlangıç Elemanı ad Özelliği :<span class="cursive-red" id="b8.2.11-uyg-2-sonuç-2"></span>
+		</p>
+		<p class="indent">
+			Bu son <a href="../uygulamalar/b8.2.11-uyg-2.html">uygulamanın</a> sonuçları
+			çok önemlidir.  Programda, görüldüğü gibi, kendi veri yapımıza göre sıralama
+			fonksiyonunda küçük bir değişiklik yapıyoruz. Bu küçük değişiklikle, sıralama fonksiyonu, veri
+			yapılarını sayısal bir alana göre başarı ile sıralama yeteneği kazanmaktadır. Başka yöntemlerle,
+			uzun ve karmaşık olabilecek bir sıralamanın bu şekilde basit olarak çözümlenebilmesi
+			dikkat çekicidir. Veri yapıları, içinde birçok alan olan veri topluluklarıdır. Modern bilgisayar 
+			programcılığında veriler en çok veri yapıları halinde düzenlenmektedirler. Moden veri temelei
+			programları da verileri veri yapıları halinde işlemektedirler. Bu programda gerçkleştirilen yöntemde
+			daha ileride de programlarımızda yararlananacağız.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b8s2.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b8s4.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.10-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.10-uyg-2.js">
+		</script> 
+		<script type="text/javascript" src="../js/b8.2.11-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.11-uyg-2.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:13 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

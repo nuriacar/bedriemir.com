@@ -1,0 +1,469 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17586,        460]
+NotebookOptionsPosition[     16397,        421]
+NotebookOutlinePosition[     16744,        436]
+CellTagsIndexPosition[     16701,        433]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["c1t3-SAGE", "Chapter",
+ CellChangeTimes->{{3.657799816451236*^9, 3.657799838401447*^9}, {
+  3.6578217821339192`*^9, 3.657821783533078*^9}}],
+
+Cell[TextData[{
+ "cloud.sagemath.org (",
+ StyleBox["online SAGE",
+  FontSlant->"Italic"],
+ " Uygulama Sitesi)"
+}], "Chapter",
+ CellChangeTimes->{{3.6577998636744733`*^9, 3.657799917659458*^9}, {
+  3.6578217909964514`*^9, 3.657821811907895*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Do\:011fruluk Tablolar\[DotlessI]n\[DotlessI]n Olu\:015fturulmas\
+\[DotlessI]", "Chapter",
+ CellChangeTimes->{{3.657799936432593*^9, 3.657799958283802*^9}}],
+
+Cell["\<\
+Bir mant\[DotlessI]k sisteminde do\:011fruluk de\:011ferlerinin \
+saptanabilmesi, mant\[DotlessI]k sisteminin de\:011fi\:015fkenlerinin \
+alabilecekleri do\:011fruluk de\:011feri say\[DotlessI]s\[DotlessI]na ve tan\
+\[DotlessI]ml\[DotlessI] ba\:011fla\[CCedilla]lardan yararlan\[DotlessI]larak \
+iyi olu\:015fmu\:015f form\[UDoubleDot]llerin olu\:015fturulma \
+y\[ODoubleDot]ntemlerine (s\[ODoubleDot]zdizimi) (sentaks) ve iyi olu\:015fmu\
+\:015f form\[UDoubleDot]llerin do\:011fruluk de\:011ferlerin nas\[DotlessI]l \
+saptanaca\:011f\[DotlessI] bilgisine (i\[CCedilla]erik) (semantik) \
+bilgilerine gereksinme duyulur.\
+\>", "Text",
+ CellChangeTimes->{{3.6578000367376366`*^9, 3.6578003507132125`*^9}, {
+  3.6578223731064215`*^9, 3.657822402801009*^9}}],
+
+Cell["\<\
+\[CapitalODoubleDot]nermeler mant\[DotlessI]\:011f\[DotlessI] mant\[DotlessI]\
+\:011f\[DotlessI] (s\[DotlessI]f\[DotlessI]r\[DotlessI]nc\[DotlessI] d\
+\[UDoubleDot]zey mant\[DotlessI]k) ve y\[UDoubleDot]klemler mant\[DotlessI]\
+\:011f\[DotlessI] (birinci d\[UDoubleDot]zey mant\[DotlessI]k) i\[CCedilla]in \
+ge\[CCedilla]erli s\[ODoubleDot]zdizimi ve s\[ODoubleDot]zyaz\[DotlessI]m\
+\[DotlessI] kurallar\[DotlessI] konu sayfas\[DotlessI]nda a\[CCedilla]\
+\[DotlessI]klanm\[DotlessI]\:015ft\[DotlessI]r. Gerek \[ODoubleDot]nermeler, \
+gerekse y\[UDoubleDot]klemler mant\[DotlessI]\:011f\[DotlessI] iki \
+de\:011ferli mant\[DotlessI]klar s\[DotlessI]n\[DotlessI]f\[DotlessI]ndad\
+\[DotlessI]r. Yani, \[ODoubleDot]nerme de\:011fi\:015fkenleri \
+k\[UDoubleDot]mesi, sonlu bir k\[UDoubleDot]me olup gerekti\:011fi kadar \
+eleman i\[CCedilla]erir {p , q , r , s, t ...) genellikle en \[CCedilla]ok \
+\[UDoubleDot]\[CCedilla] de\:011fi\:015fkene kadar form\[UDoubleDot]ller olu\
+\:015fturulur. Bu elemanlar\[DotlessI]n alabileceleri do\:011fruluk \
+de\:011ferleri, iki de\:011ferlikli mant\[DotlessI]k sistemleri \
+i\[CCedilla]in sadece iki tanedir {0,1} {Do\:011fru,Yanl\[DotlessI]\:015f} \
+\:0130ngilizcesi {True,False} genellikle do\:011fruluk de\:011ferleri T \
+(true) ve False (F) gibi tek harflerle g\[ODoubleDot]sterilir {T,F}.\
+\>", "Text",
+ CellChangeTimes->{{3.657800388864623*^9, 3.6578008989948378`*^9}, {
+  3.65780093991625*^9, 3.6578009845627375`*^9}, {3.6578218331726513`*^9, 
+  3.65782183623826*^9}, {3.6578218786449614`*^9, 3.657821930845398*^9}, {
+  3.6578224433142366`*^9, 3.6578225799843483`*^9}}],
+
+Cell["\<\
+Mant\[DotlessI]k form\[UDoubleDot]llerinin bir form (form\[UDoubleDot]l) oldu\
+\:011funu ve sadece bir temel \:015fablon oldu\:011fu unutulmamal\[DotlessI]d\
+\[DotlessI]r. Bu bir Java s\[DotlessI]n\[DotlessI]f\[DotlessI] \
+niteli\:011findedir. Ger\[CCedilla]ek d\[UDoubleDot]nya \
+uygulamalar\[DotlessI], bu s\[DotlessI]n\[DotlessI]f\[DotlessI]n (form\
+\[UDoubleDot]l\[UDoubleDot]n) \[ODoubleDot]rneklerinin olu\:015fturulmas\
+\[DotlessI] ile yap\[DotlessI]l\[DotlessI]r. Bir s\[DotlessI]n\[DotlessI]f \
+tan\[DotlessI]m\[DotlessI]ndan ( \[ODoubleDot]rnek olarak: p \[And] q) form\
+\[UDoubleDot]l\[UDoubleDot]nden sonsuz say\[DotlessI]da \[ODoubleDot]rnek \
+yarat\[DotlessI]labiir (\[ODoubleDot]rnek olarak : Ahmet\[And]Mehmet, Hasan\
+\[And]H\[UDoubleDot]seyin, Cam\[And]Ah\:015fap vb...)\
+\>", "Text",
+ CellChangeTimes->{{3.6578010266520233`*^9, 3.6578011303478117`*^9}, {
+  3.65780116813863*^9, 3.657801331074458*^9}, {3.657801979010079*^9, 
+  3.6578020108891335`*^9}, {3.6578020471085763`*^9, 3.657802070620325*^9}, {
+  3.657821946806749*^9, 3.6578219862585435`*^9}, {3.657822599664006*^9, 
+  3.6578226370265627`*^9}}],
+
+Cell["\<\
+\[CapitalODoubleDot]nermeler mant\[DotlessI]\:011f\[DotlessI] \
+i\[CCedilla]erik bilgilerinden (semantik), bu ba\:011fla\[CCedilla] ile ba\
+\:011flanan \[ODoubleDot]nermelere (bile\:015fim) (conjunct) denilmekte, \
+sadece ve ancak sadece her iki bile\:015fenin de do\:011fruluk \
+de\:011ferlerinin do\:011fru (T) olmas\[DotlessI] halinde, bile\:015fimin do\
+\:011fruluk de\:011ferinin do\:011fru olabilece\:011fi belirtilmektedir.\
+\>", "Text",
+ CellChangeTimes->{{3.6578020927523794`*^9, 3.657802350868905*^9}, {
+  3.6578220046049395`*^9, 3.6578220771806955`*^9}}],
+
+Cell[TextData[{
+ "\:0130ki de\:011ferli mant\[DotlessI]k sistemlerinde de\:011fi\:015fken say\
+\[DotlessI]s\[DotlessI] n olduk\[CCedilla]a, form\[UDoubleDot]le giren de\
+\:011fi\:015fkenlerin do\:011fruluk de\:011ferlerinin ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " olas\[DotlessI]l\[DotlessI]k say\[DotlessI]s\[DotlessI] olabilece\:011fi \
+bilinmektedir. \:0130ki de\:011fi\:015fkenli bir \[ODoubleDot]nermeler mant\
+\[DotlessI]\:011f\[DotlessI] form\[UDoubleDot]l\[UDoubleDot]nde, bu olas\
+\[DotlessI]l\[DotlessI]k say\[DotlessI]s\[DotlessI] ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "n"], TraditionalForm]]],
+ "=4 olup, do\:011fruluk tablosu 4 sat\[DotlessI]rdan olu\:015facakt\
+\[DotlessI]r. Do\:011fruluk tablosunun s\[UDoubleDot]t\[UDoubleDot]n say\
+\[DotlessI]s\[DotlessI] istendi\:011fi kadar olabilir. Burada p ve q n\
+\[UDoubleDot]n do\:011fruluk de\:011ferleri birer s\[UDoubleDot]tun, bile\
+\:015fimin do\:011fruluk de\:011feri ise ayr\[DotlessI] bir s\[UDoubleDot]t\
+\[UDoubleDot]na gerek g\[ODoubleDot]sterdi\:011finden, do\:011furluk tablosu \
+4 sat\[DotlessI]r ve 3 s\[UDoubleDot]tundan olu\:015facakt\[DotlessI]r. Do\
+\:011fruluk tablolar\[DotlessI]n\[DotlessI]n el eme\:011fi ile \
+olu\:015fturulmas\[DotlessI] hi\[CCedilla] gerekli de\:011fildir. Bunun i\
+\[CCedilla]in bilgisayar kullan\[DotlessI]m\[DotlessI] ile \[CCedilla]ok k\
+\[DotlessI]sa yoldan ve en do\:011fru sonu\[CCedilla] \
+al\[DotlessI]nabilmektedir."
+}], "Text",
+ CellChangeTimes->{{3.657802362455944*^9, 3.6578028298418865`*^9}, {
+  3.6578220905077047`*^9, 3.6578222953088317`*^9}}],
+
+Cell[TextData[{
+ ButtonBox["cloud.sagemath.com",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://cloud.sagemath.com"], None},
+  ButtonNote->"http://cloud.sagemath.com"],
+ " sitesinde, giri\:015fi yaparak yeni bir uygulama sayfas\[DotlessI] a\
+\[CCedilla]arak, giri\:015f sat\[DotlessI]r\[DotlessI]na ,"
+}], "Text",
+ CellChangeTimes->{{3.6578028450290794`*^9, 3.6578028684454327`*^9}, {
+  3.657803099260662*^9, 3.657803119723121*^9}, {3.6578228239257407`*^9, 
+  3.6578228428341055`*^9}, {3.657822957015808*^9, 3.6578229845002728`*^9}, {
+  3.6578230188369293`*^9, 3.657823079977404*^9}, {3.657823490518696*^9, 
+  3.657823515081628*^9}}],
+
+Cell["\<\
+import sage.logic.propcalc as propcalc
+var(\[OpenCurlyQuote]p\[CloseCurlyQuote], \
+\[OpenCurlyQuote]q\[CloseCurlyQuote],\[CloseCurlyQuote]r\[CloseCurlyQuote],\
+\[CloseCurlyQuote]s\[CloseCurlyQuote])\
+\>", "Text",
+ CellChangeTimes->{3.657823540459751*^9}],
+
+Cell["alt+enter ile kodu \[CCedilla]al\[DotlessI]\:015ft\[DotlessI]r\
+\[DotlessI]n\[DotlessI]z. Sonu\[CCedilla] sat\[DotlessI]r\[DotlessI]r\
+\[DotlessI]nda,", "Text",
+ CellChangeTimes->{{3.6578052249175315`*^9, 3.6578052558742647`*^9}, {
+  3.657805298406084*^9, 3.6578054177290587`*^9}, {3.6578235569499264`*^9, 
+  3.657823590415882*^9}}],
+
+Cell["(p, q, r, s) ", "Text",
+ CellChangeTimes->{{3.657823744335759*^9, 3.6578237483131638`*^9}}],
+
+Cell["\<\
+sonucu \[CCedilla]\[DotlessI]kacakt\[DotlessI]r. Bunlar uygulanabilecek \
+sembolik de\:011fi\:015fkenlerdir. Yeni bir sat\[DotlessI]ra\
+\>", "Text",
+ CellChangeTimes->{{3.6578237550499763`*^9, 3.6578238018861094`*^9}}],
+
+Cell["\<\
+
+f = propcalc.formula(\[OpenCurlyDoubleQuote](p & q)\[CloseCurlyDoubleQuote])
+
+f.truthtable()\
+\>", "Text",
+ CellChangeTimes->{3.6578239807130156`*^9}],
+
+Cell["\<\
+yaz\[DotlessI]n\[DotlessI]z ve ctrl+enter ile \[CCedilla]al\[DotlessI]\:015ft\
+\[DotlessI]r\[DotlessI]n\[DotlessI]z. Sonu\[CCedilla]ta, p ve q \
+n\[UDoubleDot]n bile\:015fiminin a\:015fa\:011f\[DotlessI]da g\[ODoubleDot]r\
+\[UDoubleDot]len do\:011fruluk tablosu olu\:015facakt\[DotlessI]r.\
+\>", "Text",
+ CellChangeTimes->{{3.6578239902619143`*^9, 3.6578240245897236`*^9}, {
+  3.657824056039895*^9, 3.6578241078766565`*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.6578032659772415`*^9, 3.657803357447427*^9}, 
+   3.6578054495120564`*^9, {3.6578055521348944`*^9, 3.6578055569609795`*^9}, 
+   3.6578241205868893`*^9}],
+
+Cell[BoxData[GridBox[{
+   {
+    StyleBox["P",
+     FontColor->GrayLevel[0]], 
+    StyleBox["V",
+     FontColor->GrayLevel[0]], 
+    StyleBox["value",
+     FontColor->GrayLevel[0]]},
+   {"F", "F", "F"},
+   {"F", "T", "F"},
+   {"T", "F", "F"},
+   {"T", "T", "T"}
+  },
+  GridBoxDividers->{
+   "Columns" -> {{True}}, "ColumnsIndexed" -> {}, "Rows" -> {{True}}, 
+    "RowsIndexed" -> {}}]], "Text",
+ CellChangeTimes->{{3.6578050020274343`*^9, 3.6578050695432005`*^9}, {
+   3.657805152093671*^9, 3.657805194527998*^9}, 3.657805267965968*^9, {
+   3.6578241874053154`*^9, 3.657824190666588*^9}, {3.6578242403823967`*^9, 
+   3.657824289462454*^9}, 3.6578244858944407`*^9},
+ TextAlignment->Center,
+ FontFamily->"Verdana",
+ FontSize->16],
+
+Cell["Birle\:015fimin do\:011fruluk tablosu", "Text",
+ CellChangeTimes->{{3.6578054590982914`*^9, 3.657805482617098*^9}},
+ TextAlignment->Center],
+
+Cell["\<\
+SAGE sisteminde olu\:015fan do\:011fruluk tablosu tersten olu\:015fmakta (T,T \
+sat\[DotlessI]r\[DotlessI] en altta) olmas\[DotlessI] tablonun \
+ge\[CCedilla]erli\:011fini etkilememekte ve olu\:015fan tablo, Mathworld \
+sitesinde olu\:015fan\[DotlessI]n ayn\[DotlessI]s\[DotlessI] olmaktad\
+\[DotlessI]r.\
+\>", "Text",
+ CellChangeTimes->{{3.6578243236131973`*^9, 3.657824493933464*^9}}],
+
+Cell["SAGE sisteminde, propcalc mod\[UDoubleDot]l\[UDoubleDot]n\[UDoubleDot]n \
+kullan\[DotlessI]m\[DotlessI] bir sat\[DotlessI]ra,", "Text",
+ CellChangeTimes->{{3.6578245325988054`*^9, 3.6578245961661663`*^9}}],
+
+Cell["?propcalc", "Text",
+ CellChangeTimes->{{3.657824605732602*^9, 3.6578246127467613`*^9}}],
+
+Cell["\<\
+yaz\[DotlessI]larak ctrl+enter ile \
+\[CCedilla]al\[DotlessI]\:015ft\[DotlessI]r\[DotlessI]ld\[DotlessI]\:011f\
+\[DotlessI]nda a\:015fa\:011f\[DotlessI]daki a\[CCedilla]\[DotlessI]klay\
+\[DotlessI]c\[DotlessI] sonu\[CCedilla] g\[ODoubleDot]r\[UDoubleDot]nt\
+\[UDoubleDot]lenir.\
+\>", "Text",
+ CellChangeTimes->{{3.6578246249730616`*^9, 3.657824684512288*^9}}],
+
+Cell["\<\
+File: /usr/local/sage/sage-5.12/local/lib/python2.7/site-packages/sage/logic/\
+propcalc.py
+   Docstring:
+   Module that creates formulas of propositional calculus
+
+Formulas consist of the following operators:
+
+* \[OpenCurlyDoubleQuote]&\[CloseCurlyDoubleQuote] -- and
+
+* \[OpenCurlyDoubleQuote]|\[CloseCurlyDoubleQuote] -- or
+
+* \[OpenCurlyDoubleQuote]~\[CloseCurlyDoubleQuote] -- not
+
+* \[OpenCurlyDoubleQuote]^\[CloseCurlyDoubleQuote] -- xor
+
+* \[OpenCurlyDoubleQuote]->\[CloseCurlyDoubleQuote] -- if-then
+
+* \[OpenCurlyDoubleQuote]<->\[CloseCurlyDoubleQuote] -- if and only if
+
+Operators can be applied to variables that consist of a leading letter
+and trailing underscores and alphanumerics.  Parentheses may be used
+to explicitly show order of operation.
+
+AUTHORS:
+
+* Chris Gorecki (2006): initial version, propcalc, boolformula,
+  logictable, logicparser, booleval
+
+* Michael Greenberg -- boolopt
+
+* Paul Scurek (2013-08-05): updated docstring formatting
+
+EXAMPLES:
+
+We can create boolean formulas in different ways:
+
+   sage: import sage.logic.propcalc as propcalc
+   sage: f = propcalc.formula(\[OpenCurlyDoubleQuote]a&((b|c)^a->c)<->b\
+\[CloseCurlyDoubleQuote])
+   sage: g = propcalc.formula(\[OpenCurlyDoubleQuote]boolean<->algebra\
+\[CloseCurlyDoubleQuote])
+   sage: (f&~g).ifthen(f)
+   ((a&((b|c)^a->c)<->b)&(~(boolean<->algebra)))->(a&((b|c)^a->c)<->b)
+
+We can create a truth table from a formula:
+
+   sage: f.truthtable()
+   a      b      c      value
+   False  False  False  True
+   False  False  True   True
+   False  True   False  False
+   False  True   True   False
+   True   False  False  True
+   True   False  True   False
+   True   True   False  True
+   True   True   True   True
+   sage: f.truthtable(end=3)
+   a      b      c      value
+   False  False  False  True
+   False  False  True   True
+   False  True   False  False
+   sage: f.truthtable(start=4)
+   a      b      c      value
+   True   False  False  True
+   True   False  True   False
+   True   True   False  True
+   True   True   True   True
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]a\[CloseCurlyDoubleQuote]).\
+truthtable()
+   a      value
+   False  False
+   True   True
+
+Now we can evaluate the formula for a given set of input:
+
+   sage: f.evaluate({\[OpenCurlyQuote]a\[CloseCurlyQuote]:True, \
+\[OpenCurlyQuote]b\[CloseCurlyQuote]:False, \[OpenCurlyQuote]c\
+\[CloseCurlyQuote]:True})
+   False
+   sage: f.evaluate({\[OpenCurlyQuote]a\[CloseCurlyQuote]:False, \
+\[OpenCurlyQuote]b\[CloseCurlyQuote]:False, \[OpenCurlyQuote]c\
+\[CloseCurlyQuote]:True})
+   True
+
+And we can convert a boolean formula to conjunctive normal form:
+
+   sage: f.convert_cnf_table()
+   sage: f
+   (a|~b|c)&(a|~b|~c)&(~a|b|~c)
+   sage: f.convert_cnf_recur()
+   sage: f
+   (a|~b|c)&(a|~b|~c)&(~a|b|~c)
+
+Or determine if an expression is satisfiable, a contradiction, or a
+tautology:
+
+   sage: f = propcalc.formula(\[OpenCurlyDoubleQuote]a|b\
+\[CloseCurlyDoubleQuote])
+   sage: f.is_satisfiable()
+   True
+   sage: f = f & ~f
+   sage: f.is_satisfiable()
+   False
+   sage: f.is_contradiction()
+   True
+   sage: f = f | ~f
+   sage: f.is_tautology()
+   True
+
+The equality operator compares semantic equivalence:
+
+   sage: f = propcalc.formula(\[OpenCurlyDoubleQuote](a|b)&c\
+\[CloseCurlyDoubleQuote])
+   sage: g = propcalc.formula(\[OpenCurlyDoubleQuote]c&(b|a)\
+\[CloseCurlyDoubleQuote])
+   sage: f == g
+   True
+   sage: g = propcalc.formula(\[OpenCurlyDoubleQuote]a|b&c\
+\[CloseCurlyDoubleQuote])
+   sage: f == g
+   False
+
+It is an error to create a formula with bad syntax:
+
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]\[CloseCurlyDoubleQuote])
+   Traceback (most recent call last):
+   ...
+   SyntaxError: malformed statement
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]a&b~(c|(d)\
+\[CloseCurlyDoubleQuote])
+   Traceback (most recent call last):
+   ...
+   SyntaxError: malformed statement
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]a&&b\[CloseCurlyDoubleQuote])
+   Traceback (most recent call last):
+   ...
+   SyntaxError: malformed statement
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]a&b a\[CloseCurlyDoubleQuote])
+   Traceback (most recent call last):
+   ...
+   SyntaxError: malformed statement
+
+   It is also an error to not abide by the naming conventions.
+   sage: propcalc.formula(\[OpenCurlyDoubleQuote]~a&9b\[CloseCurlyDoubleQuote])
+   Traceback (most recent call last):
+   ...
+   NameError: invalid variable name 9b: identifiers must begin with a letter \
+and contain only alphanumerics and underscores
+\
+\>", "Text",
+ CellChangeTimes->{{3.6578247027564907`*^9, 3.6578247406713333`*^9}, {
+  3.657824924127885*^9, 3.657824927919976*^9}}],
+
+Cell["\<\
+Bu y\[ODoubleDot]ntemle, t\[UDoubleDot]m form\[UDoubleDot]ller \
+i\[CCedilla]in, do\:011fruluk tablolar\[DotlessI] olu\:015fturulabilir.\
+\>", "Text",
+ CellChangeTimes->{{3.657824939066983*^9, 3.657825010767186*^9}}],
+
+Cell["\<\
+E\:011fer Mathworld ile daha kolay \
+\[CCedilla]al\[DotlessI]\:015f\[DotlessI]labildi\:011fi kan\[DotlessI]s\
+\[DotlessI] sizde olu\:015fmu\:015fsa, haks\[DotlessI]z olmayabilirsiniz.\
+\>", "Text",
+ CellChangeTimes->{{3.6578250432569103`*^9, 3.657825142371498*^9}}]
+}, Open  ]]
+},
+WindowSize->{1250, 988},
+WindowMargins->{{310, Automatic}, {Automatic, 497}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 29, 2015)",
+StyleDefinitions->"mathstyle.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 145, 2, 69, "Chapter"],
+Cell[706, 24, 244, 7, 58, "Chapter"],
+Cell[CellGroupData[{
+Cell[975, 35, 162, 2, 58, "Chapter"],
+Cell[1140, 39, 764, 12, 123, "Text"],
+Cell[1907, 53, 1620, 23, 179, "Text"],
+Cell[3530, 78, 1130, 17, 123, "Text"],
+Cell[4663, 97, 575, 9, 95, "Text"],
+Cell[5241, 108, 1650, 29, 179, "Text"],
+Cell[6894, 139, 644, 13, 39, "Text"],
+Cell[7541, 154, 264, 6, 67, "Text"],
+Cell[7808, 162, 338, 5, 39, "Text"],
+Cell[8149, 169, 97, 1, 39, "Text"],
+Cell[8249, 172, 228, 4, 39, "Text"],
+Cell[8480, 178, 161, 6, 123, "Text"],
+Cell[8644, 186, 434, 7, 67, "Text"],
+Cell[9081, 195, 190, 3, 39, "Text"],
+Cell[9274, 200, 726, 22, 133, "Text"],
+Cell[10003, 224, 145, 2, 39, "Text"],
+Cell[10151, 228, 396, 7, 67, "Text"],
+Cell[10550, 237, 211, 2, 39, "Text"],
+Cell[10764, 241, 93, 1, 39, "Text"],
+Cell[10860, 244, 369, 7, 39, "Text"],
+Cell[11232, 253, 4642, 152, 3819, "Text"],
+Cell[15877, 407, 226, 4, 39, "Text"],
+Cell[16106, 413, 275, 5, 39, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

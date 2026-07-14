@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/framework/menu-js.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:05:56 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/framework/menu-js.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Dogan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>menu-js.htm</title>
+	</head>
+	<body>
+		<table id="layout-top" summary="Layout-top">
+			<tr>
+				<td><img src="../images/banner.png" alt="banner" class="banner" /></td>
+				<td class="top1text">JavaScript Temelleri - Uygulamalar -</td>
+				<td class="top1previous"><a href="../b18/b18s8.html#menu-js"><img 
+							src="../images/previous.gif" alt="önceki" /></a></td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td class="top2text">menu-js.htm (menu.htm sayfasının
+					JavaScript Program Kodları)</td>
+				<td class="top2previous">18.8.1.1 Konu Sayfasına Dönüş</td>
+			</tr>
+		</table>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> insertAfter<span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> ata<span 
+			class="op">=</span> hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">lastChild</span> <span 
+			class="op">===</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> {
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span>hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> çerçeve <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">parent<span 
+			class="op">.</span>frames</span><span 
+			class="op">,</span>
+<span class="pl-50">çerçeveSayısı</span> <span 
+			class="op">=</span> çerçeve<span 
+			class="keyw"><span 
+			class="op">.</span>length</span><span 
+			class="op">,</span>
+<span class="pl-50">anaSayfa</span> <span 
+			class="op">=</span> çerçeve<span 
+			class="op">[</span>2<span 
+			class="op">],</span> <span 
+			class="comm">// veya çerçeve['anasayfa'] veya çerçeve.anasayfa
+</span><span class="pl-50">aktarımYeri</span><span 
+			class="op">=</span> çerçeve<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'BOM'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">metin1</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Çerçeve Düzenleme Sayfası Dışında Görüntülenebilen Sayfa Sayısı : '</span><span 
+			class="op"> + </span><span 
+			class="keyw">String</span><span 
+			class="op">(</span>çerçeveSayısı<span 
+			class="op">)),</span>
+<span class="pl-50">metin2</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'JavaScript ile Buraya Ekleme Yapıldı !'</span><span 
+			class="op">),</span>
+<span class="pl-50">metin3</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'menu.htm Sayfasından Bilgi Aktarımı Tamamlandı !'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara1</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara2</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara3</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">.</span><span 
+			class="keyw">classsName</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara1<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin1<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara2<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin2<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara3<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin3<span 
+			class="op">);</span>
+
+<span class="keyw-50">insertAfter</span><span 
+			class="op">(</span>yeniparagrafı<span 
+			class="op">,</span> aktarımYeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<ul id="navbottom">
+			<li id="sayfa">
+				<a href="sistem2.html"><em> &laquo; Uygulama Sayfasına Dönüş</em></a>			</li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<a href="../uygulamalar/b18.7.2.2-uyg-2-src.html"><em>Uygulama Sayfasının XHTML Kodları &raquo; </em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!--Script Yükleme Alanı Başlangıcı -->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!--Script Yükleme Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/framework/menu-js.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:05:57 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

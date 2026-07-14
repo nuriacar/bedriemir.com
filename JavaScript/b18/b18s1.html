@@ -1,0 +1,4154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:44 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- Made with AC Meta Tag Generator ver. 1.5 at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+					content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type"
+					content="text/css" />
+		<meta http-equiv="Content-Script-Type"
+					content="text/JavaScript" />
+		<meta name="Title"
+					content="WEBTECH JavaScript Turkish Tutorial" />
+		<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Description"
+		content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords"
+					content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract"
+					content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher"
+					content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>
+			Bölüm 18 Sayfa 1
+		</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+				<a href="../index.html"><img alt="index" src="../images/index.gif" /></a> 
+				<a href="../b17/b17s2.html"><img alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s2.html"><img alt="next" src="../images/next.gif" /></a> 
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 1
+		</p>
+		<p class="title-left" id="BOM">18.1 - Belge Çözümleyicisi Nesne Modeli (Browser Object Model) (BOM)</p>
+		<p class="indent">
+			JavaScript yorumlanan bir script programlama dilidir ve JavaScript yorumlayıcısı,
+			bir belge çözümleyicisi  programı tarafından konuk edilmelidir. Konuk eden
+			belge çözümleyicisi ortamına, konuk eden ortam (host) adı verilir.
+			JavaScript yorumlayıcısını konuk eden belge çözümleyiciler ticari
+			programlardır ve her belge çözümleyici üreticisinin belge çözümleyicisinde
+			konuk ettiği JavaScript yorumlayıcısı diğerlerinden farklıdır.
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısı, nesne teknolojisine göre organize edilmiştir.
+				En tepe nesne  <span 
+			class="keyw">window</span> nesnesidir. Diğer tüm nesneler bu nesnenin alt
+				nesneleri olarak tanımlanırlar. JavaScript <span class="keyw">window</span> nesnesi,
+				daha önce çekirdek nesneleri konusunda incelemiş olduğumuz, Global JavaScript
+				Nesnesi olarak işlev yapar. 
+		</p>
+		<p class="indent">
+			Çekirdek nesnelerini incelerken görmüş olduğumuz gibi, 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			standartları, sadece programlama yöntemlerini kapsar ve giriş çıkış ortamına ait detayları, JavaScript yorumlayıcısını
+			konuk eden belge çözümleyici ortamına bırakır. Bu şekiilde konuk her konuk eden ortama ait 
+			JavaScript yorumlayıcısı diğerlerinden farklı olurken, eğer,
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			uyumlu ise desteklediği çekirdek nesneleri standart ve diğerleri ile aynıdır. Bu nedenle, JavaScript programlarında,
+			çekirdek nesneleri ile çalışılan kısımlar, bu standardı destekleyen tüm belge çözümleyicilerince 
+			sorunsuz olarak çalışırlar. Sorun, JavaScript yorumlayıcısının,
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			standartları dışındaki kısımlarından kaynaklanmaktadır.
+		</p>
+		<p class="indent">
+			Modern işletim sistemlerinde, programlar pencereler içinde görüntülenirler ve işletim sistemleri, pencerelerin
+			açılması, kapanması, yer değiştirmesi gibi çeşitli kolaylıklar içerirler. JavaScript yorumlayıcısının,
+			çekirdek nesneler dışında kalan kısmı, pencere yöntemine JavaScript program adımlarında da sağlanabilmesi
+			için, işletim sistemi ile ilişki kurulması ve koordinasyon sağlanması amacına yöneliktir. Bu nedenle,
+			JavaScript yorumlayıcısının, çekirdek nesneler dışında kalan kısmına 
+			<span class="str">Belge Çözümleyisi Nesnesi Modeli (Browser Object Model) (BOM)</span> adı verilir. Belki de, 
+			teknik olarak Window Object Model ifadesi daha doğru olabilirdi.
+		</p>
+		<p class="indent">
+			BOM yöntemleri, belge çözümleyicilere özgüdür ve bu nedenle belirli bir standart ile 
+			düzenlenmiş değillerdir. Dünyada kullanılan belge , çözümleyiciler, genel olarak iki temel motora dayalı olarak
+			oluşturulmuşlardır. Bunlardan ilki, Microsoft tarafından geliştirilen Internet Explorer (MSIE) motoru, diğeri ise, 
+			eski Netscape grubu tarafından geliştirilen, FireFox ve diğer belge çözümleyicilerinin kullandığı, GECKO motorudur.
+			Kullanıcıların yüzde yetmişbeş kadarı, sürüm 8 ye ulaşan MSIE ve türevlerini kullanırken, geri kalan kullanıcılar, 
+			GECKO temeline dayanan belge çözümleyicileri, kullanmaktadırlar. GECKO temeline dayanan belge çözümleyicileri 
+			arasında, 	özellikle sürüm 3.0 a ulaşan açık kaynak FireFox belge çözümleyicisi kullanılmaktadır. Son günlerde,
+			9.64 sürümüne  ulaşan OPERA belge çözümleyicisinin de kullanımı artmaktadır. Bazı kullanıcılar FireFox belge 
+			çözümleyisinin LINUX işletim sistemi altında çalışan versiyonunu kullanırken, bazıları 	da salt LINUX işletim sistemine 
+			özgü Konqueror ve Apple tarafından Windows sürümü de çıkarılmış SAFARI belge çözümleyicilerini kullanabilirler. 
+			Son günlerde Google tarafından geliştirlen Chrome belge çözümleyici de çok kullanılmaktadır. Ayrıca, FreeBSD, 
+			Solaris, diğer farklı UNIX türleri gibi  işletim sistemleri altında çalışan çeşitli belge çözümleyici türleri de kullanılabilir. 
+			Butün bu belge çözümleyici türleri, BOM yöntemlerinin kendi özel yazılımlarını geliştirmiş ve bu yazılımlar,
+			kendi yöntemlerine bağlı olan çok sayıda kuruluş tarafından kullanımda olmasından dolayı bu konuda belirli bir 
+			standart üzerinde birleşme sağlanabilmesinin ne kadar güç olabileceğini ortaya koymaktadır. Bu nedenden dolayı 
+			BOM yöntemleri <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			standartları dışında tutulmuştur. Aslında, teknik olarak belirli bir standart etrafında uyuşmanın önünde hiçbir engelin 
+			olmadığı, sorunun belge çözümleyicilerini üretmekte olan kuruluşlardan kaynaklandığı herkesin paylaştığı bir düşüncedir. 
+			BOM yöntemlerinde belirli bir standardın olmamaması, web geliştiricileri için büyük bir sorun yaratmakta ve bu 
+			konuda bir anlaşmaya varılması için çaba sarfedilmesi için çalışılmaktadır. 
+		</p>
+		<p class="indent">
+			Dünyada kullanılan belge çözümleyicilerinin yüzde yüzüne yakını Internet
+			Explorer ve  FireFox belge çözümleyicilerinden oluşmaktadır. Her iki belge
+			çözümleyici de ücretsiz olarak dağıtılmaktadır. Bu nedenle, bu çalışmada,
+			BOM yöntemlerinden sadece her iki belge çözümleyide desteklenebilen yöntemler
+			incelenmiş ve uygulanmıştır. Bu şekilde, olanaklar ölçüsünde uygulamaların 
+			ortak olarak desteklenmeleri sağlanmaya çalışılmıştır.
+		</p>
+		<p class="title-left" id="window">18.2 - JavaScript window Nesnesi</p>
+		<p class="indent">
+			JavaScript <span class="keyw">window</span> nesnesi, konuk eden ortam tarafından 
+			düzenlenmiş JavaScript yorumlayıcısının tepe sınıfı olarak da adlandırılan en üst düzey 
+			sınıfıdır. Bu sınıf, global JavaScript nesnesi olarak hareket eder. Çekirdek nesneleri 
+			dışında, bu nesnenin <span class="keyw">window</span>, 
+			<span class="keyw">history</span>, <span class="keyw">location</span>, 
+			<span class="keyw">navigator</span>, <span class="keyw">frames</span>, 
+			<span class="keyw">screen</span> ve <span class="keyw">document</span> 
+			alt nesneleri bulunmaktadır. Alt nesnelerin herbirine ait, özellik, metot ve alt nesneler 
+			tanımlanmıştır. Her alt nesne ayrı olarak incelenecektir.
+		</p>
+		<p class="indent">
+			(X)HTML kodlama sistemine göre, her bir belge tek bir işletim sistemi penceresinde 
+			görüntülenir ve her pencerede sadece bir tek JavaScript kod çalıştırma ortamı bulunabilir. 
+			Her kod çalıştırma ortamında da, sadece bir tek JavaScript <span class="keyw">window</span> 
+			nesnesi bulunabilir. 
+		</p>
+		<p class="indent">
+			Çekirdek nesnelerinin dışında olan tüm nesneler, belirli bir standarda bağlı değillerdir ve sadece 
+			JavaScript yorumlayıcısını oluşturan kuruluş tarafından düzenlenmişlerdir. Buna rağmen, bu yazılımlar
+			birçok ortak olarak desteklenen öğeler içermektedir. 
+		</p>
+		<p class="indent">
+			JavaScript <span class="keyw">window</span> nesnesinin, çekirdek nesneleri
+			dışında, içerdiği
+			
+			<span class="keyw">window</span>, <span class="keyw">history</span>, 
+			<span class="keyw">location</span>, <span class="keyw">frames</span> ve 
+			<span class="keyw">screen</span> nesneleri, açılmış olan pencerenin tümünü 
+			hedefleyen yöntemleri içerirler. Bu yüzden  bu yöntemlere, BOM yöntemleri adı verilir. 
+			Bu nesneler içinde, <span class="keyw">navigator</span>
+			alt nesnesi, açılmış olan pencereyi açan belge çözümleyicisini belrlemeye
+			yarayan yöntemleri içerir. En sonuncu <span class="keyw">document</span> alt
+			nesnesi ise, pencerenin içerdiği belge ögeleri ile ilgilidir ve bu yüzden, 
+			<span class="keyw">document</span> alt nesnesinin yöntemlerine Belge Nesne
+			Modeli,  (Document Object Model = DOM) adı verilir. DOM yöntemlerinin standartlaşmaması
+			çok  sakınca yarattığından, <a href="http://w3.org/">W3C</a> bu yöntemleri
+			bir standart altında toplamaya çalışmaktadır. Her JavaScript yorumlayıcısı,
+			kendine özgü DOM yöntemleri yanında, 	<a href="http://w3.org/">W3C-DOM</a> 
+			spesifikasyonunu da sınırlı olsa da desteklemektedir.
+		</p>
+		<p class="indent">
+			JavaScript <span class="keyw">window</span> nesnesinin alt nenelerinin özelliklerine,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span> <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">close</span><span 	class="op">();</span>
+
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">history</span><span 	class="op">.</span>back<span 
+			class="op">(</span>-1<span class="op">);</span> 
+
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span class="str">'p'</span><span class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilir. Burada  <span class="keyw">window</span> nesnesi, arsayılan tepe
+			nesne olduğundan açıkça belirtilmeyebilir. Bu durumda, alt nesnelere erişim,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">close</span><span 	class="op">();</span>
+
+<span class="keyw-25">history</span><span 	class="op">.</span>back<span 
+			class="op">(</span>-1<span class="op">);</span> 
+
+<span class="keyw-25">document</span><span class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span class="str">'p'</span><span class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şekline indirgenebilir. JavaScript <span class="keyw">window</span> nesnesinin,
+			<span class="keyw">window</span> alt nesnesinin özellikleri, varsayılan tepe nesnesi olan
+			<span class="keyw">window</span> nesnesinin özellikleri olduğundan, basitleştirmede 
+			bir adım ileri gidilip 
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">close</span><span 	class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			yerine, sadece 
+		</p>
+		<pre>
+<span class="keyw-25">close</span><span class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			olarak belirtilebilir. Fakat,  hedeflenen alt nesnenin belirli olması için,
+			genel olarak ilk şekil, yani <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">close</span><span 	class="op">()</span> şeklinde kullanım, tercih
+			edilir. Bunun için uygulamada <span class="keyw">window</span> alt nesnesinin
+			özellikleri, 
+			<span class="keyw">window</span>  nesnesi özellikleri olarak kabul edlir.
+		</p>
+		<p class="indent">
+			Aşağıdaki tablolarda, JavaScript
+			<span class="keyw">window</span> nesnesinin özellik metot ve
+			alt nesneleri, destekleyen belge çözümleyicileri ile birlikte aşağıda
+			verilmiştir.
+		</p>
+		
+		
+		
+		<div class="pl-100">
+			<table width="90%" id="window_methods" class="tablo1" summary="window methods">
+				<caption class="captionred">
+						Tablo : 18-1 - <span class="keyw"> window</span> Nesnesinin Metotları
+				</caption>
+				<colgroup>
+				<col class="st1" width="30%" />
+				<col class="st1" width="40%" />
+				<col class="st1" width="30%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color2">
+								<th>Metot</th>
+								<th>İşlev</th>
+								<th>Destek</th>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">alert</span></td>
+						<td><span class="str">Bir alert Diyalog Penceresi Açar.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, 
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, 
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> atob</span></td>
+						<td><span class="keyw"> 64 bit Temeline Göre Kodlanmış Bir Karakter
+												Dizgisi (String) Değerin Kodunu Çözümler.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="keyw">back</span></td>
+						<td><span class="keyw">Bir Sayfa Geriye</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="comm"> attachEvent</span></td>
+						<td><span class="comm">Bir Özel Fonksiyonu Bir Olay Dinleyicisine
+												Bağlar.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str"> blur</span></td>
+						<td><span class="str"> İlgiyi Kaldırır.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="keyw">btoa</span></td>
+						<td><span class="keyw">64 bit Temeline Göre Kodlanmış Bir Karakter
+												dizgisi (String) Oluşturur.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="keyw">captureEvents</span></td>
+						<td><span class="keyw">Bir olay yöneticisi yaratır. (Artık Kullanımda
+												Değil</span>)</td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str"> clearInterval</span></td>
+						<td><span class="str"> Tekrarlı Bir İşlemi İptal Eder.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> clearTimeout</span></td>
+						<td><span class="str"> Gecikmeli Bir İşlemi İptal Eder.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> close</span></td>
+						<td><span class="str"> Pencereyi Kapatır.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> confirm</span></td>
+						<td><span class="str"> Bir Onay Kutusu Açar.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="comm"> createPopup</span></td>
+						<td><span class="comm"> Bir pop-up Penceresi Açar.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="comm"> detachEvent</span></td>
+						<td><span class="comm"> Belirtilen Fonksiyonun Belirtilen Olayı Dinlemesini
+												Kaldırır.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> dump</span></td>
+						<td><span class="keyw"> Bir Konsol Mesajı Yazar.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> escape</span></td>
+						<td><span class="keyw"> Bir Karakter Dizinini (str)Kodlar
+												.</span></td>
+						<td><a href=
+"http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="comm"> execScript</span></td>
+						<td><span class="comm"> Verilen Dilde Bir Script Programını Çalıştırır.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> find</span></td>
+						<td><span class="keyw"> Bir Karakteri Arar.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> forward</span></td>
+						<td><span class="keyw"> Belgeyi History listesindeki bir sayfa ilerisi
+												ile Değiştirir.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+							<td><span class="keyw">getAttention</span></td>
+							<td><span class="keyw"> Uyarı Işığı ile Bir Uygulamaya Dikkati Çeker.</span></td>
+							<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> getComputedStyle</span></td>
+						<td><span class="keyw"> Bir Elementin Tüm Hesaplanmış CSS Özelliklerini
+												Döndürür.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="keyw">getSelection</span></td>
+						<td><span class="keyw"> Seçilmiş Nesnelerin selection Nesnesini Döndürür.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> home</span></td>
+						<td><span class="keyw"> Ana Sayfaya Geri Döndürür.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">focus</span></td>
+						<td class="str">İlgiyi Odaklar.</td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str"> moveBy</span></td>
+						<td><span class="str"> Belirtilen x ve y Kayma Değerlerine Göre Pencerenin
+												Ekrandaki Yerini Değiştirir.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> moveTo</span></td>
+						<td><span class="str"> Belirtilen x ve y Mutlak Değerlerine Göre Pencerenin
+												Ekrandaki Yerini Değiştirir.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="comm"> navigate</span></td>
+						<td><span class="comm"> Belirtilen URL Değerini Geçerli Pencereye
+												Yükler.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> open</span></td>
+						<td><span class="str"> Yeni Bir Pencere Açar ve Verilen URL Değerini
+												Yükler.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="keyw"> openDialog</span></td>
+						<td><span class="keyw"> Bir Diyalog Penceresi Açar.</span></td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> print</span></td>
+						<td><span class="str"> Sayfayı Yazdırmak için Yazıcı Diyalog Kutusunu Açar.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> prompt</span></td>
+						<td><span class="str"> Mesajlı Bir Diyalog Kutusu Açar ve Kullanıcının
+												Girdiği Karakter dizgisi (str) Değerini Geri Döndürür.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+						<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+						<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a><br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw"> releaseEvents</span></td>
+								<td><span class="keyw"> Pencerenin Belirli Tipte Olayları Dinlemesini
+														Sona Erdirir. (Devam Ettirilmiyor)</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str"> resizeBy</span></td>
+								<td><span class="str"> Açılmış Pencerenin Kordinatlarına Belirli Bir
+														x ve y Uzunluklarını Ekleyerek Boyutlarını Değiştirir.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+								<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+								<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+								<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str"> resizeTo</span></td>
+								<td><span class="str"> Açılmış Pencerenin Boyutlarını, Mutlak x (Genişlik)
+														ve y ( Yükseklik) Değerlerini Atayarak Değiştirir.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+								<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+								<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+								<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+						<td><span class="str"> scroll</span></td>
+						<td><span class="str"> Açılmış Bir Pencerenin İçeriğini, Sağa Doğru
+												x ve Sola Doğru y Değeri Ekleyerek Göre, Aşağıya Doğru Kaydırır.</span></td>
+						<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+							<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str"> scrollBy</span></td>
+								<td><span class="str"> Açılmış Bir Pencerenin İçeriğini, Sağa Doğru
+														x ve Sola Doğru y Değerleri Ekleyerek, Aşağıya Doğru Kaydırır.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+								<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+								<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+								<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw"> scrollByLines</span></td>
+								<td><span class="keyw"> Açılmış Bir Pencerenin İçeriğini, Belirli
+														Sayıda Satır Ekleyerek, Aşağıya Doğru Kaydırır.</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw">scrollByPages</span></td>
+								<td><span class="keyw"> Açılmış Bir Pencerenin İçeriğini, Belirli
+														Sayıda Sayfa Ekleyerek, Aşağıya Doğru Kaydırır.</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="comm"> setActive</span></td>
+								<td><span class="comm"> Açılmış Bir Pencereyi Üzerine İlgiyi Odaklamadan
+														Aktif Hale Getirir.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str">setInterval</span></td>
+								<td><span class="str">Belirli Bir İşlemi, Belirli milisaniye Aralıkları
+														ile Tekrarlar.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+								<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+								<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+								<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str">setTimeout</span></td>
+								<td><span class="str">Belirli Bir İşlemi Belirli Bir Milisaniye Süresi
+														Geçince Çalıştırır.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>,
+								<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+								<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+								<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="comm"> showHelp</span></td>
+								<td><span class="comm"> Bir Yardım Diyalog Penceresi Açar.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="str"> showModalDialog</span></td>
+								<td><span class="str">Bir Modal Diyalog Penceresi Açar ve Belirli
+														Bir HTML Belgesini Görüntüler.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>
+											<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+											<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+										<br />
+						<span class="str">ORTAK DESTEK</span></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="comm"> showModelessDialog</span></td>
+								<td><span class="comm"> Modal Olmayan (Kapanma Onayı Olmayan) Bir
+														Diyalog Penceresi Açar ve Belirli Bir HTML Belgesini Görüntüler.</span></td>
+								<td><a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw"> sizeToContent</span></td>
+								<td><span class="keyw"> Açılmış Pencereyi İçeriğine Göre Boyutlar.</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw"> unescape</span></td>
+								<td><span class="keyw"> Bir alert Diyalog Penceresi Açar.</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+					<tr class="tbline">
+								<td><span class="keyw"> updateCommands</span></td>
+								<td><span class="keyw"> Bir alert Diyalog Penceresi Açar.</span></td>
+								<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="dikeyTab-10"></p>
+		<div class="pl-100">
+			<table width="90%" class="tablo1" id="window_events"
+			summary="window olay yöneticileri">
+				<caption class="captionred">
+					Tablo : 18-2 - <span class="keyw">window</span> Nesnesinin Olay Yöneticileri
+				</caption>
+				<colgroup>
+					<col class="st1" width="30%" />
+					<col class="st1" width="40%" />
+					<col class="st1" width="30%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color3">
+						<th>
+							Olay Yöneticisi
+						</th>
+						<th>
+							İşlev
+						</th>
+						<th>
+							Destek
+						</th>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onabort</span>
+						</td>
+						<td>
+							<span class="keyw">Penceredeki abort İşlemlerini izler.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onactivate</span>
+						</td>
+						<td>
+							<span class="comm">Bir Nesne Aktif Hale Geldiğinde, Belirtilmiş İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onafterprint</span>
+						</td>
+						<td>
+							<span class="comm">Nesnenin Bulunduğu Sayfa, Yazdılırdıktan veya Yazma
+							Önizlenmesi İçin Açıldıktan Sonra, Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onbeforedeactivate</span>
+						</td>
+						<td>
+							<span class="comm">Nesnenin Bulunduğu Sayfada, Aktif Element Deaktive Olur ve
+							Bir Başkası Aktif Hale Gelirse Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onbeforeprint</span>
+						</td>
+						<td>
+							<span class="comm">Nesnenin Bulunduğu Sayfa, Yazdılırdıktan veya Yazma
+							Önizlenmesi İçin Açılmadan Önce, Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onbeforeunload</span>
+						</td>
+						<td>
+							<span class="comm">Nesnenin Bulunduğu Sayfa, Kapanmadan Önce, Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">onblur</span>
+						</td>
+						<td>
+							<span class="str">Nesne üzerinden İlgi Odağı Kalkınca, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onchange</span>
+						</td>
+						<td>
+							<span class="keyw">Penceredeki Değişim Olaylarına Tepki Verir.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onclick</span>
+						</td>
+						<td>
+							<span class="keyw">Mouse ile Tıklamalara Tepki Verir.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onclose</span>
+						</td>
+						<td>
+							<span class="keyw">Pencere Kapatılmaya Çalışıldığında, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">oncontrolselect</span>
+						</td>
+						<td>
+							<span class="comm">Nesnenin Kontrol Seçimi Yapıldığında, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">ondeactivate</span>
+						</td>
+						<td>
+							<span class="comm">Aktif Nesne Aktivitesini Yitirdiğinde, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">ondragdrop</span>
+						</td>
+						<td>
+							<span class="keyw">Sürükle-Bırak İşlemleri Yapıldığında, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">onerror</span>
+						</td>
+						<td>
+							<span class="str">Bir Nesne Yüklenirken, Hata Oluşursa, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">focus</span>
+						</td>
+						<td>
+							<span class="str">Bir Nesne Üzerinde İlgi Odaklandığında, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onhelp</span>
+						</td>
+						<td>
+							<span class="comm">Pencere Aktif Durumdayken Kullanıcı F1 Tuşuna Bastığında,
+							Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onkeydown</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Klavye Tuşunun İndirilmesi ile Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onkeypress</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Klavye Tuşunun Basılması ile Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onkeyup</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Klavye Tuşunun Kaldırılması ile Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">load</span>
+						</td>
+						<td>
+							<span class="str">Bir Pencere Yüklendiğinde, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onmousedown</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede mousedown Olayı ile Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onmousemove</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Aktif Pencerede mousemove Olayı ile
+							Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onmouseout</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Aktif Pencerede mouseout Olayı ile Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onmouseover</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede mouseover Olayı ile Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onmouseup</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede mouseup olayı ile Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onmove</span>
+						</td>
+						<td>
+							<span class="comm">Bir Nesne Hereket Ettiğinde, Belirtilmiş İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onmoveend</span>
+						</td>
+						<td>
+							<span class="comm">Bir Nesnenin Hereketi Sona Erdiğinde, Belirtilmiş
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onmovestart</span>
+						</td>
+						<td>
+							<span class="comm">Bir Nesnenin Hereketi Başladığında, Belirtilmiş İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onpaint</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Boyama İşlemleri Başladığında Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onreset</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Reset İşlemleri Başladığında Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">resize</span>
+						</td>
+						<td>
+							<span class="str">Bir Nesnenin Boyutu Değiştiğinde, Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">onresizeend</span>
+						</td>
+						<td>
+							<span class="comm">Bir Nesnenin Boyut Değiştirmesi Sona, Erdiğinde,
+							Belirtilmiş İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">onscroll</span>
+						</td>
+						<td>
+							<span class="str">Aktif Pencerenin İçeriği Kaydırıldığında Belirli İşlemleri
+							Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onselect</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Seçme İşlemleri Başladığında Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">onsubmit</span>
+						</td>
+						<td>
+							<span class="keyw">Aktif Pencerede Submit İşlemleri Başladığında Belirli
+							İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">onunload</span>
+						</td>
+						<td>
+							<span class="str">Aktif Pencerede, Bir Nesnenin Yüklenmesinin İptali, ile
+							Belirli İşlemleri Başlatır.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			<span class="keyw">window</span> Nesnesinin 
+			alt nesnelerinin sınıflandırılması üzerine oluşmuş bir fikir
+			birliği yoktur. <a href="http://msdn.microsoft.com/en-us/library/aa155133.aspxhttp://msdn.microsoft.com/en-us/library/aa155133.aspx">Microsoft</a> 
+			kaynakları, alt nesneleri, &quot;Özellikler&quot; (Properties),
+			&quot;Alt Nesneler&quot; (Objects);, &quot;Koleksiyonlar&quot;
+			 (Collections) olarak üç ayrı grupta incelerken, <a href="http://developer.mozilla.org/en/docs/DOM:window">Mozilla</a> kaynakları,
+			alt nesneler üzerinde hiç bir sınıflandırma yapmayarak 
+			tümünü alt nesne olarak belirtmektedir. Mozilla grubunun yaklaşımı 
+			aslında daha tutarlı gibi görünmektedir. Gerçekten,  
+			<span class="keyw">window</span> Nesnesinin alt 
+			nesnelerinin birbirlerinden farkı yoktur. Hepsi de birer 
+			alt nesnedir. Farklılıklar belki de bunlardan bazılarının
+			başka alt nesnelere sahip olmaması, bazılarının ise geniş bir
+			alt nesne ailesine sahip olmalarıdır. Bunlar arasındaki fark 
+			sadece bu noktadadır ve bu ayrım da sadece bir tanımdan 
+			ibarettir. Temel nesne nitelikleri hepsi için aynıdır.
+			Biz de çalışmalarımızda, Mozilla sisteminin yaklaşımlarını
+			benimseyerek, tüm alt nesneleri, &quot;Alt Nesne&quot; olarak 
+			bir tek grupta inceleyeceğiz. Doğal olarak, her nesne 
+			diğerinden yapısı, işlevi, uygulaması ve içerdiği alt 
+			neneleri ile farklı olacaktır. Fakat teknik açıdan, 
+			alt nesnelerin yapıları, birer nesne olarak, birbirlerinin 
+			aynıdır.
+		</p>
+
+				<div class="pl-100">
+			<table width="100%" border="1" id="window_Objects" class="tablo1"
+			summary="window methods">
+				<caption class="captionred">
+					Tablo : 18-3 - <span class="keyw">window</span> Nesnesinin Özellik ve Alt
+					Nesneleri
+				</caption>
+				<colgroup>
+					<col class="st1" width="30%" />
+					<col class="st1" width="40%" />
+					<col class="st1" width="30%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4">
+						<th>
+							Özellik
+						</th>
+						<th>
+							İşlev
+						</th>
+						<th>
+							Destek
+						</th>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">clientInformation</span>
+						</td>
+						<td>
+							<span class="comm">Belge Çözümleyicisi Hakkında Bilgiler İçerir.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">clipboardData</span>
+						</td>
+						<td>
+							<span class="comm">Önceden Tanımlanmış Clpboard Formatlarına Erişim
+							Sağlar.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">closed</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin Kapanmış Olup Olmadığını Kontrol
+							Eder.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">Components</span>
+						</td>
+						<td>
+							<span class="keyw">XPCOM Özelliklerine Giriş Noktası.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">content</span>
+						</td>
+						<td>
+							<span class="keyw">Geçerli Pencerede content Elementinin Referansını
+							Döndürür</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">controllers</span>
+						</td>
+						<td>
+							<span class="keyw">Geçerli Pencerede controller Nesnesini Döndürür</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">crypto</span>
+						</td>
+						<td>
+							<span class="keyw">Geçerli Pencerede crypto Nesnesini Döndürür</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">defaultStatus</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin Alt Tarafındaki Durum Çubuğundaki
+							varsayılan Metni Geri Döndürür veya Oluşturur.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">dialogArguments</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresine Aktarılan Değişken veya
+							Dizileri Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">dialogHeight</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresinin Yüksekliğini Belirler veya
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">dialogLeft</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresinin Sol Koordinatını Belirler
+							veya Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">dialogTop</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresinin Üst Koordinatını Belirler
+							veya Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">dialogWidth</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresinin Genişliğini Belirler veya
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">directories</span>
+						</td>
+						<td>
+							<span class="keyw">directories Araç Çubuğuna bir Referans Değerini
+							Döndürürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">document</span>
+						</td>
+						<td>
+							<span class="str">Pencerenin İçerdiği Belgenin Referansını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">event</span>
+						</td>
+						<td>
+							<span class="comm">Bir Olayın Durumunu Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">external</span>
+						</td>
+						<td>
+							<span class="comm">Bir Dış Uygulamanın Nesne Modeline Giriş Bilgilerini
+							İçerir.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">frameElement</span>
+						</td>
+						<td>
+							<span class="str">Pencerenin İliştirilmiş Olduğu Elementi veya İlişik
+							Değilse, <span class="keyw">null</span> Değerini Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">frames</span>
+						</td>
+						<td>
+							<span class="str">Belgenin İlişik Olduğu Tüm
+							<span class="keyw">window</span> Nesnelerinin Toplu Bilgisini (Koleksion)
+							verir.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">history</span>
+						</td>
+						<td>
+							<span class="str">Kullanıcının Ziyaret Ettiği Tüm Sitelerin Bilgisini
+							Verir.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">innerHeight</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyisi Penceresinin Yüksekliğini Eğer
+							Görüntüleniyorsa, Yatay Kaydırma Çubuğu Yüksekliği ile Birlikte
+							Verir.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">innerWidth</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyisi Penceresinin Genişliğini Eğer
+							Görüntüleniyorsa, Dikey Kaydırma Çubuğu Genişliği ile Birlikte
+							Verir.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">length</span>
+						</td>
+						<td>
+							<span class="str">Bir Topluluk (Koleksiyon) İçindeki Nesnelerin Sayısını
+							Döndürür veya Belirler.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">location</span>
+						</td>
+						<td>
+							<span class="keyw">window</span> <span class="str">Nesnesinin Lokasyonunu,
+							Yani Geçerli URL adresini Geri Döndürürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">locationbar</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisinin Yer İmi Çubuğunu Görüntüler veya
+							Gizler.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">menubar</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisinin Menü Çubuğunu Görüntüler veya
+							Gizler.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">name</span>
+						</td>
+						<td>
+							<span class="str">Bir Pencerenin Adını Belirten Bir Değeri Döndürür veya
+							Belirler.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">navigator</span>
+						</td>
+						<td>
+							<span class="keyw">navigator</span> <span class="str">Nesnesinin
+							Referansını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">offscreenBuffering</span>
+						</td>
+						<td>
+							<span class="comm">Kullanıcıya Görününmeden Önce bir Nesnelerin Ekran
+							Dişına Çıktığını Belirler veya Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">opener</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencereyi Açan Pencerenin Referansını Belirler
+							veya Geri Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">outerHeight</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisi Penceresinin Dış Yüksekliğini
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">outerWidth</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisi Penceresinin Dış Yüksekliğini
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">pageXoffset</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisi Penceresinin İçeriğinin Sağa
+							Kaydırılması (Scroll) ile Saklı Kalan Kısmını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">pageYoffset</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisi Penceresinin İçeriğinin Aşağıya
+							Kaydırılması (Scroll) ile Saklı Kalan Kısmını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">personalbar</span>
+						</td>
+						<td>
+							<span class="keyw">Pencerede Görüntülenip Gizlenebilen Kişiye Özel Çubuğun
+							Durumunu Döndürür veya Belirtir.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">pkcs11</span>
+						</td>
+						<td>
+							<span class="keyw">Driver veya Özel Programlar Yerleştirilmesi İçin
+							Kullanılan PKCS11 Protokol Nesnesini Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">parent</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin veya Alt Çerçevenin İlk Atasının
+							Referansını Geri Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">returnValue</span>
+						</td>
+						<td>
+							<span class="comm">Modal Diyalog Penceresinden Girilen Değeri Belirler veya
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">screenLeft</span>
+						</td>
+						<td>
+							<span class="comm">Belge Çözümleyicinin Üst Sol Köşesinin X Koordinatını
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">screenTop</span>
+						</td>
+						<td>
+							<span class="comm">Belge Çözümleyicinin Üst Köşesinin Y Koordinatını
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">screenX</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisinin Sol sınırının Pencerenin Solundan
+							Uzaklığını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">screenY</span>
+						</td>
+						<td>
+							<span class="keyw">Belge Çözümleyicisinin Tepesinin Pencerenin En Üstünden
+							Uzaklığını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">scrollMaxX</span>
+						</td>
+						<td>
+							<span class="keyw">Belgenin İçeriğinin Kaydırılabileceği En Fazla
+							Uzunluk.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">scrollMaxY</span>
+						</td>
+						<td>
+							<span class="keyw">Belgenin İçeriğinin Kaydırılabileceği En Fazla
+							Genişlik.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">scrollX</span>
+						</td>
+						<td>
+							<span class="keyw">Belgenin İçeriğinin Kaydırılmış Olduğu Genişlik.</span>
+						</td>
+
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">scrollY</span>
+						</td>
+						<td>
+							<span class="keyw">Belgenin İçeriğinin Kaydırılmış Olduğu Yükseklik.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">self</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin veya Alt Çerçevenin Referansını Geri
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">sidebar</span>
+						</td>
+						<td>
+							<span class="keyw">Sidebar (Kenarlık) Nesnesinin Pencere Referansını
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">status</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin Durum Çubuğunda Görüntülenen Mesajı
+							Geri Döndürür veya Görüntülenecek Yeni Bir Mesaj Oluşturur.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">top</span>
+						</td>
+						<td>
+							<span class="str">Geçerli Pencerenin En Üst Düzey Sınıfını Geri
+							Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/obj_window.asp">
+							MSIE</a>,
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>,
+							<a href="http://www.opera.com/docs/specs/opera6/js/index.dml">OPERA</a><br />
+
+							 <span class="str">ORTAK DESTEK</span>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">window</span>
+						</td>
+						<td>
+							<span class="keyw">Geçerli Pencere Referansını Döndürür.</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			Yukarıdaki tablolarda görülen özellik, metot, olay yöneticileri ve 
+			alt nesnelerin bir kısmı sadece belirli bir belge çözümleyicisine 
+			özgü iken, bazıları da ortak olarak desteklenmektedir. 
+		</p>
+		<p class="title-left" id="metotlar">
+			18.3 - window Nesnesinin Metotları		
+	</p><p class="indent">
+			<span class="keyw">window</span> 
+			Nesnesinin metotları, Tablo 12-1 de görülmektedir. Bu 
+			tabloda, ortak olarak desteklendiği belirtilen 
+			metotlar arasında ilk olarak, 
+			<span class="keyw">open()</span> metodu 
+			incelenecektir. Bunun nedeni, bu metodun JavaScript alt 
+			pencerelerinin açılması için kullanılması ve birçok 
+			metodun da açılmış alt pencereler üzerinde uygulanmasıdır. 
+		</p>
+		<p class="subheading" id="open">
+			18.3.1 - window.open() Metodu
+	</p><p class="indent">
+			Bu metot, alt pencere olarak da nitelendirilen, ikincil bir 
+			belge çözümleyicisi penceresi açar. Bu metodun
+			sözdizimi, en genel şekliyle,
+		</p>
+		<p class="indent">
+			objPENCERE_REFERANS_DEĞİŞKENİ <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span><span 
+			class="str">strURI</span><span 
+			class="op">,</span><span 
+			class="str">strİSİM</span><span 
+			class="op">,</span>[<span 
+			class="str">strPencere_Nitelikleri</span>]<span 
+			class="op">,</span> [boolYERİNE_GEÇ]<span 
+			class="op">)</span><span 
+			class="op">;</span>
+		</p>
+		<p class="nonindent">
+			şeklinde belirtilir. Burada,
+		</p>
+		<div class="pl-100">
+				<table width="110%" id="window_open" cellspacing="10"
+							summary="window open parameters" class="tablo1">
+				<caption class="captionred">
+					Tablo 18.4 - window.open Metodunun Parametreleri
+				</caption>
+				<colgroup>
+					<col class="st1" width="40%" />
+					<col class="st1" width="60%" />
+				</colgroup>
+				<tbody>
+					<tr class="tbline">
+						<td>
+								objPENCERE_REFERANS_DEĞİŞKENİ
+						</td>
+						<td>
+							Pencere referansı olarak da adlandırılan, 	Nesne (Object) tipinde bir değişken. 
+							Bu değişkenin değeri, <span class="keyw">window</span>
+							<span class="op">.</span><span class="keyw">open</span> <span 
+							class="op">()</span>metodunun geri dönüş (<span class="keyw">return</span>)
+							değeridir ve açılan bir pencerenin metot ve alt nesnelerine erişim sağlar. Pencere 
+							bir nedenle açılmazsa değeri <span class="keyw">null</span> olarak geri 
+							döndürülür. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							strURI
+						</td>
+						<td>
+							Karakter dizgisi (str) tipinde URI yer imi 
+							literali. Bu Karakter dizgisi literali, dosya sistemi 
+							üzerinde bir dosya adı, bir Web belgesi, bir 
+							resim dosyası veya belge çözümleyicinin 
+							destekleyebildiği başka bir tip dosya adı 
+							olabilir. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							strİSİM
+						</td>
+						<td>
+							İsteğe Bağlı Karakter dizgisi (str) tipinde 
+							bir literal. Bu isim, bir <span 
+							class="keyw">&lt;</span><span 
+							class="elm">form</span><span 
+							class="keyw">&gt;</span> 
+							veya bir<span 
+							class="keyw">&lt;</span><span 
+							class="elm">a</span><span 
+							class="keyw">&gt;</span> 
+							elementinin <span 
+							class="att">target</span> niteliğinin 
+							değeri olarak kullanılır. Bu değer, açılan 
+							pencerenin <span 
+							class="keyw">&lt;</span><span 
+							class="elm">title</span><span 
+							class="keyw">&gt;</span> elementinin 
+							içeriği değildir. Bu literal hiçbir boşluk karakteri 
+							içermemelidir.
+							<table width="100%" border="0" 
+										id="window_open_names" cellspacing="2"
+										summary="window open parameters">
+								<colgroup>
+									<col class="st1" width="30%" />
+									<col class="st1" width="70%" />
+								</colgroup>
+								<tbody>
+									<tr class="tbline">
+										<td>
+											<span class="keyw">_blank</span>
+										</td>
+										<td>
+											strURL değeri yeni ve isimsiz bir 
+											pencereye yüklenir. 
+										</td>
+									</tr>
+									<tr class="tbline">
+										<td>
+											<span class="keyw">_parent</span>
+										</td>
+										<td>
+											strURL değeri geçerli pencerenin ilk 
+											atasına yüklenir. Bu olmadığı
+											durumlarda _self gibi etki yapar. 
+										</td>
+									</tr>
+									<tr class="tbline">
+										<td>
+											<span class="keyw">_self</span>
+										</td>
+										<td>
+											Geçerli belde, strURL değeri ile belirtilen 
+											yeni belge ile yer değiştirir. 
+										</td>
+									</tr>
+									<tr class="tbline">
+										<td>
+											<span class="keyw">_top</span>
+										</td>
+										<td>
+											strURL değeri yüklenebilecek bir frameset 
+											ile yer değiştirir.  Bu
+											olmadığı durumlarda _self gibi etki yapar.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							strPencere_Nitelikleri
+						</td>
+						<td>İsteğe bağlı bir karakter dizgisi (str) 
+								listeral listesi. Bu liste,
+								virgül ile ayrılmış, karakter dizgisi literallerden 
+								oluşur. Her liste elemanı, bir opsiyonu 
+								belirten literal, bir eşit işareti ve bir 
+								opsiyon değerinden oluşur. Örnek olarak, 
+								&quot;left=40 px, fullscreen=yes,...&quot; 
+								şeklinde bir liste düzenlenebilir.
+								Desteklenen pencere nitelikleri Tablo 12-5 de 
+								listelenmiştir. 
+					</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							boolYERİNE_GEÇ
+						</td>
+						<td>
+							Sadece MSIE tarafından desteklenen isteğe 
+							bağlı mantıksal (boolean) tipte bir parametre. 
+							Bu değer <span 
+							class="keyw">true</span> ise,
+							strURL literali, belge çözümleyicisinin 
+							history listesinde geçerli belgenin yerini alır. 
+							Eğer bu parametrenin değeri 
+							<span class="keyw">false</span> ise,
+							strURL değeri, belge çözümleyicisinin history 
+							listesinde kendine yeni bir yer açar. 
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="dikeyTab-10"></p>
+		<div class="pl-100">
+			<table width="90%" id="window_open_attributes"
+					class="tablo1" summary="window methods">
+				<caption class="captionred">
+					Tablo : 18-5 - <span 
+					class="keyw">window</span><span class="op">.</span><span 
+					class="keyw">open</span> Metodu İle Açılacak Alt Pencerelerin Nitelikleri 
+				</caption>
+				<colgroup>
+					<col class="st1" width="30%" />
+					<col class="st1" width="40%" />
+					<col class="st1" width="30%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4">
+						<th>Nitelik</th><th>İşlev</th><th>Destek</th>
+					</tr>
+					<tr class="tbline">
+						<td >
+							<span class="str">
+								alwaysLowered
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Bu nitelik, UniversalBrowserWrite 
+								ayrıcalığı gerektirir. Bu ayrıcalığa 
+								sahip olunmazsa, gözardı edilir. Eğer 1 olarak 
+								belirtilirse, kendisini açan ve küçültülmemiş
+								olan pencerenin altında yüzen bir pencere 
+								açılır. Bu niteliğe sahip pencererelere
+								&quot;pop-under&quot; adı verilmektedir. 
+								Bu tip pencereler,	kendini açan üst düzey pencerenin
+								üstünde olamaz, fakat üst düzey pencere küçültülebilir.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, 
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, 
+							<a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								alwaysRaised
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Bu nitelik, UniversalBrowserWrite 
+								ayrıcalığı gerektirir. Bu ayrıcalığa 
+								sahip olunmazsa, gözardı edilir. Eğer 1 
+								olarak belirtilirse, aktif olsun veya olmasın, 
+								diğer pencerelerin üstünde yüzen 
+								bir pencere açılır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">
+								channelmode
+							</span>
+						</td>
+						<td>
+							<span class="comm">
+								Sadece MSIE sürüm 7 öncesinde desteklenen
+								bu özellik açılacak pencereyi tiyatro 
+								gösterimi moduna getirir. 
+								(ARTIK DESTEKLENMİYOR !)
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								chrome
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Mozilla 1.7 ve FireFox 0.9 dan başlayarak 
+								desteklenen bu nitelik, UniversalBrowserWrite 
+								ayrıcalığı gerektirir. Bu ayrıcalığa sahip 
+								olunmazsa, gözardı edilir. Bu özellik, sadece 
+								kullanıcı tarafından kontrol edilebilecek, standart 
+								özelliklerden kurtulmuş bir pencere açar. XUL 
+								belgeleri ve JavaScript konsolları genellikle
+								bu şekilde açılır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+						<tr class="tbline">
+						<td>
+							<span class="keyw">
+								close
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Bu nitelik, UniversalBrowserWrite ayrıcalığı 
+								gerektirir. Bu ayrıcalığa sahip olunmazsa, gözardı 
+								edilir. Bu nitelik no olarak belirtilirse, 
+								belge çözümleyicinin pencereyi kapatma tutamağı ve 
+								menüdeki kapat seçeneği iptal edilir.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								dependent
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Eğer 1 olarak belirtilirse, yeni pencere eskisinin 
+								çocuğu olarak açılır. Yani, ana pencere kapanırsa 
+								çocuk da kapanır. Açılan yeni pencere, eskisinin 
+								görev çubuğunda görünmez. 
+							</span>
+						</td>
+						<td><a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>					</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								dialog
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Eğer evet olarak belirtilirse, açılacak pencerenin 
+								başlık çubuğundaki tüm ikonlar (restore, minimize, 
+								maximise) kaldırılır.
+							</span>
+						</td>
+					<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+					</td>
+					</tr>
+						<tr class="tbline">
+						<td>
+							<span class="str">
+								directories
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Eğer 1 olarak belirtilirse, yeni pencerede
+								standart pencere düğmeleri olacaktır. Varsayılan 
+								değer 1 dir.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="comm">
+								fullscreen
+							</span>
+						</td>
+						<td>
+							<span class="comm">
+								Bu özelliğin dikkatle kullanılması gerekir. Çünkü,
+								açılacak pencere tüm ekranı kaplar ve üzerinde 
+								belge çözümleyicisinin başlık çubuğu ve menüleri 
+								bulunmaz. Kullanıcıya bu pencereyi kapatmak için 
+								bir olanağın tanınması gerekir.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								height
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Açılacak pencerenin piksel olarak yüksekliğini
+								belirtir. MSIE 7 için minimum yükseklik 150 
+								pikseldir. Önceki sürümler ve GECKO 
+								motorlu belge çözümleyiciler 100 piksel 
+								değeri destekler. Eğer görüntüleniyorsa, 
+								yatay kaydırma çubuğu genişliği de yüksekliğe dahildir.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, <a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								innerHeight
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Pencerenin iç yüksekliğini piksel olarak belirtir. 
+								height ile aynıdır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								innerWidth
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Pencerenin iç genişliğini piksel olarak belirtir.
+								width ile aynıdır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								left
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Piksel olarak pencerenin sol 
+								kenarının ekranın sol kenarından
+								uzaklığını belirtir. Bu değer 0 
+								veya pozitif bir tamsayı olmalıdır.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, <a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								location
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Evet olarak ayarlandığında, açılacak pencere 
+								içinde bir standart URI giriş alanı açar. 
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, <a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+							menubar
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Evet olarak ayarlandığında, açılacak pencerede 
+								standart menu bar (File, Edit, View, vs.) gibi 
+								öğelerle oluşturulur. 
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								minimizable
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								GECKO motorunu kullanan belge 
+								çözümleyicilerde ve sadece dialog 
+								pencerelerinde çalışır. Evet olarak 
+								ayarlandığında, açılacak dialog 
+								penceresi, küçültme düğmesini içerir.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								modal
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+							Bu nitelik, UniversalBrowserWrite ayrıcalığı 
+							gerektirir. Bu ayrıcalığa sahip olunmazsa, gözardı 
+							edilir. Evet olarak ayarlandığında, kullanıcı açılan 
+							pencereyi kapatmadan ana pencereye dönemez. Modal 
+							bir pencereye örnek olarak, alert() penceresi 
+							gösterilebilir.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								outerHeight
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								height ile aynıdır fakat, sadece GECKO 
+								temelli belge çözümleyicilerde çalışır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								outerWidth
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								width ile aynıdır fakat, sadece GECKO 
+								temelli belge çözümleyicilerde çalışır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								personalbar
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								directory ile aynıdır fakat, sadece GECKO 
+								temelli belge çözümleyicilerde çalışır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								resizable
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Eğer evet olarak ayarlanırsa, 
+								yeni açılacak pencerenin boyutları
+								değiştirilebilir.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								screenX
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								left ile aynıdır fakat, sadece GECKO 
+								temelli belge çözümleyicilerde çalışır.
+								(Artık Devam Ettirilmiyor !)
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								screenY
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								top ile aynıdır fakat, sadece GECKO 
+								temelli belge çözümleyicilerde çalışır.
+								(Artık Devam Ettirilmiyor !)
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								scrollbars
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Evet olarak ayarlandığında, yeni açılacak 
+								belge, eğer viewport ölçülerine uymazsa,
+								yatay ve dikey kayma çubukları ile birlikte
+								görüntülenecektir.
+							</span>
+						</td>
+						<td>
+								<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								status
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Evet olarak ayarlandığında, yeni açılacak 
+								pencerenin altında, durum çubuğu 
+								görüntülenecektir.
+							</span>
+						</td>
+						<td>
+								<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								titlebar
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								Sadece GECKO temelli belge çözümleyicilerde 
+								çalışır. Bu tip belge çözümleyicilerde alt 
+								pencereler daima bir başlık çubuğu ile açılır. 
+								Eğer, hayır olarak ayarlanırsa,
+								bu nitelik GECKO temelli belge çözümleyicilerde 
+								açılan alt pencerelerdeki başlık çubuğunu 
+								görüntülemez.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								toolbar
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Evet olarak ayarlandığında, yeni açılacak 
+								pencerenin altında, alet çubuğu (Back, Forward, 
+								ve Stop) görüntülenecektir.
+							</span>
+						</td>
+						<td>
+								<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								top
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Piksel olarak pencerenin üst 
+								kenarının ekranın üst kenarından
+								uzaklığını belirtir. Bu değer 0 
+								veya pozitif bir tamsayı olmalıdır.
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, <a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="str">
+								width
+							</span>
+						</td>
+						<td>
+							<span class="str">
+								Piksel olarak pencerenin genişliğini 
+								belirtir. Minimum genişlik
+								değeri MSIE 7 den önce 100 pikseldi. 
+							</span>
+						</td>
+						<td>
+							<a href="http://msdn.microsoft.com/en-us/library/aa155133.aspx">MSIE</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>, <a href="http://www.opera.com/docs/specs/opera95/">OPERA</a>
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>
+							<span class="keyw">
+								z-lock
+							</span>
+						</td>
+						<td>
+							<span class="keyw">
+								alwaysLowered ile aynıdır.
+							</span>
+						</td>
+						<td>
+							<a href="http://developer.mozilla.org/en/docs/DOM:window#Methods">GECKO</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			Yukarıdaki tabloda,MSIE, FireFox ve Opera'nın tümünün birden destekleyebildiği sadece 6 tane nitelik 
+			olabildiği görülür. Bunlar,
+			<span class="str"> alwaysLowered</span><span class="op">,</span> <span 
+			class="str">height</span><span class="op">,</span> <span 
+			class="str">left</span><span class="op">,</span> <span 
+			class="str">top</span><span class="op">,</span> <span 
+			class="str">width</span><span class="op">,</span> <span 
+			class="str">location</span> nitelikleridir. Kullanıcısı sayısı az ve desteklediği nitelik sayısı 
+			kısıtlı olan Opera belge çözümleyicisinin açılan pencere niteliklerini desteklemesi beklenen 
+			belge çözümleyicileri arasından çıkartılırsa, sadece MSIE ve FireFox belge çözümleyicilerinin ortaklaşa 
+			desteklediği, 
+		</p>
+		<p class="nonindent">
+			<span class="str">left</span><span class="op">,</span> <span 
+			class="str">top</span><span class="op">,</span> <span 
+			class="str">height</span><span class="op">,</span> <span 
+			class="str">width</span><span class="op">,</span> <span 
+			class="str">location</span><span class="op">,</span> <span 
+			class="str">directories</span><span class="op">,</span> <span 
+			class="str">toolbar</span><span class="op">,</span> <span 
+			class="str">menubar</span><span class="op">,</span> <span 
+			class="str">resizable</span><span class="op">,</span> <span 
+			class="str">scrollbars</span><span class="op">,</span> <span 
+			class="str">status</span>
+		</p>
+		<p class="nonindent">
+			olarak 11 adet ortak olarak desteklenebilen nitelik, açık internet belgelerinde kullanılabilir. 
+			Diğerlerinin, şimdilik kapalı intranet belgelerinde değerlendirilmesi ile yetinilmelidir.
+		</p>
+		<p class="indent">
+			JavaScript iki tür pencereyi ayırdeder. Bunlar,
+		</p>
+		<ul class="list">
+			<li>Bir pencere referansı olmadan açılmış olan pencereler (isimsiz pencereler), </li>
+			<li>Bir pencere referansı ile açılmış olan pencereler (isimli pencereler), </li>
+		</ul>
+		<p class="nonindent">
+			olarak ayırdedilir.
+		</p>
+		<p class="indent">
+			Bir pencere referansı olmadan açılan pencereler, sistem pencereleri olarak 
+			adlandırılan, işletim sisteminden yararlanılarak ve biraz ileride göreceğimiz, 
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span> metodu ile aynı programda bir pencere 
+			referansına atanmadan açılmış olan veya başka JavaScript programları tarafından 
+			açılmış olan pencerelerdir. JavaScript sadece kendisi tarafından 
+			açılmış pencere referansı belli olan ve kendi işletim sistemi sayfası olan pencerelerle 
+			bilgi alışverişi yapabilir. Diğer pencerelere erişemez.
+	</p>
+		<p class="indent">
+			JavaScript  <span class="keyw">window</span> nesnesi, tüm diğer nesneler gibi, referansla
+			aktarılır. Bu nesnesnin özelliklerine erişim için, atanmış olduğu değişkene pencere 
+			referans değişkeni denilir. Pencere referans değişkeni, global bir değişkendir.
+			Bu değişkeni fonksiyon alanı dışında veya bir fonksiyon alanı içinde <span 
+			class="keyw">var</span> bildirimi yapılmadan 
+			tanımlamak gerekir. Aksi halde, pencere referans değişkeni 
+			sadece fonksiyon alanında tanımlı olabilecek ve fonksiyonun 
+			çalışması sona erince tanım da erişebilirliğini yitirecektir. 
+		</p>
+		<p class="indent">
+			Alt pencere açılıca, diğer açık pencerelerle, üst sınıf/ alt sınıf ilişkisi 
+			kalmayacağından, açılan alt pencerelerin alt nesneleri ile metot, 
+			özellik ve olay yöntecilerine erişebilmek için mutlaka bir global 
+			pencere referans değişkeninin tanımlanmış olması gerekir.
+		</p>
+		<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span class="op">(</span><span 
+			class="str">'URI'</span><span class="op">,</span> <span 
+			class="str">'isim'</span><span class="op">,</span> <span 
+			class="str">'...'</span> bildiriminin ilk parametresi, Bir karakter dizgisi literali 
+			veri tipinde olan URI değeri, mutlak ve bağıl URI değerleri olabileceği gibi, boş bir 
+			karakter dizgisi de olabilir. Bu durumda, URI değeri about:blank olan boş bir alt pencere, 
+			belirtilen niteliklerle veya eğer nitelikleri belirtilmemişse, varsayılan donatılar ve 
+			boyutlarda açılır.
+	</p>
+		<p class="indent">
+			İkinci parametre olan  <span class="str">'isim'</span>; parametresi, en kritik ve 
+			anlaşılması güç olan bir değerdir. Bu parametre, bir çerçeve (frame) 
+			sistemini oluşturan pencerelerin ismidir. Bir çerçeve 
+			sistemi olmadığı durumlarda, bu pencereler, JavaScript 
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span class="op">()</span> metodu ile 
+			veya (X)HTML çapa elementinin <span class="att">target</span> 
+			niteliğinde belirtilen isimle açılmış olabilir.
+		</p>
+		<p class="indent">
+			Normal olarak (X)HTML çözümleyicisi, açtığı belge çözümleyicisi 
+			pencerelerine bir isim vermez. Bu tip pencerelere, sistem 
+			pencereleri adı verilir. Açık bir sistem penceresi içine yüklenmiş 
+			bir (X)HTML belgesinden, <span 
+			class="keyw">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;merhabaDunya.htm&quot;</span><span 
+			class="keyw">&gt;</span>Merhaba Dünya !<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span> şeklinde bir çapa 
+			elementinin çağrısı ile bir başka sayfa çağrılırsa, açık isimsiz 
+			sistem penceresinin içeriği boşaltılır ve çağrılan belge, 
+			pencerenin yeni içeriği haline gelir. Bu bağlantıyı lütfen 
+			<a href="../uygulamalar/merhabaDunya.html">deneyiniz</a>. 
+		</p>
+		<p class="indent">
+			Pencere yüklendikten önce ve sonra, sistemde sadece bir tane 
+			açık olan pencere bulunmakta olduğuna dikkat edilmelidir. Değişen 
+			sadece açık ve isimsiz sistem penceresinin içeriği olmuştur. Aynı 
+			pencereye, yeni bir belge yüklendiğinde, yeni belgenin history 
+			belleğinde, eski belgenin URI değeri bulunmaktadır. Bu şekilde,
+			yeni belge yüklendiğinde, back düğmesi ile eski belge yeniden 
+			yüklenebilmekte, buradan forward düğmesi ile yeniden yeni belgeye 
+			dönülebilmektedir. 
+		</p>
+		<p class="indent">
+			Sistem pencereleri, isimli olarak da açılabilirler. Eğer, yeni 
+			pencere, çapa elementinin <span 
+			class="att">target</span> niteliği belirtilerek,
+			<span 
+			class="keyw">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;MerhabaDunya.htm&quot; </span><span 
+			class="att">target</span><span 
+			class="op">=</span><span 
+			class="str">&quot;ilk_pencere&quot;</span><span 
+			class="keyw">&gt;</span>pencere ismi<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span> şeklinde açılırsa, durum çok farklı
+			olacaktır. Bu durumda, yeni belgenin yüklenmesi için, ismi ilk_pencere
+			olan bir pencere hedef gösterilmektedir. Sistemde bu isimde açık bir pencere
+			varsa, yeni belge bu pencerenin yeni içeriği olacaktır. Sistemde bu isimde
+			açık bir pencere yoksa, bu isimle yeni bir pencere açılacak ve belge bu
+			yeni pencereye yüklenecektir. Bu taktik çoğunlukla ürün bilgilerini açık 
+			pencereyi etkilemeyecek şekilde sunmak isteyen web siteleri tarafından 
+			uygulanır. Örnek olarak, 
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span class="elm">a</span> <span 
+			class="att">href</span> <span class="op">=</span> <span 
+			class="str">&quot;../uygulamalar/merhabaDunya.htm&quot;</span> <span 
+			class="att">target</span> <span class="op">=</span> <span 
+			class="str">&quot;ilk_pencere&quot;</span><span class="keyw">&gt;</span>sayfayı aç<span 
+			class="keyw">&lt;</span><span class="op">/</span><span class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="nonindent">
+			Bu bağlantıyı lütfen 
+			<a href="../uygulamalar/merhabaDunya.html" target="ilk_pencere">deneyiniz</a>.
+			 Bağlantı gerçekleştiğinde, sistemde iki tane açık belge çözümleyici penceresi
+			olduğu ve en son açılan yeni pencerenin geçmiş belleğinde, çağıran belgenin
+			URI bilgisinin olmadığı görülecektir. Yani, yeni açılan pencerenin back
+			düğmesi çalışmayacaktır. Çünkü bu pencere yeni açılmıştır ve ilk içeriği
+			de yeni yüklenmiştir.
+		</p>
+		<p class="indent">
+			Bundan sonraki, işleyiş aynı şekilde devam edecektir. Yeni bağlantılar,
+			açık olan  pencerelerden birini hedef gösterdiğinde, belgeler bu
+			pencerelere yüklenecek, hedef olarak belirtilen isimde açık bir pencere
+			yoksa, bu isimde yeni bir pencere açılarak, belge bu yeni pencereye
+			yüklenecektir. Bu şekilde, duruma göre sonsuz sayıda yeni pencere açılabilir.
+			Açılan her yeni pencerenin sistem kaynaklarını kullandığı da unutulmamalıdır.
+			Bu nedenle, sistemde elden geldiği kadar az açık pencere tutulmasında
+			yarar bulunmaktadır.
+		</p>
+		<p class="indent">
+			Yeni belgelerin, yeni pencerelere yüklenmesini sağlayacak bir hedefin <span 
+			class="att">target</span> <span 
+			class="op">=</span><span 
+			class="str">&quot;_blank&quot;</span> şeklinde bildirilmesi 
+			olanağı da bulunmaktadır. Bu durumda, isimsiz bir yeni sistem penceresi
+			 açılarak belge bu pencereye yüklenecek, doğal olarak back düğmesi 
+			bu durumda da çalışmayacaktır.
+		</p>
+		<p class="indent">
+			Çapa elementinin yönlendirme olanağından yararlanılarak açılan tüm 
+			pencereler XHTML işaretlemesinden yaralanılarak açılmış olan sistem
+			pencereleridir. Bu pencerelerin açılması için, kullanıcı belge çözümleyicisinin
+			JavaScript yorumlayıcısının devre dışı bırakılmış olması veya pop-up 
+			pencere engelleyicilerinin etkin olması bir engel oluşturmaz. Fakat açılan
+			pencereler sistem pencereleridir ve bu pencerelerin düzeni üzerinde hiçbir
+			kontrolümüz yoktur. Programcıların düzenlenmesini kontrol edebildikleri 
+			pencereler ancak JavaScript <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">open</span>
+			<span class="op">()</span> metodunun uygulanması ile açılabilir. 
+			Bunun için de ön koşul, kullanıcıların bilgisayarlarında JavaScript yorumlayıcısının 
+			etkin olması ve pop-up pencere engelleyicilerinin bulunmamasıdır.
+		</p>
+		<p class="indent">
+			Görüldüğü gibi, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span>
+			metodunun ikinci parametresi, (X)HTML çözümleyicisinin 
+			değerlendirdiği pencere adıdır. Pencere adı, sadece 
+			açılış sırasında, çapa elementinin <span 
+			class="att">target</span> niteliğinin değeri olarak veya 
+			alt pencere açılırken <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span>
+			metodunun ikinci parametresinin değeri olarak belirtilebilir.(X)HTML 
+			ile açık bir pencerenin isminin değiştirilebilmesi olanağı yoktur. Sadece 
+			JavaScript ile, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">name</span> niteliğinin 
+			değerinin değiştirilmesi ile değiştirilebilir. Bu yöntemi kısa süre sonra, 
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">name</span> niteliği ile birlikte inceleyeceğiz.
+			Bunun dışında, açılan pencerelerin isimleri, açıldıkan sonra hiçbir şekilde
+			değiştirilemez ve kapanmalarına kadar aynı ismi taşırlar.
+		</p>
+		<p class="indent">
+			Görüldüğü gibi, <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span> metodunun ikinci parametresi, sadece,
+			(X)HTML çözümleyicisinin hedef pencere olarak değerlendirdiği, karakter 
+			dizgisi (string) tipinde bir değerdir. Bu değer, çapa elementinin, 
+			<span class="att">target</span> niteliği ile aynı işleve sahiptir. Çağıran çapa
+			elementine bir <span class="att">target</span> niteliği vermek
+			ve bu değeri de açılacak pencere ismi olarak atamak, alışılagelmiş bir uygulama
+			olarak kabul edilmektedir. Çapa elementinin, 
+			<span class="att">target</span> niteliğinin değeri, JavaScript yorumlayıcısının
+			pencere niteliklerini kontrol ettiği, pencere referans değişkeni değildir.
+			 Bu değer ayrıca açılan alt pencerenin <span 
+			class="keyw">&lt;</span><span 
+			class="elm">title</span><span 
+			class="keyw">&gt;</span> elementinin içeriği de değildir. Biraz 
+			ileride görüleceği gibi, <span 
+			class="keyw">&lt;</span><span 
+			class="elm">title</span><span 
+			class="keyw">&gt;</span> elementinin oluşturularak,
+			açılacak alt sayfanın içeriğine ayrıca eklenmesi gerekir.	
+		</p>
+		<p class="indent">
+			Çapa elementinin <span class="att">target</span> niteliği, katı kuralcı (strict) 
+			<a href="http://www.w3.org/TR/2002/REC-xhtml1-20020801/">XHTML 1.0 spesifikasyonunda</a>
+			 iptal edilmiş fakat <a href="http://www.w3.org/TR/xhtml11/"> XHTML 1.1 spesifikasyonunda</a>
+			yeniden desteklenmeye başlanmıştır. En son spesifikasyon XHTML 1.1 olduğundan, bu konudaki 
+			sorunlar tamamen çözüme kavuşmuş ve çapa elementinin <span class="att">target</span> niteliği 
+			belirtilmiş belge kodlamaları eğer geçerli XHTML 1.1 belgeleri ise, 
+			<a href="http://validator.w3.org/">W3C kod değerlendiricisi</a> bu belgeleri geçerli belgeler
+			olarak kabul etmeye yeniden başlamıştırt Bu durumda XHTML 1.0 da yaşanmış olan kod değerlendirme
+			sorunları geçmişte kalmıştır. Bu yeni ve olumlu durum, çerçeve sistemleri ile çalışılması ve isimli 
+			pencerelerin açılması işlemlerini çok kolaylaştırmaktadır. 
+		</p>
+		<p class="indent">
+		<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span>  Metodunun ikinci parametresinin <span 
+			class="str">&quot;&quot;</span> şeklinde boş bir karakter 
+			dizgisi olarak kullanılması durumunda, Internet Explorer her defasında yeni bir 
+			pencere açarken, Firefox ilk açlacak pencerenin ardından, açılacak tüm 
+			belgeleri aynı pencereye yükleyecektir. Genel olarak, <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span> metodunun ikinci parametresinin, boş bir 
+			karakter dizgisi olarak kullanılması uygun değildir.
+		</p>
+		<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span>  Metodunun üçüncü parametresi, açılacak 
+			alt pencerenin donatıları ile ilgilidir. Bu parametre hiç kullanılmazsa, açılacak 
+			alt pencere, varsayılan donatılarla açılır. Bu parametre, <span 
+			class="str">&quot;&quot;</span> şeklinde boş bir karakter dizgisi 
+			olarak verilirse, açılacak alt pencerede, başlık çubuğu dışında hiç bir donatı
+			bulunmayacaktır.
+		</p>
+		<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span> <span class="str">'...'</span><span 
+			class="op">,</span> <span class="str">'...'</span> Metodunun dördüncü parametresi, sadece 
+			Internet Explorer de çalıştığı için, kamuya açık Internet de değil, kapalı 
+			Intranet yayınlarında kullanılması sağlık verilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span> <span class="str">'URI'</span><span 
+			class="op">,</span> <span class="str">'isim'</span><span 
+			class="op">,</span>  <span class="str">'...'</span>  Metodunun , kısa olarak sadece
+			<span class="keyw">open</span><span 
+			class="op">()</span> olarak kullanılması doğru
+			değildir. JavaScript yorumlayıcısı, statik nesnelerin kökenini yukarı doğru
+			tarar. Burada ilk yapılandırma, <span 	class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">open()</span> şeklinde olacak ve bu ifade, geçerli 
+			olacağı için daha yukarı kökenlerine doğru arama yapmayacaktır. Bu durumda, 
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open()</span> ifadesi yerine, <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">open()</span> ifadesi çalıştırılacak ve yeni bir pencere
+			açılması yerine, yeni bir belge açılacaktır.
+		</p>
+		<p class="indent">Bir alt pencerenin içeriği, uzak bir bigisayarda 
+			bulunan bir dosya olabilir. Uzak bir noktadaki URI belgesinin anında 
+			indirilip, açılan alt pencerenin içeriğini anında doldurmasının 
+			beklenmemesi gerekir. Burada, ilk olarak boş bir pencere açılacak, 
+			sonra istenen belge verilen URI adresinden indirilerek, açılmış olan boş 
+			pencere içeriği ile yer değiştirecektir. Pencerenin 
+			yaratılması içeriğinin yüklenmesi, asenkron olarak 
+			gerçekleşecektir. Bütün bu işlemler, zaman alıcı işlemler olacağından, 
+			açılan alt pencerenin içeriğinin doldurulması biraz zaman alabilir.
+		</p>
+		<p class="indent">
+			Bir alt pencerenin açılması, kullanıcıya ek bir bilginin 
+			sunulması anlamına gelmektedir. JavaScript işlevselliğinin 
+			belge çözümleyicisinde kapatılmış olması veya başka bir 
+			nedenle alt pencerenin açılması engellenirse, 
+			kullanıcı önemli bir bilgi kaynağından yoksun kalacaktır. 
+			Bu durumun engellenmesi için, pop-up pencereler daha 
+			önce gördüğümüz, &quot;Aşamalı Geliştirme&quot;
+			ve &quot;Farkedilmeden Kayboluş&quot; prensiplerinin uygulandığı 
+			sadece sayfadaki bilgilerin vurgulandığı, açılmadıklarında bilgi
+			kaybına neden olmayacak dikkatli hazırlanmış içeriklerle oluşturulması sağlık verilir.
+		</p>
+		<p class="indent">
+			Alt pencereleri açacak programların, HTML/XHTML/XML olay 
+			yöneticilerinin algılayacağı olayları gerçekleştirerek 
+			veya bir bağlantıyı tıklayarak çalıştırılması gerekir.
+			Bu çalıştırma yönteminin, &quot;Farkedilmeyen 
+			Kayboluş&quot; prensibine göre, Javascript çalışmasa da en 
+			azından sayfanın açılmasını sağlayarak kullanıcının 
+			bilgiden yoksun kalmasını önlemesi beklenir.
+			Uygulamalarda, olanaklar ölçüsünde bu amacın 
+			sağlanmasına çalışılmalıdır. Aşağıdaki örneklerde bu işlevselliğin sağlanma
+			yöntemleri açıklanmıştır.
+		</p>
+		<p class ="indent">
+			Bir sayfanın açılma onayını daima kullancıya bırakmak gerekir. Sayfa yüklendiğinde,
+			kullanıcının kontrolü dışında sayfa ile birlikte otomatik olarak açılan pencereler,
+			reklem amacı taşımasalar bile kullanıcıyı tedirgin eder. Buna ek olarak, dikkati
+			çekmek amacı ile bu pencereler görüntü alanı içinde dolaştırılırsa, kullanıcının
+			irkilmesi artar ve bu sitede zararlı kodların olabileceği kuşkusunun oluşmasına
+			neden olabilir. Kullanıcı bu siteleri acele olarak terketme eğilimine girebilir ve bu 
+			hiç istenmeyen bir durumdur.
+		</p>
+		<p class ="indent" id = "b18.3.1-uyg-1">
+			Açılan pencerler konusunda inceleyeceğimiz ilk örnek, kullanılması sağlık verilmeyen bir 
+			yöntem olan, JavaScript pseudoprotokolunu kullanan bir uygulamadır. JavaScript pseudoprotokolunu
+			sayfada JavaScript programlarını çalıştımak için kullanılan ve aslında uzak durulması gereken bir 
+			yöntemdir. Bu yöntem, bölüm <a href="../b1/b1s3.html#pseudo">1.1.3 de</a> incelenmişti. Aşağıda kodları görülen,
+			<a href="../uygulamalar/b18.3.1-uyg-1-js.html">program,</a> açılan pencerelerinin açılması için 
+			JavaScript pseudoprotokolunu kullanmaktadır. 
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) {</span>
+
+<span class="pl-50">pencereRef</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span>URI<span 
+			class="op">, </span><span 
+			class="str">'otobusTarifesi'</span><span 
+			class="op">,</span>
+<span class="str-200">'resizable=yes,toolbar=yes,location=yes,scrollbars=yes,'</span><span 
+			class="op"> +</span>
+<span class="str-200">'menubar=yes,width=780,height=400,top=200,left=800'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir.</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu program bağlantılı olduğu <a href="../uygulamalar/b18.3.1-uyg-1.html">örnek sayfasında</a>,
+			aşağıda görüldüğü gibi çalışmaktadır. 
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">ul</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;center-navlist&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="elm">li</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;ilk&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-75">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;javascript:void pencereAç('../uygulamalar/tarifeler.htm');&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">&lt;</span><span 
+			class="elm">em</span><span 
+			class="keyw">&gt;</span>Otobus Tarifesi<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">em</span><span 
+			class="keyw">&gt;&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">li</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">ul</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="indent"> Yukarıdaki örnekte görülen, </p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span>&nbsp;<span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;javascript: void pencereAç('../uygulamalar/tarifeler.htm');&quot;</span>
+		</pre>
+		<p class="nonindent"> şeklindeki ifade, çapa elementinin 
+			<span class="att">href</span> niteliğinin 
+			yorumlanmasında, bir URI değerinin aranmasının değil, bir 
+			JavaScript ifadesinin çalıştırılacağını belirtir. Bu ifadede <span 
+		class="keyw">void</span> bildirimi, geriye bir değer döndürülmeyeceğini
+			belirtir. 	JavaScript komutlarının bu şekilde çalıştırılmasına, 
+			&quot;JavaScript Pseudo (Sahte)-Protokolu&quot; adı verildiği, 
+			<a href="../b1/b1s3.html#pseudo">1.1.3 de</a> açıklanmıştı. 
+			Tekrar hatırlamak için, tanımları yeniden 
+			inceleyelim. 	İletişim protokolu, uzak siteler arasında belge 
+			transferinde, iletişim standartlarının sağlanması 
+			için kullanılan bir kodlama sistemidir. Pseudo(sahte) 
+			protokol, görünüşte protokola benzeyen, fakat protokol 
+			olmayan bir program kısmı anlamına gelir. Yukarıdaki 
+			örnekte görülen, JavaScript pseudo-protokolu, çapa 
+			elementinin bağlama fonksiyonunu ortadan kaldırdığı için 
+			bir &quot;kırık bağlantı&quot; türü yaratır ve böylelikle, 
+			bağlantı değil, JavaScript ifadesi çalışarak pencere 
+			açılır. JavaScript pseudo-protokolu, sayfada JavaScript 
+			programlarının çalıştırılabilmesi için, bir olanak sağlamasına
+			karşın, sayfada bazı erişilebilirlik ve kullanılabilirlik 
+			sorunları yaratabilir. Bu sorunlar, aşağıda kısaca belirtilmiştir:
+		</p>
+		<ul class="list">
+			<li> JavaScript pseudo-protokolunun çalışması, herşeyden önce, kullanılan belge çözümleyicisinin 
+				JavaScript komutlarını çalıştırma yeteneğine bağlıdır. Eğer belge çözümleyicisinin JavaScript 
+				komutlarını çalıştırma yeteneği kapatılmış veya hiç yoksa ve programlamada
+				gerekli özen gösterilmemişse, JavaScript pseudo-protokolunun açması gereken sayfa açılmaz. 
+				Alternatif bir seçenek yoktur. Bu durumda, izleyici, bir bilgi kaynağından 
+				yoksun kalır. Bu nedenle JavaScript pseudoprotokolunu kullanan sayfalarda, 
+				JavaScript programları, &quot;Aşamalı Geliştitrme &quot; ve 
+				&quot;Farkedilmeyen Kayboluş&quot; prensibine göre, sayfanın bilgi vermesini engellememeli ve 
+				sadece sayfadaki bilginin kullanıcıya erişiminde iyileştirme sağlamalıdır.</li>
+			<li> JavaScript pseudo-protokolu, arama motorlarının sayfayı indeksleme. işleminde karışıklığa neden olmaktadır. </li>
+			<li> JavaScript pseudo-protokolu, assistive teknolojilerde, örnek olarak görme engelliler için (ekran okuyucularda)  ve 
+				PDA larda karışıklığa neden olmaktadır. </li>
+			<li> JavaScript pseudo-protokolu, bazı mouse hareketlerinde karışıklığa neden olmaktadır. </li>
+			<li> JavaScript pseudo-protokolu, bazı değerlendiricilere göre, sayfada hatalı program mesajları verilmesine 
+				neden olabilmektedir. </li>
+		</ul>
+		<p class="indent">
+			Bütün bu nedenlerden dolayı, JavaScript pseudo-protokolundan uzak durmak gerekmektedir. Biz de 
+			çalışmalarımızda, çok gerekli olmadıkça JavaScript pseudo-protokolunu kullanmamaya çalışacağız. 
+		</p>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b18.3.1-uyg-1-js.html">programda</a> olumsuz olan 
+			JavaScript pseudo-protokolu kullanımı dışında, olumlu olan birçok nokta da bulunmaktadır. 
+			Bu noktaların yakından izlenmesi yararlı olacaktır. 
+		</p>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b18.3.1-uyg-1-js.html">programda</a> , olumsuz yönleri olan global 
+			değişkenlerin kullanılması yerine, <a href="http://www.snook.ca/">Jonathan Snook</a> 
+			tarafından önerilen <span class="keyw">window</span> global nesnesine bir özellik eklenmesi yoluna
+			gidilmiştir. JavaScript programlama dilinde, global değişken tanımı ile, global nesne görevini yapan 
+			<span class="keyw">window</span> nesnesine bir özellik eklenmesi aynı anlama gelmektedir. Bu nedenle , 
+			olumsuz yönleri olan global değişken tanımı yerine  <span class="keyw">window</span> nesnesine bir 
+			özellik eklenmesi daha olumlu olabilir. Açılan pencere referanslarının global olarak tanımlanması 
+			yararlıdır. Çünkü, açılan bir pencere içeriğine başka bir fonksiyondan erişim sağlanması gerektiğinde, 
+			bu pencerenin referansına ancak global olarak tanımlanmış olması durumunda başka bir fonksiyon 
+			tarafından erişilebilir. Bu programda, pencere içeriğine, pencerinin açıldığı fonksiyondan başka 
+			bir fonksiyondan erişim yapılması gerekmemesine karşın yine de pencere referansı global 
+			olarak fakat <span class="keyw">window</span> global nesnesinin bir metodu şeklinde
+			tanımlanmaktadır
+		</p>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b18.3.1-uyg-1-js.html">programda</a> açılmış olan 
+			isimli pencerelerin yeniden açılmaması için JavaScript programına bir yöntem
+			konulmamış olduğu görülmektedir. Bu kontrol, bu konuda daha yetenekli 
+			olan, (X)HTML çözümleyicisine bırakılmıştır. (X)HTML çözümleyicisi,
+			belirli bir isimle açılmış olan pencerelerin, henüz açık durumda iken, aynı isimle yeniden
+			açılmasına olanak vermez. Bu konuda JavaScript programlarına ek bir yük
+			yüklemek gerekli değildir. Kontrolün (X)HTML tarafından üstlenilmesini sağlamak için
+			açılacak pencerelerin bu programda olduğu gibi bir isim verilerek açılması yeterlidir.
+		</p>
+		<p class="indent">Açılan alt pencere, yeni bir pencere olarak açılırsa, otomatik olarak ön 
+			plana alınacak ve ilgi üzerine odaklanacaktır. Eğer, açılacak olan alt sayfa, mevcut bir 
+			pencerenin yeni içeriği olacak şekilde açılırsa, arka planda kalacaktır. Bu durumda, kullanıcı, 
+			gözünün önünden kaybolan alt pencereyi arayarak vakit kaybedebilir. Bunun önlenmesi 
+			için, arka plana düşmüş olan alt pencerenin, yeniden ön plana taşınması ve ilginin üzerine 
+			yoğunlaştırılması gerekir. Bu, amaçla, kısa süre sonra inceleyeceğimiz, <span class="keyw">window </span>
+			nesnesinin,<span class="keyw">focus</span><span class="op">()</span> metodundan
+			yararlanılmaktadır. Bu şekilde, açılan pencerenin her zaman kullanıcının gözönünde tutulması sağlanmış 
+			olmaktadır.
+		</p>
+		<p class ="indent" id="b18.3.1-uyg-2">
+			JavaScript pseudoprotokuluna gerek olmadan açılan bir pencere programının yazılması, birçok önemli
+			noktanın dikkate alınmasını gerektirir. Bu programın yazılmasında dikkate alınması gereken noktalar, 
+			<a href="http://www.accesify.com/">http://www.accesify.com</a> da açıklanmıştır. Bu konuları
+			gözönüne alan örnek bir <a href="../uygulamalar/b18.3.1-uyg-2-js.html">programın</a> kodları
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> penref<span 
+			class="op">() {</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span>pencereRef <span 
+			class="op">=</span> <span class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> varsayılanEtkiyiGözardıEt<span 
+			class="op">(</span>e<span 
+			class="op">) {</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span> <span 
+			class="keyw">window</span> <span 
+			class="op">.</span> <span 
+			class="keyw">event</span><span 
+			class="op">) {</span>
+ <span 
+			class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">event</span><span 
+			class="op">.</span><span 
+			class="keyw">returnValue</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">event</span><span 
+			class="op">.</span><span 
+			class="keyw">cancelBubble</span> <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else if</span><span 
+			class="op">(</span>e<span 
+			class="op">) {</span>
+<span class="pl-75">e</span><span 
+			class="op">.</span><span 
+			class="keyw">stopPropagation</span><span 
+			class="op">();</span>
+<span class="pl-75">e</span><span 
+			class="op">.</span><span 
+			class="keyw">preventDefault</span><span 
+			class="op">();</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) {</span>
+
+<span class="pl-50">pencereRef</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span>URI<span 
+			class="op">, </span><span 
+			class="str">'otobusTarifesi'</span><span 
+			class="op">,</span> <span class="str">'resizable=yes,toolbar=yes,location=yes,scrollbars=yes,'</span> <span 
+			class="op">+</span>
+<span class="str-200">'menubar=yes,width=780,height=400,top=200,left=800'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir.</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> popup<span 
+			class="op">(</span>e<span 
+			class="op">) {</span>
+
+<span class="pl-50">pencereAç</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">));</span>
+			
+<span class="pl-50">varsayılanEtkiyiGözardıEt</span><span 
+			class="op">(</span>e<span 
+			class="op">);</span><span 
+			class="comm-25"> // popup penceresi açılınca çapa elementinin varsayılan etkisinin bloke edilmesi !</span>
+			
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> bağlantı <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'tutamak'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">penref</span><span 
+			class="op">();</span>
+
+<span class="pl-50">bağlantı</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> popup<span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'title'</span><span 
+			class="op">,</span> <span 
+			class="str">'popup penceresi olarak açılır !'</span><span 
+			class="op">);</span><span class="comm-25">// thumbnail olarak gösterilir !</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+		Bu program, bağlantılı olduğu, <a href="../uygulamalar/b18.3.1-uyg-2.html">sayfada</a>
+		aşağıda görülen çapa elementinin tıklanması ile bir popup penceresi açar.
+		</p>
+		<pre>
+<span 
+			class="keyw">
+</span><span class="keyw"
+			style="padding-left:25px;">&lt;</span><span 
+			class="elm">ul</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;center-navlist&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw"
+			style="padding-left:50px;">&lt;</span><span 
+			class="elm">li</span> <span 
+			class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;ilk&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw"
+			style="padding-left:75px;">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span class="str">&quot;../uygulamalar/tarifeler.htm&quot;</span> <span class="att">id</span><span 
+			class="op">=</span><span 
+			class="str">&quot;tutamak&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">&lt;</span><span 
+			class="elm">em</span><span 
+			class="keyw">&gt;</span>Otobus Tarifesi<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">em</span><span 
+			class="keyw">&gt;&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw"
+			style="padding-left:50px;">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">li</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw"
+			style="padding-left:25px;">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">ul</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="indent">
+			Bu uygulama, programların birbirlerinin okunmasını engellememe prensibini tam olarak 
+			karşılamaktadır. Çünkü, tüm uygulamalarımızda olduğu gibi, HHTML, JavaScript ve CSS 
+			kodları ayrı sayfalarda saklanmakta ve birbirleri ile ilişkilendirilerek bir bütün oluşturulmaktadır.
+			XHTML kodlarında hiç JavaScript ve CSS kodlarının görünmemesinin sağlanması hedefine
+			ulaşılabilmesi amacı ile XHTML kodlarında, elementlerin olay yöneticileri ve stil nitelikleri 
+			kullanılmamakta, elementlerin stil nitelikleri ve olay yönetimi tüm olarak sayfaya ilişkilendirilmiş
+			CSS ve JavaScript program sayfalarında çözümlenmektedir. 
+		</p>
+		<p class ="indent">
+			Bu uygulama, Javascript programlarının aşamalı geliştirme (progressive enhancement) ve 
+			farkedilmeden kayboluş, (graceful degradation) prensiplarini tam olarak karşılamaktadır. 
+			Sayfada JavaScript sadece açılan sayfanın ekrandaki konumunu, boyutlarını ve niteliklerini
+			düzenleyerek açılan pencerenin kullanıcının gözüne hoş görünmesini sağlamak 
+			işlevini yüklenmektedir. JavaScript kullanıcının belge çözümleyicisinde çalışmıyorsa, 
+			sayfanın çapa elementinin işlevi açık kalmakta ve bağlantı çalışır halde kalarak,
+			tıklandığında yine açılan pencere açılmakta fakat nitelikleri, JavaScript tarafından yapılabilecek
+			iyileştirmelerden yoksun kalmaktadır. Bu şekilde, JavaScript sayfanın erişilebilirliğini azaltıcı
+			bir etkiye neden olmamaktadır.
+		</p>
+		<p class ="indent">
+			Kullanıcının belge çözümleyicisinde, JavaScript yorumlayıcısı çalışır durumda ise, 
+			çapa elementinin biçeriğine tıklandığında, çapa elementinin <span class="att">href</span>
+			niteliğinde belirtilen URI bilgisine göre sayfanın açılmasını JavaScript programı sağlayacaktır. 
+			Bu durumda, çapa elementinin işlevselliği bloke edilmelidir. Bu işlem için, 
+			<span class="keyw">return false</span> bildirimi yeterli olabilir. Fakat, belge çözümleyicilerin
+			özel kodları daha etkilidir. Bu kodlar, IE ve Mozilla tabanlı belge çözümleyiciler için 
+			farklı olduklarından, her ikisi için geçerli olan kodların programda yazılması gerekmektedir. Programda
+			varsayılanEtkiyiGözardıEt<span class="op">()</span> fonksiyonu bu işlevi sağlmaktadır. Bu fonksiyon, 
+		<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına alınmıştır.
+		</p>
+		<p class ="indent">
+			Tüm programda, URI bilgisinin sadece, çapa elementinin <span class="att">hrf</span> niteliğinin
+			değeri olarak belirtilmesine dikkat edilmiştir. Bunun nedeni, sayfanın bir site düzenleyicisi, 
+			örnek olarak Adobe DreamWeaver ile düzenlenmesinde, sayfanın site içinde yeri değişebildiğinde, 
+			site düzenleyicisi, URI bilgilerinin de yeni yerleşime göre düzenlenmesini sağlayabilir. Eğer bir
+			URI bilgisi JavaScript programı içinde belirtilmiş ise otomatik olarak düzeltime olanağı 
+			bulunamaz. Bu yüzden, bu uygulamada olduğu gibi, URI bilgilerinin sadece XHTML kodları içinde 
+			belirtilmesinde yarar bulunmaktadır. 
+		</p>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b18.3.1-uyg-2-js.html">program</a>, tüm belge çözümleyicilerde
+			ortak olarak çalışabilen, sayfanın erişilebilirliğini azaltmayan, farkedilmedem kaybolabilen, 
+			açılan pencereler için örnek olabilecek bir programdır. Tüm açılabilir pencereler için, 
+			bu <a href="../uygulamalar/b18.3.1-uyg-2-js.html">programdaki</a>, yöntemlerin
+			uygulanmasına özen gösterilmelidir. 
+		</p>
+		<p class="indent" id="b18.3.1-uyg-3">
+			Bazı durumlarda birden çok alt pencere açılması gereği olabilir. Bu
+			pencerelerden yenilerinin açılıp, eskileri gereksiz yere açık olarak
+			arka planda kalacağına, yeni pencereyi eskisinin ismi ile yeniden açmak,
+			sistem kaynakları açısından, daha verimli olacaktır. Bu durumda, yeni
+			belge, açık olan belge çözümleyicisi alt penceresinin yeni içeriği haline
+			gelecek ve sistem gereksiz yere açık olarak arka planda bekleyen alt
+			pencerelerin kaynakları kullanmasından kurtarılmış olacaktır. Bu yöntemin
+			kullanıldığı bir <a href="../uygulamalar/b18.3.1-uyg-3-js.html">program</a> 
+			aşağıda görülmektedir. Bu program, bağlı olduğu 
+			<a href="../uygulamalar/b18.3.1-uyg-3-js.html">uygulama</a> sayfasında
+			çalışmaktadır.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> penref<span 
+			class="op">() {</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span>pencereRef <span 
+			class="op">=</span> <span class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;Tarifeler&quot;</span><span 
+			class="op">,</span><span 
+			class="str"> 'resizable=yes,toolbar=yes,location=yes,scrollbars=yes,menubar=yes,width=780,height=400,top=200,left=800'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus()</span><span 
+			class="op">;</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. </span>
+
+<span class="op-25">}
+
+</span><span class="keyw-25">function</span> otobüsTarifesi<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> l <span 
+			class="op">&lt;</span> bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span> <span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">'otobus'</span><span 
+			class="op">) {</span>
+<span class="pl-100">pencereAç</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">));</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">varsayılanEtkiyiGözardıEt</span><span 
+			class="op">()</span>;<span class="comm-25">//popup penceresi açılınca çapa elementinin varsayılan etkisinin bloke edilmesi</span>
+<span class="op-25">}</span>
+
+<span class="op-25">
+</span><span class="keyw-25">function</span> vapurTarifesi<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> l <span 
+			class="op">&lt;</span> bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span> <span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">'vapur'</span><span 
+			class="op">) {</span>
+<span class="pl-100">pencereAç</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">));</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">varsayılanEtkiyiGözardıEt</span><span 
+			class="op">();</span><span class="comm-25">//popup penceresi açılınca çapa elementinin varsayılan etkisinin bloke edilmesi</span>
+<span class="op-25">}</span>
+
+<span class="op-25">
+</span><span class="keyw-25">function</span> uçakTarifesi<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> l <span 
+			class="op">&lt;</span> bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span> <span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">ucak'</span><span 
+			class="op">) {</span>
+<span class="pl-100">pencereAç</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">));</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">varsayılanEtkiyiGözardıEt</span><span 
+			class="op">();</span><span class="comm-25">//popup penceresi açılınca çapa elementinin varsayılan etkisinin bloke edilmesi</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">penref</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> l <span 
+			class="op">&lt;</span> bağlantı<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">otobus'</span><span 
+			class="op">) {</span>
+<span class="pl-100">olayDinleyicisiEkle</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">],</span> <span 
+			class="str">'click'</span><span 
+			class="op">,</span> otobüsTarifesi<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">'vapur'</span><span 
+			class="op">) {</span>
+<span class="pl-100">olayDinleyicisiEkle</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">],</span> <span 
+			class="str">'click'</span><span 
+			class="op">,</span> vapurTarifesi<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">if</span> <span 
+			class="op">(</span> bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">rel</span> <span 
+			class="op">==</span> <span 
+			class="str">'ucak'</span><span 
+			class="op">) {</span>
+<span class="pl-100">olayDinleyicisiEkle</span><span 
+			class="op">(</span>bağlantı<span 
+			class="op">[</span>i<span 
+			class="op">],</span> <span 
+			class="str">'click'</span><span 
+			class="op">,</span> uçakTarifesi<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu programın geliştirilmesinde, sayfanın yapısının sonradan değiştirilmesinin
+			progamı etkilememesine dikkat edilmiştir. Çapa elementlerinin <span 
+			class="att">rel</span> nitelikleri, bu elementlerinin tanımlanmsı için bir 
+			tür kimlik niteliği gibi kullanılmaktadır. 
+		</p>
+		<p class="indent">
+			Bazı durumlarda, içeriği sistemde kayıtlı dosyalar olmayan alt pencerelerin
+			açılması istenebilir. Bu tip alt pencerelerin içerikleri, çalışma
+			anında (on the fly) oluşturulur. Bu tür Pencerelerin görüntüleri ve içerikleri,
+			programın çalışması sırasında oluşturulduğundan, hem büyük ölçüde
+			işlem gücüne gereksinme duyulur hem de bu pencerelere kapsamlı bir içerik
+			sağlamak için, büyük sayıda program adımı içermesi gereken bir program
+			kodlaması gerekir. Bu nedenle, kayıtlı olmayan pencerelerin içeriği olarak,
+			pratikte ancak mesaj nitelikli kısa bilgiler verilebilir. Yine de, bu
+			tip pencereler, istendiğinde, her türlü mültimedya olanağı ile donatılabilir
+			ve <span class="keyw">alert</span><span class="op">()</span> 
+			penceresine göre çok daha renkli mesajlar verilmesine olanak sağlayabilir.
+		</p>
+		<p class="indent">
+			Havada uçan, yani içeriğinin kayıtlı bir dosyaya dayanmayıp program
+			adımları ile açık bir pencereye yüklenen alt pencerelerin programlanması
+			hassas ve özenli bir programlama tekniği gerektirir. Bu çalışmada
+			ve bundan sonra yapılacak uygulamalarda, W3C tarafından geliştirilmiş
+			yeni belge nesne modeli (Document Object Model = DOM) yöntemlerini
+		kullanacağız. Bu yöntemler ayrıntılı olarak Bölüm 13 de incelenecektir.
+		</p>
+		<p class="indent" id="b18.3.1-uyg-4">
+			İçeriği JavaScript programı tararfından belilenen havada uçan pencerelere  
+			<a href="../uygulamalar/b18.3.1-uyg-4.html">örnek</a> bir uygulama, bir mesaj
+			metni içeren, havada uçan bir penceredir. Kullanıcının belge çözümleyicisi, 
+			JavaScript programlarını destelemiyorsa, bu mesajın kullanıcıya ulaştırlamayacağı
+			unutulmamalııdr. Bu nedenle, programın farkedilmefen kaybolabilmesi için,
+			bu tip mesajların eğer statik metin parçaları içeriyorlarsa, bir önceki programda
+			örneği verilmiş olan pop-up pencerleri olarak tasarlanmlarında yarar bulunmaktadır. 
+			Bu tip pencereler, ancak, JavaScript tararfından hesaplanmış içerikleri kullanıcıya
+			aktarmak için kullanıldıklarında, kullanımları doğrulanabilir. Bu programın
+			JavaScript kodları, sayfanın XHTMl kodlarından tam olarak ayrılmış ve 
+			Internet Explorer'in destekleyebildiği kadarı ile
+			W3C DOM CORE yöntemleri ile, Internet Explorer'in destekleyemediği noktalar ise,
+			W3C-HTMl DOM yöntemleri ile programlanmıştır. Bu 
+			<a href="../uygulamalar/b18.3.1-uyg-4-js.html">program</a> kodları aşağıda 
+			görülmekte ve ilişikli olduğu <a href="../uygulamalar/b18.3.1-uyg-4.html">sayfada</a> 
+			çalışmaktadır.		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+
+<span class="keyw-25">function</span> penref<span 
+			class="op">() {</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span>pencereRef <span 
+			class="op">=</span> <span class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> boşPencere<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">altSoy</span> <span 
+			class="op">= [],</span>
+<span class="pl-50">elementSayısı</span> <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="pl-50">altSoy <span 
+			class="op">=</span> pencereRef<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span
+			 class="str">&quot;body&quot;</span><span 
+			class="op">).</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">).</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">;</span></span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> altSoy<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>altSoy<span 
+			class="op">[</span>i<span 
+			class="op">] = </span>1<span 
+			class="op">) {</span>
+<span class="pl-100">elementSayısı</span><span 
+			class="op">++;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> elementSayısı<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereKapat<span 
+			class="op">() {</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">close</span><span 
+			class="op">();</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereİçeriğiniYazdır<span 
+			class="op">() {</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span>print<span 
+			class="keyw"></span><span 
+			class="op">();</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">() {</span>
+
+<span class="pl-50">pencereRef</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span><span 
+			class="str">''</span><span 
+			class="op">,</span><span 
+			class="str"> 'Yeni_Pencere'</span><span 
+			class="op">,</span>
+<span class="str-200">'resizable=yes,toolbar=yes,location=yes,scrollbars=yes,' </span><span 
+			class="op"> + </span>
+<span class="str-200">'menubar=yes,width=780,height=200,top=450,left=450'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> nodEkle<span 
+			class="op">(</span>pencere<span 
+			class="op">,</span> mesaj<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">eklemeYeri </span><span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'body'</span><span 
+			class="op">).</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">),</span>
+<span class="pl-50">yeniParagraf </span><span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">düğme1 </span><span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'button'</span><span 
+			class="op">),</span>
+<span class="pl-50">düğme2 </span><span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'button'</span><span 
+			class="op">),</span>
+<span class="pl-50">eklenecekMesaj</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>mesaj<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>eklenecekMesaj<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'<span 
+			class="op">,</span> 'color : red;'</span><span 
+			class="op">);</span>
+<span class="pl-50">eklemeYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span> düğme1 <span 
+			class="op">(</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Pencereyi Kapat'</span><span 
+			class="op">));</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'position : relative; left : 250px; float : left; font : 17px verdana; color : white; background-color : red;'</span><span 
+			class="op">);</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> PencereKapat<span 
+			class="op">;</span>
+<span class="pl-75">eklemeYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>düğme1<span 
+			class="op">);</span>
+
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Pencereyi Yazdır'</span><span 
+			class="op">));</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'position : relative; left : 350px; float : left; font : 17px verdana; color : white; background-color : blue;'</span><span 
+			class="op">);</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> PencereİçeriğiniYazdır<span 
+			class="op">;</span>
+<span class="pl-75">eklemeYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>düğme2<span 
+			class="op">);</span>
+<span class="keyw-75">return</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">if</span> düğme1 <span 
+			class="op">(</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span><span 
+			class="str">'Pencereyi Kapat'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span><span 
+			class="str">'white'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">backgroundColor</span> <span 
+			class="op">=</span><span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">position</span> <span 
+			class="op">=</span><span 
+			class="str">'relative'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">left</span> <span 
+			class="op">=</span><span 
+			class="str">'250px'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme1</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> PencereKapat<span 
+			class="op">;</span>
+<span class="pl-75">eklemeYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>düğme1<span 
+			class="op">);</span>
+
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span><span 
+			class="str">'Pencereyi Kapat'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span><span 
+			class="str">'white'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">backgroundColor</span> <span 
+			class="op">=</span><span 
+			class="str">'blue'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">position</span> <span 
+			class="op">=</span><span 
+			class="str">'relative'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">left</span> <span 
+			class="op">=</span><span 
+			class="str">'350px'</span><span 
+			class="op">;</span>
+<span class="pl-75">düğme2</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> PencereİçeriğiniYazdır<span 
+			class="op">;</span>
+<span class="pl-75">eklemeYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>düğme2<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> altPencere<span 
+			class="op">(</span><span 
+			class="op">) {
+
+</span><span class="pl-75">pencereAç</span><span 
+			class="op">();</span>
+
+<span class="keyw-75">if<span 
+			class="op">(</span></span>boşPencere<span 
+			class="op">() ===</span>  0<span 
+			class="op">) {</span> <span 
+			class="comm"> // Pencere İçeriği Boş İse,</span>
+<span class="pl-100">nodEkle</span><span 
+			class="op">(</span>pencereRef<span 
+			class="op">,</span> <span 
+			class="str">'Her Türlü Mesaj Verilebilir !'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir.</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="pl-50">penref</span><span 
+			class="op">();</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">),</span> <span 
+			class="str">'click'</span><span 
+			class="op">,</span> altPencere<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat<span 
+			class="op">);</span> </span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu programın açtığı mesaj penceresi, son derece dayanıklıdır. Kullanıcı
+			hiçbir şekilde bu pencerenin içeriğine zarar veremez. Kullanıcı kapatıncaya kadar, bu alt
+			pencere açık kalacaktır.		</p>
+		<p class="indent">
+			Kullanıcı alt pencereyi kapatmadan, yeniden açma düğmesine basarsa,
+			pencere isimli ve açık olduğundan, (X)HTML çözümleyici, aynı pencerenin
+			yeniden açılmasına olanak vermez. Ama, JavaScript olanak verirse, içeriği
+			değişebilir. JavaScript de bu olanağı vermeyecektir, çünkü kontroller
+			olumsuzdur. Sadece pencere 
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">focus<span class="op">()</span> </span> komutu ile, 
+			pencere yeniden ilgi odağına taşınacaktır.		</p>
+		<p class="indent">
+			Kullanıcı alt pencereyi kapatmadan, ana pencereyi yeniden yükler (tazeleme
+			düğmesine basarak) ve pencere açma düğmesine, yeniden tıklarsa, durum
+			çok can sıkıcı olabilir. Çünkü, bu durumda pencereRef değişkeni yeniden
+			başlangıç değerine güncellenir. Pencere açma kontrolu olumlu hale gelir,
+			aynı adla pencere açık durumda olduğundan yeni pencere açılmaz, fakat
+			içeriği değişebilir. Bunu, açık pencerenin içeriğini kontrol eden 
+			eleman sayısının sıfır olmaması önler. Sonuçta alt pencerenin içeriği
+			etkilenmez ve yeniden ön plana taşınır.		</p>
+		<p class="indent">
+			Bu şekilde, dayanıklı bir uçan alt pencere açabilme tekniğinin kazanılması
+			büyük önem taşır. Uçan alt pencerelerin içeriği, (X)HTML formatındadır.
+			Bu pencereler her türlü, renkli, mültimedya destekli mesajları verebilirler.
+			Bu mesajlar, kullanıcıyı etkilemek için her türlü şansa sahiptir
+		</p>
+		<p class="indent">
+			Açılan pencerelerin kullanıcıya etkin mesajlar verilebilmesi açısından
+			önemi büyüktür. Daha önceleri görülebilen teknik sorunlar, en son sürüm
+			belge çözümleyicilerle ortadan kalkmış görünmektedir. Buna rağmen, bu
+			pencereler, kullanıcıyı az çok rahatsız edici olabilmektedir. Bu nedenle,
+			bunların kullanımında aşırıya kaçılmaması uygun olacaktır. Görülebilecek
+			sorunların en aza indirilebilmesi için, belge çözümleyicilerin büyük
+			bir çoğunluğu tarafından ortak olarak desteklenen niteliklerin kullanması,
+			ve açılan sayfalara bir isim verilmesi sağlık verilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>&laquo; İndeks</em></a>
+			</li>
+			<li id="denge">
+			</li>
+			<li id="sayfa">
+				<a href="../b17/b17s2.html"><em>&laquo; Önceki</em></a></li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<a href="b18s2.html"><em> Sonraki &raquo; </em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p>
+			<a href="http://validator.w3.org/#validate_by_upload">
+			<img src="http://www.w3.org/Icons/valid-xhtml11"
+			alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:44 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

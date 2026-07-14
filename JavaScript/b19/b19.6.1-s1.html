@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.1-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:55 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.1-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b19s2</title>
+	</head>
+	<body><p><img class="banner" alt="Banner"
+			src="../images/banner.png" /></p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b19s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b19.6.2-s1.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 19
+		</p>
+		<p class="chapter">
+			W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum">
+			Bölüm 19.6.1 Sayfa 1
+		</p>
+		<p class="subheading" id="document">19.6.1 - Document (Belge) Arabirimi</p>
+		<p class ="indent">
+			Document arabirimi, belgenin kök düğümüdür ve tüm düğümlerin atasıdır. 
+			W3C-DOM yönergeleri, OMG-IDL adı verilen ve CORBA alt yapısının yazılımında kullanılan 
+			yöntemle yazılmıştır. Bu yazaılım yöntemi, her arabirimin kullanıcılarca kolayca 
+			anlaşılabilecek açıklamalarını içermektedir. Aşağıda W3C-DOM Düzey-2 CORE API de 
+			tanımlanan Document Arabiriminin IDG yazılımı görülmektedir. 
+		<p class="sayfaortala"><img src="../images/document.png" alt="document" width="1117" height="727" /></p>
+		<p class ="indent">
+			Burada en önemli bilgi, bu arabirimin geriye <span class="keyw">Node</span> (Düğüm) tipi 
+			bir nesne örneğinin bellek referansını döndüreceğidir. <span class="keyw">Node (Düğüm)</span> tipi bir nesne, 
+			W3C-DOM Düzey-2 CORE API de tanımlanmış olan belge nesne modelinin temel nesne tipidir. 
+			Temel <span class="keyw">Node (Düğüm)</span> tipi nesne yapısı biraz aşağıda açıklanmış 
+			olacaktır. <span class="keyw">Document</span> düğümü gibi düğüm nesnesinin örnekleri
+			olan düğüm nesneleri temel <span class="keyw">Node (Düğüm)</span> tipi nesne yapısının
+			tüm özelliklerini kalıtımla kazanacaktır. Buna ek olarak <span class="keyw">Document </span> 
+			tipi bir düğüm nesne örneği,  bu arabirimde belirtilen kendi özel <span class="keyw">Document</span> 
+			tipinin özelliklerine de doğal olarak sahip olacaktır (Özellikler terminolojisi, sabit değer özellikleri ile, 
+			metotları birlikte kapsar). 
+		</p>
+		<p class ="indent">
+			Burada ilk olarak <span class="keyw">Document</span> tipi düğüm nesne örneklerine özgü 
+			en çok uygulama olasılığı olan özelliklerin incelenmesi ile başlayacağız. Bu özelliklerin incelenmesi 
+			sırasında, ileride açıklananacak düğüm tiplerinin özelliklerin de yararlanmak gereği olabilecektir. 
+			Bu durumda, örneklerin iyi anlaşılması için konunun sonunda tüm örneklerin yeniden gözden 
+			geçirilmesi gerekli olabilecektir.
+		</p>
+		<p class="navy" id="createelement"><strong>19.6.1.1 - document.createElement() Metodu</strong></p>
+		<p class ="indent">
+			<span class="keyw">Document</span> tipi düğüm nesne örneklerine özgü çok kullanılan
+			bir metot,  <span class="keyw">createElement</span><span class="op">()</span> 
+			metodudur. Bu metodun kullanımı,	
+		</p>
+		<pre>
+		<span class="pl-25">bellekReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'element adı'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Örnek olarak,
+		</p>
+		<pre>
+		<span class="pl-25">yeniParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			program adımı, yeni bir <span class="keyw">Element</span> tipi (Element sınıfı) düğüm
+			örneği yaratır. Yaratılan düğüm örneği bir bellek bölgesinde saklanır ve bu bölgeye,
+			yeniParagraf adındaki değişkene atanmış bir bellek referansı ile erişilir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki program adımı hiçbir görünür etki yaratmaz. Burada, yeniParagraf değişkenine atanmış
+			olan bellek referansı yardımı ile erişilebilen, <span class="keyw">Element</span> tipi (Element sınıfı) düğüm
+			örneği , henüz belge ağaıcına monte edilmemştir. Yani, montaj anını beklemektedir. 
+			Buna rağmen, her ne kadar kenarda bekliyor ise de, bu bir <span class="keyw">Element</span> 
+			tipi (Element sınıfı) düğüm nesne örneğidir. Biraz sonra göreceğimiz, <span class="keyw">Element</span>
+			düğümünün yapısında tanımlı olan tüm nitelikler bu yeni element düğümüne atanabilir. 
+			Burada, yeniParagraf değişkenine atanmış olan bellek referansı, bellekteki yerinde beklemekte
+			olan bu yeni <span class="keyw">Element</span> düğümü örneğine erişimi sağlar ve buna yeni
+			nitelikler atanmasına olanak verir. Örnek olarak, 
+		</p>
+		<pre>
+		<span class="pl-25">yeniParagraf</span> <span 
+			class="op">.</span> <span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span><span 
+			class="str">'id'</span><span 
+			class="op">) =</span> <span 
+			class="str">'bilgi'</span><span
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			program adımı, bu yeni <span class="keyw">Element</span> dğümünün 
+			<span class="att">id</span> niteliğinin değerine, <span class="str">'bilgi'</span> 
+			değerini atar, fakat bu program adımı da görünür bir sonuç oluşturmaz, Çünkü
+			yaratılmış olan yeni <span class="keyw">Element</span> düğümü, hala kenarda
+			 belge ağacına monte edilmeyi beklemektedir. Fakat, şimdi 
+			ilk yaratılmış olduğu durumdan farklı olarak, <span class="att">id</span> niteliğinin değeri
+			atanmış durumdadır. Kenarda beklemekte olan bu yeni <span class="keyw">Element</span>
+			tipi düğüm nesnesi örneğine, istenirse biraz sonra göreceğimiz bir yöntemle, bir
+			sözel veri içeriği atanabilir, stil niteliği eklenebilir, stil sınıfı niteliği gibi başka
+			nitelikler de eklenebilir. Sonuçta kenarda beklemekte olan bu yeni element düğümü,
+			belge içine monte edildiğinde görüntülenebilir. Aynı şekilde, belge ağacına montajı
+			yapıldıktan sonra da istenilien nitelikleri değiştirilebilir veya yenileri eklenebilir.
+		</p>
+		<p class="indent">
+			İleride uygulamalarımızda, <span class="keyw">document.createElement</span><span class="op">()</span> 
+			metodunu çok sık kullanacağız.
+		</p>
+		<p class="navy" id="getelementbyid"><strong>19.6.1.2 - document.getElementById() Metodu</strong></p>
+		<p class="indent">
+			Bu metod, belge ağaına monte edilmiş durumda olan bir <span 
+			class="keyw">Element</span> düğümünün bellek referansını döndürür. Döndürülen değer,
+			bir değişkene atanırsa, söz konusu <span class="keyw">Element</span> düğümüne 
+			bu değişken yardımı ile erişim sağlanır ve <span class="keyw">Element</span> düğüm tipine 
+			özgü tüm nitelileri değiştirilebilir veya yenileri eklenebilir.  Bu metot beli de en çok
+			kullanılan W3C-DOM metodu olabilir. Kullanımı,
+		</p>
+		<pre>
+		<span class="pl-25">bellekReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'elementin id nitelik değeri'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Örnek olarak
+		</p>
+		<pre>
+		<span class="pl-25">ilkParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="indent">
+			Bir elementin id değeri, tüm belge içinde sadece bir tek olması gerektiğinden,
+			bu yöntem belge içinde erişilmesi istenen elemente tam ve en garantili bir nokta erişimi 
+			sağlar. Bu metodun dışında hiçbir yöntem erişilmesi istenen elemente garantili
+			erişim sağlamaz. 
+		</p>
+		<p class="indent">
+			Burada dikkat edilecek olan konu, W3C-DOM yöntemlerinin <span 
+			class="keyw">Element</span> düğüm tipinin, elementler arasında
+			bir ayrım yapmadığıdır. Yani, bir <span class="keyw">&lt;</span><span 
+			class="elm">div</span><span class="keyw">&gt;</span> elementine de, bir 
+			<span class="keyw">&lt;</span><span class="elm">img</span><span 
+			class="keyw">&gt;</span> elementine de, aynı <span class="keyw">getElementById</span><span 
+			class="op">()</span> metodu ile erişilir. Oysa her elementin sayfadaki kullanım
+			amacı birbirinden farklı, alabilecekleri nitelikler birbirlerinden farklı, nitelik
+			değerlerinin sayfa görüntüsüne yapacağı etkiler farklı olabilir. Bu nedenle, 
+			erişilen element düğümünün hangi elemente ait olduğu ve bu elementin ne 
+			şekilde yönetilebileceği önceden iyice incelenmiş olmalıdır.
+		</p>
+		<p class ="indent">
+			Bu metodun geri döndürdüğü bellek referansı, erişilmesi istenen bir element düğümünün
+			bellek referansıdır. Bu referans, erişilmesi istenen element düğümüne doğrudan erişim sağlar ve 
+			bu düğümün yönetimine olanak verir. Örnek olarak hedef düğümün ebeveynine (parentNode),
+			çocuklarına (childNodes) bir öceki eşdüzey kardeş düğüme (previousSibling) veya bir sonraki
+			kardeş düğüme (nextSibling) ulaşılabilir. Her belge çözümleyicinin yaratacağı belge çözümü 
+			farklı olabileceğinden, erişilecek düğümler de farklı olabilir. Bundan başka bellek referansları,
+			erişilen elementin niteliklerinin değiştirilmesi veya yeni nitelik değerleri atanması gibi işlemlere 
+			de olanak sağlar bu işlemleri yeri geldiğinde inceleyeceğiz.
+		</p>
+		<p class="indent" id="b19.6.1.2-uyg-1">
+			Örnek olarak bir 
+			<a href="../uygulamalar/b19.6.1.2-uyg-1.html">web sayfasını</a> kodlarının değişecek kısmı 
+			aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;cursive-red&quot;</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;nihil&quot;</span><span 
+			class="keyw">&gt;</span>Nihil Est in Intellectu Quod Non Prius Fuerit in Sensu<span
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="indent">
+			Kodları aşağıda görülen bir <a href="../uygulamalar/b19.6.1.2-uyg-1-js.html">program</a> 
+			bu  <a href="../uygulamalar/b19.6.1.2-uyg-1.html">web sayfasındaki</a> 
+			<span class="att">id</span> değeri <span class="str">'nihil'</span> olan bir paragraf element
+			düğümüne erişim sağlamakta ve bu düğümün CSS sınıf  niteliğini değiştirmektedir. Bu işlem 
+			sonucunda, elementin sayfadaki görüntüsü değişmektedir. Programda kullanılmış olan bazı 
+			yöntemler, kısa sürede açıklanmış olacaktır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+<span class="keyw-25">function</span> nitelikdeğeriDeğiştir<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> düğümBellekReferansı <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'nihil'</span><span
+			class="op">),</span>
+<span class="pl-50">nitelikler</span> <span 
+			class="op">=</span> düğümBellekReferansı<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span
+			class="op">;</span>
+
+<span class="keyw-50">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Dikkat Renk Değişiyor !'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">nitelikler</span><span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-maroon'</span><span
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>nitelikDeğeriDeğiştir<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Belge tipi düğümlerin <span class="keyw">getElementById</span><span class="op">()</span>
+			metodu, W3C-DOM yöntemlerinde çok sık kullanılan, yerleşik bir sayfa elementine en garanti
+			erişimi sağlayan, çok sık kullanılan bir metottur.
+		</p>
+
+		<p class="indent"></p>
+		<p class="navy" id="getelementsbytagname"><strong>19.6.1.3 - document.getElementsByTagName() Metodu</strong></p>
+		<p class ="indent">
+			Belge tipi düğümlerin bir diğer ilginç metodu, <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">getElementsByTagName</span><span 
+			class="op">()</span> metodudur. Bu metodun kullanımı,
+		</p>
+		<pre>
+		<span class="pl-25">bellekReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'erişilecekElementDüğümleriAdı'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Erişilecek elementlerin adı <span class="str">'p'</span> gibi, <span class="str">'a'</span> 
+			gibi element türleridir. Bu metot geriye bir NodeList ( Düğüm listesi) tipinde 
+			bir veri döndürür. Yani, bir bellek bölgesine yerleşmiş düğüm listesi tipinde bir nesne örneğine
+			erişim sağlayan bir bellek işaretçisi (bellek referansı) döndürür. Bu bellek işaretçisi (pointer) 'in 
+			bir değişkene atanması ile, bu değişken yardımı ile işaret ettiği düğüm listesinin elemenlarına 
+			erişim sağlanır. Düğüm listeleri teknik olarak tam bir dizi değil dizi benzeri bir nesne yapısındadır. 
+			Düğüm listelerinin elemanlarına erişim dizi elemanlarına erişime benzemektedir. Düğüm listesi 
+			içinden belirli bir elemana erişilmesinin yöntemleri, düğüm listeleri incelenirken görülecektir.
+		</p>
+		<p class ="indent">
+			Belge tipi düğümlerin, <span class="keyw">getElementsByTagName</span><span 
+			class="op">()</span> metodunun kullanımında dikkat edilecek nokta, bu metodun
+			dizi benzeri bir düğüm listesi geri döndürdüğüdür. Bu düğüm listesi, sayfaya yerleşik
+			aynı tipten tüm elemanları içerir. Eğer sayfa yapısı sonradan değişirse, bu dizi listesi 
+			içinden erişilmesi hedeflenen elemanın yerleşim sırası da değişmiş  olur. Bu açıdan, 
+			belirli bir elemana erişim için, <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">getElementById</span><span class="op">()</span>
+			metodu daha garantilidir. Uygulanacak <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">getElementsByTagName</span><span 
+			class="op">()</span> metodu, spesifik bir elemana erişimden çok, sayfa yapısının değişmesinden
+			etkilenmeyecek yöntemler için, örnek olarak sayfada yerleşmiş olan belirli bir eleman
+			türlerinin tümünün niteliğinin değiştirileceği yöntemler için daha uygun olabilir. 
+		</p>
+		<p class="indent" id="b19.6.1.3-uyg-1">
+			Aşağıda kodları görülen <a href="../uygulamalar/b19.6.1.3-uyg-1-js.html">program</a>,
+			bir <a href="../uygulamalar/b19.6.1.3-uyg-1.html"> web sayfasında</a> yerleşik tüm
+			liste elemanlarının yazı tipini normalden italiğe dönüştürmektedir.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> yazıTipiDeğiştir<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> listeElemanları <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'li'</span><span
+			class="op">);</span>
+
+<span class="keyw-50">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Dikkat Stil Değişiyor !'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;listeElemanları<span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span> 
+<span class="pl-75">listeElemanları</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">setAttribute</span> <span 
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'font-style : italic;'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>yazıTipiDeğiştir<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id="createfragment"><strong>19.6.1.4 - document.createFragment() Metodu</strong></p>
+		<p class ="indent">
+			Belge düğümlerinin <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">createDocumentFragment</span><span class="op">()</span>
+			metodu, birden çok element içeren bir belge kısmını, belgeye eklemek için kullanılır. Bu yönteme sık 
+			olarak başvurulmaz. 
+		</p>
+		<p class="navy" id="createtextnode"><strong>19.6.1.5 - document.createTextNode() Metodu</strong></p>
+		<p class ="indent">
+			Belge düğümlerinin <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">createTextNode</span><span class="op">()</span>
+			metodu, belgeye yeni bir metin düğümü eklemek için kullanılır. Bu metot, yeni bir metin düğümü
+			yaratır fakat, bu metin düğümünü belge ağacına yerleştirmez. Yaratılan element belge
+			ağacına yerleştirilinceye kadar çözümlenmez. Bu metodun uygulanması,
+		</p>
+				<pre>
+		<span class="pl-25">bellekReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'içerik'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Yaratılacak içerik istenilen bir metin parçacığı olabilir Bu metodun geri döndürdüğü bellek referansından,
+			ileride bu bu metin düğümüne erişilip belge ağacına yerleştirmek için kullanılır. 
+		</p>
+		<p class="navy" id="createcomment"><strong>19.6.1.6 - document.createComment() Metodu</strong></p>
+		<p class ="indent">
+			Belge düğümlerinin <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">createComment</span><span class="op">()</span>
+			metodu, belgeye yeni bir yorum düğümü eklemek için kullanılır. Bu metot, yeni bir yorum düğümü
+			yaratır fakat, bu yorum düğümünü belge ağacına yerleştirmez. Yaratılan element belge
+			ağacına yerleştirilinceye kadar çözümlenmez. Bu metodun uygulanması,
+		</p>
+				<pre>
+		<span class="pl-25">bellekReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createComment</span><span 
+			class="op">(</span><span 
+			class="str">'içerik'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Yaratılacak içerik istenilen bir metin parçacığı olabilir Bu metodun geri döndürdüğü bellek referansından,
+			ileride bu bu yorum düğümüne erişilip belge ağacına yerleştirmek için kullanılır. 
+		</p>
+		<p class="navy" id="createattribute"><strong>19.6.1.7 - document.createAttribute() Metodu</strong></p>
+		<p class="indent">
+			Bu metot geriye yeni bir nitelik düğümü referansı döndürür. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'yeniNitelikİsmi'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Yeni oluşturulan nitelik için istenirse 
+		</p>
+		<pre>
+<span class="pl-25">yeniOluşturulan NitelikBellekReferansı</span><span 
+			class="op">.</span><span class="keyw">nodeValue</span> <span 
+			class="op">=</span> <span 
+			class="str">'yeniVarsayılanDeğer'</span><span
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir varsayılan değer de atanabilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">createAttribute</span><span class="op">()</span> Metodu ile
+			oluşturulan yeni nitelik otomatik olarak bir elementele ilişkilendirilmez. Bu niteliğin
+			bir elementle ilişkilendirilmesi için, <span class="keyw">setNamedItem</span><span class="op">()</span>
+			veya <span class="keyw">setAttribute</span><span class="op">()</span>
+			metotlarının kullanılması gerekir. 
+		</p>
+		<p class="indent">
+			<span class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">createAttribute</span><span class="op">()</span> Metodu sadece XML 
+			çalışmalarında önem taşır. (X)HTML çalışmalarında ise, tüm nitelikler DTD ile belirlidir ve
+			yeni bir niteliğin işlevi yoktur. (X)HTML çalışmalarında sadece, var olan bir nitelik yeni bir
+			başlangıç değeri ile oluşturulursa, bu nitelik ile ilişkilendirilen bir element var olan bu niteliğin
+			yeni başlangıç değerini kazanır. Bu konuda, 19.6.4.2-uyg-1.htm deki uygulama açıklayıcı olacaktır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+			<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b19s1.html"><em> &laquo; Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b19.6.2-s1.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama">
+			</li>
+		</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.1-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:55 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders7.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders7.html">
+    <meta http-equiv="content-type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 7</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders6.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders8.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 7
+      </p>
+    </div>
+    <p class="title-left verticalTab-10" id="datainput">
+      1.17 -
+    Python Programlarına Veri Girişi
+    </p>
+    <p id="input" class="subheading">
+      1.17.1 -
+      Python Programlarına Veri Giriş Yöntemleri
+    </p>
+    <ul class="list">
+      <li>Bir program adımında bir tanıtıcı değeri şeklinde 
+      literal olarak girmek.</li>
+      <li>Bir dosyadan okumak,</li>
+      <li>Öntanımlı <span class="keyw">input</span> fonksiyonuna 
+      argüman olarak girmek.</li>
+    </ul>
+    <p class="indent">
+      Bunlardan, literal girişlerini biliyoruz. Dosya girişlerini 
+      ise burada incelemeyeceğiz. Bunun nedeni, dosyalama işlerinin 
+      çok detaylı olması, işletim sistemleri arasında farklılıklar 
+      olması, gibi sorunlar olduğu için, dosyalama işlerinin 
+      özel ihtisas isteyen bir işlem olmasıdır. Bu konuda sürekli 
+      dosyalarla çalışan Python programcıları emek sarfetmektedirler. 
+      Bizler, çalışmalarımızda, dosyalama sistemlerini kullanmayacağız. 
+      Bu konuda daha fazla bilgi almak isteyenler standart Python 
+      dokümantasyonundan yararlanabilirler. Öntanımlı input 
+      fonksiyonundan yararlanmak ise son derece kolaydır. Bu 
+      fonksiyonun kullanımı,
+    </p>
+    <pre class="pl-25">
+input<span class="op">(</span>Açıklama : str <span 
+    class="op">=</span> <span class="str">''</span><span 
+    class="op">);</span> &rarr; str<span class="op">;</span>
+    </pre>
+    <p class="nonindent">
+      şeklindedir.
+    </p>
+    <p class="indent">
+      Yukarıdaki tanım, öntanımlı input<span class="op">()</span> 
+      fonksiyonun öntanımı boş bir string veri tipinde bir mesaj 
+      yayınlayacağını, kullanıcı bu mesaja karşılık konsoldan 
+      bir değer girdiğinde bu değeri sözel bir veri olarak geri 
+      döndüreceğini açıklamaktadır. Tanımdaki açıklama mesajının 
+      ön tanımı boş bir sözel değerdir. Bu mesaj değerini klavyeden 
+      girerek istediğimiz gibi düzenleyebiliriz.
+    </p>
+    <p class="indent">
+      Bir tanıtıcı değeri olarak <span class="keyw">input</span><span 
+      class="op">()</span> fonksiyonu verilirse, girilen değer 
+      tanıtıcıya sözel değer olarak atanır. Standart giriş/çıkış, 
+      sys modülü import edilip değiştirilmedikçe, konsol giriş/çıkışıdır. 
+      Böylece, <span class="keyw">input</span><span 
+      class="op">()</span> fonksiyonu, programdaki bir tanıtıcıya 
+      konsoldan bir sözel değer atanması olanağını sağlar. Aşağıdaki 
+      programla, konsol girişininin denenmesi yapılabilir:
+    </p>
+    <pre class="pl-25">
+a <span class="op">=</span> input<span class="op">(</span><span 
+    class="str">'Lütfen Bir Değer Giriniz : '</span><span 
+    class="op">);</span>
+print<span class="op">(</span>a<span class="op">);</span></pre>
+    <p class="indent">
+      Bu program çalıştığında, konsoldan girilen değer, konsola 
+      yazdırılacaktır.
+    </p>
+    <p class="indent">
+      Programa input <span class="op">()</span> fonksiyonun 
+      döndürdüğü değerin veri tipi, sözel (string) veri tipidir. 
+      Bu nedenle, eğer input<span class="op">()</span> fonksiyonundan 
+      bir değer girişi yaparsak, bu değerle bir matematik işlem 
+      yapmak için bu değerin veri tipini, sözelden sayısala 
+      dönüştürmek zorundayız.
+    </p>
+    <p class="indent">
+      Sözel bir değerin, sayısal bir ver tipine dönüştürülmesi 
+      için iki olasılık bulunmaktadır. Bu değer ya bir tamsayı(int) 
+      ya da bir ondalıklı sayı (float)veri tipine dönüştürülecektir. 
+      Bu konuda aşağıdaki seksiyonda bilgi verilmiştir.
+    </p>
+    <p id="convert" class="subheading">
+      1.17.2 -
+      Değerlerin Başka Veri Tiplerine Dönüştürülmesi
+    </p>
+    <p class="indent">
+      Sayısal veri tiplerinin sözele dönüştürülmesi için, str(SayısalDeğer) 
+      yazılması yeterlidir.
+    </p>
+    <p class="indent">
+      Sözel bir değerin, bir tamsayı veri tipine dönüştürülebilmesi 
+      için, öntanımlı int<span class="op">()</span> fonksiyonundan 
+      yararlanılır. Bu fonksiyonun çağrılması aşağıda görülmektedir:
+    </p>
+    <pre class="pl-25">
+int<span class="op">(</span>değer: str, sayıtemeli: tamsayı=10<span 
+    class="op">)</span> &rarr; int
+    </pre>
+    <p class="indent">
+      Bu tanım, int<span class="op">()</span> fonksiyonun biri 
+      zorunlu, diğeri isteğe bağlı, iki tane argümanı olduğunu, 
+      ilk argümanın bir sözel değer olduğunu, ikinci argümanın 
+      ise sayı temeli olduğunu ve bunun öntanımlı olarak 10 
+      temeline ayarlanmış olduğunu, dolayısı ile eğer sayı temeli 
+      değiştirilmeyecekse bu argümanın kullanımının gereksiz 
+      olacağını ve fonksiyonun, çağıran program öğesine bir 
+      tamsayı (int) tipinde veri döndüreceğini belirtmektedir. 
+      Bu fonksiyona girilecek argümanın sözel (str) veri tipinde 
+      fakat değerinin bir tamsayı olması gerekmektedir. Aksi 
+      durumda, tamsayı olmayan bir değer, tamsayıya çevrilemeyeceğinden 
+      bir kuraldışılık (exception) oluşacaktır. Bu fonksiyonun 
+      bir uygulama örneği,
+    </p>
+    <pre class="pl-25">
+a <span class="op">=</span> int<span class="op">(</span><span 
+    class="str">'325'</span><span class="op">);</span>
+    </pre>
+    <p class="nonindent">
+      şeklindedir ve işlem sonunda, a tanımlayıcısının işaret 
+      ettiği bellek alanına tamsayı veri tipinde 325 değeri 
+      yerleştirilmiş olur.
+    </p>
+    <p class="indent">
+      Eğer, int<span class="op">()</span> fonksiyonu değeri 
+      bir ondalıklı sayı olan <span class="str">'2.4'</span> 
+      gibi ondalıklı sayı değeri olan bir sözel veri ile çağrılırsa 
+      veya <span class="str">'qw'</span> gibi tamsayı karşılığı 
+      olmayan bir sözel değer ile çağrılırsa, ValueError hatası 
+      oluşacaktır.
+    </p>
+    <p class="indent">
+      Eğer, int<span class="op">()</span> fonksiyonu bir ondalıklı 
+      sayı (float) veri tipinde değer ile çağrılırsa, bu verinin 
+      bir üst basamak tamsayıya dönüştürülmüş değerini (ceil) 
+      (tavan) geri döndürür.
+    </p>
+    <pre class="pl-25">
+a <span class="op">=</span> int<span class="op">(</span><span 
+    class="str">&quot;34.56&quot;</span><span class="op">);</span>   
+    </pre>
+    <p class="nonindent">
+      gibi, geriye girilen değerin bir üst tamsayı değerine 
+      yükseltilmiş bir tamsayı sonucu döndürür. Bu örnekte, 
+      a tanımlayıcısının işaret ettiği bellek alanına tamsayı 
+      veri tipinde 35 değeri yerleştirilmiş olur.
+    </p>
+    <p class="indent">
+      Konsoldan input<span class="op">()</span> girişi ile sözel 
+      tipte ondaklıklı sayı değeri girildiğinde, bu sözel veriyi, 
+      ondalıklı sayısal veri (float) tipine dönüştürmek için 
+      yine öntanımlı bir fonksiyon olan float<span 
+      class="op">()</span> fonksiyonu kullanılabilir. Bu fonksiyonun 
+      kullanımı,
+    </p>
+    <pre class="pl-25">
+float<span class="op">(</span>Değer : str<span class="op">);</span> &rarr; float
+
+veya
+
+float<span class="op">(</span>Değer : int<span class="op">)</span> &rarr; float</pre>
+    <p class="indent">
+      şeklindedir. Bu fonksiyon tek argümanlıdır, çünkü, sadece 
+      on tabanlı sayıların ondalık değerleri hesaplanabilmektedir. 
+      İkili (binary), sekizli (oktal) ve onaltılı (hex) sayıların 
+      ondalık değerleri hesaplanamamaktadır.
+    </p>
+    <p class="indent">
+      Eğer float<span class="op">()</span> fonksiyonu, bir tamsayı 
+      veri tipindeki değer ile kullanılırsa bu değeri ondalıklı 
+      sayı tipine dönüştürür.
+    </p>
+    <p class="indent">
+      Dikkat: Konsol girişi sağlayan input<span class="op">()</span> 
+      fonksiyonu, mesajsız kullanılmamalıdır. Çünkü, derleyici 
+      bir konsol girdisi bekleyerek programı durdurur. Programın 
+      neye durduğu hakkında, hiçbir uyarı mesajı olmadığı için, 
+      bir değer girilip programı devam ettirmek akla gelmez. 
+      Bir konsol girdisi olmadığı için program sonsuza kadar 
+      durur ve kullanıcı ne olup bittiğini arayarak vakit kaybeder.
+    </p>
+    <p class="indent">
+      Bir konsol girdisini, anında sayısal değere dönüştürerek, 
+      bit anıtıcının işaret ettiğ bir bellek alanına yerleştirmek 
+      olanağı bulunabilir. Aşağıdaki program adımı buna bir örnektir.
+    </p>
+    <pre class="pl-25">
+a <span class="op">=</span> float<span class="op">(</span>input<span 
+    class="op">(</span><span class="str">&quot;Lütfen bir ondalıklı sayı giriniz : &quot;</span><span 
+    class="op">));</span></pre>
+    <p class="indent">
+      Bu işlem sonucunda, a tanıtıcısının işaret ettiği bellek 
+      alanına, konsoldan girilen ondalıklı sayı değeri, ondalıklı 
+      sayı (float) veri tipinde olarak yerleştirilecektir.
+    </p>
+    <p id="output" class="subheading">
+      1.17.3 - Python Program Sonuçlarının Çıkışı
+    </p>
+    <p class="indent">
+      Standart Python program çıktı ortamı, interaktif Python 
+      konsoludur. Program sonuçları standart çıkış ortamına 
+      öntanımlı print<span class="op">()</span> fonksiyonu kullanılarak 
+      yazdırılır.
+    </p>
+    <p class="indent">
+      Öntanımlı print<span class="op">()</span> fonksiyonunun 
+      kullanımı çok kolaydır. Bu fonksiyonun kullanımı, fonksiyonun 
+      docstringi içinde belirtilmiş olabilir. Kullanıcı tanımlı 
+      fonksiyonlarda bu pek uygulanmıyorsa da, modüler yapı 
+      içindeki fonksiyonlarda mutlaka bir docstring yerleştirilmektedir. 
+      Öntanımlı print<span class="op">()</span> fonksiyonunun 
+      docstring bilgilerine Python komut satırında help(print) yazılarak 
+      ulaşılır. 
+      Bu işlem sonucunda,</p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>help (print) <img 
+    alt="enter" src="images/enter.fw.png" width="30" 
+    height="9"> 
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.    
+    </pre>
+    <p class="nonindent">
+      bilgileri konsola yazılıyor.
+    </p>
+    <p class="indent">
+      Bu bilgileri değerlendirelim.
+    </p>
+    <p class="indent">
+      Herşeyden önce, file=sys.stdout, flush=False kısmı 
+      sadece bir dosyaya bilgi yazılır veya bir dosyadan 
+      bilgi okunurken kullanılacak argümanlardır. Dosyalama 
+      ile ilgili şu anda bir çalışma yapmadığımızdan,
+      print<span class="op">()</span> fonksiyonunun kullanım 
+      şekli,
+    </p>
+    <pre class="pl-25">
+print<span class="op">(</span>değer<span
+class="op">,</span>...<span class="op">,</span>sep <span
+class="op">=</span> <span class = "str">' '</span><span
+class="op">,</span> end <span class="op">=</span><span
+class = "str">'\n'</span><span class="op">);</span>
+    </pre>
+    <p class ="nonindent">
+      şeklindedir.Dosyaya yazım akımı düşünülmezse,
+      varsayılan yazma akımı, sys.stdout da belirlenmiş olduğu
+      şekliyle, konsol çıktısı olarak gerçekleşecektir. Buna
+      konsol görüntüsü de denilebilir.
+    </p>
+    <p class ="indent">
+      print<span class="op">()</span> fonksiyonun görüntülediği
+      değerler arasına varsayılan olarak virgül (comma) konulur.
+      Bu ayraç varsayılan olarak sep  <span class="op">=</span> 
+      <span class = "str">' '</span>olarak tarif edildiği şekli ile
+      görüntülenen veriler arasına tek bir boşluk karakteri yerleştirir.
+      Bu ayraç, kullanıcılar tarafından, sep <span class="op">=</span> 
+      <span class = "str">' | '</span> veya sep <span class="op">=</span> 
+      <span class = "str">'@'</span> gibi tanımlanabilir. Eğer ayraç olarak
+      varsayılan boşluk karakterini kanudersek, sep değişleninin 
+      kullanılamsına gerek olmayacaktır. 
+    </p>
+    <p class ="indent">
+      Her print akımı tamamlandığında, kürsör bir alt satıra geçer. Eğer
+      varsayılan olarak bu çalışma şekli kabul edilirse, print<span class="op">()</span>
+      fonksiyonunda end değerinin yeniden tanımlanmasına gerek olmaz.
+      Aksi halde end <span class="op">=</span> <span class = "str">''</span>
+      print<span class="op">()</span> akımının sonunda, kürsörün
+      haraketinin yeniden tanımlanması gerekir.     
+    </p>
+    <p class ="indent">
+      Varsayılanlar kabul edilirse, print<span class="op">()</span>
+      fonksiyonu, 
+    </p>
+    <pre class="pl-25">
+print<span class="op">(</span>değer <span class="op">,</span> ...<span
+class="op">);</span>
+    </pre>
+    <p class ="nonindent">
+      şeklinde uygulanır. Burada değer, tanımlanmış bir veridir ve
+      bir print akımında istenildiği kadar değer bastırılabilir.
+    </p>
+    <p class ="indent">
+      Bastırırılacak tanımlanmış değerler, bir literal olabilecekleri
+      gibi, program adımları içinde tanımlı, tanıtıcılar da olabilir.
+      Genellikle tanımlı tanıcılar ile çağrılacak değerlerin
+      açıklanması için bir mesaj sözel verisi, literal olarak
+      print <span class="op">()</span> fonksiyonunun argümanı
+      olarak kullanılır. Bu şekilde,
+    </p>
+    <pre class="pl-25">
+print<span class="op">(</span>[<span class="str">'Bilgi'</span><span 
+      class="op">,</span>] değer {[<span class="op">,</span><span 
+      class="str">'Bilgi'</span><span class="op">,</span>] değer}<sup>*</sup><span 
+      class="op">);</span></pre>
+    <p class ="nonindent">
+      şeklinde, varsayılan olarak değerler arasında boşluk olan ve
+      print akımının tamamlanması ile kürsörün bir alt satıra
+      geçtiği uygulamalar yapılır. Gerek ayraç, gerekse yazma akımı
+      sonunda kürörün haraketi varsayılandan farklı olması
+      istenirse, bu iki argümanın da her ikisi veya sadece birisi
+      ayrıca tanımlanır.
+    </p>
+    <p class="indent">
+      Buradan,
+    </p>
+    <p class="indent">
+      print<span class="op">(</span>a<span class="op">);</span>
+    </p>
+    <p class="indent">
+      print<span class="op">(</span>a <span class="op">,</span> 
+      b<span class="op">);</span>
+    </p>
+    <p class="indent">
+      print<span class="op">(</span><span class="str">'a = '</span>
+      <span class="op">,</span> a<span class="op">);</span>
+    </p>
+    <p class="indent">
+      print<span class="op">(</span><span class="str">" a = 
+      '</span> <span class="op">,</span> a <span class="op">
+      ,</span> <span class="str">'\nb = '</span>b<span 
+      class="op">);</span>
+    </p>
+    <p class="nonindent">
+      şeklinde kullanım olanakları bulunmaktadır. Docstring 
+      açıklamalarından, öntanımlı print<span class="op">()</span> 
+      fonksiyonu ile bir dosyaya yazmak olanağı olduğu da 
+      görülmektedir.
+    </p>
+    <p class="nonindent">
+      Yukarıda 
+      görünen kullanım örnekleri her türlü kullanım için yeterli 
+      sayılabilir. Mesajlarda kontrol karakterleri kullanılarak 
+      çok rahat okunacak şekilde biçimlendirilmiş çıktılar görüntülenebilir. 
+      Ama esas sürpriz, bu basit görünüşlü öntanımlı print<span 
+      class="op">()</span> fonksiyonunun kendisinden beklenmedik 
+      şekilde, inanılmayacak kadar yetenekli, hem klasik C printf<span 
+      class="op">()</span> fonksiyonu gibi hem de daha modern 
+      ve sadece kendine özgü bir çıktı biçimlendirme yeteneği 
+      olmasıdır. Bunların hepsini birazan göreceğiz.
+    </p>
+    <p class="indent" id="uyg1">
+      Bu nokatada en büyük olay, artık Python programlama dilinde 
+      program yapacak kadar bilgiyi sağlayabilmiş olmamız ve 
+      bu yeteneğimizle konsol savaşlarından kurtulup gerçek 
+      Python programları yapabileceğimizdir. İlk olarak, bir 
+      konsol girdisini, bir tanıtıcının işaret ettiği bellek 
+      alanına bir tamsayı verisi şeklinde yerleştirelim ve bu 
+      veriyi çağırarak hem değer, hem de veri tipi olarak isteğimize 
+      ulaşıp ulaşamadığımızı sınayalım. Örnek
+      <a href="uygulamalar/ders7/ders7program1.html">program</a> 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+veri <span class="op">=</span> int<span class="op">(</span>input<span 
+    class="op">(</span><span class="str">'Lütfen bir tamsayı giriniz :'</span><span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">'Veri = '</span> <span 
+    class="op">,</span> veri <span class="op">,</span> <span 
+    class="str">'\t Veri Tipi : </span> <span class="op">, </span>type<span 
+    class="op">(</span>veri<span class="op">));</span>
+    </pre>
+    <p class="cursive-maroon">
+      Bu programın sonucu :
+    </p>
+    <pre class="pl-25 cursive-green">
+Lütfen bir tamsayı giriniz : 17
+veri =  17 	Veri Tipi :  &lt;class 'int'&gt;
+    </pre>
+    <p class="indent">
+      Program sonucundan görüldüğü gibi, konsaoldan girilmiş 
+      olan bir sözel değer, anında ondalıklı sayıya dönüştürğlerek,
+      <em>veri</em> tanıtıcısının erişim sağladığı bir bellek 
+      alanına yüklenmiş. Bu bellek alanındaki değere, <em>veri</em> 
+      tanıtıcısı ile erişildiğinde, değerininin girilen değer 
+      ve veri tipinin amaçlanan veri tipi olduğu görülüyor.
+    </p>
+    <p class="indent">
+      Bu şekilde, ilk tam donanımlı Python programımızı gerçekleştirmiş 
+      durumdayız. Arkası hızla gelecek, çabalarımızın karşılığı 
+      almaya başlıyoruz. Bu son derece sevindirici ...
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders6.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders8.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders7.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:36 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

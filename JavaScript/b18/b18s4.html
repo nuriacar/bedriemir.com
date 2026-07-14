@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:47 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b18s4</title>
+
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s3.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s5.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 4
+		</p>
+		<p class="title-left" id="prop">
+			18.4 - window Nesnesinin Özellikleri
+		</p>
+		<p class="indent">
+			Burada sadece tek pencerelerle çalışılırken kullanılan özellikleri inceleyeceğiz. Çerçeve sistemleri
+			ile çalışılırken kullanılacak özellikleri, çerçeveler (frames) konusunda ele alacağız.
+		</p>
+		<p class="subheading" id="name">18.4.1 - window.name Özelliği</p>
+		<p class="indent">
+			Bu bölümde, daha önce incelenmiş <a href"b18s1.htm">olduğumuz</a> pencere isimleri
+			ile yeniden ilgileneceğiz.  Pencere ismi, çerçeve (frame) ismi olarak
+			da nitelendirilir. Pencere (çerçeve) isimleri, (X)HTML çözümleyicisinin 
+			(parser) bir belgeyi yüklemek için yararlandığı bir veridir.
+			Bunu bir postacının bir mektubu, belirli bir adrese teslim etmek için, yararlandığı bir 
+			adres bilgisi gibi düşünmek, olayın daha kolay anlaşılması için yardımcı olabilir. Bu bilgiden sadece
+			(X)HTML çözümleyicisi yararlanmaktadır. JavaScript yorumlayıcısı ise, 
+			çerçeve isimleriden yararlanmaz, belirli çerçeve ve içeriğine erişmek için, pencere
+			(çerçeve) referans değerlerinden yararlanır.
+		</p>
+		<p class="indent">
+			(X)HTML çözümleyicisinin yeni bir belge çerçevesi açılabilmesı için sisteme 
+			istek yapabilmesi için yararlanabileceği için tek olanak, çapa elementidir. (X)HTML 
+			katı kuralcı (strict) DTD si altında, çapa elementi ile açılması istenen 
+			belgelerin açılacağı pencere ismini belirten <span class="att">target</span>
+			niteliği tanımlı değildir. Bu yüzden (X)HTML katı kuralcı DTD si altında, yüklenecek 
+			bir belgenin pencere adı, hiçbir şekilde önceden belirlenemez. (X)HTML katı kuralcı 
+			DTD si altında, yeni yüklenecek belge pencereleri daima isimsiz (anonim) (eski grekçe 
+			anonim isimsiz anlamına gelir). sistem pencereleri olarak açılır. Açılan pencereler daima geçerli 
+			sistem pencereleri olarak nitelendirilir ve (X)HTML katı kuralcı DTD si altında, (X)HTML 
+			çözümleyicisi, biligi alışverişini daima geçerli sistem penceresi ile gerçekleştirir. 
+		</p>
+		<p class="indent">
+			(X)HTML katı kuralcı DTD si altında, çapa elementi ile belirli bir adresteki bilgiler, 
+			geçerli sistem penceresine yüklenmek istenirse, (X)HTML katı kuralcı DTD si altında, 
+			(X)HTML çözümleyicisi, ilk olarak sistemde açık bir sistem olup olmadığına bakar. Eğer önceden 
+			açık bir anonim (isimsiz) sistem penceresi varsa, bu pencerenin içeriği boşaltılıp, yeni 
+			içerik bu açık pencerenin yeni içeriği olacak şekilde yüklenir. (X)HTML strict DTD 
+			si altında, sistemde açık bir anonim 	sistem penceresi varken hiçbir şekilde yeni bir belge 
+			sistem penceresi açılamaz. Açık olan pencereye yeni bir belge yüklenir. Eğer yeni bir isimsiz 
+			sistem penceresi açılmak istenirse, yeni bir belge çözümleyicisi örneğinin açılması (yani iexplore.exe 
+			gibi belge çözümleyicisi programının yeniden çalıştırılması) gerekir. Ancak bu şekilde, 
+			sistemde, birbirinden bağımsız iki isimsiz sistem penceresi açılmış olacaktır. 
+		</p>
+		<p class="indent">
+			(X)HTML frameset DTD si altında ise, <span 
+			class="keyw">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;uygulama11.htm&quot;</span> <span 
+			class="att">target</span><span 
+			class="op">=</span><span 
+			class="str">&quot;kaynak&quot;</span><span 
+			class="keyw">&gt;</span> şeklinde, belgenin 
+			yükleneceği hedef pencere ismi belirtilebiir. (X)HTML frameset DTD si altında,
+			(X)HTML çözümleyicisi, bilgi aılışverişinin yapılacağı sitem penceresini,
+			pencere adından seçebilir. 
+		</p>
+		<p class="indent">
+			Pencere isimleri sadece (X)HTML çözümleyicisi ile ilgilidir. JavaScript yorumlayıcısı, 
+			pencerenin içerdiği belgenin öğelerine erişmek için pencere isminden değil, bir JavaScript 
+			değişkeni olan, pencere referans değişkeninden yararlanır. Pencere referans 
+			değişkeni bir JavaScript program değişkenidir. JavaScript programı ile açılmış olan 
+			bir pencere, bir öntanımlı konukçu nesne örneği olduğundan, bellekte yerleştirilmiş
+			olduğu yerin bellek işaretçisi (pointer) bu pencere rereferans değişkenin değeri olarak 
+			belirlenir. JavaScript yorumlayıcısı, tüm isimli pencere bilgilerine bu pencere referans değişkeni, 
+			(nesne örneği) yardımı ile erişebilir. Tüm nesne örnekleri ile çalışma yöntemi, bu mekanizmanın aynıdır. 
+		</p>
+		<p class="indent">
+			Eğer bir pencere referans değişkeni adı belirtilmemişse, ister (X)HTML katı kuralcı DTD si altında, ister
+			(X)HTML frameset DTD si altında çalışılsın, JavaScript yorumlayıcısı tüm bigi alışverişini geçerli( ilgi odağı
+			üzerinde olan) sistem penceresi ile gerçekleştirir.
+		</p>
+		<p class="indent">
+			İsimli veya isimsiz, sistem penceresi veya alt pencere,
+			hiçbir açık pencerenin ismi, (X)HTML yorumlayıcısı tarafından 
+			değiştirilemez. Bu işlem, ancak JavaScript <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">name</span> özelliği kullanılarak
+			gerçekleştirilebilir.
+		</p>
+		<p class="indent">
+			<span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">name</span> özelliği iki yönlüdür. 
+			İstendiğinde bir pencerenin (çerçevenin) ismini döndürebilir veya bir 
+			pencerenin (çerçevenin) ismini yenileyebilir.
+		</p>
+		<p class="indent" id="b18.4.1-uyg-1">
+			Bu konuda bir <a href="../uygulamalar/b18.4.1-uyg-1-js.html">program örneğinin</a>, 
+			kodları aşağıda görülmektedir. Bu programda ekrandan girilen bir isimle yeni bir çerçevenin
+			açılması yapılmakta ve yeni çerçevenin geçerli adı okunarak aynı çerçevede 
+			görüntülenmesi sağlanmaktadır. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b18.4.1-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> nodEkle<span 
+			class="op">(</span>pencere<span 
+			class="op">,</span> metin<span 
+			class="op">,</span> sonuç<span 
+			class="op">) {</span>
+<span class="keyw-50">var </span>açıklama <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">,</span> p0 <span 
+			class="op">= </span><span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> span0 <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(), </span>belge <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="pl-50">p0</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+<span class="pl-50">açıklama</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>metin<span 
+			class="op">);</span>
+<span class="pl-50">p0</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span>açıklama<span 
+			class="op">);</span>
+
+
+<span class="pl-50">span0</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+<span class="pl-50">açıklama</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>pencere<span 
+			class="op">.</span><span 
+			class="keyw">name</span><span 
+			class="op">);</span>
+<span class="pl-50">span0</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>açıklama<span 
+			class="op">);</span>
+<span class="pl-50">span0</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="pl-50">p0</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span0<span 
+			class="op">);</span>
+
+
+<span class="pl-50">belge</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="keyw">body</span><span 
+			class="op">).</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">);</span>
+<span class="pl-50">belge</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>p0<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> nodEkleMesaj<span 
+			class="op">(</span>pencere<span 
+			class="op">,</span> metin<span 
+			class="op">,</span> renk<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var </span>text <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">,</span> span0 <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(), </span>belge <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="pl-50">text</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>metin <span 
+			class="op">+</span> <span 
+			class="str">' '</span><span 
+			class="op">);</span>
+<span class="pl-50">span0</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>text<span 
+			class="op">);</span>
+<span class="pl-50">span0</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> renk<span 
+			class="op">;</span>
+
+
+<span class="pl-50">belge</span> <span 
+			class="op">=</span> pencere<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="keyw">body</span><span 
+			class="op">).</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>0<span 
+			class="op">);</span>
+<span class="pl-50">belge</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span0<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> isimYaz<span 
+			class="op">(</span>pRef<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> mesaj1 <span 
+			class="op">=</span> <span 
+			class="str">'Bu İsim,'</span><span 
+			class="op">,</span> mesaj2<span 
+			class="op">=</span> <span 
+			class="str">'pencerenin (çerçevenin),'</span><span 
+			class="op">,</span> mesaj3<span 
+			class="op">=</span> <span 
+			class="str">'Yeni İsmini,'</span><span 
+			class="op">,</span> mesaj4<span 
+			class="op">=</span> <span 
+			class="str">'Belirtmektedir !'</span><span 
+			class="op">,</span> 
+<span class="pl-50">içerik</span> <span 
+			class="op">=</span> pRef<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>içerik<span 
+			class="op">.</span> <span 
+			class="keyw">length</span> <span 
+			class="op">===</span> 0<span 
+			class="op">) {</span>
+<span class="pl-75">nodEkle</span><span 
+			class="op">(</span>pRef<span 
+			class="op">,</span> <span 
+			class="str">'Pencere İsmi = '</span><span 
+			class="op">,</span> pRef<span 
+			class="op">.</span><span 
+			class="keyw">name</span><span 
+			class="op">);</span>
+<span class="pl-75">nodEkleMesaj</span><span 
+			class="op">(</span>pRef<span 
+			class="op">,</span> mesaj1<span 
+			class="op">,</span> <span 
+			class="str">'green'</span><span 
+			class="op">);</span>
+<span class="pl-75">nodEkleMesaj</span><span 
+			class="op">(</span>pRef<span 
+			class="op">,</span> mesaj2<span 
+			class="op">,</span> <span 
+			class="str">'blue'</span><span 
+			class="op">);</span>
+<span class="pl-75">nodEkleMesaj</span><span 
+			class="op">(</span>pRef<span 
+			class="op">,</span> mesaj3<span 
+			class="op">,</span> <span 
+			class="str">'Indianred'</span><span 
+			class="op">);</span>
+<span class="pl-75">nodEkleMesaj</span><span 
+			class="op">(</span>pRef<span 
+			class="op">,</span> mesaj4<span 
+			class="op">,</span> <span 
+			class="str">'red'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>isim<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> penRef <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="pl-50">penRef </span><span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open</span><span 
+			class="op">(</span><span 
+			class="str">''</span><span 
+			class="op">,</span> isim<span 
+			class="op">,</span> <span 
+			class="str">'left = 50, top = 200, width = 400,'</span> <span 
+			class="op">+</span> 
+<span class="pl-75"><span class="str">'</span></span><span 
+			class="str">height = 180, toolbar = yes, scrollbars = no'</span><span 
+			class="op">);</span>
+<span class="keyw-50">return</span> penRef<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> isimDeğiştir<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> pencereRef <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> çerçeveİsmi <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">,</span> bilgi <span 
+			class="op">= [];</span> 
+
+<span class="pl-50">bilgi</span> <span 
+			class="op">=</span> pRef<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">);</span>
+<span class="pl-50">çerçeveİsmi</span> <span 
+			class="op">=</span> bilgi<span 
+			class="op">[</span>2<span 
+			class="op">].</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="pl-50">pencereRef</span> <span 
+			class="op">=</span> pencereAç<span 
+			class="op">(</span>çerçeveİsmi<span 
+			class="op">);</span>
+<span class="pl-50">isimYaz</span><span 
+			class="op">(</span>pencereRef<span 
+			class="op">);</span>
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus</span><span 
+			class="op">();</span> <span 
+			class="comm">// Açık Pencere Nesne Sınıf Örneğini Yeniden İlgi Odağına Getir !</span>
+<span class="op-25">}</span>
+
+
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> veri  <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'input'</span><span 
+			class="op">);</span>
+<span class="pl-50">veri</span><span 
+			class="op">[</span>3<span 
+			class="op">].</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> isimDeğiştir<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			JavaScript yorumlayıcısı, sadece bağlantılı olduğu pencerelere
+			ve kendisinin bir pencere referansı vererek açtığı pop-up pencerelere erişebilir. 
+			Bunun dışındaki pencerelere erişemez. 
+		</p>
+		
+		<p class="subheading" id="closed">18.4.2 - window.closed Özelliği</p>
+		<p class="indent">
+			<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">closed</span> Özelliği, sadece sistem pencerlerinin 
+			açık veya kapalı olup olmadığını kontrol eder. Eğer geçerli pencere kapalı
+			ise,  değeri <span class="keyw">true</span> aksi halde değeri <span 
+			class="keyw">false</span> olur. Kullanımı
+	</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">closed</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="indent">
+			Bu özellik JavaScript programı ile açılmış olan bir pencerenin açık veya kapatılmış 
+			olmasını da kontrol edebilir. Bu durumda bu özelliğin değerine,
+		</p>
+		<pre>
+<span class="pl-25">pencereReferansı</span><span 
+			class="op">.</span><span 
+			class="keyw">closed</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilir.
+		</p>
+				<p class="indent">
+			Bu özellik tek yönlü (salt okunur) bir özelliktir. Pencerenin 
+			açık olup olmadığını bildirir, pencerenin 
+<span 
+			class="keyw">closed</span> özelliğinin değerini 
+			değiştiremez.
+		</p>
+		<p class="indent">
+			Bu yöntemle işletim sistemi 
+			tarafından açılmış bir pencerenin kapanmış olup olmadığı 
+			kontrol edilirse, bir diyalog penceresi açılarak onay sorulur.
+		</p>
+		<p class="indent" id="b18.4.2-uyg-1">
+			Bir alt pencerenin önce açılıp, kapatıldıktan sonra
+			<span 
+			class="str">window</span><span 
+			class="op">.</span><span 
+			class="keyw">closed</span> özelliğinin incelenmesi
+			ile, açılmış alt pencerenin kapanmış olup olmadığının kontrol 
+			edildiği bir <a href="../uygulamalar/b18.4.2-uyg-1-js.html">programının</a> 
+			kodları aşağıda görülmektedir. Bu program bağlantılı olduğu 
+			<a href="../uygulamalar/b18.4.2-uyg-1.html">sayfada</a>
+			çalışmaktadır.
+		</p>
+		
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">) </span><span 
+			class="op">{</span>
+
+<span class="comm-100">/*Not: Eğer isim parametresi ile bir </span>
+<span class="comm-100">boş karakter dizgisi (str) literal veya _blank</span>
+<span class="comm-100">değil geçerli bir karakter dizgisi (str) literal</span>
+<span class="comm-100">veriliyorsa ve bu isim ile sistemde açık bir pencere varsa, </span>
+<span class="comm-100">yeni bir pencere (window) değil, aynı pencerede , içeriği, </span>
+<span class="comm-100">bu fonksiyonun URI argümanının işaret ettiği belgenin </span>
+<span class="comm-100">içeriği olan yeni bir belge (document) açılacaktır.</span>
+<span class="comm-100">Yani, aynı isimli açık pencerenin içeriği değişecektir*/
+</span>
+
+<span class="pl-50">pencereRef</span><span 
+			class="op">=</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">open(</span>URI<span 
+			class="op">, </span><span 
+			class="str">&quot;Tarifeler&quot;</span><span 
+			class="op">,</span>
+<span class="str-200">'left = 400, top = 10, width = 600, height = 450,' </span><span 
+			class="op">+</span>
+<span class="str-200">'toolbar = no, menubar = no, location = no,' </span><span 
+			class="op">+</span>
+<span class="str-200">'directories = no, scrollbars = yes,' </span><span 
+			class="op">+</span>
+<span class="str-200">'resizable = no, status = yes'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">pencereRef</span><span 
+			class="op">.</span><span 
+			class="keyw">focus()</span><span 
+			class="op">;</span> <span 
+			class="comm"> // Açık pencere nesnesini yeniden ilgi odağına getir. 
+</span>
+<span class="keyw-50">return</span> pencereRef<span 
+			class="op">;</span>
+
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> otobüsTarifesi<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> URI <span 
+			class="op">= </span><span 
+			class="str">''</span><span 
+			class="op">,</span> penref <span 
+			class="op">=</span> <span class="keyw">null</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">URI</span> <span 
+			class="op">=</span> bağlantı<span 
+			class="op">[</span>6<span 
+			class="op">].</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'href'</span><span 
+			class="op">);</span>
+<span class="pl-50">penref</span> <span 
+			class="op">=</span> pencereAç<span 
+			class="op">(</span>URI<span 
+			class="op">);</span>
+<span class="keyw-50">return</span> penref<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span>
+<span class="pl-50">bağlantı</span> <span 
+			class="op">= [],</span> penRef <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>6<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="pl-75">penRef</span> <span 
+			class="op">=</span> otobusTarifesi<span 
+			class="op">();</span>
+<span class="keyw-75">return </span><span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+			
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>7<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+			
+<span class="keyw-75">if </span><span 
+			class="op">(</span>penRef <span 
+			class="op">===</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="keyw-100">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Pencere Hiç Açılmadı'</span><span 
+			class="op">);
+</span><span class="op-75">}</span>
+
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="keyw-100">if</span><span 
+			class="op">(</span>penRef <span 
+			class="op">.</span><span 
+			class="keyw">closed</span> <span 
+			class="op">===</span> <span 
+			class="keyw">true</span><span 
+			class="op">) {</span>
+<span class="keyw-125">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Pencere Kapalı'</span><span 
+			class="op">);</span>
+<span class="op-100">}</span>
+
+<span class="keyw-100">if</span><span 
+			class="op">(</span>penRef <span 
+			class="op">.</span><span 
+			class="keyw">closed</span> <span 
+			class="op">===</span> <span 
+			class="keyw">false</span><span 
+			class="op">) {</span>
+<span class="keyw-125">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Pencere Açık'</span><span 
+			class="op">);</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.4.2-uyg-1-js.html">programda</a> 
+			pencerenin hiç açılmamaış, açık veya kapalı olduğunun kontrolü yapılan kısmın akım 
+			şeması aşağıda görülmektedir:
+		</p>
+		<p class="sayfaortala">
+		<img src="../images/b18s4-img-1.png" alt="flowchart" />
+		</p>
+		<p class="indent">
+			Bu akım şeması, <a href="http://www.aivosto.com/">Visustin</a> adlı otomatik akım şeması
+			oluşturma programı ile elde edilmiştir.
+		</p>
+		<p class="subheading" id="defaultstatus">18.4.3 - window.defaultStatus Özelliği</p>
+			<p class="indent">
+			Bu özellik, bir Web sayfasının en altında bulunan durum
+			çubuğunda, görüntülecek varsayılan mesajı okur veya belirler. Bu özellik iki yönlüdür. Yani, 
+			hem okuma, hem de yazma yapabilir. Bu özelliğin varsayılan bir değeri yoktur. Kullanımı 
+			mesaji okurken,
+		</p>
+		<pre>
+<span class="str-25">'Mesaj' </span><span 
+			class="op">=</span><span 
+			class="keyw"> window</span><span 
+			class="op">.</span><span 
+			class="keyw">defaultStatus</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Mesajı Belirlerken,
+		</p>
+		<pre> 
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">defaultStatus </span><span 
+			class="op">=</span><span 
+			class="str"> 'Mesaj'</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. 
+		</p>
+		<p class="indent" id="b18.4.3-uyg-1">
+			Durum çubuğuna bir mesaj yazdırken dikkat edilecek konu, 
+			genel olarak, kullanıcıların durum çubuğunda, bir mesajdan çok 
+			her zaman alışageldikleri görüntüyü tercih ettikleridir. Bir Web sayfası
+			yüklenirken, durum çubuğunda, statik bir mesajın görüntülendiği ve okunduğu
+			bir <a href="../uygulamalar/b18.4.3-uyg-1-js.html">program</a> verilmiştir.
+			Kodları aşağıda görülmekte olan bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b18.4.3-uyg-1-js.html">uygulama sayfasında</a> 
+			çalışmaktadır.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+			
+<span class="keyw-50">var</span> Mesaj <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+			
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">defaultStatus</span> <span 
+			class="op">=</span> <span 
+			class="str">'Hoş Geldiniz, Umarız Bu Sayfadaki Bilgileri Yararlı Bulursunuz ! '</span><span 
+			class="op">;</span>
+<span class="pl-50">Mesaj</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">defaultStatus</span><span 
+			class="op">;</span>
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>Mesaj<span 
+			class="op">);</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">defaultStatus</span> <span 
+			class="op">=</span> Mesaj<span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="status">18.4.4 - window.status Özelliği</p>
+		<p class="indent">
+			Bu özelik, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">defaultStatus</span> özelliği ile
+			karıştırılmamalıdır. Çünkü <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">defaultStatus</span> özelliği, 
+			pencere açıldığında varsayılan gibi hareket eden bir mesajı durum çubuğunda
+			görüntülerken, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">status</span> özelliği, sadece belirli,
+			bir eylem gerçekleşince geçici bir mesajı durum çubuğunda görüntüler. 
+		</p>
+		<p class="indent" id="b18.4.4-uyg-1">
+			Kodları aşağıda verilen bir 
+			<a href="../uygulamalar/b18.4.4-uyg-1-js.html">JavaScript programı</a>, 
+			bir düğmenin tıklanması ile durum çubuğunda bir mesajı yazdırmaktadır. Bu program, 
+			bağlantılı olduğu, uygulama <a href="../uygulamalar/b18.4.4-uyg-1.html">sayfasında </a>
+			çalışmaktadır.
+		</p>
+		
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var </span>bağlantı <span 
+			class="op">= []</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bağlantı</span> <span 
+			class="op">[</span>4<span 
+			class="op">]</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="keyw-75">window</span> <span 
+			class="op">.</span> <span 
+			class="keyw">status</span> <span 
+			class="op">=</span> <span 
+			class="str">'Düğmeye Bastınız !'</span><span 
+			class="op">;</span>
+<span class="keyw-75">return </span><span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="parent">
+					18.4.5 - window.parent Özelliği
+		</p>
+		<p class="indent">
+			Bu özelliğin değeri, alt pencereyi açtıran pencerenin bellek referansıdır. 
+			Üst ve alt pencere arasında bilgi aktarımı gerektiğinde bu özellikten 
+			yararlanılabilir.
+		</p>
+		<p class="subheading" id="self">
+					18.4.6 - window.self Özelliği
+		</p>
+		<p class="indent">
+			Bu özelliğin değeri, pencerenin bellek referansıdır. Bu değere aşağıdaki şekillerle de 
+			eşeğer olarak ulaşılabilir. 
+		</p>
+		<pre>
+<span class="pl-25">pencereReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">window</span><span 
+			class="op">;</span>
+			
+<span class="pl-25">pencereReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">;</span>
+			
+<span class="pl-25">pencereReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="keyw"><span 
+			class="op">.</span>self</span><span 
+			class="op">;</span>
+
+<span class="pl-25">pencereReferansı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">self</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Bu özellik, programlarda, <span class="keyw">window</span> sözcüğü
+			yerine kullanılabilir. Örnek olarak <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">close</span><span class="op">()</span>
+			yerine <span class="keyw">self</span><span 
+			class="op">.</span><span class="keyw">close</span><span class="op">()</span>
+			kullanılabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s3.html"><em> &laquo; Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s5.html"><em> Sonraki &raquo;</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript"
+		src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:47 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

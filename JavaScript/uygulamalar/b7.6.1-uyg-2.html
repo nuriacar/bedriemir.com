@@ -1,0 +1,266 @@
+7.6.1<?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+    
+<!-- Mirrored from www.bedriemir.com/JavaScript/uygulamalar/b7.6.1-uyg-2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:01:02 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/uygulamalar/b7.6.1-uyg-2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+        <!-- Made with AC Meta Tag Generator ver. 1.5
+        at: http://www.ACJavascripts.com -->
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="tr" />
+        <meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+        <meta name="Subject" content="JavaScript Turkish Tutorial" />
+        <meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+        <meta name="Keywords" content="JavaScript Tutorial Turkish" />
+        <meta name="Language" content="tr" />
+        <meta name="Abstract" content="JavaScript Turkish Tutorial" />
+        <meta name="Publisher" content="Prof. Dr. Bedri Dogan Emir" />
+        <meta name="Distribution" content="Local" />
+        <meta name="Robots" content="Index,Follow" />
+        <link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+        <title>7.6.1-uyg-2</title>
+    </head>
+    <body>
+        <table id="layout-top" summary="Başlık">
+            <tr>
+                <td>
+                    <img src="../images/banner.png" alt="banner" class="banner" /></td>
+                <td class="top1text">
+                    JavaScript Temelleri - Uygulamalar</td>
+                <td class="top1previous">
+                    <a href="../b7/b7s2.html#b7.6.1-uyg-2"><img src="../images/previous.gif" alt="önceki" /></a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;              </td>
+                <td class="top2text">
+                    7.6.1-uyg-2.htm                </td>
+                <td class="top2previous">
+                    7.6.1 Konu Sayfasına Dönüş                </td>
+            </tr>
+            <tr>
+                <td>                </td>
+                <td class="top3text">Bir  Kullanıcı Tanımlı Nesne Yapılandırıcısı
+                	 (Constructor) Fonksiyon                </td>
+                <td>                </td>
+            </tr>
+        </table>
+        <ul id="topnavlist1">
+            <li id="ilk">
+                <a href="b7.6.1-uyg-2-src.html"><em>Sayfanın
+                        XHTML Kodları</em></a>
+            </li>
+            <li id="atla1">
+            </li>
+            <li id="orta">
+                <a href="JSstyle-css.html"><em>Sayfanın CSS Stil
+                        Kodları</em></a>
+            </li>
+            <li id="atla2">
+            </li>
+            <li id="son">
+                <a href="b7.6.1-uyg-2-js.html"><em>Sayfanın
+                        JavaScript Program Kodları</em></a>
+            </li>
+            <li id="topnavlist1-sonlama">
+            </li>
+        </ul>
+        <pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">function</span> Çalışan<span 
+			class="op">(</span>num<span 
+			class="op">,</span> isim<span 
+			class="op">,</span> soyisim<span 
+			class="op">,</span> girişGünü<span 
+			class="op">,</span> girişAyı<span 
+			class="op">,</span> girişYılı<span 
+			class="op">) {</span> 
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr <span 
+			class="op">=</span> num <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad <span 
+			class="op">=</span> isim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad <span 
+			class="op">=</span> soyisim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>gün <span 
+			class="op">=</span> girişGünü <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ay <span 
+			class="op">=</span> girişAyı <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>yıl <span 
+			class="op">=</span> girişYılı <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>tarih <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">var</span> işeGirişTarihi <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>gün <span 
+			class="op">+</span> <span 
+			class="str">'/'</span><span 
+			class="op">+</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>ay <span 
+			class="op">+</span> <span 
+			class="str">'/'</span> <span 
+			class="op">+</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yıl <span 
+			class="op">;</span>
+<span class="keyw-75">return</span> işeGirişTarihi<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> düzenle<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> personel45 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Çalışan<span 
+			class="op">(</span>45<span 
+			class="op">,</span> <span 
+			class="str">'Ahmet'</span><span 
+			class="op">,</span>  <span 
+			class="str">'Özel'</span><span 
+			class="op">,</span>  <span 
+			class="str">'16'</span><span 
+			class="op">,</span>  <span 
+			class="str">'09'</span><span 
+			class="op">,</span> <span 
+			class="str">'2006'</span><span 
+			class="op">);</span> 
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>personel45<span 
+			class="op">.</span>nr<span 
+			class="op">,</span> <span 
+			class="str">'b7.6.1-uyg-2-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>personel45<span 
+			class="op">.</span>ad<span 
+			class="op">,</span> <span 
+			class="str">'b7.6.1-uyg-2-sonuç-2'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>personel45<span 
+			class="op">.</span>soyad<span 
+			class="op">,</span> <span 
+			class="str">'b7.6.1-uyg-2-sonuç-2'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>personel45<span 
+			class="op">.</span>tarih<span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b7.6.1-uyg-2-sonuç-4'</span><span 
+			class="op">)</span><span 
+			class="op">;
+</span><span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>düzenle</span><span 
+			class="op">);</span>
+			
+<span class="comm-25">/* ]]&gt; */</span>
+				</pre>
+        <p class="cursive-green">
+            Program Sonucu :
+        </p>
+		<div class="pl-200">
+			<table id ="tablo-bir" width="50%" summary="Veri Kaydı" class="tablo1">
+				<colgroup >
+					<col class="st1" width="40%"/>
+					<col class="st1" width="60%"/>
+				</colgroup>
+				<caption class="captionred">
+					Personel Kaydı : personel45
+				</caption>
+				<tbody>
+					<tr class="highline color4">
+						<th class="st1">Özellik</th>
+						<th class="st1">Değer</th>
+					</tr>
+					<tr class="tbline">
+						<td class="sayfaortala st1">nr</td>
+						<td id="b7.6.1-uyg-2-sonuç-1" class="dikeyTab-25 st1">&nbsp;</td>
+					</tr>
+					<tr class="tbline">
+						<td class="sayfaortala st1">ad</td>
+						<td id="b7.6.1-uyg-2-sonuç-2"  class="dikeyTab-25 st1">&nbsp;</td>
+					</tr>
+					<tr class="tbline">
+						<td class="sayfaortala">soyad</td>
+						<td id="b7.6.1-uyg-2-sonuç-3"  class="dikeyTab-25 st1">&nbsp;</td>
+					</tr>
+					<tr class="tbline">
+						<td class="sayfaortala st1">İşe Giriş Tarihi</td>
+						<td id="b7.6.1-uyg-2-sonuç-4"  class="dikeyTab-25 st1">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+        <ul id="navbottom">
+            <li id="index">
+                <a href="../index.html"><em>&laquo; İndeks</em></a>
+            </li>
+            <li id="denge">
+            </li>
+            <li id="sayfa">
+                <a href="../b7/b7s2.html#b7.6.1-uyg-2"><em>Konu
+                        Sayfasına Dönüş &raquo;</em></a>
+            </li>
+            <li id="navbottom-sonlama">
+            </li>
+        </ul>
+        <p class="pl-50">
+            <a href="http://validator.w3.org/#validate_by_upload"><img src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+        </p><!-- Script Yükleme Alanı Başlangıcı-->
+        <script type="text/javascript" src="../js/lastmodified.js">
+        </script>
+        <script type="text/javascript" src="../js/bdelib.js">
+        </script>
+        <script type="text/javascript" src="../js/b7.6.1-uyg-2.js">
+        </script>
+        <!-- Script Yükleme Alanı Sonu-->
+    </body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/uygulamalar/b7.6.1-uyg-2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:01:02 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

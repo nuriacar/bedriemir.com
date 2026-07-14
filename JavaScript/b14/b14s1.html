@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b14/b14s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:29 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b14/b14s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b14s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b13/b13s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b15/b15s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 14
+		</p>
+		<p class="chapter">
+			HATA YÖNETİMİ
+		</p>
+		<p class="pagenum">
+			Bölüm 14 Sayfa 1
+		</p>
+		<p class="title-left" id="intro">14.1 - Hata Yönteminin Tanıtımı </p>
+		<p class="indent">
+			Hiç bir program apansız dereden çıkmamalıdır. Programlar bir çalışma süreci
+			hatası yarattıklarında, apansız devreden çıkma eğilimindedirler. Bazı hatalar 
+			işletim sistemini bile bloke ederek verilerin kaybına neden olabilirler. Bu yüzden,
+			programların hata durumunda davranışlarının önceden olanaklar ölçüsünde 
+			planlanmasında yarar bulunmakltadır. Bu şekilde hata olduğunda, sorunsuz 
+			bir şekilde program devam edebilir ve gerekli önlemler alınabilir. JavaScript 
+			kullanıcılara, oluşan hataları yakalamak ve bir hata yakalandığında programın
+			yürüşünde gerekli düzenlemeleri yapma olnağı sağlamaktadır. Kullanıcılar,
+			ayarıca kendi hatalarını da oluşturarak, JavaScript yorumlayıcısının öntanımlı 
+			hataları arasına ekleyebilrler. Hataların yönetiminde en büyük sorun, hangi 
+			hatanın ne zaman oluşacağını öngörmek olabilir.
+		</p>
+		<p class="title-left" id="propagation">14.1 - Hataların Yayılımı</p>
+		<p class="indent">
+			JavaScript programlarında, normal dışı bir işlem, bir kuraldışılık (exception) (istisna) 
+			olarak tanımlanır. Har kuraldışılık bir hata anlamına gelir. Bir kuraldışılığın oluşması,
+			JavaScript yorumlayıcısının programın çalışmasını durdurmasına neden olur. Buna 
+			teknik olarak bir kuraldışılığın fırlatılması (excetion throwing) adı verilir. Bir kuraldışılığın
+			fırlatılmasına kısa olarak, hata oluşumu adı da verilebilir. 
+		</p>
+		<p class="indent">
+			Bir kuraldışılığın fırlatılması sonumda program çalışması kesilince, JavaScript yorumlayıcısı,
+			bu kuraldışılığın yakalanmaı için en yakın hata yakalama modülünü arara. Hata yakalama
+			modülleri biraz sonra ayrıntıları ile açıklayacağımız, kullanıcı tarafından düzenlenmiş 
+			hata sonunda yapılacak işlemleri içeren çalışma bloklarıdır. Hata yakalama blokları aranması,
+			fonksiyonu çağıran kodlara kadar yayılır. Buna hataların yayılımı (Error Propagation) adı verilir.
+			Eğer programda uygun bir hata yakalama modülü 	bulunamazsa, program kullanıcıya bir uyarı 
+			mesajı vererek devreden çıkar.
+		</p>
+		<p class="indent">
+			Programcılar, yaptıkları programların kontrolsuz bir şekilde devreden çıkmasını
+				olanaklar ölçüsünde engellemekle yükümlüdür. Buradaki problem, hangi
+				hatanın ne zaman ve nerede ortaya çıkacağının bulunmasında yaşanır. Bir
+				program, yaşayan bir organizma gibidir. Programcılar, programlarını bir
+				geniş bir süreç içinde daha iyi tanıyabilir ve programın yaratabileceği
+				sorunları  daha iyi algılayabilirler. Programcıların gözü daima
+				yaptıkları programlar üzerinde olmalıdır. Bu şekilde, programı sürekli
+				geliştirebilirler ve olası kuraldışılılara karşı uygun önlemler alabilirler.
+		</p>
+		<p class="title-left" id="userDefinedExceptions">14.2 - Kullanıcı Tanımlı Hatalar</p>
+		<p class="indent">
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardı 6 tane doğal hata tanımlamıştır. Bunlar,
+			<a href="../b13/b13s1.html#evalError">EvalError</a>, 
+			<a href="../b13/b13s1.html#rangeError">RangeError</a>, 
+			<a href="../b13/b13s1.html#referenceError">ReferenceError</a>, 
+			<a href="../b13/b13s1.html#syntaxError">SyntaxError</a>, 
+			<a href="../b13/b13s1.html#typeError">typeError</a>, 
+			<a href="../b13/b13s1.html#URIError">URIError</a>, olarak belirlenmiştir. Bunlardan biri oluşursa,
+			JavaScript yorumlayıcısı, kuraldışılık fırlatma işlemine geçer, program çalışması durur ve hata
+			yayılımı başlar. Bunların dışında, kullanıcılar da kendileri kuraldışılık fırlatma mekanizmasını
+			çalıştırabilirler. Kullanıcıların çalıştırması ile de aynı kuraldışılık fırlatma işlemi çalışmaya başlar,
+			program çalışması durur ve hata yalımı sürecine girilir. Bu durumda en doğru yöntem, her kuraldışılık
+			için bir kuraldışılık yakalama yönyeminin geliştirilmesidir. Bu şekilde fırlatılmış olan kuraldışılık,
+			tasarlanmış olan kuraldışılık tutma bloğunda yakalanarak bloke edilir ve hata yayılımı süreci 
+			uygun bir şekilde sona erdirilmiş olur. 
+		</p>
+		<p class="subheading" id="throw">14.2.1 - throw Bildirimi</p>
+		<p class="indent">
+			<span class="keyw">throw</span> Bildirimi, kullanıcı tanımlı bir kuraldışılığın fırlatılmasına neden olur.
+			Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">throw</span> ifade
+		</pre>
+		<p class="nonindent" id="b14.2.1-uyg-1">
+			şeklindedir. <span class="keyw">throw</span> Bildiriminin bir uygulaması
+			aşağıda görülen 
+			<a href="../uygulamalar/b14.2.1-uyg-1-js.html">JavaScript programında</a> görülmektedir.
+			
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">throw</span> <span 
+			class="str">'Bir Kuraldışılık Fırlatıldı !'</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			Bu program iliştirildiği <a href="../uygulamalar/b14.2.1-uyg-1.html">sayfada</a>,
+			bir kullanıcı  tanımlı kuraldışılığın fırlatılmasına neden olmakta ve
+			sayfanın görüntülenmesi bir hata mesajı ile engellenmektedir.
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/b14.2.1-uyg-1-image-1.png" alt="Hata Mesajı" width="850" height="500" />		</p>
+		<p class="nonindent">
+			Burada verilen hata mesajı, yakalaması olmayan bir kuraldışılığın fırlatılmış olduğu
+			şeklindedir. Bu uygulama sonucu, <span class="str">&quot;Yakalaması Olmayan
+			Bir Kuraldışılığın Oluşmasına Hiçbir Zaman Olanak Verilmemelidir !&quot;</span> şeklinde
+			algılanmalıdır.
+		</p>
+		<p class="title-left" id="catching">14.3 - Hataların Yakalanması</p>
+		<p class="subheading" id="try">14.3.1 - try, catch ve finally Bildirimleri</p>
+		<p class="indent">
+			<span class="keyw">try</span> Bildirimi, hataların yakalanacağı bir 
+			işlem bloğunu tanımlar. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">try</span> <span 
+			class="op">{</span>
+<span class="keyw-75">...</span>
+<span class="op-50">}</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">try</span> Bloğunu, <span 
+			class="keyw">catch</span> veya <span class="keyw">finally</span>
+			blokları veya önce <span class="keyw">catch</span> sonra <span 
+			class="keyw">finally</span> blokları izlemelidir.
+		</p>
+		<p class="indent">
+			Program kontrolü, bir <span class="keyw">try</span> bloğunu 
+			normal olarak bir hata olmadığında, bloğun sonuna erişildiği veya 
+			<span class="keyw">return</span>, <span class="keyw">break</span>
+			<span class="keyw">continue</span> bildirimlerinden birine rastlanması 
+			durumunda <span class="keyw">finally</span> bloğuna atlar. Eğer bir hataya
+			rastlanırsa, kontrol önce<span class="keyw">catch</span> sonra
+			<span class="keyw">finally</span> bloklarına atlar. Eğer 
+			<span class="keyw">catch</span> bloğu yoksa, hata dahi olmazsa kontrol 
+			mutlaka <span class="keyw">finally</span> finally bloğuna atlar. Yani, 
+			<span class="keyw">finally</span> bloğu, <span class="keyw">try</span>
+			bloğunda ne olursa olsun mutlaka bir kez çalışmış olur.
+		</p>
+		<p class="indent">
+			<span class="keyw">catch</span> Bloğu, sadece<span class="keyw">try</span>
+			bloğunda bir hataya rastlanırsa çalışır. <span class="keyw">catch</span> Bildiriminin
+			sözdizimi, aşağıdaki gibidir :
+		</p>
+		<pre>
+<span class="keyw-50">catch</span><span 
+			class="op">(</span>e<span 
+			class="op">) {</span> 
+<span class="keyw-50">...</span>
+<span class="op-50">}</span>
+		</pre>
+		<p class="nonindent">
+			Burada, e yerel herhangibir değişkendir. Bu değişkenin değeri, 
+			<span class="keyw">try</span> bloğunda oluşan hatanın veya fırlatılmış
+			başka bir kuraldışılığın değeridir. Bu değişken sadece blok içinde 
+			tanımlıdır.
+		</p>
+		<p class="indent">
+			<span class="keyw">finally</span> Bloğu fazla yaygın değildir. Hata
+			yakalama çoğunlukla <span class="keyw">try</span> ve 
+			<span class="keyw">catch</span> blokları yardımı ile yürütülür. 
+			Fakat, <span class="keyw">finally</span> bloğu, çoğunlukla bir 
+			kod temizleme bloğu olarak kullanılır. 
+		</p>
+		<p class="indent">
+			Eğer, <span class="keyw">finally</span> bloğunda, 
+			<span class="keyw">return</span>, <span class="keyw">break</span>
+			<span class="keyw">continue</span> bildirimlerinden birine rastlanması 
+			veya yeni bir kuraldışılığın fırlatılması durumunda eski hata kontrolü 
+			ortadan kalkar ve oluşan yeni hatanın yakalama süreci başlatılır.
+		</p>
+		<p class="indent" id="b14.3.1-uyg-1">
+			Bir kullanıcı tanımlı kuraldışılığın fırlatılması ve ve fırlatılan kuraldışılığın
+			bir <span class="keyw">catch</span> bloğunda yakalanarak etkisiz 
+			hale getirilmesi, programın bir <span class="keyw">finally</span>
+			bloğu ile devam etmesi, örnek bir 
+			<a href="../uygulamalar/b14.3.1-uyg-1-js.html">JavaScript programında</a>
+			uygulanmış ve bu uygulamanın bağlantılı olduğu bir 
+			<a href="../uygulamalar/b14.3.1-uyg-1.html">Web sayfasında</a> verdiği
+			sonuç aşağıda gösterilmiştir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">try</span><span 
+			class="op">{</span>
+<span class="keyw-75">throw</span> <span 
+			class="str">'Bir Kullanıcı Tanımlı Kuraldışılık Fırlatıldı !'</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">catch</span><span 
+			class="op">(</span>e<span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Hata : '</span> <span 
+			class="op">, </span>e<span 
+			class="op">,</span> <span 
+			class="str">'b14.3.1-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Hata Yakalandı  '</span><span 
+			class="op">,<span 
+			class="str">'!'</span>, </span> <span 
+			class="str">'b14.3.1-uyg-1-sonuç-2'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">finally</span><span 
+			class="op">{</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Program Devam Ediyor '</span><span 
+			class="op">,</span><span 
+			class="str">'!'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b14.3.1-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'2 +2 = '</span> <span 
+			class="op">, <span 
+			class="str">'4'</span></span><span 
+			class="op">,</span>  <span 
+			class="str">'2.13.2-uyg-1-sonuç-4'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b14.3.1-uyg-1-sonuç-1">
+		</p>
+		<p class="indent"  id="b14.3.1-uyg-1-sonuç-2">
+		</p>
+		<p class="indent"  id="b14.3.1-uyg-1-sonuç-3">
+		</p>
+		<p class="indent"  id="b14.3.1-uyg-1-sonuç-4">
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="../b13/b13s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b15/b15s1.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b14.3.1-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b14/b14s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:29 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

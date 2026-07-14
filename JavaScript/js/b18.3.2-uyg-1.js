@@ -1,0 +1,66 @@
+// program b18.3.1 - uyg - 3.js
+
+/* <! [CDATA[  */
+
+/* Bu Program bdelib.js Program Kitaplýðýný Kullanmaktadýr */
+
+function pencereAç(URI){
+
+       /*
+        Not : Eðer isim parametresi ile bir
+        boþ karakter dizgisi (string) literal veya _blank
+        deðil geçerli bir karakter dizgisi (string) literal
+        veriliyorsa ve bu isim ile sistemde açýk bir pencere varsa,
+        yeni bir pencere (window) deðil, ayný pencerede , içeriði,
+        bu fonksiyonun URI argümanýnýn iþaret ettiði belgenin
+        içeriði olan yeni bir belge (document) açýlacaktýr.
+        Yani, ayný isimli açýk pencerenin içeriði deðiþecektir */
+
+
+        pencereRef = window.open(URI,'Tarifeler',
+        'left=400,top=10,width=600,height=450,' +
+        'toolbar=no,menubar=no,location=no,' +
+        'directories=no,scrollbars=yes,' +
+        'resizable=no,status=yes');
+
+    
+    pencereRef.blur();  /* Açýk pencere nesnesini yeniden ilgi odaðýna getir. */
+
+    return false;
+
+}
+
+
+
+function otobüsTarifesi() {
+    var
+    baðlantý = [],  URI = '';
+    
+    baðlantý = document.getElementsByTagName("a");
+
+    URI = baðlantý[5].getAttribute('href');
+
+
+      pencereAç(URI);
+      return false;
+
+}
+
+
+function baþlat(){
+
+    var
+    baðlantý = [];
+    
+
+    baðlantý = document.getElementsByTagName("a");
+
+
+    baðlantý[5].onclick = otobüsTarifesi;
+
+}
+
+
+sayfaYüklendiktenSonraÇalýþtýr(baþlat);
+
+/* ]] >  */

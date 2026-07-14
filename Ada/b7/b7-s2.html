@@ -1,0 +1,530 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b7/b7-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:30 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b7/b7-s2.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 7 Sayfa 2</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+<body>
+   <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+   <a href="b7-s1.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+   <a href="b7-s3.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a>
+  </div>
+<p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+<p class="chapter">
+   Bölüm 7
+ </p>
+  <p class="pagenum">
+  Bölüm 7 Sayfa 2
+ </p>
+<p class="chapter">
+  Bileşik Veri Tipleri
+  </p>
+  <p class="subheading">7.1.2 - Özgün (İsimli) Dizi Tipleri (Devam)</p>
+    <p class="indent">
+   Dizi içeriklerinin sıralanması için, Seçmeli Sıralama(Selection Sort), Kabarcıklı Sıralamaya göre 
+   çok daha etkin bir sıralama yöntemi olarak tanınır. Tüm sıralama konuları gibi, Seçmeli Sıralama 
+   yöntemi üzerinde de birçok yayın bulunmaktadır. Bu konuda,
+<a href="http://www.ada95.ch/doc/tut1/Searching/selection_sort.html">Ada-Home (İsviçre)</a>
+   tarafından rekürsif bir yöntem tanımlanmıştır. Bu yöntemi ileride inceleyeceğiz. Uyguladığımız yöntem, 
+   <a href="http://leepoint.net/notes-java/index.html">Fred Schwartz</a> tarafından verilmiş olan
+   rekürsif olamayan yani kendi kendine çağırmayan yöntemdir. 
+   Bu yönteme göre,
+</p>
+ <ul class="listNoMarker">
+  	<li>İlk genişte dizinin 1 .. N elemanları taranacak. Bu geçişte dizinin en büyük elemanı bulunarak
+    listenin en başına kaydırılacak, </li>
+  	<li>İkinci geçişte genişte dizinin 2 .. N elemanları taranacak. Bu geçişte dizinin en büyük elemanı bulunarak
+    listenin en başınaki ikinci elemanla yer değiştirilecek</li>
+    <li>Süreç aynı şekilde tekrarlanacak ve N-1 geçişte dizinin sıralanması tamamlanmış olacaktır.</li>
+</ul>
+  <p class="indent">
+   Seçmeli Sıralama algoritmasının yürüyüşü, çok iyi hazırlanmış bir video <a href="http://www.youtube.com/watch?v=LuANFAXgQEw">kaynağından</a> yararlanılarak FoxTab video dönüştürücüsü yardımı 
+   ile hareketli resim olarak hazırlanmıştır. Bu yürüyüş, yukarıdaki sıralama adımlarını görselleştirmektedir.
+  </p>
+  <p class="sayfaortala"><img src="../resimler/OpenGL%20Animation%20-%20Selection%20Sort_0.html" width="320" height="196" alt="Seçimli Sıralama (Selection Sort) Algoritmasının Yürüyüşü" /></p>
+  <p class="sayfaortala">Şekil 7.1.2 - 6 : Seçmeli Sıralama (Selection Sort) Algoritmasının Yürüyüşü
+  </p>
+  <p class="indent">
+   İlk geçişte, listenin en büyük elemanının en başa geçirilmesi, aşağıda görüldüğü gibi
+   gerçekleştirilebilir:
+  </p>
+  <pre class="app-25">
+I .. N -1 e kadar döngü --dış döngü
+
+   J = I + 1 .. N e kadar döngü -- iç döngü
+
+      eğer Dizi(I) &lt; Dizi(J) ise
+
+         Dizi(J) ile Dizi (I) yer değiştirir -- En büyük olan yukarı geçer
+
+   döngü sonu -- iç döngü
+        
+döngü sonu -- dış döngü
+  </pre>
+<p class="indent">
+   Seçmeli Sıralama 
+   yönteminde, toplam iterasyon sayısı 1 + 2 + 3 + ...+ (N - 2) + (N-1) = N<sup>2</sup>/2 - N/2 
+   olarak belirlenmiştir. Eğer ve sabit ve küçük terimler gözardı edilirse, sonuç N<sup>2</sup> 
+   olarak basitleştirilebilir. Seçmeli Sıralama yönteminin Güçlük Derecesi, büyük O 
+   notasyonu ile O(N<sup>2</sup>) olarak ifade edilir. Bu sonuç, Seçmeli Sıralama yönteminin 
+   en kötü durumda quadratik bir sistem yükü uyguladığını ifade eder. Seçmeli Sıralama yöntemi, 
+   yazma olayının okuma olayından daha fazla zaman kaybettirici olduğu sistemlerde daha etkilidir.
+</p>
+<p class="indent">
+   Seçmeli Sıralama yönteminde her dış döngü gerçekleştiğinde, dizinin en büyük elemanı kesinlikle 
+   döngüyü başlatan eleman sırasına taşınır. Bu şekilde bir sonraki iç döngü, bir alt eleman sırasından 
+   başlatılır. Örnek olarak, 3 , 4 , 5, 6 sayılarını içeren bir listeyi inceleyelim. Listenin eleman sayısı 6, 
+   serbestlık derecesi 6 - 1 = 5 dir. Burada, 5 dış döngü, 6 iç döngü, yani toplam 5 X 6 = 30 
+   iterasyon gerçekleştirilecektir. Yani N X (N - 1) = 6 X 5 = 30 iterasyon yapacaktır. İlk dış döngü de
+   Dizi(I) nin sırası Dizi(1) dir. Dizi(1)'in değeri, 3 dür. Bu değer ile iç döngü başlayacak ve,
+   iç döngüde, 3 değeri sırası ile Dizi(I+1) yani ilk olarak Dizi(2) ile karşılaştırılacaktır. Burada 4 
+   değeri 3 den büyük olduğundan, 4 ve 3 yer değiştirecek yani ilk adımda Dizi(1) değeri, 4 olacaktır. Sonra
+   sırası ile 4 ve 5 , karşılaştırılarak 5 yine Dizi(1)' taşınacak, son olarak 5 ve 6 karşılaştırılarak 6 Dizi(1) 
+   taşınacak ve önce iç sonra da dış döngü tamamlanmış olacaktır. İlk dış döngü sonunda dizinin en büyük
+   değeri olan 6 dizinin en başına taşınmış olmaktadır. İkinci dış döngüde, I değeri 2 dir ve iç 
+   döngü 3 den başlayacaktır. Dizi(2) değeri 4 dür ve sırası ile Dizi(3) ve sonrası tüm dizi elemanlarının
+   değeri 4 ile karşılaştırılacak ve en büyük olan dizinin ikinci sırasına taşınacaktır. Bu şekilde toplam 30 
+   iterasyon sonunda dizi 6 ,5 , 4 , 3  şeklinde sıralanmış olacaktır. Seçmeli Sıralama yönteminde,
+   iterasyon sayısı dizinin ilk sıralanma şekline bağlı değildir ve her dizi için daima  N<sup>2</sup>/2 + N/2 sayıda iterasyon
+gerçekleşmiş olacaktır. </p>
+  <p class="sayfaortala"><img src="../resimler/selectionsort1.png" width="598" height="717" 
+    alt="Seçimli Sıralama Yönteminin Akım Şeması" /></p>
+  <p class="sayfaortala">Şekil 7.1.2 - 7 : Seçmeli Sıralama (Selection Sort) Algoritmasının Akım Şeması
+  </p>
+  <p class="indent">
+   Seçmeli Sıralama yönteminin uygulandığı bir <a href="../uygulamalar/b7_1_2_uyg_6.html">prosedürün</a> 
+   program listesi aşağıda görülmektedir.
+  </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b7_1_2_uyg_6<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">   </span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">array</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S4">..</span><span class="S3">10</span><span class="S0"> </span><span class="S4">)</span><span class="S0"> </span><span class="S1">of</span><span class="S0"> </span>Integer<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">10</span><span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0">  </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S1">begin</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">22</span><span class="S4">,</span><span class="S0"> </span><span class="S3">55</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S3">66</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">88</span><span class="S4">,</span><span class="S0"> </span><span class="S3">99</span><span class="S4">,</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">30</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Dizi Sıralanması Sonuçları (Seçmeli Sıralama) (Selection Sort)"</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmamış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">    </span><span class="S1">For</span><span class="S0"> </span>I<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">      </span>
+<span class="S0">      </span><span class="S1">For</span><span class="S0"> </span>J<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">      </span>
+<span class="S0">         </span><span class="S1">if</span><span class="S0"> </span>Dizi<span class="S4">(</span>I<span class="S4">)</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>I<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>I<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">         </span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span><span class="S0">     </span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">(</span><span class="S3">2</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Dış Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">78</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Toplam Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">71</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">73</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S1">end</span><span class="S0"> </span>b7_1_2_uyg_6<span class="S4">;</span>
+  </pre>
+  <p class="indent">Bu programın sonucu, </p>
+<pre class="pl-25 green">
+   
+                             Dizi Sıralanması Sonuçları (Seçmeli Sıralama) (Selection Sort)
+
+         Sıralanmamış Dizi :             0 22 55 33 33 33 66 88 99 44
+         Sıralanmış Dizi :                  99 88 66 55 44 33 33 33 22 0
+
+         Gerçekleşmiş Olan Dış Iterasyon Sayısı :                            9
+         Gerçekleşmiş Olan Toplam Iterasyon Sayısı :                    45
+         Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :                      27
+  </pre>
+  <p class="indent">
+   olmaktadır.
+</p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b7_1_2_uyg_6.html">prosedürde</a> kaydedilen 
+   iterasyon sayısı 100 /2 - 10 / 2 = 45 olmaktadır. Bu değer, Geliştirilmiş Çift Taraflı Kabarcıklı 
+   Sıralama algoritmasının uygulanması sonucunda gerçekleşen 46 iterasyon ve 35 yer değiştirme 
+   olayı sayısından kuşkusuz daha iyidir. 
+</p>
+<p class="indent">
+   Java program kitaplığında (java.Utils.Arrays.sort....) James Gosling (Java nın Bulucusu) tarafından 
+   yazılmış olan bir Seçmeli Sıralama variyantının çok daha etkili olduğu açıklanmıştır. Bu yöntemde, 
+   her geçişte önce minimum değer belirlenir ve bir sonraki geçişte yararlanılır.
+  </p>
+  <p class="sayfaortala"><img src="../resimler/selectionsort2.png" 
+     width="614" height="912" alt="Geliştirilmiş Seçimli Sıralama (Selection Sort) Algoritmasının Yürüyüşü" /></p>
+  <p class="sayfaortala">Şekil 7.1.2 - 7 : Geliştirilmiş Seçmeli Sıralama (Selection Sort) Algoritmasının Yürüyüşü
+ </p>
+  <p class="indent">
+   Geliştirilmiş Seçmeli Sıralama yönteminin uygulandığı bir <a href="../uygulamalar/b7_1_2_uyg_7.html">prosedürün</a> 
+   program listesi aşağıda görülmektedir.
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b7_1_2_uyg_7<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">   </span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">array</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S4">..</span><span class="S3">10</span><span class="S0"> </span><span class="S4">)</span><span class="S0"> </span><span class="S1">of</span><span class="S0"> </span>Integer<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizisi_Tipi</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">10</span><span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0">  </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>min<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">0</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S1">begin</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">22</span><span class="S4">,</span><span class="S0"> </span><span class="S3">55</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">33</span><span class="S0"> </span><span class="S4">,</span><span class="S3">66</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">88</span><span class="S4">,</span><span class="S0"> </span><span class="S3">99</span><span class="S4">,</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">30</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Dizi Sıralanması Sonuçları (Geliştirilmiş Seçmeli Sıralama) (Extended Selection Sort)"</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmamış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">    </span><span class="S1">For</span><span class="S0"> </span>I<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">    </span>
+<span class="S0">      </span>min<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">      </span><span class="S1">For</span><span class="S0"> </span>J<span class="S0"> </span><span class="S1">in</span><span class="S0">  </span>I<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">      </span>
+<span class="S0">         </span><span class="S1">if</span><span class="S0"> </span>Dizi<span class="S4">(</span>min<span class="S4">)</span><span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">         </span>
+<span class="S0">            </span>min<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>J<span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">         </span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S1">if</span><span class="S0"> </span>min<span class="S0"> </span><span class="S4">/=</span><span class="S0"> </span>I<span class="S0"> </span><span class="S1">then</span><span class="S0">  </span>
+<span class="S0">         </span>
+<span class="S0">            </span><span class="S11">Geçici_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>I<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>I<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>min<span class="S4">);</span>
+<span class="S0">               </span>
+<span class="S0">            </span>Dizi<span class="S4">(</span>min<span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Geçici_Değer</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">            </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">               </span>
+<span class="S0">         </span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">         </span>
+<span class="S0">         </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">            </span>
+<span class="S0">      </span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S4">;</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span><span class="S0">     </span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">44</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">(</span><span class="S3">2</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Dış Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">78</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Dış_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Toplam Iterasyon Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">71</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Toplam_İterasyon_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :   "</span><span class="S0"> </span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">73</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>Image<span class="S0"> </span><span class="S4">(</span><span class="S11">Yer_Değiştirme_Sayacı</span><span class="S4">));</span>
+<span class="S0">   </span>
+<span class="S1">end</span><span class="S0"> </span>b7_1_2_uyg_7<span class="S4">;</span>
+  </pre>
+  <p class="indent">Bu programın sonucu, </p>
+  <pre class="pl-25 green">
+                             Dizi Sıralanması Sonuçları (Geliştirilmiş Seçmeli Sıralama) (Extended Selection Sort)
+
+         Sıralanmamış Dizi :              0 22 55 33 33 33 66 88 99 44
+         Sıralanmış Dizi :                  0 22 33 33 33 44 55 66 88 99
+
+         Gerçekleşmiş Olan Dış Iterasyon Sayısı :                              9
+         Gerçekleşmiş Olan Toplam Iterasyon Sayısı :                      45
+         Gerçekleşmiş Olan Yer_Değiştirme  Sayısı :                        22</pre>
+  <p class="indent">
+   olmaktadır.
+  </p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b7_1_2_uyg_7.html">prosedürde</a> görüldüğü
+   gibi, Java Kitaplığı Seçmeli Sıralamayı biraz ileri taşımıştır. Büyük listelerde, performans
+   kazancı görülebilir olacaktır. 
+  </p>
+  <p class="indent">
+   Donald Knuth, Araya Yerleştirmeli Sıralamayı (Insertion Sort) Kabarcıklı Sıralamadan her durumda
+   daha iyi bir yöntem olarak tanımlamaktadır. Bu yöntemin Nassi-Schneidermann(DIN)
+   yapısal diyagramı (Struktrogramm) aşağıda görülmektedir.
+  </p>
+    <p class="sayfaortala"><img src="../resimler/insertionsortstruct%c4%b1ogam.html" 
+    width="282" height="365" alt="Isertion Sort Algoritması" /></p>
+    <p class="sayfaortala">Şekil 7.1.2 - 6 : Araya Yerleştirmeli Sıralama (Insertion Sort) Algoritmasının Yürüyüşü
+ </p>
+  <p class="indent">
+   Yukarıdaki şemada görülen ve Struktogram olarak adlandırılan yapısal diyagramlar, 
+   1972/73 de Isaac Nassi ve Ben Schneidermann tarafından geliştirilmiş ve DIN 66261 normu olarak
+   kabul edilmiştir. Bu diyagramlar, Ada gibi, program adımları tepeden doruğa çalıştırılan
+   program dillerinde yapısal yöntemle oluşturulmuş programların çalışma yöntemini
+   açıklama amacı ile kullanılırlar. Yapısal diyagramlar, pseudocode ve akım şemaları
+   yerine daha kolay ve daha normatif bir açıklama yöntemi oluştururlar. Burada incelenen 
+   Araya Girmeli Sıralama (Insertion Sort) yönteminin de en iyi açıklaması yukarıdaaki
+   yapısal diyagram açıklayabilmektedir.
+  </p>
+  <p class="indent">
+   Araya Girmeli Sıralama (Insertion Sort) yöntemi, Seçimli Sıralama (Selection Sort)
+   yöntemine çok benzer. İlk olarak listenin ilk elemanı ele alınır ve listede daha
+   büyük bir eleman varsa, bu ilk eleman ile yer değiştirir. buna sırası ile devam edilir. 
+   Sonuçta sıralanmış bir liste elde edilir. Akım şemasında görüldüğü gibi, bu yöntemde
+   sadece dizinin eleman sayısı kadar geçici değere yazma yapılmakta ve sıralama yöntemi,
+   elemanların yer değiştirmesi ile yürütülmeltedir. Bu da Araya Girmeli Sıralama 
+   (Insertion Sort) yönteminin, Seçimli Sıralama (Selection Sort) ve Kabarcıklı Sıralamaya
+   (Bubble Sort) daha hızlı olmasını açıklar.
+  </p>
+  <p class="indent">
+    Araya Girmeli Sıralama (Insertion Sort) yönteminin detaylı matematik analizi 
+    <a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/insertionSort.htm">Muhammed</a>
+    tarfından açıklanmıştır. Bu sıralama yönteminin en iyi durumda, 
+    (önceden sıralanmış bir dizide) Güçlük 
+    Derecesi, büyük O notasyonu ile O(N) olarak , orta ve en kötü durumda ise 
+    O(N<sup>2</sup>) (Quadratik) olarak ifade edilir. Bu Güçlük derecesi, 
+    Araya Girmeli Sıralama (Insertion Sort) yönteminin, büyük dizilere uygulanmasının
+    uygun olmayacağını belirtir. Buna rağmen, Araya Girmeli Sıralama (Insertion Sort) 
+    ve yöntemi, Seçimli Sıralama (Selection Sort) ve Kabarcıklı Sıralamaya
+   (Bubble Sort) göre daha hızlıdır. Ayrıca bu diğer üçü gibi bir stabil sıralama yöntemidir.
+   Yani, elemanların değerleri birbirlerine eşit ise, sıralamadan sonra birbirlerine göre 
+   bağıl yerleri aynı aynı kalır. Ayrıca bu yöntem, elemanları yerinde sıralar, yani az bir 
+   ek bir sistem belleğine gereksinme duyulur ve bu nedenle, eleman değerleri on-line
+   olarak alındığı durumlarda , alınma sırasında sıralama işlemi yapılabilir. 
+</p>
+   <p class="indent">
+   Araya Girmeli Sıralama (Insertion Sort) yönteminde iterasyon sayısı, en kötü durumda,
+   ((N * (N - 1)) / 2 dir ve bu nedenle O(N<sup>2</sup>) (Quadratik) sıralama yöntemleri 
+   arasındadır. Bu sayı, Seçimli Sıralama (Selection Sort) ile aynı olmasına karşın bu 
+   yöntemin,hızının öncekinin iki katı civarında olduğu belirtilmektedir. Küçük diziler için, 
+   bu yöntemin hızının QuickSort algoritmasından bile hızlı olabildiği ve birlikte kullanılmaları
+   halinde performans atışı sağlanabileceği belitilmektedir. Birlikte kullanılmalarıi QSort ile dizinin 
+   küçük parçalara ayrılması ile küçük parçaların Isort ile sıralanması, hız artışı sağlayabilmektedir.
+  </p>
+  <p class="indent">
+   D.Shell bu työntemin hızlanmsı ile bir yöntem önermiş fakat ShellSort adı verilen bu yöntem,
+   hem orijinalinden daha uygulaması zor bulunmuş, hem de sağladığı performans artışı yeterli 
+   olmamıştır.
+  </p>
+  <p class="indent">
+   Sıralama algoritmaları, önemli uygulamalardır. İyice denenmeden ve yeterli uygulama yapılmadan,
+   her araştırıcının kendi programını önermesi doğru bir davranış olmaz. Bu açıdan,
+   yukarıda görülen kabul edilmiş  ve <a href="http://en.wikipedia.org/wiki/Insertion_sort">Wikipaedia</a> 
+   da açıklanmış yapısal diyagrama uygun olan bir kod, 
+   <a href="http://rosettacode.org/wiki/Sorting_algorithms/Insertion_sort">Rosetta Code</a> 'da 
+   yayınlanmıştır. Burada bu kodun bir uygulaması verilmiştir. 
+   </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b7_1_2_uyg_8<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">   </span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizi_Tipi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">array</span><span class="S0"> </span><span class="S4">(</span><span class="S3">1</span><span class="S4">..</span><span class="S3">10</span><span class="S4">)</span><span class="S0"> </span><span class="S1">of</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S0">   </span>Dizi<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Tamsayılar_Dizi_Tipi</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S4">(</span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">5</span><span class="S4">,</span><span class="S0"> </span><span class="S3">2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">777</span><span class="S4">,</span><span class="S0"> </span><span class="S3">78</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S3">12</span><span class="S4">);</span>
+
+<span class="S0">   </span><span class="S11">Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+<span class="S0">   </span>J<span class="S0">     </span><span class="S4">:</span><span class="S0"> </span>Natural<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S1">begin</span>
+<span class="S0">    </span><span class="S1">for</span><span class="S0"> </span>I<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S4">(</span>Dizi<span class="S4">'</span>First<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">)..</span>Dizi<span class="S4">'</span>Last<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">    </span><span class="S11">Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>I<span class="S4">);</span>
+<span class="S0">    </span>J<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>I<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">      </span><span class="S1">while</span><span class="S0"> </span>J<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span>Dizi<span class="S4">'</span><span class="S1">range</span><span class="S0"> </span><span class="S1">and</span><span class="S0"> </span><span class="S1">then</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">)</span><span class="S0"> </span><span class="S4">&lt;</span><span class="S0"> </span><span class="S11">Değer</span><span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>Dizi<span class="S4">(</span>J<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Dizi<span class="S4">(</span>J<span class="S4">);</span>
+<span class="S0">         </span>J<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>J<span class="S0"> </span><span class="S4">-</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">      </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">      </span>Dizi<span class="S4">(</span>J<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Değer</span><span class="S4">;</span>
+<span class="S0">    </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">30</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Dizi Sıralanması Sonuçları (Araya Girmeli Sıralama) (Insertion Sort)"</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Sıralanmmış Dizi :"</span><span class="S4">);</span>
+<span class="S0">      </span>
+<span class="S0">   </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span>
+<span class="S0">   </span>
+<span class="S0">   </span><span class="S1">For</span><span class="S0"> </span>Indis<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span>Dizi<span class="S4">'</span>Length<span class="S0"> </span><span class="S1">loop</span>
+<span class="S0">         </span>
+<span class="S0">      </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Integer<span class="S4">'</span>image<span class="S4">(</span>Dizi<span class="S4">(</span>Indis<span class="S4">)));</span>
+<span class="S0">         </span>
+<span class="S0">   </span><span class="S1">end</span><span class="S0"> </span><span class="S1">loop</span><span class="S4">;</span>
+<span class="S0">   </span>
+<span class="S1">end</span><span class="S0"> </span>b7_1_2_uyg_8<span class="S4">;</span>
+  </pre>
+  <p class="indent">Bu programın sonucu, </p>
+  <pre class="pl-25 green">
+                             Dizi Sıralanması Sonuçları (Araya Girmeli Sıralama) (Insertion Sort)
+
+         Sıralanmmış Dizi :             777 78 12 6 5 4 3 2 2 1</pre>
+  <p class="indent">
+   olmaktadır.
+</p>
+  <p class="indent">
+   Son olarak ele alacağımız QuikSort algoritması, bilgisayar biliminin ilginç simalarından,
+   bir olan, Seylan doğumlu bir ingiliz ailenin çocuğu olarak doğan, Moskova Universitesinde
+   öğrenim gören, Pascal dilini ETH da Prof. Nicklaus Wirth ile geliştiren ve en son olarak 
+   Cambridge Profesörü olan C.A.R Hoare tarafından keşfedilmiştir. Bu algoritma çok 
+   kuramsaldır. Bu nedenle burada sadece uygulamasını inceleyeceğiz.
+  </p>
+ <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+    <a href="../b6/b6-s1.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+    <a href="b7-s2.html"><em> Sonraki &raquo;</em></a>
+   </li>
+ </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b7/b7-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:30 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

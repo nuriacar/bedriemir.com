@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:33 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/ek3/ek3-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACAdas.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/Ada" />
+		<meta name="Title" content="WEBTECH Ada Turkish Tutorial" />
+ <!-- Turkish Ada Tutorial -->
+		<meta name="Subject" content="Ada Turkish Tutorial" />
+		<meta name="Description" 
+					content="Ada Tutorial in Turkish Language " />
+		<meta name="Keywords" content="Ada Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="Ada Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/Adastyle.css" />
+		<title>Ek 3 Sayfa 1</title></head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="../b2/b2-s2.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Ek3
+		</p>
+		<p class="chapter">Ada_Text_IO Program Paketi</p>
+		<p class="chapter">(Standart Giriş/çıkış Ortamı Uygulamaları)</p>
+		<p class="pagenum">
+			Ek-3  Sayfa 1
+		</p>
+		<p class="title-left" id="intro">Ada.Text_IO Öntanımlı Paketinin Tanıtımı</p>
+		<p class ="indent">
+			Ada çekirdek sisteminde tanımlanmamış olan veri giriş çıkışları, dosya sistemleri, işletim sistemi ile
+			ilişki kurulması gibi yöntemler, Ada derleyicisi ile birlikte verilen öntanımlı paketler halinde
+			verilir. <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> 
+			derleyici ile birlikte verilmesi gereken öntanımlı paketleri belirlemiştir. Bu paketlere Standard 
+			Kitaplıklar (Standart Libraries) adı verilmiştir. 
+</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> Standard paketi, 
+			program dilinin ayrılmaz bir parçası olarak kabul eder ve  Standard paket, her programın otomatik olarak 
+			tanıyacağı bir bilgi olarak düşünülür. Bir program <span class="keyw">with</span> bildirimine gerek 
+			duymadan Standard paketten yararlanır.  Bu pakette Boolean, Integer, Float, Character, Wide_Character, 
+			Wide_Wide_Character, String, Wide_String, Wide_Wide_String, Duration tipi veriler tanımlanır. 
+			Standard paket, bu şekilde,tüm öntanımlı veri sistemini tanımlar ve kullanıcının yaralanmasına hazır hale 
+			getirir. Bu nedenle, <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>, 
+			Standard paketi diğer öntanımlı kitaplık paketleri arasında saymaz ve daha çok Ada derleyicisi ile kaynaşmış 
+			olarak kabul eder.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>, Öntanımlı Ada 
+			Programlama Dili Ortamının üç tane kök kitaplık biriminden oluşacağını belirtmiştir. Bunlar,
+		</p>
+		<ul class="listNoMarker">
+			<li>Ada</li>
+			<li>Interfaces</li>
+			<li>System</li>
+		</ul>
+		<p class="indent">
+			paketleridir. Diğer paketler bunların alt paketleridir. 
+		</p>
+		<p class="indent">
+			Öntanımlı paketlerden en çok kullanılanı Ada genel paketinin bir alt paketi olarak düzenlenmiş, 
+			Ada.Text_IO paketidir. Ada.Text_IO paketinde, Standard pakette tanıtılmış tüm veri sistemi
+			için, dosyalama ve stanadrt giriş/çıkış olarak öntanımlı olan klavye giriş ve ekran çıkışlarının
+			sağlandığı prosedürler tanımlanmıştır. Ada.Text_IO paketi ayrıca kullanıcı tanımlı alt veri tiplerinin de
+			giriş/çıkışlarını sağlayabilmektedir.
+		</p>
+		<p class="title-left" id="text">Ada.Text_IO Paketinden Yararlanılarak Sözel Verilerin 
+			Giriş/Çıkışlarının Gerçekleştirilmesi</p>
+		<p class="indent">
+			Bu kısımda, Ada.Text_IO öntanımlı paketinin sözel verilerin monitör çıkışlarının sağlanması
+			konusunu inceleyeceğiz. Bunun için Ada 2012 Referans kitabının A.10 Ada.Text_IO 
+			öntanımlı paketinin sadece sözel verilerin monitör çıkışlarının sağlanması ile ilgili 
+			kısımlarının incelenmesi yararlı olacaktır.
+		</p>
+		<pre class="Examples-Maroon">
+The library package Text_IO has the following declaration:
+with Ada.IO_Exceptions;
+package Ada.Text_IO is
+		type File_Type is limited private;
+		type File_Mode is (In_File, Out_File, Append_File);
+		type Count is range 0 .. implementation-defined;
+		subtype Positive_Count is Count range 1 .. Count'Last;
+		Unbounded : constant Count := 0; -- line and page length
+		subtype Field is Integer range 0 .. implementation-defined;
+		subtype Number_Base is Integer range 2 .. 16;
+		type Type_Set is (Lower_Case, Upper_Case);
+		
+-- Specification of line and page lengths
+
+		procedure Set_Line_Length(To : in Count);
+
+		procedure Set_Page_Length(To : in Count);
+
+		function Line_Length return Count;
+
+		function Page_Length return Count;
+		
+		-- Column, Line, and Page Control
+		
+    Spacing : in Positive_Count := 1);
+    procedure New_Line (Spacing : in Positive_Count := 1);
+
+    Spacing : in Positive_Count := 1);
+    procedure Skip_Line (Spacing : in Positive_Count := 1);
+
+    function End_Of_Line return Boolean;
+
+    procedure New_Page;
+
+    procedure Skip_Page;
+
+    function End_Of_Page return Boolean;
+
+    procedure Set_Col (To : in Positive_Count);
+
+    procedure Set_Line(To : in Positive_Count);
+
+    function Col return Positive_Count;
+
+    function Line return Positive_Count;
+
+    function Page return Positive_Count;
+		
+-- Character Input-Output
+
+    procedure Get(Item : out Character);
+		
+    procedure Put(Item : in Character);
+		
+    procedure Look_Ahead (Item : out Character;
+                                    End_Of_Line : out Boolean);
+																		
+    procedure Get_Immediate(Item : out Character);
+
+    procedure Skip_Page;
+
+    function End_Of_Page return Boolean;
+
+    procedure Set_Col (To : in Positive_Count);
+
+    procedure Set_Line(To : in Positive_Count);
+
+    function Col return Positive_Count;
+
+    function Line return Positive_Count;
+
+    function Page return Positive_Count;
+
+-- Character Input-Output
+
+    procedure Get(Item : out Character);
+
+    procedure Put(Item : in Character);
+
+    procedure Get_Immediate(Item : out Character);
+
+    procedure Get_Immediate(Item : out Character;
+                                     Available : out Boolean);
+-- String Input-Output
+
+    procedure Get(Item : out String);
+
+    procedure Put(Item : in String);
+
+    procedure Get_Line(Item : out String; Last : out Natural);
+
+    function Get_Line return String;
+
+    procedure Put_Line(Item : in String);
+
+......
+
+		</pre>
+		<p class="nonindent">
+			olarak tanımlamıştır. Bu tanımda, çeşitli varsayılan değerler, kulaanıcıların 
+			varsayılan değerleri değiştirebilecekleri prosedürler ve güncel değerlerin
+			geri döndürüldüğü, bilgi alma prosedürleri bulunmaktadır.
+		</p>
+		<p class="indent">
+			Ada.Text_IO paketinin tanım kısmında,
+	</p>
+		<pre  class="Examples-Maroon">
+    type Count is range 0 .. implementation-defined;
+    subtype Positive_Count is Count range 1 .. Count'Last;
+		</pre>
+		<p class="nonindent">
+			tanımı bulunmaktadır.  Bu ifade, Count tipinin 0 ile yerleştirmeye çalışılan ortamın yapısına) 
+			bağlı bir değere kadar olan aralıkta tamsayı değerler alabileceğini gösterir. Bu tipin bir alt tipi 
+			olan Positive_Count adlı alt tipin, Count tipi olduğunu ve değer aralığının 1 den başlayacağını 
+			belirtir. Bu bilgi kullanıcıların Ada.Text_IO paketinde tanımlı prosedürleri çağırmasında önemli
+			olmaktadır.
+		</p>
+		<p class="indent">
+			Ada.Text_IO paketinde, karakter ve karakter dizisi tipinde verilerin giriş/çıkış işlemlerine yönelik prosedürler :
+		</p>
+		<pre class="app-25">
+<span class="keyw">procedure</span> Put(Item : <span class="keyw">in</span> Character);
+<span class="pl-25">ve</span>
+<span class="keyw">procedure</span> Put(Item : <span class="keyw">in</span> String);
+		</pre>
+	<p class="indent">
+			olarak tanımlanmıştır. Görüldüğü gibi, Ada.Text_IO program paketinde sözel verilerin giriş/çıkış işlemleri
+			için iki tane Put prosedürü tanımlanılmaktadır. Ada.Text_IO paketinde başka verilerin
+			giriş/çıkış işlemlerine yönelik daha birçok Put prosedürü bulunmaktadır. Buna prosedür 
+			bindirmesi (overloading) adı verilir. Ada derleyicisi, bindirilmiş prosedürlerin çağrıldığı 
+			veri tipini algılayarak doğru prosedürü bulur. Bir çelişki görüldüğünde hata oluşur
+	</p>
+		<p class="indent">
+			Put prosedürünün tanımında görüldüğü gibi, sözel verilerin giriş/çıkılına yönelik iki Put 
+			prosedürünün birisinin Character diğerinin String tipinde tek bir argümanı bulunmaktadır. 
+			String tipi Ada program dilinde özel bir veri tip değil sadece bir karakter dizisi olarak değerlendirilir. 
+			Bu düşünce de, bu verilerin Türkçe karşılığı olan Karakter Dizisi deyimini doğrulamaktadır.
+			Burada prosedürün tanımında 	kullanılan Item adlı ve string tipinde olması gerektiği bildirilen argüman 
+			bir tanım argümanıdır. Buna prosedürün değerlendireceği parametre anlamında formal parametre  veya
+			tanım argümanı veya sadece argüman adı verilir. Bir prosedür (veya bir fonksiyon çünkü her ikisinin de 
+			işleyişi aynıdır) formal parametre ile tanımladığı çalışma yöntemini gerçek parametrelerle gerçekleştirir. 
+			Gerçek parametreler, tanım parametrelerinin yerine geçerek kullanılırlar. Gerçek program koşullarında tanım 
+			parametresinin tanımı ile uyumlu bir gerçek değişken, tanım parametresinin (formal parametrenin) yerine 
+			konularak prosedür çalıştırılır. 
+	</p>
+		<p class="indent">
+			Ada programlama dilinde, prosedürlerin çağrılması için iki yöntem kullanılır. Birisi prosedür ismi
+			(formal_parametre =&gt; gerçek_parametre , . varsa diğer formal_parametreler =&gt; gerçek parametreler şeklindedir.
+			burada parametre sırasının gözetilmesi gerekmez. Diğeri doğrudan doğruya prosedür adı(gerçek_parametre1, varsa 
+			gerçek_parametre2.. ) şeklindedir burada formal parametlerinin tanım sırasının gözetilmesi  gerekir. Bir prosedürün
+			sadece bir tek argümanı varsa, o prosedürün çağrılması için, adla çağırma yöntemi genellikle gereksiz görülür, Fakat,
+			birden fazla argümanı olan prosedürlerin çağrılması için, isimle çağırma yöntemi daha açıklayıcı ve hata yapılması
+			olasılığı daha az olduğundan, çoğunlukla adla çağırma yöntemi kullanılır.
+		</p>
+		<p class="indent">
+			Put prosedürü, tek karakter veya karakter dizisi verilerini ilk sütündan başlayarak ekrana yazar ve verinin yazımı 
+			tamamlanınca, kürsörü bir sonraki sütuna konumlandırarak çıkar. Bundan sonraki ilk Put prosedürü çağrısında, 
+			verinin yazımı, kürsörün kaldığı sütündan devam eder. Bu nedenle verilerin yazımının ayrılabilmesi için gerektiğinde 
+			New_Line prosedürü kullanılır. Bu prosedür
+		</p>
+		<pre class="app-25">
+<span class="keyw">procedure</span> New_Line(Spacing : <span class="keyw">in</span> Positive_Count);
+		</pre>
+		<p class="nonindent">
+			şeklindedir. New_line prosedürünün argümanı (parametresi) tamsayı olarak atlanması gereken yeni satır sayısını
+			belirtir. Bu sayı varsayılan olarak 1 değerinde olduğundan, New_line prosedürü hiç argümansız olarak kullanıldığında
+			kürsör doğrudan bir alt satırın başına atlar.
+		</p>
+		<p class="indent">
+			Eğer, Put(...);New_Line; çiftinden kurtulmak istenirse, Put_Line prosedürü kullanılabilir. Bu prosedür,
+		</p>
+		<pre class="app-25">
+<span class="keyw">procedure </span>Put_Line(Item : <span class="keyw">in</span> String);
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Argümanı olan karakter dizisini ekrana yazdırdıktan sonra kürsörü bir alt satırın başına atlatır.
+		</p>
+	<p class="indent">
+			Buraya kadar incelediğimiz prosedürlerin uygulamalarını yapalım :
+		</p>
+<pre class="app-25">
+<span class="comm">-- Character (Standard.Character)  ve String (Standard.String) veri Tipleri</span>
+<span class="comm">--  Konsol Çıktıları</span>
+
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">procedure</span> e3_1_uyg_1<span class="keyw"> is</span>
+
+<span class="pl-25">Adı</span> : String (1..5) := (<span class="str">'B'</span> , <span 
+			class="str">'e' </span>, <span class="str">'d' </span>, <span
+			class="str">'r'</span> , <span class="str">'i'</span>);
+
+<span class="pl-25">Soyadı</span> : String (1..4);
+
+<span class="pl-25">Boşluk</span> : Character := <span class="str">' '</span>;
+
+<span class="pl-25">Adı_ve_Soyadı</span> : String (1..10);
+
+<span class="pl-25">Doğum_Yeri</span> : <span class="keyw">constant</span> String := <span 
+      class="str">&quot;Istanbul&quot;</span>;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Soyadı</span> := <span class="str">&quot;Emir&quot;</span>;
+
+<span class="pl-25">Adı_ve_Soyadı</span> := Adı &amp; Boşluk &amp; Soyadı;
+
+<span class="pl-25">Ada</span>.Text_IO.Put(Item =&gt;<span class="red">&quot;Adı_ve_Soyadı : &quot;</span>);
+
+<span class="pl-25">Ada</span>.Text_IO.Put(Item =&gt; Adı_ve_Soyadı);
+
+<span class="pl-25">Ada</span>.Text_IO.New_Line;
+
+<span class="pl-25">Ada</span>.Text_IO.Put(Item =&gt;<span class="red">&quot;Doğum Yeri : &quot;</span>);
+
+<span class="pl-25">Ada</span>.Text_IO.Put(Item =&gt; Doğum_Yeri);
+
+<span class="keyw">end</span> e3_1_uyg_1;
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green">Adı ve Soyadı : Bedri Emir</span>
+<span class="pl-25 green">Doğum Yeri : Istanbul</span>
+
+olmaktadır.
+		</pre>
+		<p class="nonindent">
+			olmaktadır. Bunun nedeni, Put_Line prosedürünün argümanı olan karakter dizisini
+			ekrana yazdırdıktan sonra otomatik olarak bir alt satıra geçmesidir. Bu program,
+			kullanıcının ekrana yazımda istediğinde mesaj ve sonucu aynı satırda, istediğinde ise ayrı
+			satırlara yazabilme olanağını olduğunu açıklamaktadır.
+	</p>
+	<p class="indent">
+			Ada.Text_IO paketinden  kullanabileceğimiz bir başka prosedür, Get metodudur. Bu metot,
+			buraya kadar incelediklerimizin aksine, bir yakalama (capture) metodudur. Get metodu geçerli, 
+			giriş ortamından girilen verileri okur. Get metotları Character ve String veri tipleri için:
+		</p>
+		<pre class="app-25">
+<span class="keyw">procedure</span> Get(Item : <span class="keyw">out</span> Character);
+<span class="pl-25">ve</span>
+<span class="keyw">procedure</span> Get(Item : <span class="keyw">out</span> String);
+		</pre>
+	<p class="nonindent">
+			olarak tanımlanmıştır. Bu tanım, Get metodunun yakaladığı Karakter dizisi veya karakter tipindeki 
+			değeri geri döndüreceğini belirtir. Bu prosedür, konsoldan bir değer okunup bir değişkene atamakta 
+			yani karşılıklı etkileşimli (interaktif) programlar oluşturmakta kullanılır. Böyle bir 
+			<a href="../uygulamalar/e3_1_uyg_2.adb">program</a>, aşağıda görülmektedir.
+	</p>
+		<pre class="app-25">
+<span class="comm">-- Character ve String veri Tipleri</span>
+<span class="comm">--  Konsol Çıktıları</span>
+<span class="comm">--  Interaktif Program</span>
+
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">procedure </span>e3_1_uyg_2 <span class="keyw">is</span>
+
+<span class="pl-25">Adı</span> : String (1..5);
+
+<span class="pl-25">Soyadı</span> : String (1..4);
+
+<span class="pl-25">Boşluk</span> : constant Character := <span 
+			class="str">' '</span>;
+
+<span class="pl-25">Adı_ve_Soyadı</span> : String (1..10);
+
+<span class="pl-25">Doğum_Yeri</span> : constant String := <span 
+			class="str">&quot;Istanbul&quot;</span>;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Ada.Text_IO.Put</span>(<span 
+			class="str">&quot;Adınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Ada.Text_IO.Get</span>(Item =&gt; Adı);
+
+<span class="pl-25">Ada.Text_IO.New_Line</span>;
+
+<span class="pl-25">Ada.Text_IO.Put</span>(Item =&gt; <span 
+			class="str">&quot;Soyadınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Ada.Text_IO.Get</span>(Item =&gt; Soyadı);
+
+<span class="pl-25">Ada.Text_IO.New_Line</span>;
+
+<span class="pl-25">Adı_ve_Soyadı</span> := Adı &amp; Boşluk &amp; Soyadı;
+
+<span class="pl-25">Ada.Text_IO.Put_Line</span>(Item =&gt; <span 
+			class="str">&quot;Girilen Ad ve Soyad : &quot;</span> &amp; Adı_ve_Soyadı);
+
+<span class="keyw">end </span>e3_1_uyg_2;
+		</pre>
+	<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/e3_1_uyg_2.adb">programda</a>, ilk kez uygulanan
+			Get metodu, önce konsoldan girilen veriyi yakalamakta sonra bu veriyi, tanımlar kısmında
+			tanıtımı yapılmış olan değişkene atamaktadır. Bu işlem, etkileşimli programların oluşturulmasında 
+			temel yöntemdir.
+		</p>
+		<p class="indent">
+			Verilerin klavyeden girilmesi (Get metodu), sonuçların monitörden gösterimi (Put metodu) nun 
+			işleyişinin bu şekilde olmasına karşın, bu metodun uygulanmasında kullanıcıyı zorlayan bir yön
+			bulunmaktadır. Ada programlama dili güçlü tip kontrolü yapan (strongly typed) bir programlama
+			dilidir. Bu nedenle, derleyici, tüm veri tiplerinin uygulanmadan önce tam olarak tanımlanmış 
+			olmasını kuvvetle kontrol eder. Bu şekilde, dizilerin de tanımı sırasında eleman sayıları 
+			belirtilmiş olması gerektiğinden, karakter dizisi olarak algılanan String veri tipinin 
+			karakter sayısı, yani eleman sayısı da önceden belirlenmiş olmalıdır. Yukarıdaki program da
+			bu durum, Adı veri tipinin eleman sayısının 5 karakter olacağını, ilk karakterin eleman sırasının 
+			1 olacağını, son karakterin eleman sırasının 5 olacağını belirtir. Soyadı verisinin de aynı şekilde,
+			4 elemanlı bir karakter dizisi (String) tip veri olacağı belirtilir. Buraya kadar bir sorun yoktur, 
+			fakat sorun, bu değişkenlere konsoldan değer atanmak istenirken yaşanır. Bu verileriden Adı veri
+			tipine, konsoldan sadece 5 karakterli bir veri girilebilir. Adı verisine girilen değer 5 den az veya 
+			5 den fazla olursa kapsam aşımı hatası (Constraint Error) oluşur. Girilecek verinin karakter sayısı
+			5 den az ise, eksik olan karakterler yerine boşluk elemanları girilerek aradaki fark kapatılabilir.
+			Fakat, girilecek değer 5 den yukarı ise sorunun aşılabilmesinin bir olanağı yoktur. Bu nedenle, 
+			sabit karakter sayılı String tipi veriler, sadece yukarıdaki programda görüldüğü gibi karakter 
+			sayısı önceden belli olan sabitler (constants) için uygundur. Karakter sayısı önceden belli 
+			olmayan, (örnek olarak bir insanın ismi değişik sayıda karakter içerebilir) değişken verilerin 
+			konsoldan, sabit karakter sayılı String tipi verilere girilebilmesi için, alınabilecek bir önlem bu verilerin
+			karakter sayısını girilebilecek sayının olası değerinden yukarı tutmak ve aradaki farkları boşluk 
+			karakterleri ile tamamlamak olabilir. Bu da verilerin girişi için fazla önerilebilecek bir yöntem 
+			sayılmayabilir.
+		</p>
+		<p class="indent">
+				Ada programlama dilinde, karakter sayıları belli olmayacak karakter dizisi verilerine
+				değer atanması için kısıtsız (unbounded) karakter dizgileri tanımlanmıştır. Bir sonraki örnekte
+				bu yöntem uygulanmıştır.
+	</p>
+		<p class="indent">
+			Etkileşimli programlarda yararlanılabilecek bir başka metot, Skip_Line metodudur. Bu metot 
+			programın çalışmasını durdurmakta ve kullanıcının ekrandan el ile satır atlatmasını 
+			(return tuşuna basılmasını) beklemektedir. Etkileşimli programlarda bu metot çok yararlı 
+			olabilir Skip_Line metodunun tanımı,
+</p>
+		<pre class="app-25">
+<span class="keyw">procedure</span> Skip_Line(Spacing : <span class="keyw">in</span> Positive_Count);
+		</pre>
+	<p class="nonindent">
+			şeklindedir. Skip_Line metodunun bir <a href="../uygulamalar/e3_1_uyg_3.html">uygulaması</a> aşağıda görülmektedir :
+	</p>
+		<pre class="app-25">
+<span class="comm">-- Character ve String veri Tipleri</span>
+<span class="comm">--  Konsol Çıktıları</span>
+<span class="comm">--  Interaktif Program</span>
+
+<span class="keyw">with</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Strings.Unbounded;
+<span class="keyw">with</span> Ada.Text_IO.Unbounded_IO;
+
+<span class="keyw">procedure </span>e3_1_uyg_3 <span class="keyw">is</span>
+
+<span class="pl-25">Adı</span> : Ada.Strings.Unbounded.Unbounded_String;
+
+<span class="pl-25">Soyadı</span> : Ada.Strings.Unbounded.Unbounded_String;
+
+<span class="pl-25">Doğum_Yeri</span> : constant String := <span class="str">&quot;Istanbul&quot;</span>;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Adınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Ada.Text_IO.Unbounded_IO.Get_Line</span>(Item =&gt; Adı);
+
+<span class="pl-25">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Soyadınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Ada.Text_IO.Unbounded_IO.Get_Line</span>(Item =&gt;Soyadı);
+
+<span class="pl-25">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Girilen Ad ve Soyad ve Doğum Yerini Görmek İçin Lütfen Return Tuşuna Basınız !&quot;</span>);
+
+<span class="pl-25">Ada.Text_IO.Skip_Line</span>;
+
+<span class="pl-25">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Adı ve Soyadı : &quot;</span> &amp; Ada.Strings.Unbounded.To_String(Source =&gt; Adı) &amp; Ada.Strings.Unbounded.To_String(Source =&gt; Soyadı));
+
+<span class="pl-25">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Doğum Yeri : &quot;</span> &amp; Doğum_Yeri);
+
+<span class="keyw">end </span>e3_1_uyg_3;
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green">Adı ve Soyadı : Bedri Doğan Emir</span>
+<span class="pl-25 green">Doğum Yeri : Istanbul</span>
+
+olmaktadır. (Program sonucu girilen değerlere bağlıdır)
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../programlar/e3_1_uyg_3.html">programda</a>, 
+			karakter dizilerinin boyutlarıında kapsam sınırlaması olmadığından,
+			değişik genişlikte diziler (karakter sayıları birbiribinden farklı 
+			karakter dizileri) (karakter sayıları değişebilen String tipi veriler)
+			klavyeden kolylıkla girilebilmektedir. Program yazımı biraz yüklü
+			olarak düşünülebilir. Aslında bu yöntemde, tüm metotların 
+			geldiği paketler ve tüm çağrılan metotların tanım argümanlarının yerine
+			geçecek gerçek argümanlar, açıkça belirtilmekte olduğundan, 
+			program yazımı yüklü olmakatdır. Yazım yüküne karşılık, oluşturulan 
+			program en üst düzeyde bilgi verici, izlenmesi kolay dolayısı ile
+			ilerde başkalarının kullanması ve bakımı, güncelleştirilmesi kolay
+			olan bir programdır. Buna karşılık, Ada programlama dilinde,
+			<span class="keyw">use</span> bildirimi kullanılarak, paketlerin
+			içinde imiş gibi çalışılması ve metotların ait oldukları paket adlarının 
+			önek olarak kullanılma zorunluğunun ortadan kaldırılmış olduğu 
+			yazımı olabildiğine kısaltılmış programlar da yazılabilir. Ayrıca
+			çağrılan paket, prosedür veya fonksiyonların gerçek argümanlarının, 
+			yerine geçecekleri tanım argümanların isimleri yerine, tanım argümanlarının
+			tanım sıralarına göre belitilmesi, program yazımını daha da kısaltacaktır.
+			Yukarıdaki programın böyle bir kısaltılmış yazımı aşağıdaki 
+			<a href="../uygulamalar/e3_1_uyg_3_striped.html">programda</a> uygulanmıştır. 
+		</p>
+		<pre class="app-25">
+<span class="comm">-- Character ve String veri Tipleri</span>
+<span class="comm">--  Konsol Çıktıları</span>
+<span class="comm">--  Interaktif Program</span>
+
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">with</span> Ada.Strings.Unbounded; <span class="keyw">use</span> Ada.Strings.Unbounded;
+<span class="keyw">with</span> Ada.Text_IO.Unbounded_IO;<span class="keyw"> use</span> Ada.Text_IO.Unbounded_IO;
+
+<span class="keyw">procedure </span>e3_1_uyg_3_striped <span class="keyw">is</span>
+
+<span class="pl-25">Adı</span>, Soyadı : Unbounded_String;
+<span class="pl-25"></span>
+
+<span class="pl-25">Doğum_Yeri</span> : constant String := <span class="str">&quot;Istanbul&quot;</span>;
+
+<span class="keyw">begin</span>
+
+<span class="pl-25">Put</span>(<span class="str">&quot;Adınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Get_Line</span>(Adı);
+
+<span class="pl-25">Put</span>(<span class="str">&quot;Soyadınızı Giriniz : &quot;</span>);
+
+<span class="pl-25">Get_Line</span>(Soyadı);
+
+<span class="pl-25">Put_Line</span>(<span class="str">&quot;Girilen Ad ve Soyad ve Doğum Yerini Görmek İçin Lütfen Return Tuşuna Basınız !&quot;</span>);
+
+<span class="pl-25">Skip_Line</span>;
+
+<span class="pl-25">Put_Line</span>(<span class="str">&quot;Adı ve Soyadı : &quot;</span> &amp; To_String(Adı) &amp; To_String(Soyadı));
+
+<span class="pl-25">Put_Line</span>(<span class="str">&quot;Doğum Yeri : &quot;</span> &amp; Doğum_Yeri);
+
+<span class="keyw">end </span>e3_1_uyg_3_striped;
+
+<span class="pl-25 green">Adınızı Giriniz : Bedri Doğan</span>
+<span class="pl-25 green">Soyadınızı Giriniz : Emir</span>
+<span class="pl-25 green">Girilen Ad,  Soyad ve Doğum Yerini Görmek İçin Lütfen Return Tuşuna Basınız 
+</span>
+<span class="pl-25 green">Adı ve Soyadı : Bedri Doğan Emir</span>
+<span class="pl-25 green">Doğum Yeri : Istanbul</span>
+
+olmaktadır.  (Program sonucu girilen değerlere bağlıdır)
+		</pre>
+	<p class="indent">
+			Eğer bu programın yazımı size çekici geldi ise, bir an önce bu düşünceden
+			kurtulmakta yarar bulunmaktadır. Çünkü bu tür yazım, tam bir bilinmezler topluğudur.
+			Hiçbir büyüklüğün nereden kaynaklandığı belli değildir. Bu program başka 
+			birisine gönderilse, o kişi bu programdan hiçbir şey anlayamaz. Derleyici 
+			bile hangi metodun hangi paketten kaynaklandığını belirlemekte zorlanır. Bu tür
+			programlarla bir proje yapılsa, kısa sürede o proje felaketle sonuçlanır. 
+			Bu programı yazan kısa bir süre sonra bu programı bakım vaya 
+			yenileme amacı ile yeniden okumaya çalışşsa, kendi programından
+			kendisi bile birşey anlamaz. Bu tür program yazımını düşünmemek gerekir.
+			Sadece, prosedürleri çağırırken, argümanlar tanım isimleri ile değil, 
+			tanım sıralarına göre yerleştirilebilir. Bu fazla bir karışıklık yaratmaz, çünkü, 
+			hangi prosedürle çalışıldığı bellidir, gerekirse spesifikasyonu açılıp bakılır.
+			Bunun dışında hiçbir kısaltma düşünülmemelidir.
+</p>
+		<p class="indent">
+			Ada.Text_IO paketinde, sayfa genişliği, sütun kontrolu gibi işlemlerin 
+			gerçekleştirilebileceği prosedürler bulunmaktadır. Bunlardan birisi, 
+			satır genişliğini belirleyen Set_Line_Length diğeri de sayfa genişliğini 
+			belirleyen Set_Page_Length prosedürüdür. Bu prosedürler, 
+	</p>
+<pre class="app-25">
+<span class="keyw-25">procedure</span> Set_Line_Length (To :  <span 
+			class="keyw">in</span> count)
+<span class="pl-25">ve</span>
+<span class="keyw-25">procedure</span> Set_Page_Length (To :  <span 
+			class="keyw">in</span> count);
+		</pre>
+		<p class="nonindent">
+			şeklinde tanımlanırlar. Bu konuda bir 
+			<a href="../uygulamalar/e3_1_uyg_4.html">örnek</a> aşağıda 
+			görülmektedir:
+</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_4 <span 
+			class="keyw">is</span>
+			
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Set_Line_Length</span>(To =&gt; 80);
+
+<span class="keyw-25">end</span> e3_1_uyg_4;
+		</pre>
+		<p class="indent">
+			Yeni bir sayfaya geçilmesini sağlayan metotlar
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">procedure </span>New_Page
+<span class="pl-25">ve</span>
+<span class="keyw-25">procedure</span> Skip_Page;
+		</pre>
+		<p class="nonindent">
+			olarak verilmiştir. Bu metotlar gerektiğinde kullanılabilirler.
+		</p>
+		<p class="indent">
+			Sütun ve satır başlangıcını belirleyen prosedür, 
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">procedure</span> Set_Col (To :  <span 
+			class="keyw">in</span> Positive_Count)
+<span class="pl-25">ve</span>
+<span class="keyw-25">procedure</span> Set_Line (To :  <span 
+			class="keyw">in</span> Positive_Count);
+		</pre>
+		<p class="nonindent">
+			olarak tanımlamıştır. Sütun belirlenmesi tablo çıkışları için çok 
+			yararlıdır. Bu konudaki bir örnek, aşağıdaki 
+			<a href="../uygulamalar/e3_1_uyg_5.html">uygulamada</a> 
+			görülebilir.
+	</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_5 <span class="keyw">is</span>
+
+<span class="keyw-50">İsim</span> : String :=&quot;Ali&quot;;
+
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Set_Col</span>(To =&gt; 40);
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; "Adı :");
+
+<span class="pl-50">Ada.Text_IO.Set_Col</span>(To =&gt; 50);
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; İsim);
+
+<span class="keyw-25">end</span> e3_1_uyg_5;
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green"> Adı :     Ali</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Satır belirlenmesi yine tablo çıkışları için çok yararlıdır. 
+			Bu konudaki bir örnek, aşağıdaki uygulamada görülebilir.
+	</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_6 <span class="keyw">is</span>
+
+<span class="pl-50">İsim</span> : String :=&quot;Ahmet&quot;;
+
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Set_Col</span>(To =&gt; 40);
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; "Adı :");
+
+<span class="pl-50">Ada.Text_IO.Set_Line</span>(To =&gt; 3);
+
+<span class="pl-50">Ada.Text_IO.Set_Col</span>(To =&gt; 40);
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; İsim);
+
+<span class="keyw-25">end</span> e3_1_uyg_6;
+		
+<span class="pl-25">Bu programın sonucu,</span>
+
+<span class="green">
+
+                                       Adı :
+
+                                       Ahmet</span>
+
+olmaktadır.
+		</pre>
+
+<p class="indent">
+			Ada 2005 den geçerli olarak konsoldan karakter dizisi verilerinin okunması için, 
+			Get_Line metodu geliştirilmiştir. Get_Line prosedürünün iki argümanı tanımlanmıştır.
+			Bunlardan ilki, Item, bir karakter dizisi (String) verisidir. Her String de olduğu gibi, bu 
+			String verisinin de bir uzunluğu tanımlanmalıdır. Burada, bu uzunluğun karşılaşılabilecek
+			en uzun karakter dizisi verisi düşünülerek verilmesi uygun olacaktır. Last bir Natural 
+			tipinde tamsayı değeridir. Başlangıç değerinin verilmesi şart değildir. Bu metot, 
+			klavyeden girilen tüm karakterleri okuyacak ve son karakteri last argümanına atayacak,
+			sonra alt satıra geçecektir. Eğer satır sonuna gelinirse, okuma bitirilecek ve alt satıra 
+			geçilecektir. Klavyeden girilmeyen karakterler, karakter dizisine eleman olarak yerleştirilmeyecek, 
+			karakter dizisi verisinin, tanımlanan kapsamından beklenen fakat klavyeden girilmeyen
+			karakterler yok sayılacaktır. Klavyeden girilerek değişkene atanan karakter dizisi değerinin ilk
+			konum sayısı 1 olacak son konum numarası Last olacaktır. Bu metodun basit bir kullanımı 
+			aşağıdaki programda verilmiştir:
+	</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Strings;
+
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_7<span 
+			class="keyw"> is</span>
+			
+<span class="pl-50">Str1, Str2 : String (1..25);</span>
+
+<span class="pl-50">Last1, Last2</span> : Natural;
+
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Adınızı Giriniz : &quot;</span>);
+
+<span class="pl-50">Ada.Text_IO.Get_Line</span>(Str1, Last);
+
+<span class="pl-50">Ada.Text_IO.Put</span>(Item =&gt; <span class="str">&quot;Soyadınızı Giriniz : &quot;</span>);
+
+<span class="pl-50">Ada.Text_IO.Get_Line</span>(Str2, Last);
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Girilen Ad ve Soyad ve Doğum Yerini Görmek İçin Lütfen Return Tuşuna Basınız !&quot;</span>);
+
+<span class="pl-50">Ada.Text_IO.Skip_Line</span>;
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Adı ve Soyadı : &quot;</span> &amp; Str1(1..Last1) &amp; <span class="str">&quot; &quot;</span> &amp; Str2(1..Last2));
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Doğum Yeri : &quot;</span> &amp; Doğum_Yeri);
+
+<span class="keyw-25">end</span> e3_1_uyg_7;
+
+
+<span class="pl-25">Bu programın sonucu,</span>
+
+<span class="pl-25 green">Adınızı Giriniz : Bedri Doğan</span>
+<span class="pl-25 green">Soyadınızı Giriniz : Emir</span>
+<span class="pl-25 green">Girilen Ad,  Soyad ve Doğum Yerini Görmek İçin Lütfen Return Tuşuna Basınız 
+</span>
+<span class="pl-25 green">Adı ve Soyadı : Bedri Doğan Emir</span>
+<span class="pl-25 green">Doğum Yeri : Istanbul</span>
+
+olmaktadır.  (Program sonucu girilen değerlere bağlıdır)
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../programlar/e3_1_uyg_7.html">programda</a> klavyeden
+			Uzunluğu farklı karakter dizilerinin girilebilmesi için, etkili Get_Line metodu
+			uygulanmıştır. Bu metot çok kullanışlıdır veAda.Strings.Unbounded paketinin
+			kullanılmasını gereksiz hale getirmekte de program listesini kısaltmaktadır. 
+			Buna rağmen bu yöntem sadece Ada 2005 ve daha yukarısını destekleyebilen
+			derleyicilerde derlenebilmektedir. GNAT 2012 nin serbestçe dağıtılması sonunda,
+			derleyici sorunu kalmadığından, yeni yazılacak programlar için, eskiye uyumsuzluk 
+			sorun oluşturmayacaktır.
+		</p>
+<p></p>
+		<p class="indent">
+			 Ada.Text_IO paketinde, karakter tipinde veriler için iki tane Get_Immediate 
+			 metodu bulunmaktadır. Bu metotların tanımı, aşağıda görülmektedir:
+</p>
+		<pre class="app-25">
+<span class="keyw">procedure</span> Get_Immediate (Item : <span 
+			class="keyw">out</span> Character) ;
+<span class="pl-25">ve</span>
+<span class="keyw">procedure</span> Get_Immediate (Item : <span 
+			class="keyw">out</span> Character ;
+<span class="pl-175">Available :</span> <span 
+			class="keyw">out</span> Boolean);
+		</pre>
+		<p class="indent">
+			Get_Immediate metodunun ilk tanımı için basit bir 
+			<a href="../uygulamalar/e3_1_uyg_8.html">uygulama</a>: 
+	</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_8<span class="keyw"> is</span>
+
+<span class="pl-50">Değer : Character; </span>
+
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(<span class="str">&quot;(M)odify, (D)isplay or (Q)uit: &quot;</span>);
+
+<span class="pl-50">Ada.Text_IO.Get_Immediate</span>(Item =&gt; Değer);
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>("Girilen Karakter : " &amp; Değer);
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green">(M)odify, (D)isplay or (Q)uit: D</span>
+<span class="pl-25 green">Girilen Karakter : D</span>
+
+olmaktadır. (Sonuç girilen değere bağlıdır)
+		</pre>
+
+<span class="keyw-25">end</span> e3_1_uyg_8;
+</pre>
+		<p class="indent">
+			Metodun ikinci argümanın değerlendirilmesi için bir uygulama:
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+
+<span class="keyw-25">procedure</span> e3_1_uyg_9<span class="keyw"> is</span>
+
+<span class="pl-50">Command : Character; </span>
+
+<span class="pl-50">Available</span> : Boolean;
+
+<span class="keyw-25">begin</span>
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(<span class="str">&quot;(M)odify, (D)isplay or (Q)uit: &quot;</span>);
+
+<span class="pl-50">Ada.Text_IO.Get_Immediate</span>(Item =&gt; Command, Available =&gt; Available);
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Girilen Karakter : &quot;</span> &amp; Command);
+
+<span class="pl-50">Ada.Text_IO.Put_Line</span>(Item =&gt; <span class="str">&quot;Available : &quot;</span> &amp; Boolean'Image(Available));
+
+<span class="keyw-25">end</span> e3_1_uyg_9
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="pl-25 green">(M)odify, (D)isplay or (Q)uit: Q</span>
+<span class="pl-25 green">Girilen Karakter : Q</span>
+<span class="pl-25 green">Available : TRUE</span>
+
+olmaktadır. (Sonuçlar girilen değerlere bağlıdır)
+		</pre>
+		<p class="indent">
+			Bu kısımda, standart giriş/çıkış işlemleri için basit metotları ve örnek uygulama programlarını 
+			incelemiş ve bu metotları uygulamalarımızda kullanabilecek duruma gelmiş bulunuyoruz. Ada programlarına
+			giriş/çıkış işlemleri bazen çok karmaşık yöntemler içerebilir. Bunlar için bazı örnekler, 
+			<a href="http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations">
+			http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations</a> sayfasında görülebilir. Burada
+			incelenen yöntemler, en azından başlangıçta, tüm sözel verilerin standart giriş ortamından 
+			programa veri olarak girilebilmesi ve sonuçların standart çıkış ortamından gösterimi için yeterli olacaktır.
+	</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em> &laquo;İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="kodlama">
+				<a href="../b2/b2-s4.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		 <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml11"
+        alt="Valid XHTML 1.1" height="31" width="88" /></a>
+  </p>
+
+</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:33 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

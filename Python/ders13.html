@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:12 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders13.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 13</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body class="indent">
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Genel Yöntemler</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders12.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders14.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 13
+      </p>
+    </div>
+    <p id="repet" class="title-left">
+      2.2 - Tekrarlı işlemler</p>
+    <p class="indent">
+      Bir blok içeriğinde tanımlanmış olan bildirimlerin, belirli 
+      bir koşul doğrulanıncaya kadar tekrar edilmesine, tekrarlı 
+      (iteratif) işlemler adı verilir. Tekrarlı işlemler, matematikte 
+      bir çok kuramsal problemin, sayısal çözümlerinin sağlanmasında, 
+      büyük rol oynamaktadırlar. Özellikle, bilgisayarların 
+      güvenirliklerinin arttığı ve uygulamalarının yaygınlaştığı 
+      1950 lerden sonra bu konuda çalışmalar yoğunlaşmıştır.
+    </p>
+    <p class="indent">
+      Tekrarlı işlemlerin, matematikte başarabileceği çalışmaların 
+      önemine ilk olarak, on dokuzuncu asrın ikinci yarısında, 
+      Lord Byron'un kızı Ve Lord Lovelace'in eşi, ilk sayısal 
+      hesap matematikçisi Lady Ada Lovelace olmuştur. Lady Ada 
+      Lovelace, büyük matematikçi Charles Babbage tarafından 
+      düşünülen ve ilk bilgisayar olarak adlandırılan &quot;Analytical 
+      Machine&quot; cihazının çalışma yöntemi açıklandığında, 
+      özellikle tekrarlı (iteratif) işlemlerden etkilenerek yazmış olduğu iki makale, günümüzün &quot;Sayısal Analiz&quot; 
+      bilim dalının ilk çalışmaları olarak kabul edilir. Ne 
+      yazık ki günün teknik olanaklarının yetersizliği, &quot;Analytical 
+      Machine&quot; nin yapımına olanak vermemiş, ilk bilgisayarlar 
+      1940 yıllarında Nazi Almanyasında Konrad Zuse tarafından 
+      gerçekleştirilmiş, fakat ilk güvenilir modeller 1950 den 
+      sonra A.B.D ve Ingilterede yapılabilmiştir. Lady Ada Lovelace'in 
+      çalışmalarına bir cemile olarak, en gelişmiş bilgisayar 
+      diline Ada Program dili adı verilmiştir. Algol - Pascal 
+      - Modula program dilleri ailesinin en son ve en gelişmiş 
+      üyesi olan Ada program dilinin öğrenimi için Türkçe dersler 
+      yine bu satırların yazarı tarafından hazırlanmıştır ve 
+      bu sitenin <a href="../Ada/index.html">Ada Pogramlama Dili</a> 
+      konusunda sitede izlenebilir. Ada program dili ile oluşturulan 
+      programların sağlamlığı en üst düzeydedir ve onun için, 
+      Hava Trafik Kontrolü, Demiyolu İşetmeleri, Askeri Cihazlar 
+      gibi kritik çalışma alanlarında Ada programları kullanılır.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, iteratif işlemleri,
+      <span class="keyw">for</span> ve <span class="keyw">while</span> 
+      blokları ile, fonksiyonların kendi kendilerine çağırmaları 
+      anlamına gelen rekürsiyon yöntemleri ile gerçekleşir.
+    </p>
+    <p class="indent">
+      İlk olarak, tüm programlama dillerinde tekrarlı işlemlerin 
+      sistematiği üzerinde duralım. Tekrarlı işlemler, belirli 
+      bir mantıksal kriteryum sağlanıncaya kadar (belirli bir 
+      değişkenin değeri <span class="keyw">False</span> oluncaya 
+      kadar) tekrarlanan bir grup program adımının bulunduğu 
+      bir program alanıdır. Bu alandaki program adımları sürekli 
+      tekrarlandığı için, bu alan bir döngü (loop) olarak da 
+      adlandırılır.
+    </p>
+    <p class="indent">
+      Her döngüde iki tane değeri yenilenen değişken bulunur. 
+      Bu değişkenlerden birisi döngü sayacı, diğeri döngü sonu 
+      belirleyicisidir.
+    </p>
+    <p class="indent">
+      Döngü sayacı bir tamsayıdır. Başlangıç değeri, program 
+      dilinin dizi elemanlarının indislerinin başlangıç değeridir. 
+      Bu değer her program diline göre değişir. Örnek olarak 
+      Java, JavaScript dizi indisleri 0 dan başlarken, Ada dizileri 
+      1 den başlar. Bu değer Python için 0 dan başlar. Bir döngü, 
+      döngü bloğundaki program adımlarının yukarıdan başlayarak 
+      blok sonuna kadar bir kez çalıştırılmasıdır. Her döngüde, 
+      döngü sayacının değeri, bir tamsayı artar. Döngü sayacının 
+      işlevi, döngü sayısının saptanmasıdır. Bu değişken, Python 
+      dahil modern bilgisayar dillerinde bir tamsayı atanmış 
+      her geçerli değişken olabilirse de, FORTRAN günlerinden 
+      kalan ve bugüne kadar uygulanan bir geleneğe göre, i , 
+      j , k , l , m, n harfleri, i den başlayarak kullanılır.
+    </p>
+    <p class="indent">
+      Döngü sonu kontrolu her türlü mantıksal ifade atanabilen 
+      bir değişkendir. Bu ifadenin değeri daima
+      <span class="keyw">True</span> değeri ile başlar. Bu değer, 
+      her döngüde bir kez değişecek şekilde programlanır ve 
+      döngünün yapısına göre ya döngü başına, ya da döngü sonuna 
+      konulur. Bu mantıksal ifadenin değeri döngü içinde
+      <span class="keyw">False</span> değerine dönüşmüş ise, 
+      program kontrolü, döngüden çıkar ve program akışı, döngüden 
+      bir sonraki program adımı ile devam eder.
+    </p>
+    <p class="indent">
+      Python programlama dili için, döngü sonu kontrolü, hem
+      <span class="keyw">for</span> hem de
+      <span class="keyw">while</span> döngülerinde, döngü başındadır. 
+      Bu ifadenin değeri daha başlangıçta <span class="keyw">
+      False</span> ise, program kontrolü, <span class="keyw">
+      for</span> veya <span class="keyw">while</span> döngüsüne 
+      hiç giremez ve program akışı, <span class="keyw">for</span> 
+      döngüsünden bir sonraki program adımı ile devam eder.
+    </p>
+    <p class="indent">
+      Bazı döngü tasarımlarımda, döngü sayacı ve döngü sonu 
+      belirleyicisi aynı değişkende toplanır. Değişkenin değeri 
+      yanlışa dönüşünce, program kontrolü döngüyü terkeder. 
+      Bu durumlarda, döngü sonu değişkeninin değeri bir tamsayıdır 
+      ve bu değişkenin değeri aynı zamanda döngü tekrarını belirten 
+      bir sayaç işlevini de görür.
+    </p>
+    <p class="indent">
+      Bazı durumlarda, döngü sonu kontrolü hem döngü sonu kontrol 
+      değişkenine atanmış olan mantıksal ifadenin sonucunun
+      <span class="keyw">True</span> değerinden
+      <span class="keyw">False</span> değerine dönüşmesi, hem 
+      de, döngü sayacının belirli bir değere ulaşması ile kontrol 
+      edilir. Bunlardan hangisi daha önce sağlanırsa, program 
+      kontrolü döngüyü terkeder.
+    </p>
+    <p class="indent">
+      Programcılar, döngü tasarımlarına çok dikkat etmeli ve 
+      döngü yapısını, program kontrolünün şu veya bu şekilde, 
+      ama mutlaka döngüyü terkedebilmesine olanak sağlayacak 
+      şekilde düzenlemelidirler. Sonu belli olmayan döngülerde, 
+      daima döngünün ne olursa olsun tamamlanacağı bir güvenlik 
+      kontrolu konulmalıdır. Bunun en kolay şekli, döngü sayacının 
+      belirli bir değerinden sonra döngünün terkedilmesini sağlayacak 
+      bir kontrolün konulmasıdır. Aksi takdirde, program sonsuz 
+      döngüye girer ve sonucu bazen felaket olabilir.
+    </p>
+    <p class="indent">
+      Örnek olarak, sayısal analizde çoğu zaman bir fonksiyonun 
+      yakınsaması sağlanmaya çalışılır. Yakınsama, bir fonksiyonun 
+      değerinin belirli bir &epsilon; değerinden daha küçük 
+      olmasıdır. Bu, bir hedef belli olmadan, rastgele atıştır. 
+      Bazı fonksiyonlar, iyi huylu fonksiyonlar olarak tanımlanır, 
+      bu fonksiyonlar kolayca yakınsar. Bu durumlarda, döngü 
+      sonunun sınanması amacı ile uygulanan değişkenin değeri 
+      fonksiyonun kolay yakınsamasından dolayı kolayca
+      <span class="keyw">False</span> değerine dönüşebilir ve 
+      program kontrolü döngüyü sorunsuzca terkedebilir. Fakat, 
+      bazı fonksiyonlar kötü huylu fonksiyonlar olarak tanımlanır. 
+      Bunlar ya çok yavaş yakınsar, veya daha da kötüsü, osilasyon 
+      yaparak hiçbir zaman yakınsamaz. Bu durumda, döngü çıkış 
+      kriteryumu sadece yakınsama sınanmasına bırakılırsa, program 
+      akış kontrolü hiçbir zaman döngüyü terkedemez ve sonsuz 
+      döngüye girilir. Bunun önlenmesi için, sonucu önceden 
+      kestirilemeyen mantıksal ifadelere bağlı olarak çalışan 
+      döngülerin yapılarında, daima ek bir çıkış sigortası bulunmalıdır.
+    </p>
+    <p id="control" class="subheading">
+      2.2.1 - Döngü Çıkış Bildirimleri</p>
+    <p id="pass" class="subsub">
+      2.2.1.1 - pass Bildirimi</p>
+    <p class="indent">
+      <span class="keyw">pass</span> Bildirimi, program kontrolüne, 
+      döngüye girmeden pas geçmesini bildirir. Bu bildirim ile 
+      program kontrolü, döngüden bir sonraki program adımını 
+      çalıştırır.
+    </p>
+    <p id="continue" class="subsub">
+      2.2.1.2 - continue Bildirimi</p>
+    <p class="indent">
+      bu bildirim, program kontrolüne çalışılmakta olan iterasyondan 
+      çıkılarak, döngüye bir sonraki iterasyondan devam edilmesini 
+      bildirir.
+    </p>
+    <p id="break" class="subsub">
+      2.2.1.3 - break Bildirimi</p>
+    <p class="indent">
+      Bu biildirim, program kontrolüne döngüden derhal çıkılarak, 
+      programa döngüden bir sonraki program adımından itibaren 
+      devam edilmesini bildirir. İçiçe döngüler ile çalışıldığında,
+      <span class="keyw">break</span> bildirimine rastlandığı 
+      anda, iç döngüden çıkılır ve dış döngü çalıştırılmaya 
+      devam edilir.
+    </p>
+    <p class="indent">
+      Bazen bir döngü <span class="keyw">else</span> bildirimini 
+      de içerebilir. Bu durumda döngü çıkışında bu
+      <span class="keyw">else</span> bloğunun içeriği çalıştırılır. 
+      Fakat <span class="keyw">break</span> bildirimi bunu da 
+      önler ve program kontrolüne döngüden
+      <span class="keyw">else</span> bloğu dahil derhal çıkılarak, 
+      programa döngüden bir sonraki program adımından itibaren 
+      devam edilmesini bildirir.
+    </p>
+    <p id="for" class="subheading">
+      2.2.2 - for Döngüsü</p>
+    <p class="indent">
+      Python programlarında, <span class="keyw">for</span> döngüsü, 
+      diğer programlama dillerinden değişik ve çok daha dar 
+      kapsamlıdır. Python programlama dilindeki,
+      <span class="keyw">for</span> döngüsü sadece iterasyon 
+      yapılabilien veri tipleri için uygulanabilir. Bu tanımla, 
+      Python programlama dilindeki, <span class="keyw">for</span> 
+      döngüsü, JavaScript, PERL gibi programlama dillerinin 
+      foreach döngüleri ile aynıdır.yani sözel veriler, (string), 
+      listeler (list), topluluklar (tuples), sözlükler (dictionary), 
+      kümeler (set) tipi veriler ile uygulanabilir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, iterasyon yapılabilen veriler, 
+      sıra ile dizilmiş ve aralarında bir ayraç karakteri ile 
+      ayrılmış verilerdir. İterasyon yapılabilen veriler sekansiyel 
+      veri tiplerini oluştururlar. Sekans, bir işlemin başlaması, 
+      sona ermesi ve ardından yeni bir işelmin başlatılmasıdır. 
+      Bir sekans tamamlanmadan, bir başka sekans başlatılamaz. 
+      Sekansiyel veri tiplerine, konteyner tipli veriler, depo 
+      tipi veri tipleri, iterabl (iterasyon yapılabilen) veri 
+      tipleri adları verilir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, sekansiyel veri tipleri, sözel 
+      veriler (String), listeler (list), topluluklar (tuple), 
+      sözlükler(dictionary), kümeler (set), donmuş kümeler (frozenset) 
+      veri tipleridir. Sekansiyel veri tipleri değişik veri 
+      tiplerinde elemanlar içerebilirler. Bu elemanlar, belirli 
+      bir sıralanma (ordering) düzenine uymazlar.</p>
+    <p class="indent">
+      Bazı sekansiyel veri tiplerinin, atandıktan sonra elemanları 
+      değiştirilemez, yeni elemanlar eklenemez veya bazı elemanları 
+      çıukarırılamaz. Bunlara, değiştirilemez, kesilemez (immutable) 
+      sekansiyel veri tipleri adı verilir.</p>
+    <p class="indent">
+      Kesilemez veriler, aynen sayısal tipler gibi, bir defada 
+      atanabilir ve ancak toptan değiştirilebilir. Python programlama 
+      dilinde, kesilemez sekansiyel veri tipleri, sözel veriler, 
+      topluluklar ve donmuş kümelerdir. Kesilebilen sekansiyel 
+      veri tipleri ise, listeler, sözlükler ve kümelerdir.</p>
+    <p id="uyg1" class="indent">
+      Python programlama dilinde, <span class="keyw">for</span> 
+      döngüsü, kesilebilir olsun kesilemez olsun, tüm sekansiyel 
+      veri türleri için uygulanabilir. Bu döngü, sekans boyunca, 
+      ilk yerleşim sırasından başlayarak, son yerleşmiş veriye 
+      kadar iterasyon (birbiri ardından erişim) yapar ve her 
+      iterasyonda, sekansiyel veri tipinin yeni bir elemanına 
+      erişim sağlar.
+      <a href="uygulamalar/ders13/ders13program1.html">Örnek</a>:
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program1.py</span>
+
+<span class="keyw">for</span> s <span class="keyw">in</span> <span 
+    class="op">[</span><span class="str">&quot;Ahmet&quot;</span> , <span 
+    class="str">&quot;Hasan&quot;</span> , <span 
+    class="str">&quot;Zübeyde&quot;</span><span class="op">]:</span>
+    print<span class="op">(s</span><span class="op">);</span>
+    
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+Ahmet
+Hasan
+Zübeyde</span></pre>
+    <p class="indent">
+      Burada, <span class="keyw">for</span> döngüsü bir iteratör 
+      bildirimidir, s iterasyon tanımlayıcısıdır. Iterasyon 
+      tanımlayıcısına iterasyon değişkeni adı da verilir. İterasyon 
+      değişkeni, her döngüde, iterasyon yaptığı sekansiyel veri 
+      tipinin bir elemanına erişir, onun değerini alır ve onunla 
+      önceden tanımlanmış bir işlem gerçekleştirir. İterasyon, 
+      sekansiyel veri tipinin ilk elemanı ile başlar, tüm elemanlara 
+      birer birer erişilir, her elemanla işlem gerçekleştirilir. 
+      İterasyon yapılan sekansiyel veri tipinin son elemanı 
+      ile işlem tamamlandığında, bir sonraki eleman aranır, 
+      bu elemanın bulunmadığı algılanırsa, sekans sonu sinyali 
+      oluşurv e iterasyon sonlandırılır. İterasyon sonlandırıldığında, 
+      döngü değişkeni, program kontrolüne döngünün tamamlandığını 
+      ve bir sonraki program adımına geçilmesini bildirir. Bu 
+      şekilde, program kontrolü, döngüden bir sonraki program 
+      adımını uygulamaya başlar.</p>
+    <p class="indent">
+      Python programlama dilinde, <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri sadece konteyner 
+      tipi verilerin nesne örneklerine uygulanabilir. Her iterasyonda 
+      sadece nesne örneğinin elemanlarına erişilebilir. Bu döngü 
+      ile elemanların indis değerlerine erişilemez. İndisler 
+      nesne örneklerinin elemanları arasında değildir, bir yere 
+      kayıtlı değillerdir ve her iterasyonda ayrı olarak belirli 
+      kurallara uyularak oluşturulan (arbitrary) sayılardır. 
+      Python programlama dilinde, <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinde indis değerlerini 
+      Python derleyicisi bir iç değer olarak tutar ve dışarıya 
+      aksettirmez. İndis değerlerinin 
+      ayrı programlar tarafından oluşturulup görüntülenmeleri 
+      gerekir. Bunu biraz ileride Python <span class="keyw">
+      for</span> <span class="op">in</span> döngülerinin yardımcı 
+      programları konusunda göreceğiz.</p>
+    <p id="uyg2" class="indent">
+      Yukarıdaki programdaki döngü sayacı s olarak isimlendirilmiştir. 
+      Bu isimlendirme tamamı ile isteğe bağlıdır ve bu tür döngülerde, 
+      her geçerli değişken adı, döngü değişkeni adı olarak kullanılabilir. 
+      Örnek olarak, <span class="keyw">continue</span> bildiriminin 
+      etkisinin görüldüğü bir sonraki
+      <a href="uygulamalar/ders13/ders13program2.html">programda</a> 
+      döngü sayacı, t olarak uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program2.py</span>
+
+<span class="keyw">for</span> t <span class="keyw">in</span> <span 
+    class="op">(</span><span class="str">&quot;Ahmet&quot;</span> , <span 
+    class="str">&quot;Hasan&quot;</span> , <span 
+    class="str">&quot;Zübeyde&quot;</span><span class="op">):</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span> t <span 
+    class="op">==</span> <span class="str">&quot;Ahmet&quot;</span><span 
+    class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
+    class="keyw">continue</span><span class="op">;</span>
+    print<span class="op">(</span>t<span class="op">);</span>
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+Hasan
+Zübeyde</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, döngü başlayıp ilk döngü uygulandığında, 
+      döngü değişkeni t, topluluğun(tuple) ilk elemanı ile eşleşip 
+      değerini kendi üzerine kopyalıyor. Döngünün ikinci program 
+      satırında, eğer döngü değişkeninin işaret ettiği değer
+      <span class="str">&quot;Ahmet&quot;</span> ise, bu iterasyonun 
+      pas geçilmesi bildirimi olan <span class="keyw">continue</span> 
+      bildirimi ile karşılaşıyor. Bu bildirime uyarak derhal 
+      iterasyonu terkediyor ve bu durumda işaret ettiği bellek 
+      alanında saklı değeri görüntüleyemiyor. İkinci ve üçüncü 
+      iterasyonlarda böyle bir bildirim olmadığından, eşleştiği 
+      değeri görüntüleyerek iterasyonu tamamlıyor. Üçüncü iterasyon 
+      tamamlandığında, döngü de tamamlanıyor.
+    </p>
+    <p id="uyg3" class="indent">
+      Aşağıdaki
+      <a href="uygulamalar/ders13/ders13program3.html">uygulamada</a>
+      <span class="keyw">break</span> bildiriminin etkisi görülüyor. 
+      Bu uygulamada kullanılan, iterasyon yapılabilir veri tipi, 
+      bir sözlük (dictionary) tipi veridir. Döngü değişkeni 
+      olarak da, q değişken ismi kullanılılıyor.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program3.py</span>
+<span class="keyw">for</span> q <span class="keyw">in</span> <span 
+    class="op">{</span>1<span class="op">:</span><span 
+    class="str">&quot;Ocak&quot;</span><span class="op">,</span>2<span 
+    class="op">:</span><span class="str">&quot;Şubat&quot;</span><span 
+    class="op">,</span>3<span class="op">:</span><span 
+    class="str">&quot;Mart&quot;</span><span class="op">}:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span> q <span 
+    class="op">==</span> 3<span class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
+    class="keyw">break</span><span class="op">;</span>
+    print<span class="op">(q</span><span class="op">);</span>
+    
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+1
+2
+</span></pre>
+    <p class="indent">
+      Yukarıdaki programda döngü değişkeni q, bir sözlük tipi 
+      verinin elemanlarının anahtar kısımları ile eşleşiyor 
+      ve anahtar değeri 3 olunca, <span class="keyw">break</span> 
+      bildirimi ile karşılaşarak döngüden acele çıkış yapıyor. 
+      Döngüden çıkış gerçekleşince, program kontrolü, döngüden 
+      sonraki ilk program adımına geçiyor. Görüntülenen sonuçlar, 
+      bu program akışını doğrulamaktadır.
+    </p>
+    <p class="indent">
+      Bütün bu bilgiler, Python <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinin sadece nesne örnekleri 
+      ile çalışabildiğini ve sadece elemanlara erişebildiğini 
+      belirtmektedir. Aşağıda görülen <span class="keyw">range</span><span 
+      class="op">()</span> ve <span class="keyw">enumerate</span><span 
+      class="op">()</span> fonksiyonları, <span class="keyw">
+      for</span> <span class="op">in</span> döngülerine yardımcı 
+      olmak amacı ile, öntanımlı olarak sağlanmaktadır.</p>
+    <p id="range" class="subsub">
+      2.2.2.1- range() Fonksiyonu
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">range</span><span 
+      class="op">()</span> fonksiyonu,
+    </p>
+    <pre class="pl-25">
+range<span class="op">(</span>[başlangıç değeri]<span 
+    class="op">,</span>sonuç değeri<span class="op">,</span>[artım değeri]<span 
+    class="op">);</span>
+    </pre>
+    <p id="uyg4" class="nonindent">
+      olarak uygulanır. Başlangıç değeri belirtilmezse, varsayılan 
+      değer olarak 0 kullanılır ve sondeğer n ise, n-1 değerine 
+      kadar sayma yapılır. Öntanımlı range<span class="op">()</span> 
+      fonksiyonun tüm argümanları tamsayılar olmalıdır. Bu fonksiyon, 
+      kalıcı bir liste oluşturmaz.Sadece sayı sayar, fakat, 
+      oluşturduğu sayılar, Python programlama dilinde 0 dan 
+      başlayarak sayılan indis değerlerine denk gelir. İlk
+      <a href="uygulamalar/ders13/ders13program4.html">örneği</a> 
+      inceleyelim.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program4.py</span>
+
+<span class="keyw">for</span> i <span class="op">in</span> range<span 
+    class="op">(</span>5<span class="op">):</span>
+    
+    <span class="comm"># iterasyon program adımları ...</span>
+    
+    print<span class="op">(</span><span class="str">&quot; i = &quot;</span> <span 
+    class="op">,</span>  i  <span class="op">,</span> <span 
+    class="str">&quot;  |  &quot;</span> <span class="op"> , </span> end <span 
+    class="op">=</span> <span class="str">&quot;&quot;</span><span 
+    class="op">);</span>
+    
+print<span class="op">(</span><span class="str">'\n\nDöngü Sonu'</span><span 
+    class="op">);</span>
+   
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+
+i =  0   |  i =  1   |  i =  2   |  i =  3   |  i =  4   |  
+
+Döngü Sonu</span></pre>
+    <p class="indent">
+      Yukarıda programda, iterasyon sayacı&nbsp; i değişkeni 
+      olarak tanımlanmıştır. Yani i değişkeninin değeri her 
+      iterasyonda&nbsp; belirli bir değer almaktadır. Burada 
+      döngü sayısı (range<span class="op">()</span> fonksiyonun 
+      argümanı) 4 olarak belirtilmiştir. Yani döngü, 4 iterasyon 
+      sonunda tamamlanacaktır. İterasyon sayacı i nin ilk değeri 
+      belirtilmemiş olduğundan, varsayılan olarak 0 dan başlayacaktır. 
+      Artım değeri verilmediğinden, varsayılan olarak i nin 
+      değeri, her iterasyonda 1 artacak ve n = 5 olduğuna göre, 
+      i nin değeri, n - 1 = 4 olunca son iterasyon tamamlanacak 
+      ve döngüden çıkılacaktır. Yukarıdaki programın sonucu 
+      incelendiğinde, bu program yürüyüşü doğrulanmaktadır.
+    </p>
+    <p id="uyg5" class="indent">
+      Bir başka
+      <a href="uygulamalar/ders13/ders13program5.html">programda</a>, 
+      tamsayılar kümesinin (matematik açısından tamsayılar yapılanmasının) 
+      ilk 100 elemanının toplamını hesaplayalım.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program5.py</span>
+
+s=0;
+
+<span class="keyw">for</span> i <span class="op">in</span> range<span 
+    class="op">(</span>101<span class="op">):</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;s <span class="op">=</span> s <span 
+    class="op"> + </span> i<span class="op">;</span>    
+
+print<span class="op">(</span><span class="str">'s = '</span><span 
+    class="op">,</span> s <span class="op">,</span> <span 
+    class="str">'\n\nDöngü Sonu'</span><span class="op">);</span> 
+   
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+
+s =  5050 
+
+Döngü Sonu</span></pre>
+    <p class="indent">
+      Yukarıdaki programda iterasyon değişkeni i nin değeri 
+      varsayılan olarak 0 dan başlamakta, varsayılan olarak 
+      1 artarak, n - 1 = 100 değerini aldıktan sonra, son iterasyon 
+      tamamlanarak döngüden çıkılmaktadır. Burada s değişkenine 
+      toplayıcı (akümülatör) adı verilmektedir. Her iterasyonda, 
+      s değişkeninin işaret ettiği değer değişmekte ve yeni 
+      değer, s değişkeninin işaret ettiği bellek alanında saklanmaktadır. 
+      Toplayıcı, değiştirilemez bir veri tipi olan tamsayı veri 
+      tipi topladığından her iterasyonda eski değerin bir kısımı 
+      güncellenememekte, eski değer tümden silinip yerine yeni 
+      değer yerleştirilmektedir. Döngü sonunda, toplayıcının 
+      topladığı değer görüntülenmektedir.</p>
+    <p class="indent">
+      Bu programın önemi, range() fonksiyonun, Pythom programlama 
+      dilinin for in döngülerine, diğer programlma dilerine 
+      koşut bir yetenek kazandırabilmesidir. Programlama dillerinde, 
+      döngü değişkeni bir hazine gibidir. Bu sabit değer, yukarıdaki 
+      programda olduğu gibi bir akümülatöre eklenerek toplama 
+      yapılabilir, bir fonksiyonun argümanı olarak bir değer 
+      hesaplatabilir ve daha birçok işlem gerçekleştirilebilir. 
+      Yukarıdaki uygulama bunun yöntemini belirtmektedir.</p>
+    <p id="uyg6" class="indent">
+      Aşağıdaki
+      <a href="uygulamalar/ders13/ders13program6.html">programda</a>, 
+      range<span class="op">()</span> fonksiyonu, belirlenen 
+      bir değerden başlamaktadır.
+    </p>
+    <pre class="pl-25">
+
+<span class="comm"># Program : Ders13program6.py</span>
+
+<span class="keyw">for</span> i <span class="op">in</span> range<span 
+    class="op">(</span>2<span class="op">,</span>5<span 
+    class="op">):</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;print<span class="op">(</span>i <span 
+    class="op">,</span> <span class="str">&quot; &quot;</span> , sep = <span 
+    class="str">&quot;  |  &quot;</span> <span class="op">,</span> end <span 
+    class="op">=</span><span class="str">&quot;&quot;</span><span 
+    class="op">);</span>
+    
+print<span class="op">(</span><span class="str">'\n\nDöngü Sonu'</span><span 
+    class="op">);</span>
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+
+2  |   3  |   4  |   
+
+Döngü Sonu</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, toplam iterasyon sayısı 5 - 2 = 
+      3 dür. İterasyon sayacının başlangıç değeri daima belirtilen 
+      başlangıç değeri (burada 2), son değeri ise belirtilen 
+      son değerin 1 eksiğidir (burada 5 - 1 = 4). Artım belirtilmediğinden, 
+      varsayılan artım olan 1 alınmaktadır.
+    </p>
+    <p id="uyg7" class="indent">
+      Yeni bir
+      <a href="uygulamalar/ders13/ders13program7.html">programda</a>, 
+      range<span class="op">()</span> fonksiyonu, belirlenen 
+      bir değerden başlamakta, belirli bir son değere kadar 
+      iterasyon yapmakta ve iterasyon değişkeninin değeri, belirtildiği 
+      kadar değişmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program7.py</span>
+
+<span class="keyw">for</span> i <span class="op">in</span> range<span 
+    class="op">(5, 3,-1):</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;print<span class="op">(</span>i <span 
+    class="op">,</span> <span class="str">&quot; &quot;</span> , sep = <span 
+    class="str">&quot;  |  &quot;</span> <span class="op">,</span> end <span 
+    class="op">=</span><span class="str">&quot;&quot;</span><span 
+    class="op">);</span>
+    
+print<span class="op">(</span><span class="str">'\n\nDöngü Sonu'</span><span 
+    class="op">);</span>
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+
+5  |   4  |   
+
+Döngü Sonu</span></pre>
+    <p class="indent">
+      Bu programda range<span class="op">()</span> fonksiyonu, 
+      yüksek bir değerden başlıyor ve düşük bir değere kadar 
+      iterasyon yaptırıyor. İterasyon değişkeni i nin değeri 
+      her zaman belirtilen ilk değerle başlıyor (burada 5) ikinci 
+      iterasyonda i nin değeri 4 oluyor. Bu son iterasyondur. 
+      Çünkü, bir kez daha iterasyona girerse, inin değerinin 
+      4 - 1 = 3 olması gerek, oysa son değer olarak 3-1 =4 verilmiş. 
+      Yani i nin son değeri 4 dür ve bu değerden sonra döngü 
+      tamamlanacaktır. Program çıktısı da bu yürüyüşü doğrulamaktadır. 
+      Bu arada, <span class="keyw">range</span><span 
+      class="op">()</span> fonsiyonun sadece tamsayılarla çalışabildiğini 
+      yineleyelim. Ondalıklı sayılarla iterasyonlar
+      <span class="keyw">while</span><span class="op">()</span> 
+      döngüleri ile gerçekleştirilebilir.</p>
+    <p id="uyg8" class="indent">
+      Yeni bir
+      <a href="uygulamalar/ders13/ders13program8.html">programda</a>, 
+      range<span class="op">()</span> fonksiyonu yardımı ile 
+      sözel bir verinin karakterlerinin taranması yapılmaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program8.py</span>
+
+p <span class="op">=</span> <span class="str">&quot;pazar&quot;</span><span 
+    class="op">;</span>
+
+uzunluk <span class="op">=</span> len<span class="op">(</span>p<span 
+    class="op">);</span>
+
+<span class="keyw">for</span> i <span class="op">in</span> range<span 
+    class="op">(</span>uzunluk<span class="op">):</span>
+    print<span class="op">(</span>p<span class="op">[</span>i<span 
+    class="op">] ,</span> <span class="str">&quot; &quot;</span> <span 
+    class="op">, </span> end <span class="op">=</span> <span 
+    class="str">&quot;&quot;</span><span class="op">);</span>
+    
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+
+p a z a r
+</span></pre>
+    <p class="indent">
+      Yukarıdaki program, range() fonksiyonu yardımı ile, bir 
+      konteyner tipi nesne örneğinin elemanlarına indis değeri 
+      ile erişimin sağlanması için ilk örneği oluşturuyor. Burada 
+      string tipi bir veri örneği, bir bir p değişkenine atanmıştır. 
+      Bu sözel verinin uzunluğu yani, toplam karakter sayısı, 
+      len<span class="op">()</span> öntanımlı fonksiyonu ile 
+      saptanıyor ve bu değer uzunluk adlı bir değişkene atanıyor. 
+      Burada tanımlanmış olan uzunluk değişkeninin değeri tamsayı 
+      tipi bir veridir ve değeri pazar sözcüğünün toplam karakter 
+      sayısı olan 5 dir. Burada, <span class="str">&quot;pazar&quot;</span> 
+      sözel verisinin karakterlerinin tümünün saptanabilmesi 
+      için 5 iterasyon yapılması gereklidir. Bu programda, range<span 
+      class="op"></span> fonksiyonun 0 (dahil) (5 - 1 = 4) dahil 
+      arası iterasyon yapılırsa, incelenen sözel verinin karakter 
+      uzunluğuna eşit sayıda, yani 5 ayrı iterasyon yapılmış 
+      ve böylelikle, karakterlerinin tümü taranmış olur.
+    </p>
+    <p class="indent">
+      Burda dikkate değer olan bir nokta, sözel verilerinin 
+      değiştirilemez olmasına karşın iterasyon yapılabilecek 
+      veriler arasında olmasıdır. Bunun nedeninin sözel veri 
+      tipi (string) adeta bir liste gibi organize olmasıdır. 
+      Sözel verilerin ilk karakteri, listelerin ilk elemanlarının 
+      indisi gibi 0 dan başlar ve her karakterde bir artarak 
+      son karaktere kadar gider. Bu yüzden, sözel veriler değiştirilemez 
+      (immutable) olmalarına karşın itere edilebilir (iterabl) 
+      olan tek basit Python veri tipidir. İterabl olan liste, topluluk gibi veri 
+	  tiplerinden, örnek olarak topluluk (tuple) de immütabl (kısmen 
+	  değiştirilemez) olmasına karşın basit değil bileşik (agglomeratif) 
+	  (topluluk tipi) veri tipleridir.</p>
+    <p class="indent">
+      Yukarıdaki programda, iterasyon değişkeni i nin değeri, 
+      varsayılan değer olan 0 dan başlıyor ve veri uzunluğu 
+      olan 5 sayısından 1 eksiği olan 4 değerine kadar eşleşme 
+      yapıyor. İterasyon değişkeni i nin değeri 4 olduğunda, 
+      iterasyon 5 inci kez tekrarlanıyor ve son karakter de 
+      eşleşmiş olduğundan döngü tamamlanmış oluyor. Program 
+      çıktısından, programın izlediği yol da görülebiliyor.</p>
+    <p id="uyg9" class="indent">
+      İterasyon yapılabilen bir konteyner tipinin eleman indislerine 
+      erişim, <span class="keyw">range</span><span 
+      class="op">()</span> fonksiyonu yardımı ile gerçekleştirilebilir. 
+      Aşağıda, bu konuda bir
+      <a href="uygulamalar/ders13/ders13program9.html">uygulama</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program9.py</span>
+L <span class="op">=</span> <span class="op">[</span>4<span 
+    class="op">,</span> 5<span class="op">,</span> 6<span 
+    class="op">]</span>
+
+<span class="keyw">for</span> indis <span class="op">in</span> <span 
+    class="keyw">range</span><span class="op">(</span><span 
+    class="keyw">len</span><span class="op">(</span>L<span 
+    class="op">)):</span>
+        <span class="keyw">print</span> <span class="op">(</span><span 
+    class="str">'indis = '</span><span class="op">, </span>indis<span 
+    class="op">)</span>
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+indis =  0
+indis =  1
+indis =  2</span></pre>
+    <p class ="indent" id="uyg10">
+      Öntanımlı <span class="keyw">range</span><span class="op">()</span>
+      fonksiyonu yardımı ile, indislenebilen koleksiyon tipi
+      verilerin elemanları, indis değerlerine göre taranabilir. 
+      <a href="uygulamalar/ders13/ders13program10.html">Örnek :</a>
+    </p>       
+    <pre class="pl-25">   
+<span class="comm"># Program : Ders13program10.py</span>
+L <span class="op">=</span> <span class="op">[</span>4<span 
+    class="op">,</span> 5<span class="op">,</span> 6<span 
+    class="op">]</span>
+
+<span class="keyw">for</span> indis <span class="op">in</span> <span 
+    class="keyw">range</span><span class="op">(</span>0<span
+    class="op">,</span> <span  class="keyw">len</span><span
+    class="op">(</span>L<span class="op">)):</span>
+        <span class="keyw">print</span> <span class="op">(</span><span 
+    class="str">'indis = {0}  L[{0}] = {1} '</span><span
+    class="op">.</span><span class="keyw">format</span><span
+    class="op">(</span>indis , L[indis]<span class="op">))</span>
+    
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+indis = 0  L[0]  = 4
+indis = 1  L[1]  = 5
+indis = 2  L[2]  = 6</span></pre>
+    <p class ="indent">
+      Yukarıda görülen program, <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinde eleman indislerine göre
+      tarama yapılabileceğini kanıtlayan bir programdır ve değeri büyüktür.
+      Yine de elemanlara indislerine göre erişim, aşağıda belirtilen öntanımlı
+      <span class="keyw">enumerate</span><span class="op">()</span>
+      fonksiyonu ile daha kolay olarak gerçekleştirilir.
+    </p>
+    <p id="enum" class="subsub">
+      2.2.2.2- enumerate() Fonksiyonu
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">enumerate</span><span 
+      class="op">()</span> fonksiyonu, iterasyon yapılabilecek 
+      bir koleksiyon veri tipi (sekansiyel bir tip) üzerinde, indis ve 
+      eleman değerlerini verebilen öntanımlı bir fonksiyondur. 
+      Kullanımı,
+    </p>
+    <p class="indent">
+      <span class="keyw">enumerate</span><span class="op">(</span>sekans[<span 
+      class="op">,</span> start <span class="op">=</span> x]<span 
+      class="op">)</span>
+    </p>
+    <p id="uyg11" class="nonindent">
+      şeklindedir. Bu fonksiyonda, start argümanı isteğe bağlıdır. 
+      Bu argüman, üretilecek olan indis değerlerinin başlayacağı 
+      sayıyı belirtir. Normal olarak 0 dan başlayacak olan indis 
+      değerleri için, start argümanını vermeye gerek yoktur. 
+      Bu argüman sadece enümerasyonun başlayacağı indis değerinin 
+      sıfırdan farklı olması istendiğinde kullanılır. Öntanımlı 
+      enumerate() fonksiyonu, sekansiyel bir veri tipinin elemanlarına 
+      sekansiyel olarak erişim (traversal) sırasında, elemanların 
+      hem indis, hem de değerlerine gereksinme duyulduğunda 
+      kullanılır. Bunlardan sadece indis değerine gereksinme 
+      olduğunda, öntanımlı <span class="keyw">range</span><span 
+      class="op">()</span> fonksiyonu, sadece eleman değerine 
+      gereksinme olduğunda ise, <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri yeterli olacaktır. 
+      Örnek bir
+      <a href="uygulamalar/ders13/ders13program11.html">uygulama</a> 
+      aşağıda verilmiştir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program11.py</span>
+L <span class="op">= [</span>45<span class="op">,</span> 78<span 
+    class="op">,</span> 33<span class="op">]</span>
+<span class="keyw">for</span> indis<span class="op">,</span> eleman <span 
+    class="op">in</span> <span class="keyw">enumerate</span><span 
+    class="op">(</span>L<span class="op">,</span> start<span 
+    class="op">=</span>2<span class="op">):</span>
+    <span class="keyw">print</span><span class="op">(</span>indis<span 
+    class="op">, </span>eleman<span class="op">)</span>
+    
+<span class="maroon"> 
+---------Program----Sonucunun----Görünntülenmesi----------------------------
+2 45
+3 78
+4 33</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, bir konteyner tipinin elemanlarına 
+      normal bir sıralı erişimde, sadece ya eleman, ya da indis 
+      değerine erişilebilirken, <span class="keyw">enumerate</span><span 
+      class="op">()</span> fonksiyonu uygulandığında, her ikisine 
+      birden erişilebildiği görülmektedir. Bu programda, indis 
+      enümerasyonu 2 den başlatılmıştır. Burada amaç start argümanının 
+      işleyişinin belirtilmesidir. Program çıkışından, start 
+      argümanının değeri ne olursa olsun, eleman değerinin listede 
+      bulunan elemanların tümünü kapsadığı ve erişimin elemanların 
+      yerleşim sırasına göre başladığı görülmektedir. Yine dikkat 
+      edilecek bir özellik, normal bir sıralı erişimde tek iterasyon 
+      değişkeni kullanılmasına karşın, burada indis ve eleman 
+      adında iki ayrı iterasyon değişkeni kullanıldığıdır.
+    </p>
+    <p id="while" class="subheading">
+      2.2.3 - while Döngüsü</p>
+    <p class="indent">
+      <span class="keyw">while</span> Döngüsünün uygulanması 
+      aşağıda görüldüğü şekildedir.</p>
+    <pre class="pl-25">
+<span class="keyw">while</span>  mantıksal ifade <span 
+    class="op">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program adımları...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
+    class="comm">#iterasyon sonu</span>
+
+[<span class="keyw">else</span><span class="op">:</span>    
+&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;program adımları...
+&nbsp;&nbsp;&nbsp;&nbsp;...]</pre>
+    <p class="indent">
+      <span class="keyw">while</span> Döngüsü, Python programlama 
+      dilinin ikinci ve son döngüsüdür. <span class="keyw">while</span> 
+      Döngülerinde, döngü çıkış değişkeninin değeri, iterasyon 
+      başında kontrol edilir. Bu değer <span class="keyw">False</span> 
+      ise, eğer varsa <span class="keyw">else</span> bildirimi 
+      çalıştırılır, yoksa, program kontrolü bir sonraki program 
+      adımına geçer.
+    </p>
+    <p class="indent">
+      Eğer varsa <span class="keyw">else</span> bloğu,
+      <span class="keyw">break</span> bidirimi dışında daima 
+      çalıştırılır.
+    </p>
+    <p id="uyg12" class="indent">
+      <span class="keyw">while</span> Döngüsü, Python programlama 
+      dilinin en esnek ve kullanıcının isteklerine açık olan 
+      döngü tipidir. Bu tip döngülerle her türlü iteratif işlem 
+      kolaylıkla programlanabilir. Bir örnek
+      <a href="uygulamalar/ders13/ders13program12.html">program</a>, 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders13program12.py</span>
+L <span class="op">=</span> [22<span class="op">,</span> 44<span 
+    class="op">,</span> 56<span class="op">,</span> 77<span 
+    class="op">,</span> 55<span class="op">,</span> 44<span 
+    class="op">]</span>
+
+i <span class="op">=</span> 0
+
+<span class="keyw">while</span> i&lt;6 <span class="op">:</span>
+
+<span class="pl-25">print</span> <span class="op">(</span><span 
+    class="str">'i'</span><span class="op">,</span> L<span 
+    class="op">[</span>i<span class="op">] )</span>
+   
+<span class="keyw-25">if</span> i  <span class="op">==</span>  1<span 
+    class="op">:</span>
+<span class="pl-50">i</span> <span class="op">=</span> i <span 
+    class="op">+</span> 1
+    
+<span class="pl-25">i</span> <span class="op">=</span> i <span 
+    class="op">+</span> 1
+
+<span class="maroon">
+
+---------Program----Sonucunun----Görünntülenmesi----------------------------0
+0 22
+1 44
+3 77
+4 55
+5 44</span></pre>
+    <p class="indent">
+      Bu programda, bir <span class="keyw">while</span> döngüsü 
+      ile bir tanımlı liste değişkenin elemanlarına indis değerleri 
+      üzerinden erişim sağlanıyor. Bilindiği gibi Python programlama 
+      dilinde, liste elemanlarına sadece <span class="keyw">
+      while</span> döngükeri ile indisleri üzerinden erişim 
+      sağlanabilmektedir. Yukarıdaki program da bunun bir örneğini 
+      oluşturmaktadır.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, bir sekansiyel veri nesne 
+      örneği yaratıldığında, bu nesne örneğinin elemanlarının 
+      indis değerleri, Python derleyicisince belirlenir. Bu 
+      değerler, ilk eleman için 0 değerinden başlar ve bir artarak 
+      son elemana kadar devam eder. Yukarıdaki programda, bir 
+      döngü içinde, indis değerlerinden yararlanılarak, liste 
+      elemanlarına erişim sağlanmakta ve liste elemanlarından 
+      birisi atlanaraki liste geçişi (list traversal) bir sonraki 
+      elemandan itibaren devam edilmektedir.
+    </p>
+    <p class="indent">
+      Tüm programlama dillerinde <span class="keyw">while</span> 
+      döngüleri çok esnek olmalarına karşın programlamaları 
+      çok hassastır. Döngü değişkenleri otomatik olarak değil 
+      el ile (manuel) arttırılmalıdır. Döngü çıkışının düzgün 
+      olarak sağlanamaması durumunda sonsuz döngüye girilmesi 
+      kaçınılmaz. Bu döngünün uygulanmasında çok dikkatli olmak 
+      gerekir.
+    </p>
+    <p class ="indent">
+      Python programlama dilinde, set (küme) tipindeki koleksiyon
+      nesneleri indislenemz ve bunun sonucunda da <span
+      class="keyw">while</span> döngüleri ile, elemanları,
+      indis değerlerine göre taranamaz. Bunun için <span
+      class="keyw">enumerate</span><span class="op">()</span>
+      fonksiyonundan yararlanmak gerekir. 
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders12.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders14.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:36 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

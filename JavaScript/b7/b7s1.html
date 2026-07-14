@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b7/b7s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:09 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b7/b7s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b7s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b6/b6s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b7s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 7
+		</p>
+		<p class="chapter">
+			Function  Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 7 Sayfa 1	
+		</p>
+		<p class="title-left" id="Function">7.1 - Function Nesne Sınfının Tanıtımı</p>
+		<p class="indent">
+			Fonksiyonlarla çalışmak konusu bölüm <a href="../b2/b2s5.html">2.5</a> de geniş ölçüde 
+			incelenmişti. Burada, fonksiyon nesne sınfı incelenecektir. 
+		</p>
+		<p class="title-left" id="FunctionConstructor">7.2 - Function Nesne Sınıfı Örnekleri
+						Yapılandırıcısı</p>
+		<p class="indent">
+			<span class="keyw">Function</span> nesne sınıfı örnekleri yapılandırıcısı, öntanımlı
+			<span class="keyw">Function</span><span class="op">()</span> fonksiyonudur. Bu 
+			fonksiyon, <span class="keyw">new</span> bildirimi ile birlikte kullanıldığında, 
+			yeni <span class="keyw">Function</span> nesne sınıfı örneklerinin yapılandırılması işlevini görür. 
+			Kullanımı, 
+		</p>
+		<pre>
+<span class="pl-50">d</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Function</span><span 
+			class="op">(</span>arg1<span 
+			class="op">,</span> arg2<span 
+			class="op">,</span> ...<span 
+			class="op">,</span> arg n<span 
+			class="op">,</span> fonksiyon gövdesi<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Tüm bu parametreler karakter digisi tipinde ve isteğe bağlıdır. Eğer istenirse, fonksiyon gövdesi olmadan bir 
+			<span class="keyw">Function</span> nesne sınıfı örneği yaratılabilir, fakat doğal olarak böyle bir
+			fonksiyonun bir işlevi olmayacaktır. Eğer tek bir argüman belirtilmişse, bu argüman fonksiyon gövdesi
+			olarak kabul edilir.
+		</p>
+		<p class="indent">
+			Bir <span class="keyw">Function</span> nesne sınıfı örneğinin gövdesi, çözümlenebilir 
+			bir yazılımda olmalıdır aksi halde, SyntaxError istisnası fırlatılır. Bu hata, birçok belge çözümleyicide, 
+			programı bir uyarı mesajı ile durdurur.
+		</p>
+		<p class="indent">
+			Eğer, birden çok argüman kullanılmışsa, en sonuncusu fonksiyon gövdesi,
+			öndan öncekiler, &quot;Formal Parametre Listesi&quot; olarak kabul edilir. 
+		</p>
+		<p class="indent">
+			Formal parametre listesinin tümü aynı karakter dizgisine toplandığından, yazılım biçimi
+			önemli değildir. Bu düşünce ile, 
+		</p>
+		<pre>
+<span class="keyw-25">var</span> k<span 
+			class="op">=</span><span 
+			class="keyw">new Function(</span><span 
+			class="str">&quot;a&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;b&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;c&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;return (a+b)*c;&quot;</span>)<span 
+			class="op">;</span>
+</pre>
+		<p class="nonindent">ile, </p>
+		<pre>
+<span class="keyw-25">var</span> k<span 
+			class="op">=</span><span 
+			class="keyw">new Function(</span><span 
+			class="str">&quot;a<span 
+			class="op">,</span></span><span 
+			class="str">b&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;c&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;return (a+b)*c;&quot;</span>)<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent"> aynı sonucu verir. </p>
+		<p class="indent">
+			<span class="keyw" id="b7.2.1-uyg-1">Function</span> nesne sınıfı yapılandırıcısı
+			ile oluşturulan <span class="keyw">Function</span> nesne sınıfı örneklerinin
+			fonksiyon adları yoktur. Bu nedenle, bu tip fonksiyonlara, anonim (isimsiz)
+			fonksiyonlar adı verilir. Bu fonksiyonlar, fonksion literalleri ve fonksiyon
+			bildirimi ile oluşturulmuş  fonksiyonlardan ayırdedilmek üzere fonksiyon
+			nesneleri (function objects) olarak da adlandırılırlar. 
+			Aşağıda, bir <a href ="../uygulamalar/b7.2.1-uyg-1.html">uygulama</a> sayfasında
+			çalışan bu konudaki bir  <a href ="../uygulamalar/b7.2.1-uyg-1-js.html">JavaScript</a>
+			programı ve sonucu görülmektedir:
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> topla <span 
+			class="op">=</span> <span 
+			class="keyw">new Function</span><span 
+			class="op">(</span><span 
+			class="str">'x'</span><span 
+			class="op">,</span> <span 
+			class="str">'y'</span><span 
+			class="op">,</span> <span 
+			class="str">'var t = x + y; return t;'</span><span 
+			class="op">);</span> 
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'2 + 2  = '</span><span 
+			class="op">,</span> topla<span 
+			class="op">(</span>2<span 
+			class="op">,</span> 2<span 
+			class="op">),</span> <span 
+			class="str">'b7.2.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b7.2.1-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Fonksiyon yapılandırıcısının kullanımı ile fonksiyon nesne sınıfı örnekleri yaratılmasının 
+			hiçbir gereği yoktur. Bu tür fonksiyon sınıfı örneği her çağılışta yeniden çözümlenmek (parsing) 
+			zorundadır ve bu da özellikle döngü içlerinde önemli bir performans kaybına neden olur. Bunun yerine sadece 
+			yaratıldığında çözümlenen fonksiyon literalleri kullanılabilir.
+		</p>
+		<p class="title-left" id="cons">7.3 - Function Nesne Sınıfı Örnekleri
+						Yapılandırıcısının  Özellikleri</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı yapılandırıcı fonksiyonunun içsel [[Prototype]] özelliğinin değeri, 
+			öntanımlı Fonksiyon nesne sınıfı prototip nesnesidir. Fonksiyon nesne sınıfı yapılandırıcı fonksiyonun
+			sadece bir tek <span class="keyw">prototype</span> özelliği vardır.
+		</p>
+		<p class="subheading" id="Functionproto">7.3.1 - Function Nesne Sınıfı Örnekleri
+						Yapılandırıcısının prototype Özelliği</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı yapılandırıcı fonksiyonunun <span class="keyw">prototype</span>
+			özelliğinin başlangıç değeri, öntanımlı fonksiyon prototip nesnesidir
+		</p>
+		<p class="title-left" id="proto">7.4 - Function Nesne Sınıfı Prototip nesnesinin Özellikleri</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı prototip nesnesine,
+		</p>
+		<pre>
+<span class="keyw-50">Function</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilir. Bu nesnesinin değeri,
+		</p>
+		<pre>
+<span class="keyw-50">Function</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> fonksiyon nesne sınıfı prototip nesnesi (boş bir fonksiyon nesnesi)
+		</pre>
+		<p class="nonindent">
+			dir.
+		</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı prototip nesnesi, yine bir fonksiyon nesnesidir. Bu nesne boş bir fonksiyondur ve 
+			istendiği kadar argüman ile çağrıldığında geriye <span class="keyw">undefined</span> değeri döndürür.
+		</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı prototip nesnesinin içsel [[Prototype]] özelliğinin
+			değeri öntanımlı <span class="keyw">Object</span> prototip nesnesidir. Bu
+			da, fonksion nesne sınıfının, generik nesne sınıfının bir alt sınıfı olduğunu açıklar. 
+		</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfı prototip nesnesinin kendisine özgü bir 
+			<span class="keyw">valueOf</span><span class="op">()</span> metodu yoktur. Fakat
+			generik nesne sınıfı prototipinin <span class="keyw">valueOf</span><span class="op">()</span>
+			metodunu kalıtımla elde eder.
+		</p>
+		<p class="subheading" id="proto-cons">7.4.1 - Function Nesne Sınıfı Prototip Nesnesinin constructor Özelliği</p>
+		<p class="indent" id="b7.4.1-uyg-1">
+			Herhangibir nesne sınıfı prototip nesnesinin başlangıç yapısı, o nesne sınıfının sınıf nesnesinin başlangıçtali
+			yapısıdır. Herhangibir nesne sınıfı prototip nesnesinin <span class="keyw">constructor</span> özellğinin
+			değeri, o nesne sınıfının yapılandırıcı fonksiyonunun yazılımıdır. Bu bilgilerle, fonksiyon nesne sınıfı 
+			prototip nesnesinin <span class="keyw">constructor</span> özelliğinin değeri, öntanımlı 
+			<span class="keyw">Function</span><span class="op">()</span> yapılandırıcı fonksiyonu olacaktır. 
+			Bunu bir <a href="../uygulamalar/b7.4.1-uyg-1-js.html">JavaScript</a> programı ile kontrol edebiliriz. 
+			Bu programın bir <a href="../uygulamalar/b7.4.1-uyg-1.html">uygulama</a> sayfasında verdiği 
+			sonuçlar aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Function.constructor = '</span><span 
+			class="op">,</span> <span 
+			class="keyw">Function</span><span 
+			class="op">.</span><span 
+			class="keyw">constructor</span><span 
+			class="op">,</span> <span 
+			class="str">'b7.4.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b7.4.1-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b7.4.1-uyg-1.html">Uygulama</a> sayfasında görüntülenen sonuçtan, 
+			fonksiyon nesne sınıfı prototip nesnesinin yapılandırıcısının beklendiği gibi, <span 
+			class="keyw">Function</span><span class="op">()</span> öntanımlı yapılandırıcı 
+			fonksiyonu olduğu görülmektedir. Bu bir öntanımlı fonksiyon olduğundan yazılımı kullanıcılara
+			kapalıdır. Bu nedenle, <span class="keyw">{native code}</span> (öntanımlı kod) sonucu 
+			görüntülenmektedir.
+		</p>
+		<p class="subheading" id="proto-toString">7.4.2 - Function Nesne Sınıfı Prototip Nesnesinin toString() Metodu</p>
+		<p class="indent">
+			Fonksiyon nesne sınıfının <span class="keyw">toString</span><span class="op">()</span> metodunun 
+			uygulaması, generik nesne sınıfı gibidir. Bu metot, generik nesne sınıfı prototipinden kalıtımla 
+			fonksiyon nesne sınıfına aktarılmış, fakat fonksiyon nesne sınıfında içeriği yenilenmiş ve fonksiyon nesne 
+			sınıfına uygun hale getirilmiştir. Yani <span class="keyw">toString</span><span class="op">()</span> 
+			metoduna <span class="keyw">Function</span> nesne sınıfında bindirilmiştir.
+		</p>
+		<p class="indent" id="b7.4.2-uyg-1">
+			Fonksiyon nesne sınıfının prototipinin içeriğini <span class="keyw">toString</span><span class="op">()</span>
+			metodu ile yazdırmak olanağı bulunamaz. Çünkü, bu fonksiyonun yapısı kullanıcıya kapalıdır. Bunun yerine, bir 
+			fonksiyon nesne sınıfı örneğinin içeriğini bu metodu kullanarak yazdırmaya çalışalım . Bunun için yazılan bir 
+			<a href="../uygulamalar/b7.4.2-uyg-1-js.html">JavaScript</a> programının, bir
+			<a href="../uygulamalar/b7.4.2-uyg-1.html">uygulama</a> sayfasında verdiği 	sonuç aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> çarp<span 
+			class="op">(</span>x<span 
+			class="op">,</span> y<span 
+			class="op">) {</span>
+<span class="keyw-50">return </span>x <span 
+			class="op">*</span> y<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		
+<span class="keyw-50">...</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'çarp.toString() = '</span><span 
+			class="op">,</span> çarp<span 
+			class="op">.</span><span 
+			class="keyw">toString</span><span 
+			class="op">(),</span> <span 
+			class="str">'b7.4.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b7.4.2-uyg-1-sonuç-1">
+		</p>
+		<p class="subheading" id="proto-apply">7.4.3 - Function Nesne Sınıfı Prototip Nesnesinin apply() Metodu</p>
+		<p class="cursive-red">
+			(Dikkat ! İleri Düzey Metot ! Tüm JavaScript Çekirdek Özelliklerinin İncelenmesinden
+				Sonra Okunması Sağlık Verilir!)
+		</p>
+		<p class="indent">
+			Bu metodun amacı, bir nesnesin metodunu başka bir nesne ile çağırabilir hale getirmektir. Yazılımı,
+		</p>
+		<pre>
+<span class="str-50"><em>FonksiyonNesneSınıfıÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>[thisNesnesi[, argümanDizisi]]<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="nonindent">
+			<span class="red"><em>FonksiyonNesneSınıfıÖrneği</em></span> : Bir fonksiyon bildiriminde,
+			fonksiyonun ismi olabilir. Örnek,
+		</p>
+		<pre>
+<span class="keyw-25">function</span> eklenti <span 
+			class="op">(</span>x<span 
+			class="op">,</span> y<span 
+			class="op">) {</span> 
+<span class="keyw-50">return</span> x+y<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">eklenti</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span> ...
+		</pre>
+		<p class="nonindent">
+			vaya bir fonksiyon literali atanmış bir değişken olabilir. Örnek:
+		</p>
+		<pre>
+<span class="pl-25">t</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>...
+			
+<span class="pl-25">t</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span> ...
+		</pre>
+		<p class="nonindent">
+			( Burada t değişkenine, fonksiyonun bellekteki yerini işaret eden bir 
+			bellek işaretçisi (pointer) atanmıştır.)
+		</p>
+		<p class="nonindent">
+			veya bir fonksiyonun bellekteki yerini işaret eden bir 
+			bellek işaretçisi (pointer) atanmış olan bir değişken olabilir. Örnek:
+		</p>
+		<pre>
+<span class="pl-25">t</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>...
+
+<span class="keyw-25">var</span> p <span 
+			class="op">=</span> t<span 
+			class="op">;</span>
+
+<span class="pl-25">p</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span> ...
+		</pre>
+		<p class="nonindent">
+			Bu metodun uygulanabilmesi için, bir fonksiyon nesne sınıfı örneğinin belirtilmesi gereklidir.
+		</p>
+		<p class="nonindent">
+			thisNesnesi : <span class="keyw">this</span> saklı sözcüğünün geçerli olacağı nesne sınıfının adı 
+			(isteğe bağlı) eğer hiçbir sınıf adı belirtilmemişse, <span class="keyw">this</span> saklı sözcüğünün
+			belirteceği nesne Global JavaScript Nesnesi olur. (Bu argüman, bir nesne literali de olabilir.)
+		</p>
+		<p class="nonindent">
+			argüman dizisi : Elemanları fonksiyonun çağrılması için gerekli argümanlar
+			olan dizi (fonksiyonun formal parametre dizisi) (isteğe bağlı) (
+			istenirse fonksiyonun öntanımlı argüman dizisi arguments olarak da belirtilebilir).
+		</p>
+		<p class="indent" id="b7.4.3-uyg-1">
+			Basit bir uygulama için örnek <a href="../uygulamalar/b7.4.3-uyg-1-js.html">JavaScript programı</a> ve 
+			ilişikli olduğu, <a href="../uygulamalar/b7.4.3-uyg-1.html">uygulama</a> sayfasında verdiği sonuç, aşağıda
+			görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> renkBilgisi<span 
+			class="op">(</span>önEk<span 
+			class="op">,</span> sonEk<span 
+			class="op">) {</span>
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>önEk <span 
+			class="op">+</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>renk <span 
+			class="op">+</span> sonEk<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">var</span>nesne <span 
+			class="op">= {};</span> 
+
+<span class="pl-25">nesne</span><span 
+			class="op">.</span>renk <span 
+			class="op">=</span> <span 
+			class="str">'Kırmızı'</span><span 
+			class="op">;</span>
+		
+<span class="pl-25">renkBilgisi</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>nesne<span 
+			class="op">,</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Gerçekten'</span><span 
+			class="op">,</span> <span 
+			class="str">'\n Çok Güzel Bir Renktir!'</span><span 
+			class="op">));</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="tab1"><em>Mesaj Göster !</em></a>
+			</li>
+			<li id="cn-sonlama"></li>
+		</ul>
+		<p class="indent" id="b7.4.3-uyg-2">
+			Bu metodun amacı, <span class="keyw">this</span> saklı sözcüğü kullanılarak, 
+			bir fonksiyonun birden çok nesne için metot olarak hareket etmesini sağlamaktır. 
+			Bu  yöntemi kullanan bir <a href="../uygulamalar/b7.4.3-uyg-2-js.html">JavaScript fonksiyonu</a> ve
+			ilişkilendirilmiş olduğu bir <a href="../uygulamalar/b7.4.3-uyg-2.html">uygulama</a> sayfasında
+			verdiği sonuç, aşağıda görülmektedir:		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">var</span> x <span 
+			class="op">= </span><span 
+			class="str">'Global x'</span><span 
+			class="op">;</span>
+
+<span class="keyw-25">var</span> k <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 16.44<span 
+			class="op">};</span>
+
+<span class="keyw-25">function</span> mesajYaz<span 
+			class="op">() {</span>
+<span class="keyw-50">alert</span><span 
+			class="op">(</span><span 
+			class="str">'x = '</span> <span 
+			class="op">+</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>x<span 
+			class="op">);</span> 
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> mesaj2<span 
+			class="op">() {</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">(</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> mesaj3<span 
+			class="op">() {</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>k<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat2<span 
+			class="op">(){</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3-uyg-2-sonuç-1'</span><span 
+			class="op">),</span>
+<span class="pl-75"></span><span class="pl-10">b</span><span class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj2<span 
+			class="op">;</span>
+<span class="pl-50">b</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj3<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat2</span><span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+
+		<p>
+			<span><input type="button" value="Global x" class="option2" id ="b7.4.3-uyg-2-sonuç-1" /></span>
+			<span class="pl-50"><input type="button" value="k.x" class="option2" id ="b7.4.3-uyg-2-sonuç-2" /></span>
+		</p>
+		<p class="indent">
+			Bu programda, 
+		</p>
+		<pre>
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>k<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			yerine, 
+		</p>
+		<pre>
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>k<span 
+			class="op">,</span> arguments<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			yazılabilirdi. Buradaki <span class="keyw">arguments</span> dizi olarak hareket
+			eden öntanımlı nesne, fonksiyon kodlarının çalıştırma kapsamına girdiğinde
+			otomatik olaraki oluşturulur. Bu diziye benzer bir öntanımlı nesnedir ve 
+			<span class="keyw">apply</span> metodunun ikinci parametresi olan 
+			fonksiyon argümanlarının yerini tutar.Biraz ileride, 
+			<span class="keyw">arguments</span> nesnesini daha yakından inceleyeceğiz.
+			JavaScript  fonksiyonları argümanlarının çok esnek bir şekilde kullanılmasına
+			olanak sağlar. Tanım şırasında belirtilen formal parametre listesine uyulması
+			zorunluğu yoktur. Fonksiyon belirtilen parametrelerle verbileceği sonuçları
+			verir. Doğal olarak, verilen parametrelerle bir sonuç alınamıyorsa hata
+			oluşur. Bazı durumlarda, fonksion sıfır parametre ile tanımlanabilir, fakat
+			bir parametre listesi ile çağrılabilir. Bu durumda belirtilen parametreler, 
+			<span 	class="keyw">arguments</span> dizisinin elemanları gibi düşünülür ve 
+			işleme girerler. Bu konuda  <span 	class="keyw">arguments</span> dizisi
+			incelendiğinde örnekler verilecektir.
+		</p>
+		<p class="indent">
+			Burada incelemekte olduğumuz, <span class="keyw">apply</span><span 
+			class="op">()</span> meetodu, JavaScript programlanması için az kulanılan 
+			metotlardandır. 	Bu metot ile gelişkin uygulamalar yapılması Olasıdır. Bu 
+			uygulamalardan biri 
+			<a href="http://ejohn.org/blog/javascript-method-overloading/">John Resig</a> 
+			tarafından düzenlenmiştir. Gelişkin uygulamalar için, her zaman faydalı kısımlar,
+			sakıncalı olabilecek yönler ile birlikte düşünülmelidir.
+		</p>
+		<p class="indent" id="b7.4.3-uyg-3">
+			İleri tekniklerden birisi de, 
+			<a href="http://www.digital-web.com/articles/scope_in_javascript">Mike West</a>
+			tarafından geliştirilen bind<span class="op">()</span> fonksiyonudur. Aşağıda, bir 
+			<a href="../uygulamalar/b7.4.3-uyg-3-js.html">JavaScript programı</a> ile bu fonksiyon 
+			uygulanmaktadır. Programın iliştirildiği 
+			<a href="../uygulamalar/b7.4.3-uyg-3.html">web sayfasında</a> verdiği sonuçlar aşağıda 
+			görüntülenmektedir:		</p>
+<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">Function</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span>bağla <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">(</span>nesne<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> metot <span 
+			class="op">=</span> this<span 
+			class="op">,</span> 
+<span class="pl-75">geçici</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+<span class="keyw-100">return</span> metot<span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>nesne<span 
+			class="op">,</span> <span 
+			class="keyw">arguments</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-50">return</span> geçici<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> çarpım<span 
+			class="op">(</span>değer<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> <span 
+class="keyw">this</span> <span 
+			class="op">*</span> değer<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> mesaj4<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> ilkNesne <span 
+			class="op">= {</span>sayı <span 
+			class="op">:</span> 12<span 
+			class="op">},</span>
+<span class="pl-75">ilkÇarpım</span> <span 
+			class="op">=</span> çarpım<span 
+			class="op">.</span>bağla<span 
+			class="op">(</span>ilkNesne<span 
+			class="op">);</span>
+
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>ilkNesne<span 
+			class="op">.</span>sayı <span 
+			class="op">+</span> <span 
+			class="str">' + '</span> <span 
+			class="op">+</span> <span 
+			class="str">'ilkÇarpım'</span><span 
+			class="op">(</span>5<span 
+			class="op">));</span><span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> mesaj5<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> ikinciNesne <span 
+			class="op">= {</span>sayı <span 
+			class="op">:</span> 24<span 
+			class="op">},</span>
+<span class="pl-75">ikinciÇarpım</span> <span 
+			class="op">=</span> çarpım<span 
+			class="op">.</span>bağla<span 
+			class="op">(</span>ikinciNesne<span 
+			class="op">);</span>
+
+<span class="keyw-50">alert</span><span 
+			class="op">(</span>ikinciNesne<span 
+			class="op">.</span>sayı <span 
+			class="op">+</span> <span 
+			class="str">' + '</span> <span 
+			class="op">+</span> <span 
+			class="str">'ikinciÇarpım'</span><span 
+			class="op">(</span>5<span 
+			class="op">));</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat3<span 
+			class="op">(){</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3-uyg-3-sonuç-1'</span><span 
+			class="op">),</span>
+<span class="pl-50">b</span><span class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj4<span 
+			class="op">;</span>
+<span class="pl-50">b</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj5<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat3</span><span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<input type="button" value="İlk Nesne" class="option2" id ="b7.4.3-uyg-3-sonuç-1" />
+			<span class="pl-50"><input type="button" value="İkinci Nesne" class="option2" id ="b7.4.3-uyg-3-sonuç-2" /></span>
+		</p>
+		<p class="indent">
+			Bu uygulama, tam bir polimorfi örneğidir, çünkü tek metodu iki nesne paylaşabilmektedir.
+				 Bunun gerçekleştirilebilmiş olması ise fazlası ile karmaşık mekanizmalar
+				sayesinde olabilmektedir. İlk olarak, <span class="keyw">Function</span> nesne
+				sınıfı prototipini genişleten bağla <span class="op">()</span>
+			fonksiyonu, <span class="keyw">Function</span> nesne sınıfı prototipine yeni
+			bir metot olarak eklenmektedir. Bu şekilde, bağla <span class="op">()</span> metodu,
+			programdaki tüm fonksiyonlar için erişilebilir olmaktadır. Genel olarak,
+			öntanımlı nesne sınıflarının prototiplerine katkı yapmak çok olumlu bir
+			yöntem olarak kabul edilmez. Bu durum, programda kullanılan tüm fonksiyonlarının
+			tazşınabilirliğini olumsuz olarak etkiler. Fakat, bilinçli olarak kullanılırsa,
+			bu durumun tolere edilebileceği söylenebilir.
+		</p>
+		<p class="indent">
+			bağla<span class="op">()</span> Metodunun yazılımında, <span class="keyw">this</span> değeri,
+			metodun uygulandığı fonksiyon, yani çarpım<span class="op">()</span> fonksiyonu
+			olarak belirlenir.  bind<span class="op">()</span> Metodunun argümanı olan
+			nesne çarpım metodunun bağlanacağı nesneyi işaret eder. Bundan sonra bir
+			kapalı devre (closure) yaratılmaktadır. Bu kapalı devre, üst çalışma alaınından, <span class="keyw">this</span> bir
+			markalanmış metodun adını almakta ve metodu nesneye bağlayarak  sonucu
+			döndürmektedir. Kapalı devrenin döndürdüğü sonuç, foksiyonun sonucu olarak
+			geri döndürülmektedir.
+		</p>
+		<p class="indent">
+			Bu şekilde, aynı çarpım<span class="op">()</span> fonksionu, bağla<span class="op">()</span> 
+			metodu yardımı ile, bir ilkNesneye bir ikinciNesneye bağlanarak polimorfi
+			gerçekleştirilmiştir.		</p>
+		<p class="indent" id="b7.4.3-uyg-4">
+			bağla<span class="op">()</span> Metodu, olay yöneticilerine 
+			doğru nesneyi bağlamak için kullanılabilir. Aşağıdaki 
+			<a href="../uygulamalar/b7.4.3-uyg-4-js.html">JavaScript programı</a>
+			karışık <span class="keyw">this</span> saklı sözcüklerinin hedef 
+			şaşırtabileceği durumlarda, fonksiyonun doğru nesneyi işaret etmesi
+			için yararlı olmaktadır. Bu programın bağlantılı olduğu bir 
+			<a href="../uygulamalar/b7.4.3-uyg-4.html">uygulama</a> sayfasında
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">Function</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span>bağla <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">(</span>nesne<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> metot <span 
+			class="op">=</span> this<span 
+			class="op">,</span> 
+<span class="pl-75">geçici</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+<span class="keyw-100">return</span> metot<span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>nesne<span 
+			class="op">,</span> <span 
+			class="keyw">arguments</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-50">return</span> geçici<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> BüyükSoru<span 
+			class="op">(</span>yanıt<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>gerçekYanıt <span 
+			class="op">=</span> yanıt<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soruSor <span 
+			class="op">=</span> function<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>gerçekYanıt<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> olayYöneticisiEkle<span 
+			class="op">();</span>
+
+<span class="keyw-50">var</span> büyükDüşünce <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> BüyükSoru<span 
+			class="op">(</span><span 
+			class="str">'Gerçek Yanıt, Hiçbir Yanıt Olmadığıdır !'</span><span 
+			class="op">)</span>,
+<span class="pl-50">düğme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3.-uyg-4-düğme-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> büyükDüşünce<span 
+			class="op">.</span>soruSor<span 
+			class="op">.</span>bağla<span 
+			class="op">(</span>büyükDüşünce<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>olayYöneticisiEkle</span><span 
+			class="op">);</span>
+		
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<input type="button" class="option2" id ="b7.4.3-uyg-4-düğme-1" value="Gerçek Yanıt" />
+		</p>
+		<p class="indent">
+			Bu uygulamada da görüldüğü gibi, <span class="keyw">this</span> saklı sözcüğü,
+			 program akışı içinde bukalemun gibi anlam değiştirmektedir. BüyükSoru<span class="op">()</span>
+			fonksiyonu bir yapılandırıcı fonksiyondur ve 
+			<span class="keyw">new</span> BüyükSoru<span class="op">(</span>değer<span class="op">);</span>
+			şeklinde yeni bir BüyükSoru sınıf örneğini yapılandırırken, <span class="keyw">this</span> saklı
+			sözcükleri yeni yapılandırılacak nesne özelliğinin özellikleri olarak değerlendirilir.
+			Fakat sorSor<span class="op">()</span> metodunun içindeki <span class="keyw">alert</span><span 
+			class="op">(</span><span class="keyw">this</span><span class="op">.</span> gerçekYanıt<span 
+			class="op">);</span> satırındaki, <span class="keyw">this</span> saklı
+			sözcüğü, BüyükSoru sınıfından yeni yapılandırılan nesne örneğini değil,
+			fonksiyonu çağıran <span 
+			class="keyw">DOM</span> düğme elementini belirtmekte ve bunun da bir gerçekYanıt
+			özelliği olmadığından, normalde program hata vermektedir. Burada 
+			bağla<span class="op">()</span> fonksiyonu
+			 metodu yeni yapılandırılan büyükDüşünce adlı, BüyükSoru nesne sınıfı örneğine
+			bağlayarak, doğru yeri işaret etmesini sağlamakta ve programı çalıştırmaktadır.
+			Unutulmaması gereken, bu olanağın,
+			<span class="keyw">Function</span> nesne sınıfı prototipinin arttırılması
+			pahasına elde edilmiş olmasıdır.
+		</p>
+		<p class="indent" id="b7.4.3-uyg-5">
+			Yukardıdaki <a href="../uygulamalar/b7.4.3-uyg-4.html">uygulama</a>  ile aynı sonucu, biraz düzenleme ile
+			<span class="keyw">Function</span> nesne sınıfı prototipinin arttırılmasınıa neden olan 
+			bağla<span class="op">()</span> fonksiyonunun uygulanmasına gerek kalmadan da alabiliriz.  Bunu sağlayacak
+			<a href="../uygulamalar/b7.4.3-uyg-5-js.html">JavaScript programı</a> ve bağlı olduğu, 
+			<a href="../uygulamalar/b7.4.3-uyg-5.html">uygulama</a> sayfasında verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">function</span> BüyükSoru<span 
+			class="op">(</span>yanıt<span 
+			class="op">);</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>gerçekYanıt <span 
+			class="op">=</span> yanıt<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soruSor <span 
+			class="op">=</span> function<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>gerçekYanıt<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> açıkla<span 
+			class="op">();</span>
+
+<span class="keyw-50">var</span> büyükDüşünce <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> BüyükSoru<span 
+			class="op">(</span><span 
+			class="str">'Gerçek Yanıt, Hiçbir Yanıt Olmadığıdır !'</span><span 
+			class="op">)</span>,
+
+<span class="pl-50">büyükDüşünce</span><span 
+			class="op">.</span>soruSor<span 
+			class="op">();</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> olayYöneticisineBağla<span 
+			class="op">();</span>
+
+<span class="pl-50">düğme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.3.-uyg-5-düğme-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span>açıkla<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>olayYöneticisineBağla</span><span 
+			class="op">);</span>
+		
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<input type="button" class="option2" id ="b7.4.3-uyg-5-düğme-1" value="Gerçek Yanıt" />
+		</p>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b7.4.3-uyg-5.html">uygulama</a> ile bir önceki 
+			<a href="../uygulamalar/b7.4.3-uyg-4.html">uygulama</a> arasındaki fark, BüyükSoru<span class="op">()</span>
+			nesne sınıfının bir örneği olan büyükDüşünce nesnesinin soruSor<span class="op">()</span> metdounun
+			sahibinin değiştirilmiş olmasıdır. İlk <a href="../uygulamalar/b7.4.3-uyg-4.html">uygulama</a> da
+			metot,
+		</p>
+		<pre>
+
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> büyükDüşünce<span 
+			class="op">.</span>soruSor<span 
+			class="op">.</span>bağla<span 
+			class="op">(</span>büyükDüşünce<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde çağrıldığından, metodunun sahibi, metodu çağıran düğme1 nesnesidir
+				ve bunun da, bir gerçekYanıt özelliği olmadığından sonuç <span class="keyw">undefined</span> olarak
+				elde edilmektedir.  Bu nedenle, bağla<span class="op">()</span> fonksiyonu
+				kullanılarak, çağrının yeni nesne örneğine bağlanması sağlanmış, fakat
+				bunun bir yan etkisi olarak <span class="keyw">Function</span> nesne sınıfının 
+			<span class="keyw">prototype</span> özelliğine yeni bir özellik eklenmesi
+			gerekmiştir. Bir tür gizli global olan bu işlemden kurtulmak için, bağla<span class="op">()</span> fonksionunun
+			kullanımını gerektirmeyen bir  tasarım olan, ikinci <a href="../uygulamalar/b7.4.3-uyg-5.html">uygulamada</a> ise,
+			çağıyı yapan  doğrudan yani nesne örneğidir ve bunun da gerçekYanıt özelliği
+			olduğundan, sonuç doğru çıkmakta, bağla<span class="op">()</span> fonksionunun
+			kullanımına gereksinme kalmamaktadır. Sonuçta, her iki fonksiyon da aynı
+			işi yapmakta ama sonuncusunun hem kodları daha açık hem de taşınabilirliği
+			daha yüksek olmaktadır. 
+		</p>
+		<p class="indent">
+			Eski bir atasözünün dediği gibi, &quot;When There Is A Will, There Is Allways
+				A Way&quot; yani, istek olduğunda daima bir  yol vardır. Kendi başına, <span class="keyw">apply</span><span class="op">()</span> metodunun
+				uygulanması için hiçbir engel yoktur, fakat, öntanımlı bir nesne sınıfı
+				prototipinin değiştirilmesi, çok büyük bir gereksinme yoksa, kesinlikle uzuak
+				durulması gereken bir eylemdir. Bu durumda, tutulması gereken yol, eğer yapılabiliyorsa, bizim de bu
+				uygulamalarda yaptığımız gibi, tasarım değiştirmek ve öntanımlı bir nesne
+				sınıfı prototipinin değiştirilmesini gerektirmeyecek bir tasarım geliştirmektir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dili, gerçekten çok esnek, olanakları çok geniş ve teknik temelleri çok sağlam 
+			bir programlama dilidir. Kendi dil yapısı sıkı bir şekilde nesne yönelimli olmasına karşın, uygulamalarında
+			hem prosedüral hem de nesne yönelimli yöntemleri aynı etkinlikle destekleyebilien, belki de ADA program
+			dilinden sonra ikinci sırayı alabilecek bir programlama dildir. Buna rağmen her yapılabilenin mutlaka 
+			yapılması gerekir diye bir kural yoktur. En profesyonel uygulama en karışık olan değil, verilen işi yapan, 
+			en kolay okunur, en açık yazılımı olan ve en kolay bakımı yapılabilen bir programdır.
+		</p>
+		<p class="subheading" id="proto-call">7.4.4 - Function Nesne Sınıfı Prototip Nesnesinin call() Metodu</p>
+		<p class="cursive-red">
+			(Dikkat ! İleri Düzey Metot ! Tüm JavaScript Çekirdek Özelliklerinin İncelenmesinden
+				Sonra Okunması Sağlık Verilir!)
+		</p>
+		<p class="indent">
+			Bu metodun amacı, aynen <span class="keyw">apply</span><span class="op">()</span>
+			metodu gibi, bir nesnenin metodunu başka bir nesne ile çağırabilir hale getirmektir. Yazılımı,
+		</p>
+		<pre>
+<span class="str-50"><em>FonksiyonNesneSınıfıÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">call</span><span 
+			class="op">(</span>[thisNesnesi[, argüman1, argüman2, ...]]<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada ikinci parametre gurubu, bir dizi değildir, argümanlar sıra ile belirtilir. Ayrıca, 
+			ikinci parametre olarak öntanımlı <span class="keyw">arguments</span> saklı sözcüğü de kullanılmaz. 
+			Bunun dışında, <span class="keyw"></span>call<span class="op">()</span> metodu ile 
+			<span class="keyw">apply</span><span class="op">()</span> metotlarının kullanım yerleri aynıdır.
+		</p>
+		<p class="indent">
+			Örnek olarak <a href="../uygulamalar/b7.4.3-uyg-2.html">uygulama</a> sayfası ile ilişikli, 
+			<a href="../uygulamalar/b7.4.3-uyg-2-js.html">JavaScript fonksiyonunun</a>,
+		</p>
+		<pre>
+<span class="keyw-25">function</span> mesaj3<span 
+			class="op">() {</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">apply</span><span 
+			class="op">(</span>k<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			kısmı istenirse, 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">call</span><span 
+			class="op">(</span>k<span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent" id="b7.4.4-uyg-1">
+			olarak değiştirilebilir.  Aşağıda 
+			<a href="../uygulamalar/b7.4.4-uyg-1-js.html">JavaScript kodları</a> verilmiş 
+			olan <a href="../uygulamalar/b7.4.4-uyg-1.html">uygulamada</a>, bu değişiklik yapılmıştır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="keyw-25">var</span> x <span 
+			class="op">= </span><span 
+			class="str">'Global x'</span><span 
+			class="op">;</span>
+
+<span class="keyw-25">var</span> k <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 16.44<span 
+			class="op">};</span>
+
+<span class="keyw-25">function</span> mesajYaz<span 
+			class="op">() {</span>
+<span class="keyw-50">alert</span><span 
+			class="op">(</span><span 
+			class="str">'x = '</span> <span 
+			class="op">+</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>x<span 
+			class="op">);</span> 
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> mesaj2<span 
+			class="op">() {</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">(</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> mesaj6<span 
+			class="op">() {</span>
+
+<span class="pl-50">mesajYaz</span><span 
+			class="op">.</span><span 
+			class="keyw">call</span><span 
+			class="op">(</span>k<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat4<span 
+			class="op">(){</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.4-uyg-1-sonuç-1'</span><span 
+			class="op">),</span>
+<span class="pl-50">b</span><span class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'b7.4.4-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj2<span 
+			class="op">;</span>
+<span class="pl-50">b</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj6<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat4</span><span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span><input type="button" value="Global x" class="option2" id ="b7.4.4-uyg-1-sonuç-1" /></span>
+			<span class="pl-50"><input type="button" value="k.x" class="option2" id ="b7.4.4-uyg-1-sonuç-2" /></span>
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b7.4.4-uyg-1.html">uygulamanın</a>, sonuçlarından da 
+			görüldüğü gibi, <span class="keyw">apply</span><span class="op">()</span> ve 
+			<span class="keyw">call</span><span class="op">()</span> metotlarının kullanım amaçları birbirlerinin 
+			aynıdır. Sadece <span class="keyw">apply</span><span class="op">()</span> metodu daha kurumsal, 
+			<span class="keyw">call</span><span class="op">()</span> metodu daha bireyseldir. Koşullar 
+			uygun oldukça, programcılar ikisinden birini rahatlıkla seçebilirler.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="../b6/b6s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b7s2.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.2.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.3-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.3-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.3-uyg-4.js">
+		</script> -->
+		<script type="text/javascript" src="../js/b7.4.3-uyg-5.js">
+		</script>
+		<script type="text/javascript" src="../js/b7.4.4-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b7/b7s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:09 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

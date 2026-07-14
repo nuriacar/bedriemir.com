@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:51 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s8.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<link rel="stylesheet" type="text/css" href="../css/b18s8.css" />
+		<title>b18s8</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s7.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s9.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 8
+		</p>
+		<p class="title-left" id="frame">
+			18.8 - window Nesnesinin frames Alt Nesnesi (Çerçevelerle Çalışmak)
+		</p>
+		<p class="indent" id="framework">
+			Çerçevelerle çalışmak, belge çözümleyicilerinin gitgide iyileşen desteği ve 
+			XHTML 1.1 sürümü DTD sinde çapa elementinin <span class="att">target</span>
+			özelliğinin desteklenmesi ile günümüzde kolaylaşmıştır. 
+		</p>
+		<p class="indent">
+			Çerçeveler ile çalışan bir sayfa topluğunda JavaScript programlarının uygulanmasını 
+			incelemeden önce, çerçeve topluluklarının düzenlenmesi üzerinde hatırlatıcı bir çalışma
+			yapmak faydalı olacaktır. Çerçeveler, prensip olarak tablolara benzerler. Çerçeveler
+			tablolar gibi satır ve sütünlar halinde düzenlenirler, sadece tablolarda farklı olarak her
+			satır ve sütunda ayrı bir sayfa bulunur. Bu sayfalara çerçeve (frame) adı verilir ve 
+			kodlamaları, standart XHTML 1.1 DTD si ile yapılır. Eğer HTML 4.01 veya XHTML 1.0
+			DTD leri kullanılacaksa, bunların çapaı elementinde <span class="att">target</span>
+			niteliğini destekleyen transitional veya  frameset DTD lerinden birisi altında 
+			kodlanmaları gereklidir. 
+		</p>
+		<p class="indent">
+			Her çerçeve sisteminin düzenini belirleyen bir çerçeve düzenleme
+			sayfası bulunmalıdır.  Çerçeve düzenlenme sayfası özel bir sayfadır.
+			Bu sayfanın içeriği görüntülenmez, işlevi sadece çerçevelerin
+			düzenini belitmek ve yani çerçevelerin sayfayı ne şekiilde paylaşacaklarını
+			belirlemektir. Çerçeve düzenlenme sayfasının DTD si ve kodlaması
+			özeldir. XHTML DTD si altında, çerçeve düzenleme sayfasında XHTML frameset 
+			DTD si kullanılmalıdır. XHTML 1.1 altında, frameset DTD kullanılması gerekecek tek 
+			kullanım yeri çerçeve düzenleme sayfasıdır. Bu sayfanın da görüntülenen bir içeriği 
+			yoktur. Bu çok önemlidir, çünkü frameset DTD gevşek kurallı bir DTD dir ve sayfa
+			yazılımında birçok kuralı gözardı eder. Oysa, XHTML in oluşturulma nedeni,
+			sıkı kurallı site yazılımları oluşturmaktır. Gevşek kuralcı frameset DTD
+			si bu amaça ulaşmayı engeller. XHTML 1.0 da karşılaşılan bu zorluk, XHTML
+			1.1 spesifikasyonu ile aşılmış, sadece düzenleme sayfasında gevşek kuralcı
+			frameset DTD si kullanılması yeterli olmuştur. Bunun da bir içerik değeri yoktur. 
+			XHTML 1.1 ile bir çerçeve sistemini oluşturan tüm çerçeveler, sıkı kuralcı XHTML 
+			1.1 DTD si altında yazılabilir hale gelmiştir. 
+		</p>
+		<p class="indent">
+			Çerçeve sistemleri sadece bağımsız çerçeve düzenleme sayfaları uygulamaları
+			ile gerçekleştirilmez. Çok az rastlanılsa da, sayfa kodları arasında
+			kullanılan <span class="keyw">&lt;</span><span class="elm">iframe</span><span 
+			class="keyw">&gt;</span> elementi de çerçeve düzenleme sayfası olarak hareket eder 
+			ve sayfa içine bir çerçeve sistemi yerleştirebilir. Yeni gelişmelerle, 
+			<span class="keyw">&lt;</span><span class="elm">iframe</span><span 
+			class="keyw">&gt;</span> elementi de güncelliğini yitirmiş sayılmakta ve satıriçi
+			çerçeve sistemleri <span class="keyw">&lt;</span><span class="elm">object</span><span 
+			class="keyw">&gt;</span> elementinin içeriği olarak oluşturulabilmektedir. Ayrıca, çerçeve sistemleri, 
+			(X)HTML sistemindeki yerleşim modeline uygun olarak, salt JavaScript kodları ile sıfırdan başlanarak da
+			oluşturulabilir. Bu yöntemi de gerektiğinde ilerde uygulayacağız. 
+		</p>
+		<p class="indent">
+			Aşağıdaki örnek, bir <a href="../framework/index.html">index.htm</a> düzenleme sayfası
+			ile oluşturulmuş bir çerçeve sistemini göstermektedir. Bu düzenleme sayfasının kodları
+			aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw">&lt;?xml</span>&nbsp;<span
+			class="att">version</span><span
+			class="op">=</span><span
+			class="str">&quot;1.0&quot;</span>&nbsp;<span
+			class="att">encoding</span><span
+			class="op">=</span><span
+			class="str">&quot;utf-8&quot;</span>&nbsp;<span
+			class="keyw">?&gt;</span>
+
+<span class="keyw">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC</span><span
+			class="str"> &quot;</span><span
+			class="str">-//W3C//DTD XHTML 1.0 Frameset//EN&quot;</span>
+<span class="str-200">&quot;</span><span
+			class="str">http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="elm">html</span>&nbsp;<span
+			class="keyw">xmlns</span><span
+			class="op">=</span><span
+			class="str">&quot;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;</span><span
+			class="keyw"> xml</span><span
+			class="op">:</span><span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>
+
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;application/xhtml+xml; </span><span
+			class="str">charset=utf-8&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Language&quot;</span> <span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Style-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Script-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/JavaScript&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Title&quot;</span>&nbsp;<span
+			class="att"> content</span><span
+			class="op">=</span><span
+			class="str">&quot;Webtech JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Subject&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Description&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial in Turkish Language&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Keywords&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial Turkish&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Language&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Abstract&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Publisher&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Prof. Dr. Bedri Doğan Emir&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Distribution&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Local&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Robots&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Index&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>Frame Control<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">frameset</span> <span
+			class="att">rows</span><span
+			class="op">=</span><span
+			class="str">&quot;1*, 6*&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">frame</span> <span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;headline.htm&quot; </span><span
+			class="att">noresize</span><span
+			class="op">=</span><span
+			class="str">&quot;noresize&quot; </span><span 
+			class="keyw"><span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;headline&quot;</span> <span
+			class="att">scrolling</span><span
+			class="op">=</span><span
+			class="str">&quot;no&quot;</span> &gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">frameset </span><span 
+			class="keyw"><span
+			class="att">cols</span><span
+			class="op">=</span><span
+			class="str">&quot;6*, 6*&quot;</span>&gt;</span>
+<span class="keyw-75">&lt;</span><span
+			class="elm">frame </span><span 
+			class="keyw"><span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;menu.htm&quot; </span><span
+			class="att">noresize</span><span
+			class="op">=</span><span
+			class="str">&quot;noresize&quot; </span><span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;menu&quot;</span> <span
+			class="att">scrolling</span><span
+			class="op">=</span><span
+			class="str">&quot;auto&quot;</span> <span 
+			class="op">/</span>&gt;</span>
+<span class="keyw-75">&lt;</span><span
+			class="elm">frame </span><span 
+			class="keyw"><span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;main.htm&quot; </span><span
+			class="att">noresize</span><span
+			class="op">=</span><span
+			class="str">&quot;noresize&quot; </span><span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;anasayfa&quot;</span> <span
+			class="att">scrolling</span><span
+			class="op">=</span><span
+			class="str">&quot;auto&quot;</span> <span 
+			class="op">/</span>&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">frameset</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">frameset</span><span 
+			class="keyw">&gt;</span>
+<span
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki çerçeve düzenleme <a href="../framework/index.html"> sayfasında</a> XHML 1.0 
+			frameset DTD si kullanılmıştır. Sayfada <span class="keyw">&lt;</span><span 
+			class="elm">body</span><span 	class="keyw">&gt;</span> elementi yerine 
+			<span class="keyw">&lt;</span><span class="elm">frameset</span><span 
+			class="keyw">&gt;</span> elementi kullanıldığına dikkat ediniz. Bu çerçeve düzenleme 
+			sayfasında, çerçeve sisteminin üç tane görüntülenen sayfadan oluşacağı, bunlardan ilki olan
+			<a href="../framework/headline.html">headline.htm</a> sayfasının çerçeve sisteminin 
+			boyunca tek satır halinde yerleşeceği, geri kalan ikisinin yanyana çerçeve sisteminin ikinci satırına
+			yerleşeceği öngörülmüştür. 
+		</p>
+		<p class="indent">
+			Çerçeve düzenleme sayfası olan <a href="../framework/index.html">index.htm</a> in kodlarına
+			dikkat edilecek olursa, çerçeve sistemini oluşturacak her üç alt çerçevenin <span class="att">name</span>
+			niteliğine bir değer verilmiştir. Bu şekilde açılacak sistem pencerelerine bir isim verilmiş olmaktadır. 
+			Çerçeve düzenleme sayfası, açaılacak sistem pencerelerine bir isim verilebileceği tek kod sayfasıdır. 
+			Bunun dışında hiçbir HTML-XHTML kodlaması ile açılacak sistem pencerelerine bir isim verilemez. 
+			Pencere isimlerinden, çerçeve sistemi içinde bağlantıların belirli sayfa hedeflerine 
+			(<span class="att">target</span>) yönlendirme için yararlanılacaktır.
+		</p>
+		<p class="indent">
+			Çerçeve düzenleme sayfasının öngördüğü şekilde, 
+			çerçeve sisteminin yerleşimi aşağıdaki şemada görüldüğü gibi olacaktır.
+		</p>
+		<table class="tablo4" summary="Çerçeve Sistemi Yerleşimi" border="0">
+			<caption class="captionred">Çerçeve Sistemi Yerleşimi</caption>
+			<colgroup span ="2" width="6*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td colspan="2" class="sayfaortala backgr1">headline.htm</td>
+				</tr>
+				<tr>
+					<td class="sayfaortala backgr2">menu.htm</td><td class="sayfaortala backgr3">main.htm</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="indent">
+			Çerçeve sistemi içinde yer alan ve <a href="../framework/index.html">index.htm</a>
+			çerçeve düzenleme sayfasının alt sayfaları konumunda olan çerçeve
+			sayfalarının (frames)  sayfa kodları, klasik XHTML 1.1 DTD si altında
+			yazılımaktadırlar ve herhangibir web sayfasının yazılımından hiçbir
+			farkları yoktur. Bu sayfaların bir çerçeve sisteminin alt sayfaları
+			oldukları sadece çerçeve düzenleme sayfasının kodlarından anlaşılabilir. 
+		</p>
+		<p class="indent">
+			Bu çerçeve sisteminin ilk alt sayfası olan 
+			<a href="../framework/headline.html">headline.htm</a> 
+			sayfası, çerçeve sisteminin başlığını belirtmek amacı ile yazılmış
+			ve içeriği tek satırdan oluşan bir başlık sayfasıdır. Bu sayfanın
+			kodları aşağıda görülmektedir. 
+		</p>
+		<pre>
+<span class="keyw">&lt;?xml</span>&nbsp;<span
+			class="att">version</span><span
+			class="op">=</span><span
+			class="str">&quot;1.0&quot;</span>&nbsp;<span
+			class="att">encoding</span><span
+			class="op">=</span><span
+			class="str">&quot;utf-8&quot;</span>&nbsp;<span
+			class="keyw">?&gt;</span>
+
+<span class="keyw">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC</span><span
+			class="str"> &quot;-//W3C//DTD </span><span
+			class="str">XHTML&nbsp;1.1//EN&quot;</span>
+<span class="str-200">&quot;http://www.</span><span
+			class="str">w3.org/TR/xhtml11/DTD/xtml11.dtd&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="elm">html</span>&nbsp;<span
+			class="keyw">xmlns</span><span
+			class="op">=</span><span
+			class="str">&quot;http://www.w3.org/1999/06/xhtml&quot;</span><span
+			class="keyw"> xml</span><span
+			class="op">:</span><span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>
+
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;application/xhtml+xml; </span><span
+			class="str">charset=utf-8&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Language&quot;</span> <span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Style-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Script-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/JavaScript&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Title&quot;</span>&nbsp;<span
+			class="att"> content</span><span
+			class="op">=</span><span
+			class="str">&quot;Webtech JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Subject&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Description&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial in Turkish Language&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Keywords&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial Turkish&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Language&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Abstract&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Publisher&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Prof. Dr. Bedri Doğan Emir&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Distribution&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Local&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Robots&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Index&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">link</span>&nbsp;<span
+			class="att">rel</span><span
+			class="op">=</span><span
+			class="str">&quot;stylesheet&quot;</span>&nbsp;<span
+			class="att">type</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="att">href</span><span
+			class="op">=</span><span
+			class="str">&quot;../css/JSstyle.css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>headline<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span> <span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;chapter&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">Belge Çözümleyicisi Nesne Modeli (Browser Object Model) (BOM)</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../framework/headline.html">headline.htm</a> sayfa kodlarından
+			da görüldüğü gibi, çerçeve sisteminin ilk görüntülenen sayfası olan
+			bu sayfanın kodları, normal bir XHTML sayfasının kodlarıdır ve bu
+			sayfanın bir çerçeve sistemine ait olduğunu belirten tek kaynak, çerçeve
+			düzenleme sayfası olan <a href ="../framework/index.html">index.htm</a> 
+			deki kodlardır.
+		</p>
+		<p class="indent">
+			Çerçeve sisteminin ikinci satırının en solundaki ilk sayfa, 
+			<a href ="../framework/menu.html">menu.htm</a> sayfasıdır. Bu sayfanın 
+			işlevi, solundaki içerik sayfası <a href ="../framework/main.html">main.htm</a> 
+			sayfasındaki konuların bir indeksini tutmak ve konu başlıklarına ilgili bağlantıların 
+			tıklanması ile erişim sağlamaktır. Çerçeve sisteminde sonuncu sayfa olan ikinci 
+			satırın sağındaki <a href ="../framework/main.html">main.htm</a> sayfasının, 
+			çerçeve düzenleme sayfası <a href ="../framework/index.html">index.htm</a> deki 
+			kodlarda verilen <span class="att">name</span> niteliğinin değeri, <span 
+			class="str">&quot;anasayfa&quot;</span> olduğundan, çerçeve içindeki her sayfadan 
+			çapa elementlerinin hedefi yani <span class="att">target</span> niteliğinin değeri
+			<span class="str">&quot;anasayfa&quot;</span> oldukça, çapa elementi, bağlantıyı 
+			<a href="../framework/main.html">main.htm</a> adlı sayfaya yönlendirecektir. Örnek 
+			olarak, <a href ="../framework/menu.html">menu.htm</a> sayfasındaki aşağıdaki gibi, 
+			bir bağlantı düzenlemesi,
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span> <span 
+			class="str">&quot;./main.htm#assign&quot;</span> <span 
+			class="att">target</span><span 
+			class="op">=</span> <span 
+			class="str">&quot;anasayfa&quot;</span><span 
+			class="keyw">&gt;</span>assign Metodu<span 
+			class="keyw">&lt;</span> <span 
+			class="op">/</span> <span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			<a href ="../framework/main.html">main.htm</a> sayfasını açacak ve okuma hizasını 
+			bu sayfada <span class="att">id</span> niteliğinin değeri <span class="str">assign</span> 
+			olan bir sayfa elementinin bulunduğu satıra konumlandıracaktır.
+		</p>
+		<p class="indent">
+			<span class="att">target</span> niteliğinin değeri öntanımlı değerler de olabilir. 
+		</p>
+		<ul class="listNoMarker">
+			<li>
+				_self : Bağlantı aynı çerçevede açılır.
+			</li>
+			<li>
+				_parent : Bağlantı üst düzey çerçevede açılır.
+			</li>
+			<li>
+				_top: Çerçeve sistemi ortadan kalkar ve bağlantı, aynı pencerde
+					ve pencerenin tümü kullanılarak açılır.
+			</li>
+			<li>
+				_blank : Bağlantı yeni bir pencerede açılır.
+			</li>
+		</ul>
+		<p class="indent">
+			Artık çerçeve sistemlerinin JavaScript programlanması açısından 
+			incelenmesine başlayabiliriz.
+		</p>
+		<p class="indent">
+			JavaScript <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">frames</span> nesnesi, çerçeve sistemi içinde,
+			görüntülenebilen bir pencere nesnesine erişilmesi amacı ile
+			düzenlenmiştir. <span class="keyw">frames</span> Nesnesi, dizi özelliklerini taşır 
+			ve tek özelliği, aynı dizilerde olduğu gibi, dizi uzunluğunu döndüren 
+			<span class="keyw">length</span> özelliğidir. <span class="keyw">frames</span>
+			Nesnesinin kendine özgü metotları yoktur. Fakat <span class="keyw">frames</span> 
+			nesnesi elemanları çerçeve sistemindeki görüntülenebilen pencereler olduğundan, 
+			<span class="keyw">window</span> nesnesinin tüm özellik ve metotları 
+			<span class="keyw">frames</span> nesnesine de uygulanabilir. 
+		</p>
+		<p class="indent">
+			JavaScript açısından, görüntülenebilen bir pencere, çerçeve düzenleme sayfasının bir 
+			alt sayfası anlamına gelir ve üst düzeyin özelliklerine <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">parent</span> özelliğinden yararlanılarak erişilebilir.
+		</p>
+		<p class="indent">
+			Çerçeve sistemlerinde en üst düzey çerçeve, çerçeve düzenleme sayfasıdır. Bu örnekte, çerçeve
+			düzenleme sayfası olan <a href="../framework/index.html">index.htm</a> en üst düzey çerçeve
+			sayfasıdır. <span class="keyw">window</span><span class="op">.</span> <span 
+			class="keyw">frames</span>, özelliği, en üst düzey çerçeve sayfasına ait bir özelliktir ve 
+			herhangibir görüntülenebilir alt çerçeve sayfasından, üst düzey çerçeve düzenleme
+			sayfasının  <span class="keyw">window</span><span class="op">.</span> <span 
+			class="keyw">frames</span> özelliğine, <span class="keyw">window</span><span 
+			class="op">.</span> <span class="keyw">parent</span> <span class="keyw">frames</span>
+			ifadesi ile ulaşılabilir.
+		</p>
+		<p class="indent">
+			JavaScript <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">frames</span> nesnesi, aynı önceden görmüş olduğumuz 
+			<span class="keyw">arguments</span> nesnesi gibi dizi benzeri bir nesnedir. 
+			Bu dizi benzeri nesnenin elemanları, alt pencereler veya başka bir deyişle alt 
+			çerçevelerdir. Bu dizi benzeri nesnenin eleman indisleri hem sayısal hem de 
+			sözel olarak uygulanabilir. Bir dizinin eleman indisleri sadece sayısal olabilmesine karşın, 
+			dizi benzeri öntanımlı nesnelerin elemanlarına hem sayısal hem de sözel olarak erişilebilir. Bu 
+			dizi benzeri nesnenin elemanları açılabilecek görüntülenen pencerelerdir. Bu nesnenin 
+			elemlarının sözel indisi, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">frames</span><span 
+			class="op">.</span> <span class="keyw">name</span> özelliğidir. Bu yapısı ile, 
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">frames</span> nesnesinin elemanlarına, klasik bir ilişkisel dizi 
+			gibi erişilebilir. Bunun için bu nesneye pseudo-dizi adı verilir. Bu 
+			pseudo-dizide elemanların indisleri, bir yandan sözel olmakla ile birlikte, dizi 
+			elemanları belirgin bir sıralama ile yerleştirilmişlerdir. Bu pseudo- dizide ilk eleman yani 
+			sayısal indisi 0 olan eleman, çerçeve düzenleme sayfasında ilk tanıtılan çerçeve, 
+			sayısal indisi 1 olan ikinci eleman, ikinci tanıtılmış çerçeve, diğerleri de aynı 
+			şekilde sıralanmışlardır. Bu şekilde, istendiğinde bu pseudo- dizinin elemanlarına, 
+			ister sözel olarak <span class="keyw">name</span> özelliğinin değerleri kullanılarak, 
+			istenirse sayısal olarak tanıtılma sırası ile erişilebilir. Bu şekilde, 
+			 <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">frames</span> nesnesi, klasik bir ilişkisel diziden daha fazlasını 
+			içermektedir.
+		</p>
+		<p class="indent">
+			Örnek olarak, bir alt çerçeve nesnesinden bir başka alt çerçeve nesnesine,
+			istendiğinde köşeli parantez notasyonu ile sözel indislerden yararlanılarak,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">parent</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">[</span><span 
+			class="str">'anasayfa'</span><span 
+			class="op">]</span>
+		
+		</pre>
+		<p class="nonindent">
+			şeklinde, istendiğinde dizi notasyonu ile sayısal indisler kullanılarak
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">parent</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">[</span>2<span 
+			class="op">]</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilir. Sayfa nesnesine erişildiğinde, bu nesnenin bellek
+			referansı bir değişkene aktarılarak ve bu pencere referans değişkeni 
+			kullanılarak pencere nesnesinin özelliklerine daha kısa ifadelerle erişme
+			olanağı sağlanabilir. Örnek olarak, 
+		</p>
+		<pre>
+<span class="pl-25">penRef</span> <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">parent</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">[</span>2<span 
+			class="op">]</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir pencere referans değişkeni atadıktan sonra, hedeflenen bu 
+			pencerde herhangibir <span class="att">id</span> niteliği olan bir 
+			paragrafa,
+		</p>
+		<pre>
+<span class="pl-25">paragraf</span> <span 
+			class="op">=</span> penRef<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'idDeğeri'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilir. Bu konuda, açıklayıcı tam bir uygulama örneğini,
+			<span class="keyw">window</span><span class="op">.</span>
+			<span class="keyw">frames</span> nesnesinin tek özelliği olan 
+			<span class="keyw">length</span> özelliğinin incelenmesinden 
+			sonra göreceğiz. 
+		</p>
+	<p class="title-left" id="prop">18.8.1 - frames Nesnesinin Özellikleri</p>
+	<p class="subheading" id="length">18.8.1.1 - frames Nesnesinin length Özelliği</p>
+	<p class="indent">
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">frames</span>
+			nesnesi, dizi yapısında bir nesne olduğundan, elemanları olan çerçevelerin sayısı 
+			<span class="keyw">length</span> özelliğinin değeridir. 
+	</p>
+		<p class = "indent" id="menu-js">
+			Aşağıda kodları görülen <a href="../framework/menu-js.html">JavaScript</a> programı,
+			ikinci çerçeve sisteminin <a href="../framework/menu.html">menu.htm</a> sayfasına
+			bağlantılı olarak çalışmaktadır. Sonuçların görülmesi için 
+			<a href="../framework/index.html">index.htm</a> çerçeve düzenleme sayfasını
+			çalıştırınız.
+		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> insertAfter<span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> ata<span 
+			class="op">=</span> hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">lastChild</span> <span 
+			class="op">===</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> {
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span>hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> çerçeve <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">parent<span 
+			class="op">.</span>frames</span><span 
+			class="op">,</span>
+<span class="pl-50">çerçeveSayısı</span> <span 
+			class="op">=</span> çerçeve<span 
+			class="keyw"><span 
+			class="op">.</span>length</span><span 
+			class="op">,</span>
+<span class="pl-50">anaSayfa</span> <span 
+			class="op">=</span> çerçeve<span 
+			class="op">[</span>2<span 
+			class="op">],</span> <span 
+			class="comm">// veya çerçeve['anasayfa'] veya çerçeve.anasayfa
+</span><span class="pl-50">aktarımYeri</span><span 
+			class="op">=</span> çerçeve<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'BOM'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">metin1</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Çerçeve Düzenleme Sayfası Dışında Görüntülenebilen Sayfa Sayısı : '</span><span 
+			class="op"> + </span><span 
+			class="keyw">String</span><span 
+			class="op">(</span>çerçeveSayısı<span 
+			class="op">)),</span>
+<span class="pl-50">metin2</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'JavaScript ile Buraya Ekleme Yapıldı !'</span><span 
+			class="op">),</span>
+<span class="pl-50">metin3</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'menu.htm Sayfasından Bilgi Aktarımı Tamamlandı !'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara1</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara2</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">ara3</span> <span 
+			class="op">=</span> anaSayfa<span 
+			class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">.</span><span 
+			class="keyw">classsName</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara1<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin1<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara2<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin2<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>ara3<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>metin3<span 
+			class="op">);</span>
+
+<span class="keyw-50">insertAfter</span><span 
+			class="op">(</span>yeniparagrafı<span 
+			class="op">,</span> aktarımYeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="nonindent">
+			Yukarıdaki <a href ="../framework/menu-js.html">programda</a>, bir çerçeve
+			sisteminde çerçevelerden birbirlerine bilgi aktarımı için, pencerereferans değişkenlerinin 
+			kullanılması, bilgi aktarımı için kullanılması gereken ifadelerin,
+			önemli ölçüde kısaltılmasına olanak sağladığına dikkat edilmelidir. 
+		</p>
+		
+		<p class="indent">
+			Çerçeve sistemlerinin bir başka türü de satıriçi çerçeve sistemi olarak adlandırılan, 
+			<span class="keyw">&lt;</span><span class="elm">iframe</span><span 
+			class="keyw">&gt;</span>elementinin uygulanması ile oluşturulan çerçeve sistemleridir. 
+			<span class="elm">iframe</span><span class="keyw">&gt;</span>elementi, aynen 
+			<span class="keyw">&lt;</span><span class="elm">object</span><span 
+			class="keyw">&gt;</span> elementi gibi bir sayfanın elementi olarak kullanılabilir.
+			Satıriçi çerçeve sistemleri çok sık kullanılmaz, fakat birçok durumda
+			uygulanması gerekli olabilir. 
+		</p>
+		<p class="indent">
+			Satırıçi çerçeve sistemini oluşturan <span class="keyw">&lt;</span><span 
+			class="elm">iframe</span><span class="keyw">&gt;</span> elementi, 
+			XHTML 1.1 veya XHTML 1.0 strict DTD altında desteklenmez ve bu sayfalar, 
+			<a href="http://validator.w3.org/">w3c doğrulayıcısı</a> tarafından doğrulanmaz. 
+			Bu sayfaların doğrulanabilmesi için, XHTML 1.0 transient veya frameset DTD lerin
+			kullanılması gerekir.
+		</p>
+		<p class ="indent" id="iframebirinci">
+			Satırıçi çerçeve sisteminin oluşturulduğu bir 
+			<a href="../framework/iframebirinci.html">örneğin</a> 
+			<a href="../framework/iframebirinci-src.html">sayfa kodları</a>, aşağıda 
+			görülmektedir:		</p>
+		<pre>
+<span class="keyw">&lt;?xml</span>&nbsp;<span
+			class="att">version</span><span
+			class="op">=</span><span
+			class="str">&quot;1.0&quot;</span>&nbsp;<span
+			class="att">encoding</span><span
+			class="op">=</span><span
+			class="str">&quot;utf-8&quot;</span>&nbsp;<span
+			class="keyw">?&gt;</span>
+
+<span class="keyw">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC</span><span
+			class="str"> &quot;</span><span
+			class="str">-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+<span class="str-200">&quot;</span><span
+			class="str">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="elm">html</span>&nbsp;<span
+			class="keyw">xmlns</span><span
+			class="op">=</span><span
+			class="str">&quot;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;</span><span
+			class="keyw"> xml</span><span
+			class="op">:</span><span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span><span 
+			class="keyw"> <span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&gt;</span>
+
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;application/xhtml+xml; </span><span
+			class="str">charset=utf-8&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Language&quot;</span> <span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Style-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Script-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/JavaScript&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Title&quot;</span>&nbsp;<span
+			class="att"> content</span><span
+			class="op">=</span><span
+			class="str">&quot;Webtech JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Subject&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Description&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial in Turkish Language&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Keywords&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial Turkish&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Language&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Abstract&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Publisher&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Prof. Dr. Bedri Doğan Emir&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Distribution&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Local&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Robots&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Index&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>iframebirinci<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">chapter</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">iframe</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">chapter</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">iframe </span><span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;http://www.google.com&quot;</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;çerçeve0&quot;</span> <span
+			class="att">height</span><span
+			class="op">=</span><span
+			class="str">&quot;350&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;650&quot;</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;çv0&quot;</span><span 
+			class="keyw">&gt;</span><span 
+			class="keyw">
+</span><span class="keyw-50">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>Çerçeveler Desteklenmiyor. Yeni Sürüm Bir Belge Çözümleyici Kullanınız !<span 
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">iframe</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span><span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;indent&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">a</span> <span
+			class="att">href</span><span
+			class="op">=</span><span
+			class="str">&quot;http://www.msn.com&quot;</span><span 
+			class="keyw">&gt;</span>msn<span 
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p </span><span 
+			class="keyw"><span
+			class="att">class</span><span
+			class="op">=</span><span
+			class="str">&quot;indent&quot;</span>&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">a </span><span
+			class="att">href</span><span
+			class="op">=</span><span
+			class="str">&quot;http://www.google.com&quot;</span><span 
+			class="keyw">&gt;</span>google<span 
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="indent">
+			Burada çerçeve sayfası sadece bir tanedir ve çerçeve0 isimli çerçevedir. Bu 
+			sayfada çerçeve içeriğini belirten çapa elementinin <span 
+			class="att">target</span> niteliğinin değeri, <span 
+			class="str">&quot;çerçeve0&quot;</span> olarak belirtilmiştir. 
+		</p>
+		<p class ="indent">
+		Ana sayfa olan <a href="../framework/iframebirinci.html">iframebirinci.htm</a>
+		sayfasına bağlantılı bir JavaScript programında, 
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>
+		</pre>
+		<p class ="nonindent">
+			değişkeninin değeri 1 dir. Çünkü sadece bir tane görüntülenebilen çerçeve yani 
+			<span class="keyw">&lt;</span><span class="op">iframe</span><span 
+			class="keyw">&gt;</span> elementi bulunmaktadır. Burada, 
+			<span class="keyw">window</span> varsayılan global değişken olduğundan, 
+			bu değere,
+		</p>
+		<pre>
+<span class="keyw-25">frames</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>
+		</pre>
+		<p class ="nonindent">
+			şeklinde de de erişilebilir. yine sadece bir tane çerçeve sayfası olduğundan, 
+			ilkiframe.htm sayfasına bağlantılı bir JavaScript sayfasndan çerçeve sayfasının örnek olarak 
+			<span class="att">src</span> niteliğine, 
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">[</span>0<span 
+			class="op">].</span><span 
+			class="keyw">src</span>
+		</pre>
+		<p class ="nonindent">
+			veya
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">[</span><span 
+			class="str">'çerçeve0'</span><span 
+			class="op">].</span><span 
+			class="keyw">src</span>
+		</pre>
+		<p class ="nonindent">
+			veya
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">frames</span><span 
+			class="op">.</span>çerçeve0<span 
+			class="op">.</span><span 
+			class="keyw">src</span>
+		</pre>
+		<p class ="nonindent">
+			şeklinde ulaşılabilir. Bu ifadelerde de, <span class="keyw">window</span> 
+			varsayılan global nesne olduğundan istenirse ihmal edilebilir.
+		</p>
+		<p class ="indent">
+			Yukarıda görülen <a href="../framework/iframebirinci.html">iframebirinci.htm</a>
+			sayfasında, <span class="keyw">&lt;</span><span class="elm">iframe</span><span 
+			class="keyw">&gt;</span> elementinin içeriği olarak internet üzerinde yazılımını 
+			kontrol edemediğimiz uzak bir sunucudan (WAN = Wide Area Network) indirilen
+			bir sayfa öngörülmüştür. Bu program MSIE 8 tarafından görüntülendiğinde, 
+			belge çözümleyicinin ileri-geri navigasyon butonları kullanılması sonucunda, çerçeve içeriğinin
+			ana sayfaya yüklenmesi ile problemi ile karşılaşılır. FireFox ve Safari belge çözümleyicileri, 
+			bu sayfaları daha düzenli olarak görüntülemektedirler  Bu elementin içeriği olarak, yazılımını 
+			kontrol edebildiğimiz kendi sunucumuzdan indirilebilecek bir sayfa öngörülülebilirse,
+			indirilecek sayfada karmaşık scriptler kullanılırak bu sorunun çözümlenme olasılığı 
+			olabilir. Fakat, doğal olarak, kullanıcının sayfasında JavaScript yorumlayıcısı çalışmayorsa,
+			bu zorlama scriptleri de çalışmayacaktır ve bu da farkedilmeden kayboluş kuramına uygun 
+			olmayacaktır. Bu durumda, satırıçi çerçeve içeriğinin yazılımında belirli önlemler alınabildiği 
+			intranet sunucuları dışında sunuculardan indirilecek içeriklerle kullanılmaması daha doğru 
+			olacaktır.
+		</p>
+		<p class ="indent">
+			Çerçevelerle çalışmak özellikle menu içeren sayfaların daha kolaylıkla yerleştirilmesine
+			olanak sağlayabilir. Çerçeve sistemlerinin özel kodlama yöntemlerine
+			kolaylıkla alışkanlık kazanılabilir.
+		</p>
+		<p class="title-left" id="frelem">18.9 - window Nesnesinin frameElement Nesnesi</p>
+		<p class ="indent" id="iframeikinci">
+			Bu nesne, sadece bir çerçeve veya  <span class="keyw">&lt;</span><span 
+			class="elm">iframe</span><span class="keyw">&gt;</span> elementinin içeriği
+			olan sayfalarda, sayfanın pencere referansını döndürür. Eğer kullanıldığı 
+			script bir ana sayfada ise, sonuç <span class="keyw">null</span> olur. Örnek olarak, 
+		yazılımı aşağıda görülebilen <a href="../framework/iframeikinci.html">iframeikinci.htm</a> 
+		adlı bir ana sayfayı ele alalım.		</p>
+		<pre>
+<span class="keyw">&lt;?xml</span>&nbsp;<span
+			class="att">version</span><span
+			class="op">=</span><span
+			class="str">&quot;1.0&quot;</span>&nbsp;<span
+			class="att">encoding</span><span
+			class="op">=</span><span
+			class="str">&quot;utf-8&quot;</span>&nbsp;<span
+			class="keyw">?&gt;</span>
+
+<span class="keyw">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC</span><span
+			class="str"> &quot;</span><span
+			class="str">-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+<span class="str-200">&quot;</span><span
+			class="str">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="elm">html</span>&nbsp;<span
+			class="keyw">xmlns</span><span
+			class="op">=</span><span
+			class="str">&quot;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;</span><span
+			class="keyw"> xml</span><span
+			class="op">:</span><span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span><span 
+			class="keyw"> <span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&gt;</span>
+
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;application/xhtml+xml; </span><span
+			class="str">charset=utf-8&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Language&quot;</span> <span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Style-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Script-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/JavaScript&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Title&quot;</span>&nbsp;<span
+			class="att"> content</span><span
+			class="op">=</span><span
+			class="str">&quot;Webtech JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Subject&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Description&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial in Turkish Language&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Keywords&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial Turkish&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Language&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Abstract&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Publisher&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Prof. Dr. Bedri Doğan Emir&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Distribution&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Local&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Robots&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Index&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>iframeikinci<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">chapter</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">iframe</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">chapter</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">iframe </span><span 
+			class="keyw"><span
+			class="att">src</span><span
+			class="op">=</span><span
+			class="str">&quot;intranet.htm&quot;</span><span
+			class="att">height</span><span
+			class="op">=</span><span
+			class="str">&quot;350&quot;</span> <span
+			class="att">width</span><span
+			class="op">=</span><span
+			class="str">&quot;650&quot;</span>&gt;
+</span><span class="keyw-50">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>Çerçeveler Desteklenmiyor. Yeni Sürüm Bir Belge Çözümleyici Kullanınız.!<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">iframe</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="indent">
+			Bu <a href="../framework/iframeikinci.html">sayfanın</a> içeriği olan			intranet.htm adlı kendi
+			sunucumuzdan indirilebilecek sayfanın kodları aşağıda görülmektedir: </p>
+		
+		<pre>
+<span class="keyw">&lt;?xml</span>&nbsp;<span
+			class="att">version</span><span
+			class="op">=</span><span
+			class="str">&quot;1.0&quot;</span>&nbsp;<span
+			class="att">encoding</span><span
+			class="op">=</span><span
+			class="str">&quot;utf-8&quot;</span>&nbsp;<span
+			class="keyw">?&gt;</span>
+
+<span class="keyw">&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC</span><span
+			class="str"> &quot;</span><span
+			class="str">-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+<span class="str-200">&quot;</span><span
+			class="str">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="elm">html</span>&nbsp;<span
+			class="keyw">xmlns</span><span
+			class="op">=</span><span
+			class="str">&quot;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;</span><span
+			class="keyw"> xml</span><span
+			class="op">:</span><span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span><span 
+			class="keyw"> <span
+			class="att">lang</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&gt;</span>
+
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;application/xhtml+xml; </span><span
+			class="str">charset=utf-8&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Language&quot;</span> <span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Style-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/css&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">http-equiv</span><span
+			class="op">=</span><span
+			class="str">&quot;Content-Script-Type&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;text/JavaScript&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span> <span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Title&quot;</span>&nbsp;<span
+			class="att"> content</span><span
+			class="op">=</span><span
+			class="str">&quot;Webtech JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Subject&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Description&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial in Turkish Language&quot;</span>&nbsp;<span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Keywords&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Tutorial Turkish&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Language&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;tr&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Abstract&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;JavaScript Turkish Tutorial&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Publisher&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Prof. Dr. Bedri Doğan Emir&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Distribution&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Local&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">meta</span>&nbsp;<span
+			class="att">name</span><span
+			class="op">=</span><span
+			class="str">&quot;Robots&quot;</span>&nbsp;<span
+			class="att">content</span><span
+			class="op">=</span><span
+			class="str">&quot;Index&quot;</span>&nbsp;<span
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>Intranet<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">script</span>&nbsp;<span
+			class="att">type</span><span
+			class="op">=</span><span
+			class="str">&quot;text/javascript&quot;</span>&nbsp;<span
+			class="keyw">src</span><span
+			class="op">=</span><span
+			class="str">&quot;intranet.js&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="indent" id="intranet">
+		Yukarıda<a href="../framework/intranet.html"> kodları</a> görülen, satırıcı çerçeve içeriği sayfası		intranet.htm sayfasına bağlantılı olan <a href="../framework/intranet-js.html">JavaScript programının</a> kodları aşağıda görülmektedir:		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> çerçeve <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">frameElement</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">çerçeve</span><span 
+			class="op">.</span><span 
+			class="keyw">src</span> <span 
+			class="op">=</span> <span 
+			class="str">'http://www.msn.com'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Yukarıda verilmiş olan <a href="../framework/intranet-js.html">kodlardan</a> da
+			görüldüğü gibi, çerçeve sayfalarında <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">frameElement</span> nesnesi, 
+			çerçeve nesnesinin referansını döndürür. Bu nesnenin kullanımı ile 
+			çerçeve nesnesinin tüm alt nesneslerine erişim sağlanabilir. Bu nesne sadece 
+			<span class="keyw">&lt;</span><span class="keyw">iframe</span><span 
+			class="keyw">&gt;</span> içeriği veya bir <span class="keyw">&lt;</span><span 
+			class="keyw">frameset</span><span class="keyw">&gt;</span> tararfından tanımlanmış
+			çerçeve sayfasında çalışabildiği gibi, bir <span class="keyw">&lt;</span><span 
+			class="keyw">object</span><span class="keyw">&gt;</span> elemanı veya başka 
+			belge içerebilen elemanlar tarafından içerilebilen kodlarda da çalışabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s7.html"><em> &laquo; Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s9.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<p class="pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload">
+			<img src="http://www.w3.org/Icons/valid-xhtml11"
+			alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s8.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:51 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

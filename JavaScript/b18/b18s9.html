@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s9.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:52 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s9.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<link rel="stylesheet" type="text/css" href="../css/b18s8.css" />
+		<title>b18s9</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s8.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s10.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>	
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 9
+		</p>
+		<p class="title-left" id="history">18.10 - window Nesnesinin history Alt Nesnesi (Oturum Tarihçesi)</p>
+		<p class ="indent"> İnceleyeceğimiz <span class="keyw">window</span> nesnesinin
+			<span class="keyw">history</span> alt nesnesi, dizi benzeri bir nesnedir. Bu nesne,
+			bir dizi elemanları gibi, oturum süresince ziyaret edilmiş olan sitelerin adresini tutar, 
+			fakat bu adreslerin açık adrslerine doğrudan erişim olanağı vermez. Kullanıcılar sadece
+			bu nesnenin metotlarını kullanarak oturum içinde ziyaret ettikleri sitelere yeniden 
+			erişebilirler.
+		</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">history</span> alt nesnesinin tek özelliği, 
+			<span class="keyw">length</span> özelliğidir. Bu özellik aynı dizilerin uzunluk özelliği gibidir 
+			ve oturum başlangıcından beri ziyaret edilen sitelerin sayısını tutar. Bu alt nesnenin üç metodu 
+			vardır ve bunlar <span class="keyw">back</span><span class="op">()</span>, 
+			<span class="keyw">forward</span><span class="op">()</span> ve 
+			<span class="keyw">go</span><span class="op">()</span> metotlarıdır. 
+		</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">history</span> alt nesnesi daha çok belge çözümleyicinin geri
+			dönüş butonunu simüle etmek için kullanılır.
+		</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">history</span> alt nesnesinin elemanları silinemez. Bu elemanlar,
+			yai ziyret edilmiş site URI bilgileri sadece belge çözümleyicilerin menü seçekleri kullanılarak,
+			veya JavaScript pseudo-protokolu gibi istemeksizin oturum tarihçesini tahrip eden uygulamalar nedeni 
+			ile kısmen veya tamamen elden çıkabilir.
+		</p>
+		<p class="title-left" id="props">18.10.1 - history Nesnesinin Özellikleri</p>
+		<p class ="indent">
+		JavaScript <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">history</span> nesnesinin sadece bir tane 
+			<span class="keyw">length</span> özelliği bulunmaktadır. Bu özellik aşağıda incelenmiştir.
+		</p>
+		<p class="subheading" id="length">18.10.1.1 - history Nesnesinin length Özelliği</p>
+		<p class ="indent" id="b18.10.1.1-uyg-1">
+			Bu özelliğin değeri, oturum başlangıcından başlanarak ziyaret edilmiş olan sitelerin toplam sayısıdır. 
+			Kullanımı,
+		</p>
+		<pre>
+<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">history</span><span class="op">.</span> <span class="keyw">length</span>
+		</pre>
+		<p class ="nonindent">
+			şeklindedir. Oturum süresince toplam ziyaret edilmiş olan sitelerin sayısının algılandığı bir 
+		<a href="../uygulamalar/b18.10.1.1-uyg-1-js.html">JavaScript programı</a> aşağıda görülebilir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> toplamSite<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> toplamSayı <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">history<span class="op">.</span> length</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">sonuçYaz</span> <span 
+			class="op">(</span> <span 
+			class="str">'Oturum Başından Beri Ziyaret Edilen Sitelerin Toplam Sayısı : '</span> <span 
+			class="op">,</span> toplamSayı<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> toplamSite <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> toplamSite<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu programın bağlantılı olduğu <a href="../uygulamalar/b18.10.1.1-uyg-1.html">sayfada</a> verdiği
+			sonuç:
+		</p>
+		<p id ="b18.10.1.1-sonuç-1"></p>
+		<p class ="nonindent">
+			olarak gerçekleşmektedir.
+		</p>
+		<p class="title-left" id="methods">18.10.2 - window.history Nesnesinin Metotları</p>
+		<p class="subheading" id="forward">18.10.2.1 - forward() Metodu</p>
+		<p class ="indent">
+			Bu metot, sayfayı, oturum tarihçesi listesinde bir ileri sayfaya götürür. Eğer bulunulan
+			sayfa oturum tarihçesi listesindeki en son URI değeri ise, bir hata oluşturulmaz fakat
+			bir etki de yaratılmaz. Bu metot çoğunlukla ileri geri haraketlerle,  oturum tarihçesi listesinde 
+			hareket edilmiş olunan durumlarda işlevseldir.
+		</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">history</span><span class="op">.</span><span 
+			class="keyw">forward</span><span class="op">()</span> metodunun etkisi,
+			belge çözümleyicinin ileri butonun tıklanması veya, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">history</span><span class="op">.</span><span 
+			class="keyw">go</span><span class="op">(</span>1<span class="op">);</span> ifadesi ile 
+			aynıdır. 
+		</p>
+		<p class ="indent">
+			Bu metot geriye bir değer döndürmez.
+		</p>
+		<p class="subheading" id="back">18.10.2.2 - back() Metodu</p>
+		<p class ="indent"> 
+			Bu metot, sayfayı, oturum tarihçesi listesinde bir geri sayfaya götürür. Eğer bulunulan
+			sayfa oturum tarihçesi listesindeki ilk URI değeri ise, bir hata oluşturulmaz fakat
+			bir etki de yaratılmaz. Bu metot çoğunlukla ileri geri haraketlerle,  oturum tarihçesi listesinde 
+			hareket edilmiş olunan durumlarda işlevseldir.
+		</p>
+		<p class ="indent"> JavaScript <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">history</span><span class="op">.</span><span 
+			class="keyw">back</span><span class="op">()</span> metodunun etkisi,
+			belge çözümleyicinin geri butonun tıklanması veya, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">history</span><span class="op">.</span><span 
+			class="keyw">go</span><span class="op">(</span>-1<span class="op">);</span> ifadesi ile 
+			aynıdır. 
+		</p>
+		<p class ="indent">
+			Bu metot geriye bir değer döndürmez.
+		</p>
+		<p class="subheading" id="go">18.10.2.3 - go() Metodu</p>
+		<p class ="indent"> 
+			Bu metot, sayfayı, oturum tarihçesi listesinde geri veya ileri birsayfaya götürebilir. Eğer 
+			bulunulan sayfa oturum tarihçesi listesindeki ilk URI değeri ise, bir hata oluşturulmaz fakat
+			bir etki de yaratılmaz. Bu metot çoğunlukla ileri geri haraketlerle,  oturum tarihçesi listesinde 
+			hareket edilmiş olunan durumlarda işlevseldir.
+		</p>
+		<p class ="indent"> JavaScript <span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">history</span><span class="op">.</span><span 
+			class="keyw">go</span><span class="op">(</span>parametre<span class="op">)</span>metodunun
+			parametresi bir tamsayı veya bir karakter dizigisi (String) olabilir. Parametre saısal olursa -1 bir geri
+			sayfayı belirtir ve bunun etkisi belge çözümleyicinin geri butonun tıklanması veya, 
+			<span class="keyw">window</span><span class="op">.</span><span class="keyw">history</span><span 
+			class="op">.</span><span class="keyw">back</span><span class="op">()</span> ifadesinin etkisi ile aynı
+			olacaktır. Bu konuda bu çalışmada birçok sayfada navigasyon işlevini bu metodun sağladığı görülmüştür. 
+			Bu konudaki örneklerden biri, <a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme.htm</a>
+			sayfasıdır.
+		</p>
+		<p class ="indent">
+			Bu metodun sözel parametresi, Tam bir URI adresi olabilir. Buna rağmen metodun bu tip kullanılması
+			fazla yaygın değildir. Aynı işlevi, <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">location</span><span class="op">.</span><span 
+			class="keyw">replace</span><span class="op">(</span>URI<span class="op">);</span>
+			metodu daha iyi yerine getirebilir. Bu rağmen <span class="keyw">replace</span><span 
+			class="op">()</span> metodu, history zincirini tahrip eder ve ileri-geri düğmeleri 
+			artık sayfalara erişemez olaur.
+		</p>
+		<p class ="indent">
+			Bu metot geriye bir değer döndürmez.
+		</p>
+			<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s8.html"><em> &laquo; Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s10.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b18.10.1.1-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s9.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:52 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

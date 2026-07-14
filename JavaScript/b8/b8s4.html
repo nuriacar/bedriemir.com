@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:14 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b8s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b8s3.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b8s5.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 4
+		</p>
+		<p class="subheading" id="proto-splice">8.2.12 - splice() Metodu</p>
+
+		<p class="indent"><span class="keyw">splice</span><span class="op">()</span> Metodu,
+			bir dizinin belirli bir elemanını takip eden n tane elemanı siler, silinen
+			elemanları döndürür ve istendiğinde, silinen elemanlarının tümünün veya sadece
+			bir kısmının yerine yenilerini yerleştirir.
+		</p>
+		<p class="indent">
+			<span class="keyw">splice</span><span class="op">()</span> Metodunun sözdizimi,
+		</p>
+		<p class="indent">
+		<span class="str"><em>dizi</em></span><span 
+			class="op"><em>.</em></span><span 
+			class="keyw">splice<em>(</em></span><span 
+			class="str"><em>başlangıç </em></span><span 
+			class="comm"><em>, </em></span><span 
+			class="str"><em>n</em></span><span 
+			class="comm"><em> , <span class="op">[</span>girdi1<span class="op">[</span> , girdi2 , <span 
+			class="op">[</span> ,...<span class="op">[</span> , girdiN<span class="op">]</span><span 
+			class="op">]</span><span class="op">]</span><span class="op">]</span></em></span><em><span 
+			class="keyw">)</span><span class="op">;</span></em>
+		</p>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="indent">
+			<span class="str"><em>dizi</em></span> : Bir dizi <span class="str">(Gerekli)</span>
+		</p>
+		<p class="indent">
+			<span class="str"><em>başlangıç</em></span> <em>:</em> Kesilmenin
+			kendisi ile başlanacağı elemanın indis numarası (sıfırdan başlanarak) <span 
+			class="str">(Gerekli)</span>
+		</p>
+		<p class="indent">
+			<span class="str"><em>n</em></span> <em>:</em> Kesilecek
+			eleman sayısı<span class="str">(Gerekli)</span> </p>
+		<p class="indent"> <span class="comm"><em>girdi1...girdi2</em></span> : Kesilen
+			elemanların yerine konulacak elemanlar (<span class="str">İsteğe Bağlı</span>). </p>
+		<p class="nonindent"> olarak tanımlanmıştır.
+		</p>
+		<p class="indent"> 
+			Burada eğer, </p>
+		<p class="indent">
+			a<span class="op">=</span>bir dizi nesnesi,		</p>
+		<p class="indent">
+			x<span class="op">=</span>kesilmenin başlayacağı elemanların indisi,	</p>
+		<p class="indent">
+			n<span class="op">=</span>kesilecek elemanların sayısı, eğer bu değer 0 olursa,
+			diziden eleman çıkartılmaz, diziye eleman eklenir.		</p>
+		<p class="indent">
+			ise, a<span class="op">[</span>x<span class="op">]</span>..a<span 
+			class="op">[</span>x <span class="op">+</span> n  <span 
+			class="op">-</span> 1<span class="op">]</span> arası
+			tüm elemanlar kesilir. Örnek olarak, a<span class="op">.</span><span 
+			class="keyw">splice</span><span class="op">(</span>1,4<span 
+			class="op">);</span>		</p>
+		<p class="indent">
+			a<span class="op">[</span>x<span class="op">]</span> = a<span 
+			class="op">[</span>1<span class="op">]</span>,
+			a<span class="op">[</span>x <span class="op">+</span> n  <span 
+			class="op">-</span> 1<span class="op">]</span> = a<span class="op">[</span>1
+			<span class="op">+</span> 4 <span class="op">-</span> 1<span 
+			class="op">]</span> = a<span class="op">[</span>4<span class="op">]</span> olduğuna
+			göre,		</p>
+		<p class="indent">
+			a<span class="op">[</span>1<span class="op">]</span>(dahil)..a<span 
+			class="op">[</span>4<span class="op">]</span> (dahil) arası tüm elemanlar (a<span 
+			class="op">[</span>1<span class="op">]</span>, a<span class="op">[</span>2<span class="op">]</span>,
+			a<span class="op">[</span>3<span class="op">]</span>, a<span class="op">[</span>4<span 
+			class="op">]</span>) kesilir. Geriye kalan,
+		</p>
+		<p class="indent">
+			a<span class="op">[</span>0<span class="op">]</span>, a<span 
+			class="op">[</span>5<span class="op">]</span>,...elemanları yeni diziyi oluşturur.
+		</p>
+		<p class="indent">
+			Herşeyden önce, <span class="keyw">slice</span><span 
+			class="op">()</span> ve <span class="keyw">splice</span><span 
+			class="op">()</span> metotları arasındaki farkları iyi anlamalıyız.<span 
+			class="keyw"> slice</span><span class="op">()</span> Metodunun uygulanması,
+			 orijinal dizinin içeriğini etkilemezken,bir diziye <span 	class="keyw">splice</span><span 
+			class="op">()</span> metodunun uygulanması, dizinin bazı elemanlarının
+			diziden çıkarılması ile sonuçlanır. Yani, <span class="keyw">slice</span><span 
+			class="op">()</span> metodu, 	dizinin kopyalanmasını, <span class="keyw">splice</span><span 
+			class="op">()</span> metodu ise, dizinin	kesilmesini hedefler. Bir diziye <span 
+			 class="keyw">splice</span><span class="op">()</span> metodunun uygulanması
+			 sırasında, kesilecek elemanların bir başka diziye ataması yapılmamışsa, kesilen
+			 elemanlara bir daha ulaşılamaz.		</p>
+		<p class="indent">
+			Bir diziye <span class="keyw">slice</span><span class="op">()</span> metodu, rekürsif
+			tahrip edici atama olarak uygulanırsa, yani kopyalanacak elemanlar, orijinal
+			diziye atanırsa, her tahriip edici atama gibi, bu durumda da dizinin orijinal
+			içeriği kaybolur ve yerine, kopyalanmış elemanlar geçer. Aynı sav, <span
+			class="keyw">splice</span><span class="op">()</span> metodu
+			için de geçerlidir.
+		</p>
+		<p class="indent">
+			<span class="keyw">slice</span><span class="op">()</span> Metodu, bir dizinin belirli
+			bir aralığının içindeki elemanları hedeflerken  <span class="keyw">splice</span> <span 
+			class="op">()</span> metodu, bir dizinin belirli bir aralığındaki
+			elemanların dışındakileri hedefler.
+		</p>
+		<p class="indent">
+			<span class="keyw">slice</span><span class="op">()</span> Metodu kopyalanan elemanların
+			yerlerine yenilerinin konulması için bir mekanizma içermez, fakat  <span 
+			class="keyw">splice</span> <span class="op">()</span> metodu, atılan elemanların yerine, gereğinde
+			yenilerinin konulabilmesi için bir seçenek de içerir. Bu nedenle,  <span 
+			class="keyw">splice</span> <span class="op">()</span> metodunun kullanımı, <span 
+			class="keyw">slice</span><span class="op">()</span> metoduna
+			göre daha detaylıdır. 
+		</p>
+		<p class="indent">
+			<span class="keyw">splice</span><span class="op">()</span> Metodunun üç türlü uygulama
+			olanağı bulunmaktadır: 
+		</p>
+		<ul class="list">
+			<li>
+				Bir diziye belirli elemanların eklenmesi veya bir diziden belirli elemanların
+				çıkartılması.
+			</li>
+			<li>
+				Geri döndürme özelliğinden yararlanılarak silinmiş elemanların başka
+				bir diziye yerleştirilmesi.
+			</li>
+			<li>
+				Silinen elemanların yerine kısmen veya tamamen yeni elemanlar yerleştirilmesi.
+			</li>
+		</ul>
+		<p class="nonindent">
+			Yukarıda belirtilen uygulama yöntemleri ayrı, ayrı incelenecektir.
+		</p>
+		<p class="nonindent">
+			<strong><span class="red">splice() Metodunun Salt
+			Diziden Eleman Çıkartmak Amacı ile Uygulanması</span></strong>
+		</p>
+		<p class="indent" id ="b8.2.12-uyg-1">
+			Salt diziden eleman çıkarmak amacı ile kullanılması, dizinin
+			belirli bir kısmındaki elemanların diziden çıkartılması ile sonuçlanır.
+		</p>
+		<p class="indent">
+			<a href="../uygulamalar/b8.2.12-uyg-1.html">Örnek</a>:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;!<span class="op">[</span>CDATA<span class="op">[</span> */</span>
+
+<span class="comm-25">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> grupSil<span class="op">() {</span>
+
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span> <span 
+			class="keyw"> new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> <span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kardelen'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nergis'</span><span 
+			class="op">,</span> <span 
+			class="str">'Marguerite'</span><span 
+			class="op">,</span> <span 
+			class="str">'Muguet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Gardenia'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span class="op">(</span>t<span 
+			class="op">, </span><span 
+			class="str">' / '</span><span 
+			class="op">, </span><span 
+			class="str">'b8.2.12-uyg-1-sonuç-1'</span><span class="op">);
+</span>
+<span class="pl-50">t</span><span 
+			class="op">.</span><span 
+			class="keyw">splice</span><span class="op">(</span>1<span class="op">,</span> 2<span class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span class="op">(</span>t<span 
+			class="op">, </span><span 
+			class="str">' / '</span><span 
+			class="op">, </span><span 
+			class="str">'b8.2.12-uyg-1-sonuç-2'</span><span class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span class="op">(</span>grupSil<span class="op">);</span>
+
+<span class="comm-25">/* <span class="op">]</span><span class="op">]</span>&gt; */</span>
+		</pre>
+
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="cursive-green">
+			Orijinal t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="cursive-blue">
+			t.splice(1, 2);
+		</p>
+		<p class="cursive-green">
+			Geri kalan t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-1-sonuç-2"></span>
+		</p>
+		<p class="cursive-maroon">
+			t Dizisinin 2 inci ve 3 üncü Elemanları Kesiliyor!
+		</p>
+		<p class="indent"> <strong>Kodların Açıklaması:</strong> </p>
+		<p class="indent"> Yukarıdaki programda, orijinal t dizisi, </p>
+		<p class="indent"> t<span class="op">[</span>0<span class="op">] =</span> <span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> t<span class="op">[</span>1<span class="op">] =</span> <span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> t<span class="op">[</span>2<span class="op">] =</span> <span 
+			class="str">'Kardelen'</span><span 
+			class="op">,</span> t<span class="op">[</span>3<span class="op">] =</span> <span 
+			class="str">'Nergis'</span> <span 
+			class="op">,</span> t<span class="op">[</span>4<span class="op">] =</span> <span 
+			class="str">'Marguerite'</span>, t<span class="op">[</span>5<span class="op">]
+				=</span> <span 
+			class="str">'Muguet'</span><span 
+			class="op">,</span> t<span class="op">[</span>6<span class="op">] =</span> <span 
+			class="str">'Gardenia'</span> şeklindedir. </p>
+		<p class="indent"> t.<span 
+			class="keyw">splice(</span>1,2<span 
+			class="keyw">)</span><span 
+			class="op">;</span> </p>
+		<p class="indent"> komutu, orijinal t dizisinin indisi <span class="op">[</span>1<span 
+		class="op">]</span> olan elemanı üzerine
+			konumlanılması, bu eleman ve kendisinden sonra gelen eleman olarak iki elemanın
+			diziden çıkarılması, dizinin yeniden yapılandırılması anlamına gelmektedir.
+			Bu durumda, orijinal t dizisinden, </p>
+		<p class="indent"> t<span class="op">[</span>1<span class="op">] =</span> <span 
+			class="str">'Papatya'</span> ve t<span class="op">[</span>2<span class="op">] =</span> <span 
+			class="str">'Kardelen'</span>
+		</p>
+		<p class="indent"> elemanları çıkartılmış, geriye kalan elemanlarla, yeni t
+			dizisi, </p>
+		<p class="indent"> t<span class="op">[</span>0<span class="op">] =</span> <span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> t<span class="op">[</span>1<span class="op">] =</span> <span 
+			class="str">'Nergis'</span><span 
+			class="op">,</span> t<span class="op">[</span>2<span class="op">] =</span> <span 
+			class="str">'Marguerite'</span><span 
+			class="op">,</span> t<span class="op">[</span>3<span class="op">] =</span> <span 
+			class="str">'Muguet'</span> <span 
+			class="op">,</span> t<span class="op">[</span>4<span class="op">] =</span> <span 
+			class="str">'Gardenia'</span> </p>
+		<p class="indent">
+			şeklinde yenidien yapılandırılmış ve yeni içeriği yazdırılmıştır.
+		</p>
+		<p class="indent">
+			<strong><span class="red">splice() Metodunun Geri
+					Döndürme Özelliğinden Yararlanılması Amacı ile Uygulanması</span></strong>
+		</p>
+		<p class="indent">
+			<span class="keyw">splice</span><span class="op">()</span> Metodu uygulandığında,
+			diziden belirli elemanları çıkarır ve bu elemanları geri döndürülebilecek
+			şekilde bellekte tutar. Salt diziden eleman çıkarma amacı ie uygulandiğında
+			geri döndürülen değere gereksinim duyulmaz. Fakat, istendiğinde, bu geri döndürme
+			değerinden iki türlü yararlanılabilir: 
+		</p>
+		<ul class="list">
+			<li>
+				Geri döndürülen değerle yeni bir dizi oluşturulması.
+			</li>
+			<li> 
+				Geri döndürülen değerin orijinal diziye uygulanması.
+			</li>
+		</ul>
+		<p class="nonindent" style="color:green">
+			 <strong>Geri döndürülen değerle yeni bir dizi oluşturulması</strong> 
+		</p>
+		<p class="indent" id="b8.2.12-uyg-2">
+			Bu tür bir uygulama orijinal diziyi ilk örnekte olduğu gibi  <span class="keyw">splice</span> <span 
+			class="op">()</span> metodunun uygulandığı olağan şekilde etkiler.
+			Uygulama orijinal dizi için aynen ilk örnekte olduğu gibi bir kesilme ile
+			sonuçlanır. Kesilen elemanlar ise yeni bir diziye yerleştirilir. 
+			<a href="../uygulamalar/b8.2.12-uyg-2.html">Örnek:</a>
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> kesOluştur<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span> <span 
+			class="keyw"> new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> <span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kardelen'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nergis'</span><span 
+			class="op">,</span> <span 
+			class="str">'Marguerite'</span><span 
+			class="op">,</span> <span 
+			class="str">'Muguet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Gardenia'</span><span 
+			class="op">),</span> p <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">();</span>
+
+<span class="pl-50">diziYaz<span 
+			class="op">(</span>t</span><span class="op">,</span> <span 
+			class="str">' # '</span><span class="op">,</span><span 
+			class="str">'b8.2.12-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">p</span> <span 
+			class="op">=</span> t<span 
+			class="op">.</span><span 
+			class="keyw">splice</span><span 
+			class="op">(</span>1<span 
+			class="op">,</span> 2<span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>p<span class="op">,</span> <span 
+			class="str">' # '</span><span class="op">,</span> <span 
+			class="str">'b8.2.12-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>t<span class="op">,</span> <span 
+			class="str">' # '</span><span class="op">,</span> <span class="str">'b8.2.12-uyg-2-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>kesOluştur<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="cursive-green">
+			Orijinal t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="cursive-blue">
+			p=t.splice(1,2);
+		</p>
+		<p class="cursive-green">
+			Oluşan p Dizisi : <span class="cursive-red" id="b8.2.12-uyg-2-sonuç-2"></span>
+		</p>
+		<p class="cursive-green">
+			Geri Kalan t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-2-sonuç-3"></span>
+		</p>
+		<p class="cursive-maroon">
+			t Dizisinin 2 inci ve 3 üncü Elemanları Kesilerek Yeni Bir P Dizisi Oluşturuluyor ! <br />
+			Geri Kalan t Dizisinde, p Dizisi İçindekiler Dışında, Tüm Orjinal t Dizisi Elemanları Bulunuyor !
+		</p>
+		<p class="nonindent green"> <strong>Geri döndürülen değerin orijinal diziye
+				uygulanması</strong>
+		</p>
+		<p class="indent" id="b8.2.12-uyg-3">
+			Bu uygulama şekli, ilginç bir şekilde, önce
+			orijinal dizinin belirtilen elemanlarının kesilmesi ile başlar. Geri döndürülen
+			değerler, yeniden orijinal diziye atandığında, <span class="str">bir tahrip
+			edici atama gerçekleşir</span>. Bu tahrip edici atama sonunda, orjinal dizinin
+			orijinal içeriği silinir ve geri döndürülen kesilen elemanlar ile yeni
+			bir içerik oluşturulur. Bu durumda, orijinal dizinin başlangıç ve son elemanlarının
+			bazıları kesilerek, orijinal dizi için yeni bir içerik oluşturulmuş olur.
+			<a href="../uygulamalar/b8.2.12-uyg-3.html">Örnek:</a> </p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> kesYerleştir<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span> <span 
+			class="keyw"> new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> <span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kardelen'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nergis'</span><span 
+			class="op">,</span> <span 
+			class="str">'Marguerite'</span><span 
+			class="op">,</span> <span 
+			class="str">'Muguet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Gardenia'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">,</span> <span 
+			class="str">' * ' </span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.12-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">t</span> <span 
+			class="op">=</span> t<span 
+			class="op">.</span><span 
+			class="keyw">splice</span><span 
+			class="op">(</span>1<span 
+			class="op">,</span> 2<span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>t<span 
+			class="op">,</span> <span 
+			class="str">' * ' </span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.12-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span class="op">(</span>kesYerleştir<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent"> Bu programın uygulanması sonucu: </p>
+		<p class="cursive-green"> Orijinal t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-3-sonuç-1"></span> </p>
+		<p class="cursive-blue"> t = t.splice(1, 2); </p>
+		<p class="cursive-green"> Oluşan t Dizisi : <span class="cursive-red" id="b8.2.12-uyg-3-sonuç-2"></span> </p>
+		<p class="cursive-maroon">Orijinal t Dizisinin Kesilen Elemanları Yeniden t dizisine Atanıyor. <br />
+			Orijinal t dizisinin İçeriği Kayboluyor, Yerine Kesilen Elemanlar Yerleştiriliyor !
+		</p>
+
+		<p class="indent" id="b8.2.12-uyg-4">
+			<span class="keyw"> splice</span> <span class="op">()</span>Metodunun
+			bu şekilde rekürsif tahrip edici atama ile uygulanmasıın, <span 
+			class="keyw">slice</span><span class="op">()</span> metodunun
+			aynı şekilde rekürsif tahrip edici atama ile uygulanmasına eşdeğer olduğu
+			aşağıdaki <a href="../uygulamalar/b8.2.12-uyg-4.html">örnekten izlenebilir:</a> 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> diziYenile()<span 
+			class="op"> {</span>
+
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span> <span 
+			class="keyw"> new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Menekşe'</span><span 
+			class="op">,</span> <span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kardelen'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nergis'</span><span 
+			class="op">,</span> <span 
+			class="str">'Marguerite'</span><span 
+			class="op">,</span> <span 
+			class="str">'Muguet'</span><span 
+			class="op">,</span> <span 
+			class="str">'Gardenia'</span><span 
+			class="op">);
+
+</span><span class="pl-50">diziYaz</span>(t , <span class="str">' # ' </span>,<span 
+			class="str">'b8.2.12-uyg-4-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">t</span> <span 
+			class="op">=</span> t<span 
+			class="op">.</span><span 
+			class="keyw">slice</span><span 
+			class="op">(</span>1<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span>(t , <span class="str">' * ' </span>,<span 
+			class="str">'b8.2.12-uyg-4-sonuç-2'</span>)<span 
+			class="op">;</span>
+
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span class="op">(</span>diziYenile<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent"> Bu <a href="../uygulamalar/b8.2.12-uyg-4.html">programın</a> uygulanması
+			ile : </p>
+		<p class="cursive-green"> Orijinal t Dizisi : = <span class="cursive-red" id="b8.2.12-uyg-4-sonuç-1"></span> </p>
+		<p class="cursive-blue"> t=t.slice(1,3); </p>
+		<p class="cursive-green"> Sonuç t Dizisi : = <span class="cursive-red" id="b8.2.12-uyg-4-sonuç-2"></span> </p>
+		<p class="cursive-maroon"> slice() Yöntemi, splice() Yöntemine Eşdeğer İşlev
+			Yapabiliyor ! </p>
+		<p class="nonindent">
+			<span class="red"><strong>splice() Metodunun Dizideki Elemanların Bazılarının Yerlerine 
+			Yenilerini Yerleştirmek Amacı ile Uygulanması</strong></span>
+		</p>
+		<p class="indent" id="b8.2.12-uyg-5">
+			<span class="keyw">splice</span><span class="op">()</span> Metodunun,
+			bu üçüncü ve son kullanım şeklinde, bir diziden kesilen elemanların yerlerine
+			yenileri yerleştirilebilir. Bu tür bir uygulamada, kesilen elemanlar ve yerlerine
+			yerleştirilen yenileri bitişik olmalı, yani birbirlerini takip etmelidirler.
+			Kesilen elemanlar, yerlerine yerleştirilecek elemanlardan fazla ise, kesilen
+			ilk elemanların yerlerine yenileri yerleştirilir.
+			<a href="../uygulamalar/b8.2.12-uyg-5.html">Örnek</a> : </p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.
+
+</span><span class="keyw-25">function</span> kesYenisiniYerleştir()<span 
+			class="op"> {</span>
+
+<span class="keyw-50">var</span> a<span 
+			class="op">=</span><span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'İsim'</span><span 
+			class="op">,</span> <span 
+			class="str">'Soyad'</span><span 
+			class="op">,</span> <span 
+			class="str">'Üye No.'</span><span 
+			class="op">,</span> <span 
+			class="str">'T.C. Kimlik No.'</span> <span 
+			class="op">,</span> <span 
+			class="str">'Vergi No.'</span><span 
+			class="op">,</span> <span 
+			class="str">'Adres'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziYaz</span><span class="op">(</span>a<span class="op">, </span><span 
+			class="str">' | ' <span 
+			class="op">, </span> 'b8.2.12-uyg-5-sonuç-1'</span><span class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">splice</span><span 
+			class="op">(</span>4<span 
+			class="op">,</span> 1<span 
+			class="op">, [</span><span 
+			class="str">'Tel No.'</span><span 
+			class="op">]);</span>
+
+<span class="pl-50">diziYaz</span><span 
+			class="op">(</span>a<span 
+			class="op">,</span> <span 
+			class="str">' | ' </span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.12-uyg-5-sonuç-2'</span><span 
+			class="op">;)</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>kesYenisiniYerleştir<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		
+		<p class="indent"> Bu <a href="../uygulamalar/b8.2.12-uyg-5.html">programın</a> sonucu : </p>
+		<p class="cursive-green"> Orijinal a Dizisi : = <span class="cursive-red" id="b8.2.12-uyg-5-sonuç-1"></span></p>
+		<p class="cursive-blue"> a.splice(4,1,<span class="op">[</span>'Tel No.'<span class="op">]</span>); </p>
+		<p class="cursive-green"> Sonuç a Dizisi : = <span class="cursive-red" id="b8.2.12-uyg-5-sonuç-2"></span></p>
+		<p class="nonindent"> şeklindedir. Dizinin beşinci elemanın değeri, <span class="str">'Vergi No.'</span> dan, <span 
+			class="str">'Tel. No.'</span> &#39;ya değiştirilmiştir.
+		</p>
+		<p class="subheading" id="proto-unshift">	8.2.13 - unshift() Metodu	</p>
+		<p class="indent">
+			<span class="keyw">unshift</span><span class="op">()</span> Metodu, bir dizinin başına belirtilen 
+			elemanları 	ekler ve dizinin yeni uzunluğunun değerini döndürür. 	Sözdizimi,
+		</p>
+		<pre>
+<span class="pl-25"></span><span class="str"><em>dizi</em></span><span 
+			class="op">.</span><span class="keyw">unshift</span><span 
+			class="op">(</span><span 
+			class="comm">[eleman1[</span><span class="op">,</span> <span 
+			class="comm">eleman2 [</span><span class="op">, . . .</span> <span 
+			class="comm">[</span>, <span class="comm">elemanN]]]]</span><span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="nonindent">
+			Burada,
+		</p>
+		<pre>
+<span class="str-25"><em>dizi</em></span> : Bir dizi (<span 
+			class="keyw">Array</span>) nesne sınıfı örneği <span class="str">(Gerekli)</span>.
+
+<span class="comm-25">eleman1[</span><span 
+			class="op">,</span> <span class="comm">eleman2[</span><span 
+			class="op">,</span> <span class="comm">[</span>, <span 
+			class="comm">elemanN]]]]</span> : Eklenecek elemanlar <span 
+			class="str">(isteğe Bağlı)</span>.
+		</pre>
+		<p class="indent" id="b8.2.13-uyg-1">
+			Bu metodun bir 
+			<a href="../uygulamalar/b8.2.13-uyg-1.html">uygulama örneğinin</a> sonuçları ve
+			<a href="../uygulamalar/b8.2.13-uyg-1-js.html">JavaScript kodları</a> aşağıda görülmektedir:
+		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> dizininBaşınaEkle<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> bitkiler<span 
+			class="op"> = [</span><span 
+			class="str">'Lale'</span><span 
+			class="op">,</span> <span 
+			class="str">'Glayöl'</span><span class="op">],</span> kopyaDizi <span 
+			class="op">= [];</span>
+	
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Orijinal Dizi : '</span><span 
+			class="op">,</span> bitkiler<span class="op">.</span><span 
+			class="keyw">join</span><span class="op">(</span><span 
+			class="str">' | '</span><span class="op">),</span> <span 
+			class="str"> 'b8.2.13-uyg-1-sonuç-1'</span><span class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Orijinal Dizi Uzunluğu : '</span><span 
+			class="op">,</span> bitkiler<span class="op">.</span><span 
+			class="keyw">length</span><span class="op">,</span> <span 
+			class="str">'b8.2.13-uyg-1-sonuç-2'</span><span class="op">);</span>
+
+<span class="pl-50">diziKopyala</span><span 
+			class="op">(</span>bitkiler<span 
+			class="op">,</span> kopyaDizi<span 
+			class="op">);</span>
+
+<span class="pl-50">kopyaDizi</span><span 
+			class="op">.</span><span 
+			class="keyw">unshift</span><span class="op">(</span><span 
+			class="str">'Siklamen'</span><span 
+			class="op">,</span><span 
+			class="str">'Açelya'</span><span class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">' Güncellenmiş Dizi (unshift() işleminden sonra) : '</span> <span 
+			class="op">+</span> kopyaDizi<span class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' | '</span><span 
+			class="op">),</span> <span 
+			class="str">'b8.2.13-uyg-1-sonuç-3'</span><span class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">' Güncellenmiş Dizi Uzunluğu (unshift() işleminden sonra) : '</span><span 
+			class="op">,</span> kopyaDizi<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.13-uyg-1-sonuç-4'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(dizininBaşınaEkle)</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Sonuç:
+	</p>
+		<p id="b8.2.13-uyg-1-sonuç-1"></p>
+		<p id="b8.2.13-uyg-1-sonuç-2"></p>
+		<p id="b8.2.13-uyg-1-sonuç-3"></p>
+		<p id="b8.2.13-uyg-1-sonuç-4"></p>
+	
+		<p class="cursive-maroon" id="unshiftMetodu"></p>	
+		<p class="indent">
+			Bu <a href="../uygulamalar/b8.2.13-uyg-1.html">uygulamadan</a> da görüldüğü gibi 
+			dizinin başına yeni elemanlar eklenmekte ve yeni elemanların eklenmesi ile dizi 
+			uzunluğu değeri güncellenmektedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b8s3.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b8s5.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.12-uyg-1.js">
+		</script>
+ 		<script type="text/javascript" src="../js/b8.2.12-uyg-2.js">
+		</script>
+ 		<script type="text/javascript" src="../js/b8.2.12-uyg-3.js">
+		</script>
+ 		<script type="text/javascript" src="../js/b8.2.12-uyg-4.js">
+		</script>
+ 		<script type="text/javascript" src="../js/b8.2.12-uyg-5.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.13-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:14 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,2476 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:12 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b20/b20.4-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b20.4 Tarih Uygulamaları</title>
+	</head>
+	<body>
+		<p>
+		<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b20.3-s2.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b20.4-s2.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 20
+		</p>
+		<p class="chapter">
+			Uygulamalar
+		</p>
+		<p class="pagenum">
+			Bölüm 20.4 Sayfa 1
+		</p>
+		<p class="title-left" id="tarih">20.4 - Tarih,Takvim,Saat Uygulamaları</p>
+		<p class="subheading">20.4.1 - Güncel Tarihin Yerel Dile Çevrilmesi</p>
+		<p class="indent" id="b20.4.1-uyg-1">
+			Güncel tarih bilgilerinin yerel dile çevrilmesi, otomatik olarak gerçekleştirilebilir.
+			Tarih verilerinin yerel dillere çevrilmesi toLocaleString<span 
+			class="op">()</span> metodunun uyglanması ile gerçekleşir. Bu metodun 
+			geri döndürdüğü değer, belge çözümleyicisine özgüdür. Bu nedenle, belgenin çözümlendiği
+			belge çözümleyicisinin vereceği sonuç daha önceden kontrol edilmelidir. Bu konudaki bir 
+			<a href="../uygulamalar/b20.4.1-uyg-1-js.html">programın</a>, 
+			kodları aşağıda görülmekte ve bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.4.1-uyg-1.html">uygulama sayfasında</a>, 
+			çalışmaktadır. 
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>yerelTarih<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> 
+<span class="pl-50">datum</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">girişıNoktası</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>bağlantı<span
+			class="op">),</span>
+<span class="pl-50">text</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Günün Tarihi : '</span> <span 
+			class="op">+</span> datum<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleString</span> <span
+			class="op">()),</span>
+<span class="pl-50">p0</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span
+			class="op">);</span>
+
+<span class="pl-50">p0</span><span
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'class'</span><span
+			class="op">, </span ><span
+			class="str">'tarih'</span><span
+			class="op">);</span>
+<span class="pl-50">p0</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span 
+			class="op">(</span>text<span
+			class="op">);</span>
+<span class="pl-50">insertAfter</span><span 
+			class="op">(</span>p0<span 
+			class="op">,</span> girişNoktası<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.4.1-uyg-1-js.html">program</a>, 
+			sadece IE 8, Opera 10 ve FireFox 3.5 da türkçeleştirilmiş bir çıkış verebilmektedir. 
+			Safari 4 ve Chrome 3 bu programın ingilizce çıktısını verebilmektedir. Diğer bir 
+			deyişle, bu son iki belge çözümleyicisi, <span class="keyw">toLocaleString</span> <span 
+			class="op">()</span> metodu ile tarih sınıfı nesne örneklerini türkçe karakter dizgilerine
+			dönüştüremez. Bu nedenle , söz konusu dönüştürme yöntemlerini bizim organize etmemiz
+			gerekli olmaktadır.		</p>
+		<p  class="indent">
+			Tarih sınıfı nesne örneklerinin türkçeleştirilmesi için örnek bir fonksiyon , aşağıda 
+			görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function </span>türkçeTarih<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> 
+<span class="pl-50">yerelTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">tarih</span> <span 
+			class="op">= {};</span>
+<span class="pl-50">gün</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Pazar'</span><span 
+			class="op">,</span> <span 
+			class="str">'Pazartesi'</span><span 
+			class="op">,</span> <span 
+			class="str">'Salı'</span><span 
+			class="op">,</span> <span 
+			class="str">'Çarşamba'</span><span 
+			class="op">,</span> <span 
+			class="str">'Perşembe'</span><span 
+			class="op">,</span> <span 
+			class="str">'Cuma'</span><span 
+			class="op">,</span> <span 
+			class="str">'Cumartesi'</span><span 
+			class="op">),</span>
+<span class="pl-50">ay</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Ocak'</span><span 
+			class="op">,</span> <span 
+			class="str">'Şubat'</span><span 
+			class="op">,</span> <span 
+			class="str">'Mart'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nisan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Mayıs'</span><span 
+			class="op">,</span> <span 
+			class="str">'Haziran'</span><span 
+			class="op">,</span> <span 
+			class="str">'Temmuz'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ağustos'</span><span 
+			class="op">,</span> <span 
+			class="str">'Eylül'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ekim'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aralık'</span><span 
+			class="op">),</span> 
+<span class="pl-50">geçerliTarih</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getDate</span><span 
+			class="op">());</span>
+<span class="pl-50">geçerliYıl</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getYear</span><span 
+			class="op">() %</span> 100<span 
+			class="op">) + </span>2000<span 
+			class="op">),</span>
+<span class="pl-50">geçerliAy</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>ay<span 
+			class="op">[</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getMonth</span><span 
+			class="op">()]),</span>
+<span class="pl-50">geçerliGün</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>gün<span 
+			class="op">[</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getDay</span><span 
+			class="op">()]),</span>
+<span class="pl-50">geçerliSaat</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getHours</span><span 
+			class="op">()),</span>
+<span class="pl-50">geçerliDakika</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">()),</span>
+<span class="pl-50">geçerliSaniye</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>yerelTarih<span 
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">());</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>geçerliSaat<span 
+			class="op">.</span><span 
+			class="keyw">valueOf</span><span 
+			class="op">() &lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">geçerliSaat</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> geçerliSaat<span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>geçerliDakika<span 
+			class="op">.</span><span 
+			class="keyw">valueOf</span><span 
+			class="op">() &lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">geçerliDakika</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> geçerliDakika<span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>geçerliSaniye<span 
+			class="op">.</span><span 
+			class="keyw">valueOf</span><span 
+			class="op">() &lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">geçerliSaniye</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> geçerliSaniye<span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">tarih</span> <span 
+			class="op">= {</span> tarih <span
+			class="op">:</span> geçerliTarih<span 
+			class="op">,</span> yıl <span
+			class="op">:</span> geçerliYıl<span 
+			class="op">,</span> ay <span
+			class="op">:</span> geçerliAy<span 
+			class="op">,</span> gün <span
+			class="op">:</span> geçerliGün<span 
+			class="op">,</span> saat <span
+			class="op">:</span> geçerliSaat<span 
+			class="op">,</span> dakika <span
+			class="op">:</span> geçerliDakika<span 
+			class="op">,</span> Saniye <span
+			class="op">:</span> geçerliSaniye<span 
+			class="op">};</span>
+ 
+<span class="keyw-50">return</span> tarih<span
+			class="op">;</span>
+<span class="op-25">}</span>
+			</pre>
+		<p class="indent" id="b20.4.1-uyg-2">
+			Yukarıda görülen türkçeTarih<span class="op">() {</span>fonksiyonu, tarih 
+			verilerinin türkçe karşılıklarını içeren ilişkisel diziyi döndüren bir fonksiyondur. 
+			 Bu fonksiyon, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			program kitaplığına eklenmiştir. Bu fonksiyondan türkçe tarih adlarına gereksinme 
+			duyulacak her programda yararlanılabilir. Bu konudaki 
+			bir <a href="../uygulamalar/b20.4.1-uyg-2-js.html">program</a> aşağıda görülmekte ve bağlantılı 
+			olduğu <a href="../uygulamalar/b20.4.1-uyg-2.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>tarihBelirle<span 
+			class="op">(</span>bağlantı<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> 
+<span class="pl-50">yerelTarih</span> <span 
+			class="op">=</span> türkçeTarih<span 
+			class="op">(),</span>
+<span class="pl-50">girişıNoktası</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>bağlantı<span
+			class="op">),</span>
+<span class="pl-50">p0</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span
+			class="op">),</span>
+<span class="pl-50">ata</span> <span 
+			class="op">=</span> girişNoktası<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span> <span 
+			class="op">(),</span>
+<span class="pl-50">gününTarihVerisi</span> <span 
+			class="op">=</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'tarih'</span><span 
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'ay'</span><span 
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'yıl'</span><span 
+			class="op">] +</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'gün'</span><span 
+			class="op">] +</span> 
+<span class="str-200">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'saat'</span><span 
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'dakika'</span><span 
+			class="op">] +</span> <span 
+			class="str">' '</span><span 
+			class="op"> +</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'saniye'</span> <span 
+			class="op">];</span>
+
+<span class="pl-50">p0</span><span
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'class'</span><span
+			class="op">, </span ><span
+			class="str">'tarih'</span><span
+			class="op">);</span>
+<span class="pl-50">p0</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Günün Tarihi : '</span><span
+			class="op">) + </span>gününTarihVerisi<span
+			class="op">));</span>
+<span class="pl-50">insertAfter</span><span 
+			class="op">(</span>p0<span 
+			class="op">,</span> girişNoktası<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>başlat<span 
+			class="op">() {</span>
+
+<span class="pl-50">tarihBelirle</span><span 
+			class="op">(</span><span 
+			class="str">'bağlantı'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.4.1-uyg-2.html">program</a>, türkçe tarih bilgilerinin
+			oluşturulması için genel bir temel niteliğindedir. Bu programda geliştirilen değerler,
+			başka programlarda da gereksinme olduğunda uygulanabilecektir.
+		</p>
+		<p class="subheading" id="modification">20.4.2 - Bir Belgenin Son Güncellenme Tarihi</p>
+		<p class="indent" id="b20.4.2-uyg-1">
+			Bir belgenin son güncellenme tarihi, <span class="keyw">document</span><span
+			class="op">.</span><span class="keyw">lastModified</span><span class="op">()</span>
+			metodunun döndürdüğü tarin nesnesidir. Ne yazık ki bu metodu sadece Internet Explorer , FireFox
+			ve Opera desteklemektedir. Webkit temelli Safari ve Chrome bu metodu desteklememektedir. 
+			Metodu destekleyen belge çözümleyiciler, aynı zamanda 
+			<span class="keyw">toLocaleString</span><span class="op">()</span> metodunu da
+			desteklediklerinden sonuç türkçe olarak belirtilmektedir. Belgenin son düzenlenme tarihini belirten 
+			<a href="../uygulamalar/b20.4.2-uyg-1-js.html">program</a>, kendi kendine çalışabilecek ve hiçbir 
+			kitaplığa gerek göstermeyecek şekilde düzenlenmiştir. Bu program, bağlı olduğu 
+			<a href="../uygulamalar/b20.4.2-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>lastModification<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> datum <span 
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">lastModified</span><span 
+			class="op">),</span>
+<span class="pl-50">q</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'body'</span><span
+			class="op">),</span>
+<span class="pl-50">text</span> <span 
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="pl-50">p</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span
+			class="op">);</span>
+			
+<span class="keyw-50">if</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">lastModified</span><span 
+			class="op">) {</span>
+<span class="pl-75">text</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Son Değiştirme Tarihi : '</span> <span
+			class="op">+</span> datum<span
+			class="op">.</span><span
+			class="keyw">toLocaleString</span><span 
+			class="op">());</span>
+<span class="pl-75">p0</span> <span 
+			class="op">=</span> <span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'color: #cc9900;font : 18px verdana;'</span><span
+			class="op">);</span>
+<span class="pl-75">p0</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span>text<span 
+			class="op">);</span>
+<span class="pl-75">q</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>q <span 
+			class="op">-</span><span 
+			class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">).</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span>p0<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+		
+<span class="keyw-50">else</span> <span 
+			class="op">{</span> 
+
+<span class="pl-75">text</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">Belgenin Son Düzenlenme Tarihini, IE 8, Opera 10, FireFox 3.5 kullanarak Öğrenebilirsiniz !  '</span> <span 
+			class="op">));</span>
+<span class="pl-75">p0</span> <span 
+			class="op">=</span> <span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'color: #cc9900;font : 18px verdana;'</span><span
+			class="op">);</span>
+<span class="pl-75">p0</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span>text<span 
+			class="op">);</span>
+<span class="pl-75">q</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>q <span 
+			class="op">-</span><span 
+			class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">).</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span>p0<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> olayDinleyicisiEkle<span 
+			class="op">(</span>elm<span 
+			class="op">,</span> olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">) {</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox Tipi İse (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>elm<span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">elm</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="keyw-75">return true</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span><span 
+			class="op">(</span>elm<span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">olay</span> <span 
+			class="op">=</span> <span 
+			class="str">'on'</span> <span 
+			class="op">+</span> olay<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> r <span 
+			class="op">=</span> elm<span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">);</span>
+<span class="keyw-75">return</span> r<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+		
+<span class="comm-25">// Eğer Belge Çözümleyici Farklı İse</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75"></span>elm<span 
+			class="op">[</span><span 
+			class="str">'on'</span> <span 
+			class="op">+</span> olay<span 
+			class="op">] = </span>fonksiyon<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> sayfaYüklenmesiTamamlandıktanSonraÇalıştır<span 
+			class="op">(</span>fonksiyon<span 
+			class="op">) {</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">,</span> <span 
+			class="str">'load'</span><span 
+			class="op">,</span> fonksiyon<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>lastModification<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Eğer <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığından
+			yararlanılmak istenirse, yukarıdaki <a href="../uygulamalar/b20.4.2-uyg-1.html">program</a>,
+			tüm yardımcı fonksiyonlar kitaplığa alınmış durumda olduğu için, sadece,
+		</p>
+		<pre>
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>lastModification<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde çalıştırılabilir.
+		</p>
+		<p class="subheading" id="saat">20.4.3 - Sayısal Saat</p>
+		<p class="indent">
+			Sayısal bir saat tasarımı, tarih verisini sayfada belirli bir yerde türkçe olarak
+			 her saniye güncelleyerekgösterecek bir program yaratmak analamına gelmektedir.
+			Bu saatin gösterimi, değişik font ve renklerin kullanımı ile istenildiği gibi özelleştiriebilir.
+			Bu amaçla, ilk olarak genel amaçlı bir sayısalSaat<span class="op">()</span> fonksiyonu
+			gerçekleştirilmiş ve <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program
+			kitaplığna eklenmiştir. Bu fonksiyonun yazılımı aşağıda görülmektedir. 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> sayısalSaat<span 
+			class="op">(</span>girişNoktası<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> geçerliAn <span 
+			class="op">=</span> türkçeTarih<span 
+			class="op">(),</span>
+<span class="pl-50">span</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span
+			class="op">),</span>
+<span class="pl-50">ata</span> <span 
+			class="op">=</span> girişNoktası<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">,</span>
+<span class="pl-50">altDüğümler</span> <span 
+			class="op">=</span> ata<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">,</span>
+<span class="pl-50">yerDeğiştirme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span>
+<span class="pl-50">tarih</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'tarih'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'ay'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'yıl'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'gün'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'saat'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> 
+<span class="pl-200">geçerliAn</span><span 
+			class="op">[</span><span 
+			class="str">'dakika'</span><span
+			class="op">] +</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> geçerliAn<span 
+			class="op">[</span><span 
+			class="str">'saniye'</span><span
+			class="op">]);</span>
+
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">'color: red;font : 18px verdana;'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>tarih<span 
+			class="op">);</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-75">ata</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span><span 
+			class="str">' position : relative; left: 70%;'</span><span 
+			class="op">);</span>
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">ata</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceChild</span><span 
+			class="op">(</span>span<span 
+			class="op">,</span> altDüğümler<span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">);</span>
+<span class="pl-125">yerDeğiştirme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span 
+			class="op">(</span>yerDeğiştirme<span 
+			class="op">) {</span>
+<span class="keyw-100">setTimeout</span><span 
+			class="op">(</span><span 
+			class="str">'sayısalSaat(span)'</span><span 
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="keyw-100">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Programlama Hatası !'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Sayfa Yerleştirme Hatasıı !'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent"id="b20.4.3-uyg-1">
+			Yukarıda kodları görülen sayısalSaat<span class="op">()</span>
+			fonksiyonu, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			fonksiyon kitaplığına alınırsa, sayısal bir, saat aşağıda görüldüğü gibi,
+			çok kısa bir <a href="../uygulamalar/b20.4.3-uyg-1-js.html">kod </a>
+			yazılarak sayfanın bir köşesine yerleştirilebilir. Bu program ilgili olduğu 
+			<a href="../uygulamalar/b20.4.3-uyg-1.html">web sayfasında</a> 
+			çalışmaktadır.
+		</p>
+		<p class="indent">
+			Sayısal saat her sayfaya eklenebilir. Bunun için sayfaya aşağıdaki gibi 
+			bir satır eklenmesi yeterli olur:
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span
+			class="elm">span</span> <span
+			class="att">id</span><span
+			class="op">=</span><span
+			class="str">&quot;saat&quot;</span><span 
+			class="keyw">&gt;</span><span
+			class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">span</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="indent">
+			Görüntülecek sayısal saatin görüntüsü, sayısalSaat<span class="op">()</span>
+			fonksiyonun özelleştirilmesi ve istenilen stil özellilerinin belirtilmesi ile sağlanabilir.
+		</p>
+		<p class="indent">
+			Bir başka sayısal saat programı daha önce hazırlanmış sayı resimlerinden
+			yararlanmaktadır. Bu resimlerin kaynaklarından biri 
+			<a href="http://www.fortochka.com/">http://www.fortochka.com</a> adresinde 
+			bulunmaktadır. Bu siteden indirilen sayı resimleri, 0.gif, 1.gif, 2.gif vb.. şeklinde
+			adlandırılarak, <span class="str">'../images/'</span> klasörüne konulmuştur. 
+		</p>
+		<p class="indent">
+			Modern W3C-DOM yöntemlerine göre programlama, eskiye göre çok farklıdır. 
+			Bu programda ilk olarak güncel saat değerleri analiz edilerek altı gösterge kutusu
+			için gerekli resimler seçilir ve sayfa öğeleri yerleştirilip güncel saat, dakika ve saniye 
+			değerleri, gözalıcı resimlerle görüntülenir.
+		</p>
+		<p class="indent" id ="b20.4.3-uyg-2">
+			Bundan sonra her saniye tekrarlanarak bu değerler incelenir ve eski resimler, değerleri 
+			güncel saat değerlerini gösterecek şekilde, yenileri ile yer değiştirir. Bu 
+			<a href="../uygulamalar/b20.4.3-uyg-2-js.html">programın</a> kodları aşağıda görülmekte ve
+			bağlı olduğu <a href="../uygulamalar/b20.4.3-uyg-2.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>ilkGörüntü<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> saatGörüntüsü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'saat'</span><span
+			class="op">),</span>
+<span class="pl-50">an</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">th</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getHours</span><span 
+			class="op">(),</span>
+<span class="pl-50">th1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">th2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">td</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">(),</span>
+<span class="pl-50">td1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">td2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">ts</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">(),</span>
+<span class="pl-50">ts1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">ts2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı3</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı4</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı5</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">sayı6</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">span1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">span6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span
+			class="op">),</span>
+<span class="pl-50">resim1</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim2</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim3</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim4</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim5</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">),</span>
+<span class="pl-50">resim6</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span
+			class="op">);</span>
+
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'style'</span><span
+			class="op">,</span> <span 
+			class="str">'padding-left :1000px; font : bolder italic 40px Trebuchet;color : red;'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge1'</span><span 
+			class="op">);</span>
+<span class="pl-50">span2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge2'</span><span 
+			class="op">);</span>
+<span class="pl-50">span3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge3'</span><span 
+			class="op">);</span>
+<span class="pl-50">span4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge4'</span><span 
+			class="op">);</span>
+<span class="pl-50">span5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge5'</span><span 
+			class="op">);</span>
+<span class="pl-50">span6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge6'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span1<span 
+			class="op">);</span>
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span2<span 
+			class="op">);</span>
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span3<span 
+			class="op">);</span>
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span4<span 
+			class="op">);</span>
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span5<span 
+			class="op">);</span>
+<span class="pl-50">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span6<span 
+			class="op">);</span>
+
+<span class="pl-50">span1</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim1<span 
+			class="op">);</span>
+<span class="pl-50">span2</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim2<span 
+			class="op">);</span>
+<span class="pl-50">span3</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim3<span 
+			class="op">);</span>
+<span class="pl-50">span4</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim4<span 
+			class="op">);</span>
+<span class="pl-50">span5</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim5<span 
+			class="op">);</span>
+<span class="pl-50">span6</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim6<span 
+			class="op">);</span>
+
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>th <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">th</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> th<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">th</span> <span 
+			class="op">=</span> th <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>td <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">td</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> th<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">td</span> <span 
+			class="op">=</span> td <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ts <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">ts</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> ts<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">ts</span> <span 
+			class="op">=</span> ts <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">th1</span> <span
+			class="op">=</span> th<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı1</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> th1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim1</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı1<span 
+			class="op">);</span>
+<span class="pl-50">th2</span> <span
+			class="op">=</span> th<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> th<span
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">);</span>
+<span class="pl-50">sayı2</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> th2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim2</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı2<span 
+			class="op">);</span>
+
+<span class="pl-50">td1</span> <span
+			class="op">=</span> td<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı3</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> td1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim3</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı3<span 
+			class="op">);</span>
+<span class="pl-50">td2</span> <span
+			class="op">=</span> td<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> td<span
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">);</span>
+<span class="pl-50">sayı4</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> td2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim4</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı4<span 
+			class="op">);</span>
+
+<span class="pl-50">ts1</span> <span
+			class="op">=</span> ts<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı5</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> ts1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim5</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı5<span 
+			class="op">);</span>
+<span class="pl-50">ts2</span> <span
+			class="op">=</span> ts<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> ts<span
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">);</span>
+<span class="pl-50">sayı6</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> ts2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">resim6</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı6<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>dijitalSaat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> an <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">th</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getHours</span><span 
+			class="op">(),</span>
+<span class="pl-50">th1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">th2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">td</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span 
+			class="op">(),</span>
+<span class="pl-50">td1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">td2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">ts</span> <span
+			class="op">=</span> an<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span 
+			class="op">(),</span>
+<span class="pl-50">ts1</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">,</span>
+<span class="pl-50">ts2</span> <span
+			class="op">=</span> <span 
+			class="str">''</span><span
+			class="op">;
+
+</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>th <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">th</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> th<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">th</span> <span 
+			class="op">=</span> th <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>td <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">td</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> th<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">td</span> <span 
+			class="op">=</span> td <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ts <span 
+			class="op">&lt;</span> 10<span 
+			class="op">) {</span>
+<span class="pl-75">ts</span> <span 
+			class="op">=</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> ts<span
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span
+			class="op">{</span>
+<span class="pl-75">ts</span> <span 
+			class="op">=</span> ts <span 
+			class="op">+</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">th1</span> <span
+			class="op">=</span> th<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı1</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> th1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span1</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge1'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı1<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">th2</span> <span
+			class="op">=</span> th<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="pl-50">sayı1</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> th2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span1</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge2'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span2<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span2<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı2<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">td1</span> <span
+			class="op">=</span> td<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı3</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> td1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span3</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge3'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span3<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span3<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı3<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">td2</span> <span
+			class="op">=</span> td<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="pl-50">sayı4</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> td2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span4</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge4'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span4<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span4<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı4<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">ts1</span> <span
+			class="op">=</span> ts<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">sayı5</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> ts1 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span5</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge5'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span1<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span5<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı5<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">ts2</span> <span
+			class="op">=</span> ts<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span
+			class="op">(</span>0<span
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="pl-50">sayı6</span> <span
+			class="op">=</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> ts2 <span
+			class="op">+</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-50">span6</span><span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'gösterge6'</span><span
+			class="op">);</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;span6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">:</span> i <span 
+			class="op">++) {</span> 
+<span class="keyw-75">if</span><span 
+			class="op">(</span>span6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span>  <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-100">span6<span
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">)</span></span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı6<span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function </span>başlangıç<span 
+			class="op">() {</span>
+<span class="pl-50">ilkGörüntü</span><span 
+			class="op">();</span>
+<span class="keyw-50">setInterval</span><span
+			class="op">(</span><span 
+			class="str">'dijitalsaat()'</span><span
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<p class="indent" id = "b20.4.3-uyg-3">
+			Yukarıdaki <a href="../uygulamalar/b20.4.3-uyg-2-js.html">program</a>,
+			dizilerin kullanılması ile önemli ölçüde kısalabilir, fakat izlenmesi de 
+			belirli bir şekilde güçleşebilir.  Aşağıda, bu programın, dizilerin
+			kullanıldığı <a href="../uygulamalar/b20.4.3-uyg-3-js.html">sürümünün</a> 
+			kodları görülmekte ve bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.4.3-uyg-3.html">sayfada</a> 
+			çalışmaktadır.
+		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>ilkGörüntü<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> saatGörüntüsü <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'saat'</span><span
+			class="op">),</span>
+<span class="pl-50">an</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">span</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">sayı</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">resim</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">gösterge</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">t</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">temp</span> <span
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-25">for</span><span
+			class="op">(</span><span 
+			class="keyw">var</span> i <span
+			class="op">=</span> 0<span
+			class="op">;</span> i <span
+			class="op">&lt;</span> 6<span
+			class="op">;</span> i <span
+			class="op">++</span><span
+			class="op">) {</span> 
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span 
+			class="op">);</span>
+<span class="pl-75">resim</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span 
+			class="op">);</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge'</span> <span
+			class="op">+</span> i<span 
+			class="op">);</span>
+<span class="pl-75">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span<span
+			class="op">[</span>i<span
+			class="op">],</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim<span
+			class="op">[</span>i<span
+			class="op">],</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 0<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getHours</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 2<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 4<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="pl-75">sayı</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">] +</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-75">resim</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'src'</span><span
+			class="op">,</span> sayı<span
+			class="op">[</span>i<span 
+			class="op">]);</span>
+<span class="op-50">}</span>;
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>dijitalSaat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> an <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">span</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">sayı</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">resim</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">gösterge</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">t</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(),</span>
+<span class="pl-50">temp</span> <span
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span><span
+			class="op">(</span><span 
+			class="keyw">var</span> i <span
+			class="op">=</span> 0<span
+			class="op">;</span> i <span
+			class="op">&lt;</span> 6<span
+			class="op">;</span> i <span
+			class="op">++</span><span
+			class="op">) {</span> 
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'SPAN'</span><span 
+			class="op">);</span>
+<span class="pl-75">resim</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'IMG'</span><span 
+			class="op">);</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'id'</span><span
+			class="op">,</span> <span 
+			class="str">'gösterge'</span> <span
+			class="op">+</span> i<span 
+			class="op">);</span>
+<span class="pl-75">saatGörüntüsü</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>span<span
+			class="op">[</span>i<span
+			class="op">],</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>resim<span
+			class="op">[</span>i<span
+			class="op">],</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 0<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getHours</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 2<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getMinutes</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 4<span 
+			class="op">) {</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span>an<span
+			class="op">.</span><span 
+			class="keyw">getSeconds</span><span
+			class="op">();</span>
+<span class="keyw-100">if</span><span
+			class="op">(</span>t<span
+			class="op">[</span>i<span
+			class="op">] &lt; 10) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'0'</span> <span 
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="op-100">}</span>
+<span class="keyw-100">else</span> <span
+			class="op">{</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> t<span
+			class="op">[</span>i<span 
+			class="op">] +</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-100">}</span>
+<span class="pl-100">temp</span> <span
+			class="op">=</span> t<span
+			class="op">[</span>i<span
+			class="op">];</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="pl-100">t</span><span
+			class="op">[</span>i<span 
+			class="op"> +</span> 1<span 
+			class="op">] =</span> temp<span
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>1<span
+			class="op">,</span> 2<span
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="pl-75">sayı</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="str">'../images/'</span> <span
+			class="op">+</span> t<span
+			class="op">[</span>i<span
+			class="op">] +</span> <span 
+			class="str">'.gif'</span><span
+			class="op">;</span>
+<span class="pl-75">span</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> <span 
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'gösterge'</span> <span
+			class="op">+</span> i<span
+			class="op">);</span>
+<span class="keyw-75">for</span><span 
+			class="op">(</span><span 
+			class="keyw">var</span> j <span 
+			class="op">=</span> 0<span
+			class="op">;</span> j &lt;span<span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span> <span
+			class="op">;</span> j <span 
+			class="op">++) {</span> 
+<span class="keyw-100">if</span><span 
+			class="op">(</span>span<span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>j<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span> <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="pl-125">span</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>j<span 
+			class="op">).</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'src'</span><span 
+			class="op">,</span> sayı<span
+			class="op">[</span>i<span 
+			class="op">]);</span>
+<span class="op-100">}</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function </span>başlangıç<span 
+			class="op">() {</span>
+<span class="pl-50">ilkGörüntü</span><span 
+			class="op">();</span>
+<span class="keyw-50">setInterval</span><span
+			class="op">(</span><span 
+			class="str">'dijitalsaat()'</span><span
+			class="op">,</span> 1E3<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span></pre>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b20.3-s2.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b20.4-s2.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:12 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

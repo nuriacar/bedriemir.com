@@ -1,0 +1,1976 @@
+﻿<!DOCTYPE html><html lang="tr">
+  <head>
+    <title>c1t2-uygulama1-mathematica</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Mathematics Tutorial Turkish" />
+    <meta name="keywords" content="MathematicsTutorial Turkish" />
+    <meta name="author" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Robots" content="INDEX,FOLLOW" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <!--<link href="HTMLFiles/c1t2-uygulama1-mathematica.css" rel="stylesheet" 
+    type="text/css" /> -->
+    <link href="../../../../../css/algebrastyle.css" rel="stylesheet" 
+    type="text/css" />
+    <link href="../../../../../css/bootstrap.css" rel="stylesheet" 
+    type="text/css" />
+  </head>
+  <body>
+  <p class="Chapter">
+    <span style="font-style: italic;">
+      c1t3 - Uygulamalar</span>
+  </p>
+    <p class="Chapter">
+      <span style="font-style: italic;">
+      Mathematica Uygulamalar&#305;</span>
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> uygulamalar&#305;m&#305;zda 
+      ayr&#305;cal&#305;kl&#305; bir yere sahip olacak, &ccedil;&uuml;nk&uuml; t&uuml;m 
+      ders notlar&#305;m&#305;z <span style="font-style: italic;">Mathematica</span> 
+      da yaz&#305;lmaktad&#305;r. Bu nedenle, uygulamalar &ccedil;o&#287;u kez ders 
+      notlar&#305;ndan fragmanlar i&ccedil;erebilir. &Ccedil;&uuml;nk&uuml;, ders 
+      notlar&#305;ndan <span style="font-style: italic;">Mathematica</span> &lsquo;ya 
+      veri aktar&#305;m&#305; &ccedil;ok kolay olmaktad&#305;r.
+    </p>
+    <p class="Section">
+      <span style="font-style: italic;">Mathematica</span> Hakk&#305;nda,
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span>, yakla&#351;&#305;k 1988 
+      y&#305;l&#305;nda matematik&ccedil;i Steven Wolfram taraf&#305;ndan yarat&#305;larak&nbsp;&nbsp;kullan&#305;ma 
+      sunulmu&#351; bir Bilgisayar Cebir Sistemi (Computer Algebra System - CAS) 
+      d&#305;r. G&uuml;n&uuml;m&uuml;z&uuml;n en geli&#351;mi&#351; CAS sistemidir. 
+      Uygulamalar&#305;m&#305;z, Wolfram Matematica&rsquo;n&#305;n son s&uuml;r&uuml;m&uuml; 
+      olan, 10.2 s&uuml;r&uuml;m&uuml;nde haz&#305;rlanm&#305;&#351;t&#305;r. Bu 
+      uygulaman&#305;n masa&uuml;st&uuml; s&uuml;r&uuml;m&uuml;, &ouml;&#287;renciler 
+      i&ccedil;in bile uuz denemeyecek bir fiyata sahip oldu&#287;undan, &ouml;&#287;renciler &uuml;cretsiz 
+      Wolfram Alfa ve Mathics sitelerinden yararlanabilirler. Wolfram Alpha, notebook 
+      infrastructure&rsquo;&uuml;n&uuml; sa&#287;lamad&#305;&#287;&#305; i&ccedil;in 
+      s&#305;n&#305;rl&#305; bir kullan&#305;m alan&#305; bulunmakta, fakat abone 
+      olundu&#287;unda, ara i&#351;lemleri de g&ouml;r&uuml;nt&uuml;yerek &ccedil;&ouml;z&uuml;m&uuml;n 
+      daha kolay anla&#351;&#305;lmas&#305;na olanak sa&#287;lamaktad&#305;r.
+      <span style="font-style: italic;">Mathematica</span> online sitesi, abone 
+      olanlar i&ccedil;in t&uuml;m <span style="font-style: italic;">Mathematica</span>&rsquo;n&#305;n 
+      kullan&#305;m&#305;na olanak sa&#287;lamaktad&#305;r. Fakat, ara i&#351;lemlerin 
+      g&ouml;r&uuml;nt&uuml;lenme olana&#287;&#305; yoktur. Web &uuml;zerinde
+      <span style="font-style: italic;">Mathematica</span> (<span 
+      style="font-style: italic;">Mathematica</span> online sitesi) uygulamas&#305;, 
+      rahat ve kullan&#305;m&#305; kolay bir atmosferde y&uuml;r&uuml;mekte olup, 
+      elde edilen fayda, &ouml;denen az bir &uuml;crete de&#287;mektedir.
+    </p>
+    <p class="Section">
+      <span style="font-style: italic;">Mathematica</span> K&uuml;me i&#351;lemlerinin 
+      Y&uuml;r&uuml;t&uuml;lmesi,
+    </p>
+    <p class="Subsubsection">
+      K&uuml;melerin Olu&#351;turulmas&#305;
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span>, do&#287;rudan k&uuml;me 
+      tan&#305;mlanabilmesine olanak sa&#287;lamaz. L&uuml;meler,
+      <span style="font-style: italic;">Mathematica</span> &lsquo;n&#305;n esas 
+      agregasyon (topluluk) Tan&#305;m&#305; olan List (liste)&rsquo;ler yoluyla 
+      ger&ccedil;ekle&#351;ir. <span style="font-style: italic;">Mathematica</span> 
+      her k&uuml;meyi bir s&#305;ral&#305; liste olarak kabul eder ve liste y&ouml;ntemlerinin 
+      uygulanmas&#305;na olanak sa&#287;lar. Baz&#305; liste &ouml;ntan&#305;ml&#305; 
+      fonksiyonlar&#305; ise, k&uuml;me i&#351;lemlerini tam olarak sa&#287;lar.
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> listeleri, ayn&#305; 
+      eleman&#305;n birden fazla kullan&#305;lmas&#305;na olanak sa&#287;lar. Bu 
+      nedenle, Mthematica listelerindde ayn&#305; eleman&#305;n sadece bir kez kullan&#305;labilmesinin 
+      sa&#287;lanmas&#305; i&ccedil;in, DeleteDuplicates[x] fonksiyonu kullan&#305;l&#305;r. 
+      Burada x herhangibir <span style="font-style: italic;">Mathematica</span> 
+      listesidir. &Ouml;rnek olarak,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_1.png" 
+      alt="c1t2-uygulama1-mathematica_1.png" width="104" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_2.png" 
+      alt="c1t2-uygulama1-mathematica_2.png" width="96" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_3.png" 
+      alt="c1t2-uygulama1-mathematica_3.png" width="234" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_4.png" 
+      alt="c1t2-uygulama1-mathematica_4.png" width="177" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Burada A isimli bir <span style="font-style: italic;">Mathematica</span> listesi 
+      yarat&#305;lm&#305;&#351;t&#305;r. Bu listenin k&uuml;meye d&ouml;n&uuml;&#351;t&uuml;r&uuml;lmesi,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_5.png" 
+      alt="c1t2-uygulama1-mathematica_5.png" width="301" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_6.png" 
+      alt="c1t2-uygulama1-mathematica_6.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      i&#351;lemi ile ger&ccedil;ekle&#351;tirilir. Bu i&#351;em , rek&uuml;rsif, 
+      yani i&#351;lem tamamland&#305;&#287;&#305;nda, ana tan&#305;m&#305;n de&#287;i&#351;ti&#287;i 
+      bir bilgisayar bildirimi (statement) dir. Bu bildirim, A ile tan&#305;mlanm&#305;&#351;, 
+      yani &ouml;nceden yarat&#305;l&#305;p A ismi ile eri&#351;ilebilen bir bellek 
+      alan&#305;nda saklanm&#305;&#351; olan, liste yap&#305;s&#305;ndaki bir veri 
+      agregat&#305;n&#305;n,&nbsp;&nbsp;DeleteDuplicates[x] &ouml;ntan&#305;ml&#305; 
+      fonksiyonun, x arg&uuml;man&#305; yerine kullan&#305;larak i&#351;lem sonucunda 
+      olu&#351;an listenin yine A ile tan&#305;mlanan bellek alan&#305;nda saklanmas&#305;n&#305; 
+      belirtmektedir. Bu bir yokedici atama i&#351;lemidir ve i&#351;lemden &ouml;nce 
+      A bellek alan&#305;nda saklanm&#305;&#351; olan veriler, i&#351;lemden sonra 
+      silinerek, yerini yeni verilere b&#305;rakmakta ve eski veri eri&#351;ilmez 
+      olmaktad&#305;r. Atama i&#351;lemleri, <span>
+      <a href="http://bedriemir.com/"><span class="HyperlinkInline">bu sitedeki</span></a></span>,
+      <span><a href="http://bedriemir.com/Ada/b2/b2-s2.htm#atama">
+      <span class="HyperlinkInline">Ada</span></a></span>, <span>
+      <a href="http://bedriemir.com/Java/chapter2/chapter2page7.html#assignmentOperator">
+      <span class="HyperlinkInline">Java</span></a></span>, <span>
+      <a href="http://bedriemir.com/JavaScript/b2/b2s4.htm#atama">
+      <span class="HyperlinkInline">Javascript</span></a></span>, <span>
+      <a href="http://bedriemir.com/Python/ders4.html#assign">
+      <span class="HyperlinkInline">Python</span></a></span> programlama dilleri 
+      kurslar&#305;nda detayl&#305; olarak ele al&#305;nm&#305;&#351;t&#305;r. Daha 
+      fazla bilgi i&ccedil;in, bu sayfalar&#305;n okunmas&#305; uygun olacakt&#305;r. 
+      Fazladan elemanlar&#305;n silnmesi ile, A listesi bir k&uuml;me haline gelmi&#351; 
+      olmaktad&#305;r.
+    </p>
+    <p class="Text">
+      Elle atanm&#305;&#351; her listenin, DeleteDuplicates[x] &ouml;ntan&#305;ml&#305; 
+      fonksiyonun uygulanmas&#305; ile fazlal&#305;k olan elemanlar&#305;n&#305;n 
+      ay&#305;klanmas&#305; gerekli olmayabilir. &#304;stendi&#287;inde, k&uuml;&ccedil;&uuml;k 
+      ve kolay izlenebilir listelerde, fazladan yerle&#351;tirilmi&#351; bibirine 
+      e&#351;it elemanlar silinerek, liste, k&uuml;me haline getirilebilir. Yine 
+      de kolayl&#305;kla ve g&uuml;venli olarak, bu i&#351;in ger&ccedil;ekle&#351;tirilebilmesi 
+      i&ccedil;in, DeleteDuplicates[x] &ouml;ntan&#305;ml&#305; fonksiyonunun uygulanmas&#305; 
+      sa&#287;l&#305;k verilir.
+    </p>
+    <p class="Text">
+      Mathematica k&uuml;meleri, s&#305;ral&#305; listelerdir. En kolay k&uuml;meler, 
+      n say&#305;s&#305;na kadar 1,2..n do&#287;al say&#305;lar, pozitif tam say&#305;lar) 
+      sekans&#305;d&#305;r.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_7.png" 
+      alt="c1t2-uygulama1-mathematica_7.png" width="251" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_8.png" 
+      alt="c1t2-uygulama1-mathematica_8.png" width="160" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bu listelerin en kolay olu&#351;turulmas&#305;, Range[] fonksiyonunun uygulanmas&#305; 
+      ile ger&ccedil;ekle&#351;tirilebilir. Bu fonksiyon
+    </p>
+    <p class="Text">
+      Range[ilk eleman, son eleman, ad&#305;m aral&#305;&#287;&#305;]
+    </p>
+    <p class="Text">
+&#351;eklinde uygulan&#305;r. Arg&uuml;manlar&#305;n&#305;n hepsinin kullan&#305;lmas&#305; 
+      gerekli de&#287;ildir.
+    </p>
+    <p class="Text">
+      Range[5], listeyi son eleman 5 olacak &#351;ekilde d&uuml;zenler. Bu ifade,
+    </p>
+    <p class="Text">
+      A = {x | 1 , 2 , ...5}
+    </p>
+    <p class="Text">
+      veya,
+    </p>
+    <p class="Text">
+      A = {x | 1 &lt; x &le; 5}
+    </p>
+    <p class="Text">
+      tan&#305;mlar&#305;na e&#351;de&#287;erdir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_9.png" 
+      alt="c1t2-uygulama1-mathematica_9.png" width="104" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_10.png" 
+      alt="c1t2-uygulama1-mathematica_10.png" width="160" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Ba&#351;lang&#305;&ccedil; ve sonu&ccedil; elemanlar&#305;n&#305;n belirtilmesi,
+    </p>
+    <p class="Text">
+      A = {x | ba&#351;lang&#305;&ccedil; eleman&#305; &lt; x &le; sonu&ccedil; 
+      eleman&#305;}
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_11.png" 
+      alt="c1t2-uygulama1-mathematica_11.png" width="151" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_12.png" 
+      alt="c1t2-uygulama1-mathematica_12.png" width="172" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Ad&#305;m aral&#305;&#287;&#305; son arg&uuml;man olarak belirtilebilir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_13.png" 
+      alt="c1t2-uygulama1-mathematica_13.png" width="185" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_14.png" 
+      alt="c1t2-uygulama1-mathematica_14.png" width="215" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Olu&#351;an k&uuml;me,
+    </p>
+    <p class="Text">
+      P = {x | x = 2 , 4 , ... , 12}
+    </p>
+    <p class="Text">
+      veya
+    </p>
+    <p class="Text">
+      P = {x | 2 &lt; x &le; 12 , x/2 = m (m &isin; <span class="doublestruck">N</span>) 
+      , (&ccedil;ift say&#305; elemanlar)}
+    </p>
+    <p class="Text">
+      tan&#305;m&#305;na uygun olacakt&#305;r
+    </p>
+    <p class="Text">
+&#351;eklinde belirtilebilir. Burada, n say&#305;s&#305;n&#305;n 2 den 12 e kadar 
+      de&#287;i&#351;ece&#287;i, ilk eleman&#305;n 2, ikinci eleman&#305;n, yar&#305;s&#305;n&#305;n 
+      bir do&#287;al say&#305; olan ve ikiden b&uuml;y&uuml;k ikinci do&#287;al 
+      say&#305;, yani 4, son eleman&#305;n 12 olaca&#287;&#305; belirtilmektedir. 
+      Sekans tan&#305;m&#305;, ard&#305;&#351;&#305;k elemanlar&#305;n hesaplanmas&#305;na 
+      olanak veren her t&uuml;rl&uuml; form&uuml;lasyon ile belirtilebilir. Bu form&uuml;lasyonlar&#305;n 
+      belirlenmesinin her zaman olana&#287;&#305; olmad&#305;&#287;&#305;ndan daha 
+      az kullan&#305;l&#305;r.
+    </p>
+    <p class="Text">
+      Listelerin k&uuml;meye d&ouml;n&uuml;&#351;t&uuml;lmesi, listelerin birle&#351;imlerini 
+      veren Union[x,[y...n] fonksiyonun uygulanmas&#305; ile de ger&ccedil;ekle&#351;tirilebilir. 
+      Bu tan&#305;m, bir bilgisayar tan&#305;m&#305;d&#305;r. Union &ouml;ntan&#305;ml&#305; 
+      fonksiyonunun en az bir, iste&#287;e ba&#287;l&#305; olarak da iki veya daha 
+      fazla liste verisi arg&uuml;man&#305; ile uygulanabilece&#287;ini belirtir. 
+      Tek arg&uuml;man ile kullan&#305;ld&#305;&#287;&#305;nda, arg&uuml;man&#305; 
+      olan listenin, birbirinin ayn&#305; olan elemanlardan sadece bir tanesini 
+      i&ccedil;erecek &#351;ekilde ve s&#305;ral&#305; olarak, olu&#351;turdu&#287;u 
+      bir k&uuml;meyi geri d&ouml;nd&uuml;r&uuml;r. &Ouml;rnek olarak,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_15.png" 
+      alt="c1t2-uygulama1-mathematica_15.png" width="310" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_16.png" 
+      alt="c1t2-uygulama1-mathematica_16.png" width="220" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_17.png" 
+      alt="c1t2-uygulama1-mathematica_17.png" width="110" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_18.png" 
+      alt="c1t2-uygulama1-mathematica_18.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      E&#287;er kendi &uuml;st&uuml;ne atanmam&#305;&#351;sa, atama yokedici olmaz 
+      ve B listesinin de&#287;eri de&#287;i&#351;mez. Union[B] i&#351;leminin sonucu 
+      da bir de&#287;i&#351;kene atanmad&#305;&#287;&#305; i&ccedil;in (de&#287;i&#351;ken 
+      ad&#305; ile i&#351;aretlenmi&#351; bir bellek alan&#305;na yerle&#351;tirilmedi&#287;i 
+      i&ccedil;in) eri&#351;ilmez olarak kal&#305;r. B yi &ccedil;a&#287;&#305;ral&#305;m,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_19.png" 
+      alt="c1t2-uygulama1-mathematica_19.png" width="13" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_20.png" 
+      alt="c1t2-uygulama1-mathematica_20.png" width="220" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      de&#287;i&#351;memi&#351; olarak kalm&#305;&#351; oldu&#287;u g&ouml;r&uuml;l&uuml;yor. &#304;&#351;lemi 
+      yokedici atama ile ger&ccedil;ekle&#351;tirirsek,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_21.png" 
+      alt="c1t2-uygulama1-mathematica_21.png" width="156" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_22.png" 
+      alt="c1t2-uygulama1-mathematica_22.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_23.png" 
+      alt="c1t2-uygulama1-mathematica_23.png" width="13" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_24.png" 
+      alt="c1t2-uygulama1-mathematica_24.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+&#351;eklinde bir s&#305;ralanm&#305;&#351; k&uuml;me elde edilir. K&uuml;me elemanlar&#305;n 
+      s&#305;ras&#305;, k&uuml;me kimli&#287;inde &ouml;nemi olmad&#305;&#287;&#305;ndan, 
+      eldilen k&uuml;menin, DeleteDuplicates[B], fonksiyonu ile elde edilecek k&uuml;menin 
+      ayn&#305; olaca&#287;&#305; g&ouml;r&uuml;l&uuml;r. Tek arg&uuml;manl&#305; 
+      Union[] fonksiyonu, hem DeleteDuplicates[], hem de Sort[] fonksiyonlar&#305;n&#305;n 
+      birlikte uygulanmas&#305; sonucunda olu&#351;an bir sural&#305; k&uuml;me 
+      de&#287;eri d&ouml;nd&uuml;rmektedir. Geri d&ouml;nd&uuml;r&uuml;len k&uuml;menin 
+      s&#305;ral&#305; olaca&#287;&#305; kesindir, fakat bu s&#305;ralaman&#305;n 
+      istedi&#287;iniz y&ouml;nde ger&ccedil;ekle&#351;ece&#287;inin bir garantisi 
+      yoktur. Tam aksine istedi&#287;imiz y&ouml;nde olmamas&#305;n&#305;n olas&#305;l&#305;&#287;&#305; 
+      daha y&uuml;ksektir. &Ccedil;&uuml;nk&uuml;, bir k&uuml;menin elemanlar&#305;, 
+      say&#305;lar, isimler, ba&#351;ka k&uuml;meler olabilir. Bunlar&#305;n s&#305;ralama 
+      y&ouml;ntemleri &ccedil;ok de&#287;i&#351;ik olabilir.
+      <span style="font-style: italic;">Mathematica</span> bu k&uuml;meleri kendi 
+      program&#305; uyar&#305;nca s&#305;ralamaktad&#305;r. Bu y&ouml;ntem, s&#305;ralama 
+      i&#351;lemini istedi&#287;imiz y&ouml;nde ger&ccedil;ekle&#351;tirmeyebilir. 
+      Yine de, s&#305;ralanm&#305;&#351; bir k&uuml;menin elemanlar&#305;, ne &#351;ekilde 
+      s&#305;ralan&#305;rsa s&#305;ralans&#305;n, s&#305;ralanmam&#305;&#351; bir 
+      k&uuml;meye g&ouml;re daha kolay izlenebilecektir. Ayr&#305;ca, ayn&#305; 
+      y&ouml;nteme g&ouml;re s&#305;ralanm&#305;&#351; iki k&uuml;me incelendi&#287;inde, 
+      e&#351;it olup olmad&#305;klar&#305; daha kolay g&ouml;zlenebilecektir.
+      <span style="font-style: italic;">Mathematica </span>Sort[]<span 
+      style="font-style: italic;"> fonksiyonu, </span>Sort[x,y&ouml;ntem] bildirimi &#351;eklinde 
+      uygulan&#305;r. Sort[x] &#351;eklinde bir bildirim, x listesini, kanonik (kanun&icirc; 
+      = yasal) s&#305;raya g&ouml;re s&#305;ralar.
+      <span style="font-style: italic;">Mathematica</span> yasal s&#305;ras&#305; 
+      k&uuml;&ccedil;&uuml;kten b&uuml;y&uuml;&#287;e do&#287;rudur.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_25.png" 
+      alt="c1t2-uygulama1-mathematica_25.png" width="293" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_26.png" 
+      alt="c1t2-uygulama1-mathematica_26.png" width="191" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      B&uuml;y&uuml;kten k&uuml;&ccedil;&uuml;&#287;e do&#287;ru s&#305;ralama y&ouml;ntemi, 
+      Greater y&ouml;nteminin belirtilmesi ile yap&#305;labilir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_27.png" 
+      alt="c1t2-uygulama1-mathematica_27.png" width="411" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_28.png" 
+      alt="c1t2-uygulama1-mathematica_28.png" width="191" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Listelerin, ilk elemanlar&#305;na g&ouml;re k&uuml;&ccedil;&uuml;kten b&uuml;y&uuml;&#287;e 
+      do&#287;ru s&#305;ralanmas&#305;, varsay&#305;lan (default) s&#305;ralama 
+      y&ouml;ntemidir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_29.png" 
+      alt="c1t2-uygulama1-mathematica_29.png" width="416" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_30.png" 
+      alt="c1t2-uygulama1-mathematica_30.png" width="299" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      S&#305;ralama y&ouml;n&uuml;n&uuml;, ilk eleman&#305; en b&uuml;y&uuml;k listenin 
+      en ba&#351;a gelecek &#351;ekilde de&#287;i&#351;tirilmesi i&ccedil;in,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_31.png" 
+      alt="c1t2-uygulama1-mathematica_31.png" width="672" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_32.png" 
+      alt="c1t2-uygulama1-mathematica_32.png" width="299" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      ifadesi kullan&#305;lacakt&#305;r. <span style="font-style: italic;">Mathematica</span>' 
+      da liste elemanlar&#305;na eri&#351;im, A[[2]] &#351;eklinde yap&#305;labilmektedir. 
+      Bu ifade, A listesinin (k&uuml;mesinin) 2inci eleman&#305; anlam&#305;na gelmektedir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_33.png" 
+      alt="c1t2-uygulama1-mathematica_33.png" width="79" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_34.png" 
+      alt="c1t2-uygulama1-mathematica_34.png" width="24" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      En b&uuml;y&uuml;k ikinci eleman&#305; olan k&uuml;menin daha sonra s&#305;ralanmas&#305; 
+      i&ccedil;in,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_35.png" 
+      alt="c1t2-uygulama1-mathematica_35.png" width="672" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_36.png" 
+      alt="c1t2-uygulama1-mathematica_36.png" width="299" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+&#304;kinci eleman&#305; en k&uuml;&ccedil;&uuml;k k&uuml;menin daha sonra s&#305;ra 
+      alacak &#351;ekilde, d&uuml;zenlenmesi #1[[2]]&gt;#2[[2]] &amp;<br />
+      bildirimi ile olur.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_37.png" 
+      alt="c1t2-uygulama1-mathematica_37.png" width="672" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_38.png" 
+      alt="c1t2-uygulama1-mathematica_38.png" width="299" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> sort[] fonksiyonu ba&#351;ka 
+      y&ouml;ntemlerle de &ouml;zelle&#351;tirilebilir. Bunlar&#305; daha sonraya 
+      b&#305;rakabiliriz.
+    </p>
+    <p class="Text">
+      Union[A,B] fonksiyonu, Arg&uuml;manlar&#305; olan A ve B k&uuml;melerinin, 
+      s&#305;ralanm&#305;&#351; birle&#351;im k&uuml;mesini d&ouml;nd&uuml;rmektedir. &Ouml;rnek,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_39.png" 
+      alt="c1t2-uygulama1-mathematica_39.png" width="192" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_40.png" 
+      alt="c1t2-uygulama1-mathematica_40.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      (C de&#287;i&#351;ken isimi, <span style="font-style: italic;">Mathematica</span>&rsquo;da 
+      sakl&#305; isim oldu&#287;undan CC ismi kullan&#305;lm&#305;&#351;t&#305;r).
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> esc un esc &#351;eklinde 
+      yaz&#305;lan &cup; sembol&uuml;n&uuml; de destekler,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_41.png" 
+      alt="c1t2-uygulama1-mathematica_41.png" width="118" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_42.png" 
+      alt="c1t2-uygulama1-mathematica_42.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Geri d&ouml;nd&uuml;l&uuml;p CC de&#287;i&#351;kenine atanm&#305;&#351; ( 
+      CC isiminin eri&#351;im sa&#287;lad&#305;&#287;&#305; bellek alan&#305;na 
+      yerle&#351;tirilmi&#351;) de&#287;erin, A ve k&uuml;melerinin, s&#305;ral&#305; 
+      birle&#351;im k&uuml;mesi oldu&#287;u a&ccedil;&#305;k&ccedil;a g&ouml;r&uuml;lmektedir.
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span>, bo&#351; k&uuml;me &Oslash; 
+      elemman&#305;n&#305; k&uuml;me tan&#305;mlar&#305;nda g&ouml;stermez. &Ouml;rnek 
+      olarak A k&uuml;mesi asl&#305;nda {{}, 77, 88, 99} iken bo&#351; k&uuml;me 
+      g&ouml;zard&#305; edilerek,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_43.png" 
+      alt="c1t2-uygulama1-mathematica_43.png" width="14" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_44.png" 
+      alt="c1t2-uygulama1-mathematica_44.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      olarak, belirtilmektedir. Buna ra&#287;men, bo&#351; k&uuml;me &Oslash; nin 
+      her k&uuml;menin ortak eleman&#305; oldu&#287;u herkesin bilincinde oldu&#287;u 
+      gibi, <span style="font-style: italic;">Mathematica</span> da bu bilgiye sahiptir. 
+      Sadece, fazla kalabal&#305;k k&uuml;me tan&#305;mlar&#305;ndan ka&ccedil;&#305;nmak 
+      i&ccedil;in, bo&#351; k&uuml;me &Oslash;, elemanlar aras&#305;nda g&ouml;r&uuml;nt&uuml;lenmez. 
+      Ama hesaplarda, varl&#305;&#287;&#305; her zaman g&ouml;z&ouml;n&uuml;ne al&#305;n&#305;r.
+    </p>
+    <p class="Subsubsection">
+      K&uuml;melerin Birle&#351;tirilmesi
+    </p>
+    <p class="Text">
+&#304;ki veya daha fazla k&uuml;menin birle&#351;tirilmesi, Union[] haz&#305;r fonksiyonunun 
+      uygulanmas&#305; ile ger&ccedil;ekle&#351;tirilir. Bu fonksiyonun kullan&#305;m&#305;,
+    </p>
+    <p class="Text">
+      Union[liste1, liste2, ...]
+    </p>
+    <p class="Text">
+&#351;eklindedir. E&#287;er istenirse, esc un esc ile &cup; sembol&uuml; de kullan&#305;labilir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_45.png" 
+      alt="c1t2-uygulama1-mathematica_45.png" width="549" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_46.png" 
+      alt="c1t2-uygulama1-mathematica_46.png" width="392" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_47.png" 
+      alt="c1t2-uygulama1-mathematica_47.png" width="451" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_48.png" 
+      alt="c1t2-uygulama1-mathematica_48.png" width="291" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Elle girdi&#287;imiz listenin, elemanlar&#305; s&#305;ralanm&#305;yor, fakat 
+      iki ve daha fazla s&ouml;zel veriden olu&#351;an eleman s&#305;ral&#305; olarak 
+      belle&#287;e al&#305;n&#305;yor. Bu iki listenin &ouml;nce k&uuml;me olarak 
+      belirlenmesi uygun olur.<br />
+      (Asl&#305;nda buna gerek yok. Ayn&#305; eleman&#305; &ccedil;ok kez i&ccedil;ermeyen 
+      listeler, zaten k&uuml;medir).
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_49.png" 
+      alt="c1t2-uygulama1-mathematica_49.png" width="405" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_50.png" 
+      alt="c1t2-uygulama1-mathematica_50.png" width="392" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_51.png" 
+      alt="c1t2-uygulama1-mathematica_51.png" width="403" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_52.png" 
+      alt="c1t2-uygulama1-mathematica_52.png" width="291" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_53.png" 
+      alt="c1t2-uygulama1-mathematica_53.png" width="378" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_54.png" 
+      alt="c1t2-uygulama1-mathematica_54.png" width="592" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Birle&#351;im k&uuml;mesi, s&#305;ral&#305; bir k&uuml;me olarak olu&#351;turuyor. 
+      Her iki k&uuml;mede ortak olan 24 ve 36 elemanlar&#305;, birle&#351;im k&uuml;mesinde 
+      tek bir eleman olarak yer bulabiliyor. &#304;&#351;lem, k&uuml;me kuramlar&#305;na 
+      uygun bir &#351;ekilde y&uuml;r&uuml;t&uuml;l&uuml;yor.
+    </p>
+    <p class="Text">
+      Birle&#351;imK&uuml;mesi = {x | (x &isin; K&uuml;meA) &or; (x &isin; K&uuml;meB)}
+    </p>
+    <p class="Text">
+      Birle&#351;im k&uuml;mesinin elemanlar&#305;, hem K&uuml;meA, hem de K&uuml;meB 
+      de olan t&uuml;m elemanlardan olu&#351;maktad&#305;r. (K&uuml;me tan&#305;m&#305; 
+      gere&#287;i, her iki k&uuml;mede ortak olan elemanlardan sadece birisi, birle&#351;im 
+      k&uuml;mesinin bir eleman&#305; olabilir. Bo&#351; k&uuml;me &Oslash; = {} 
+      her k&uuml;menin oldu&#287;u gibi, birle&#351;im k&uuml;mesinin de bir eleman&#305;d&#305;r, 
+      fakat listenin kalabal&#305;k olmamas&#305; i&ccedil;in g&ouml;r&uuml;nt&uuml;lenmeyebilir. 
+      Burada da g&ouml;r&uuml;nt&uuml;lenmemektedir. Ama, birle&#351;im k&uuml;mesinde 
+      bir eleman olarak bo&#351; k&uuml;me de bulunmaktad&#305;r ve bu ger&ccedil;ek 
+      hi&ccedil;bir zaman g&ouml;zard&#305; edilmemelidir.
+    </p>
+    <p class="Subsubsection">
+      K&uuml;melerin Kesi&#351;imi
+    </p>
+    <p class="Text">
+&#304;ki veya daha fazla k&uuml;menin birle&#351;tirilmesi, Intersection[] haz&#305;r 
+      fonksiyonunun uygulanmas&#305; ile ger&ccedil;ekle&#351;tirilir. Bu fonksiyonun 
+      kullan&#305;m&#305;,
+    </p>
+    <p class="Text">
+      Intersection[liste1, liste2, ...]
+    </p>
+    <p class="Text">
+&#351;eklindedir. E&#287;er istenirse, esc inter esc ile &cap; sembol&uuml; de kullan&#305;labilir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_55.png" 
+      alt="c1t2-uygulama1-mathematica_55.png" width="554" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_56.png" 
+      alt="c1t2-uygulama1-mathematica_56.png" width="91" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      veya,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_57.png" 
+      alt="c1t2-uygulama1-mathematica_57.png" width="371" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_58.png" 
+      alt="c1t2-uygulama1-mathematica_58.png" width="91" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      K&uuml;meA ve K&uuml;meB gibi iki k&uuml;menin kesi&#351;im k&uuml;mesi,
+    </p>
+    <p class="Text">
+      Kesi&#351;imK&uuml;mesi = {x | (x &isin; K&uuml;meA) &and; (x &isin; K&uuml;meB)}
+    </p>
+    <p class="Text">
+      oldu&#287;undan, yani kesi&#351;im k&uuml;mesinin elemanlar&#305;n&#305;n 
+      t&uuml;m kesi&#351;en k&uuml;melerin ortak elemanlar&#305;ndan olu&#351;mas&#305; 
+      gerekti&#287;inden, elde edilen sonu&ccedil;, kesi&#351;en k&uuml;meler tan&#305;m&#305;na 
+      uygundur. Do&#287;al olarak kesi&#351;im k&uuml;mesinin bir eleman&#305; olan, 
+      fakat g&ouml;r&uuml;nt&uuml;lenmeyen bo&#351; k&uuml;menin de elemanlar aras&#305;nda 
+      oldu&#287;u unutulmamal&#305;d&#305;r.
+    </p>
+    <p class="Code">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_59.png" 
+      alt="c1t2-uygulama1-mathematica_59.png" width="458" height="29" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_60.png" 
+      alt="c1t2-uygulama1-mathematica_60.png" width="387" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bir k&uuml;menin evrensel k&uuml;me (universal set) den fark k&uuml;mesine, 
+      bu k&uuml;menin (evrensel k&uuml;meye) t&uuml;mleyicisi ad&#305; verilir. 
+      Evrensel k&uuml;me &ccedil;o&#287;unlukla U olarak adland&#305;r&#305;l&#305;r.
+      <span style="font-style: italic;">Mathematica</span>&rsquo;da U bir sakl&#305; 
+      s&ouml;zc&uuml;k (reserved word) oldu&#287;undan, evrensel k&uuml;me EK olarak 
+      adland&#305;r&#305;lm&#305;&#351;t&#305;r. T&uuml;mleyicinin tan&#305;m&#305;
+    </p>
+    <p class="Text">
+      Kompleman_A = {x &isin; EK | x &notin; A}
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_61.png" 
+      alt="c1t2-uygulama1-mathematica_61.png" width="251" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_62.png" 
+      alt="c1t2-uygulama1-mathematica_62.png" width="387" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_63.png" 
+      alt="c1t2-uygulama1-mathematica_63.png" width="202" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_64.png" 
+      alt="c1t2-uygulama1-mathematica_64.png" width="110" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_65.png" 
+      alt="c1t2-uygulama1-mathematica_65.png" width="376" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_66.png" 
+      alt="c1t2-uygulama1-mathematica_66.png" width="282" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Subsubsection">
+      Bir K&uuml;menin Kuvvet K&uuml;meleri
+    </p>
+    <p class="Text">
+      Bir k&uuml;menin elemanlar&#305; ile, olu&#351;turulabilecek t&uuml;m alt 
+      k&uuml;meleri eleman olarak i&ccedil;eren bir k&uuml;me, &ldquo;Kuvvet K&uuml;mesi&rdquo; 
+      (Power Set) olarak adland&#305;r&#305;l&#305;r. Bir k&uuml;menin kuvvet k&uuml;mesinin 
+      elemanlar&#305;n&#305;n say&#305;s&#305;, bo&#351; k&uuml;me &Oslash; d&#305;&#351;&#305;ndaki 
+      eleman say&#305;s&#305; n ise, <span><span>
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_67.png" 
+      alt="c1t2-uygulama1-mathematica_67.png" width="236" height="25" 
+      style="vertical-align: middle" /></span></span> Bu say&#305;ya bo&#351; k&uuml;me &Oslash; 
+      dahildir. Bu durumda, bir k&uuml;menin kuvvet k&uuml;mesi, <span><span>
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_68.png" 
+      alt="c1t2-uygulama1-mathematica_68.png" width="26" height="22" 
+      style="vertical-align: middle" /></span></span>- 1 elle tutulur ger&ccedil;ek 
+      elemandan olu&#351;acakt&#305;r.
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span>&rsquo;da kuvvet k&uuml;mesi,
+    </p>
+    <p class="Text">
+      Subsets[x]
+    </p>
+    <p class="Text">
+      fonksiyonu ile olu&#351;turulmaktad&#305;r. Burada x,
+      <span style="font-style: italic;">Mathematica</span>&rsquo;da &ouml;nceden 
+      tan&#305;mlanm&#305;&#351; ve A ile eri&#351;ilen bellek alan&#305;na yerle&#351;tirilmi&#351; 
+      bir k&uuml;medir. &Ouml;rnek
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_69.png" 
+      alt="c1t2-uygulama1-mathematica_69.png" width="198" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_70.png" 
+      alt="c1t2-uygulama1-mathematica_70.png" width="636" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bir k&uuml;menin uzunlu&#287;u, k&uuml;me elemanlar&#305;n&#305;n say&#305;s&#305;d&#305;r.
+      <span style="font-style: italic;">Mathematica</span>&rsquo;da, listelerin 
+      (dolay&#305;s&#305; ile k&uuml;me haline getirilmi&#351; listelerin) uzunluklar&#305;n&#305;n &ouml;l&ccedil;&uuml;lmesi 
+      i&ccedil;in, Length[x] haz&#305;r fonksiyonu kullan&#305;l&#305;r. Burada 
+      x herhangibir listedir. POW k&uuml;mesinin uzunlu&#287;unu &ouml;l&ccedil;erek, 
+      ger&ccedil;ekten <span><span>
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_71.png" 
+      alt="c1t2-uygulama1-mathematica_71.png" width="82" height="25" 
+      style="vertical-align: middle" /></span></span> ya e&#351;it olup olmad&#305;&#287;&#305;n&#305; 
+      s&#305;nayal&#305;m:
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_72.png" 
+      alt="c1t2-uygulama1-mathematica_72.png" width="118" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_73.png" 
+      alt="c1t2-uygulama1-mathematica_73.png" width="12" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_74.png" 
+      alt="c1t2-uygulama1-mathematica_74.png" width="97" height="26" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_75.png" 
+      alt="c1t2-uygulama1-mathematica_75.png" width="12" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_76.png" 
+      alt="c1t2-uygulama1-mathematica_76.png" width="144" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_77.png" 
+      alt="c1t2-uygulama1-mathematica_77.png" width="12" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Uygulama sonucunda, <span style="font-style: italic;">Mathematica</span>&rsquo;n&#305;n 
+      bir k&uuml;menin, kuvvet k&uuml;melerini do&#287;ru olarak hesaplad&#305;&#287;&#305; 
+      g&ouml;r&uuml;lmektedir.
+    </p>
+    <p class="Text">
+      Mathematica Length[] fonksiyonu, k&uuml;melerin e&#351;itliklerinin s&#305;nanmas&#305; 
+      i&ccedil;in kullan&#305;lamaz. Bunun nedeni, k&uuml;melerin k&uuml;me elemanlar&#305;, 
+      tek bir eleman say&#305;l&#305;rlar. K&uuml;melerden her ikisinde, birer k&uuml;me 
+      eleman&#305; varsa ve bu k&uuml;meler birbirlerinden farkl&#305; iseler,
+      <span style="font-style: italic;">Mathematica</span> Length[] fonksiyonlar&#305; 
+      her iki k&uuml;menin boyunun ayn&#305; oldu&#287;unu belirtir. Oysa k&uuml;melerin, 
+      k&uuml;me olan elemanlar&#305; birbirlerinden farkl&#305; olabilir. Bu nedenle, 
+      Length[A] ile Length[B] ayn&#305; olabilmesine kar&#351;&#305;n A ve B k&uuml;meleri 
+      e&#351;it olmayabilir. &Ouml;rnek,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_78.png" 
+      alt="c1t2-uygulama1-mathematica_78.png" width="287" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_79.png" 
+      alt="c1t2-uygulama1-mathematica_79.png" width="220" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_80.png" 
+      alt="c1t2-uygulama1-mathematica_80.png" width="312" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_81.png" 
+      alt="c1t2-uygulama1-mathematica_81.png" width="244" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_82.png" 
+      alt="c1t2-uygulama1-mathematica_82.png" width="272" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_83.png" 
+      alt="c1t2-uygulama1-mathematica_83.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_84.png" 
+      alt="c1t2-uygulama1-mathematica_84.png" width="64" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_85.png" 
+      alt="c1t2-uygulama1-mathematica_85.png" width="60" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      K&uuml;melerin <span style="font-style: italic;">Mathematica</span> ile ba&#351;lang&#305;&ccedil; 
+      uygulamalar&#305; i&ccedil;in yeterli bilgiyi olu&#351;turmu&#351; durumday&#305;z. 
+      Art&#305;k uygulamalara ge&ccedil;ebiliriz.
+    </p>
+    <p class="Section">
+      Uygulama 1
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_86.png" 
+      alt="c1t2-uygulama1-mathematica_86.png" width="211" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_87.png" 
+      alt="c1t2-uygulama1-mathematica_87.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_88.png" 
+      alt="c1t2-uygulama1-mathematica_88.png" width="210" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_89.png" 
+      alt="c1t2-uygulama1-mathematica_89.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      olarak iki k&uuml;me verilmi&#351;tir. Bu iki k&uuml;menin e&#351;it k&uuml;meler 
+      oldu&#287;unu belirleyiniz.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      E&#287;er iki liste e&#351;it listeler ise, (elemanlar&#305; birbirinin ayn&#305;) 
+      Equal[liste1,liste2] fonksiyonu geriye &ldquo;True&rdquo; (Do&#287;ru), e&#351;it 
+      de&#287;ilse, &rdquo;False&rdquo; (Yanl&#305;&#351;) d&ouml;nd&uuml;r&uuml;r. 
+      Deneyelim,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_90.png" 
+      alt="c1t2-uygulama1-mathematica_90.png" width="14" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_91.png" 
+      alt="c1t2-uygulama1-mathematica_91.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_92.png" 
+      alt="c1t2-uygulama1-mathematica_92.png" width="13" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_93.png" 
+      alt="c1t2-uygulama1-mathematica_93.png" width="134" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_94.png" 
+      alt="c1t2-uygulama1-mathematica_94.png" width="139" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_95.png" 
+      alt="c1t2-uygulama1-mathematica_95.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      veya,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_96.png" 
+      alt="c1t2-uygulama1-mathematica_96.png" width="58" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_97.png" 
+      alt="c1t2-uygulama1-mathematica_97.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Burada kullan&#305;lan == i&#351;lemcisi mant&#305;ksal e&#351;it (kar&#351;&#305;la&#351;t&#305;rma) 
+      i&#351;lemcisidir. Bu i&#351;lemci diyadik (iki i&#351;lenenli) bir i&#351;lemci 
+      olup sa&#287; i&#351;lenen, sol i&#351;lenene e&#351;it ise sonu&ccedil; &ldquo;True&rdquo; 
+      (Do&#287;ru) aksi halde &ldquo;False&rdquo; de&#287;erini d&ouml;nd&uuml;r&uuml;r.
+    </p>
+    <p class="Text">
+      Sonu&ccedil; kesin fakat y&ouml;ntem belirsizdir. &Ccedil;o&#287;u bilgisayarl&#305; &ccedil;&ouml;z&uuml;m 
+      sistemlerinin sorunu budur. Haz&#305;r fonksiyonlar&#305;n &ccedil;al&#305;&#351;ma 
+      y&ouml;ntemleri, kullan&#305;c&#305;ya a&ccedil;&#305;k de&#287;ildir.
+    </p>
+    <p class="Text">
+      Bu fonksiyon, k&uuml;melerin elemanlar&#305;n&#305;, kar&#351;&#305;l&#305;kl&#305; 
+      olarak inceleyip e&#351;itsizlik bulunca &quot;False&quot;, aksi halde &quot;True&quot; 
+      mesaj&#305;n&#305; verebilir. Bunun i&ccedil;in, ilk k&uuml;menin ilk eleman&#305;, 
+      ikinci k&uuml;menin t&uuml;m elemanlar&#305; ile kar&#351;&#305;la&#351;t&#305;r&#305;l&#305;r. 
+      E&#287;er ikinci k&uuml;me elemanlar&#305; aras&#305;nda, birinci k&uuml;menin 
+      ilk eleman&#305;na e&#351;it bir eleman bulunmazsa, iki k&uuml;me birbirine 
+      e&#351;it de&#287;ildir ve &quot;False&quot; sonucu d&ouml;nd&uuml;r&uuml;lerek 
+      i&#351;lem sona erdirilir. Uyu&#351;ma (match) bulundu&#287;unda, birinci 
+      k&uuml;menin bir sonraki eleman&#305;, ikinci k&uuml;menin t&uuml;m elemanlar&#305; 
+      ile kar&#351;&#305;la&#351;t&#305;r&#305;l&#305;r ve bu i&#351;lem, birinci 
+      k&uuml;menin t&uuml;m elemanlar&#305; tamamlan&#305;ncaya kadar devam eder. 
+      Sonu&ccedil;ta hi&ccedil; uyu&#351;mazl&#305;k bulunmazsa (hep uyu&#351;ma 
+      bulunursa), sonu&ccedil; &quot;True&quot; olarak d&ouml;nd&uuml;r&uuml;l&uuml;r.
+    </p>
+    <p class="Text">
+      Bu fonksiyon, bir ba&#351;ka y&ouml;ntem olan, &ldquo;e&#287;er iki k&uuml;menin 
+      kar&#351;&#305;l&#305;kl&#305; olarak olu&#351;turulan (A k&uuml;mesi B k&uuml;mesinin 
+      alt k&uuml;mesi ve B k&uuml;mesi A k&uuml;mesinin alt k&uuml;mesi) alt k&uuml;melerinin 
+      kesi&#351;im k&uuml;mesi, kesi&#351;en k&uuml;melerden birine e&#351;it ise, 
+      o iki k&uuml;me birbirine e&#351;ittir&rdquo; prensibinden de yararlanm&#305;&#351; 
+      olabilir. Bunun anlam&#305;,
+    </p>
+    <p class="Text">
+      sadece ve sadece (A &sube; B) &and; (B &sube; A) =&nbsp;&nbsp;A&nbsp;&nbsp;oldu&#287;unda, 
+      A = B olur, &#351;eklindedir.
+    </p>
+    <p class="Text">
+&Ouml;zalt k&uuml;me olmayan tek alt k&uuml;me, k&uuml;menin kendisidir. Buna dayanarak,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_98.png" 
+      alt="c1t2-uygulama1-mathematica_98.png" width="98" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_99.png" 
+      alt="c1t2-uygulama1-mathematica_99.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      sonucunu verdi&#287;inden, A ve B k&uuml;melerinin e&#351;it k&uuml;meler 
+      olduklar&#305;na karar verilir.
+    </p>
+    <p class="Text">
+      E&#287;er A==B gibi basit ve kesin olarak, e&#351;itli&#287;i do&#287;rulama 
+      y&ouml;ntemi varsa ve bu y&ouml;ntem do&#287;ru sonu&ccedil; veriyorsa, do&#287;al 
+      olarak daha karma&#351;&#305;k y&ouml;ntemlerin uygulanmas&#305;na gerek kalmaz. 
+      Yine de, A==B algoritmas&#305;n&#305;n &ccedil;al&#305;&#351;ma y&ouml;ntemi, 
+      yani hangi fonksiyonlar&#305;n &ccedil;a&#287;r&#305;l&#305;p, sonuca nas&#305;l 
+      ula&#351;&#305;ld&#305;&#287;&#305; bilgisi, kullan&#305;c&#305; taraf&#305;ndan 
+      ula&#351;&#305;labilir de&#287;ildir. Kullan&#305;c&#305; i&ccedil;in bu bilgi 
+      hi&ccedil; &ouml;nemli de&#287;ilse, yani algoritma do&#287;ru &ccedil;al&#305;&#351;t&#305;ktan 
+      sonra, nas&#305;l &ccedil;al&#305;&#351;t&#305;&#287;&#305; kullan&#305;c&#305;n&#305;n 
+      umurunda bile de&#287;il ise, bu y&ouml;ntemi kullanabilir. Oysa, A&cap;B==A 
+      algoritmas&#305;n&#305;n nas&#305;l &ccedil;al&#305;&#351;t&#305;&#287;&#305;, 
+      bellidir. Bu y&ouml;ntemde, &ouml;nce A ve B k&uuml;melerinin kesi&#351;me 
+      k&uuml;mesi olu&#351;turulmaktad&#305;r. Kesi&#351;me k&uuml;mesinde, A ve 
+      B k&uuml;melerinde ortak olan elemanlar bulunacakt&#305;r. E&#351;it k&uuml;melerin 
+      her eleman&#305; ortak oldu&#287;undan, kesi&#351;me k&uuml;meleri de her 
+      iki k&uuml;meye e&#351;it olmal&#305;d&#305;r. Bu y&ouml;ntem, sonucun nas&#305;l 
+      al&#305;n&#305;&#287;&#305; belli olan bir y&ouml;ntemdir ve yaz&#305;l&#305;m&#305; 
+      kapal&#305; olan bir y&ouml;nteme her zaman ye&#287; tutulmal&#305;d&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 2
+    </p>
+    <p class="Text">
+      A&#351;a&#287;&#305;da g&ouml;r&uuml;len k&uuml;melerin eleman say&#305;lar&#305;n&#305; 
+      ve e&#351;it k&uuml;meler olup olmad&#305;klar&#305;n&#305; saptay&#305;n&#305;z.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_100.png" 
+      alt="c1t2-uygulama1-mathematica_100.png" width="139" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bu fonksiyon, A ve B de&#287;i&#351;kenlerine &ouml;nceden atanm&#305;&#351; 
+      de&#287;erleri temizleyerek, yeni ataman&#305;n sa&#287;l&#305;kl&#305; olmas&#305;n&#305; 
+      sa&#287;lar. Kullan&#305;lmas&#305; iyi bir y&ouml;ntemdir.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_101.png" 
+      alt="c1t2-uygulama1-mathematica_101.png" width="1013" height="14756" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+&#304;fadenin sonuna semikolon (;) konuldu&#287;undan, i&#351;lem ger&ccedil;ekle&#351;mi&#351; 
+      fakat sonu&ccedil; g&ouml;r&uuml;nt&uuml;lenmemi&#351;tir.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_102.png" 
+      alt="c1t2-uygulama1-mathematica_102.png" width="118" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_103.png" 
+      alt="c1t2-uygulama1-mathematica_103.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_104.png" 
+      alt="c1t2-uygulama1-mathematica_104.png" width="1013" height="14408" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_105.png" 
+      alt="c1t2-uygulama1-mathematica_105.png" width="117" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_106.png" 
+      alt="c1t2-uygulama1-mathematica_106.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_107.png" 
+      alt="c1t2-uygulama1-mathematica_107.png" width="98" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_108.png" 
+      alt="c1t2-uygulama1-mathematica_108.png" width="60" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bu sonu&ccedil;, iki k&uuml;menin e&#351;it k&uuml;meler olmad&#305;&#287;&#305;n&#305; 
+      kesin olarak belirtmektedir. Bu sonuca, bilgisayar kullan&#305;m&#305; olmadan 
+      ula&#351;mak kolay de&#287;ildir. Bu iki k&uuml;menin birbirlerine e&#351;it 
+      veya e&#351;it olmad&#305;&#287;&#305;n&#305;n bilgisayar kullan&#305;lmadan 
+      ara&#351;t&#305;r&#305;lmas&#305;, uzun &ouml;m&uuml;r bol sab&#305;r isteyen 
+      bir Danaides &ccedil;al&#305;&#351;mas&#305;d&#305;r. Danaides&rsquo;les Tanr&#305; 
+      Zeus taraf&#305;ndan, dipsiz kova ile su ta&#351;&#305;maya mahk&ucirc;m edilmi&#351;lerdir. 
+      Bu i&#351;lem de b&ouml;yledir. Oysa, uygun bir program bulunur ve g&uuml;&ccedil;l&uuml; 
+      bir bilgisayarda &ccedil;al&#305;&#351;t&#305;r&#305;l&#305;rsa, &ccedil;&ouml;z&uuml;m 
+      saniyeler i&ccedil;inde elde edilebilmektedir.
+    </p>
+    <p class="Text">
+      Bu &ouml;rnek, bilgisayar kullan&#305;m&#305;n gerekli oldu&#287;unun bir 
+      kan&#305;t&#305;d&#305;r. Bilgisayar bir &ccedil;al&#305;&#351;an at, (work 
+      horse) gibi, elle yap&#305;lmas&#305; adeta olanaks&#305;z gibi g&ouml;r&uuml;len, 
+      i&#351;lem yo&#287;un y&ouml;ntemlerin &ccedil;&ouml;z&uuml;m&uuml; i&ccedil;in 
+      kesinlikle gereklidir. Fakat, yapabildi&#287;i i&#351;ler sadece i&#351;lem 
+      g&uuml;c&uuml; sa&#287;lamak de&#287;ildir.
+      <span style="font-style: italic;">Mathematica</span>, Mathcad, Matlab gibi 
+      bilgisayarla cebir uygulama sistemleri, sembolik &ccedil;al&#305;&#351;malarla, 
+      cebirsel ifadelerin &ccedil;&ouml;z&uuml;mleri, denklem &ccedil;&ouml;z&uuml;mleri, 
+      grafik &ccedil;izimi gibi, &ccedil;ok &ouml;nemli konularda, olmazsa olmaz 
+      denilecek kadar b&uuml;y&uuml;k &ouml;neme sahiptir.
+    </p>
+    <p class="Text">
+      Baz&#305; matematik &ouml;&#287;retmenlerinin, matematik &ccedil;al&#305;&#351;malar&#305;nda, &ouml;&#287;rencileri 
+      bilgisayarlardan uzak tutma &ccedil;abalar&#305;, herkesin tableti oldu&#287;u 
+      bu modern &ccedil;a&#287;larda sonu&ccedil;suz kalm&#305;&#351;t&#305;r. &Ccedil;a&#287;&#305;m&#305;z&#305;n 
+      b&uuml;y&uuml;k matematik&ccedil;isi David Hilbert matematikte, bilgisayar 
+      kullan&#305;m&#305;na b&uuml;y&uuml;k &ouml;nem vermi&#351;, ve matemati&#287;i 
+      bir bilgisayar program&#305; olarak tan&#305;mlamaya &ccedil;al&#305;&#351;m&#305;&#351;t&#305;r. 
+      G&uuml;n&uuml;m&uuml;zde, insanl&#305;&#287;&#305;n eri&#351;ti&#287;i bu 
+      b&uuml;y&uuml;k bilgi d&uuml;zeyinde, matemati&#287;in bilgisayarlar yard&#305;m&#305; 
+      uygulanmas&#305;na kar&#351;&#305; olanlar, kesinlikle &ccedil;a&#287;&#305;m&#305;z&#305; 
+      anlayamam&#305;&#351; olanlard&#305;r.
+    </p>
+    <p class="Text">
+      Yukar&#305;daki &ouml;rnek, matemati&#287;in bilgisayar ile uygulanmas&#305;n&#305; 
+      amac&#305; ile olu&#351;turulmu&#351; Mathematica gibi programlar&#305;n, 
+      matematik i&ccedil;in yard&#305;mc&#305;, fakat &ouml;&#287;retici olmad&#305;&#287;&#305;n&#305; 
+      da a&ccedil;&#305;klamaktad&#305;r. Bilgisayarda uygulanan matematik, ancak 
+      konu ile ilgili kuramsal bilgisi olan kullan&#305;c&#305;lara deneyim kazand&#305;rabilmektedir. 
+      Bilgisayar kullan&#305;m&#305; ile matematik &ouml;&#287;renimi, ancak tasar&#305;m&#305; 
+      bu ama&ccedil;la yap&#305;lm&#305;&#351; programlar ile ger&ccedil;ekle&#351;tirilebilir. 
+      G&uuml;n&uuml;m&uuml;zde, bu amaca uygun yetkin programlar yoktur. Bu nedenle, 
+      dersler ka&#287;&#305;t-kalem ile klasik olarak, uygulamalar ise, modern bilgisayar 
+      uygulama programlar&#305;nda yap&#305;larak, eskiye g&ouml;re &ccedil;ok daha 
+      h&#305;zl&#305; ve etkili bir &ouml;&#287;renim sa&#287;lanabilmektedir. Bu &ccedil;al&#305;&#351;mada 
+      da uygulanan y&ouml;ntem budur.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 3
+    </p>
+    <p class="Text">
+      Yukar&#305;da verilmi&#351; olan A k&uuml;mesi, evrensel k&uuml;me olarak 
+      kabul edilip, B k&uuml;mesinin A k&uuml;mesine g&ouml;re t&uuml;mleyicisini 
+      (kompleman&#305;n&#305;) bulunuz.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_109.png" 
+      alt="c1t2-uygulama1-mathematica_109.png" width="283" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_110.png" 
+      alt="c1t2-uygulama1-mathematica_110.png" width="592" height="331" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_111.png" 
+      alt="c1t2-uygulama1-mathematica_111.png" width="156" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_112.png" 
+      alt="c1t2-uygulama1-mathematica_112.png" width="24" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_113.png" 
+      alt="c1t2-uygulama1-mathematica_113.png" width="118" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_114.png" 
+      alt="c1t2-uygulama1-mathematica_114.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_115.png" 
+      alt="c1t2-uygulama1-mathematica_115.png" width="117" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_116.png" 
+      alt="c1t2-uygulama1-mathematica_116.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Sa&#287;lama:
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_117.png" 
+      alt="c1t2-uygulama1-mathematica_117.png" width="495" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_118.png" 
+      alt="c1t2-uygulama1-mathematica_118.png" width="60" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Kesinlikle elle yap&#305;lamayacak bir uygulama !
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 4
+    </p>
+    <p class="Text">
+      Yukar&#305;da verilmi&#351; olan A k&uuml;mesi, evrensel k&uuml;me olarak 
+      kabul edilip, B k&uuml;mesinin A k&uuml;mesine g&ouml;re t&uuml;mleyicisi 
+      bellekte yerle&#351;ik KOMP k&uuml;mesi oldu&#287;unu g&ouml;re, CC = KOMP 
+      + B olarak tan&#305;mlanan CC k&uuml;mesinin A k&uuml;mesi ile e&#351;it olp 
+      olmad&#305;&#287;&#305;n&#305; kontrol ediniz.<br />
+      Not: <span style="font-style: italic;">Mathematica</span> da C bir sakl&#305; 
+      s&ouml;zc&uuml;k olarak belirlenmi&#351;tir. E&#287;er sakl&#305; s&ouml;zc&uuml;kler 
+      yeniden tan&#305;mlan&#305;rlarsa, &ouml;n tan&#305;ml&#305; i&#351;levlerinden 
+      yoksun kal&#305;rlar. Bu nedenle, yeni de&#287;i&#351;ken CC olarak tan&#305;mlanm&#305;&#351; 
+      ve C sakl&#305; s&ouml;zc&uuml;&#287;&uuml;n&uuml;n i&#351;levini &uuml;st&uuml;nde 
+      tutmas&#305; sa&#287;lanm&#305;&#351;t&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> ve k&uuml;meleri destekleyen 
+      ba&#351;ka CAS sistemleri i&ccedil;in &ccedil;ok kolay, el ile &ccedil;ok 
+      zor hatta olanaks&#305;z.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_119.png" 
+      alt="c1t2-uygulama1-mathematica_119.png" width="162" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_120.png" 
+      alt="c1t2-uygulama1-mathematica_120.png" width="1015" height="12371" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_121.png" 
+      alt="c1t2-uygulama1-mathematica_121.png" width="77" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_122.png" 
+      alt="c1t2-uygulama1-mathematica_122.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Her iki k&uuml;menin e&#351;it k&uuml;meler oldu&#287;u saptan&#305;yor. CAS 
+      sistemlerinin &ccedil;&ouml;z&uuml;m de&#287;il, &ccedil;&ouml;z&uuml;m deste&#287;i 
+      sa&#287;lad&#305;klar&#305;na dikkat ediniz.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 4
+    </p>
+    <p class="Text">
+      A&#351;a&#287;&#305;da, evrensel k&uuml;me EK ile, AA ve BB k&uuml;meleri 
+      verilmi&#351;tir. Bu k&uuml;melerde , De Morgan yasalar&#305;n&#305;n ge&ccedil;erli 
+      olup olmad&#305;&#287;&#305;n&#305; saptay&#305;n&#305;z.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_123.png" 
+      alt="c1t2-uygulama1-mathematica_123.png" width="225" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_124.png" 
+      alt="c1t2-uygulama1-mathematica_124.png" width="217" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_125.png" 
+      alt="c1t2-uygulama1-mathematica_125.png" width="737" height="79" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_126.png" 
+      alt="c1t2-uygulama1-mathematica_126.png" width="205" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_127.png" 
+      alt="c1t2-uygulama1-mathematica_127.png" width="651" height="51" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_128.png" 
+      alt="c1t2-uygulama1-mathematica_128.png" width="217" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_129.png" 
+      alt="c1t2-uygulama1-mathematica_129.png" width="737" height="51" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      De Morgan yasalar&#305;n&#305;n kan&#305;tlamas&#305;n&#305; yapm&#305;&#351;t&#305;k. 
+      Bu y&uuml;zden bu yasalar art&#305;k, evrensel olarak ge&ccedil;erli ba&#287;&#305;nt&#305; 
+      niteli&#287;indedirler. Bu yasalar&#305;n belirli bir &ouml;rnek i&ccedil;in 
+      sa&#287;lan&#305;p sa&#287;lanmad&#305;&#287;&#305;n&#305;n saptanmas&#305;
+      <span style="font-style: italic;">Mathematica</span> gibi yetkin bir CAS sistemi 
+      i&ccedil;in &ccedil;ok kolayd&#305;r.
+    </p>
+    <p class="Text">
+      Yasalar&#305;n s&#305;nanmas&#305; i&ccedil;in, &ouml;nce her iki k&uuml;menin 
+      evrensel k&uuml;meye t&uuml;mleyicilerini belirleyelim.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_130.png" 
+      alt="c1t2-uygulama1-mathematica_130.png" width="421" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_131.png" 
+      alt="c1t2-uygulama1-mathematica_131.png" width="865" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_132.png" 
+      alt="c1t2-uygulama1-mathematica_132.png" width="419" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_133.png" 
+      alt="c1t2-uygulama1-mathematica_133.png" width="714" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      I nci De Morgan Yasas&#305;
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_134.png" 
+      alt="c1t2-uygulama1-mathematica_134.png" width="683" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_135.png" 
+      alt="c1t2-uygulama1-mathematica_135.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bu &ouml;rnek i&ccedil;in, I inci De Morgan yasas&#305; do&#287;rulanm&#305;&#351; 
+      olmaktad&#305;r.
+    </p>
+    <p class="Text">
+      II nci De Morgan Yasas&#305;
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_136.png" 
+      alt="c1t2-uygulama1-mathematica_136.png" width="677" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_137.png" 
+      alt="c1t2-uygulama1-mathematica_137.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      Bu &ouml;rnek i&ccedil;in, II inci De Morgan yasas&#305; da do&#287;rulanm&#305;&#351; 
+      olmaktad&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 5
+    </p>
+    <p class="Text">
+      <br />
+      A&#351;a&#287;&#305;daki k&uuml;meler tan&#305;mlanarak,&#8232;
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_138.png" 
+      alt="c1t2-uygulama1-mathematica_138.png" width="1011" height="15684" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_139.png" 
+      alt="c1t2-uygulama1-mathematica_139.png" width="1013" height="14408" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_140.png" 
+      alt="c1t2-uygulama1-mathematica_140.png" width="776" height="1880" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      bu &ouml;rnekte, k&uuml;melerde birle&#351;imin kesi&#351;me &uuml;zerine 
+      ve kesi&#351;menin birle&#351;im &uuml;zerine, da&#287;&#305;lma &ouml;zelliklerini 
+      sa&#287;lay&#305;p sa&#287;lamad&#305;&#287;&#305;n&#305; saptay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      Bu &ouml;rnekte, birle&#351;imin kesi&#351;me &uuml;zerine da&#287;&#305;l&#305;m&#305;n&#305;n 
+      Mathematica ile saptanmas&#305;,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_141.png" 
+      alt="c1t2-uygulama1-mathematica_141.png" width="521" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_142.png" 
+      alt="c1t2-uygulama1-mathematica_142.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      ile yap&#305;l&#305;r. Kar&#351;&#305;la&#351;t&#305;rma sonucunda her iki 
+      ifadenin ayn&#305; sonucu verdi&#287;i do&#287;ruland&#305;&#287;&#305;ndan, 
+      bu &ouml;rnek i&ccedil;in, birle&#351;imin kesi&#351;me &uuml;zerine da&#287;&#305;l&#305;m&#305;n&#305;n 
+      sa&#287;land&#305;&#287;&#305; saptanm&#305;&#351; olur.
+    </p>
+    <p class="Text">
+      Bu &ouml;rnekte, kesi&#351;menin birle&#351;im &uuml;zerine da&#287;&#305;l&#305;m&#305;n&#305;n 
+      Mathematica ile saptanmas&#305;,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_143.png" 
+      alt="c1t2-uygulama1-mathematica_143.png" width="521" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_144.png" 
+      alt="c1t2-uygulama1-mathematica_144.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      ile yap&#305;l&#305;r. Kar&#351;&#305;la&#351;t&#305;rma sonucunda her iki 
+      ifadenin ayn&#305; sonucu verdi&#287;i do&#287;ruland&#305;&#287;&#305;ndan, 
+      bu &ouml;rnek i&ccedil;in, kesi&#351;menin birle&#351;im &uuml;zerine da&#287;&#305;l&#305;m&#305;n&#305;n 
+      sa&#287;land&#305;&#287;&#305; saptanm&#305;&#351; olur.
+    </p>
+    <p class="Text">
+      Bu &ouml;rnekte k&uuml;melerin da&#287;&#305;l&#305;m &ouml;zelliklerinin 
+      do&#287;rulanmas&#305;, t&uuml;m k&uuml;me &ouml;rneklerinde da&#287;&#305;l&#305;m &ouml;zelli&#287;inin 
+      desteklenece&#287;i anlam&#305;na gelmez. Bunun i&ccedil;in k&uuml;melerin 
+      da&#287;&#305;l&#305;m &ouml;zelliklerinin, t&uuml;mevar&#305;msal y&ouml;ntemle 
+      kan&#305;tlanmas&#305; gerekir.
+    </p>
+    <p class="Text">
+      K&uuml;melerin birle&#351;mesinin kesi&#351;me &uuml;zerine da&#287;&#305;l&#305;m&#305;n&#305;n, 
+      t&uuml;mevar&#305;msal y&ouml;ntemle kan&#305;tlanmas&#305; i&ccedil;in,&nbsp;&nbsp;U5A &cup; 
+      (U5B &cap; U5C) k&uuml;mesinden, geli&#351;ig&uuml;zel bir eleman&#305;n , 
+      ayn&#305; zamanda, (U5A &cup; U5B) &cap; (U5A &cup;U5C) k&uuml;mesinin de 
+      bir eleman&#305; oldu&#287;unu kan&#305;tlamak gerekiyor.
+    </p>
+    <p class="Text">
+      U5A &cup; (U5B &cap; U5C) k&uuml;mesinden, geli&#351;ig&uuml;zel bir eleman&#305; 
+      ele alal&#305;m. Bu eleman ya U5A ya da U5B &cap; U5C k&uuml;mesindedir.
+    </p>
+    <p class="Text">
+      E&#287;er U5A k&uuml;mesinde ise, o zaman ikinci tarafta olu&#351;an k&uuml;menin 
+      de kesinlikle bir eleman&#305;d&#305;r ve kan&#305;t tamamlanm&#305;&#351; 
+      olur.
+    </p>
+    <p class="Text">
+      E&#287;er U5A k&uuml;mesinde de&#287;ilse, o zaman U5B &cap; U5C kesi&#351;im 
+      k&uuml;mesindedir. Bu durumda, hem U5B hem de U5C k&uuml;melerinin ortak bir 
+      eleman&#305; olmas&#305; gerekir. O zaman da, yine ikinci taraftaki,(U5A &cup; 
+      U5B) &cap; (U5A &cup; U5C) k&uuml;mesinin bir eleman&#305; olmas&#305; gerekir. &Ccedil;&uuml;nk&uuml; 
+      bir eleman&#305;n ikinci taraftaki k&uuml;menin eleman&#305; olmas&#305; i&ccedil;in, 
+      U5B ve U5C k&uuml;melerinin ortak eleman&#305; olmas&#305; gerekir. Kan&#305;t 
+      bu durumda da tamamlanm&#305;&#351; oldu&#287;undan, ba&#351;ka olas&#305;l&#305;k 
+      kalmaz ve t&uuml;m k&uuml;melerde, birle&#351;menin kesi&#351;me &uuml;zerine 
+      da&#287;&#305;l&#305;m &ouml;zelli&#287;i oldu&#287;u kan&#305;tlanm&#305;&#351; 
+      olur.&nbsp;&nbsp;&nbsp;
+    </p>
+    <p class="Text">
+      Kesi&#351;menin birle&#351;im &uuml;zerinde da&#287;&#305;lma &ouml;zelli&#287;i 
+      oldu&#287;unun kan&#305;tlanmas&#305; i&ccedil;in, &ouml;nce ikinci taraftan 
+      ba&#351;layal&#305;m. &#304;kinci tafataki k&uuml;me elemanlar&#305;, U5A 
+      n&#305;n hem U5B, Hem de U5C ile ortak elemanlar&#305;n&#305;n k&uuml;mesidir. 
+      Birinci taraftaki k&uuml;me elemanlar&#305; ise, U5A&rsquo;n&#305;n hem U5B, 
+      hem de U5C ile ortak elemanlar&#305;n&#305;n k&uuml;mesidir. Demek her iki 
+      taraftaki k&uuml;meler e&#351;it k&uuml;melerdir ve b&ouml;ylece, kesi&#351;menin 
+      birle&#351;im &uuml;zerinde da&#287;&#305;lma &ouml;zelli&#287;i oldu&#287;u 
+      kan&#305;tlanm&#305;&#351; olmaktad&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 6
+    </p>
+    <p class="Text">
+      Uygulama 4 de, evrensel k&uuml;me EK ile, AA k&uuml;melerinin tan&#305;mlar&#305; 
+      yap&#305;lm&#305;&#351;t&#305;r. Bu k&uuml;melerde t&uuml;mleme (complementation) 
+      kurallar&#305; olan,
+    </p>
+    <p class="Text">
+      AA &cup; AA&rsquo; = EK
+    </p>
+    <p class="Text">
+      ve
+    </p>
+    <p class="Text">
+      AA &cap; AA&rsquo; = &Oslash;
+    </p>
+    <p class="Text">
+      ba&#287;&#305;nt&#305;lar&#305;n&#305; kan&#305;tlay&#305;n&#305;z ve bu &ouml;rnekte 
+      ge&ccedil;erli olduklar&#305;n&#305; do&#287;rulay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+&#304;lk t&uuml;mleme kural&#305;nda sol taraf, AA + EK - AA = EK anlam&#305;na 
+      geldi&#287;inden, EK k&uuml;mesine e&#351;ittir ve bu da kan&#305;t&#305; 
+      sa&#287;lamaktad&#305;r.
+    </p>
+    <p class="Text">
+&#304;kinci ba&#287;&#305;nt&#305;da ise, bir k&uuml;menin, herhangibir evrensel 
+      k&uuml;me ile kendisinin kesi&#351;iminin ortak elemanlar&#305; olamaya&#287;&#305;na 
+      g&ouml;re, kesi&#351;imlerin bo&#351; k&uuml;me &Oslash; olaca&#287;&#305;n&#305; 
+      belirtir. Bu da kan&#305;t&#305; sa&#287;lamaktad&#305;r.
+    </p>
+    <p class="Text">
+      Ba&#287;&#305;nt&#305;lar&#305;n, evrensel matematik ger&ccedil;ek (teorem) 
+      olduklar&#305; kan&#305;tland&#305;&#287;&#305;ndan her &ouml;rnekte sa&#287;lanacaklar&#305; 
+      ku&#351;kusuzdur. Yine de elimizdeki &ouml;rnek k&uuml;melerle bu ba&#287;&#305;nt&#305;lar&#305; 
+      s&#305;nayal&#305;m.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_145.png" 
+      alt="c1t2-uygulama1-mathematica_145.png" width="434" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_146.png" 
+      alt="c1t2-uygulama1-mathematica_146.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_147.png" 
+      alt="c1t2-uygulama1-mathematica_147.png" width="524" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_148.png" 
+      alt="c1t2-uygulama1-mathematica_148.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 7
+    </p>
+    <p class="Text">
+      Uygulama 4 de, evrensel k&uuml;me EK ile, AA k&uuml;melerinin tan&#305;mlar&#305; 
+      yap&#305;lm&#305;&#351;t&#305;r. AA k&uuml;mesinde, kendi kendinin tersi olmak 
+      (self - Inverse) &ouml;zelli&#287;i,
+    </p>
+    <p class="Text">
+      (A&rsquo;)&rsquo; = A
+    </p>
+    <p class="Text">
+      ba&#287;&#305;nt&#305;s&#305;n&#305; kuramsal olarak kan&#305;tlay&#305;n&#305;z 
+      ve say&#305;sal uygulamas&#305;n&#305; yap&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      Self-Inverse &ouml;zelli&#287;i, EK - (EK - A) = EK - EK + A = A anlam&#305;na 
+      geldi&#287;inden kan&#305;tlanmaktad&#305;r. Say&#305;sal olarak s&#305;nanmas&#305;,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_149.png" 
+      alt="c1t2-uygulama1-mathematica_149.png" width="499" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_150.png" 
+      alt="c1t2-uygulama1-mathematica_150.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      olarak do&#287;rulan&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 8
+    </p>
+    <p class="Text">
+      Uygulama 4 de, AA ve BB k&uuml;melerinin tan&#305;mlar&#305; yap&#305;lm&#305;&#351;t&#305;r. 
+      Bu k&uuml;melerde, AA k&uuml;mesinin BB k&uuml;mesi taraf&#305;ndan yutulmas&#305;,
+    </p>
+    <p class="Text">
+      AA &sube; (AA &cup; BB)
+    </p>
+    <p class="Text">
+&#351;eklinde belirtilir. Yutulma olay&#305;n&#305; a&ccedil;&#305;klay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      AA k&uuml;mesinin, AA ve BB k&uuml;melerinin birle&#351;imin alt k&uuml;mesi 
+      olaca&#287;&#305; ku&#351;kusuzdur. AA k&uuml;mesinin elemanlar&#305;, BB 
+      k&uuml;mesinin niteli&#287;ine g&ouml;re, AA &cup; BB k&uuml;mesinden az veya 
+      e&#351;it olabilir.
+    </p>
+    <p class="Text">
+      Her&#351;eyden &ouml;nce,
+    </p>
+    <p class="Text">
+      AA &sube; (AA &cup; BB)
+    </p>
+    <p class="Text">
+      ifadesinin anlam&#305;n&#305; iyice d&uuml;&#351;&uuml;nelim. Bu ifade, AA 
+      k&uuml;mesinde bulunan t&uuml;m elemanlar&#305;n, AA&nbsp;&nbsp;ve BB k&uuml;melerinin 
+      birle&#351;iminde bulunaca&#287;&#305;n&#305; belirtiyor. K&uuml;me birle&#351;iminin 
+      tan&#305;m&#305; gere&#287;ince, iki k&uuml;menin birle&#351;im k&uuml;mesinde, 
+      k&uuml;melerin her birinin t&uuml;m elemanlar&#305;n&#305;n bulunmas&#305; 
+      gerekir. Dolay&#305;s&#305; ile bu birle&#351;im k&uuml;mesi AA k&uuml;mesinin 
+      t&uuml;m elemanlar&#305;n&#305; i&ccedil;eren ve &ouml;z alt k&uuml;me olmayan 
+      bir k&uuml;medir.
+    </p>
+    <p class="Text">
+      Bu ifade, AA &cup; BB birle&#351;im k&uuml;mesinin uzunlu&#287;u &uuml;zerinde 
+      hi&ccedil;bir bilgi i&ccedil;ermiyor. Bu konuda, iki olas&#305;l&#305;k olabilir. &#304;lk 
+      olas&#305;l&#305;k BB k&uuml;mesinin AA k&uuml;mesi elemanlar&#305;ndan farkl&#305; 
+      elemanalar i&ccedil;ermesidir. Bu durumda, AA k&uuml;mesinin eleman say&#305;s&#305; 
+      (k&uuml;me uzunlu&#287;u) birle&#351;im k&uuml;mesinden daha az olacakt&#305;r. 
+      Birle&#351;im k&uuml;mesinde hem AA k&uuml;mesinin t&uuml;m elemanlar&#305; 
+      vw BB k&uuml;mesinin t&uuml;m elemanalr&#305; bulunacak, AA k&uuml;mesinin 
+      t&uuml;m elemanalar&#305;, birle&#351;im k&uuml;mesinde de bulunaca&#287;&#305;ndan, 
+      AA dizisi, birle&#351;im dizisi taraf&#305;ndan yutulacak (absorbe edilecektir).
+    </p>
+    <p class="Text">
+&#304;kinci ve son olas&#305;l&#305;k BB k&uuml;mesinin, AA k&uuml;mesinin e&#351;it 
+      k&uuml;mesi olmas&#305;d&#305;r. Bu durumda, AA ve BB k&uuml;melerinin birle&#351;im 
+      k&uuml;mesi hem AA hem de BB ye e&#351;it olacak, k&uuml;melerin e&#351;itli&#287;i 
+      i&ccedil;in gereekli ve yeterli ko&#351;ul ger&ccedil;ekle&#351;mi&#351; olacakt&#305;r. 
+      K&uuml;melerin e&#351;itli&#287;i i&ccedil;in gerekli ve yeterli ko&#351;ul,
+    </p>
+    <p class="Text">
+      AA &sube; BB ve BB &sube; AA
+    </p>
+    <p class="Text">
+      olmas&#305;d&#305;r. Bu ifadeler iki y&ouml;nl&uuml; ko&#351;ul belirten e&#351;de&#287;erlik 
+      ifadesidir.
+    </p>
+    <p class="Text">
+      E&#287;er AA = BB ise, (AA &sube; BB) &and; (BB &sube; AA) olur. AA = BB olmas&#305;,&nbsp;&nbsp;(AA &sube; 
+      BB) &and; (BB &sube; AA) olmas&#305; i&ccedil;in yeterli ko&#351;uldur (Ba&#351;ka 
+      yeterlikler de olabilir). (AA &sube; BB) &and; (BB &sube; AA) olmas&#305;, 
+      AA = BB olmas&#305; i&ccedil;in gerekli ko&#351;uldur (Ba&#351;ka gereklikler 
+      de olabilir). Matematik olarak,&nbsp;&nbsp;
+    </p>
+    <p class="Text">
+      (AA = BB)&nbsp;&nbsp;&rArr; (AA &sube; BB) &and; (BB &sube; AA)
+    </p>
+    <p class="Text">
+      olarak belirtilir. Ters y&ouml;nde,
+    </p>
+    <p class="Text">
+      E&#287;er (AA &sube; BB) &and; (BB &sube; AA) ise,&nbsp;&nbsp;AA = BB olur. 
+      (AA &sube; BB) &and; (BB &sube; AA) olmas&#305;,&nbsp;&nbsp;AA = BB olmas&#305; 
+      i&ccedil;in yeterli ko&#351;uldur (Ba&#351;ka yeterlikler de olabilir). AA 
+      = BB olmas&#305;,&nbsp;&nbsp;(AA &sube; BB) &and; (BB &sube; AA) olmas&#305; 
+      i&ccedil;in gerekli ko&#351;uldur (Ba&#351;ka gereklikler de olabilir). Matematik 
+      olarak,
+    </p>
+    <p class="Text">
+      (AA &sube; BB) &and; (BB &sube; AA) &rArr; (AA = BB)
+    </p>
+    <p class="Text">
+      olarak belirtilir. Her iki y&ouml;ndeki ko&#351;ullu ifadeler sa&#287;lanabiliyorsa, 
+      e&#351;de&#287;erlik ifadesi olu&#351;ur. E&#351;de&#287;erlik ifadesi,
+    </p>
+    <p class="Text">
+      (AA = BB)&nbsp;&nbsp;&hArr; (AA &sube; BB) &and; (BB &sube; AA)
+    </p>
+    <p class="Text">
+      olarak belirtilir. E&#351;de&#287;erlik ifadesi, &ldquo;AA = BB ile (AA &sube; 
+      BB) &and; (BB &sube; AA) birbirine e&#351;de&#287;erdir veya AA = BB olay&#305; 
+      ile (AA &sube; BB) &and; (BB &sube; AA) olaylar&#305; birbirine e&#351;de&#287;er 
+      olaylard&#305;r&rdquo; olarak konur. Bu olaylar e&#351;de&#287;er olduklar&#305;ndan 
+      birinin olmas&#305; mutlaka di&#287;erinin de olmas&#305;n&#305; gerektirir 
+      ve e&#351;de&#287;erlik ifadesi, &ldquo;E&#287;er ve sadece e&#287;er AA = 
+      BB ise, (AA &sube; BB) &and; (BB &sube; AA) dir&rdquo;, veya &ldquo;E&#287;er 
+      ve sadece e&#287;er (AA &sube; BB) &and; (BB &sube; AA) ise, AA = BB dir&rdquo; 
+      olarak okunur. E&#351;de&#287;erlik ifadesi, ayn&#305; zamanda, &ldquo;AA 
+      = BB olmas&#305; i&ccedil;in, (AA &sube; BB) &and; (BB &sube; AA) gerekli 
+      ve yeterli ko&#351;uldur.&rdquo; (ne ba&#351;ka yeterlik ne de ba&#351;ka 
+      gereklik olamaz), &#351;eklinde de okunabilir. Bu konular&#305; Matematik 
+      Mant&#305;k konusunda daha geni&#351; olarak inceleyece&#287;iz. Ama, en az&#305;ndan &#351;imdilik, &ldquo;yeterli 
+      ve gerekli&rdquo; ko&#351;ul<br />
+&uuml;zerinde bilgi sa&#287;lam&#305;&#351; olduk.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 9
+    </p>
+    <p class="Text">
+      Bir BB k&uuml;mesinin, bir AA k&uuml;mesini yutmas&#305;
+    </p>
+    <p class="Text">
+      (AA &sube; BB) &hArr; (AA &cup; BB = BB)
+    </p>
+    <p class="Text">
+      olarak a&ccedil;&#305;klan&#305;r. Yutulma olay&#305;n&#305; inceleyiniz.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      Bu olay&#305;n okunu&#351;u, &ldquo;E&#287;er ve sadece e&#287;er, AA k&uuml;mesi 
+      BB k&uuml;mesinin &ouml;z alt k&uuml;me olmayan alt k&uuml;mesi ise, o zaman 
+      AA ve BB k&uuml;melerinin birle&#351;imi BB olur&rdquo; &#351;eklindedir.
+    </p>
+    <p class="Text">
+      Burada AA k&uuml;mesinin t&uuml;m elemanlar&#305;n&#305;n BB k&uuml;mesinin 
+      de elemanlar&#305; oldu&#287;u belirtiliyor. AA ve BB nin farkl&#305; k&uuml;meler 
+      olmalar&#305; gerek, &ccedil;&uuml;nk&uuml;, BB k&uuml;mesinin AA k&uuml;mesine 
+      e&#351;it oldu&#287;u belirtilmemi&#351;. Zaten, e&#287;er AA = BB olsayd&#305; 
+      olay yutulma de&#287;il e&#351;itlik haline d&ouml;n&uuml;&#351;&uuml;rd&uuml;. 
+      AA ve BB nin farkl&#305; k&uuml;meler olduklar&#305; g&ouml;z&ouml;n&uuml;ne 
+      al&#305;n&#305;rsa, AA ve BB inin birle&#351;im k&uuml;mesinin eleman say&#305;s&#305;n&#305;n 
+      (uzunlu&#287;unun), AA dan fazla olaca&#287;&#305;n&#305;, ayr&#305;ca t&uuml;m 
+      AA k&uuml;mesi elemanlar&#305;n&#305;n AA ve BB k&uuml;melerinin birle&#351;im 
+      k&uuml;mesinde bulunaca&#287;&#305;n&#305;, birle&#351;im k&uuml;mesinin de 
+      BB k&uuml;mesine e&#351;it olaca&#287;&#305; g&ouml;z&ouml;n&uuml;ne al&#305;n&#305;rsa, 
+      AA k&uuml;mesinin BB k&uuml;mesi taraf&#305;ndan yutulmu&#351; oldu&#287;u 
+      s&ouml;ylenebilir.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 10
+    </p>
+    <p class="Text">
+      K&uuml;melerin tekg&uuml;&ccedil;l&uuml; (idempotans) &ouml;zellikleri, a&#351;a&#287;&#305;da 
+      oldu&#287;u gibi tan&#305;mlan&#305;r.
+    </p>
+    <p class="Text">
+      AA &cup; AA = AA
+    </p>
+    <p class="Text">
+      Bu &ouml;zelli&#287;i a&ccedil;&#305;klay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      Tekg&uuml;&ccedil;l&uuml; i&#351;lem, Bir birle&#351;me i&#351;lemidir. Birle&#351;im 
+      k&uuml;mesi, her iki birle&#351;en k&uuml;menin de t&uuml;m elemanlar&#305;n&#305; 
+      i&ccedil;erecektir. Burada bir k&uuml;menin kendi kendisi ile birle&#351;iminin 
+      sonucu belirtilmektedir. K&uuml;me tan&#305;m&#305; gere&#287;ince, her k&uuml;mede 
+      ayn&#305; elemandan sadece bir tane olabilece&#287;inden, bir k&uuml;menin 
+      kendisi ile birle&#351;mesi sonucunda olu&#351;acak birle&#351;me k&uuml;mesi, 
+      kendisi ile ayn&#305; k&uuml;me olmal&#305;d&#305;r.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 11
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> ile ilk 100 asal say&#305;n&#305;n 
+      listesini al&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> bunun i&ccedil;in haz&#305;r 
+      bir fonksiyon sa&#287;lamaz. Yap&#305;lan bir <span>
+      <a href="http://mathematica.stackexchange.com/questions/47436/how-to-define-a-list-that-contains-all-primes-less-than-x">
+      <span class="HyperlinkInline">&ccedil;al&#305;&#351;mada</span></a></span> 
+      bunun i&ccedil;in,
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_151.gif" 
+      alt="c1t2-uygulama1-mathematica_151.gif" width="489" height="53" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_152.png" 
+      alt="c1t2-uygulama1-mathematica_152.png" width="608" height="51" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      fonksiyonu olu&#351;turulmu&#351;tur.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 11
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> ile bir say&#305;n&#305;n 
+      asall&#305;&#287;&#305;n&#305; saptay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> bunun i&ccedil;in haz&#305;r 
+      bir fonksiyon sa&#287;lar.
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_153.png" 
+      alt="c1t2-uygulama1-mathematica_153.png" width="173" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_154.png" 
+      alt="c1t2-uygulama1-mathematica_154.png" width="60" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      71568 asal say&#305; de&#287;ilmi&#351;. Bunun saptanmas&#305;, el ile yap&#305;ld&#305;&#287;&#305;nda 
+      uzun s&uuml;rebilecek bir s&uuml;re&ccedil;tir.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 11
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> ile&nbsp;&nbsp;<span 
+      class="SearchResultSummaryInline">43242444</span> say&#305;s&#305;n&#305;n 
+      asal say&#305; &ccedil;arpanlar&#305;n&#305; bulunuz.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      <span class="SearchResultSummaryInline" style="font-style: italic;">Mathematica,</span><span 
+      class="SearchResultSummaryInline"> FactorInteger[say&#305;] , haz&#305;r fonksiyonunu 
+      sa&#287;lamaktad&#305;r. Bunun uygulanmas&#305;,</span>
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_155.png" 
+      alt="c1t2-uygulama1-mathematica_155.png" width="307" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_156.png" 
+      alt="c1t2-uygulama1-mathematica_156.png" width="483" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      De&#287;erlendirilmesi: 2tane 2, 3 tane 3, bir tane 7, bir tane 47, bir tane 
+      1217
+    </p>
+    <p class="Text">
+      Sa&#287;lama:
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_157.png" 
+      alt="c1t2-uygulama1-mathematica_157.png" width="303" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_158.png" 
+      alt="c1t2-uygulama1-mathematica_158.png" width="103" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      bulunan asal say&#305; &ccedil;arpanlar&#305; ger&ccedil;e&#287;i belirtmektedir.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <p class="Section">
+      Uygulama 11
+    </p>
+    <p class="Text">
+      <span style="font-style: italic;">Mathematica</span> ile iki say&#305;n&#305;n 
+      aralar&#305;nda asal olup olmad&#305;&#287;&#305;n&#305; saptay&#305;n&#305;z.
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m
+    </p>
+    <p class="Text">
+      <span class="SearchResultSummaryInline">E&#287;er n1 ve n2 aralar&#305;nda 
+      asal iseler, CoprimeQ[n1, n2] True de&#287;illerse False sonucunu verir.&nbsp;&nbsp;CoprimeQ[n1, 
+      n2, ...] e&#287;er her &ccedil;ift aralar&#305;nda asal iseler True sonucunu 
+      verir.</span>
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_159.png" 
+      alt="c1t2-uygulama1-mathematica_159.png" width="203" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_160.png" 
+      alt="c1t2-uygulama1-mathematica_160.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_161.png" 
+      alt="c1t2-uygulama1-mathematica_161.png" width="297" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_162.png" 
+      alt="c1t2-uygulama1-mathematica_162.png" width="48" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Input">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_163.png" 
+      alt="c1t2-uygulama1-mathematica_163.png" width="13" height="23" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Output">
+      <img src="HTMLFiles/c1t2-uygulama1-mathematica_164.png" 
+      alt="c1t2-uygulama1-mathematica_164.png" width="12" height="22" 
+      style="vertical-align: middle" />
+    </p>
+    <p class="Text">
+      34, 53, 89, 33 aralar&#305;nda asal say&#305;lard&#305;r (ortak asal &ccedil;arpanlar&#305; 
+      yoktur).
+    </p>
+    <p class="Subsubtitle">
+&Ccedil;&ouml;z&uuml;m Sonu
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../../content.html"><em>« Matematik İndeksi</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../c1t3.html"><em>« Konu Sayfası</em></a></li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../../c1t3.html"><em>Uygulama Sayfası »</em></a></li>
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../../../../../index.html"><em>Site İndeksi »</em></a></li>
+      <li id="denge3"></li>
+      <li id="kodlama3"><a href="../c1t3-uygulama-1.html"><em>uygulama 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../../../../../Library/lastmodified.js">
+     </script>
+     
+    <script type="text/javascript" src="../../../../../js/bootstrap.js">
+     </script>
+     <script type="text/javascript" src="../../../../../js/jquery-1.11.3.min.js">
+     </script>
+    <div style="font-family: Helvetica; font-size: 16px; width: 100%; border: 1px none #999999; border-top-style : solid; padding-top: 2px; margin-top: 20px;">
+      <a href="http://www.wolfram.com/language/" 
+      style="color: #000; text-decoration: none;"><span style="color: red;">Created 
+      with the Wolfram Language</span></a><span class="pl-25"><a 
+      href="c1t3-uygulama1-mathematica.pdf">pdf sürümü</a></span> <span class="pl-25">
+      <a href="c1t3-uygulama1-mathematica.cdf">cdf sürümü</a></span> </div>
+      
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#c1t3-uygulama-1.html">
+      <img src="../../../../images/html5-small-1.gif" alt="Geçerli html" /></a></span>
+    </p>
+    </body>
+  </html> 

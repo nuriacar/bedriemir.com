@@ -1,0 +1,825 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+    <meta name="robots" content="noindex, follow">
+     <meta name="generator" content=
+     "HTML Tidy for tsWebEditor (www.tswebeditor.tk) 
+	  (vers 1st November 2003), see www.w3.org">
+     <meta http-equiv="Content-Language" content="tr">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <link rel="stylesheet" type="text/css" href="../CSS/w3c-rec-nologo.css"
+     media="all">
+     <link rel="stylesheet" type="text/css" href="../CSS/default.css" media=
+     "all">
+     <link rel="stylesheet" type="text/css" href="../CSS/newstyle.css" media=
+     "all">
+
+     <title>Çerçeve İçeren Sayfalar b8s1.htm</title>
+</head>
+
+<body>
+     <table class="navtabletop" summary="layout">
+          <colgroup>
+               <col width="80%">
+               <col width="20%">
+          </colgroup>
+
+          <tbody>
+               <tr>
+                    <td valign="middle"><img src=
+                    "../images/reservedimages/b8s1resim1-map.png" alt=
+                    "Navigational Pane" width="456" height="140" usemap="#map2"
+                    class="x"> <map name="Map2">
+                         <area shape="circle" coords="315,14,9" href=
+                         "../b4/b4s1.htm" alt="b4s1">
+                         <area shape="circle" coords="257,73,9" href=
+                         "../ek1/ek1s1.htm" alt="Ek1">
+                         <area shape="circle" coords="256,13,9" href=
+                         "../b1/b1s1.htm" alt="b1s1">
+                         <area shape="circle" coords="374,15,9" href=
+                         "../b8/b8s2.htm" alt="b8s2">
+                         <area shape="circle" coords="296,73,9" href=
+                         "../ek3/ek3s1.htm" alt="Ek3">
+                         <area shape="circle" coords="336,14,9" href=
+                         "../b5/b5s1.htm" alt="b5s1.htm">
+                         <area shape="circle" coords="277,93,9" href=
+                         "../ek7/catalogue.htm" alt=" Ek7 Catalogue">
+                         <area shape="circle" coords="316,73,9" href=
+                         "../ek4/ek4s1.htm" alt="Ek4">
+                         <area shape="circle" coords="277,72,9" href=
+                         "../ek2/ek2s1.htm" alt="Ek2">
+                         <area shape="circle" coords="276,12,9" href=
+                         "../b2/b2s1.htm" alt="b2s1">
+                         <area shape="circle" coords="334,72,9" href=
+                         "../ek5/ek5s1.htm" alt="Ek5">
+                         <area shape="circle" coords="294,13,9" href=
+                         "../b3/b3s1.htm" alt="b3s1">
+                         <area shape="circle" coords="257,93,9" href=
+                         "../ek6/ek6s1.htm" alt="Ek 6">
+                         <area shape="circle" coords="256,35,9" href=
+                         "../b6/b6s1.htm" alt="b6s6">
+                         <area shape="rect" coords="327,114,374,125" href=
+                         "../ek7/attributes.htm" alt=" Ek7 Nitelikler">
+                         <area shape="rect" coords="252,115,307,125" href=
+                         "../ek7/elements.htm" alt="Ek7 Elementler">
+                    </map></td>
+
+                    <td class="align-right" valign="middle"><img src=
+                    "../images/SharedImages/nav3buttons.png" alt=
+                    "Navigation 3 Buttons" width="127" height="40" usemap=
+                    "#map" class="x"> <map name="Map">
+                         <area shape="rect" coords="2,3,38,38" href=
+                         "../index.htm" alt="Index">
+                         <area shape="rect" coords="44,1,81,39" href=
+                         "../b7/b7s5.htm" alt="Previous">
+                         <area shape="rect" coords="89,2,123,34" href=
+                         "../b8/b8s2.htm" alt="Next">
+                    </map></td>
+               </tr>
+          </tbody>
+     </table>
+
+     <p class="chapter">Bölüm 8</p>
+
+     <p class="chapter-title">Çerçeve (Frame) Tekniği</p>
+
+     <p class="pagenum">Sayfa 1</p>
+     <hr>
+
+     <p class="title" id="frameset-frame-etc">&lt;frameset&gt;, &lt;frame&gt;,
+     &lt;noframes&gt; ve &lt;iframe&gt; Elementleri</p>
+
+     <p>&nbsp;</p>
+
+     <p class="subheading" id="frames-gen">Çerçeve Tekniğinin Tanıtımı</p>
+
+     <p class="indent">Çerçeve (Frame) tekniği, birbirinden bağımsız, birçok
+     Web sayfasının, belge çözümleyicisinin görüntülediği alana (viewport)
+     yerleştirilmeisidir. Sayfalar, görüntü alanını kesintisiz olarak paylaşır.
+     Araya istenirse kenar çizgileri konularak sayfaların sınırları belirtilir.
+     Kenar çizgileri konulmazsa, kullanıcılar gördükleri sayfanın aslında
+     birden çok bağımsız sayfadan oluştuğunu farkedemezler.</p>
+
+     <p class="indent">Çerçeve tekniği, göreli olarak yeni bir yöntemdir. Bu
+     teknik, kullanıma girmesinden sonra çok olumlu karşılanmış, fakat
+     uygulamada karşılaşılan zorluklar yaygınlaşmasını kısıtlamıştır. Yaşanan
+     sorunların en başında, bu yöntemin ancak bilgili ve deneyimli Web
+     programcıları tarafından uygulananabilen sağlam bir kodlama sistemi ile
+     uygulanabilmesidir. Bu gereksinme, derslerimizde hedeflediğimiz, kuramsal
+     temellere daynarak sayfa tasımı yapan birikimli ve deneyimli Web
+     programcılarını yetiştirmenin önemini doğrulamaktadır. Ayrıca, özellikle
+     başlangıçta, belge çözümleyicilerin çerçeve içeren sayfalara desteği
+     kıstlı kalmıştır. Bundan başka, çerçeve içeren sayfaların kopyalanmasının
+     güç olması, sayfaların kaynak kodlarına ulaşmanın kullanıcılar için
+     olanaksızlaşması ve bunun kullanıcı üzerinde negatif bir etki yaratması,
+     sayfaların akış sırası (history) de görülen zorluklar gibi nedenler de
+     çerçeve tekniğinin yaygınlaşmamasına etken olmaktadır. Aslında, yukarıdaki
+     çekinceleri göze alan ve bu derslerde olduğu gibi bilimsel çalışma
+     yöntemini benimsemiş olan Web programcıları için, çerçeve tekniği, hiç bir
+     zorluğu bulunmayan bir yöntemdir ve prensip olarak tablolar ile
+     çalışmaktan fazla bir farkı yoktur. Bu tekniğin detayları aşağıda
+     incelenmiştir.</p>
+
+     <p class="subheading" id="frameset-dtd">Frameset Belge Türü</p>
+
+     <p class="indent"><a href="../ek4/ek4s5.htm">Çerçeve içeren belge tipi
+     bildirimi</a>, yenilenmiş olanlar ve çerçeve içeren belgeler için
+     kullanılanlar da dahil olmak üzere, tüm element ve nitelikleri içerir. Bu
+     DTD <a href="../ek4/ek4s4.htm">adeta geçiş dönemi</a> + <a href=
+     "../ek4/ek4s5.htm">çerçeve elementleri DTD</a> si görünümündedier. Bu
+     <a href="../ek4/ek4s5.htm">DTD</a> nin uygulanması aşağıda görülmektedir
+     :</p>
+     <pre class="navy">
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;
+            &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+</pre>
+
+     <p class="indent"><a href="../ek4/ek4s5.htm">Çerçeve içeren belge tipi
+     DTD</a> si, <a href="../ek4/ek4s4.htm">Geçiş dönemi DTD</a> sinden sadece
+     çerçeve tanımları ile ayrılır. <a href="http://www.w3.org">W3C</a> çerçeve
+     içeren sayfalarla <a href="../ek4/ek4s4.htm">geçiş dönemi DTD</a> sini
+     ilişkilendirmiştir. Bu ilişkinin mantıksal bir tutarlılığı yoktur. Web
+     tasarımında çerçeve kullanmak ayrı bir uygulma, geçiş dönemi
+     spesifikasyonuna dayanarak tasarım yapmak ayrı şeydir. <a href=
+     "http://www.w3.org">W3C</a>&#39; ye göre, tasrımda çerçeve tekniğiinin
+     kullanılması kodlamada da <a href="../ek4/ek4s4.htm">geçici
+     spesifikasyon</a> düzeyine düşmeyi gerektirmektedir. Oysa bizim önerimiz
+     tam aksi yöndedir. Çerçeve tekniği kullanımı amacı ile çerçeve içeren
+     belge türü bildirimi yapılmış sayfalarda, katı kuralcı DTD dışında sadece
+     çerçeve tekniği için gerekli nitelik ve elementlerin kullanımı ile
+     yetinilmelidir. Web sayfalarının kalıcı ve ilerideki tekniklerle uyumlu
+     olabilmeleri için tasarımlar geçici spesifikasyonların rahatlığına
+     kapılmadan en güncel yöntemler kullanılarak yapılmalıdır. Unutulmamalıdır
+     ki, kuramsal çalışma yöntemleri zor yolun seçilmesidir, fakat gelişme için
+     aslında tek yol zor yoldur.</p>
+
+     <p class="title-left" id="frameset">&lt;frameset&gt; Elementi</p>
+
+     <p class="indent">Çerçeve içeren belge türünden yararlanılarak kodlanan
+     belgelerde, &lt;<a href="../b3/b3s5.htm#body">body</a>&gt; elementi yerine
+     &lt;frameset&gt; elementi kullanılır. &lt;frameset&gt; elementinin Çerçeve
+     İçeren Belge Türü Tanımında (<a href=
+     "../html401/sgml/framesetdtd.html">Frameset DTD</a>), &lt;frameset&gt;
+     elementi tanımı aşağıda görülmektedir.</p>
+
+     <div class="dtd-fragment">
+          <pre class="navy">
+<span class="dtd">
+&lt;!--================== Document Frames ===================================--&gt;
+
+&lt;!--
+  The content model for HTML documents depends on whether the HEAD is
+  followed by a FRAMESET or BODY element. The widespread omission of
+  the BODY start tag makes it impractical to define the content model
+  without the use of a marked section.
+--&gt;
+
+&lt;!-- Feature Switch for frameset documents --&gt;
+&lt;!ENTITY % <a name="HTML.Frameset">HTML.Frameset</a> &quot;IGNORE&quot;&gt;
+
+&lt;![ <a href=
+"../html401/sgml/loosedtd.html#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ELEMENT <a href="../html401/sgml/loosedtd.html#edef-FRAMESET" class=
+"noxref"><samp class=
+"einst">FRAMESET</samp></a> - - ((FRAMESET|FRAME)+ &amp; NOFRAMES?) -- window subdivision--&gt;
+&lt;!ATTLIST FRAMESET
+  <a href=
+"../html401/sgml/loosedtd.html#coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  <a href="../html401/sgml/loosedtd.html#adef-rows-FRAMESET" class=
+"noxref"><samp class="ainst-FRAMESET">rows</samp></a>        <a href=
+"../html401/sgml/loosedtd.html#MultiLengths">%MultiLengths;</a> ../html401/sgml/loosedtd.html#IMPLIED  -- list of lengths,
+                                          default: 100% (1 row) --
+  <a href="../html401/sgml/loosedtd.html#adef-cols-FRAMESET" class=
+"noxref"><samp class="ainst-FRAMESET">cols</samp></a>        <a href=
+"../html401/sgml/loosedtd.html#MultiLengths">%MultiLengths;</a> ../html401/sgml/loosedtd.html#IMPLIED  -- list of lengths,
+                                          default: 100% (1 col) --
+  <a href="../html401/sgml/loosedtd.html#adef-onload" class=
+"noxref"><samp class="ainst-FRAMESET">onload</samp></a>      <a href=
+"../html401/sgml/loosedtd.html#Script">%Script;</a>       ../html401/sgml/loosedtd.html#IMPLIED  -- all the frames have been loaded  --
+  <a href="../html401/sgml/loosedtd.html#adef-onunload" class=
+"noxref"><samp class="ainst-FRAMESET">onunload</samp></a>    <a href=
+"../html401/sgml/loosedtd.html#Script">%Script;</a>       ../html401/sgml/loosedtd.html#IMPLIED  -- all the frames have been removed --
+  &gt;
+]]&gt;
+
+&lt;![ <a href=
+"../html401/sgml/loosedtd.html#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!-- reserved frame names start with &quot;_&quot; otherwise starts with letter --&gt;
+</span>
+</pre>
+     </div>
+
+     <p class="nonindent">Bu tanımda, &lt;frameset&gt; elementinin başlangıç ve
+     sonuç imlerinin kulanımlarının zorunlu olduğu, her &lt;frameset&gt;
+     elementinin en az bir &lt;frameset&gt; veya &lt;frame&gt; elementi
+     içerebileceği, yani iç içe &lt;frameset&gt; elementlerinin
+     kullanılabileceği, her &lt;frameset&gt; elementinin içeriğinde en çok bir
+     tane &lt;<a href="../b8/b8s1.htm#noframes">noframes</a>&gt; elementi
+     bulunabileceği veya hiç &lt;<a href=
+     "../b8/b8s1.htm#noframes">noframes</a>&gt; elementi bulunmayabileceği
+     belirtilmiştir. &lt;frameset&gt; Elementinin sözdizimi,</p>
+
+     <p class="nonindent"><span class="elements">&lt;frameset</span>
+     (<span class="cover-tags">Başlangıç imi</span>: Zorunlu)</p>
+
+     <p class="indent"><a href="../b3/b3s3.htm#object-int">Ortak Temel
+     Nitelikler</a> <span class="attributes">(Çekirdek Nitelikler,
+     Uluslarasılaştırma Nitelikleri, Script Yazılabilecek Olaylar)</span></p>
+
+     <p class="indent"><a href="#rows">rows</a> = (<a href=
+     "../ek3/ek3s1.htm#length">çoklu uzunluk listesi</a>) [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent"><a href="#cols">cols</a>= (<a href=
+     "../ek3/ek3s1.htm#length">çoklu uzunluk listesi</a>) [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent"><a href="../b2/b2s3.htm#onload">onload</a>= <a href=
+     "../ek3/ek3s1.htm#style">script</a> <a href="../ek3/ek3s1.htm#tb">[TB]</a>
+     &lt;frameset&gt; içindeki bir &lt;frame&gt; elementinin yüklenmesinin
+     tamamlanması)</p>
+
+     <p class="indent"><a href="../b2/b2s3.htm#onunload">onunload</a>=<a href=
+     "../ek3/ek3s1.htm#style">script</a> <a href="../ek3/ek3s1.htm#tb">[TB]</a>
+     &lt;frameset&gt; içindeki bir &lt;frame&gt; elementinin kapatılması)</p>
+
+     <p class="indent"><span class="elements">&gt;</span></p>
+
+     <p class="nonindent"><span class="levels">İçeriği :</span> Sadece
+     &lt;frameset&gt;, &lt;<a href="../b8/b8s1.htm#frame">frame</a>&gt;,
+     &lt;<a href="../b8/b8s1.htm#noframes">noframes</a>&gt; elementleri.</p>
+
+     <p class="nonindent"><span class="elements">&lt;/frameset&gt;</span>
+     (<span class="cover-tags">Bitiş imi:</span> Gerekli)</p>
+
+     <p class="nonindent">şeklindedir.</p>
+
+     <p class="nonindent">&lt;frameset&gt; Elementini İçerebilecek Elementler:
+     Sadece &lt;<a href="../b3/b3s1.htm#html">html</a>&gt; ve &lt;frameset&gt;
+     elementleri.</p>
+
+     <p class="subheading" id="frameset-attrs">&lt;frameset&gt; Elementinin
+     Nitelikleri</p>
+
+     <p class="nonindent"><a href="../b2/b2s3.htm#common">Ortak Temel
+     Nitelikler</a> (<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>,
+     <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>,
+     <a href="../b2/b2s3.htm#scriptable">Script Yazılabilecek Olaylar</a>).
+     Daha önceden <a href="../b2/b2s3.htm">incelenmiştir.</a></p>
+
+     <p class="nonindent" id="rows"><span class="attributes">rows</span> =
+     (<a href="../ek3/ek3s1.htm#length">çoklu uzunluk listesi</a>) [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>] Yatay olarak yerleştirilmiş çerçeve sayısını
+     belirtir. Virgülle ayrılmış bir piksel, yüzde veya bağıl uzunluk değerleri
+     listesi değerini alabilir.</p>
+
+     <p class="nonindent" id="frameset-cols"><span class=
+     "attributes">cols</span> = ( <a href="../ek3/ek3s1.htm#length">çoklu
+     uzunluk listesi</a>) [<a href="../ek3/ek3s1.htm#yn">YN</a>] Dikey olarak
+     yerleştirilmiş çerçeve sayısını belirtir. Virgülle ayrılmış bir piksel,
+     yüzde veya bağıl uzunluk değerleri listesi değerini alabilir.</p>
+
+     <p class="title-left" id="frame">&lt;frame&gt; Elementi</p>
+
+     <p class="indent">&lt;frame&gt; Elementi, açılan pencerenin niteliklerinin
+     belirtilmesi için kullanılan bir elementtir. DTD deki tanımı aşağıda
+     verilmiştir.</p>
+
+     <div class="dtd-fragment">
+          <pre class="navy">
+<span class="dtd">&lt;![ <a href="#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!-- reserved frame names start with &quot;_&quot; otherwise starts with letter --&gt;
+&lt;!ELEMENT <a href="../html401/present/frames.html#edef-FRAME" class=
+"noxref"><samp class=
+"einst">FRAME</samp></a> - O EMPTY              -- subwindow --&gt;
+&lt;!ATTLIST FRAME
+  <a href=
+"#coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  <a href="../html401/present/frames.html#adef-longdesc-FRAME" class=
+"noxref"><samp class="ainst-FRAME">longdesc</samp></a>    <a href=
+"#URI">%URI;</a>          #IMPLIED  -- link to long description
+                                          (complements title) --
+  <a href="../html401/present/frames.html#adef-name-FRAME" class=
+"noxref"><samp class="ainst-FRAME">name</samp></a>        <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- name of frame for targetting --
+  <a href="../html401/present/frames.html#adef-src-FRAME" class=
+"noxref"><samp class="ainst-FRAME">src</samp></a>         <a href=
+"#URI">%URI;</a>          #IMPLIED  -- source of frame content --
+  <a href="../html401/present/frames.html#adef-frameborder" class=
+"noxref"><samp class=
+"ainst-FRAME">frameborder</samp></a> (1|0)          1         -- request frame borders? --
+  <a href="../html401/present/frames.html#adef-marginwidth" class=
+"noxref"><samp class="ainst-FRAME">marginwidth</samp></a><a href=
+"#Pixels">%Pixels;</a>       #IMPLIED  -- margin widths in pixels --
+  <a href="../html401/present/frames.html#adef-marginheight" class=
+"noxref"><samp class="ainst-FRAME">marginheight</samp></a><a href=
+"#Pixels">%Pixels;</a>      #IMPLIED  -- margin height in pixels --
+  <a href="../html401/present/frames.html#adef-noresize" class=
+"noxref"><samp class=
+"ainst-FRAME">noresize</samp></a>    (noresize)     #IMPLIED  -- allow users to resize frames? --
+  <a href="../html401/present/frames.html#adef-scrolling" class=
+"noxref"><samp class=
+"ainst-FRAME">scrolling</samp></a>   (yes|no|auto)  auto      -- scrollbar or none --
+  &gt;
+]]&gt;
+</span>
+</pre>
+     </div>
+
+     <p class="nonindent">Bu tanımdan, &lt;frame&gt; elementinin başlangıç
+     iminin kullanımının zorunlu olduğu, bitiş iminin kullanımının ise, isteğe
+     bağlı olacağı görülmektedir. İsteğe bağlı olmasına rağmen, bitiş iminin de
+     belirtilmesinde yarar bulunmaktadır. &lt;frame&gt; Elementi boş bir
+     elementtir, öz içeriği yoktur ve sadece niteliklerinden yararlanmak amacı
+     ile kullanılır. Bu elementin içeriği bağımsız bir başka Web sayfasıdır.
+     &lt;frame&gt; Elementinin sözdizimi,</p>
+
+     <p class="nonindent"><span class="elements">&lt;frame</span> (<span class=
+     "cover-tags">Başlangıç imi</span>: Zorunlu)</p>
+
+     <p class="indent"><a href="../b3/b3s3.htm#object-int">Ortak Temel
+     Nitelikler</a> <span class="attributes">(Çekirdek Nitelikler,
+     Uluslarasılaştırma Nitelikleri, Script Yazılabilecek Olaylar)</span></p>
+
+     <p class="indent"><a href="#name">name</a> = <a href=
+     "../ek3/ek3s1.htm#cdata">cdata</a> [<a href=
+     "../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent"><a href="#longdesc">longdesc</a> = <a href=
+     "../ek1/ek1s1.htm#uri">URI</a> <a href="../ek3/ek3s1.htm#tb">[TB]</a></p>
+
+     <p class="indent"><a href="#src">src</a> = <a href=
+     "../ek1/ek1s1.htm#uri">URI</a> <a href="../ek3/ek3s1.htm#tb">[TB]</a></p>
+
+     <p class="indent"><a href="#frameborder">frameborder</a> = 1 | 0 [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent"><a href="#marginwidth">marginwidth</a> = <a href=
+     "../ek3/ek3s1.htm#pixel">piksel</a> [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent"><a href="#marginheight">marginheight</a> = <a href=
+     "../ek3/ek3s1.htm#pixel">piksel</a> [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent"><a href="#noresize">noresize</a> = noresize [<a href=
+     "../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent"><a href="#scrolling">scrolling</a> = auto | yes | no
+     [<a href="../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent"><span class="elements">&gt;</span></p>
+
+     <p class="indent"><span class="levels">İçeriği :</span> Yok. (Bağımsız bir
+     başka <a href="../html401/sgml/sgmldecl.html">HTML</a> sayfası
+     içerebilir).</p>
+
+     <p class="nonindent"><span class="elements">&lt;/frame&gt;</span>
+     (<span class="cover-tags">Bitiş imi:</span> İsteğe Bağlı )</p>
+
+     <p class="nonindent">şeklindedir.</p>
+
+     <p class="nonindent">&lt;frame&gt; Elementini İçerebilecek Elementler:
+     Sadece &lt;<a href="#frameset">frameset</a>&gt; elementi.</p>
+
+     <p class="subheading" id="frame-attrs">&lt;frame&gt;Elementinin
+     Nitelikleri</p>
+
+     <p class="nonindent"><a href="../b2/b2s3.htm#common">Ortak Temel
+     Nitelikler</a> (<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a>,
+     <a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a>,
+     <a href="../b2/b2s3.htm#scriptable">Script Yazılabilecek Olaylar</a>).
+     Daha önceden <a href="../b2/b2s3.htm">incelenmiştir.</a></p>
+
+     <p class="nonindent" id="name"><span class="attributes">name</span> =
+     <a href="../ek3/ek3s1.htm#cdata">cdata</a> [<a href=
+     "../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent">Bu nitelik çerçeveye bir kimlik kazandırmak amacı ile
+     kullanılır. Bu kimlik değeri ileride oluşturulacak bağlantıların hedefi
+     olarak belirtilebilir.</p>
+
+     <p class="nonindent" id="longdesc"><span class=
+     "attributes">longdesc</span> = <a href="../ek1/ek1s1.htm#uri">URI</a>
+     <a href="../ek3/ek3s1.htm#tb">[TB]</a></p>
+
+     <p class="indent">Daha çok erişim için yardım amacını tasşıyan ve çerçeve
+     hakkında bilgi veren bir kaynağı belirten bu nitelik çok ender
+     kullanılır.</p>
+
+     <p class="nonindent" id="src"><span class="attributes">src</span> =
+     <a href="../ek1/ek1s1.htm#uri">URI</a> <a href=
+     "../ek3/ek3s1.htm#tb">[TB]</a></p>
+
+     <p class="indent">Çerçeve içeriğini oluşturan belgenin kaynak lokasyonunu
+     belirtir.</p>
+
+     <p class="nonindent" id="frameborder"><span class=
+     "attributes">frameborder</span> = 1 | 0 [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent">Bu niteliğe 1 değeri verilirse, çerçeve etrafına bir
+     kenar çizgisi çizilir. Değerin 0 olması halinde bile, eğer komşu
+     çerçevelerde bu niteliğin değeri 1 olarak belirtilmiş ise, komşu çerçeve
+     etrafına bir kenar çizgisi çizilir. Sonuçta iki komşu çerçeve bir kenar
+     çizgisi ile ayrılmış olur.</p>
+
+     <p class="nonindent" id="marginwidth"><span class=
+     "attributes">marginwidth</span> = <a href=
+     "../ek3/ek3s1.htm#pixel">piksel</a> [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent">Bu değer, piksel olarak, çerçeve içeriği ile sol ve sağ
+     marjlar arasında bırakılacak boşluğu belirtir. Bu niteliğe bir değer
+     verilmemişse, belge çözümleyiciler kendi özel varsayılan değerlerini
+     atarlar.</p>
+
+     <p class="nonindent" id="marginheight"><span class=
+     "attributes">marginheight</span> = <a href=
+     "../ek3/ek3s1.htm#pixel">piksel</a> [<a href=
+     "../ek3/ek3s1.htm#yn">YN</a>]</p>
+
+     <p class="indent">Bu değer, piksel olarak, çerçeve içeriği ile alt ve üst
+     marjlar arasında bırakılacak boşluğu belirtir. Bu niteliğe bir değer
+     verilmemişse, belge çözümleyiciler kendi özel varsayılan değerlerini
+     atarlar.</p>
+
+     <p class="nonindent" id="noresize"><span class=
+     "attributes">noresize</span> = noresize [<a href=
+     "../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent">Bu niteliğe noresize değeri verilirse, çerçeve belge
+     çözümleyiciler tarafından yeniden boyutlandırılmaz. Belge çözümleyiciler,
+     özellikle ekran çözümlemelerinde, kullanıcıların görüntü pencerelerini sık
+     sık boyutlamaları sonucunda, pencere içeriklerini de olabildiğince uyum
+     sağlamak amacı ile yeniden boyutlandırırlar. Bu nitelik çerçevenin yeniden
+     boyutlandırmasını engeller. Sonucun uygunluğu denenerek kontrol
+     edilmelidir.</p>
+
+     <p class="nonindent" id="scrolling"><span class=
+     "attributes">scrolling</span> = auto | yes | no [<a href=
+     "../ek3/ek3s1.htm#yz">YZ</a>]</p>
+
+     <p class="indent">Bu niteliğe verilecek değer, çerçeve içeriğine kaydırma
+     özelliği sağlanması için kullanılacaktır. Kullanılabilecek değerler,</p>
+
+     <ul class="list">
+          <li>auto :
+
+               <p>Bu değer varsayılan değerdir ve belge çözümleyiciye, çerçeve
+               içeriği için gerekirse bir kaydırma mekanizması oluşturulmasını
+               belirtir.</p>
+          </li>
+
+          <li>yes :
+
+               <p>Bu değer, belge çözümleyiciye, çerçeve içeriği için her
+               durumda bir kaydırma mekanizması oluşturulmasını belirtir.</p>
+          </li>
+
+          <li>no :
+
+               <p>Bu değer, belge çözümleyiciye, çerçeve içeriği için hiçbir
+               zaman bir kaydırma mekanizması oluşturulmayacağını belirtir.</p>
+          </li>
+     </ul>
+
+     <p class="title-left" id="noframes">&lt;noframes&gt; Elementi</p>
+
+     <p class="indent">Bu element, çerçeve tekniğini desteklemeyen belge
+     çözümleyicilere, çerçeve içeren sayfalar içeren Web sayfalarına
+     rastladıkça ne yapacağını belirtmek için kullanılır. Günümüzde, kullanımda
+     olan tüm görsel belge çözümleyicilerin son sürümleri çerçeve tekniğini
+     desteklerler. Sadece Lynx gibi çok eski ve metin tipi görsel belge
+     çözümleyicileri ile, ses çözümleyicisi, cep telefonu belge çözümleyicisi
+     tipinde olanlar gibi özel belge çözümleyiciler çerçeve tekniğini
+     desteklemeyebilirler. Bu nedenle, bu elementin işlevi çok sınırlı
+     olabilir. DTD deki tanımı,</p>
+
+     <div class="dtd-fragment">
+          <pre class="navy">
+<span class="dtd">&lt;![ <a href=
+"../html401/sgml/loosedtd.html#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % <a name=
+"noframes.content">noframes.content</a> &quot;(BODY) -(NOFRAMES)&quot;&gt;
+]]&gt;
+
+&lt;!ENTITY % noframes.content &quot;(<a href=
+"../html401/sgml/loosedtd.html#flow">%flow;</a>)*&quot;&gt;
+
+&lt;!ELEMENT <a href="../html401/present/frames.html#edef-NOFRAMES" class=
+"noxref"><samp class="einst">NOFRAMES</samp></a> - - <a href=
+"../html401/sgml/loosedtd.html#noframes.content">%noframes.content;</a>
+ -- alternate content container for non frame-based rendering --&gt;
+&lt;!ATTLIST NOFRAMES
+  <a href=
+"../html401/sgml/loosedtd.html#attrs">%attrs;</a>                              -- <a href="../html401/sgml/loosedtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/loosedtd.html#i18n">%i18n</a>, <a href="../html401/sgml/loosedtd.html#events">%events</a> --
+  &gt;
+</span>
+</pre>
+     </div>
+
+     <p class="nonindent">şeklindedir. Bu tanıma göre, &lt;noframes&gt;
+     elementinin başlangıç ve bitiş imlerinin kullanımları zorunludur. İçeriği
+     boş bırakılabilir veya <a href="../ek4/ek4s3.htm#flow">akış tipi
+     elementler</a> ile doldurulabilir. &lt;noframes&gt; Elementinin
+     sözdizimi,</p>
+
+     <p class="nonindent"><span class="elements">&lt;noframes</span>
+     (<span class="cover-tags">Başlangıç imi</span>: Zorunlu)</p>
+
+     <p class="indent"><a href="../b3/b3s3.htm#object-int">Ortak Temel
+     Nitelikler</a> <span class="attributes">(Çekirdek Nitelikler,
+     Uluslarasılaştırma Nitelikleri, Script Yazılabilecek Olaylar)</span></p>
+
+     <p class="indent"><span class="elements">&gt;</span></p>
+
+     <p class="indent"><span class="levels">İçeriği :</span> &lt;<a href=
+     "../b4/b4s2.htm#anchor">a</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">acronym</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#address">address</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#applet">applet</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#bold">b</a>&gt;, basefont, &lt;<a href=
+     "../b4/b4s3.htm#bdo">bdo</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#big">big</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#blockquote">blockquote</a>&gt;, &lt;<a href=
+     "../b3/b3s5.htm#body">body</a>&gt;,&lt;<a href=
+     "../b4/b4s3.htm#br">br</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#button">button</a>&gt;, center, &lt;<a href=
+     "../b4/b4s1.htm#cite">cite</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#code">code</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">dfn</a>&gt;, dir, &lt;<a href=
+     "../b3/b3s7.htm#div">div</a>&gt;,&lt;<a href=
+     "../b5/b5s3.htm#dl">dl</a>&gt;,&lt;<a href=
+     "../b4/b4s1.htm#em">em</a>&gt;,&lt;<a href=
+     "../b7/b7s5.htm#fieldset">fieldset</a>&gt;, font, &lt;<a href=
+     "../b7/b7s2.htm#form">form</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#heading">h1</a>&gt;.. &lt;<a href=
+     "../b3/b3s8.htm#heading">h6</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">i</a>&gt;, <a href="#iframe">iframe</a>,
+     &lt;<a href="../b4/b4s4.htm#img">img</a>&gt;, &lt;<a href=
+     "../b7/b7s3.htm#input">input</a>&gt;, isindex, &lt;<a href=
+     "../b4/b4s1.htm#kbd">kbd</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#label">label</a>&gt;, &lt;<a href=
+     "../b4/b4s5.htm#map">map</a>&gt;, menu, &lt;<a href=
+     "#noframes">noframes</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#noscript">noscript</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt;, &lt;<a href=
+     "../b5/b5s2.htm#ol">ol</a>&gt;,&lt;<a href=
+     "../b3/b3s6.htm#paragraf">p</a>&gt;,&lt;<a href=
+     "../b3/b3s8.htm#pre">pre</a>&gt;,&lt;<a href="../b4/b4s3.htm#q">q</a>&gt;,
+     s, &lt;<a href="../b4/b4s1.htm#samp">samp</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#script">script</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#select">select</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#small">small</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#span">span</a>&gt;, strike, &lt;<a href=
+     "../b4/b4s1.htm#strong">strong</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#sub">sub</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#strong">sup</a>&gt;, &lt;<a href=
+     "../b6/b6s2.htm">table</a>&gt;,&lt;<a href=
+     "../b7/b7s5.htm#textarea">textarea</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#tt">tt</a>&gt;, u, &lt;<a href=
+     "../b6/b6s2.htm">ul</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#var">var</a>&gt;.</p>
+
+     <p class="nonindent"><span class="elements">&lt;/noframes&gt;</span>
+     (<span class="cover-tags">Bitiş imi:</span> İsteğe Bağlı )</p>
+
+     <p class="nonindent">şeklindedir.</p>
+
+     <p class="nonindent"> </p>
+
+     <p class="nonindent">&lt;noframes&gt; Elementini İçerebilecek Elementler:
+     &lt;<a href="../b3/b3s7.htm#blockquote">blockquote</a>&gt;, &lt;<a href=
+     "../b3/b3s5.htm#body">body</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#button">button</a>&gt;, center, &lt;<a href=
+     "../b5/b5s3.htm#dd">dd</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#div">div</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#fieldset">fieldset</a>&gt;, &lt;<a href=
+     "../b7/b7s2.htm#form">form</a>&gt;, &lt;<a href=
+     "../b8/b8s1.htm#frameset">frameset</a>&gt;, &lt;<a href=
+     "../b8/b8s1.htm#iframe">iframe</a>&gt;, &lt;<a href=
+     "../b5/b5s1.htm#li">li</a>&gt;, &lt;<a href=
+     "../b8/b8s1.htm#noframes">noframes</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#noscript">noscript</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt;, &lt;<a href=
+     "../b6/b6s4.htm#td">td</a>&gt;, &lt;<a href=
+     "../b6/b6s4.htm#th">th</a>&gt;.</p>
+
+     <p class="indent">&lt;noframes&gt; Elementinin nitelikleri sadece önceden
+     incelenmiş olan <a href="../ek4/ek4s3.htm#coreattrs">çekirdek
+     niteliklerdir</a> . İçerik ve nitelik açısından bir değişiklik göstemeyen
+     bu element için, uygulamada örnekler verilmesi yeterli olabilecektir.</p>
+
+     <p class="title-left" id="iframe">&lt;iframe&gt; Elementi</p>
+
+     <p class="indent">Bu element, Satıriçi Çerçeve Elementi (Inline Frame
+     Elment) olarak tanınır ve işlevi, bir HTML sayfasında gömülü olan diğer
+     bir HTML sayfası oluşturmaktır. &lt;iframe&gt; Elementi, HTML 4.01 katı
+     kuralcı DTD sinde bulunmaz çünkü aynı işlevi &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt; elementi de
+     gerçekleştirebilmektedir. Buna rağmen, belge çözümleyicilerin,
+     &lt;<a href="../b3/b3s3.htm#object">object</a>&gt; elementine yeterli
+     destek verememeleri, şu anda &lt;iframe&gt; elementini henüz kullanımda
+     bırakmaktadır. Geçici DTD de tanımı,</p>
+
+     <div class="dtd-fragment">
+          <pre class="navy">
+<span class="dtd">&lt;!ELEMENT <a href=
+"../html401//present/frames.html#edef-IFRAME" class="noxref"><samp class=
+"einst">IFRAME</samp></a> - - (<a href=
+"../html401/sgml/loosedtd.html#flow">%flow;</a>)*         -- inline subwindow --&gt;
+&lt;!ATTLIST IFRAME
+  <a href=
+"../html401/sgml/loosedtd.html#coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  <a href="../html401/present/frames.html#adef-longdesc-FRAME" class=
+"noxref"><samp class="ainst-FRAME">longdesc</samp></a>    <a href=
+"../html401/sgml/loosedtd.html#URI">%URI;</a>          #IMPLIED  -- link to long description
+                                          (complements title) --
+  <a href="../html401/present/frames.html#adef-name-IFRAME" class=
+"noxref"><samp class="ainst-IFRAME">name</samp></a>        <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- name of frame for targetting --
+  <a href="../html401/interact/forms.html#adef-src" class="noxref"><samp class=
+"ainst-IFRAME">src</samp></a>         <a href=
+"../html401/sgml/loosedtd.html#URI">%URI;</a>          #IMPLIED  -- source of frame content --
+  <a href="../html401/present/frames.html#adef-frameborder" class=
+"noxref"><samp class=
+"ainst-IFRAME">frameborder</samp></a> (1|0)          1         -- request frame borders? --
+  <a href="../html401/present/frames.html#adef-marginwidth" class=
+"noxref"><samp class="ainst-IFRAME">marginwidth</samp></a><a href=
+"../html401/sgml/loosedtd.html#Pixels">%Pixels;</a>       #IMPLIED  -- margin widths in pixels --
+  <a href="../html401/present/frames.html#adef-marginheight" class=
+"noxref"><samp class="ainst-IFRAME">marginheight</samp></a><a href=
+"../html401/sgml/loosedtd.html#Pixels">%Pixels;</a>      #IMPLIED  -- margin height in pixels --
+  <a href="../html401/present/frames.html#adef-scrolling" class=
+"noxref"><samp class=
+"ainst-IFRAME">scrolling</samp></a>   (yes|no|auto)  auto      -- scrollbar or none --
+  <a href="../html401/present/graphics.html#adef-align" class=
+"noxref"><samp class="ainst-IFRAME">align</samp></a>       <a href=
+"../html401/sgml/loosedtd.html#IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  <a href="../html401/present/frames.html#adef-height-IFRAME" class=
+"noxref"><samp class="ainst-IFRAME">height</samp></a>      <a href=
+"../html401/sgml/loosedtd.html#Length">%Length;</a>       #IMPLIED  -- frame height --
+  <a href="../html401/present/frames.html#adef-width-IFRAME" class=
+"noxref"><samp class="ainst-IFRAME">width</samp></a>       <a href=
+"../html401/sgml/loosedtd.html#Length">%Length;</a>       #IMPLIED  -- frame width --
+  &gt;
+</span>
+</pre>
+     </div>
+
+     <p class="nonindent">olarak yapılmıştır. Bu tanımda ne nitelik ne de
+     içerik açısından yeni bir öğe bulunmadığından, bu elementin sadece
+     örneklerlerde kullanımı incelenecektir.</p>
+
+     <p class="nonindent">&lt;iframe&gt; Elementinin İçerebileceği Elementler:
+     &lt;iframe&gt; Elementini tanımayan belge çözümleyicilerin görüntülemesi
+     için açıklayıcı metin, &lt;<a href="../b4/b4s2.htm#anchor">a</a>&gt;,
+     &lt;<a href="../b4/b4s1.htm#acronym">acronym</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#address">address</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#applet">applet</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#bold">b</a>&gt;, basefont, &lt;<a href=
+     "../b4/b4s3.htm#bdo">bdo</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#big">big</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#blockquote">blockquote</a>&gt;, &lt;<a href=
+     "../b3/b3s5.htm#body">body</a>&gt;,&lt;<a href=
+     "../b4/b4s3.htm#br">br</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#button">button</a>&gt;, center, &lt;<a href=
+     "../b4/b4s1.htm#cite">cite</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#code">code</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">dfn</a>&gt;, dir, &lt;<a href=
+     "../b3/b3s7.htm#div">div</a>&gt;,&lt;<a href=
+     "../b5/b5s3.htm#dl">dl</a>&gt;,&lt;<a href=
+     "../b4/b4s1.htm#em">em</a>&gt;,&lt;<a href=
+     "../b7/b7s5.htm#fieldset">fieldset</a>&gt;, font, &lt;<a href=
+     "../b7/b7s2.htm#form">form</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#heading">h1</a>&gt;.. &lt;<a href=
+     "../b3/b3s8.htm#heading">h6</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">i</a>&gt;, <a href="#iframe">iframe</a>,
+     &lt;<a href="../b4/b4s4.htm#img">img</a>&gt;, &lt;<a href=
+     "../b7/b7s3.htm#input">input</a>&gt;, isindex, &lt;<a href=
+     "../b4/b4s1.htm#kbd">kbd</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#label">label</a>&gt;, &lt;<a href=
+     "../b4/b4s5.htm#map">map</a>&gt;, menu, &lt;<a href=
+     "#noframes">noframes</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#noscript">noscript</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt;, &lt;<a href=
+     "../b5/b5s2.htm#ol">ol</a>&gt;,&lt;<a href=
+     "../b3/b3s6.htm#paragraf">p</a>&gt;,&lt;<a href=
+     "../b3/b3s8.htm#pre">pre</a>&gt;,&lt;<a href="../b4/b4s3.htm#q">q</a>&gt;,
+     s, &lt;<a href="../b4/b4s1.htm#samp">samp</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#script">script</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#select">select</a>&gt;,&lt;<a href=
+     "../b4/b4s1.htm#small">small</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#span">span</a>&gt;, strike, &lt;<a href=
+     "../b4/b4s1.htm#strong">strong</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#sub">sub</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#strong">sup</a>&gt;, &lt;<a href=
+     "../b6/b6s2.htm">table</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#textarea">textarea</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#tt">tt</a>&gt;, u, &lt;<a href=
+     "../b6/b6s2.htm">ul</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#var">var</a>&gt;.</p>
+
+     <p class="nonindent"> </p>
+
+     <p class="nonindent">&lt;iframe&gt; Elementini İçerebilecek Elementler:
+     &lt;<a href="../b4/b4s2.htm#anchor">a</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">acronym</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#address">address</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#applet">applet</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#bold">b</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#bdo">bdo</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#big">big</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#blockquote">blockquote</a>&gt;, &lt;<a href=
+     "../b3/b3s5.htm#body">body</a>&gt;, &lt;<a href=
+     "../b7/b7s4.htm#button">button</a>&gt;, &lt;<a href=
+     "../b6/b6s3.htm#caption">caption</a>&gt;, center, &lt;<a href=
+     "../b4/b4s1.htm#cite">cite</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#code">code</a>&gt;, &lt;<a href=
+     "../b5/b5s3.htm#dd">dd</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#del">del</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">dfn</a>&gt;, &lt;<a href=
+     "../b3/b3s7.htm#div">div</a>&gt;,&lt;<a href=
+     "../b5/b5s3.htm#dt">dt</a>&gt; ,&lt;<a href=
+     "../b4/b4s1.htm#em">em</a>&gt;,&lt;<a href=
+     "../b7/b7s5.htm#fieldset">fieldset</a>&gt;, font, &lt;<a href=
+     "../b7/b7s2.htm#form">form</a>&gt;, &lt;<a href=
+     "../b3/b3s8.htm#heading">h1</a>&gt;.. &lt;<a href=
+     "../b3/b3s8.htm#heading">h6</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#acronym">i</a>&gt;, <a href="#iframe">iframe</a>,
+     &lt;<a href="../b3/b3s8.htm#ins">ins</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#kbd">kbd</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#label">label</a>&gt;, &lt;<a href=
+     "../b7/b7s5.htm#legend">legend</a>&gt;, &lt;<a href=
+     "../b5/b5s1.htm#li">li</a>&gt;, &lt;<a href="#noframes">noframes</a>&gt;,
+     &lt;<a href="../b3/b3s8.htm#noscript">noscript</a>&gt;, &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt;, &lt;<a href=
+     "../b5/b5s2.htm#ol">ol</a>&gt;,&lt;<a href=
+     "../b3/b3s6.htm#paragraf">p</a>&gt;,&lt;<a href=
+     "../b3/b3s8.htm#pre">pre</a>&gt;,&lt;<a href="../b4/b4s3.htm#q">q</a>&gt;,
+     s, &lt;<a href="../b4/b4s1.htm#samp">samp</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#small">small</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#span">span</a>&gt;, strike, &lt;<a href=
+     "../b4/b4s1.htm#strong">strong</a>&gt;, &lt;<a href=
+     "../b4/b4s3.htm#sub">sub</a>&gt;, &lt;<a href=
+     "../b4/b4s1.htm#strong">sup</a>&gt;, &lt;<a href=
+     "../b6/b6s4.htm#td">td</a>&gt;, &lt;<a href="../b6/b6s4.htm#th">th</a>&gt;
+     ,&lt;<a href="../b4/b4s1.htm#tt">tt</a>&gt; , u, &lt;<a href=
+     "../b4/b4s1.htm#var">var</a>&gt;.</p>
+
+     <p class="nonindent">Aşağıda bu konuda, bir <a href=
+     "./b8s1uygulama1.htm">örnek</a> görülmektedir.</p>
+     <pre class="navy">
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+            &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+
+&lt;html lang=&quot;tr&quot;&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;title&gt;Inline Frame&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt; Bu sayfaya bir başka HTML sayfası gömülmüştür.
+    &lt;iframe src=&quot;./sayfa1.htm&quot; width=&quot;200&quot; height=&quot;200&quot; scrolling=&quot;auto&quot; frameborder=&quot;1&quot;&gt;
+           &lt;p&gt;Lütfen Çerçeve (Frame) tekniğini destekleyen bir belge çözümleyici kullanınız !&lt;/p&gt;
+    &lt;/iframe&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+     <p class="indent">Bu örnek prensip olarak &lt;<a href=
+     "../b3/b3s3.htm#object">object</a>&gt; elementi ile de
+     oluşturulabilir.</p>
+
+     <p>&nbsp;</p>
+
+     <p>&nbsp;</p>
+
+     <table class="navtablebottom" summary="layout">
+          <tr>
+               <td valign="top"><a href="../index.htm"><img src=
+               "../images/sharedimages/indeksbelgesi.png" alt="index" class=
+               "x"></a></td>
+
+               <td valign="top"><a href="../b7/b7s5.htm"><img class="x" src=
+               "../images/sharedimages/oncekibelge.png" alt="prev"></a></td>
+
+               <td valign="top"><a href="../b8/b8s2.htm"><img class="x" src=
+               "../images/sharedimages/sonrakibelge.png" alt="next"></a></td>
+          </tr>
+     </table>
+
+     <p>&nbsp;</p><!-- #BeginLibraryItem "/Library/Date.lbi" -->
+        <p style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:red;">                     
+            <!-- #BeginDate format:fcAm1m -->Wednesday, October 5, 2005  17:48<!-- #EndDate -->        
+         </p><!-- #EndLibraryItem --><p>&nbsp;</p>
+
+     <p>&nbsp;</p>
+
+     
+</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1272023387" alt="setstats" border="0" width="1" height="1"></noscript>

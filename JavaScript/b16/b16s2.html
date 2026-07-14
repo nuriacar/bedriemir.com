@@ -1,0 +1,1747 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:39 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b16/b16s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b16s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b16s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b16s3.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 16
+		</p>
+		<p class="chapter">
+			Diske Erişim (JScript Özelliği- Sadece Internet Explorer-)
+		</p>
+		<p class="pagenum">
+			Bölüm 16 Sayfa 2
+		</p>
+		<p class="title-left" id="disk">
+			16.2 -- Disk Dosyalarının Yönetimi
+		</p>
+		<p class="subheading" id="yaz">
+			16.2.1 - Bir Dosyaya Sözel Verilerin Yazılması
+	</p>
+		<p class="indent">
+			İlk uygulamalarla diskte boş bir sözel veri dosyası
+			açılması gerçekleştirilmişti. Bu bölümde, açılmış olan 
+			bu boş dosya için bir sözel veri akımın yazılması incelenecektir.
+			Dikkat edilecek konu, bir sözel veri dosyasına, yeni bir veri akımı
+			yazıldığında, dosya içinde tüm bilgilerin silineceği ve yerlerini
+			yeni yazılan sözel veri akımının alacağıdır. Bu nedenle, veri dosyalarının
+			sadece ilk bilgileri dosyaya yazılır. Eski verilerin silinmesi istenmediğinde
+			bilgiler dosyaya eklenir (append) ve asla yazma metotları kullanılmaz.
+		</p>
+		<p class="indent">
+			Dosyaya yazım işlemin ilk örnek programı, aşağıda görülen,
+			<a href="../uygulamalar/yaz.html">yaz.htm</a> programıdır. Bu program,
+			karşılıklı etkileşimli (interaktif) bir programdır. Gerek bilgilerin 
+			yazılacaği disk dosyasının yeri, gerekse yazılacak sözel veri akımı, 
+			ekrana girilecektir. Bu program verileri yeni bir satıra yazacak ve 
+			sözel veri akımı tamamlandığında bir satır sonu işareti ekleyerek, 
+			yeni bir satıra geçerek yazım işlevini tamamlayacak ve dosyayı 
+			kapatacaktır. Verilerin, dosyaya tek bir satır halinde yazılması, 
+			hem veri yazımı hem de dosyadan verilerin geri okunması için 
+			kolaylık sağlayan bir yöntem olduğundan başlangıç uygulaması
+			için bu yöntem seçilmiştir. Program aşağıda görülmektedir :
+		</p>
+		
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> yaz<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> sözelVeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'veri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya <span 
+			class="op">=</span> dosyaSistemNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">,</span> okunurYazılır<span 
+			class="op">,</span> saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">WriteLine</span><span 
+			class="op">(</span>sözelVeri<span 
+			class="op">);</span>
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>dosya<span 
+			class="op">) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Veriler Dosyaya Yazıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'verilerYazıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosya Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yarat'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> yaz;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Yukarıda görülen <a href="../uygulamalar/yaz.html">yaz.htm</a> programı, önce
+			bir  dosya sistem nesnesi örneği yaratmakta ve buradan
+			dosya sistem nesnesinin <span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">()</span> metodunu çağırmaktadır. 
+			Bu metot geriye bir <span class="keyw">TextStream</span> nesnesi
+			döndürmekte ve bu nesnesin dosya yönetim metotlarından <span 
+			class="keyw">WriteLine</span><span 
+			class="op">()</span> metodu kullanılmaktadır.
+		</p>
+		<p class="indent" id="dosyayaYaz">
+			Alternatif olarak, dosya sistem nesnesinden, önce dosya nesnesi, 
+			sonra dosya nesnesinin <span class="keyw">Open AsTextStream</span><span 
+			class="op">()</span> metodu çağrılabilir. Bu metot da geriye bir <span 
+			class="keyw">TextStream</span> nesnesi döndürmekte olduğundan nesnenin 
+			tüm dosya yönetim metotları gibi  <span class="keyw">WriteLine</span><span 
+			class="op">()</span> metodu da kullanılabilir ve sonuçta aynı şekilde dosyaya
+			veriler yazılmış olur. Bu alternatif yöntemin kodları, <a 
+			href="../uygulamalar/dosyayaYaz.html">dosyayaYaz.htm</a> programı olarak aşağıda 
+			görülmektedir:
+		</p>
+
+
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> dosyayaYaz<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> saltYazılır <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> sözelVeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'veri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaNesnesi <span 
+			class="op">=</span> dosyaSistemNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">GetFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosya <span class="op">=</span> dosyaNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">OpenAsTextStream</span><span 
+			class="op">(</span>saltYazılır, unicode<span 
+			class="op">);</span>
+
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">WriteLine</span><span 
+			class="op">(</span>sözelVeri<span 
+			class="op">);</span>
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>dosya<span 
+			class="op">) {</span>
+<span class="pl-75">bilgidosyayaYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgidosyayaYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Veriler Dosyaya dosyayaYazıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'verilerdosyayaYazıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgidosyayaYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosya Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yarat'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> dosyayaYaz;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="subheading" id="disk">
+			16.2.2 - Bir Dosyadan Bilgi Okunması
+	</p>
+		<p class="indent">
+			Önceden oluşturulmuş olan bir dosyadan bilgi
+			okunması, aşağıdaki işlem sırası ile gerçekleşir:
+		</p>
+		<ul class="indent">
+			<li>
+				dosyanın açılması
+			</li>
+			<li>
+				dosyadan bilgi okunması
+			</li>
+			<li>
+				dosyanın kapatılması
+			</li>
+		</ul>
+		<p class="indent">
+			Diskte önceden oluşturulmuş olan bir dosyanın
+			içeriğinin okunması, <span 
+			class="keyw">TextStreamObject</span> nesnesinin
+			sözel verlerin dosyalanması için öntanımlı metotlarının
+			kullanılması ile gerçekleşir. <span 
+			class="keyw">TextStreamObject</span> Nesnesinine
+			<span class="keyw">FileSystemObject</span>
+			nesnesinin, <span class="keyw">OpenTextFile</span>
+			metodu, veya <span class="keyw">File</span>
+			nesnesinin, <span class="keyw">OpenAsTextStream</span>
+			metodu ile erişilebilir. Biz genel olarak ilk yöntemi izleyeceğiz.
+		</p>
+		<p class="indent" id="tümBilgileriOku">
+			İlk örnek olarak, kodlarının script kısmı aşağıda
+			görülmekte olan,
+			<a href="../uygulamalar/t%c3%bcmBilgileriOku.html">tümBilgileriOku.htm</a> örneği
+			incelenecektir. Bu örnekte, dosyadan bilgi okunması
+			için, <span class="keyw">FileSystemObject</span>
+			nesnesinin <span class="keyw">OpenTextFile</span>
+			metodundan yararlanılmıştır. Bu metot, yeni bir dosya
+			oluşturulması ve oluşmuş bir dosyaya veri eklenmesi
+			yanında, dosyadan veri okunması amacı ile de
+			kullanılabilen çok esnek ve etkili bir metottur.	
+		</p>
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> tümBilgileriOku<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">var</span> dosya<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> bilgiler<span 
+			class="op">=</span>dosya.<span 
+			class="keyw">ReadAll</span><span 
+			class="op">();</span>
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span>tümBilgileriOku;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Programda, dosyadaki bilgilerin tümü, okunan adlı bir
+			karakter dizgisine yerleştirilmiştir. Bu karakter
+			dizgisinden bilgilerin nasıl ekstrakte edileceği,
+			tamamen kullanıcının geliştireceği yöntemlerle
+			yapılmalıdır.
+		</p>
+		<p class="indent" id="bilgiOku">
+			İkinci örnek, kullanıcı diskindeki bir metin dosyasının
+			açılması için, <span 
+			class="keyw">File</span> nesnesinin, 
+			<span class="keyw">OpenAsTextStream</span><span 
+			class="op">()</span> metodunu kullanan,
+			<a href="../uygulamalar/bilgioku.html">bilgioku.htm</a>
+			programıdır. Bu metot, yeni bir dosya oluşturmak için
+			kullanılabildiği gibi, var olan bir dosyaya bilgi
+			eklemek için de kullanılabilir. Bu metodun
+			kullanıldığı
+			<a href="../uygulamalar/bilgiOku-2.html">bilgioku.htm</a>
+			programının JScript kısmı aşağıda görülmektedir :
+		</p>
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> bilgiOku<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> saltYazılır <span 
+			class="op">=</span> 2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaNesnesi <span 
+			class="op">=</span> dosyaSistemNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">GetFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosya <span class="op">=</span> dosyaNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">OpenAsTextStream</span><span 
+			class="op">(</span>saltOkunur, Unicode<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> bilgiler <span 
+			class="op">=</span> dosya.<span 
+			class="keyw">ReadAll</span><span 
+			class="op">();</span>
+<span class="pl-50">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'bilgiOku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> bilgiOku;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span></pre>
+		<p class="indent">
+			Bu program,
+			<span class="keyw">ReadAll</span>
+			metodunu kullanmaktadır. İstenirse,
+			<span class="keyw">Read</span> veya
+			<span class="keyw">ReadLine</span> gibi
+			metotlar da kullanılabilir. Okunmuş bilgilerin
+			 kullanılmaları, kullanıcı tarafından
+			geliştirilecek olan yeni program adımları ile
+			gerçekleştirilir.		</p>
+		<p class="indent" id="toplamUzunluk1">
+			Bir başka örnek olarak, dosyaya yazılmış olan
+			bir sözel veri akımındaki tüm karakterlerin sayılması 
+			yapılacaktır. Dosyaya yazılmış olan tüm sözel 
+			verilerin toplam karakter sayısının belirlenmesi
+			çok kolaydır. Bunun için iki yöntem kullanılabilir. 
+			Bunlardan ilki, bir karakter dizigisinin toplam
+			karakter sayısını döndüren, <span 
+			class="keyw">String</span> nesnesinin öntanımlı
+			<span class="keyw">length</span><span 
+			class="op">()</span> metodunun uygulanmasıdır.
+			Bunun için geliştirilmiş olan <a 
+			href="../uygulamalar/toplamUzunluk1.html">uygulamanın</a>
+			kodları aşağıda verilmiştir.		</p>
+		
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> toplamUzunluk1<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> bilgiler <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> say <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="pl-75">bilgiler </span> <span 
+			class="op">=</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadAll</span><span 
+			class="op">();</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span> <span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Verilerdeki Tüm Karakterlerin Sayısı (Boşluklar ve Satır Sonu Karakterleri Dahil)'</span><span 
+			class="op">,</span> <span 
+			class="str">'karakter'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> <span 
+			class="str">'toplamUzunluk1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> toplamUzunluk1;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent" id="toplamUzunluk2">
+			Toplam karakter sayısının belirlenmesi için kullanılabilecek
+			olan ikinci yöntem, <span 
+			class="keyw">TextStreamObject</span> nesnesinin 
+			dosya içeriğinin sonuna kadar okunmasını sağlayan
+			<span class="keyw">AtEndOfStream</span><span 
+			class="op">()</span> metodudur. Bu yöntemin kullanıldığı
+			bir <a href="../uygulamalar/toplamUzunluk2.html">programın</a>
+			kodları aşağıda görülmektedir.		</p>
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> toplamUzunluk2<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> bilgiler <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> say <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="pl-75">bilgiler </span> <span 
+			class="op">=</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadAll</span><span 
+			class="op">();</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">dosya</span> <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="keyw-75">while</span><span 
+			class="op">( !</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">AtEndOfStream</span><span 
+			class="op">) {</span>
+<span class="pl-100">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Read</span><span 
+			class="op">(</span>1<span 
+			class="op">);</span>
+<span class="pl-100">say</span> <span 
+			class="op">++;</span>
+<span 
+			class="op-75">}</span>
+
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Yeniden Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYenidenAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Karakterler Sayıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYenidenOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaİkinciKezKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Verilerin Karakter Sayısı (Boşluklar Dahil)'</span><span 
+			class="op">,</span> <span 
+			class="str">'karakter'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>say<span 
+			class="op">,</span> <span 
+			class="str">'toplamUzunluk2'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> toplamUzunluk2;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Program kodlarında görüldüğü gibi, kullanıcı
+			diskindeki bir metin dosyasının açılması için, dosya
+			sistem nesnesinin
+			<span class="keyw">OpenTextFile</span>
+			metodu kullanılmıştır. Dosya açıldıktan sonra
+			bilgilerin okunması için
+			<span class="keyw">Read</span> metodu
+			kullanılmaktadır. Dosyadan bilgi okunması bir
+			<span class="keyw">while</span> dongüsü
+			içinde organize edilmiştir. Dosyada okunan her
+			karakter sayacın değerini bir tamsayı arttırmakta, döngü,
+			dosya sonuna ulaşılıncaya kadar devam etmektedir.
+			Dosya sonu, dosya değişkeninin
+			<span class="keyw">atEndOfStream</span>
+			özelliğinin değerinin kontrolü ile belirlenmektedir. 
+			Bu kontrol, dosyanın tüm içeriğinde okunabilecek karakter 
+			bulundukça <span class="keyw">true</span> değerini 
+			korumaktadır. Bu nedenle tüm, boşluklar, satır 
+			sonu karakterleri, toplam sayaç değerine katılmaktadır. Sonuçta, 
+			sözel veri akımın içerdiği toplam karakter sayısı,
+			sayacın değeri ile belirlenmektedir.
+		</p>
+		<p class="indent">
+			Son <a href="../uygulamalar/toplamUzunluk2.html">programda</a>
+			dikkat edilmesi gereken bir nokta, dosyadaki okunacak karakteri
+			işaret eden dosya göstergesinin iyi izlenmesi gereğidir. Dosya 
+			göstergesi, dosyadaki her karakter okundukça bir ilerler ve sözel 
+			doyalarda geri hareketi yoktur. Bu nedenle, dosya ilk açıldığında,
+			veriler dosya sonuna kadar okunduğundan, dosya göstergesi,
+			dosyanın sonuna dayanmıştır. Dosyadaki karakterlerin sayılması
+			için, dosya göstergesinin yeniden dosya başına alınması gerekir. Bu 
+			olaya dosyanın tazelenmesi (reset) adı verilir. Bazı programlama
+			dillerinde sözel dosyaların açık iken reset edilmesi için özel komut
+			olmasına karşın, Javascript programlama dilinde bu olanak yoktur. Bu
+			nedenle dosya kapanıp yeniden açılarak reset edilmekte, yani dosya
+			göstergesi yeniden dosyanın başına alınarak, verilerin yeniden dosya
+			başından başlayarak okunması sağlanmaktadır.
+		</p>
+		<p class="indent">
+			Yukarıdaki her iki örnekte de, dosyada 
+			bulunan tüm sözel veri akımı okunmakta 
+			olduğundan dosya içindeki satırsonu 
+			karakterleri de sözel veri olarak sayılmaktadır.
+			Daha gerçekçi bir değerin saptanması için sözel 
+			verilerin dosyadaki biçiminin (format) gözönüne alınması gerekir.
+		</p>
+		<p class="indent" id="karakterSay1">
+			Bir dosyanın belirli bir biçime göre okunabilmesi
+			için, verilerin dosyaya yazıldığı programın bilinmesi
+			gerekir. Örnek olarak, yaz.htm programı, sözel 
+			verilerin dosyaya yazılması için, <span 
+			class="keyw">WriteLine</span><span 
+			class="op">()</span> metodunu kullanmaktadır.
+			Bunun anlamı, dosyaya yazılan sözel veri akımın,
+			sadece bir tek satırdan oluşacağıdır. Çünkü, <span 
+			class="keyw">WriteLine</span><span 
+			class="op">()</span> metodu, verilerin yazıldığı 
+			dosyadaki tüm verileri silmekte ve tek satırdan oluşan bir sözel 
+			veri akımını dosyaya yazmaktadır. Verilerin tek satır olarak 
+			yazıldığı bir dosyada, yazılı olan verilerin -boşluk karakterleri 
+			dahil- toplam karakter sayısının gerçekçi olarak saptanması 
+			için, <span 	class="keyw">ReadLine</span><span 
+			class="op">()</span> metodunun kullanılarak tek bir satırın okunması
+			daha uygun olacaktır. Kodları aşağıda görülen,
+			<a href="../uygulamalar/karaktersay1.html">karaktersay1.htm</a>
+			programı bu yöntemi kullanmaktadır.
+	</p>
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> karaktersay1<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> bilgiler <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> say <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="pl-75">bilgiler </span> <span 
+			class="op">=</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadLine</span><span 
+			class="op">();</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span> <span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Verilerdeki Tüm Karakterlerin Sayısı (Boşluklar ve Satır Sonu Karakterleri Dahil)'</span><span 
+			class="op">,</span> <span 
+			class="str">'karakter'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">,</span> <span 
+			class="str">'karakterSayısı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> satırOku1<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> karaktersay1;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(satırOku1);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/karaktersay1.html">karakterSay1</a>
+			<span class="op">()</span> fonksiyonu, 
+			<a href ="../uygulamalar/karaktersay1.html">uzunluk1</a> fonksiyonu ile 
+			aynı gibidir, sadec e tüm dosyayı tarayan <span class="keyw">ReadAll</span>
+			<span class="op">()</span> metodu yerine, sadece tek bir satırı tarayan 
+			<span class="keyw">ReadLine</span><span class="op">()</span> metodu
+			kullanılmıştır. Bu yüzden her iki fonksiyonun verdiği sonuçlarının ilkinde 
+			tüm boşluk ve satır sonu karakterleri de dahil iken, ikincisinin karakter sayısı
+			sonucunda sadece tek satırdaki verinin boşluk karakterleri dahildir. 
+			Bu karakterler de, sonucun taranarak boşluk karakterlerinin saptanması ile
+			kolayca sayılabilirler.
+		</p>
+		<p class="indent" id="karakterSay2">
+			Tek satır verilerinin sayılabilmesi için başka bir metot, aynı
+			uzunluk2<span class="op">()</span> fonksiyonunda yapıldığı gibi
+			dsya içeriğinin, dosya sonuna kadar sayılmasıdır. Bu metot, tek satır verilerinin
+			yerleştirilmiş olduğu dosyalarda, dosya sonuna kadar değil, satır sonuna
+			kadar taratılarak, daha geliştirilebilir. Aşağıda bu konuda bir 
+			<a href ="../uygulamalar/karakterSay2.html">karakterSay2</a>
+			<span class="op">()</span> fonksiyonunun yazılımı görülmektedir:
+		</p>
+		<pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> karakterSay2<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op">,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> bilgiler <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> say <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> unicode<span 
+			class="op">);</span>
+
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="pl-75">bilgiler </span> <span 
+			class="op">=</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">ReadLine</span><span 
+			class="op">();</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Bilgiler Okundu !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosyadaki Sözel Veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">'başlık'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgiler<span 
+			class="op">,</span> <span 
+			class="str">'dosyaVerileri'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">dosya</span> <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">, </span>saltOkunur<span 
+			class="op">, </span>saltEskiDosya<span 
+			class="op">,</span> Unicode<span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya) {</span>
+
+<span class="keyw-75">while</span><span 
+			class="op">( !</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">AtEndOfLine</span><span 
+			class="op">) {</span>
+<span class="pl-100">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Read</span><span 
+			class="op">(</span>1<span 
+			class="op">);</span>
+<span class="pl-100">say</span> <span 
+			class="op">++;</span>
+<span 
+			class="op-75">}</span>
+
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Yeniden Açıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYenidenAçıldı'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyasındaki Karakterler Sayıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYenidenOkundu'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Kapandı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaİkinciKezKapandı'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Bir Satırdaki Verilerin Karakter Sayısı (Boşluklar Dahil)'</span><span 
+			class="op">,</span> <span 
+			class="str">'karakter'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>say<span 
+			class="op">,</span> <span 
+			class="str">'karakterSayısı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> satırSay2<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'oku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> karakterSay;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(satırSay2);
+
+<span class="comm-25">/* ]]&gt; */</span></pre>
+		<p class="indent" id="kripto">
+			Dördüncü ve son örnek, bir sözel veri dosyasından istenilen 
+			karakterlerin okunmasını yapan bir program
+			olan, aşağıda kodları görülen,
+			<a href="../uygulamalar/kripto.html">kripto.htm</a>
+			olarak kaydedilmiş olan programdır.
+		</p>
+		<p class="indent"><a href="../uygulamalar/kripto.html">kripto.htm</a>
+		Programı ilginçtir ve gizli 
+		bilgilerin başkalarına gizlice aktarılmasına bir örnek
+		olarak yazılmıştır. Program en iyisi bir CD veya parmak
+		bellek veya bir floppy disk gibi yok edilebilecek bir
+		ortama kaydedilmelidir. Program çalıştığında, 
+		dünyanın her yerinde bir sunucu üzerinde olan, ilk 
+		bakışta çok masum görülen bir sözel veri dosyasının
+		tüm verilerini okumakta ve okuma tamamlandığında, 
+		dosyayı kapatıp sunucudan silmektedir. Dosyadan okunan
+		sözel veriler, bir karakter dizgisi değişkenine atanmakta ve 
+		sayfanın ilgili sözel veri kutusuna girilen bir şifre düzenine 
+		göre belirli bir yöntemle, fakat dosya göstergesi sürekli ileriye
+		doğru hareket ettirilerek okunmakta ve oluşan sonuç ekranda
+		gösterilmektedir. Program sonucunun okunmasından sonra, 
+		taşınabilir disk çıkarılıp tahrip edilirse, program sonsuza
+		kadar ortadan kaldırılmış olacaktır.
+		</p>
+		
+		<p class="indent">
+			<a href="../uygulamalar/kripto.html">kripto.htm</a>
+			Programının kodları, aşağıda görülmektedir. Bu programın çalışatırılması 
+			için gerekli dosya <a href="../uygulamalar/kripto.txt">kripto.txt</a>
+			dosyasıdır. Bu dosya, çalıştırılacağı dizine taşınmalı ve her defasında 
+			aynı yere yeniden kopyalanmalıdır. Şifre, 1381322 dir.
+	</p>
+		<pre>
+
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> kripto<span 
+class="op">() {</span>
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2,<span 
+			class="op"></span> Unicode <span 
+			class="op">=</span> -1,<span 
+			class="op"></span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1,<span 
+			class="op"></span> saltYazılır <span 
+			class="op">=</span> 2,<span 
+			class="op"></span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri <span 
+			class="op">=</span> <span 
+			class="str">'f:/sites/novum/uygulamalar/kripto.txt'</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> şifre <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'şifre'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaNesnesi <span 
+			class="op">=</span> dosyaSistemNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">GetFile</span><span 
+			class="op">(</span>dosyaYeri<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosya <span class="op">=</span> dosyaNesnesi<span 
+			class="op">.</span><span 
+			class="keyw">OpenAsTextStream</span><span 
+			class="op">(</span>saltOkunur, unicode<span 
+			class="op">);</span>
+<span class="keyw-50">var</span> bilgi <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> 0,<span 
+			class="op"></span> a <span 
+			class="op">=</span> 0,<span 
+			class="op"></span> b <span 
+			class="op">=</span> 0,<span 
+			class="op"></span> c <span 
+			class="op">=</span> 0,<span 
+			class="op"></span> d <span 
+			class="op">=</span> 0,<span 
+			class="op"></span> e <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="pl-50">a</span> <span 
+			class="op">=</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>0<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">Number</span><span 
+			class="op">(</span>a<span 
+			class="op">);</span>
+<span class="pl-50">b</span> <span 
+			class="op">=</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>1<span 
+			class="op">)</span> <span 
+			class="op">+</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>2<span 
+			class="op">)</span> <span 
+			class="op">;</span>
+<span class="keyw-50">var</span> bilgiler<span 
+			class="op">=</span>dosya.<span 
+			class="keyw">ReadAll</span><span 
+			class="op">();</span>
+<span class="keyw-50">Number</span><span 
+			class="op">(</span>b<span 
+			class="op">);</span>
+<span class="pl-50">c</span> <span 
+			class="op">=</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>3<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">Number</span><span 
+			class="op">(</span>c<span 
+			class="op">);</span>
+<span class="pl-50">d</span> <span 
+			class="op">=</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>4<span 
+			class="op">)</span> <span 
+			class="op">+</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>5<span 
+			class="op">)</span> <span 
+			class="op">;</span>
+<span class="keyw-50">Number</span><span 
+			class="op">(</span>d<span 
+			class="op">);</span>
+<span class="pl-50">e</span> <span 
+			class="op">=</span> şifre<span 
+			class="op">.</span><span 
+			class="keyw">charAt</span><span 
+			class="op">(</span>6<span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">Number</span><span 
+			class="op">(</span>e<span 
+			class="op">);</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>dosya<span 
+			class="op">)</span> <span 
+			class="op">{</span>
+<span class="pl-75">bilgi</span> <span 
+			class="op">=</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">Read</span><span 
+			class="op">(</span>a<span 
+			class="op">);</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Skip</span><span 
+			class="op">(</span>b<span 
+			class="op">);</span>
+<span class="pl-75">bilgi</span><span 
+			class="op">=</span> bilgi <span 
+			class="op">+</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">Read</span><span 
+			class="op">(</span>c<span 
+			class="op">);</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Skip</span><span 
+			class="op">(</span>d<span 
+			class="op">);</span>
+<span class="pl-75">bilgi</span><span 
+			class="op">=</span> bilgi <span 
+			class="op">+</span> dosya<span 
+			class="op">.</span><span 
+			class="keyw">Read</span><span 
+			class="op">(</span>e<span 
+			class="op">);</span>
+<span class="pl-75">dosya</span><span 
+			class="op">.</span><span 
+			class="keyw">Close</span><span 
+			class="op">();</span>
+<span class="pl-75">dosyaNesnesi</span><span 
+			class="op">.</span><span 
+			class="keyw">Delete</span><span 
+			class="op">();</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>bilgi,<span 
+			class="op"></span> <span 
+			class="str">'Sonuç'</span><span 
+			class="op">);</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Dosya Silindi !'</span>,<span 
+			class="op"></span> <span 
+			class="str">'uyarı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'ŞifreyiOku'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> kripto;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent">
+			Program kodlarından da görüldüğü gibi kripto.htm
+			programı, dosya nesnesinden yararlanılarak geliştirilmiştir. 
+			Dosya nesnesinin seçilmiş olmasının nedeni, bu yöntemin
+			örneklerde az kullanılmış olması nedeni ile yeni bir 
+			uygulama örneği vermektir. Aynı program, dosya nesnesine 
+			gerek kalmadan, <a href="../uygulamalar/t%c3%bcmBilgileriOku.html">tümBilgileriOku.htm</a>
+			programı gibi, salt 
+		dosyaSistemNesnesi (<span class="keyw">FileSystemObject</span>)
+		kullanılarak da yazılabilir. Sadece bu durumda, dosyayı 
+		silmek için, dosyaSistemNesnesinin, <span class="keyw">DeleteFile</span><span 
+			class="op">()</span> metodunun kullanılması gerekir.
+		</p>
+		<p class="indent">
+			Bu örnekle birlikte, metin dosyalarından veri okunmasına ait
+			incelememiz tamamlanmış olmaktadır. JScript,
+			dosyalama konusunda geniş bir destek sağlamaktadır. Burda 
+			bu olanaklardan sadece sınırlı olarak yararlanabilmiş durumdayız. 
+			fakat çalışılmış uygulamalar örnek alınarak, literatürün
+			tümünü keşfetmek zor olmayacaktır. JScript sadece 
+			Windows işletim sistemi ailesinde ve Internet Explorer ile
+			uygulanabilmektedir. Bu nedenle, dosyalama sistemlerinden yararlanacak projeler,
+			ancak kısıtlı bir ortamda çalışabileceklerdir. Bunun kendi yöntemimizdeki
+			ticari projeler için, hiçbir kısıtlayıcı durumu yoktur. Çünkü,projenin
+			uygulanacağı ortamı projeyi yapan belirleyecektir. Zaten, şu anda
+			büyük çoğunluk Windows ortamında çalışmaktadır. Windows
+			ortamında çalışacak bir proje genel olarak çoğunluğun 
+			çalıştığı bir ortamda uygulanmış olacaktır.
+		</p>
+    <ul id="navbottom">
+      <li id="index">
+        <a href="../index.html"><em>« Indeks</em></a>
+      </li>
+      <li id="denge"></li>
+      <li id="sayfa">
+        <a href="b16s1.html"><em>« Önceki</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama">
+        <a href="b16s3.html"><em>Sonraki »</em></a>
+      </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <p class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload"><img
+           src="../images/valid-xhtml11.png"
+           alt="Valid XHTML 1.1" height="31"
+           width="88" /></a>
+    </p>
+    <!--Script Alanı Başlangıcı -->
+    <script type="text/javascript" src="../js/lastmodified.js">
+    </script>
+    <!--Script Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:39 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

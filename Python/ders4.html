@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:28 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders4.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 4</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders3.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders5.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 4
+      </p>
+    </div>
+    <p id="expr" class="title-left verticalTab-10">
+      1.11 - İşlemciler (Operators) ve İfadeler (Expressions)</p>
+    <p id="atom" class="subheading">
+      1.11.1 - Atomlar
+    </p>
+    <p class="indent">
+      Python programlama dilinde atomlar ya bir tanıtıcı, ya 
+      bir literal, ya da bir kompozit veri tipi içinde, (Listeler, 
+      topluluklar, sözlükler, kümeler gibi) tanımlanmış verilerdir. İlk 
+      olarak literaller ve tanıtıcılar üzerinde duracağız. Bu 
+      iki öğeyi de tanıyoruz. İfadeler bundan biraz fazlasıdır. 
+      Bir ifadede birden fazla atom bulunur ve ifade sonucu 
+      belirli kurallara göre oluşur.
+    </p>
+    <p id="singleoperand" class="subheading">
+      1.11.2 - Tek İşlenenli işlemciler
+    </p>
+    <p id="unaryplus" class="subsub">
+      1.11.2.1 - Tekli Artı (Unary Plus) işlemcisi
+      <span class="op">+</span></p>
+    <p class="indent">
+      Tekli Artı işlemcisi tek işlenen gerektiren (tek işlenenli) 
+      (single operand) bir işlemcidir. İşlenen işlemciyi izler. 
+      Yani, ifadede sadece tekli artı işlemcisi ve sağ işlenen 
+      bulunur.Örnek olarak,
+    </p>
+    <p class="indent">
+      +5.6
+    </p>
+    <p class="nonindent">
+      ifadesinin hiçbir anlamı yoktur. Çünkü, sayısal literaller 
+      varsayılan olarak, artı değerindedir. Ek olarak önlerine 
+      bir artı daha konmasının bir anlamı yoktur. Sonuçta, tekli 
+      artı işlemcisinin bir işlevi olmadığından, kullanma alanı 
+      da yoktur.
+    </p>
+    <p id="unaryminus" class="subsub">
+      1.11.2.2 - Tekli Eksi (Unary Minus) işlemcisi
+      <span class="op">-</span></p>
+    <p class="indent">
+      Bu işlemcinin bir anlamı vardır. Eğer işlenen pozitif 
+      bir büyüklük ise değerini negatife çevirir. Örnek olarak,
+    </p>
+    <p class="indent">
+      -5.6
+    </p>
+    <p class="nonindent">
+      ifadesinin sonucu -5.6 dir. Buraya 5.6 değerindeki ondalıklı 
+      sayısal literal (atom) artı olarak girmiş ve ifadede ekli 
+      eksi işlemcisi ile işlem yaparak, ifade sonucu -5.6 olmuştur.
+    </p>
+    <p id="doubleoperand" class="subheading">
+      1.11.3 - Çift İşlenenli İşlemciler
+    </p>
+    <p id="addition" class="subsub">
+      1.11.3.1 - Toplama İşlemcisi <span class="op">+</span></p>
+    <p class="indent">
+      Sayısal veriler için toplama işlemi aynen aritmetik toplama 
+      gibidir. İşlem sonucu, tamsayı işlenenler için tamsayı, 
+      işlenenlerden birisi ondalıklı sayı ise, ondalıklı sayı, 
+      her iki işlenen ondalıklı sayı ise, sonuç da ondalıklı 
+      sayı olacaktır.
+    </p>
+    <p class="indent">
+      Toplama işemcisi, sayısal veriler dışındaki işlenenler 
+      ile uygulandığında, birleştirme (concatenation) işlemini 
+      gerçekleştirir. Örnek olarak,
+    </p>
+    <pre class="pl-25">
+<span class="str">&quot;David&quot;</span> <span class="op">+</span> <span 
+    class="str">&quot;Meşulam&quot;</span></pre>
+    <p class="nonindent">
+      işlemi, <span class="str">&quot;David Meşulam&quot;</span> 
+      sonucunu verecektir.
+    </p>
+    <p class="indent">
+      Toplama işlemcisi işlenenler liste, topluluk (tuple), 
+      sözlük (dict) (dictionary nin kısaltılmışı), set tipleri 
+      için de birleştirme işlemini gerçekleştirir.
+    </p>
+    <p id="substraction" class="subsub">
+      1.11.3.2 - Çıkartma İşlemcisi <span class="op">-</span></p>
+    <p class="indent">
+      Çıkartma işlemcisi sadece sayısal işlenenlerin aritmetik 
+      çıkartma işlemlerini yapar. Çıkartma işlemi, özellikle 
+      büyük sayılar birbirinden çıkartıldığında, anlamlı ondalık 
+      sayısının düşmesinde önemli bir rol oynar.
+    </p>
+    <p id="multiplication" class="subsub">
+      1.11.3.3 - Çarpma İşlemcisi <span class="op">*</span></p>
+    <p class="indent">
+      Çarpma işlemcisi sayısal işlenenlerin çarpma işlemlerini 
+      yapar. Tamsayı işlenenler ile çarpma sonucu tamsayıdır. 
+      İşlenenlerin biri veya her ikisi de ondalıklı sayı ise, 
+      çarpma işlemi sonucu ondalıklı sayıdır.
+    </p>
+    <p id="integerdivision" class="subsub">
+      1.11.3.3 - Tamsayı Bölme İşlemcisi <span class="op">//</span></p>
+    <p class="indent">
+      Tamsayı bölme işlemcisi, işlenenler tamsayı iseler, tamsayı 
+      tipinde sonuç verir. Eğer işlenenlerden birisi veya her 
+      ikisi ondalıklı sayı ise, sonucun ondalık kısmını keser 
+      ve tamsayı kısmını döndürür. Örnek olarak 3<span 
+      class="op"> // </span>2 işleminin sonucu 1 olarak geri 
+      döner.
+    </p>
+    <p id="division" class="subsub">
+      1.11.3.4 - Bölme İşlemcisi <span class="op">/</span></p>
+    <p class="indent">
+      Bölme işlemcisi daima ondalıklı sayı tipinde sonuç döndürür. 
+      Bölme işleminin, sonucun ondalık duyarlığınının (anlamlı 
+      ondalık sayısının) düşmesinde önemli bir katkısı vardır.
+    </p>
+    <p id="modulo" class="subsub">
+      1.11.3.5 - Modulo İşlemcisi <span class="op">%</span></p>
+    <p class="indent">
+      Modulo işlemcisi bir bölmenin kalan kısmını döndürür. 
+      Örnek olarak 3<span class="op"> % </span>2 işleminin sonucu 
+      1 olarak geri döner. Aşağıdaki eşitlik karakteristiktir.
+    </p>
+    <pre class="pl-25">
+x <span class="op">=</span> (x//y)<span class="op">*</span>y<span 
+    class="op"> + </span>(x<span class="op">%</span>y)
+    </pre>
+    <p id="power" class="subsub">
+      1.11.3.6 - Üs alma İşlemcisi <span class="op">**</span></p>
+    <p class="indent">
+      Üs alma işlemcisi aslında iki işlemciden oluşan bir ifadedir. 
+      5<span class="op">**</span>4 ifadesinde tekli artı görünmez. 
+      Fakat, 3.5<span class="op">**-2</span> ifadesinde ise 
+      ilk olarak tekli eksi işlemcisi sağ işleneni olan 2 ile 
+      işleme girer ve sonucu olan -2 değeri üs alma işlemcisinin 
+      sağ işleneni olarak işlev yapar. Sonuç, 1/3.5**2 = 1/((7/2)*(7/2)) 
+      = 1/(49/4) = 4/49 = 0.08163265306122448 dir.
+    </p>
+    <p class="indent">
+      Düşük düzey işlemcilerini bu çalışmada gerek olmadığından 
+      (genellikle gerek olmaz), bu çalışmada incelemeyeceğiz. 
+      Karşılaştırma işlemcisini de karşılaştırma işlemlerini 
+      incelerken inceleyeceğiz.
+    </p>
+    <p id="expressions" class="title-left">
+      1.12 - İfadeler (Expressions)
+    </p>
+    <p class="indent">
+      İfadeler, birden çok işlemci ve veri içeren topluluklardır. 
+      Daha çok matematik ve mantıksal bağıntıların bilgisayar 
+      sisteminde değerlendirilmesi için yapılan düzenlemelere 
+      ifade adı verilir.
+    </p>
+    <p class="indent">
+      He kadar işlemci ve işlenen içerirse içersin, tüm ifadeler 
+      bir tek sonuca ulaşırlar. Bu sonucun oluşturulması için 
+      tüm bilgisayar dillerinin uyguladığı kesin kurallar, hemen 
+      hemen tüm bilgisayar dillerinde birbirinin aynıdır.
+    </p>
+    <p class="indent">
+      İfadelerde önce öncelik sırası daha yüksek işlemciler 
+      değerlendirilir. Eğer işlemcilerin öncelik sırası aynı 
+      işe, soldaki daha önce uygulanır. Yani öncelik sıraları 
+      soldan sağadır. Bunun tek istisnası, üs alma işlemsidir 
+      ve öncelik sırası daha önce gördüğümüz gibi, sağdan soladır.
+    </p>
+    <p class="indent">
+      Bir ifadede parantez kullanımı, ifadenin anlamına açıklık 
+      getirir fakat işlem hızını düşürür. Programın ilk sürümünde 
+      çok belirgin öncelik sıraları dışında, parantez kullanılması 
+      önerilir. Programın çalışmasından sonra, ifadenin doğru 
+      değerlendirilmesi sınanarak öncelik sıralarına güvenilen 
+      sürümlerini yazarak güncellemek olanağı her zaman bulunabilir. 
+      C.A.R Hoare, &quot;Başlangıçta en iyileştirme (optimizasyon) 
+      düşünmek sorunu kendi kendine davet etmektir ve bundan 
+      kesinlikle kaçınılmalıdır&quot; demiştir.
+    </p>
+    <p class="indent">
+      Python derleyicisi, aşağıdaki ifadelerden numarası en 
+      küçük olanları numarası daha büyük olanlardan önce uygulayacaktır:
+    </p>
+    <pre class="pl-25">
+ifade1 , ifade2 , ifade3 , ifade4
+(ifade1 , ifade2 , ifade3 , ifade4)
+{ifade1 , ifade2 , ifade3 , ifade4}
+ifade1 + ifade2 * (ifade3 - ifade4)
+ifade3 , ifade3 = ifade1 , ifade2
+    </pre>
+    <p class="indent">
+      Burada, özellikle üçüncü sıraya dikkat edelim. Bu bir 
+      toplama işlemi ve sol işleneni ifade1. Sağ işleneni ise, 
+      önce parantez içi işlem yapılarak bir sonuç belirleniyor 
+      ve bu sonuç ile ifade3 çarpılarak çıkan sonuç sağ işlenen 
+      olarak sol işlenen ifade1 ile toplanıyor. Yani, parantez 
+      içi daima öncelikle değerlendiriliyor. Parantez içinde, 
+      tüm işlemcilerin öncelik sırası, parantez dışı ile aynıdır.
+    </p>
+    <p class="indent">
+      Son satırda bir atama işlemi bulunuyor. Atama işleminde 
+      atama işlemcisinin öncelik sırası en düşük olanıdır. Yani, 
+      önce atama işlemcisinin sağında bulunan tüm ifadeler değerlendirilir, 
+      bir sonuç oluşur ve bu sonuç, atama işlemcisinin sağ işleneninde 
+      bulunan tanıtıcıya atanır. Bu işlem, sağ işlenenin değerinin 
+      bellekte bir alana yerleştirilmesi ve bu bellek alanına 
+      erişimi sağlayacak refrans değerinin atama işlemcisinin 
+      sol tafarındaki tanıtıcıya bağlanmasıdır. Bundan sonra 
+      tanıtıcının her çağrılmasında, tanıcının bellek referansının 
+      işaret ettiği bellek alanında bulunan değer geri döndürülecektir. 
+      Atama işleminin modern adı &quot;Bağlanma (Binding)&quot; 
+      dir.
+    </p>
+    <p class="indent">
+      Aşağıdaki tablo, Python derleyicisinin değerlendirdiği 
+      işlemci önceliğini açıklamaktadır. Tablo en düşük öncelikten 
+      (en düşük bağlanma) en yüksek öncelik sırasına (en yüksek 
+      bağlanma) ya doğru düzenlenmiştir. Aynı kutudaki işlemcilerin 
+      öncelik sıraları aynıdır. Sözdiziminde (sentaks) açıkça 
+      belirtilmedikçe, işlemciler çift işlenenlidir. Aynı sıradaki 
+      işlemcilerin öncelik sıraları soldan sağa doğrudur. Bunun 
+      tek istisnası, üs alma işlemcisidir ve bunun öncelik sırası 
+      tam aksi yönde yani sağdan sola doğrudur.
+    </p>
+    <div class="pagecenter">
+      <table class="CSS_Table_Example tablewidth80">
+        <caption class="captionred verticalTab-10">İşlemcilerin 
+        Öncelik Sıraları</caption>
+        <tr>
+          <td>İşlemci</td>
+          <td>Açıklama</td>
+        </tr>
+        <tr>
+          <td>lambda</td>
+          <td>lambda ifadesi</td>
+        </tr>
+        <tr>
+          <td>if-else</td>
+          <td>koşullu ifade</td>
+        </tr>
+        <tr>
+          <td>or</td>
+          <td>Mantıksal or</td>
+        </tr>
+        <tr>
+          <td>and</td>
+          <td>Mantıksal and</td>
+        </tr>
+        <tr>
+          <td>not x</td>
+          <td>Mantıksal Not</td>
+        </tr>
+        <tr>
+          <td>in, not in, is, is not, &lt; &lt;=, &gt;, &gt;=, 
+          !=, ==</td>
+          <td>Karşılaştırmalar, aidiyet (üyelik) (membership) 
+          ve kimlik testleri dahil</td>
+        </tr>
+        <tr>
+          <td>and</td>
+          <td>Mantıksal and</td>
+        </tr>
+        <tr>
+          <td>|</td>
+          <td>Bitdüzey OR</td>
+        </tr>
+        <tr>
+          <td>^</td>
+          <td>Bitdüzey XOR</td>
+        </tr>
+        <tr>
+          <td>&amp;</td>
+          <td>Bitdüzey AND</td>
+        </tr>
+        <tr>
+          <td>&rsaquo;&rsaquo;, &lsaquo;&lsaquo;</td>
+          <td>Kaydırmalar (Shifts)</td>
+        </tr>
+        <tr>
+          <td>+,-</td>
+          <td>Toplama, Çıkarma</td>
+        </tr>
+        <tr>
+          <td>*, /, //, %</td>
+          <td>Çarpma, Bölme, Tamsayı Bölme, Kalan [5]</td>
+        </tr>
+        <tr>
+          <td>+x, -x, ~x</td>
+          <td>Pozitif, Negatif, Bitdüzey NOT</td>
+        </tr>
+        <tr>
+          <td>**</td>
+          <td>Üs Alma [6]</td>
+        </tr>
+        <tr>
+          <td>x[indeks], x[index:indeks], x(argumanlar...), 
+          x.özellik</td>
+          <td>Üyelik Oluşturma, parçalara ayırma, çağırma, özellik 
+          referansı</td>
+        </tr>
+        <tr>
+          <td>(ifadeler...), [ifadeler...] ,{anahtar:değer...}, 
+          {ifadeler...}</td>
+          <td>Bağlanma, liste, topluluk (tuple), sözlük (dictionary), 
+          küme (set) gösterimi</td>
+        </tr>
+      </table>
+    </div>
+    <p class="indent red">
+      Notlar:
+    </p>
+    <ul class="listNoMarker">
+      <li>1 - Hernekadar abs(x%y) &gt; abs(y) olduğu matematikçe 
+      gerçek olsa bile, yuvarlatmalardan dolayı, ondalık sayılar 
+      için böyle çıkmayabilir. Python float veri tipinin IEEE 
+      754 standardına uygun bir çift duyarlıklı ondalıklı sayı 
+      olduğu varsayılırsa, -1e100 % 1e100 sonucu, 1e100 ile 
+      aynı işarete sahiptir. Hesaplanan değer, 1e100 dür. Fakat, 
+      math.fmod() çağrısı -1e100 değerini geri döndürür. Hangisinin 
+      daha yararlı olduğu, yürütülen çalışmaya bağlıdır.</li>
+      <li>2 - Eğer x y nin çok yakın bir tamsayı katı ise, yuvarlatmalardan 
+      dolayı, x//y, (x-x%y)//y den bir birim yüksek çıkabilir. 
+      Python divmod(x,y)[0]*y + x % y nin x 'e en yakın olması 
+      düşüncesi ile sonuncu ifadenin değerini döndürür. </li>
+      <li>3 - Unicode karakterlerinin desteklenmesi sonucunda, 
+      sözel verilerin karşılaştırılmasında beklenmedik sonuçlar 
+      alınabilir. Bunun önlenmesi için, sözel veri karşılaştırmalarının 
+      unicode<span class="op">.</span>normalize<span 
+      class="op">()</span> fonksiyonun kullanılması ile yapılması 
+      sağlık verilir.</li>
+      <li>4 - Bazı durumlarda in işlemcisi gereksiz davranış 
+      gösterebilir.</li>
+      <li>5 - % işlemcisi, aynı zamanda sözel verilerin biçimlendirilmesi, 
+      (formatlanması) için kullanılmaktadır.</li>
+      <li>6 - Üs alma işlemcisi, sağındaki ifadeden daha gevşek 
+      bağlanır. Yani, 2**-1 in değeri 0.5 dir.</li>
+    </ul>
+    <p class="indent">
+      Dördüncüye kadar uyarılarda sözü edilen durumlara çok 
+      az rastlanabileceğini belirtelim.
+    </p>
+    <p id="chevron" class="title-left">
+      1.13 - Python Komut Satırı İle Çalışmak
+    </p>
+    <p class="indent">
+      Tantıcılara değer bağlanması (atama) yöntemlerini inceledikten 
+      sonra artık tanıtıcılara değer bağlanması ve bu değerlerin 
+      geri çağrılmasını, Python komut satırı (chevron) kullanımı 
+      ile deneyebiliriz.
+    </p>
+    <p class="indent">
+      Python komut satırı, yana doğru yazılmış askeri rütbe 
+      işaretlerine benzer. Görünümü <span class="op">&gt;&gt;&gt;</span> 
+      şeklindedir. Chevron en eski olarak, Girit'teki eski Miken 
+      keramik kalıntılarında bulunmuştur. Buna chevron (küçük 
+      keçi = çepiç) adı verilmiştir ve tarih boyunca süsleme 
+      figürü ve daha sonraları askeri rütbe işareti olarak kullanılmıştır. 
+      Chevron, Python programlama dilinin komut satırı başlangıcı 
+      olarak kullanılmaktadır. Python programlama dilinin, bir 
+      diğer üstünlüğü de, program yapılmasına gerek olmadan, 
+      komut satırı üzerinden her türlü işlemin yapılabilmesidir. 
+      Python komut satırı üzerinden çalışmanın, bir program 
+      öncesi deneme çalışması olarak çok yararlı olduğu belirtilebilir.
+    </p>
+    <p class="indent">
+      Python komut satırı, Eğer python.exe sistem veriyolu (path) 
+      üzerinde ise, herhangibir klasörden, değilse, kendi klasöründe 
+      bir DOS komut penceresi açılarak (c:\windows\cmd.exe) 
+      komut satırına python.exe girilip, enter tuşuna basılarak 
+      açılabilir. Çoğu IDE de bir Python komut satırı penceresi 
+      sağlamaktadır.
+    </p>
+    <p class="indent">
+      Bir fonksiyon tanımı ve çağrılması:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">def</span> kare<span 
+    class="op">(</span>a<span class="op"> ,</span> b<span 
+    class="op">) :</span> <img alt="enter" 
+    src="images/enter.fw.png">
+...&nbsp;&nbsp;<span class="keyw-50">return</span> a<span 
+    class="op"> * </span>b <img alt="enter" 
+    src="images/enter.fw.png">
+<img alt="enter" src="images/enter.fw.png">
+
+<span class="op">&gt;&gt;&gt;</span>kare<span class="op">(</span>4 <span 
+    class="op">,</span> 3<span class="op">)</span> <img 
+    alt="enter" src="images/enter.fw.png">
+12</pre>
+    <p class="indent">
+      Görüldüğü gibi, Python komut satırı, her türlü program 
+      öğesinin uygulanmasına olanak sağlayabilmektedir. Konular 
+      ilerleyip tam programlar yazımını açıklayana kadar Python 
+      komut satırında uygulamalar yapacağız.
+    </p>
+    <p class="indent">Python komut satırı ve aynı zamanda bir python 
+			program İDE si gibi işlev görebilen notebook ortamı ile bu 
+			aşamada çalışılabilir.
+		</p>
+    <p class="indent">Öncelikle Python notebook ortamı ile on-line 
+			çalışma ortamı, sagemath.org tarafından sağlanmıştır.Bunun için
+			https://cocalc.com/ adresini açıp bir ücretsiz hesap açılması yeterlidir.
+			Hesap çok sayıda notebook ile çalışılabilmesine olanak sağlar.
+		</p>
+    <p class = "indent">
+       Kendi makineniz üzerinde çalışılabilmesinin sağlanması, 
+			<a href="https://www.anaconda.com/download/">
+				https://www.anaconda.com/download/</a>
+			üzerinden Anaconda 3 paketinin indirilmesi ve çalıştırılmasıdır. Anaconda 3
+			program paketinin yerleşkesi, varsayılan  olarak, c:\programdata 
+			klasöründedir. Bu yerleşme noktası istenirse değştirilebilir, fakat aynı yere yerleştirildiği
+			varsayılsın. Programı yerleştirirken, bir istek olarak sunulan, programın
+			sistem tarafından tanınmasına olanak sağlanması kabul edilisin. Programın yerleşmesi
+			tamamlanınca, bir komut satırı penceresi açılıp,
+    < p>
+			<p class="nonindent">
+		  conda update conda
+		</p>
+    <p class = "nonindent">
+      yazılarak, programın en yeni bileşenleri içerecek şekilde güncellenmesi sağlanır.
+			Eğer prgram conda komutunu tanımazsa aynı işlem, c:\programdata\anaconda3\scripts
+			klasörü altında gerçekleştirilebilebilir. 
+    </p>
+    <p class = "indent">
+      Bundan sonra, C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+			klasörü altında, anaconda navigator çalıştırılır. Bu bir görsel programdır ve python notebooks
+			buradan çalıştırılabilir. İstenirse iyi bir IDE olan spider 3 de buradan çağrılabilir.
+    </p>
+    <p class = "indent">
+      Python3 programlarıi Eclipse platformunun Pydev plugin ile çok iyi olarak çalıştırılabilir.
+			İstenirse, Pyscripter, Pycharm, WingIDE gibi IDE ler de kurulup çalıştırılabilir.
+    </p>
+		<p id="assign" class="title-left">
+      1.14 - Atama (Bağlanma) (Binding) İşlem</p>
+    <p class="title-left">&nbsp;</p>
+    <p class="indent">
+      Atama işlemi, atama işlemcisi (<span class="op">=</span>) 
+      kullanılarak yapılır. Atama işlemcisi, önceliği en düşük 
+      olan iki işlenenli bir işlemcidir. Atama işlemcisinin 
+      sol işleneni mutlaka tek bir geçerli tanıtıcı (identifier) 
+      olmak zorundadır. Sağ işlenen bir ifade olabilir. Ne kadar 
+      karışık olursa olsun, her ifade, mutlaka bir sonuca ulaşır 
+      ve ulaşılan sonuç, sol işlenene atanır.
+    </p>
+    <p class="indent">
+      Her programlama dilinde, sonradan değiştirilebilen (mutable) 
+      veriler ile sonradan değiştirilemeyen (immutable) verilerin 
+      atama mekanizmaları farklı olmak zorundadır. Değişebilen 
+      veriler, canlı nesnelerdir. Her an bazı elemanlarının 
+      eklenmesi veya çıkarılması veya yeniden tanımlanması ile 
+      güncellenebilirler. Değişebilen verilerin bazı kısımları 
+      güncellenebilirken, diğer kısımları değişmeden kalabilir. 
+      Değişmeyen veriler ise belirli ve bütün değerlerdir. Değişmeyen 
+      verilerin bazı parçaları değiştirilemez, verinin tamamının 
+      değişmesi gerekir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, değiştirilemeyen (immutable) 
+      veriler, sayılar, sözel veriler (strings), topluluklar 
+      (tuples), donmuş kümeler (frozensets) veri tipleridir.
+    </p>
+    <p class="indent">
+      Değiştirilemeyen veriler tamamlanmış verilerdir. Bir kez 
+      atandıktan sonra değiştirilemezler. Zamanla ilgileri 
+      yoktur. Bir kez tanımlanırlar ve sonsuza kadar değerlerlerini 
+      korurlar. Değişemeyen veriler bir tanıtıcıya değerle bağlanırlar. 
+      Yerleştirildikleri bellek alanının operatif değeri yoktur. 
+      Tanıtıcıya değeri bağlanır ve uçucu (volatil) olarak tanımlanan 
+      bir bellek alanına yerleştirilirler. Bu bellek alanın 
+      kalıcı olması gerekli değildir, çünkü tanıtıcıya değer 
+      olarak bağlanmışlardır. Tanıtıcılar çağrılınca değeri 
+      geri döndürürler. Bu değer tanıtıcının saklandığı geçici 
+      bir bellek alanındadır ve program akışına göre sık sık 
+      yeri değişebilir. Bu sorun olmaz, çünkü değiştirilemeyen 
+      veriler prensip olarak, az sayıda bit ile temsil edilebilen, 
+      sayılar gibi küçük boyutta verilerdir. Topluluk, donmuş 
+      küme ve sözel verilerin büyük olma potansiyelleri vardır, 
+      fakat bunlar da normal bir programda akla yakın büyüklüklerde 
+      olurlar.
+    </p>
+    <p class="indent">
+      Atama işleminin değişemez tipte verilerle nasıl yürüyebileceğini 
+      inceleyelim. Örnek olarak en basit,
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a <span class="op">=</span> 12<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+0</pre>
+    <p class="nonindent">
+      bir atama işleminin yürüyüşünün anatomisi, a tanıtıcısına 
+      bir tamsayı verisi olan 12 değerinin bağlandığını ve a 
+      tanıtıcısı çağrıldığında bağlanmış olduğu tamsayı verisi 
+      olan 12 değerini döndürdüğüdür. Bağlanmış olan 12 değeri 
+      bir tamsayıdır, makine dilinde az sayıda bit ile tanımlanır 
+      ve küçük bir bellek alanında a tanıtıcısı ile birlikte 
+      saklanır. tanıtıcı çağrıldığında kendisine bağlanmış olan 
+      değeri döndürür. Tüm değişmez verilerde atama işlemi bu 
+      şekilde yürür. Programda bildirim sonlarında kullanılan 
+      semikolon (;) tamamen isteğe bağlıdır, fakat kullanılması 
+      daha kolay okunabilen kodlar oluşturur.
+    </p>
+    <p class="indent">
+      Bir tanıtıcıya atanmış olan bir değerden sonra, aynı tanıtıcıya 
+      başka bir değer atanırsa, eski değer kaybolur ve tanıcıya 
+      yeni değer bağlanır. Buna tahrip edici atama adı verilir. 
+      Örnek,
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a<span class="op"> = </span>25<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op"> = </span>50<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;</span>
+<span class="op">&gt;&gt;&gt;</span>
+50</pre>
+    <p class="nonindent">
+      Görüldüğü gibi, a tanıtıcısına bağlanmış olan ilk 25 değeri 
+      kaybolmuş ve a tanıtıcısı artık yeni 50 değerini döndürmekedir. 
+      25 değeri kaybolmuştur, artık hiçbir şekilde erişilemez.
+    </p>
+    <p class="indent">
+      Eğer eski değerin kaybolmaması istenirse, yeni değer başka 
+      bir tanıtıcıya atanmalıdır. Örnek,
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a<span class="op"> = </span>25<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>b<span class="op"> = </span>50<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+25
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+50</pre>
+    <p class="indent">
+      Pyhton programlama dilinde, aşağıda görüldüğü gibi, çoklu 
+      atamalar yapılabilir.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a<span class="op"> = </span>b <span 
+    class="op">=</span> c <span class="op"> = </span> 0<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+0
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+0
+<span class="op">&gt;&gt;&gt;</span>c<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+0</pre>
+    <p class="indent">
+      Python derleyicisi, aynı zamanda çok sıradışı olan aşağıdaki 
+      tipte atamayı da kabul eder.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a <span class="op">,</span> b <span 
+    class="op">=</span> 23<span class="op">,</span>45<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+23
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+45</pre>
+    <p class="indent">
+      Bir tanıtıcıya bağlanmış bir değerin, bağlanmış olduğu 
+      tanıtıcının çağrılarak, döndürdüğü değerin başka bir tanıtıcıya 
+      atanmasına, &quot;aktarma&quot; işlemi adı verilir. Akatarılan 
+      değerin değişebilir (mutable) veya değişemez (immutable) 
+      bir veri tipinde olmasına göre, Python derleyicisi aktarma 
+      mekanizmalarını farklı şekillerde uygular.</p>
+    <p class="indent">
+      Değişemez bir verinin başka bir tanıtıcıya aktarılması 
+      değerle aktarım mekanizması ile olur. Bir tanıtıcıya değişemez 
+      (immutable) bir veri bağlandığında, tanıtıcıya verinin 
+      değeri bağlanır. Bu değer başka bir tanıtıcıya aktarılacağı 
+      vakit, o değerin kopyası diğer tanıtıcıya atanır. Sonuçta 
+      hem ilk hem de ikinci tanıtıcıya aynı değer bağlanmış 
+      olur. Fakat, her iki tanıtıcı da birbirinden bağımsızdır. 
+      İkinci tanıtıcıya bağlanmış olan değer, tahrip edici bir 
+      başka atama ile değiştirilebilir. Fakat, bu değişmeden 
+      ilk tanıtıcıya bağlanmış olan değer etkilenmez. Sonuçta, 
+      ilk tanıtıcı, kendisine bağlanmış olan orijinal değeri, 
+      ikinci tanıtıcı da kendisine bağlanmış olan son değeri 
+      döndürür. Örnek:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span> a<span class="op"> = </span>100<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span> b<span class="op"> = </span>a<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span> b<span class="op"> = </span>47.8665<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+100
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>
+47.8665</pre>
+    <p class="indent">
+      Yukarıdaki programda, aktarmadan sonra, aktarılan tanıtıcının 
+      bağlandığı değerin değişmesi, aktaran tanıtıcıya bağlanmış 
+      olan değeri etkilemiyor. Bunun nedeni, aktarılan değerin, 
+      ilk tanıtıcının bağlandığı değerin kopyası olmasıdır. 
+      Orijinal değer saklanıyor ve sadece kopyası aktarılıyor. 
+      Aktarma gerçekleştikten sonra, her iki tanıtıcı ayrı bellek 
+      alanlarında saklandıkları için, birbirlerinden bağımsız 
+      olarak belli değerlere bağlanmış oluyorlar. Bir tanesine 
+      bağlanan değerin değiştirilmesi, başka tanıtıcılara bağlanmış 
+      olan değerleri değiştirmez. Yukarıdaki uygulama bunu açıkça 
+      belirtiyor. Bu aktarım mekanizmasına, &quot;değerle aktarım&quot; 
+      veya &quot;kopyalanarak aktarım&quot; adı verilir ve sadece 
+      değiştirilemeyen veriler için geçerlidir.
+    </p>
+    <p class="indent">
+      Değiştirilemeyen değerler güncellenemez. Sadece yerleştirildikleri 
+      bellek alanından geri çağrılabilir, üzerlerinde işlem 
+      yapılarak yeni değerler oluşturulabilir ve bu yeni değerler 
+      aynı tanıtıcıya atanarak, aynı bellek alanına yerleştirilebilir. 
+      Bunun bir örneği aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+a<span class="op"> + = </span>1<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+    </pre>
+    <p class="indent">
+      Bu ifadede <span class="op">+ </span>işlemcisinin öncelik 
+      sırası atama işlemcisinden daha yüksektir. Önce attırma 
+      işlemi gerçekleşir. Bu işlem, a tanıtısının güncel değeri<span 
+      class="op"> + </span>11 şeklinde sonuçlanır. Toplama işlemi 
+      sonucu atama işlemininin sağ işlenenidir. Bu şekilde a 
+      tanıtıcısı ile ulaşılabilir olan bellek lokasyonunda eski 
+      değerin 1 arttırılarak değiştirilmiş şekli yerleştirilir. 
+      Sonuçta, eski değere 1 eklenerek elde edilmiş olan yeni 
+      değer, aynı bellek lokasyonunda saklanır. Bu bir tahrip 
+      edici atamadır. Atama sonunda eski değer kaybolur ve tanıtıcıya 
+      yeni değer bağlanmış olur.</p>
+    <p class="indent">
+      Değiştirilemeyen veriler, bir fonksiyona argüman olarak 
+      belirtildiğinde, aynı şekilde kopyası argüman olarak kullanılır. 
+      Bu nedenle, fonksiyon içinde argümanın değeri değişirse, 
+      bu değişme fonksiyon dışına yansımaz. Bu çok önemli bir 
+      olgudur ve hep akılda tutulmalıdır. Bunun bir örneği, 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">def</span> degis<span 
+    class="op">(</span>a <span class="op">,</span> b<span 
+    class="op">):<img alt="enter" src="images/enter.fw.png"></span>
+...          c <span class="op">=</span> b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+...          b <span class="op">=</span> a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+...          a <span class="op">=</span> c<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+...          print<span class="op">(</span><span 
+    class="str">&quot;Fonksiyonda x degeri = &quot;</span><span 
+    class="op">,</span> a <span class="op">,</span> <span 
+    class="str">&quot;Fonksiyonda y degeri = &quot;</span> <span 
+    class="op">,</span> b<span class="op">);<img 
+    alt="enter" src="images/enter.fw.png"></span>
+    
+x  <span class="op">=</span>  100<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+y  <span class="op">=</span>  1016<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+
+degis<span class="op">(</span>x <span class="op">,</span> y<span 
+    class="op">);<img alt="enter" src="images/enter.fw.png"></span>
+Fonksiyonda x degeri =  1016 Fonksiyonda y degeri =  100
+x<span class="op"><img alt="enter" 
+    src="images/enter.fw.png"></span>
+Out[20]: 100
+y<span class="op"><img alt="enter" 
+    src="images/enter.fw.png"></span>
+Out[21]: 1016
+    </pre>
+    <p class="indent">
+      Yukarıdaki uygulamada x ve y tanıtıcılarına iki sayısal 
+      değer bağlanıyor. Sayısal değerler, değiştirilemez (immutable) 
+      tipte verilerdir ve değerle (kopyalanarak) aktarılırlar. 
+      Bu değerler, argüman olarak degis<span class="op">()</span> 
+      fonksiyonuna yerleştiriliyorlar. Veriler değişmez türde 
+      olduklarından, orijinalleri saklanıyor ve sadece kopyaları 
+      fonksiyona argüman olarak, yerleştiriliyor. Fonksiyon 
+      içinde, kopyaların değerleri değişiyor. Fakat bu değişiklikler, 
+      fonksiyon dışındaki orijinal değerleri etkilemiyor. Fonksiyon 
+      dışındaki veriler bağlanmış oldukları orijinal değerleri 
+      muhafaza ederler. Bu olaylar, yukarıdaki programda adım 
+      adım izlenebilir.
+    </p>
+    <p class="indent">
+      Değiştirilemez bir verinin kopyalanabilirliğinin nedeni, 
+      bu verinin statik bir veri olmasıdır. Bu veriler bir kez 
+      atandıktan sonra hep aynı kalır. Bu verilerin toplam bit 
+      sayısı, bir kez bir tanıtıcıya bağlandıktan sonra değişmez. 
+      Sabit bir bit sayısına sahip bir verinin yerleşeceği alan 
+      uzunluğu belirlidir bu alan uzunluğu, programın ileri 
+      aşamalarında değişmez. Bu nedenle, statik bir bellek alanının 
+      içeriği her zaman kopyalanabilir niteliktedir.
+    </p>
+    <p class="indent">
+      Değişebilir veriler bunun aksine dinamik karakterdedir. 
+      Bu veriler atandıktan sonra bazı kısımları aynı kalırken 
+      bazı kısımları değiştirilebilir. Bazı kısımlar çıkartılırken 
+      bazı kısımlar veriye eklenebilir. Bu durumda, veri adeta 
+      canlı bir varlık olarak düşünülebilir. Bu veride yapılan 
+      değişikliklere, &quot;Verinin Güncellenmesi&quot; adı 
+      verilir.
+    </p>
+    <p class="indent">
+      Güncellenebilen veriler, bir tanıtıcıya bağlanmak istendiğinde, 
+      veri belleğin daha durağan bir kısmına yerleştirilir ve 
+      tanıtıcıya bu alana erişim kodu olan bellek referansı 
+      bağlanır. Bellek referansı bir hex sayıdır ve güncellenemeyen 
+      bir değer olduğundan, aktarılacağı vakit, bu değerin kopyası 
+      aktarılır. Aktarımdan sonra, hem ilk tanıtıcı hem de aktarılan 
+      tanıtıcıya aynı bellek referansı bağlanmış olur. Her iki 
+      tanıtıcı da aynı bellek alanına erişim sağlarlar ve aynı 
+      veriyi güncelleyebilirler. Veri aynıdır ve hep aynı bellek 
+      alanında bulunmaktadır. Bu bellek alanına birden fazla 
+      tanıtıcıya bağlanmış olan aynı bellek referansı ile erişilebilir. 
+      Yani, aynı veri farklı tanıcılarlarla güncellenebilir 
+      veya çağrılabilir. Bu veriye erişimi olan her tanıtıcı 
+      çağrıldığında, daima verinin en son güncellenmiş şekline 
+      erişebilir ve ancak verinin en son güncellenmiş halini 
+      döndürebilir. Bu mekanizmaya &quot;Referansla Aktarım&quot; 
+      adı verilir. Aslında, &quot;Referansın Kopyası ile Aktarım&quot; 
+      denilse daha doğru olabilirdi.
+    </p>
+    <p class="indent">
+      Değişebilir bir verinin referansla aktarımı konusunda 
+      aşağıda iki uygulama verilmiştir. Bunlardan ilki, değiştirilebilir 
+      bir veri türünün referansla aktarımında oluşan olayların 
+      izlenmesini sağlamaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>a <span class="op"> = [</span>23<span 
+    class="op">,</span> <span class="str">&quot;Ahmet&quot;</span> <span 
+    class="op">,</span> 16.45 <span class="op">,</span> 36<span 
+    class="op">];<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>b <span class="op">=</span> a<span 
+    class="op">;<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">.</span><span 
+    class="keyw">remove</span><span class="op">(</span>36<span 
+    class="op">);<img alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>b<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+Out[26]: [23, 'Ahmet', 16.45]
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">;<img 
+    alt="enter" src="images/enter.fw.png"></span>
+Out[27]: [23, 'Ahmet', 16.45]    
+    </pre>
+    <p class="indent">
+      Yukarıdaki progamda, ilk olarak bir a tanıtıcısına bir 
+      liste tipi veri bağlanıyor. Liste veri tipi bir değişebilen 
+      veri tipi olduğundan, belirli bir bellek alanına yerleştirilip 
+      erişim kodu a değişkenine bağlanıyor. Sonra, a daki değer, 
+      b tanıtıcısına bağlanıyor. Burada a tanıtıcısında bir 
+      hex sayı değeri (liste verisinin yerleştirildiği bellek 
+      alanının erişim kodu) olduğundan, ve sayılar değişemez 
+      veri tiplerinden olduklarından, a daki değerin kopyası 
+      b ye bağlanıyor. Aktarım sonunda hem a, hem de b aynı 
+      hex değerine ( liste tipi verinin yerleştirildiği bellek 
+      alanına erişim kodu veya başka bir deyişle erişim referansı) 
+      bağlanmış olduğundan, aynı liste tipi veriye erişim sağlayabiliyorlar. 
+      Bu tanıcıların her ikisi de, yerleşik aynı listeyi güncelleyebiliyor 
+      veya güncellenmiş liste değerine (aynı değere) erişip 
+      bu değeri döndürebiliyor. Bir program adımı sonra, yerleşik 
+      liste, tanıtıcılardan birisi kullanılarak güncelleniyor. 
+      Hangi tanıtıcı veriyi güncellerse güncellesin, güncellenen 
+      değer her iki tanıtıcı tarafından da geri döndürülebiliyor.
+    </p>
+    <p class="indent">
+      Aynı sonuç, bir değişebilen verinin bağlandığı bir tanıtıcının 
+      bir fonksiyona argüman olarak uygulanması sırasında da 
+      yaşanır. Tanıtıcı üzerinde sadece verinin yerleştirildiği 
+      bellek alanına erişimi sağlayan hex kodu bulunur. Bu bir 
+      değişemez değer olduğundan, fonksiyona argüman olarak 
+      bu hex kodunun kopyası gönderilir. Fonksiyon içinde argümanın 
+      değeri değişirse, bu değişiklik doğal olarak dışaıdaki 
+      tanıtıcının döndüreceği değeri de değiştirir. Programı 
+      izleyelim:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>veriListe <span 
+    class="op">= [</span> 23<span class="op">,</span> <span 
+    class="str">'Ahmet'</span><span class="op">,</span> 16.45<span 
+    class="op">];</span><img alt="enter" 
+    src="images/enter.fw.png" />
+
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">def</span> listeAzalt <span 
+    class="op">(</span>liste<span class="op">):</span><img 
+    alt="enter" src="images/enter.fw.png" />
+...         liste<span class="op">.</span><span 
+    class="keyw">remove</span><span class="op">([</span>liste(len)-1<span 
+    class="op">]);<img alt="enter" 
+    src="images/enter.fw.png" /></span>
+...         print<span class="op">(</span><span class="str">'Dahili Liste :'</span><span 
+    class="op">,</span> liste<span class="op">);</span><img 
+    alt="enter" src="images/enter.fw.png" />
+<span class="op">&gt;&gt;&gt;</span>listeAzalt<span 
+    class="op">(</span>veriListe<span class="op">);</span><img 
+    alt="enter" src="images/enter.fw.png" />
+Dahili Liste :  [23, 'Ahmet']
+<span class="op">&gt;&gt;&gt;</span>print<span class="op">(</span><span 
+    class="str">'Harici Liste :'</span><span class="op">,</span> veriListe<span 
+    class="op">);</span><img alt="enter" 
+    src="images/enter.fw.png" />
+Harici Liste =  [23, 'Ahmet']
+    </pre>
+    <p class="indent">
+      Yukarıdaki programda, ilk olarak [23, 'Ahmet' ,16.45] 
+      şeklinde bir liste literal olarak tanımlanarak, statik 
+      bir bellek alanına yerleştiriliyor ve erişim kodu, veriListe 
+      adında bir tanıtıcıya bağlanıyor. Sonra, listeAzalt adinda 
+      bir fonksiyon tanımlanıyor. Bu fonksiyon argüman olarak 
+      bir liste verisi alıyor ve argümanı olan listenin son 
+      elemanını listeden çıkarıyor. Geri kalan listeyi de görüntülüyor. 
+      Bu fonksiyona argüman olarak veriListe tanıtıcısını besliyoruz. 
+      Aslında, veriListe adlı tanıtıcıya sadece literal olarak 
+      tanımlanmış ve bir bellek alanına yerleştirilmiş listeye 
+      erişim kodu bağlanmış olduğundan ve bu kod da sayısal 
+      bir değer olup kopyalanabilir nitelikte olduğundan, fonksiyona 
+      sadece ana veriye erişim kodunun kopyası argüman olarak 
+      gönderilmiş oluyor. Fonkiyon argümanı, ana veriye erişim 
+      kodunu içerdiğinden, fonksiyon argümanı üzerinden yapılacak 
+      her değişiklik ana veriye yansıyor. Fonksiyon içinde argüman 
+      güncelleniyor. Bu güncelleme, doğruda doğruya literal 
+      olarak tanımlanmış liste üzerinden oluyor ve literal olarak 
+      tanımlanmış liste güncellenmiş oluyor. Güncellenmiş olan 
+      literal olarak tanımlanmış liste, fonksiyon içinden görüntüleniyor 
+      ve fonkisyonun işlevi tamamlanıyor. Literal olarak tanımlanmış 
+      liste, fonksiyon dışından da çağrıldığında, fonksiyon 
+      içinde gerçekleşen güncellemenin, fonksiyon dışına da 
+      yanısımış olduğu, görüntülenen liste elemanlarından açıkça 
+      anlaşılıyor.
+    </p>
+    <p class="indent">
+      Güncellenebilen verilerin kopyalanarak aktarılmaları engelleyen 
+      nedenlerden birisi, bu verilerin genişleyebilme potansiyelleridir. 
+      Büyük verilerin kopyalanmasının, hem programı yavaşlatacağı, 
+      hem de kontrolsuz olarak sürekli bellek işgal edilmesi 
+      sonunda, programın kullanabileceği bellek adreslerinin 
+      kısa sürede tükenebileceği gözönüne alınarak, aktarımların 
+      buna meydan vermeyecek mekanizmalar üzerinden gerçekleşmesi 
+      sağlanır. Bir başka neden de, bu verilerin dinamik niteliğidir. 
+      Güncellenebilir bir veri, bir tanıtıcıya bağlansa ve bu 
+      tanıtıcıdan başka bir tanıtıcıya değer ile aktarılsa, 
+      sonuçta her iki tanıtıcı, farklı bellek alanlarında tutulan 
+      farklı veriye erişim yapar duruma gelirler. Bu durumda, 
+      her iki tanıtıcı da farklı veriler üzerinde güncelleme 
+      yaparlar. Bu durumda, güncelleme olayı karmaşık 
+      bir duruma dönüşür. Her tanıtıcı, aynı olması gereken 
+      verinin başka bir güncel durumuna erişim sağlar. Eğer 
+      veri bir banka hesabı ise, sonuç kötü olur. Bu nedenle, 
+      değiştirilebilir bir veri, belirli ve değişmez bir bellek 
+      alanında sabit tutulup, farklı tanıtıcıların hep aynı 
+      veriyi güncellemesi sağlanır. Değiştirilebilen bir veriye 
+      erişimi olan her tanıtıcının, verinin aynı güncellenmiş 
+      durumuna erişim sağlaması gerekir. Aksi halde kaos yaratılır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python Ana Sayfa</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders3.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders5.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site Ana 
+      Sayfa »</em></a></li>
+      <li id="navbottom-sonlama"><br></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

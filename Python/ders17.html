@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:12 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders17.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 17</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body class="indent">
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 3</h2>
+    <h3 class="chapter">Veri Tipleri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders16.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders18.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 17</p>
+    </div>
+    <p id="datatypes" class="title verticalTab-10">
+      3 - Veri Tipleri</p>
+    <p class="indent">
+      Python programlama dilinde, veri tipleri çok çeşitlidir. 
+      Python dokümentasyonu, başlıca veri tiplerini, numerics 
+      (sayısal) , sequences (sekans), mappings, classes (sınıf), 
+      instances (sınıf örneği) and exceptions (istisna) lar 
+      olarak tanımlar. Bu çalışmada, sadece çok kullanılan sayısal, 
+      sözel, sekansiyel tiplerde veri tanımaya çalışacağız. 
+      Sınıf, sınıf örneği, istisna tipi verileri daha önce tanımış 
+      durumdayız.</p>
+    <p class="indent">
+      Sayısal veri tipleri, int (tamsayı), float (gerçel sayı), 
+      complex (kompleks sayı) veri tipleridir. Bunlar&nbsp; 
+      üzerinde çeşitli uygulamalar yapmış durumdayız.</p>
+    <p class="indent">
+      Sekansiyel veri tipleri, string (sözel), list (liste), 
+      tuple (topluluk), dictionary (sözlük), set (küme), frozenset 
+      (donmuş küme) veri tipleridir.</p>
+    <p class="indent">
+      Python programlama dilinin sayısal, sözel, topluluk ve 
+      donmuş küme veri tipleri, bir kez atandıktan sonra kısmen 
+      değiştirilemeyen (immutable) veri tipleridir. Bu tip veriler 
+      bir kez atandıktan sonra, değiştirmek istenirse, verinin 
+      tümü tahrip edici yöntemle silinip yeniden atanmalıdır.</p>
+    <p class="indent">
+      Sekansiyel veri tipleri, liste (list), topluluk (tuple), 
+      sözlük (dictionary), küme (set9&nbsp; ve donmuş küme (frozenset) 
+      tipi veriler, birbiri ardına (contigious) yerleştirilmiş 
+      veri yığınları (aglomerat) lardır. Bu veri yığınlarını 
+      oluşturan ve değişik tipte olabilen veriler, bu aglomeratların 
+      elemanları olarak adlandırılır. Veri aglomeratlarının 
+      elemanları birbiri ardınca (sekansiyel) olarak taranarak 
+      üzerlerinde işlem yapılabilir. Bu yönteme "iterasyon", 
+      üzerinde iterasyon yapılabilen veri tiplerine, "iterasyon 
+      yapılabilen (iterable)" veri tipleri adı verilir. Tüm 
+      aglomerat tipi veriler, üzerlerinde iterasyon yapılabilen 
+      veri tipleridir. Buna bir de kısmen değiştirilemeyen bir 
+      veri tipi olan sözel (string) veri tipi eklenir. özel 
+      veriler, sıralı olarak yerleştirilmiş karakterlerden oluşur. 
+      Bu karakterlerin sıralı nitelikleri, bunlar üzerinde&nbsp; 
+      iterasyon yapılabilmesine olanak sağlar.</p>
+    <p class="indent">
+      Bu bölümde, sözel ve diğer sıralı verilerin elemanlarına 
+      teker teker ve sıralı erişim (traversal) (iterasyon), 
+      güncellenebilen tiplerin, güncellenme yöntemleri üzerinde 
+      duracağız. Elde edeceğimiz bilgiler, her türlü projenin 
+      gerçekleştirilmesine olanak verecek nitelikte olacaktır.</p>
+    <p id="list" class="title-left">
+      3.1 -Liste Tipi Veriler</p>
+    <p class="indent">
+      Liste tipi veriler, değişik tipte verilerin birbiri ardında 
+      (sekansiyel) (contigious) olarak sıralandığı ve elemanlarına 
+      indeks sayıları ile erişilebildiği (indeks değerleri ile 
+      sıralı erişim) (indexed sequential access) tipi verilerdir. 
+      Liste tipi verilerin elemanları her veri tipinde olabilir. 
+      Eleman değerleri belirli bir düzende sıralanmamışır ama 
+      homojen elemanlı listelerin sıralanmasına olanak sağlanmıştır.</p>
+    <p class="indent">
+      Listeler köşeli, topluluklar normal parantez arasında 
+      gösterilir. Elemanların erişim indisleri sıfırdan başlar. 
+      Elemanlar her veri tipinde olabilir. Bunlara sekansiyel 
+      veri tipleri de dahildir. Bazı liste örnekleri aşağıda 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="op">[</span>1<span class="op">,</span> 2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>    
+
+<span class="op">[</span><span class="str">&quot;Çamlıca&quot;</span><span 
+    class="op">,</span> 2<span class="op">,</span> <span 
+    class="str">&quot;Dolmabahçe&quot;</span><span 
+    class="op">,</span> 1<span class="op">]</span>    
+
+<span class="op">[</span>24<span class="op">,</span> 11<span 
+    class="op">,</span> <span class="op">[</span>36<span 
+    class="op">,</span>12<span class="op">,</span>83<span 
+    class="op">]</span><span class="op">,</span> 24<span 
+    class="op">]</span>    
+    </pre>
+    <p class="indent">
+      Liste ve topluluk tipi veriler, diğer programlama dillerindeki 
+      dizilere benzer. Elemanlardan bazıları liste veya başka 
+      bir aglomerat (yığın) tipinde olursa, bunlar iki boyutlu 
+      dizilere denk gelir. Buna rağmen, günümüzde nesne yönelimli 
+      programlama çok gelişmiş olduğundan, iki ve daha çok boyutlu 
+      diziler yerine nesne sınıfları kullanılmaktadır. Bu çalışmada, 
+      örneklerimizde sadece tek boyutlu liste verileri üzerinde 
+      duracağız.
+    </p>
+    <p id="index" class="subheading">
+      3.1.1 -Liste Tipi Verilerin İndekslenmesi</p>
+    <p class="indent">
+      İndeksleme yöntemi, sadece liste tipi veriler için değil, 
+      tüm iterasyon yapılabilien veri tipleri (String, List, 
+      Tuple, Dict, Set, Frozenset) için aynıdır.İndeksleme, 
+      verinin ilk elemanının indisi 0 olarak başlar. Her elemanda 
+      bir artarak son elemana kadar gider. İndisler son elemandan 
+      da başlayabiir. Son elemanın indisi -1 olarak kabul edilir 
+      ve sondan birinci, -2, sondan ikinci -3, birer eksilerek 
+      ilk elemana kadar iner.
+    </p>
+    <p class="indent">
+      Bir liste örneği,
+    </p>
+    <p class="indent">
+      liste <span class="op">= [</span><span class="str">'birinci'</span><span 
+      class="op">,</span> <span class="str">'ikinci'</span><span 
+      class="op">,</span> <span class="str">'üçüncü'<span 
+      class="op">,</span> 'dördüncü'</span><span class="op">]</span></p>
+    <p class="nonindent">
+      olarak tanımlanmış olsun. Tüm iterasyona uygun veri tipleri 
+      için eleman sayısı yani veri uzunluğu (length), len() 
+      hazır fonksiyonundan yararlanılarak bulunabilir. Bu listede 
+      eleman sayısı len = 4 dür. Maximum indis sayısı imax = 
+      (n-1) = 4 olarak hesaplanır. ilk elemanın erişim indisi, 
+      i = 0 dır. İlk elemana erişim liste[0] olarak gerçekleştirilir. 
+      Diğer elemanlara erişim, aynı ilk elemana erişim gibidir. 
+      Aşağıdaki tablo, bu liste örneğinde indis değerlerinin 
+      dağılımını açıklamaktadır.
+    </p>
+    <!--<div class="pl-225">
+    <div class="CSS_Table_Example" style="width:200px;height:180px;">
+    <table class="p17table2">-->
+    <div class="pl-225">
+    <table class="CSS_Table_Example tablewidth60">
+
+      <caption class="captionred">İndis Değerleri</caption>
+      
+        <tr>
+          <td><span class="green" style="background-color:#FFCC00;font:normal 14px verdana">Liste Elemanı</span></td>
+          <td><span class="green" style="background-color:#FFCC00;font:normal 14px verdana">'birinci'</span></td>
+          <td><span class="green" style="background-color:#FFCC00;font:normal 14px verdana">'ikinci'</span></td>
+          <td><span class="green" style="background-color:#FFCC00;font:normal 14px verdana">'üçüncü'</span></td>
+          <td><span class="green" style="background-color:#FFCC00;font:normal 14px verdana">'dördüncü'</span></td>
+        </tr>
+      
+      <tr style="text-align: center">
+        <td>Pozitif İndis</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>Negatif İndis</td>
+        <td>-4</td>
+        <td>-3</td>
+        <td>-2</td>
+        <td>-1</td>
+      </tr>
+    </table>
+    </div>
+
+    <p class="subheading" id="update">
+      <br>3.1.2 - Listelerin Güncellenmesi</p>
+    <p class="indent">
+      Liste elemanlarının bir kısmı, listeden çıkartılabilir. 
+      Örnek olarak,
+    </p>
+    <p class="indent">
+      d <span class="op">= [</span>1<span class="op">,
+      </span>2<span class="op">, </span>3<span class="op">,
+      </span>4<span class="op">]</span></p>
+    <p class="indent">
+      listesi tanımlanmış olsun,
+    </p>
+    <p class="indent">
+      d<span class="op">[</span>1<span class="op">:</span>-1<span 
+      class="op">]</span>
+    </p>
+    <p class="indent">
+      bildirimi, d listesinin indisi 1 olan elemanı (2) (dahil) 
+      ile indisi -1 olan elemandan bir önceki eleman (3) (dahil) 
+      arasındaki tüm elemanları içeren bir alt listenin belleğe 
+      alındığını belirtir. Bu bildirim ile orijinal d listesi 
+      değişmemiştir. Belleğe alınmış olan alt liste başka herhangibir 
+      liste verisine atanabileceği gibi, rekürsif olarak kendi 
+      kendisine de atanabilir. Bu şekilde,
+    </p>
+    <p class="indent">
+      d <span class="op">=</span> d<span class="op">[</span>1<span 
+      class="op">:</span>-1<span class="op">]</span>
+    </p>
+    <p class="nonindent">
+      bildirimi, orijinal d listesini günceller ve d listenin 
+      yeni değeri,
+    </p>
+    <p class="nonindent">
+      <span class="op">[</span>2<span class="op">, </span>3<span 
+      class="op">]</span>
+    </p>
+    <p class="nonindent">
+      olur.
+    </p>
+    <p class="indent">
+      Aşağıdaki tablo, çeşitli alt liste oluşturma işlemleri 
+      sonunda, oluşan alt listeleri açıklamaktadır.
+    </p>
+    <div class="pl-50">
+    <table class="CSS_Table_Example tablewidth90">
+      <caption class="captionred">Alt Listelerin Oluşturulması</caption>
+      
+        <tr>
+          <td>İşlem Sıra Numarası</td>
+          <td>d Listesinin Elemanları</td>
+          <td style="width: 173px">Alt Liste Oluşturma İşlemi</td>
+          <td>b Listesinin Elemanları</td>
+        </tr>
+      <tr style="text-align: center">
+        <td>1</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[1:-1]</td>
+        <td>2, 3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>2</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[0:4]</td>
+        <td>1, 2, 3, 4</td>
+      </tr>
+      <tr style="text-align: center">
+        <td style="height: 23px">3</td>
+        <td style="height: 23px">1, 2, 3, 4</td>
+        <td style="width: 173px; height: 23px">b = d[0:5]</td>
+        <td style="height: 23px">1, 2, 3, 4</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>4</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[0:]</td>
+        <td>1, 2, 3, 4</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>5</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[:-1]</td>
+        <td>1, 2, 3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>6</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[0:-1]</td>
+        <td>1, 2, 3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>7</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[-2:-1]</td>
+        <td>3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>8</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[-1:2]</td>
+        <td>[]</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>9</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[0:3]</td>
+        <td>1, 2, 3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>10</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[:3]</td>
+        <td>1, 2, 3</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>11</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[:]</td>
+        <td>1, 2, 3, 4</td>
+      </tr>
+      <tr style="text-align: center">
+        <td>12</td>
+        <td>1, 2, 3, 4</td>
+        <td style="width: 173px">b = d[0:len(d)-1]</td>
+        <td>1, 2, 3</td>
+      </tr>
+    </table>
+    </div>
+    <pre class="pl-25">
+<span class="navy">İşlem 1 : </span> d[n:m] , n = 1 , m = -1
+İlk indis değeri :  1
+Alt listenin ilk elemanı : d[1] (d[1] =2)
+Son indis değeri : -1
+Alt listenin son elemanı : d[-1-1] = d[-2] (d[-2] = 3)
+Alt liste = [2, 3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada, elemanların indis 
+      değerleri geçerli, alt liste oluşturma bildirimi, &quot; 
+      indis değeri 1 olan liste elemanından başlayarak, indis 
+      değeri -1-1 =-2 (dahil) aralığındaki elemanları içeren 
+      bir alt liste oluştur&quot; şeklindedir. Eleman indislerinin 
+      pozitif veya negatif olarak belirtilmesi önemli değildir. 
+      Önemli olan, pozitif indisler olarak, listenin başlangıç 
+      değerinin küçük, listenin bitiş elemanının büyük indis 
+      değerine sahip olmasıdır. Aksi halde boş bir alt liste 
+      oluşur. (İşlem 8 de olduğu gibi)
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 2 : </span> d[n:m] , n = 0 , m = 4
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] =1 )
+Son indis değeri : 4.
+Alt listenin son elemanı : d[4-1] = d[3] (d[3] = 4)
+Alt liste = [1, 2, 3, 4]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Listenin eleman sayısı 
+      len(d) = 4, enbüyük indis = len(d) -1 = 4 - 1 = 3 olmasına 
+      karşın, alt listenin en büyük indisi, 4 olarak belirtilmiş. 
+      Bu değer, orijinal listenin en son elemanının indisinden 
+      daha büyük olmasına karşın, yasal bir değerdir ve alt 
+      listenin en büyük elemanının orijinal listenin en büyük 
+      elemanı olmasını sağlar. Son indis değeri olarak daha 
+      büyük değerler de kullanılabilir, fakat hepsinin etkisi 
+      aynıdır. Yani, son indis değeri olarak, listedeki en yüksek 
+      indis değerinden daha yüksek bir indis belirtilirse, alt 
+      listenin en son elemanı, orijinal listenin en son elemanı 
+      olur.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 3 : </span> d[n:m] , n = 0 , m = 5
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] =1 )
+Son indis değeri : 5
+Alt listenin son elemanı : d[5-1] = d[4] (Listenin
+en büyük indisinden daha büyük)
+Alt liste = [1, 2, 3, 4]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Aynı durum burada da görülüyor. 
+      Bu sefer daha da büyük indis belirtilmiş fakat sonuç aynı 
+      olmuştur.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 4 : </span> d[n:] , n = 0 
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] =1 )
+Son indis değeri: yok
+Alt listenin son elemanı : d listesinin son elemanı d[3] = 4
+Alt liste = [1, 2, 3, 4]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada d[n:] şeklinde 
+      belirtilen alt dizi oluşturma yönteminde, n değeri alt 
+      listenin ilk elemanının seçiminde belirleyici olur. Alt 
+      listenin son elemanı bu durumda, daima orijinal listenin 
+      son elemanı olur.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 5 : </span> d[:-1] , m = -1 
+İlk indis değeri : yok
+Alt listenin ilk elemanı : d[0] (d[0] = 1 )
+Son indis değeri: -1
+Alt listenin son elemanı : d listesinin son elemanı d[-1] = 4
+Alt liste = [1, 2, 3, 4]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada d[:m] şeklinde 
+      belirtilen alt dizi oluşturma yönteminde, m değeri sadece 
+      alt listenin son elemanının seçiminde belirleyici olur. 
+      Alt listenin ilk elemanı, daima orijinal listenin ilk 
+      elemanı olur.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 6 : </span> d[n:m] , n=0 m = -1 
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] = 1 )
+Son indis değeri: -1
+Alt listenin son elemanı : d listesinin sondan ikinci elemanı d[-1 -1] = d[-2] (d[-2] = 3)
+Alt liste = [1, 2, 3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Alt dizi elemanları, indis 
+      sayıları n (dahil) ve m-1&nbsp; (dahil)arasında kalan 
+      elemanlardan oluşur. Burada bu elemanlar, indis değerleri, 
+      d[0] (dahil) ile d[-2]&nbsp; (dahil) arasında kalan 1, 
+      2, 3 elemanlarıdır.</p>
+    <pre class="pl-25">
+<span class="navy">İşlem 7 : </span> d[n:m] , n=-2 m = -1 
+İlk indis değeri : -2
+Alt listenin ilk elemanı : d[-2] (d[-2] = 3 )
+Son indis değeri: -1
+Alt listenin son elemanı : d listesinin sondan ikinci elemanı d[-2] = 3
+Alt liste = [3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada d[0:-1] şeklinde 
+      belirtilen alt dizi oluşturma yönteminde, alt liste elemanları 
+      n(dahil)...m-1(dahil) arasında olur. Burada indis değerleri 
+      0 ile -1 -1 = -2 olan, d[0] ... d[-2] arasında olan elemanlar, 
+      yeni alt diziyi oluşturacaklardır. Burada, alt liste sadece 
+      bir elemandan oluşuyor. Alt lisye girecek olan eleman, 
+      orijinal listenin sondan ikinci elemanı olan 3 dür.</p>
+    <pre class="pl-25">
+<span class="navy">İşlem 8 : </span> d[n:m] , n=-1 m = 2 
+İlk indis değeri : -1
+Alt listenin ilk elemanı : d[-1-1 = -2] (d[-2] = 3 )
+Son indis değeri: 2
+Alt listenin son elemanı : d listesinin son elemanı d[2] = 3
+Alt liste = []
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada Alt listenin başlangıç 
+      elemanı ile son elemanının indisleri aynı, yanibir aralık 
+      tanımlanmıyor. Python derleyicisi bu durumda alt listenin 
+      hiç eleman olmadan açılmasını öngörüyor.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 9 : </span> d[n:m] , n=0 m = 3 
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] = 1 )
+Son indis değeri: 3
+Alt listenin son elemanı : m=3, son indis = m-1 = 3-1 = 2
+                           son eleman = d[2] = 3
+Alt liste = [1, 2, 3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span>Alt liste d listesinin, 
+      indis değerleri 0 (dahil) ile (3-1 = 2) dahil arasındaki 
+      elemanlarını içeriyor. Orijinal d&nbsp; listesinin, indis 
+      değerleri 0, 1, 2 olan,&nbsp; 1, 2, 3 elemanları, alt 
+      llisteyi oluştuyor.</p>
+    <pre class="pl-25">
+<span class="navy">İşlem 10 : </span> d[n:m] , m = 3 
+İlk indis değeri : yok
+Alt listenin ilk elemanı : d[0] (d[0] = 1 )
+Son indis değeri: 3
+Alt listenin son elemanı : d[3-1] = d[2] (d[2] = 3)
+Alt liste = [1, 2, 3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada d[:m] şeklinde 
+      belirtilen alt dizi oluşturma yönteminde, m değeri alt 
+      listenin sadece son elemanının seçiminde belirleyici olur. 
+      Alt listenin son elemanı bu durumda, orijinal listenin 
+      sondan ikinci elemanı olacaktır. Bu yöntemle, alt listenin 
+      ilk elemanı, daima orijinal listenin ilk elemanı olur.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 11 : </span> d[:]  
+İlk indis değeri : yok
+Alt listenin ilk elemanı :  d listesinin ilk elemanı  1
+Son indis değeri: yok
+Alt listenin son elemanı : d listesinin son elemanı  4
+Alt liste = [1, 2, 3, 4]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> Burada d[:] şeklinde belirtilen 
+      alt liste oluşturma yönteminde, orijinal listenin tüm 
+      elemanları, yeni alt dizinin elemanları olur. Bu yöntem 
+      bir listeyi başka bir değişkene kopyalamak için kullanışlı 
+      bir yöntemdir.
+    </p>
+    <pre class="pl-25">
+<span class="navy">İşlem 12 : </span> d[n:m] , n=0 m = len(d)-1 
+İlk indis değeri : 0
+Alt listenin ilk elemanı : d[0] (d[0] = 1 )
+Son indis değeri: len(d) = 4 (listenin uzunluğu = listenin eleman sayısı = 4
+                           len(d)-1 = 4-1 = 3
+Alt listenin son elemanı : d listesinin sondan ikinci elemanı d[3] = 3
+Alt liste = [1, 2, 3]
+    </pre>
+    <p class="indent">
+      <span class="navy">Not :</span> len<span class="op">()</span> 
+      hazır bir Python fonksiyonudur. Bu fonksiyon ile tüm iterasyon 
+      yapılabilen veri tiplerinin eleman sayılarının saptanması 
+      olasıdır. Bu fonksiyondan yararlanılarak, listelerden 
+      alt listeler oluşturulmasında, yukarıdaki örnekte görüldüğü 
+      gibi, indis belirtilmesi yapılabilir.
+    </p>
+    <p id="uyg1" class="indent">
+      Listenin bir elemanına erişmek için, elemanın listedeki 
+      yerini belirten indis değerinden yararlanılabilir. Bu 
+      elemanı listeden çıkarmak, <span class="keyw">del</span> 
+      bildirimi ile gerçekleştirilebilir. Aşağıdaki
+      <a href="uygulamalar/ders17/ders17program1.html">program</a> 
+      bu işlemi görüntülemektedir.</p>
+    <pre class="pl-25">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program1.py</span>
+
+<span class="keyw">liste</span> <span class="op">=</span> <span 
+    class="op">[</span>12<span class="op">,</span> 23<span 
+    class="op">,</span> <span class="str">'Özel Giyim'</span><span 
+    class="op">,</span> <span class="str">'0 416 311 89 56'</span><span 
+    class="op">,</span> 4<span class="op">,</span> 2<span 
+    class="op">]</span>
+
+<span class="keyw">del</span> <span class="op">(</span>liste<span 
+    class="op">[</span>4<span class="op">])</span> <span 
+    class="comm"># liste[-2]  aynı elemana işaret eder!</span>
+
+<span class="keyw">print</span><span class="op">(</span>liste<span 
+    class="op">)</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+[12, 23, 'Özel Giyim', '0 416 311 89 56', 2]</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, listenin 4 üncü, yani sondan ikinci elemanı, 
+      listeden çıkarılmış ve liste isimli liste tipi değişkenin 
+      değeri güncellenmiştir.
+    </p>
+    <p class="indent">
+      Listelerin güncellenmesi, Python programlama dilinde, 
+      diğer program dillerine göre alışılmamış bir yöntem uygulanarak 
+      da gerçekleştirilebilir. Bu yöntem, atama işlemcisinin 
+      sol tarafına liste değişkeninin yerleştirilmesidir. Bu 
+      şekilde, aşağıdaki işlemler gerçekleştirilebilir.
+    </p>
+    <p class="nonindent">
+      <span class="keyw">Listeye Eleman Eklenmesi</span>
+    </p>
+    <pre class="pl-25">
+    
+<span class="op">&gt;&gt;&gt;</span>listeA<span class="op"> = [</span>12<span 
+    class="op">,</span> 2<span class="op">,</span> 5<span 
+    class="op">,</span> 45<span class="op">, </span>47<span 
+    class="op">]</span>
+<span class="op">&gt;&gt;&gt;</span>listeA<span class="op">[</span>4<span 
+    class="op">] = </span>35
+<span class="op">&gt;&gt;&gt;</span>listeA
+<span class="op">&gt;&gt;&gt;</span>[12, 2, 5, 45, 35]
+    </pre>
+    <p class="indent">
+      Görüldüğü gibi, basit tek bir atama ile, ListeA liste 
+      tipi değişkenden en son eleman çıkarılmış ve yerine yeni 
+      bir eleman eklenmiştir. Bu işlem, tahrip edici bir rekürsif 
+      atama değildir. Yani, listeA nın değeri olan hex bellek 
+      işaretçisi, f değişkenine aktarıldıktan sonra, gerek f 
+      gerekse listeA değişkenleri aynı bellek alanına işaret 
+      eder duruma gelmişlerdir. Yukarıda uygulanan yöntemle, 
+      eleman ekleme işlemi, bir tahrip edici rekürsif atama 
+      değildir. Yani, listeA değişkeni, atama işlemcisinin sadece 
+      sol işlenen kısmında oldukça, işlem sırasında listeA değişkeninin 
+      işaret ettiği bellek alanı değişmemektedir. BU durumda, 
+      f değişkenin de aynı bellek alanına işaret etmekte olduğu 
+      gözönüne alınırsa, ListeA da yapılan bir değişikliğin 
+      aynen f değişkenine yansıyacağı yadsınamaz. Aslında sadece 
+      bir tek veri alanı vardır ve bu alana hem listeA, hem 
+      de f değişkeni ile erişim sağlanmaktadır. Veri alanındaki 
+      veri değişirse ve her iki değişkenin de aynı veri alanına 
+      erişim sağlaması devam ederse, hangi değişken ile çağrılırsa 
+      çağrılsın, çağrılan aynı bellek alanında saklı olan aynı 
+      veri kümesi olduğundan, nedereden çağrılırsa çağrılsın, 
+      alınacak olan sonuç aynı olacaktır. Dolayısı ile bu olay, 
+      bir güncelleme olayıdır ve bunun kanıtı da aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>listeA<span class="op"> = [</span>12<span 
+    class="op">,</span> 2<span class="op">,</span> 5<span 
+    class="op">,</span> 45<span class="op">, </span>47<span 
+    class="op">]</span>
+<span class="op">&gt;&gt;&gt;</span>f <span class="op">=</span> listeA
+<span class="op">&gt;&gt;&gt;</span>f
+<span class="op">&gt;&gt;&gt;</span>[12, 2, 5, 45, 47]
+<span class="op">&gt;&gt;&gt;</span><span class="comm"> #f ile listeA aynı bellek alanına işaret ediyor!</span>
+<span class="op">&gt;&gt;&gt;</span>listeA<span class="op">[</span>4<span 
+    class="op">] = </span>35
+<span class="op">&gt;&gt;&gt;</span>listeA
+<span class="op">&gt;&gt;&gt;</span>[12, 2, 5, 45, 35]
+<span class="op">&gt;&gt;&gt;</span>f
+<span class="op">&gt;&gt;&gt;</span>[12, 2, 5, 45, 35]
+<span class="op">&gt;&gt;&gt;</span><span class="comm">sonuç aynı !</span>
+    </pre>
+    <p id="uyg2" class="indent">
+      Yukarıda uygulanan günceleme yöntemi,
+      <span class="keyw">del</span><span class="op">()</span> 
+      gibi, biraz sonra göreceğimiz, insert<span class="op">()</span>, 
+      append<span class="op">()</span> hazır fonksiyonları gibi, 
+      veriyi güncelleyen uygulamalardır. Bu durumda kendi ekleme, 
+      çıkartma, gibi güncelleme fonksiyonlarımızı yazabiliriz. 
+      Aşağıda bu konuda bir
+      <a href="uygulamalar/ders17/ders17program2.html">uygulama</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+    
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program2.py</span>
+
+listeQ <span class="op">= [</span>16<span class="op">,</span> 34<span 
+    class="op">,</span> 2<span class="op">,</span> 56<span 
+    class="op">,</span> 44<span class="op">,</span> 23<span 
+    class="op">]</span>
+f <span class="op">=</span> listeQ
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listeQ =</span>',listeQ<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span>, f<span class="op">)</span>
+    
+listeP <span class="op">= [</span>3<span class="op">, </span>6<span 
+    class="op">]</span>
+<span class="keyw">print</span>(<span class="str">'listeP ='</span><span 
+    class="op">,</span> listeP<span class="op">)</span>
+
+<span class="keyw">def</span> önüneEkle<span class="op">(</span>listeA<span 
+    class="op">, </span>listeB<span class="op">):</span>
+    listeA<span class="op">[:</span>0<span class="op">] =</span> listeB
+
+<span class="keyw">def</span> sonunaEkle<span class="op">(</span>listeA, listeB<span 
+    class="op">):</span>
+    listeA<span class="op">[</span>len<span class="op">(</span>listeA<span 
+    class="op">):] =</span> listeB
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'\nlisteP yi liste \' nün önüne ekle !\n'</span><span 
+    class="op">)</span>
+
+önüneEkle<span class="op">(</span>listeQ<span class="op">,</span> listeP<span 
+    class="op">)</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listeQ ='</span><span class="op">, </span>listeQ<span 
+    class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span><span class="op">,</span> f<span 
+    class="op">)</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'\nBaşlangıç durumuna getir !\n'</span><span 
+    class="op">)</span>
+
+listeQ <span class="op">= [</span>16<span class="op">,</span> 34<span 
+    class="op">,</span> 2<span class="op">,</span> 56<span 
+    class="op">,</span> 44<span class="op">,</span> 23<span 
+    class="op">]</span>
+f <span class="op">=</span> listeQ
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listeQ =</span>',listeQ<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span>, f<span class="op">)</span>
+
+
+sonunaEkle<span class="op">(</span>listeQ<span class="op">,</span> listeP<span 
+    class="op">)</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listeQ ='</span><span class="op">, </span>listeQ<span 
+    class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span><span class="op">,</span> f<span 
+    class="op">)</span><span class="keyw"> </span>   
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'\nBaşlangıç durumuna getir !\n'</span><span 
+    class="op">)</span>
+
+listeQ <span class="op">= [</span>16<span class="op">,</span> 34<span 
+    class="op">,</span> 2<span class="op">,</span> 56<span 
+    class="op">,</span> 44<span class="op">,</span> 23<span 
+    class="op">]</span>
+f <span class="op">=</span> listeQ
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listeQ =</span>',listeQ<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span>, f<span class="op">)</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'\nlisteP yi liste \' nün sonuna ekle !\n'</span><span 
+    class="op">)</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'Dikkat rekürsif atama!!! !\n'</span><span 
+    class="op">)</span>
+
+listeQ <span class="op">=</span> listeQ <span class="op">+</span> listeP <span 
+    class="comm">#Dikkat rekürsif atama!!!</span>
+
+<span class="keyw">print</span><span class="op">(</span>'listeQ ='<span 
+    class="op">,</span> listeQ<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span>'f =     '<span 
+    class="op">,</span> f<span class="op">)</span>
+    
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'\nRekürsif atama listeQ ile f\'in ilişkisini koparır!!!\n'</span><span 
+    class="op">)</span>
+
+<span class="op">---------Program----Sonucunun----Görüntülenmesi-----------------------
+
+listeQ = [16, 34, 2, 56, 44, 23]
+f =      [16, 34, 2, 56, 44, 23]
+listeP = [3, 6]
+
+listeP yi liste ' nün önüne ekle !
+
+listeQ = [3, 6, 16, 34, 2, 56, 44, 23]
+f =      [3, 6, 16, 34, 2, 56, 44, 23]
+
+Başlangıç durumuna getir !
+
+listeQ = [16, 34, 2, 56, 44, 23]
+f =      [16, 34, 2, 56, 44, 23]
+
+listeP yi liste ' nün sonuna ekle !
+
+listeQ = [16, 34, 2, 56, 44, 23, 3, 6]
+f =      [16, 34, 2, 56, 44, 23, 3, 6]
+
+Başlangıç durumuna getir !
+
+listeQ = [16, 34, 2, 56, 44, 23]
+f =      [16, 34, 2, 56, 44, 23]
+
+listeP yi liste ' nün sonuna ekle !
+
+Dikkat rekürsif atama!!! !
+
+listeQ = [16, 34, 2, 56, 44, 23, 3, 6]
+f =      [16, 34, 2, 56, 44, 23]
+
+Rekürsif atama listeQ ile f'in ilişkisini koparır!!!</span></pre>
+    <p class="indent">
+      Yukarıdaki program sonuçları son derece açık ve aydınlatıcıdır. 
+      İlk önce listeQ değişkenine bir liste literali atanmıştır. 
+      Bu atama, bellekte bir alana listeQ literalini yerleştirmiş 
+      ve bu alana erişim kodunu (bir hex tamsayı) listeQ değişkenine 
+      atamıştır. Bir f değişkenine de listeQ nün, listeQ literaline 
+      erişim kodu atanmıştır. Gerek listeQ gerekse f değişkenlerinin 
+      erişebildikleri bellek alanlarında veriler kontrol edildiğinde, 
+      her ikisinin de aynı verilere erişilebildikleri görülmüştür. 
+      Bu sonuç hem listeQ, hem de f değişkenlerinin aynı veri 
+      alanına erişim yaptıklarını kanıtlamaktadır, çünkü erişim 
+      yaptıkları alanın geri döndürdüğü sonuç aynı ise, her 
+      iki değişkenin de bellek erişim kodları aynı olmalıdır.</p>
+    <p class="indent">
+      Bundan sonra önüneEkle<span class="op">(</span>listeQ<span 
+      class="op">,</span> listeP<span class="op">)</span> ve 
+      sonunaEkle<span class="op">(</span>listeQ<span 
+      class="op">,</span> listeP<span class="op">)</span>adında, 
+      argüman olarak iki tane liste tipi veri alan iki fonksiyon 
+      tanımlanmıştır. Bu fonksiyonların içeriğinde, her iki 
+      fonksiyonun da ilk argümanları olan listenin, atama işlemcisinin 
+      sadece sol işleneninde bulunduğu ve her iki fonksiyonun 
+      da argümanlarını sadece güncellediği görülmektedir.
+    </p>
+    <p class="indent">
+      Bu fonksiyonların argüman olarak listeQ ve f değişkenleri 
+      ile çağrılmaları durumunda, argümanlarında sadece güncelleme 
+      yapacakları, bu fonsiyonlara argüman olarak uygulanmaları 
+      durumunda, her iki argüman arasındaki ilişkinin kopmayacağı 
+      görülmektedir. Programın yürğyüşünde bu olgu açıkça görülmektedir.
+    </p>
+    <p class="indent">
+      Bundan sonra listeQ verisine hem sol hem de sağ işlenende 
+      listeQ değişkeni bulunan, x <span class="op">=</span> 
+      x <span class="op">+</span> a şeklinde bir rekürsif atama 
+      yapılmıştır. Bu atama sonucunda, listeQ değişkeni bellekte 
+      ayrı bir yerde saklanan, başka bir alana işaret eder duruma 
+      gelmiş, f değişkeni ile aralarındaki ilişki kopmuş, listeQ 
+      üzerinde yapılan değişikliklerin artık f değişkenine yansımadığı 
+      görülmüştür.
+    </p>
+    <p class="indent">
+      Özet olarak, güncellenebilen tipte bir verinin sadece 
+      sol işlenende bulunduğu bir atama işlemi, veriyi güncellemekte, 
+      yani önceden işaret ettiği bellek alanını değiştirmemektedir. 
+      Aksi halde, yani hem sol hem de sağ işlenende bulunduğu 
+      bir atamanın, işaret ettiği bellek alanını değiştirdiği 
+      ve eski veri alanına işaret eden diğer değişkenlerle ilgisini 
+      koprdığı görülmektedir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, güncelenebilir tipte değişkenlerin 
+      güncellenebilmeleri için, özel ekleme , çıkarma, araya 
+      yeni veri yerleştirme rutinlerine gerek duyulur. Bir kez 
+      atanmış liste elemanlarına atama ile ek elemanlar eklenemez. 
+      Sadece mevcut elemanlar atama ile değiştirilebilir. Yeni 
+      atama ile yeni indis değerleri yaratılamaz. Sadece mevcut 
+      indis değerleri ile işlemler yapılabilir. Aşağıdaki atama 
+      başarısızlıkla sonuçlanır
+    </p>
+    <pre class="pl-25">
+    
+<span class="op">&gt;&gt;&gt;</span> a = <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">]</span>
+<span class="op">&gt;&gt;&gt;</span>a<span class="op">[</span>2<span 
+    class="op">]</span> <span class="op">=</span> 5 
+    </pre>
+    <p id="uyg3" class="nonindent">
+      Güncellenebilen bir verinin güncellenebilmesi için, ya 
+      öntanımlı, <span class="keyw">append</span><span 
+      class="op">()</span> fonksiyonu veya kullanıcı tanımlı 
+      sonunaEkle<span class="op">()</span> gibi bir fonksiyonun 
+      uygulanması veya mevcut indis değerlerinden birine sahip 
+      olan elemanın doğrudan atama ile değiştirilmesi gerekir. 
+      Aşağıdaki
+      <a href="uygulamalar/ders17/ders17program3.html">uygulama</a> 
+      bu konunun açıklanması için yararlı olacaktır.
+    </p>
+    <pre class="pl-25">
+    
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program3.py</span>
+
+listA <span class="op">=</span> <span class="op">[</span>23<span 
+    class="op">,</span> 16<span class="op">,</span> 57<span 
+    class="op">]</span>
+    
+f <span class="op">=</span> listA
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listA =</span>', listA<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span>, f<span class="op">)</span>
+    
+listA <span class="op">[</span>2<span class="op">] = </span><span 
+    class="str">'Güneş'</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'listA =</span>', listA<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'f =     '</span>, f<span class="op">)</span>
+    
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+listA =  [23, 16, 57]
+f      = [23, 16, 57]
+listA =  [23, 16, 'Güneş']
+f      = [23, 16, 'Güneş']</span></pre>
+    <p class="indent">
+      Yukarıdaki programdan, atanmış bir listeden eleman değişiminin, 
+      bir güncelleme olduğu ve değişkenin işaret ettiği bellek 
+      alanının değişmediği görülmektedir.
+    </p>
+    <p class="indent">
+      Çok önemli olduğu ve programlamanın anahtarı olduğu için, 
+      aktarım mekanizmalarını yeniden tekrarlayacağız.
+    </p>
+    <p class="indent">
+      Değerle aktarım veya referansla aktarım terimleri, standart 
+      olmayan ve herkes için başka bir mekanizmayı çağrıştıran 
+      terimlerdir. Bunların kullanılmaması daha yerinde olacaktır.
+    </p>
+    <p class="subsubsub">
+      Değiştirilemeyen Veri Tipleri
+    </p>
+    <p class="indent">
+      Değiştirilemeyen (immutable) tek veri tipleri (sayılar, 
+      sözel değerler, mantıksal değerler) bir değişkene atandıklarında 
+      değerleri değişkene atanır ve değişken program belleğinin 
+      sık değişebilen bir kısmına yerleştirilir. Örnek:
+    </p>
+    <p class="indent">
+      p = 5
+    </p>
+    <p class="indent">
+      Bu değer başka bir değişkene aktarılmak istendiğindiğinde, 
+      değerin kopyası, ikinci değişkene aktarılır. İkinci değişken 
+      başka bir bellek bölgesine yerleştirilir. altarım gerçekleştiğinde, 
+      birinci ve ikinci değişken arasında bir ilişki kalmaz. 
+      Birinci değişkene yeni bir değer atandığında, ikinci değişken 
+      etkilenmez. İkinci değişkene yeni bir değer atandığında, 
+      birinci değişken etkilenmez. Örnek:
+    </p>
+    <pre class="pl-25">
+    
+      a = 12 <span class="comm"># (a nın değeri 12)</span>
+      b = a  <span class="comm"># (b nin değeri 12)</span>
+      a = 35 <span class="comm"># (a nın değeri 35, fakat b nin değeri hâlâ 12)</span>    </pre>
+    <p class="indent">
+      Fonkisyonlarda argüman olarak kullanıldıklarında, argüman 
+      olarak kopyaları kullanılır. Bu yüzden fonksiyon içindeki 
+      değişimler fonksiyon dışına yansımaz. Örnek :
+    </p>
+    <pre class="pl-25">
+    
+<span class="keyw">def değiş </span><span class="op">(</span>x<span 
+    class="op"></span><span class="op">:</span>
+<span class="pl-25">x</span> <span class="op">=</span> 12
+
+a = 23
+
+değiş<span class="op">(</span>a<span class="op">)</span><span 
+    class="comm"> # (anın değeri hâlâ 23, değişen değer fonksiyonun içinde geçerli)</span></pre>
+    <p class="subsubsub">
+      Güncellenebilen Veri Tipleri
+    </p>
+    <p class="indent">
+      Güncellenebilen yığın veri tipleri (listeler, sözlükler, 
+      kümeler) yeni bir değişkene atandığında veriler bir bir 
+      bellek bölgesine yerleştirilir. Bu bölgeye erişim kodu 
+      değişkene atanır.
+    </p>
+    <p class="indent">
+      Bu değişkenin değeri, başka bir değişkene atandığında, 
+      atanan sadece veriye erişimi sağlayan erişim kodudur.
+    </p>
+    <p class="indent">
+      Aktarım sona erdiğinde, her iki değişken de aynı veri 
+      yığınına erişirler. Birisi veriyi güncellerse, diğeri 
+      de aynı güncellenmiş veriye erişir.
+    </p>
+    <p class="indent">
+      Değişkenlerden birine yeni veri atanması durumunda, bu 
+      değişkenin eski veri yığını ile ilgisi kesilir. Yeni değer, 
+      yeni bir bellek alanına yerleştirilir. Bu yeni bellek 
+      alanına sadece değeri yeniden atanmış değişken erişebilir. 
+      Eski veri yığınına sadece değeri değişmemiş diğer değişkenler 
+      erişebilirler. Bu konuda örnekler, yukarıdaki uygulamalarda 
+      görülebilir.</p>
+    <p class="indent">
+      Listeden bir elemanın çıkarılması için,
+      <span class="keyw">remove</span><span class="op">()</span> 
+      öntanımlı fonksiyonundan yararlanılabilir. Bu fonksiyonun 
+      uygulanma yöntemi x bir atanmış liste değişkeni ve m de 
+      bu listenin bir elemanı olmak üzere,
+    </p>
+    <p class="indent">
+&nbsp; x<span class="op">.</span><span class="keyw">remove</span><span 
+      class="op">(</span>m<span class="op">)</span></p>
+    <p id="uyg4" class="nonindent">
+      şeklindedir. Bu bir veri güncelleme metodudur. Bu metot, 
+      listede bulunan değeri m olan elemanlardan, ilk uyuşanı 
+      listeden çıkarır. Listede olan elemanlardan hiçbirisi 
+      ile uyuşma sağlanamazsa, bir ValueError hatası oluşur. 
+      Bu konuda bir uygulama
+      <a href="uygulamalar/ders17/ders17program4.html">aşağıda</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+    
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program4.py</span>
+
+<span class="keyw">try</span><span class="op">:</span>
+<span class="pl-25">listE</span> <span class="op">= [</span>16<span 
+    class="op">,</span>5<span class="op">,</span>45<span 
+    class="op">]</span>
+
+<span class="pl-25">f</span> <span class="op">=</span> listE
+
+<span class="pl-25">m</span> <span class="op">=</span> 5
+
+<span class="pl-25">listE</span><span class="op">.</span><span 
+    class="keyw">remove</span><span class="op">(</span>m<span 
+    class="op">)</span>
+
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'listeE = {0}'</span>.<span class="keyw">format</span><span 
+    class="op">(</span>listE<span class="op">))</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'f = {0:&gt;13}'</span><span class="op">.</span><span 
+    class="keyw">format</span><span class="op">(</span>f<span 
+    class="op">))</span>
+
+<span class="keyw">except</span><span class="op"> :</span>
+    <span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'Hiçbir elemanla uyuşma sağlanamadı !'</span><span 
+    class="op">)</span>
+
+<span class="keyw">else</span><span class="op">:</span>
+<span class="keyw-25">print</span><span class="op">(</span><span 
+    class="str">'Uyuşma Sağlandı ve \
+eleman {0} listeden çıkarıldı!'</span><span class="op">.</span><span 
+    class="keyw">format</span><span class="op">(</span>m<span 
+    class="op">))</span>
+    
+    <span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+listeE = [16, 45]
+f =      [16, 45]
+Uyuşma Sağlandı ve eleman 5 listeden çıkarıldı!
+</span></pre>
+    <p class="indent">
+      Yukarıdaki kullanıcı tanımlı fonksiyonlarımızdan yararlanarak,
+      <span class="keyw">remove</span><span class="op">()</span> 
+      metodununa eşdeğer bir fonksiyon yazabiliriz. Fakat, okunabilirliği 
+      yüksek bir kod için, bu metodun kullanımı daha uygun olacaktır.
+    </p>
+    <p id="uyg5" class="indent">
+      Liste sonuna eleman eklenmesi için <span class="keyw">
+      append</span><span class="op">()</span> metodundan yararlanabiliriz. 
+      Bu metot, tanımlı bir a listesinin sonuna, tanımlı bir 
+      x listesini ekleyen a<span class="op">[</span><span 
+      class="keyw">len</span><span class="op">(</span>a<span 
+      class="op">):] = [</span>x<span class="op">]</span> metoduna 
+      benzer, fakat bu sonuncusu daha yeteneklidir. Bu iki metodun 
+      kullanımları ve aralarındaki fark, aşağıdaki
+      <a href="uygulamalar/ders17/ders17program5.html">uygulamada</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+    
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program5.py</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+
+x  <span class="op">=</span> <span class="op">[</span>2 <span 
+    class="op">,</span>9<span class="op">]</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">append</span><span 
+    class="op">(</span>12<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">append</span><span 
+    class="op">(</span>x<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">append</span><span 
+    class="op">([</span>x<span class="op">])</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">[</span><span class="keyw">len</span><span 
+    class="op">(</span>a<span class="op">) :]</span> <span 
+    class="op">=</span> x<span class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">[</span><span class="keyw">len</span><span 
+    class="op">(</span>a<span class="op">) :]</span> <span 
+    class="op">= [</span>x<span class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+a = [2, 3, 4]
+a = [2, 3, 4, 12]
+a = [2, 3, 4]
+a = [2, 3, 4, [2, 9]]
+a = [2, 3, 4]
+a = [2, 3, 4, [[2, 9]]]
+a = [2, 3, 4]
+a = [2, 3, 4, 2, 9]
+a = [2, 3, 4, 2, 9, [2, 9]]</span></pre>
+    <p class="indent">
+      Yukarıdaki programda görülen kodların kullanılması ile 
+      istenilen şekilde bir eklemenin gerçekleştirilmesi sağlanabilir.</p>
+    <p id="uyg6" class="indent">
+      Bir listenin elemanlarına başka bir liste elemanlarının 
+      eklenmesi için listeA<span class="op">.</span>
+      <span class="keyw">extend</span><span class="op">(</span>listeB<span 
+      class="op">)</span> metodu da kullanılabilir. Bu metot, 
+      a[len(a):] = L işlemine eşdeğerdir. Bu metot, eklenecek 
+      olan listedeki elemanları, orijinal listenin sonuna eklemektedir.Bu 
+      konuda bir
+      <a href="uygulamalar/ders17/ders17program6.html">uygulama</a>, 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+    
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program6.py</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+
+x  <span class="op">=</span> <span class="op">[</span>2 <span 
+    class="op">,</span>9<span class="op">]</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">append</span><span 
+    class="op">(</span>12<span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">[</span><span class="keyw">len</span><span 
+    class="op">(</span>a<span class="op">) :]</span> <span 
+    class="op">=</span> x<span class="op">]</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+a = [2, 3, 4]
+a = [2, 3, 4, 2, 9]
+a = [2, 3, 4]
+a = [2, 3, 4, 2, 9]</span></pre>
+    <p class="indent">
+      Yukarıdaki uygulamada görüldüğü gibi, gerek hazır fonksiyon, 
+      gerekse kullanıcı tanımlı ifade aynı sonucu vermektedir.
+    </p>
+    <p id="uyg7" class="indent">
+      Bir listeye belirli bir elemandan sonra yeni elemanlar 
+      eklenmesi için list<span class="op">.</span><span 
+      class="keyw">insert</span><span class="op">(</span>i<span 
+      class="op">,</span>x<span class="op">)</span> hazır metodu 
+      kullanılabilir. Burada i, ekleme yapılacak elemanın indisi, 
+      x de eklenecek listedir. Bu metod, list<span 
+      class="op">.</span><span class="keyw">insert</span><span 
+      class="op">(</span>0<span class="op">,</span>x<span 
+      class="op">)</span> şeklinde uygulanırsa, eklenecek liste 
+      elemenları, liste başına eklenir. Bu metot, list<span 
+      class="op">.</span><span class="keyw">insert</span><span 
+      class="op">(</span><span class="keyw">len</span><span 
+      class="op">(</span>list<span class="op">),</span>x<span 
+      class="op">)</span> şeklinde uygulanırsa, eklenecek liste 
+      elemanları, liste sonuna eklenir. Eklemeler tek elemanlar 
+      halinde değil, liste elemanı olarak eklenir. Bu konuda 
+      bir uygulama
+      <a href="uygulamalar/ders17/ders17program7.html">aşağıda</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25  verticalTab-50">
+        
+<span class="comm"># -*- coding: utf-8 -*-</span>
+<span class="comm"># ders17program7.py</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+
+x  <span class="op">=</span> <span class="op">[</span>2 <span 
+    class="op">,</span>9<span class="op">]</span>
+
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">insert</span><span 
+    class="op">(</span>0<span class="op">,</span> x<span 
+    class="op">)</span>
+    
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a  <span class="op">=</span>  <span class="op">[</span>2<span 
+    class="op">,</span> 3<span class="op">,</span> 4<span 
+    class="op">]</span>
+    
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+a<span class="op">.</span><span class="keyw">insert</span><span 
+    class="op">(</span><span class="keyw">len</span><span 
+    class="op">(</span>a<span class="op">), </span>x<span 
+    class="op">)</span>
+    
+<span class="keyw">print</span><span class="op">(</span><span 
+    class="str">'a ='</span><span class="op">,</span> a<span 
+    class="op">)</span>
+
+<span class="maroon">---------Program----Sonucunun----Görüntülenmesi-----------------------
+a = [2, 3, 4]
+a = [[2, 9], 2, 3, 4]
+a = [2, 3, 4]
+a = [2, 3, 4, [2, 9]]</span></pre>
+    <p class="indent">
+      Bu metodun uygulanması ile eklenen listedeki tek tek 
+      elemanların değil, tüm listenin tek bir eleman olarak 
+      eklendiğine dikkat edilmelidir.</p>
+    <p class="indent">
+      Bir listenin indis sayısı belli bir elemanını listeden 
+      çıkarmak için listeDeğişkeni<span class="op">.</span><span 
+      class="keyw">pop</span><span class="op">(</span>[i]<span 
+      class="op">)</span> metodu uygulanabilir. Burada [i] notasyonu 
+      i değerinin isteğe bağlı olduğunu belirtmek için kullanılmıştır. 
+      Metodun kullanımı, listeDeğişkeni<span class="op">.</span><span 
+      class="keyw">pop</span><span class="op">(</span>i<span 
+      class="op">)</span> veya veya listeDeğişkeni<span 
+      class="op">.</span><span class="keyw">pop</span><span 
+      class="op">()</span> şeklindedir. Eğer bir indis numarası 
+      belirtilmemişse, listenin en son elemanı listeden silinir.</p>
+    <p class="indent">
+      Bir listeden tüm elemanların silinmesi için listeDeğişkeni<span 
+      class="op">.</span><span class="keyw">clear</span><span 
+      class="op">()</span> metodu uygulanabilir. Bu metot,
+      <span class="keyw">del</span> liste değişkeni<span 
+      class="op">.[:]</span> ifadesine eşdeğerdir.</p>
+    <p class="indent">
+      Bir listeden bir elemanın indis değerini sorgulamak için, 
+      listeDeğişkeni<span class="op">.</span><span 
+      class="keyw">index</span><span class="op">(</span>listeElemanı<span 
+      class="op">)</span> metodu kullanılabilir. Bu metot listeElemanı 
+      'nın listedeki ilk yerleşim yerinin indisini döndürür. 
+      Eğer böyle bir eleman listede yoksa, bir hata oluşur.</p>
+    <p class="indent">
+      Bir listede, herhangibir elemanın listede bulunduğu sayı, 
+      yani belirli bir değerin, bir listeye kaç kez yerleşmiş 
+      olduğunu sorgulamak için, listeDeğişkeni.<span 
+      class="keyw">count</span>(listeElemanı) metodu kullanılabilir. 
+      Bu metot, istenilen liste elemanını listede bulamazsa, 
+      hata vermez, sadece [0] değerini döndürür.</p>
+    <p class="indent">
+      Bir liste prensip olarak, değişik tipte ve değişik büyüklükte 
+      değerlerin, sırasız olarak toplandıkları bir konteyner 
+      gibidir. Bu değerler, listeDeğişkeni.<span 
+      class="keyw">sort</span>() metodu ile sıralanabilir. bu 
+      metot sadece uygun veri tiplerinin yerleştirilmiş olduğu 
+      bir listede sıralama yapabiir. Veriler sıralanamaz nitelikte 
+      ise, bir hata oluşur.</p>
+    <p class="indent">
+      Bir listeye elemanların yerleşim sıraları, tersine çeverilebilir. 
+      Bunun için, listeDeğişkeni.reverse() metodu kullanılabilir. 
+      Bu metot listeyi sıralamaz, sadece en son elemanı en başa 
+      alarak liste yerleşimini yeniden düzenler. Python dokümantasyonunda 
+      verilen, bu metotların bir uygulama örneği, aşağıda görülmektedir.</p>
+    <p class="indent">
+      <span class="op">&gt;&gt;&gt;</span><span class="gp">
+      </span><span class="n">a</span> <span class="op">=</span>
+      <span class="op">[</span><span class="mf">66.25</span><span 
+      class="op">,</span> <span class="mi">333</span><span 
+      class="op">,</span> <span class="mi">333</span><span 
+      class="op">,</span> <span class="mi">1</span><span 
+      class="op">,</span> <span class="mf">1234.5</span><span 
+      class="op">]</span><br><span class="op">&gt;&gt;&gt;</span><span 
+      class="gp"> </span><span class="keyw">print</span><span 
+      class="op">(</span><span class="n">a</span><span 
+      class="op">.</span><span class="keyw">count</span><span 
+      class="op">(</span><span class="mi">333</span><span 
+      class="op">)</span><span class="p">,</span>
+      <span class="n">a</span><span class="op">.</span><span 
+      class="keyw">count</span><span class="op">(</span><span 
+      class="mf">66.25</span><span class="op">)</span><span 
+      class="p">,</span> <span class="n">a</span><span 
+      class="op">.</span><span class="keyw">count</span><span 
+      class="op">(</span><span class="s">'x'</span><span 
+      class="op">))</span><br><span class="go">2 1 0</span><br>
+      <span class="op">&gt;&gt;&gt;</span><span class="gp">
+      </span><span class="n">a</span><span class="op">.</span><span 
+      class="keyw">insert</span><span class="op">(</span><span 
+      class="mi">2</span><span class="op">,</span>
+      <span class="o">-</span><span class="mi">1</span><span 
+      class="op">)</span><br><span class="op">&gt;&gt;&gt;</span><span 
+      class="gp"> </span><span class="n">a</span><span 
+      class="o">.</span><span class="n"><font 
+      style="BACKGROUND-COLOR: #3399ff" color="#ffffff" 
+      class="keyw">append</font></span><span class="op">(</span><span 
+      class="mi">333</span><span class="op">)</span><br>
+      <span class="op">&gt;&gt;&gt;</span><span class="gp">
+      </span><span class="n">a</span><br><span class="go">[66.25, 
+      333, -1, 333, 1, 1234.5, 333]</span><br>
+      <span class="op">&gt;&gt;&gt;</span><span class="gp">
+      </span><span class="n">a</span><span class="op">.</span><span 
+      class="keyw">index</span><span class="op">(</span><span 
+      class="mi">333</span><span class="op">)</span><br>
+      <span class="go">1</span><br><span class="op">&gt;&gt;&gt;
+      </span><span class="n">a</span><span class="op">.</span><span 
+      class="keyw">remove</span><span class="op">(</span><span 
+      class="mi">333</span><span class="op">)</span><br>
+      <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><br>
+      <span class="go">[66.25, -1, 333, 1, 1234.5, 333]</span><br>
+      <span class="op">&gt;&gt;&gt;</span><span class="gp">
+      </span><span class="n">a</span><span class="op">.</span><span 
+      class="keyw">reverse</span><span class="op">()</span><br>
+      <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><br>
+      <span class="go">[333, 1234.5, 1, 333, -1, 66.25]</span><br>
+      <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span 
+      class="op">.</span><span class="keyw-10">sort</span><span 
+      class="op">()</span><br><span class="gp">&gt;&gt;&gt;
+      </span><span class="n">a</span><br><span class="go">[-1, 
+      1, 66.25, 333, 333, 1234.5]</span><br>
+    </p>
+    <p class="indent">
+      Bir listenin kopyalanması için, sığ kopyalama (shallow 
+      copy) veya derin kopyalama (deep copy) yontemleri 
+      uygulanabilir. Sığ kopyalama yönteminde, kopyaların 
+      birbirine bağımlı kalabilmeleri olasılığı vardır. Sığ 
+      kopyalama, güncellenemeyen veri tipleri için derin 
+      kopyalama ile aynıdır. Çünkü, sığ kopyalama sadece 
+      bellek refereranslarını kopyalar ve günceleleneyen 
+      veri tipleri ancak toptan değişebilir ve toptan 
+      değişme de, bellek referansları da değişir. 
+      Güncellenebilien veri tipleri sığ kopyalama ile 
+      kopyalandıklarında, kopyalar birbirine bağlı kalırlar 
+      ve birindeki güncelleme diğerine de yansır. 
+      Güncellenebilien veriler ile, ancak derin kopyalama 
+      yöntemi ile birbirinden bağımsız kopyalar 
+      yaratılabilir. Örnek:</p>
+    <pre class="pl-25">
+
+<span class="op">&gt;&gt;&gt;</span> d <span class="op">= [</span>4<span 
+    class="op">,</span>6<span class="op">,[</span>9<span 
+    class="op">,</span>6<span class="op">,[</span>7<span 
+    class="op">,</span>7<span class="op">]]]</span>
+<span class="op">&gt;&gt;&gt;</span> r <span class="op">= </span>d<span
+class="op">.[</span>2<span class="op">,</span>2<span class="op">].</span><span 
+    class="keyw">copy</span><span class="op">()</span>
+<span class="op">&gt;&gt;&gt;</span>d<span class="op">.</span><span
+class="keyw">append</span><span class="op">(</span>78<span class="op">)</span>
+<span class="op">&gt;&gt;&gt;</span>r
+[4, 6, [9, 6, [7, 7], 78]]    
+    </pre>
+    <p class ="indent">
+      Yukarıdaki programdaki kopyalama metodu bir sığ kopyalama
+      metodudur ve oluşan kopya, orijinaline bağlıdır. Program bunu açıkça
+      belirtmektedir. Derin kopyalama için, topluluklar (tuples) incelenirken
+      örnek verilecektir.
+    </p>
+    <p class="indent">
+      Bir listenin sıralanmış bir sürümünü başka bir listeye 
+      kopyalamak için, sorted() metodundan yararlanılabilir. 
+      Kullanılışı, aşağıdaki gibidir.</p>
+    <pre class="pl-25">
+&gt;&gt;&gt; a <span class="op">=</span> <span class="op">[</span>34<span 
+    class="op">,</span> 5<span class="op">,</span> 66<span 
+    class="op">, </span>3<span class="op">,</span> 7<span 
+    class="op">]</span>
+&gt;&gt;&gt; b <span class="op">=</span> <span class="keyw">sorted</span><span 
+    class="op">(</span>a<span class="op">)</span>
+&gt;&gt;&amp;g[3, 5, 7, 34, 66]</pre>
+    <p class="indent">
+      Bir elemanın, bir listede olup olmadığının saptanması 
+      için, <span class="op">in</span> işlemcisinden yararlanılabilir. 
+      Bir elemanın listede olup olmadığı ise, not in işlemcisi 
+      ile sorgulanabilir. Buna aidiyet testi adı verilir. Örnek:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span> listeA <span 
+    class="op">=</span> <span class="op">[</span>3<span 
+    class="op">,</span> 4<span class="op">]</span>
+&gt;&gt;&gt; 3 <span class="op">in</span> listeA
+True
+&gt;&gt;&gt; 4 <span class="op">not in</span> listeA
+False</pre>
+    <p class="indent">
+      Bir listenin değeri en büyük olan elemanı
+      <span class="keyw">max</span><span class="op">()</span>, 
+      değeri en düşük olan elemanı ise, <span class="keyw">min</span><span 
+      class="op">()</span> metotlarından yararlanılarak saptanabilir. 
+      Eğer listedeki elemanlar, farklı tiplerde ise, değeri 
+      maksimum veya minimum olan bir eleman saptanamaz. Bu durumda, 
+      TypeError istisnası yükseltilir.
+    </p>
+    <pre class="pl-25">
+
+<span class="op">&gt;&gt;&gt;</span> min<span class="op">([</span>9<span 
+    class="op">,</span>555<span class="op">,</span>8<span 
+    class="op">])</span>
+
+    </pre>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksindeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders16.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders18.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+    </ul>
+    <p>
+      <script type="text/javascript" 
+      src="../Library/bdelib.js">
+    </script>
+      <script type="text/javascript" 
+      src="../Library/lastmodified.js">
+    </script>
+    </p>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:26 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

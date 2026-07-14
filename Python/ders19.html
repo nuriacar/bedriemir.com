@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders19.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 19</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 2 </h2>
+    <h3 class="chapter">Veri Tipleri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders18.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders20.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 19
+      </p>
+    </div>
+    <p id="tuple" class="title-left verticalTab-10">
+      3.2 - Topluluk (Tuple) Tipi Veriler</p>
+    <p class="indent">
+      Topluluk tipi veriler, normal parantezler arasında gösterilen, 
+      aralarında bir virgül ile ayrılmış veri topluluklarıdır. 
+      Örnek olarak <span class="op">(</span>8<span 
+      class="op">, </span>2<span class="op">,</span> 10<span 
+      class="op">) </span>topluluk tipi bir veridir. Daha doğru 
+      bir açıklama ile, bu topluluk sınıfının bir sınıf örneğidir.
+    </p>
+    <p class="indent">
+      Topluluk sınıfı koleksiyonlar, bir kez atandıktan sonra 
+      kısmen değiştirilemez veriler olarak tanımlanır. Aslında 
+      bu tanım ne her zaman doğru, ne de her zaman yanlıştır. 
+      Koleksiyon tipi veriler olarak genel açıdan belirtilen, 
+      topluluk verilerinin elemanları her türden olabilir.
+    </p>
+    <p class="indent">
+      Tek boyutlu koleksiyonlar, eleman olarak sadece sayısal 
+      veya sözel, fakat tek değerli elemanlar içerirler. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+t1 = (25, 'www, 34, 'Dünya') 
+    </pre>
+    <p class="nonindent">
+      Bu örnekteki t1 değişkenin değeri, koleksiyon tiplerinden, 
+      topluluk tipinde bir değerdir. Burada, t topluluğu, tek 
+      boyutlu olmasına karşın, aynı tipte veri içermediği için 
+      heterojen tipte bir topluluk değeridir. Tek boyutlu ve 
+      heterojen bir topluluk olan t topluluğu, kısmen değiştirilemez 
+      (immutable) bir topluluk değeridir. Bu değer kısmen değiştirilemez 
+      çünkü elemanlarından hiçbiri kısmen değiştirilebilir (mutable) 
+      veri tiplerinden birisi değildir.Bir diğer örnek,
+    </p>
+    <pre class="pl-25 navy">
+t2 = (34, 67, 89)      
+    </pre>
+    <p class="indent">
+      Bu örnekteki t2 değişkeninin değeri, tek boyutlu homojen 
+      bir topluluktur. Tek boyutlu olmasının nedeni, hiçbir 
+      elemanının koleksiyon tipinde eleman olmamasıdır. Homojen 
+      olmasının nedeni, tüm elemanlarının aynı tip değerlerden 
+      oluşmasıdır. Bu topluluk, kısmen değiştirilemez, yani 
+      güncellenemez, ancak toptan değiştirilebilir (immutable) 
+      karakterdedir. Değiştirilemez olmasının nedeni, tek boyutlu 
+      olmasıdır. Tek boyutlu hiçbir topluluk, kısmen değişebilir 
+      nitelikte değildir. Bir diğer örnek,
+    </p>
+    <pre class="pl-25 navy">
+t3 = ((12,67), (56,88), (126 , 'Günaydın'))
+    </pre>
+    <p class="indent">
+      Bu örnekteki t3 değişkenin değeri, iki boyutlu homojen 
+      bir topluluktur. Bu topluluğun elemanları, sadece topluluk 
+      (tuple) veri tipinde olduğu için homojen bir topluluktur. 
+      İki boyutlu olmasının nedeni elemanlarının tek boyutlu 
+      olması, yani hiçbir koleksiyon veri tipinde eleman içermemeleridir. 
+      Bu iki boyutlu topluluk kısmen değişemez (güncellenemez) 
+      niteliktedir. Çünkü, hiçbir elemanı kısmen değişebilir 
+      (güncellenebilir) nitelikte değildir. Bu topluluk ancak 
+      tamamen değiştirilebilir. Bir başka örnek,
+    </p>
+    <pre class="pl-25 navy">
+T4 = (23, 'ali', 12.67, 'YARIÇAP', [12, 'Mor Salkım Sokak Beşiktaş-Istanbul'])
+    </pre>
+    <p class="indent">
+      Bu topluluk üç boyutludur, çünkü elemanları koleksiyon 
+      tipi bir veri tipi olan liste tipi bir eleman içermektedir. 
+      Bu tek elemanlı bir veri olduğundan, homojenitesi hakkında 
+      bir değerlendirme yapılmaz. Bu topluluk güncellenebilir 
+      (mutable) bir topluluktur. Çünkü, elemanı, güncellenebilir 
+      (mutable) bir veri tipi olan liste tipi bir eleman içermektedir. 
+      Bu örnekteki gibi, güncellenebilir tipte eleman içeren 
+      toplululara çok dikkat edilmesi gerekir. Çünkü bunlar, 
+      prensip olarak güncellenemez bir veri tipi olan topluluk 
+      veri tipinde, sıradışı bir nitelik olan güncellenebilir 
+      nitelikte verilerdir.
+    </p>
+    <p class="indent">
+      Kısa süre sonra inceleyeceğimiz saözlük (dictionary) tipinde 
+      koleksiyonlarda veriler (anahtar:değer) toplulukları olarak 
+      yerlştirilir. Anahtar değerlerine program sonuna kadar 
+      değişmeyen bir hash değeri verilir. Bu hash değerinin 
+      program sonuna kadar aynı kalması için program sonuna 
+      kadar değişmemesi gerekir. Sözlük tipi verilerin anahtar 
+      değerleri olarak kullanılabilecek değerlere &quot;hashable&quot; 
+      adı verilir. Topluk verilerinin bu kriteryuma uyanları, 
+      sadece tek boyutlu, elemanları koleksiyon tipi olmayan 
+      topluluklardır. Bunları sözlükler ile çalışırken daha 
+      yakından inceleyeceğiz.
+    </p>
+    <p class="indent">
+      Bu sayfa ile birlikte uygulama düzeni değişecektir. İlk 
+      uygulamalarımızda, Python programlama dili için zorunlu 
+      olmamasına karşın, bildirim sonlarına noktalı virgül konulmuştu. 
+      Bunun amacı, Python programlama diline yeni başlayanlar 
+      için, bildirimlerin tanınmasıydı. Bir süre sonra, artık 
+      herkes bildirimleri tanıyacak yeterli düzeye eriştiğinden, 
+      bildirim sonlarına noktalı virgül konulması uygulamasına 
+      son verilmişti. Program kodları ise, belirli bir süre, 
+      saklı sözcükleri, işlemcileri, sözel ve sayısal verileri 
+      belirtmek için, çeşitli renklerde yazıldı. Bu aşamada, 
+      artık her izleyici, Python program dilinin çeştli öğelerini tanıyabilecek duruma geldiğinden, program kodlarının 
+      renkli olarak yazılmasına da gerek olmayacaktır. İzleyicilerin 
+      izlemeleri kolay olsun diye programlar belirli bir numara 
+      sayısı le verilmekteyken artık bu uygulama da sorunlara 
+      neden olabilecektir. Python programlama dili, hem varsayılan 
+      builtins modülünde, hem de çağrılmayı bekleyen modüllerde, 
+      sayısız denilecek kadar hazır fonksiyon, değer, tanımlanmış 
+      nesne sınıfı içermektedir. Hiçbir kitabın, bunların tümünü 
+      tek bir ciltte kapsama olanağı yoktur. Ayrıca yazılmış 
+      kitap ve web sayfalarının tümüne yakını, okuduğunuz dahil, 
+      sadece tanıtım amaçlı öğretim için yazılmışlardır. Bunlar 
+      arasında ilginç görülenlerin zaman içinde, ilgili konu 
+      başlığına eklenmesi harika olacaktır. Oysa, birbirini 
+      sıra numarası ile izleyen uygulamaların arasına yeni numaralı 
+      bir uygulamanın eklenmesi, ancak tüm uygulama numaralarının 
+      değişmesi ve bu uygulamaların kaydedildikleri disk dosyalarının 
+      yeniden isimlendirilmesi gibi çok uğraşı gerektiren bir 
+      yöntemle gerçekleştirilebilir. Bu yüzden, uygulama programları 
+      ve sonuçları artık sayfa içinde verilecektir. Bu şekilde, 
+      web sayfalarının dinamik özelliğinden yararlanılabilecek, 
+      gereğinde eklemeler yapılabilecek, yeni örnekler sunulabilecek, 
+      bu şekilde, dinamik yetenekli web sayfalarının avantajının 
+      kaybolup, kitap sayfaları gibi sabit sayfalara dönüşmeleri 
+      engellenmiş olacaktır.
+    </p>
+    <p class="indent">
+      Bundan sonra uygulama örnekleri iPython&nbsp; notebook 
+      larındaki hücreler (cell) kullanılarak gerçekleştirilecek 
+      ve bu sayfalara kopyalanacak, bu yüzden program metinleri 
+      ayrı dosyalar halinde saklanmayacaktır. iPython hücereleri 
+      birer IDE niteliğindedir. Bu yüzden iPython hücrelerinde 
+      yazılan programlar aynen bir IDE'de yazılmış gibidir. 
+      Bu program örneklerinin metinleri kopyalanarak tüm Python 
+      IDE lerinde değiştirilmeden kullanılabilir. Program çıktıları 
+      ise, eskisi gibi kahverengi olarak belirtilecek, bu şekilde 
+      programlar ve çıktılar ayrılmış olacaktır.
+    </p>
+    <p class="indent">
+      Bilgisayarlara iPython kurulması gayet kolaydır. Bu konuda 
+      iPython web sitesinde verilen kurulum bilgilerinin uygulanması 
+      yeterlidir. Bilgisayarlara iPython kurulursa, uygulama 
+      programları ders sayfalarından daha kolaylıkla çalıştırılabilekleri 
+      iPython hücrelerine aktarılabilir. Yine de bu zorunlu 
+      değildir ve program metinleri herhangibir IDE ye kes-yapıştır 
+      yöntemi ile aktarılabilir.</p>
+    <p id="create" class="subheading">
+      3.2.1 - Topluluk (Tuple) Tipi Verilerin Yaratılması</p>
+    <p class="indent">
+      Topluluklar literal olarak (veya bir dosyadan okutarak) 
+      atama ile yaratılabilir. Örnek :
+    </p>
+    <pre class="pl-25 navy">
+tpl = (3, 5, 78)
+print(tpl)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(3, 5, 78)</span></pre>
+    <p class="indent">
+      Topluluklar sözdizimi olarak, virgülle ayrılmış verilerdir. 
+      İstenirse parantez kullanılmadan da atanabilirler. Örnek:</p>
+    <pre class="pl-25 navy">
+tpl = 3, 5, 78
+print(tpl)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(3, 5, 78)</span></pre>
+    <p class="nonindent">
+      Görüldüğü gibi, sonuç aynı olmakta ve bir topluluk tipi 
+      veri yaratılmaktadır.Fakat en doğrusu, alışılmış olduğu 
+      gibi parantez kullanılarak literal ile veya dosyadan okutarak 
+      atama yapmaktır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+x = (23, 35, 16)
+print(x)
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(23, 35, 16)</span></pre>
+    <p class="indent">
+      Yukarıdaki atama işlemine çok dikkat edilmesi gerekir. 
+      Atama işleminin sağ veya sol işleneninde virgül ile ayrılmış 
+      birden çok veri bulunuyorsa bu gizli bir topluluk anlamına 
+      gelir. Python programlama dilinde bu şekilde çok gizli 
+      topluluk tanımları bulunmaktadır.
+    </p>
+    <p class="indent">
+      İki topluluğun birbirbirine eşit olması için, birbirlerine 
+      denk gelen tüm elemanların birbirlerine eşit olması gerekir. 
+      Bu özellikten çoklu atamaların kısaltılması amacı ile 
+      yararlanılabilir. Örnek:
+    </p>
+    <p class="indent">
+      Topluluklar, atama işlemlerinde kolaylık sağlar. Aşağıda 
+      görüldüğü gibi, birden çok değişkene topluluk tipi sekansların 
+      uygulanması ile kolayca atama gerçekleştirilebilir. Topluluk 
+      tipi veriler, atama işlemcisinin sol tarafında bulunabilir. 
+      Bu topluluğun elemanları, bire bir sağ taraftaki topluluk 
+      elemanlarına atanabilirler.
+    </p>
+    <pre class="pl-25">
+a, b, c = 23, 45, 89
+ 
+print('a = {0}, b = {1}, c = {2}'.format(a, b, c))
+
+<span class="maroon">Program Sonucu :
+a = 23, b = 45, c = 89</span></pre>
+    <p class="indent">
+      Burada aslında iki gizli topluluk tipi veri birbirlerine 
+      eşit hale getirilmektedirler.
+    </p>
+    <pre class="pl-25 navy">
+(a, b, c) = (23, 45, 89)
+    </pre>
+    <p class="indent">
+      Bu iki topluluğun eşitlenebilmesi için, denk elemanlarının 
+      birlerine eşitlenmesi gerekir. Bu şekilde, sol taraftaki 
+      ilk eleman, sağ taraftaki ilk eleman ile eşitlenir ve 
+      a = 23 ataması gerçekleşir. Diğer elemanlar da benzer 
+      şekilde atanırlar ve bu şekilde, tek atama işleminde ün 
+      atama birden yapılmış olur.</p>
+    <p class="indent">
+      Atama işleminin sol tarafında, bir topluluğun elemanlarının 
+      olması, çok kullanışlı bir değişim (swap) işlemine olanak 
+      sağlar. Örnek,
+    </p>
+    <pre class="pl-25">
+# Normal swap
+a = 45
+b = 92
+
+
+temp = a
+a = b
+b = temp
+
+print(" a = {0}, b = {1}".format(a, b))
+
+<span class="maroon">Program Sonucu :
+a = 92, b = 45</span>
+
+# tuple swap
+a = 45
+b = 92
+
+a, b = b, a
+
+print(" a = {0}, b = {1}".format(a, b))
+
+<span class="maroon">Program Sonucu :
+a = 92, b = 45</span></pre>
+    <p class="indent">
+      Yukarıdaki uygulamadan, değer değişimi (swap) işleminin 
+      ne kadar kolay uygulanabildiği görülüyor.
+    </p>
+    <p class="indent">
+      Tek elemanlı bir topluluk aşağıdaki gibi atanamaz:
+    </p>
+    <pre class="pl-25 navy">
+t1 = (4)
+print (t1, type(t1))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+4 &lt;class 'int'&gt;</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, bu bir tamsayı sonucu veriyor. Eğer tek 
+      elemanlı bir topluluk atanmak istenirse, o vakit literalin 
+      sonuna bir virgül eklemek gerekir. Örnek
+    </p>
+    <pre class="pl-25 navy">
+t2 = (34,)
+print (t2, type(t2))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(34,) &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Bu sefer atama amacına ulaşmış ve bir topluluk yaratılmış 
+      olmaktadır.
+    </p>
+    <p class="indent">
+      İçi boş parantezler, sıfır elemanlı bir topluluk anlamına 
+      gelir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+p = ()
+print (p, type(p))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+() &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Topluluklar, iki sayının aritmetik işlem sonucu (toplama, 
+      çıkarma, çarpma , bölme, üs alma vb ... olarak yaratılabilirler. 
+      Sadece bu işlemin sonuna bir virgül eklenerek, işlemin 
+      bir aritmetik işlem değil, bir topluluk yaratma olduğu 
+      belirtilmelidir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+a = 12
+b = 33
+c = (a + b,)
+print('c{0} , \nveri tipi = {1}'.format (c, type(c)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+c = (45,) 	 veri tipi = &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Topluluklar, önceden tanımlanmış toplulukların elemanlarının 
+      toplamı olarak da yaratılabilirler. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+a1 = (2, 4)
+b1 = (7, 5)
+c1 = (a1 + b1,)
+print('c1 = {0} \t veri tipi = {1}'.format (c1, type(c1)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+c1 = ((2, 4, 7, 5),) 	 veri tipi = &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Oluşan topluluk, c1 = (2, 7, 2, 7) olarak belirtilebilir. 
+      Bu işlem birleştirme (concatenation) işlemidir. Bir başka 
+      örnek:
+    </p>
+    <pre class="pl-25 navy">
+a2 = (2, 4)
+c2 = (a2 * 3,)
+print('c2 = {0} \t veri tipi = {1}'.format (c2, type(c2)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+c2 = ((2, 4, 2, 4, 2, 4),) 	 veri tipi = &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Oluşan topluluk, c2 = (2, 4, 2, 4, 2, 4) olarak belirtilebilir. 
+      Bu işleme çoğaltma adı verilir.
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonu, başka veri tiplerinde 
+      tanımlanmış koleksiyonları, topluluk tipine dönüştürmek 
+      için uygulanır. Bu fonksiyon argümanı olan her koleksiyonu, 
+      topluluğa dönüştürür. Hiç argümansız uygulanan
+      <span class="keyw">tuple</span><span class="op">()</span> 
+      fonksiyonu, boş bir topluluk yaratır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+p = tuple()
+print(p, '\t', type(p))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+() 	 &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonunun bu şekilde kullanımı 
+      anlamsızdır, çünkü p = () ataması da sonuçta boş bir topluluk 
+      yaratır. Aynı şekilde, <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonunun argümanı olarak bir 
+      topluluk kullanımı da anlamsızdır çünkü, ortada dönüşecek 
+      bir veri tipi yoktur, argüman zaten topluluk veri tipindedir.
+    </p>
+    <p class="indent">
+      Öntanımlı <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonunun argümanı olarak kullanılması 
+      gereken veri tipleri, topluluktan başka koleksiyon veri 
+      tipleridir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+topluluk = tuple('Yaşam')
+print('topluluk = {0}    {1}'.format (topluluk, type(topluluk)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+topluluk = ('Y', 'a', 'ş', 'a', 'm')    &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Sözel tipte veriler, aslında bir karakter koleksiyonudur. 
+      Burada, öntanımlı <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonu, sözel tipte verinin karakterlerini 
+      sıralı olarak, topluluk tipine dönüştürerek, topluluk 
+      adında ve topluluk veri tipinde bir değişkene atamaktadır.
+    </p>
+    <p class="indent">
+      Tamsayılar içeren topluluklar, öntanımlı
+      <span class="keyw">range</span> <span class="op">()</span> 
+      fonksiyonu ile yaratılabilirler. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+p = tuple(range(1,10))
+
+print('p = {0}'.format(p))
+ 
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+p = (1, 2, 3, 4, 5, 6, 7, 8, 9)</span></pre>
+    <p class="indent">
+      Bir başka örnek:
+    </p>
+    <pre class="pl-25">
+pt = tuple(range(10,0, -1))
+
+print('pt = {0}'.format(pt))    
+    <span class="maroon">Program Sonucu :
+
+pt = (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span></pre>
+    <p class="indent">
+      Fonksiyonlar sadece tek bir değeri geri döndürebilirler. 
+      Fakat, bazı fonksiyonlar, birden çok değeri değeri geri 
+      döndürür gibi görünebilirler. Aslında, birden çok değeri 
+      geri döndürür görüntüsünde olan fonksiyonlar, birçok değeri 
+      eleman olarak içeren sadece bir tek topluluğu geri döndürürler. 
+      Örnek olarak öntanımlı <span class="keyw">divmod</span>
+      <span class="op">(</span>a<span class="op">,</span> b
+      <span class="op">)</span> fonksiyonu, a ve b gibi iki 
+      argüman alır ve bunların bölümünün kalan (a%b) ve sonuç 
+      (a/b) değerlerini verir. Bu iki değer ayrı ayrı hesaplanabilir 
+      ama <span class="keyw">divmod</span><span class="op">()</span> 
+      fonksiyonu yardımı ile birlikte hesaplanmaları, daha etkin 
+      olarak nitelendirilir. Burada <span class="keyw">divmod</span><span 
+      class="op">()</span> fonksiyonun geri döndürdüğü iki değer, 
+      iki değerli bir topluluğun elemanları olarak atanır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+<span class="comm"># Fonksiyonlardan Birden Çok Değer Döndürülmesi</span>
+
+bölmeSonucu = divmod(444444, 6)
+
+print("Sonuç = {1} , Kalan = {0}".format(bölmeSonucu[1], bölmeSonucu[0]))    
+    <span class="maroon">Program Sonucu :
+Sonuç = 74074 , Kalan = 0</span></pre>
+    <p class="indent">
+      Topluluklar, daha önce atanmış bir topluluğu işaret eden 
+      bir değişkenin de taşıdığı, bellek referansı değerinin başka 
+      bir değişkene aktarımı sonucunda da oluşabilir. Örnek:
+  </p>
+    <pre class="pl-25 navy">
+p = (28, 89, 34)
+q = p
+
+print(q)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(28, 89, 34)</span></pre>
+    <p class="indent">
+      Burada uygulanan işlem, sadece p nin değeri olan bellek 
+      referansının (bir hex tamsayı) q değişkenine aktarılmasıdır. 
+      Sonunda her ikisi de aynı bellek alanına işaret eder duruma 
+      gelirler ve işaret ettileri bellek alanında bir veri yığını 
+      yerleşik durumdadır. Bu durumda p ve q aynı veri yığınına 
+      işaret ederler ve bu veri yığınında bir değişiklik (eleme 
+      veya çıkarma gibi) olursa, bu değişlik hem p nin hem de 
+      q nün geri döndüreceği değeri değiştirir. Yani, bellek 
+      referanslarının aktarımı sonucunda, her iki değişken de 
+      birbirlerine bağımlı kalırlar. Buna sığ kopyalama denilir. 
+      Sığ kopyalama, değişkenin bellek referansının (verinin 
+      değil!) kopyalanması ile gerçekleşir.
+    </p>
+    <p class="indent">
+      Verinin sabit kalıp, veriye erişimi sağlayan bellek referanslarının 
+      kopyalanması değişmeyen (immutable) veriler için hiçbir 
+      sotun yaratmaz. Tam aksine, veri kopyalanıp başka bir 
+      bellek alanına aynı verinin bir kopyası yerleştirilmediğinden, 
+      bellek ekonomisi de gerçekleşmiş olur. Veri yığını belirli 
+      bir bellek alanına yerleşmiştir. Program sonuna kadar 
+      değişme olasılığı da yoktur. Aslında bu veriyi işaret 
+      eden bellek referansının da başka bir değişkene aktarımı 
+      kozmetik bir olaydır. Bunun hiçbir gereği yoktur. Değişmeyen 
+      ve program sonuna kadar da değişmeyecek olan, bellekte 
+      yerleşik yeri değişmeyecek bir veriye işaret eden bir 
+      tek işaretçi (pointer), sadece bir tek değişkene atanırsa 
+      yeterli olur. Veriye gerek duyulursa, veriye işaret eden 
+      işaretçiyi değer olarak taşıyan değişkenin çağrılması 
+      yeterlidir. Fazla değişkene gerek olmamasına karşın, eğer 
+      mutlaka kopyalama istenirse salt bellek referansının kopyalanması, 
+      yani sığ kopyalama yeterlidir. Özetle, sığ kopyalama, 
+      değişmeyen veriler için tek ve yeterli kopyalama mekanizmasıdır. 
+      Sığ kopyalamanın uygulanmasının sonuçları aşağıdaki programda 
+      görülmektedir.
+    </p>
+    <pre class="pl-25 navy">
+t1 = (8, (6, 9, 10, ('Ali Haydar Alan', 5, 7)), 45 ,16)
+t2 = (8, (6, 9, 10, ('Ali Haydar Alan', 5, 7)), 45, 16)
+
+print('t1 = {0}    {1}'.format (t1, type(t1)))
+print('t2 = {0}    {1}'.format (t2, type(t2)))
+
+t1 =(8, (6, 9, 10, ('Mehmet Yerebakan', 5, 7)), 45 ,16)
+
+print('t1 = {0}    {1}'.format (t1, type(t1)))
+print('t2 = {0}    {1}'.format (t2, type(t2)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+t1 = (8, (6, 9, 10, ('Ali Haydar Alan', 5, 7)), 45, 16)    &lt;class 'tuple'&gt;
+t2 = (8, (6, 9, 10, ('Ali Haydar Alan', 5, 7)), 45, 16)    &lt;class 'tuple'&gt;
+t1 = (8, (6, 9, 10, ('Mehmet Yerebakan', 5, 7)), 45, 16)    &lt;class 'tuple'&gt;
+t2 = (8, (6, 9, 10, ('Ali Haydar Alan', 5, 7)), 45, 16)    &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, t1 değişkeninin değeri, değişmeyen 
+      tipte bir topluluktur. Bu topluğun tüm elemanları değişmeyen 
+      tipte olduklarından, topluluk da değişmeyen tiptedir. 
+      Bu topluluk t2 değişkenine bellek referansını kopyalanması 
+      yolu ile sığ kopyalanmıştır. Bunun hiçbir dezavantajı 
+      yoktur. Bu tip topluluklar güncellenemez ve ancak topan 
+      değişebilir. Program içinde bu değişmenin yapıldığı görülüyor. 
+      Bu durumda, t1 değişkeninin işaret ettiği bellek alanı 
+      boşaltılır. Değer toptan yenilenir. Yenilenen değer, bellekte 
+      yeni bir alana yerleştirilir. Bu yeni bellek alanına işaret 
+      eden işaretçi, t1 değişkenine atanır ve bu durumda, orijinal 
+      t1 değişkeni ile sığ kopyası t2 değişkeni farklı bellek 
+      alanlarında yerleşmiş farklı verilere işaret ettiklerinden 
+      birbirlerinden tamamen bağımsız olurlar. Program sonunda, 
+      her iki değişkenin de farklı verileri döndürdükleri görülmektedir. 
+      Bu uygulama, güncellenemez verilerin sığ kopyalanmasının, 
+      bağımsız kopyalar oluşturmak için yeterli olduğunu belirtmektedir.
+    </p>
+    <p class="indent">
+      Şimdi güncellenebilen bir toplulukta, sığ kopyalamanın 
+      yetersizliğini belirten bir uygulamayı izleyelim:
+    </p>
+    <pre class="pl-25 navy">
+g1 = ("Sara Alhadef" , ["Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul"])
+g2 = g1 # referansların kopyalanması (sığ kopyalama)
+
+print('g1 = {0}    {1}'.format (g1, type(g1)))
+print('g2 = {0}    {1}'.format (g2, type(g2)))
+
+g1[1].append("Avrupa Yakası")
+                        
+print('g1 = {0}    {1}'.format (g1, type(g1)))
+print('g2 = {0}    {1}'.format (g2, type(g2)))                        
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+g1 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul'])    &lt;class 'tuple'&gt;
+g2 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul'])    &lt;class 'tuple'&gt;
+g1 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul', 'Avrupa Yakası'])    &lt;class 'tuple'&gt;
+g2 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul', 'Avrupa Yakası'])    &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Yukarıdaki program güncellenebilen bir veri tipi için, 
+      salt sığ kopyalamanın, bağımsız kopyalar oluşturulması 
+      için yeterli olmadığını, sığ kopyalamada orijinal ile 
+      kopyanın birbirlerine bağımlı kaldıklarını, birinin güncellediği 
+      değerin her iki kopya değişkenine de yansıdığını belirtmektedir.
+    </p>
+    <p class="indent">
+      Güncellenebilir topluluklar için durum değişiktir. Burada 
+      güncellenebilen bir topluluk vardır ve salt bellek referansının 
+      kopyalanması sonucunda birbirine bağımlı değişkenlerin 
+      yaratılması o an için geçerli değerin kopyalanıp, program 
+      sonuna kadar değişmeden saklanabilmesi olası değildir. 
+      Veri değişebilir niteliktedir. Sığ kopyalama birbirine 
+      bağımlı değişkenler yaratır. Veriyi bir değişken güncellerse, 
+      hem değişken hem de onun sığ kopyası orijinal değil, güncellenen 
+      değere erişir olacaklardır. Bu durumda kopyanın değer 
+      stabilitesi kaybolacak, bir değeri kopyalamışken, program 
+      içinde başka bir değeri geri döndürür duruma gelecektir. 
+      Bu durumun çözümü, bağımız kopyalar yaratmakla sağlanır. 
+      Bu da kopyalamanın bellek referansının değil, verinin 
+      kendisinin kopyalanıp bellekte başka bir yere yerleştirilmesi 
+      ve bu alana da sadece kopyanın işaret etmesidir. Bu durumda 
+      iki değişken birbirbirinden bağımsız olacak ve her biri 
+      ayrı bir veriyi güncelleyebilecektir. Buna derin kopyalama 
+      adı verilir. Derin kopyalama mekanizması, verinin kopyalanıp 
+      yeni bir alana yerleştirilmesi ve bu alana erişebilecek 
+      tek referansın sadece kopya değişkenine atanmasıdır. Aşağıda 
+      bir derin kopyalama uygulaması görülmektedir.
+    </p>
+    <pre class="pl-25 navy">
+import copy
+g1 = ("Sara Alhadef" , ["Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul"])
+g2 = copy.deepcopy(g1) # Bağımsız kopya (derin kopyalama)
+
+g1[1].append("Avrupa Yakası")
+                        
+print('g1 = {0}    {1}'.format (g1, type(g1)))
+print('g2 = {0}    {1}'.format (g2, type(g2)))    
+
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+g1 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul', 'Avrupa Yakası'])    &lt;class 'tuple'&gt;
+g2 = ('Sara Alhadef', ['Yeşil Çayır Sokak no:16/8 Nişantaş, Şişli- Istanbul'])    &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Yukarıdaki uygulama, kısmen değişebilir verilerin bağımsız 
+      olarak kopyalanmaları için derin kopyalama yönteminin 
+      uygulanmasının zorunlu olduğu açıkça belirtmektedir.
+    </p>
+    <p class="indent">
+      Bu uygulamalarda topluluk verisinin hangi kısmının güncellenebildiği 
+      dikkatle izlenmelidir. Topluluklar prensip olarak güncellenemeyen 
+      koleksiyonlardır. Bir topluluk kesinlikle güncellenemez 
+      (kısmen değiştirilemez). Aşağıdaki uygulama bunu açıkça 
+      ortaya koymaktadır.
+    </p>
+    <pre class="pl-25 navy">
+pg = (7,8,[77,45,89])
+pg.append(77)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+ Traceback (most recent call last)
+-&lt;ipython-input-2-2a4ba33dc439&gt; inn &lt;module&gt;()
+----&gt; 1 pg.append(77)
+
+AttributeError: 'tuple' object has no attribute 'append'</span></pre>
+    <p class="indent">
+      Burada güncellenebilen, sadece topluluk nesne örneğinin 
+      güncellenebilir elemanlarıdır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+pg = (7,8,[77,45,89])
+pg[2].append(99)
+print(pg)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(7, 8, [77, 45, 89, 99])</span></pre>
+    <p class="indent">
+      Yukarıdaki uygulamadan açıkça güncellenenin, topluluk 
+      değil, topluluğun güncellenebilir bir elemanı olan liste 
+      tipindeki üçüncü elemanı olduğu görülmektedir.
+    </p>
+    <p class="indent">
+      Topluluklar listelere benzer ve listeler gibi toplulukların 
+      da alt toplulukları oluşturulabilir. Bu işlemlere dilimleme 
+      (slicing) denilmektedir. Bu konuda çeşitli örnekler aşağıda 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+y = x[1:2]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[0:-2]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[-3:-2]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[-len(x):-2]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[0:-len(x)+1]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[0:len(x)-1]
+print('x = {0}  y = {1}'.format(x , y))
+
+y = x[0:-1]
+print('x = {0}  y = {1}'.format(x , y)) 
+   
+    <span class="maroon">Program Sonucu :
+x = ('a', 'b', 'c')  y = ('b',)
+x = ('a', 'b', 'c')  y = ('a',)
+x = ('a', 'b', 'c')  y = ('a',)
+x = ('a', 'b', 'c')  y = ('a',)
+x = ('a', 'b', 'c')  y = ('a',)
+x = ('a', 'b', 'c')  y = ('a', 'b')
+x = ('a', 'b', 'c')  y = ('a', 'b')</span></pre>
+    <p class="indent">
+      Dilimleme, bir topluluğun kopyalanmasını (replication) 
+      sağlayabilir. Fakat, oluşturulan replikanın sadece orijinal 
+      topluluğun bir sığ kopyası olduğu, daima gözönüne alınmalıdır. 
+      Örnek :
+    </p>
+    <pre class="pl-25 navy">
+pg = (7,8,[77,45,89])
+qg = pg[:]  #replikasyon
+print('Orijinal topluluk (güncellemeden önce) : {0}'.format(pg))
+print('Replika (güncellemeden önce) : {0}'.format(qg))
+pg[2].append(77) #güncelleme
+print('Orijinal topluluk (güncellemeden sonra) : {0}'.format(pg))
+print('Replika (güncellemeden sonra) : {0}'.format(qg))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Orijinal topluluk (güncellemeden önce) : (7, 8, [77, 45, 89])
+Replika (güncellemeden önce) : (7, 8, [77, 45, 89])
+Orijinal topluluk (güncellemeden sonra) : (7, 8, [77, 45, 89, 77])
+Replika (güncellemeden sonra) : (7, 8, [77, 45, 89, 77])</span></pre>
+    <p class="indent">
+      Bu uygulamada, replikasyonun sadece bir sığ kopyalama 
+      olduğu, replikasyon işleminin sadece bir referans aktarımı 
+      olduğu, replikasyondan sonra oluşan replikanın orijinal 
+      topluluğa işaşeret eden değişken ile aynı veriye işaret 
+      edeceği, bu veride yaşanacak bir güncelleme sonunda veride 
+      kısmen bir değişiklik olursa, orijinal ve replikanın aynı 
+      değişmiş veriye erişeceği açıkça görülmektedir.
+    </p>
+    <p class="indent">
+      Topluluklar, <span class="keyw">tuple</span><span 
+      class="op">()</span> fonksiyonu, önceden yaratılmış bir 
+      topluluk ve bu topluluk üyelerine uygulanabilen kriteryumlara 
+      göre yaratılabilirler.
+    </p>
+    <pre class="pl-25">
+y = tuple( i &gt;'a' for i in x)
+
+print('y = {0}'.format(y))
+
+d = (1, 2, 3, 4,)
+
+y = tuple( i*i for i in d)
+
+print('y = {0}'.format(y))
+
+z = tuple (q &gt;3 for q in d)
+
+print('z = {0}'.format(z))
+    
+    <span class="maroon">Program Sonucu :
+y = (False, True, True)
+y = (1, 4, 9, 16)
+z = (False, False, False, True)</span></pre>
+    <p class="indent">
+      List comprehensions yöntemi, topluluk tipi verilerde uygulanamaz. 
+      Çünkü topluluk tipi veriler, değiştirilemez veri tiplerindendir, 
+      dolayısı ile append() fonksiyonu bu veri tipine uygulanamaz.
+    </p>
+    <pre class="pl-25">
+d = (1, 2, 3, 4,)
+
+y = ( i*i for i in d)
+
+print('y = {0}'.format(y))
+
+<span class="maroon">Program Sonucu :
+y = &lt;generator object &lt;genexpr&gt; at 0x0000000007346870&gt;
+</span>
+
+# oysa liste tipinde veriler ile çalışır !
+
+y = [i*i for i in d]
+
+print('y = {0}'.format(y))
+
+<span class="maroon">Program Sonucu : 
+y = [1, 4, 9, 16]</span></pre>
+    <p class="indent">
+      Tamsayılar içeren topluluklar, range() fonksiyonu ile 
+      yaratılabilirler.</p>
+    <pre class="pl-25">
+p = tuple(range(1,10))
+
+print('p = {0}'.format(p))
+
+<span class="maroon">Program Sonucu :
+p = (1, 2, 3, 4, 5, 6, 7, 8, 9)</span></pre>
+    <pre class="pl-25">
+pt = tuple(range(10,0, -1))
+
+print('pt = {0}'.format(pt))    
+    <span class="maroon">Program Sonucu :
+
+pt = (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span></pre>
+    <p class="indent">
+      Topluluk tipi koleksiyonların oluşturulma yöntemlerini 
+      inceledik. Oluşturulan topluluk elemanlarına erişim sağlanması 
+      yöntemleri ile devam edeceğiz.
+    </p>
+    <p id="access" class="subheading">
+      3.2.2 - Topluluk (Tuple) Tipi Verilerin Elemanlarına Erişim
+    </p>
+    <p class="indent">
+      Topluluk veri tipi bir koleksiyon veri tipidir. Topluluk 
+      verilerine tüm koleksiyon veri tipleri için uygulanabilen 
+      yöntemlerle erişim sağlanabilir.
+    </p>
+    <p class="indent">
+      Topluluk elemanlarına indis değerleri ile erişilebilir. 
+      İndis değerleri 0 den başlar ve koleksiyon sonuna kadar 
+      bir artarak devam eder. Aşağıdaki uygulama, bir topluluk 
+      verisinin elemanlarına erişim için uygulanması gereken 
+      indis değerlerini açıklamaktadır.
+    </p>
+    <pre class="pl-25 navy">
+pq = (12, 56, 38, (34, 27, (92, 77, 66)), 2, 7)
+
+for x, i in enumerate(pq):
+    print('pq[{0}] = {1}'.format(x, i))
+    if type(i) == tuple:
+        a = x       
+        for y, j in enumerate(i):
+            print('pq[{0}][{1}] = {2}'.format(a, y, j))
+            if type(j) == tuple:
+                b = y
+                for z, k in enumerate(j):                
+                    print('pq[{0}][{1}][{2}] = {3}'.format(a, b, z, k))       
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+pq[0] = 12
+pq[1] = 56
+pq[2] = 38
+pq[3] = (34, 27, (92, 77, 66))
+pq[3][0] = 34
+pq[3][1] = 27
+pq[3][2] = (92, 77, 66)
+pq[3][2][0] = 92
+pq[3][2][1] = 77
+pq[3][2][2] = 66
+pq[4] = 2
+pq[5] = 7</span></pre>
+    <p class="indent">
+      Bu program sonuçları, çok önemli bilgileri açığa çıkarmaktadır. 
+      Herşeyden önce, Python koleksiyonlarının JavaScript dizileri 
+      gibi boyutlu olmadıklarını, sadece çeşitli derinliklerde 
+      elemanlar içeren veri yığınları olduklarını belirtmektedir. 
+      Bu koleksiyonlarda her elemana kendi derinliğine göre 
+      düzenlenen indislerle erişilmektedir. Örnek olarak pq 
+      topluluğunda, üçüncü elemanın değeri 38 dir. Bu pq ile 
+      eşdüzey bir elementtir ve bu gibi eşdüzey elemanlara sadece 
+      tek bir indis değeri ile erişilebilir. Dördüncü eleman 
+      bir topluluktur ve pq[3] bu topluluğa erişmektedir. Eğer 
+      dördüncü elemanın iç elemanlarına erişmek istenirse, iki 
+      karakterli indis değerleri ile çağırmak gerekmektedir. 
+      İlk indis değeri, elemanın indis değeri, ikinci karakter 
+      ise, elemanın iç elemanının indis değeridir. Tukarıdaki 
+      programda pq[3][0] indis değeri, 34 değerine erişmektedir. 
+      Dördüncü elemanın üçüncü elemanı bir topluluktur ve bunun 
+      da ilk elemanına pq[3][2][0] indis değeri ile erişilmektedir.
+    </p>
+    <p class="indent">
+      Python programlama dilininde, koleksiyonların elemanlarına 
+      sıralı erişim sağlayan sadece iki döngü yapısı bulunmaktadır. 
+      Bunlardan ilki <span class="keyw">for</span>
+      <span class="op">in</span> diğeri <span class="keyw">while</span> 
+      döngüleridir. Bu döngülerin her ikisinin de yürüyüşünü 
+      daha önce incelemiştik. Burada da çeşitli örnek uygulamalar 
+      yaparak, bu iki döngü sistemi üzerinde deneyimlerimizi 
+      arttıracağız.
+    </p>
+    <p class="indent">
+      ilk olarak <span class="keyw">while</span> döngüleri üzerine 
+      uygulamalar yaparak bu döngü sistemini daha yakından tanımaya 
+      çalışacağız. Bu dööngü sisteminin yürüyüşü çok basittir 
+      ve yapısı çok esnektir. Öyle ki tüm döngü gereksinmelerini
+      <span class="keyw">while</span> döngüleri karşılayabilmektedir. 
+      Aşağıdaki örneği lütfen iyi izleyiniz.
+    </p>
+    <pre class="pl-25 navy">
+pq = (12, 56, 38, (34, 27, (92, 77, 66)), 2, 7)
+i=0
+j = 0
+k = 0
+while i &lt;len(pq):
+    print('pq[{0}] = {1}'.format(i, pq[i]))
+    if (hasattr(pq[i], "__iter__")):
+        print(pq[i] ,'is iterable')
+        while j &lt;len(pq[i]):
+            print('pq[{0}][{1}] = {2}'.format(i, j, pq[i]))
+            if (hasattr(pq[i][j], "__iter__")):
+                print(pq[i][j] ,'is iterable')
+                while k &lt;len(pq[i][j]):
+                    print('pq[{0}][{1}][{2}] = {3}'.format(i, j, k, pq[i][j][k]))
+                    if (hasattr(pq[i][j][k], "__iter__")):
+                        print(pq[i][j][k] ,'is iterable')
+                    k= k + 1                  
+            j = j + 1          
+    i= i + 1
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+pq[0] = 12
+pq[1] = 56
+pq[2] = 38
+pq[3] = (34, 27, (92, 77, 66))
+(34, 27, (92, 77, 66)) is iterable
+pq[3][0] = (34, 27, (92, 77, 66))
+pq[3][1] = (34, 27, (92, 77, 66))
+pq[3][2] = (34, 27, (92, 77, 66))
+(92, 77, 66) is iterable
+pq[3][2][0] = 92
+pq[3][2][1] = 77
+pq[3][2][2] = 66
+pq[4] = 2
+pq[5] = 7</span></pre>
+    <p class="indent">
+      Bu program, üç düzeyli bir topluluğun tüm elemanlarına 
+      erişebilmektdir. Üç düzeyli bir topluluk olduğu için, 
+      i, j, k olarak üç döngü değişkeni kullanılmıştır. İlk 
+      döngü değişkeni i, pq ile eşdüzey elemanları taramaktadır. 
+      Her elemanın bir koleksiyon olup olmadığı '__iter__' öntanımlı 
+      özelliğine sahip olup olmadığı kontrol edilmektedir. Eğer 
+      bu bir iterator (koleksiyon) (daha doğrusu, koleksiyon 
+      tipi bir veri sınıfının bir nesne örneği) ise, bunun iç 
+      elemanları taranmaktadır. değilse, bir sonraki elemana 
+      geçilmektedir.
+    </p>
+    <p class="indent">
+      Bu program, üç düzeyli koleksiyonlar için düzenlenmiş 
+      olmasına karşın, kolaylıkla iki ve tek düzeyli koleksiyonlara 
+      uyarlanabilecektir. Bu şekilde, tüm kolrksiyon tipi nesnelerin 
+      elemanlarına erişim için, evrensel bir program olma yeteneğindedir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, <span class="keyw">while</span> 
+      döngüleri, koleksiyon tipi verilerin indis değerlerine 
+      ve elemanlarına eriim için temel döngü mekanizmasıdır. 
+      İkinci dögü mekanizması olan <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri de aynı erişmleri 
+      sağlayabilecek yatenektedir.
+    </p>
+    <p class="indent">
+      Python programlama dilinin <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri, Perl , JavaScript 
+      gibi temel dillerin <span class="keyw">for</span>
+      <span class="op">each</span> döngülerinin replikasıdır. 
+      Bilinçli olarak kullanıldığında her türlü koleksiyon tipi 
+      verinin elemanlarına erişimi daha kullanışlı olarak sağlayabilir.
+    </p>
+    <p class="indent">
+      Python programlama dilinin <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinde, döngü değişkeni 
+      (konvansiyonel olarak i kullanılır, fakat her tanımlayıcı 
+      olabilir), her iterasyonda koleksiyonun elanlarının birinin 
+      değerini alır. Bu değerle her türlü işlem yapıldıktan 
+      sonra döngü bir sonraki elemana geçer ve koleksiyondaki 
+      tüm elemanlar tarandıktan donra döngü tamamlanır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+myTuple = (4, 6 , 7, 18)
+for i in myTuple:
+    print (i, " " , end ="")
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+4  6  7  18</span></pre>
+    <p class="indent">
+      Bu tip döngülerde, erişlen eleman üzerinde her türlü manipülasyon 
+      (çeşitli karşılaştırmalar, hesaplamalar, diske yazma vb..yapılabilir. 
+      Görüldüğü gibi, yazılımı ve anlaşılması çok kolay, anlaşılablilir 
+      bir döngü mekanizmasıdır.
+    </p>
+    <p class="indent">
+      İki elemanları iki düzeye yayılmış koleksiyonlarda bu 
+      döngülerin kullanımı biraz dikkat gerektirir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+qq = ((12,45, 67,), (88, 65, 44, 33), 36, 28)
+x = 0
+y = 0
+for i in qq:
+    print('qq[{0}] = {1}'.format(x, i))
+    if (hasattr(i, "__iter__")):
+        print(i ,'is iterable')
+        for j in i:
+            print('qq[{0}][{1}] = {2}'.format(x, y, j))
+            y = y + 1         
+    x = x + 1
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+qq[0] = (12, 45, 67)
+(12, 45, 67) is iterable
+qq[0][0] = 12
+qq[0][1] = 45
+qq[0][2] = 67
+qq[1] = (88, 65, 44, 33)
+(88, 65, 44, 33) is iterable
+qq[1][3] = 88
+qq[1][4] = 65
+qq[1][5] = 44
+qq[1][6] = 33
+qq[2] = 36
+qq[3] = 28</span></pre>
+    <p class="indent">
+      Yukarıdaki program, iki boyutlu koleksiyonların, hem eleman 
+      indislerinin belirtildiği, hem de elemanlarına erişim 
+      sağlandığı evrensel bir programdır. Bu program ile, Python 
+      programlama dilinin <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinin nekadar kullanışlı 
+      kolay anlaşılır döngüler olduğunu görebiliyoruz.
+    </p>
+    <p class="indent">
+      Eğer, eleman indislerine değil, salt elemanlara gereksinme 
+      olacaksa, program daha da hafifleyecektir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+qq = ((12,45, 67,), (88, 65, 44, 33), 36, 28)
+
+for i in qq:
+    if (hasattr(i, "__iter__")):
+        for j in i:
+            print(j , '(Düzey 2)')           
+    else:
+        print(i)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+
+12 (Düzey 2)
+45 (Düzey 2)
+67 (Düzey 2)
+88 (Düzey 2)
+65 (Düzey 2)
+44 (Düzey 2)
+33 (Düzey 2)
+36
+28</span></pre>
+    <p class="indent">
+      Salt iki düzeyde topluluklar içeren düzenli yapıda topluluklar 
+      için, Python programlama dilinin <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri, iki döngü değişkeni 
+      ile tüm elemanlara erişim olanağı sağlamıştır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+tt = (('Selim Kazan' ,'Orkun Kunt'), ('Güler İyidoğan', 'Sevda Küreli'))
+for  i, j in tt:
+    print (i ,j)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Selim Kazan Orkun Kunt
+Güler İyidoğan Sevda Küreli</span></pre>
+    <p class="indent">
+      Programdan da görülebildiği gibi, çok kompakt ve kullanışlı 
+      bir kodlama olanağı sağlanmış.
+    </p>
+    <p class="indent">
+      Python programlama dilinde, <span class="keyw">for</span>
+      <span class="op">in</span> döngülerinde, indis değerlerine 
+      erişimi kolaylaştırmak anmacı ile, öntanımlı
+      <span class="keyw">enumerate</span> <span class="op">()</span> 
+      fonksiyonu uygulanabilir. Bu fonksiyon, tek boyutlu, iteratör 
+      içermeyen toplulukları, iki elemanlı topluklardan oluan 
+      iki boyutlu topluluklara dönüştürür. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+tpw = ( 12, 45, 67, 89)
+print(*enumerate(tpw))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(0, 12) (1, 45) (2, 67) (3, 89)</span></pre>
+    <p class="indent">
+      Program sonuçalrı yeni düzenlemeyi açıklamaktadır. Burada 
+      * saçılma işlemcisidir ve oluşan tüm elemanların gösterimini 
+      sağlamaktadır. Bunu birazdan inceleyeceğz. Her elamanın 
+      ilk iç elemanı indis değeri, ikinci elemanı ise, orijinal 
+      topluluğun elemanının değeridir. Bu yeni topluluğu iki 
+      döngü değişkeni ile bir <span class="keyw">for</span>
+      <span class="op">in</span> döngüsü le tararsak, hem indis, 
+      hem de eleman değerlerine erişebiliriz. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+tpw = ( 12, 45, 67, 89)
+for i, j in enumerate(tpw):
+    print(i, j)
+      
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+0 12
+1 45
+2 67
+3 89</span></pre>
+    <p class="indent">
+      Çok kullanışlı ve yararlı bir yöntem, fakat uygulanan 
+      topluluğun veri yapısının uygun olması gerekir.
+    </p>
+    <p class="indent">
+      Değişke sayıda elemanı olabilen toplulukların tüm elemanlarının 
+      erişimi <span class="op">* </span>işlemcisi ile sağlanır. 
+      Bu işlemci saçılma işlemcisidir vew bir topluğunun elemanlarının 
+      serbest değerler gibi hareket etmesini sağlar. Eğer, bir 
+      değer koleksiyonunuz varsa ve bunu bir fonksiyona argüman 
+      olarak sağlamak isterseniz <span class="op">* </span>saçılma 
+      işlemcisi kullanarak sağlayabilirsiniz. Örnek olarak, 
+      aha önce incelediğimiz <span class="keyw">divmod</span>
+      <span class="op">(</span>a<span class="op">,</span>b
+      <span class="op">)</span> öntanımlı fonksiyonu salt a 
+      ve b gibi iki sayısal argüman alır ve bölme sonucu ile 
+      kalanı geri döndürür. Bu fonksiyon aşağıda görüldüğü gibi, 
+      iki elemanlı bir topluluk, argüman olarak sağlanmaya çalışılırsa, 
+      hata verir. Çünkü iki iç elemanlı da olsa, tek elemanlı 
+      bir topluluğu, tek argüman olarak algılar ve tek argüman 
+      ile geriye bir sonuç döndüremeyeceğinden, bu argümanı 
+      kabul etmeyerek hata verir.
+    </p>
+    <pre class="pl-25 navy">
+oran = (4, 2)
+print('Sonuç = {0} Kalan : {1}'.format(divmod(oran)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-58-efb5c301269a&gt; in &lt;module&gt;()
+      1 oran = (4, 2)
+----&gt; 2 print('Sonuç = {0} Kalan : {{1}'.format(divmod(oran)))
+
+TypeError: divmod expected 2 arguments, got 1</span></pre>
+    <p class="indent">
+      Aynı fonksiyonu divmod(oran[0], oran[1]) şeklinde çağırırsak 
+      iki elemanlı bir topluluk geri döndürür. Bu topluğun ilk 
+      elemanı bölme sonucu, ikinci elemanı kalan değeridir. 
+      Bu sonuçlara erişim için aşağıdaki program uygulanabilir.
+    </p>
+    <pre class="pl-25 navy">
+oran = (4, 2)
+tx = divmod(oran[0], oran[1])[0]
+ty = divmod(oran[0], oran[1])[1]
+print('Bölme Sonucu = {0}  Kalan = {1}' .format(tx, ty)) 
+ 
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Bölme Sonucu = 2  Kalan = 0</span></pre>
+    <p class="indent">
+      Oysa veriyi saçılım parametresi ile iki serbest değer 
+      olarak <span class="keyw">divmod</span><span 
+      class="op">()</span> fonksiyonuna argüman olarak yerleştirirsek 
+      daha kolay olarak sonucu bulabiliriz.
+    </p>
+    <pre class="pl-25 navy">
+oran = (4, 2)
+print('Sonuç = {0} Kalan : {1}'.format(divmod(*oran)[0], divmod(*oran)[1]))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Sonuç = 2 Kalan : 0</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">sum</span><span 
+      class="op">()</span> fonksiyonu sadece iki argüman kabul 
+      eder ve onların toplamını döndürür. Toplanma işlemcisi 
+      (saçılmanın tersi) kullanarak değişken sayıda argüman 
+      alıp hepsinin toplamını veren bir fonksiyon yazılması 
+      olanaklıdır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+t = (7, 4, 6, 7)
+
+def sumfor(*t):
+    sum =0
+    for i, j in enumerate(t):
+        sum = sum + j
+        print(i ,j)
+    return sum
+
+print(sumfor(7, 4, 6, 7))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+0 7
+1 4
+2 6
+3 7
+24</span></pre>
+    <p class="indent">
+      Yukarıdaki programda, hem indisleri, hem verileri hem 
+      de toplamı görüntüleyebiliyoruz. Eğer salt toplamı görüntülemek 
+      istersek, program dahada hafifleyecektir.
+    </p>
+    <pre class="pl-25 navy">
+def topla(*t):
+    sum =0
+    for i in t:
+        sum = sum + i
+    return sum
+
+print('Toplama Sonucu = ',topla(7, 4, 6, 7))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Toplama Sonucu =  24</span></pre>
+    <p class="indent">
+      İstendiğinde saçılmış bir topluluk ile de çağrılabilir. 
+      Örnek :
+    </p>
+    <pre class="pl-25 navy">
+t = (7, 4, 6, 7)
+
+def topla(*t):
+    sum =0
+    for i in t:
+        sum = sum + i
+    return sum
+
+print('Toplama Sonucu = ',topla(*t))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Toplama Sonucu =  24</span></pre>
+    <p class ="indent">
+      Bu tür tanımlanmış bir fonksiyon sadece değişken sayıda sayılarla
+      çalışabilir. Asında, herşey tanıma bağlıdır. Eğer formal parametresi sadece tek bir topluluk ile
+      çalışacak şeklinde tanımlanırsa, bu sefer değişken sayıda sayısal veriyi
+      bir topluklukta tanımlayıp bu topluluğu argüman olarak 
+      kullanarak fonksiyonu çağırmak gerekir.
+    </p>
+    <pre class="pl-25 navy">
+toplam = (7, 4, 6, 7)
+
+def topla(t):
+    sum =0
+    for i in t:
+        sum = sum + i
+    return sum
+
+print('Toplama Sonucu = ',topla(topla))
+
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+Toplama Sonucu =  24</span></pre>
+    <p class ="indent">
+      Bu tanımla, fonksiyon bu sefer sadece bir tek topluluk tipinde
+      argüman ile çağrılabilir. 
+    </p>
+
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders18.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders20.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:04 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b3/b3s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<style type="text/css">
+			caption{ background-color:#FF9122;}
+			table.veriTablosu {
+				font:18px Verdana, Arial, Helvetica, sans-serif;
+				position:relative;
+				left :200px;
+				text-align:center;
+				border-color:#000099;
+			}
+			tr.tablobilgi{
+	background-color: #CCCCFF;
+			}
+		</style>
+		<title>b2s3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b3s2.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b4/b4s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Global JavaScript Nesnesi
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 3		</p>
+
+
+		<p class="title-left" id="objTech">
+					3.4 - JavaScript Nesne Teknolojisi ve Hiyerarşisi .
+</p>
+		<p class="indent">
+			Bu kısımda, JavaScript programlama dilinde nesnelerin yapısı düzenlenemesi ve kullanımı 
+			üzerinde bilgileri inceleyeceğiz. İlk olarak Global JavaScript Nesnesini daha yakından incelemekle 
+			başlayacağız. Global JavaScript Nesnesinin yapısını incelemiş olmamız bize bu konuda yardımcı olacaktır.
+		</p>
+		<p class="subheading" id="global">3.4.1 - Global JavaScript Nesnesi</p>
+		<p class="indent">
+			Global JavaScript Nesnesi, JavaScript yorumlayıcısının tüm nesnelerinin
+						atası olarak hareket eder. Aslında,  teknik olarak tüm nesnelerin
+						atası <span class="keyw">Object</span> nesnesidir,
+						fakat Global JavaScript Nesnesi  açık olmayan bir şekilde, <span class="keyw">Object</span> nesnesi
+						dahil, tüm nesnelerin atası rolünü oynar ve  özellikleri tüm nesnelere
+						kalıtım yolu ile aktarılır. Global JavaScript Nesnesinin bir yapılandırıcı
+						fonksiyonu  yoktur ve kullanıcılar, bu nesnenin örneklerini yaratamazlar.
+						Global JavaScript Nesnesinin bir prototipi yoktur ve  yapısı yerleştirilme
+						yöntemine bağlıdır. Global JavaScript Nesnesinin kendi ismi yoktur.
+						Yerleştirildiği ortama göre isimlendirilir. JavaScript teknolojisinin en
+						çok kullanıldığı yer, web belge çözümleyicileri olduğundan, bu ortamlarda
+						yerleştirilme şekli ile, Global JavaScript Nesnesi, <span class="keyw">window</span> nesnesi
+						 adını alır. Her ticari kurumun kendine özgü bir window nesnesi vardır,
+						fakat bildiğimiz gibi çekirdek JavaScript  öğeleri standart hale
+						gelmiştir. JavaScript nesne teknoljisi son derece dinamiktir ve nesne özelliklerine
+						her  zaman katkı yapılabilmesine olanak sağlar. Her belge çözümleyicisi
+						kendi  <span class="keyw">window</span> 
+			nesnesini yerleştirirken, standart olan çekirdek özellikler yanında kendi
+			öntanımlı özelliklerini de Global JavaScript Nesnesinin öntanımlı özelliklerine
+			ekler. Bu eklenecek olan özelliklere artık yeni bir standart olan W3C-DOM
+			nesneleri de desteklendiği kadarı ile eklenir. Sonunda Global JavaScript
+			Nesnesi, yerleştiği ortama göre çeşitli ve farklı öntanımlı özelliklere sahip
+			olarak kullanıcılara açılır. Fakat, yerleşimlerde, eğer <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm"> ECMA-262</a> 
+			standartları destekleniyorsa, standart çekirdek nesneler, yerleşimde zorunlu
+			olarak bulunur.
+		</p>
+		<p class="indent">
+			Global JavaScript Nesnesi kullanıcılara açılınca,
+		</p>
+		<pre>
+<span class="keyw-50">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">&lt;</span><span 
+			class="op">/</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			arasında bulunan, <span class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementleri içeriğine program adımları yazarak katkıda
+			bulunabilirler. Bu alanlara, üst düzey programlama alanı denilir ve üst
+			düzey programlama alanına yazılan herşey anında çalışır. Üst düzey programlama
+			alanında tanımlanan her değişken Global JavaScript Nesnesini günceller
+			ve ona yeni bir özellik katar. Global JavaScript Nesnesinin tüm özellikleri
+			gibi kullanıcı tanımlı özellikleri de globaldir ve  tüm program öğeleri
+			tarafından her taraftan ulaşılabilir. Örnek olarak <a href="../js/bdelib.js">bdelib.js</a> 
+			kitaplık dosyasında bulunan global sonuçYaz<span class="op">()</span> fonksiyonu,
+			Global JavaScript Nesnesine kullanıcı eliyle eklenmiş bir metot anlamına
+			gelir. Bu metot, Global JavaScript Nesnesinin yapısını günceller ve ona
+			program öğelerinin her yönden ulaşabilecekleri yeni kullanıcı tanımlı metot
+			kazandırır.
+		</p>
+		<p class="subheading" id="cons">3.4.2 - Yapılandırıcı (Constructor) Fonksiyonlar</p>
+		<p class="indent">
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> standartları,
+			her JavaScript yerleşiminde bulunması gereken öntanımlı öğeleri belirtmiştir.
+			Bu standarda  (artık standart olarak anılacaktır) uymayı kabul eden her JavaScript
+			yerleşiminde standadın öngördüğü özellikler,  standartta belirtilen tanımlarda
+			olarak bulunacaktır. Bu öntanımlı öğelerden biri de, 
+			<span class="keyw">Object</span><span class="op">()</span> metodudur. 
+		</p>
+		<p class="indent">
+			<span class="keyw">Object</span><span class="op">()</span> fonksiyonu, şekil
+			3.1-1 de görülen, çekirdek JavaScript  öntanımlı nesnelerinden biri olan, <span class="keyw">Function</span> nesne
+			sınıfının bir örneğidir. 
+			<span class="keyw">Object</span><span class="op">()</span> fonksiyonu, bir
+			yapılandırıcı fonksiyondur. Yapılandırıcı fonksiyonların işlevi, isimleri
+			ile belirtilen nesne sınıf örneklerinin yapılarını, güncel verilere göre
+			 belirlemektir. <span class="keyw">Object</span><span class="op">()</span>  yapılandırıcı
+			fonksiyonunun işlevlerinden biri, öntanımlı <span class="keyw">Object</span> sınıfı
+			nesnesi örneklerinin yapılarını, güncel verilere göre belirlemektir. 
+			<span class="keyw">Object</span><span class="op">()</span> yapılandırıcı
+			fonksiyonunun, <span class="keyw">Object</span> sınıf örnekleri ile tek ilişkisi
+			budur.
+			<span class="keyw">Object</span><span class="op">()</span> yapılandırıcı
+			fonksiyonunun, <span class="keyw">Object</span> sınıf örneklerinin yapılandırmasını
+			yapmaz, sadece  var olan yapıyı okur. <span class="keyw">Object</span> sınıf
+			örneklerinin yapılandırmasını, kullanıcı  tanımlı sınıflar dahil hepsini,
+			kullanıcıya açık olmayan bir yöntemle JavaScript yorumlayıcısı  gerçekleştirir.
+			Kullanıcılar bu yapıları sadece güncelleştirebilir. Yapılandırıcı fonksiyonlar
+			bu yapıların güncel  değerlerini algılayarak, güncel yapıda yeni sınıf örnekleri
+			yaratırlar. 
+		</p>
+		<p class="indent">
+			Yapılandırıcı fonksiyonların, yapılandırdıkları sınıf örnekleri ile bir ilgisi olmadığı, yapılarından anlaşılabilir.
+			<span class="keyw">Object</span><span class="op">()</span> yapılandırıcı fonksiyonu, tüm fonksiyonlar gibi, 
+			<span class="keyw">Function</span> öntanımlı nesnesinin bir örneğidir. Yapılandırdığı sınıf nesne örneği ise
+			<span class="keyw">Object</span> , öntanımlı sınıfının bir örneğidir. Bu ikisinin arasında bir ilişki olmayacağı 
+			varsayılabilir.
+		</p>
+		<p class="indent" id="b3.4.2-uyg-1">
+			Bu varsayımın (hipotez) sınanması için, <span class="keyw">Object</span><span class="op">()</span>
+			yapılandırıcı fonksiyonuna yeni bir özellik ekleyerek, bu özelliğin yeni oluşturulacak, güncel yapıda 
+			<span class="keyw">Object</span> sınıf örneklerine geçip geçmediğinin kontrol edilmesi yeterli olacaktır. 
+			<span class="keyw">Object</span><span class="op">()</span> fonksiyonu bir fonksiyon nesnesi örneği 
+			olduğuna göre, buna yeni özellikler eklenmesi olanaklıdır. Bu konuda, ilişkilendirildiği bir 
+			<a href="../uygulamalar/b3.4.2-uyg-1.html">uygulama</a> sayfasında çalışan, aşağıdaki 
+			<a href="../uygulamalar/b3.4.2-uyg-1-js.html">JavaScript programı</a>, aşağıda görülmekte olan 
+			sonuçları vermektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">Object</span><span 
+			class="op">.</span>bilgi <span 
+			class="op">=</span> <span 
+			class="str">'kod 324'</span><span 
+			class="op">;</span>
+<span class="pl-50">çağrı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'çağrı.bilgi = '</span><span 
+			class="op">,</span> çağrı.bilgi<span 
+			class="op">,</span> <span 
+			class="str">'b3.4.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p id="b3.4.2-uyg-1-sonuç-1"></p>
+		<p class="indent" id="b3.4.2-uyg-2">
+			Program sonuçlarında açıkça görüldüğü gibi, varsayım doğrulanmaktadır. 
+			Yani, <span class="keyw">Object</span> fonksiyon nesnesi örneğinin 
+			özelliğine yapılan bir katkı, <span class="keyw">Object</span> sınıf örneklerininn yapısına
+			yansımamaktadır. Bir sınıf örneğinin özellik listesine yapılacak katkı, ancak o nesne 
+			örneğini etkiler ve yeni özelliğe ancak o nesne örneği aracığı ile ulaşılabilir. Bu konuda bir 
+			<a href="../uygulamalar/b3.4.2-uyg-2.html">uygulama</a> sayfasında çalışan, aşağıdaki 
+			<a href="../uygulamalar/b3.4.2-uyg-2-js.html">JavaScript programı</a> bunu açıkça belirtmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">Object</span><span 
+			class="op">.</span>bilgi <span 
+			class="op">=</span> <span 
+			class="str">'kod 324'</span><span 
+			class="op">;</span><span 
+			class="op"></span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Object.bilgi = '</span><span 
+			class="op">,</span> Object.bilgi<span 
+			class="op">,</span> <span 
+			class="str">'b3.4.2-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p id="b3.4.2-uyg-2-sonuç-1"></p>
+		<p class="nonindent">
+			Alınan bu sonuç, <span class="keyw">Object</span>
+			fonksiyon nesne örneğine yapılan özellik katkısının 
+			sadece bir tür global değişken olmaktan başka bir işlevi olmadığını belirtmektedir. 
+			<span class="keyw">Object</span> fonksiyon nesne örneği, Global JavaScript Nesnesinin
+			öntanımlı bir nesne örneğidir ve tüm özellikleri spesifikasyonda belirtilmiştir. Buna kullanıcılar 
+			tarafından spesifikasyon dışı eklentiler yapmak bir tür gizli global değişken kullanmak gibidir ve
+			global değişken kullanmanın bütün kötülüklerini taşıdıktan başka, bir de gizli olması nedeni ile 
+			anlaşılması zordur. Bu tür global değişkenler, yazılan fonksiyonların taşınabilirliğini ve 
+			okunabilirliğini büyük ölçüde engeller ve programların ileride bakım için yeniden okunmalarını 
+			zorlaştırır. Bu nedenle, mutlaka gerekli olmadıkça, öntanımlı öğelerin yapılarına katkı yapılmamasında
+			yarar bulunmaktadır.
+		</p>
+		<p class="indent">
+			Yapılandırıcı fonksiyonlara yeni özellikler ekleyerek sınıf nesnelerini etkileyemiyorsak, o zaman 
+			yapılarında yapacağımız değşikliklerle sınıfın örneklerini etkileyebileceğimiz sınıf nesneleri nerede
+			ve bunlara nasıl ulaşabiliriz?
+		</p>
+		<p class="indent">
+			Bu soruya verilecek yanıt, JavaScript programlama dilinde, Java gibi adı belli sınıf nesneleri 
+			olmadığıdır. JavaScript programlama dilinde, sınıf nesneleri yapılandırıcı fonksiyonların 
+			prototip özelliklerinin değeri olarak düzenlenmiştir.
+		</p>
+		<p class="subheading" id="prototype">3.4.3 - Yapılandırıcı (Constructor) Fonksiyonların Prototip (prototype) Özellikleri</p>
+				<p class="indent">
+			JavaScript programlama dilinde, yapılandırıcı fonksiyonların bir <span class="keyw">prototype</span> özelliği
+			bulunmaktadır. Bu özelliğin değeri, yapılandırıcı fonksiyonun örnekleri yapılandırdığı nesne türündendir. Yine 
+			<span class="keyw">Object</span><span class="op">()</span> yapılandırıcı fonksiyonu örnek alalım. Bu fonksiyonun
+			<span class="keyw">prototype</span> özelliğine, <span class="keyw">Object</span><span 
+			class="op">.</span><span class="keyw">prototype</span> olarak ulaşılır. Bu bir nesne örneği özelliğidir ve 
+			değeri bir nesnedir. Bu nesne, <span class="keyw">Object</span><span class="op">()</span> yapılandırıcı fonksiyonunun
+			yapılandırdığı <span class="keyw">Object</span> sınıfından bir nesnedir. Bu ismin yapılandırıcı fonksiyonun ismi olduğuna
+			dikkat ediniz. JavaScript programlama dilinde, yapılandırıcı fonksiyonların (hatta tüm fonksiyonların yapılandırıcı fonksiyon
+			olarak kullanılabildiği düşünülürse tüm fonksiyonların) <span class="keyw">prototype</span> özellikleri JavaScript 
+			yorumlayıcısı tarafından düzenlenir. Buna kullanıcının sadece yeni özellikler eklemek şeklinde bir katkısı olabilir.
+		</p>
+		<p class="indent">
+			Bir Javascript sınıf nesnesinin (bir sınıf nesnesi yapılandırıcı fonksiyonun 
+			<span class="keyw">prototype</span> özelliğinin) konumu, aşağıdaki şemadan daha kolay anlaşılabilecektir.
+		</p>
+		<p class="sayfaortala"><img src="../images/b3s3-img-1.png" alt="prototip nesnesi" /></p>
+		<p class="sayfaortala">Şekil 3.4.3-1 <span class="keyw">Object</span><span 
+			class="op">.</span><span class="keyw">prototype</span> Özelliğinin değeri
+		</p>
+		<p class="indent">
+			Şekil 3.4.3-1 den de görüldüğü gibi, JavaScript programlama dilinde, <span class="keyw">Object</span>
+			sınıf nesnesi yoktur. <span class="keyw">Object</span> sınıfından nesne örneklerinin yapılarınin envanteri,
+			bir tür veri temeli olan  <span class="keyw">Object</span><span 
+			class="op">.</span><span class="keyw">prototype</span> nesnesinin içeriğinde tutulur. 
+		</p>
+		<p class="indent">
+			<span class="keyw">Object</span> sınıfından nesne örneklerinin yapılarınin envanteri,
+			bir tür veri temeli olan  <span class="keyw">Object</span><span 
+			class="op">.</span><span class="keyw">prototype</span> nesnesinin içeriği de bir 
+			<span class="keyw">Object</span> nesnesidir. JavaScript yorumlayıcısı, bu nesnesin içsel 
+			[[Class]] özelliğini, &quot;Object&quot; olarak algılamaktadır. Bu içeriğe <span class="keyw">Object</span>
+			nesne sınıfının prototipi adı da verilir. Buradan da görülebildiği gibi, JavaScript programlama dili 
+			sınıf değil prototip temeline göre düzenlenmiştir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, başka programlama dillerinden gelen alışkanlıklarla
+				sınıf nesnelerinden  bahsedilir. Bu tanım genelde doğru değildir. JavaScript
+				programlama dilinde, örnek olarak 
+			<span class="keyw">Object</span> sınıf nesnesi değil, <span class="keyw">Object</span> sınıfının
+			 prototipi söz konusudur. 
+		</p>
+		<p class="indent" id="b3.4.3-uyg-1">
+			Öntanımlı sınıf prototiplerinin yazılımı kullanıcıya kapalıdır. Bu yazılıma erişim istekleri aşağıda görülen 
+			<a href="../uygulamalar/b3.4.3-uyg-1-js.html">JavaScript programının</a> ilişikli olduğu
+			<a href="../uygulamalar/b3.4.3-uyg-1.html">uygulama sayfasında</a> görüldüğü gibi sonuç verir.		</p>
+		<p class="cursive-blue">
+			...
+		</p>
+		<p class="cursive-blue">
+			sonuçYaz('Object.prototype = ', 'Object.prototype', 'b3.4.3-uyg-1-sonuç-1');
+		</p>
+		<p class="cursive-blue">
+		...
+		</p>
+
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b3.4.3-uyg-1-sonuç-1">
+		</p>
+
+		<p class="indent">
+			Program sonucu, kulllanıcıya kapalı olduğu için, prototip nesnesinin yazılımını
+			vermemekte, fakat iki önemli bilgi vermektedir. Bunlardan ilki, prototip
+				nesnesinin veri tipi olan object değeridir. Bu veri tipi, <span class="keyw">typeof</span><span class="op">()</span>
+			işlemcisi ile de alınabilecek olan veri itpi sonucudur ve tüm nesne tipi
+			veriler için aynıdır. İkinci değer olan Object daha özel bir değerdir ve
+			JavaScript yorumlayıcısının nesneyi algıladığı [[Class]] tipidir. Bu tip,
+			Global JavaScript Nesnesinin öntanımlı yapılandırıcı fonksiyonlarından birinin
+			adı olabilir. Burada Object sonucunun alınmasının nedeni, <span class="keyw">Object</span>
+			nesne sınıfının prototipinin yine bir <span class="keyw">Object</span> nesnesi
+			olmasıdır. 
+		</p>
+		<p class="indent">
+			Öntanımlı nesne sınıflarının prototiplerinin yazılımı kullanıcıya kapalıdır, fakat kullanıcılar, istedikleri
+			takdirde, öntanımlı nesne sınıfı prototiplerine özellik ekleyerek güncelleyebilirler. Bu işlem, 
+		</p>
+		
+		<pre>
+<span class="keyw-50">Object</span><span 
+			class="op">.</span><span class="keyw">prototype</span><span 
+			class="op">.</span>x <span 
+			class="op">=</span> 45<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde gerçekleştirilir.
+		</p>
+		<p class="indent">
+			Bir nesne sınıfının prototipi bu şekilde güncellendiğinde, bu sınıfa ait güncellemeden önce yaratılmış 
+			ve güncellemeden sonra yaratılacak tüm sınıf örneklerinin yapıları da güncellenir ve bu yeni özellik 
+			yerleştirilir. 
+		</p>
+		<p class="indent">
+			Öntanımlı sınıfların prototiplerinin değiştirilmesi sağlık verilmez. Bunun gizli global değişken
+			kullanmak anlamına geldiğini ve programların okunabilirliğini ve taşınabilirliğini azalttığı
+			daha önce açıklanmıştı.
+		</p>
+		<p class="indent">
+			Sınıf örneklerinin <span class="keyw">prototype</span> özellikleri yoktur. Sınıf örnekleri, ait 
+			olduklarını sınıfın prototipini paylaşırlar. Fakat, nesne sınıf örneklerinin yapısına yeni özellikler
+			eklenebilir. Bu eklenen özellikler sınıf prototipini etkilemez. Bir önceki bölümdeki bir 
+			<a href="../uygulamalar/b3.4.2-uyg-2.html">uygulamada</a> ve bölüm 2.6.5 de verilen bir
+			<a href="../uygulamalar/b2.6.5-uyg-1.html">uygulamada</a> bu konuda örnekler verilmiştir.
+		</p>
+		<p class="subheading" id="userdefined">3.4.4 - Kullanıcı Tanımlı Yapılandırıcı (Constructor) Fonksiyonlar</p>
+		<p class="indent">
+			Kullanıcı tanımlı yapılandırıcı fonksiyonları ileride detaylı olarak inceleyeceğiz.
+			Fakat, bu biraz zaman alacak, daha önce tüm öntanımlı çekirdek nesneleri incelemek 
+			yararlı olacaktır.  Burada sadece küçük bir başlangıç yaparak konunun tanıtımını yapacağız. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, her fonksiyon bir yapılandırıcı fonksiyon olarak görev yapabilir.
+			Doğal olarak, yapılandırma amaçlı fonksiyonların da yapıları özel olmalıdır. Aslında en basit bir 
+			boş fonksiyon bile yeni bir nesne sınıfı yaratmak için yeterlidir. Aşağıda kimlik adı altında yeni bir 
+			nesne sınıfı yaratan bir yapılandırıcı fonksiyon görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-25">function</span> Kimlik<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Yeni sınıf isminin büyük harfle başladığına dikkat edilmelidir. Bu sınıf yapılandırıcı fonksiyon,
+			boş bir fonksiyon olduğu için, yararlı sınıf örnekleri başlangıçta oluşturulamaz. Fakat, 
+			JavaScript yorumlayıcısı, her fonksiyon nesne sınıfı örneğinde olduğu gibi, Kimlik fonksiyonuna 
+			da bir <span class="keyw">prototype</span> özelliği oluşturup güncellenmeye hazır hale
+			getirmiştir. Bundan sonraki aşamada, oluşturduğumuız bu Kimlik sınıfının prototipine
+			katkı yaparak, oluşturulacak Kimlik sınıf örnekleri daha işe yarar hale getirilebilir.
+		</p>
+		<pre>
+<span class="pl-50">Kimlik</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>ad <span 
+			class="op">=</span> <span 
+			class="str">'Henüz Tanımlanmadı'</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Bundan sonra, yeni Kimlik sınıf örnekleri yaratılabilir:
+		</p>
+		<pre>
+<span class="pl-50">personel125</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kimlik<span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			Oluşturulan yeni personel125 Kimlik sınıfı örneğinin ad özelliğinin değeri, varsayılan değer olan, 
+			<span class="str">'Henüz tanımlanmadı !'</span> değerinde olacaktır. Bu değer istendiğinde güncellenebilir. 
+		</p>
+		<p class="indent">
+			Kimlik adlı kullanıcı tanımlı nesne sınfının prototipine istendiği kadar özellik eklenebilir. Bu genel bir 
+			metottur. Çok kullanışlı değildir, fakat kullanıcı tanımlı nesne sınıflarının oluşturulması için yeterlidr.
+			İleride çok daha kullanışlı yapılandırıcı fonksiyonları tanımlayacağız, fakat bu yöntem de
+			kullanıcı tanımlı nesne sınıflarının oluşturulması için yeterli olacaktır.
+		</p>
+		<p class="indent" id="b3.4.4-uyg-1">
+			  Aşağıda 
+			<a href="../uygulamalar/b3.4.4-uyg-1-js.html">JavaScript kodları</a> verilmiş 
+			olan <a href="../uygulamalar/b3.4.4-uyg-1.html">uygulamada</a> Kimlik sınıf örneklerinin 
+			oluşturulması görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Kimlik<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+<span class="pl-25">Kimlik</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>ad <span 
+			class="op">=</span> <span 
+			class="str">'Henüz Tanımlanmadı'</span><span 
+			class="op">;</span>
+<span class="pl-50">personel125</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kimlik<span 
+			class="op">();</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'personel125.ad = '</span><span 
+			class="op">,</span> personel125<span 
+			class="op">.</span>ad<span 
+			class="op">,</span> <span 
+			class="str">'b3.4.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b3.4.4-uyg-1-sonuç-1">
+		</p>
+		<p class="subheading" id="hierarchy">3.4.5 - JavaScript Nesne Hiyerarşisi</p>
+		<p class="indent" id="b3.4.5-uyg-1">
+			JavaScript programlama dili, üstsınıf/alt sınıf nesne hiyerarşisini destekler.
+				Nesne hiyarşisinin oluşturulması için, alt sınıfın üst sınıfın prototipinin
+				yapısını transfer etmesi gerekir. Kullanıcı tanımlı nesnelerle bu iş
+				somut olarak gerçekleştirilir. Aşağıda 
+			<a href="../uygulamalar/b3.4.5-uyg-1-js.html">JavaScript kodları</a> verilmiş
+			olan <a href="../uygulamalar/b3.4.5-uyg-1.html">uygulamada</a> kullanıcı tanımlı 
+			nesne sınıflarında, hiyerarşik yapılanmanın yaratılması görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Kimlik<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Güvenlik<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Kimlik</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span>ad <span 
+			class="op">=</span> <span 
+			class="str">'Henüz Tanımlanmadı'</span><span 
+			class="op">;</span>
+
+<span class="pl-25">Güvenlik</span><span class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kimlik<span 
+			class="op">;</span>
+
+<span class="pl-25">güvenlik125</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Güvenlik<span 
+			class="op">();</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'güvenlik125.ad = '</span><span 
+			class="op">,</span> güvenlik125<span 
+			class="op">.</span>ad<span 
+			class="op">,</span> <span 
+			class="str">'b3.4.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b3.4.5-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Program sonuçlarından da görüldüğü gibi, üst sınıf prototip nesnesinin
+				yapısının  alt sınıf prototip nesnesine aktarılması ile, üst sınıfın tüm
+				özellikleri alt sınıf prototipine aktarılmaktadır.
+		</p>
+		<p class="indent" id="b3.4.5-uyg-2">
+			JavaScript yorumlayıcısının yazılımı kullanıcıya kapalı olduğu için, öntanımlı
+				nesne sınıflarının hiyerarşik yapılanmasının anlaşılması kolay değildir.
+				Burada örnek olarak  öntanımlı <span class="keyw">Number</span> nesne sınıfını
+				izleyelim. Bu sınıfın prototipi
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">prototype</span>
+			nesnesidir ve spesifikasyonda bu nesnenin içsel [[Class]] özelliğinin değeri &quot;Number&quot;
+			olduğu bildirilmektedir. Bu bilgileri kendimiz sorgulamakla da yukarıdaki
+			<a href="../uygulamalar/b3.4.3-uyg-1-js.html">3.4.3 uyg-1</a> programında olduğu gibi
+			almaya çalışabiliriz. Aşağıda 
+			<a href="../uygulamalar/b3.4.5-uyg-2-js.html">JavaScript kodları</a> verilmiş olan
+			olan <a href="../uygulamalar/b3.4.5-uyg-2.html">uygulamada</a> da bu sefer 
+			<span class="keyw">Number</span> nesnesi prototipi için aynı sorgulama 
+			yapılmaktadır : Bu yapının kökenin ne olduğu, JavaScript yorumlayıcısının içsel
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Number.protype = '</span><span 
+			class="op">,</span> Number<span 
+			class="op">.</span>prototype<span 
+			class="op">,</span> <span 
+			class="str">'b3.4.5-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b3.4.5-uyg-2-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Program sonucunun sayısal 0 olması şaşırtıcı değildir. <span class="keyw">Number</span><span 
+			class="op">.</span><span class="keyw">prototype</span> nesnesi, sayısal sınıf
+			nesnesidir.  Tüm sınıf nesneleri gibi, kendi yapısı da tanımladığı sınıf
+			yani <span class="keyw">&quot;Number&quot;</span>
+			sınıfındandır, yani kısaca sayısal bir nesnedir ve başlangıç değeri 0 olarak
+			belirlenmiştir. Sayısal nesneler çağrıldıklarında içsel [[Value]] değerleri
+			ile yanıt verirler, bunun için aynen ilkel sayı tipleri gibi kullanılabilirler.
+			Bu durumda, aldığımız yanıt, Number<span class="op">.</span><span class="keyw">prototype</span> 
+			nesnesinin veri tipi object yani bir nesne tipi içsel [[Class]] değerini
+			de Number olduğunun doğrulanmasıdır. Bu yanıt iyi bir bilgidir, fakat aradığımız
+			yanıt değildir. Number<span class="op">.</span><span 
+			class="keyw">prototype</span> nesnesinin yapısı orjinal midir, yoksa çatısı
+			bir üst sınıftan prototip transferi ile mi oluşturulmuştur sorusuna bir
+			yanıt aramakta olmamıza karşın henüz bir yanıt bulamamış durumdayız.
+		</p>
+		<p class="indent" id="b3.4.5-uyg-3">
+			Aradığımız yanıt, JavaScript yorumlayıcısının orijinal yazılımında olduğu
+				için, ulaşabilmememiz çok kolay değildir. Fakat bu konuda biraz sıradışı
+				olmakla beraber, bir şansımız bulunmaktadır. FireFox tarafından yerleştirlilmiş
+				olan eski Netscape temelli JavaScript yorumlayıcısı, 
+<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> standartları
+			dışında bir nesne özelliği olan _proto_ (çift alt bağlaç) özelliğini desteklemektedir.Bu
+özellik iki  çift alt bağlaç ile sorgulamada kullanılırsa, nesnenin prototipinin
+			tranfer edildiği ilk kuşak üst sınıfı verecektir. Aşağıda 
+			<a href="../uygulamalar/b3.4.5-uyg-3-js.html">JavaScript kodları</a> verilmiş
+			olan olan <a href="../uygulamalar/b3.4.5-uyg-3.html">uygulamada</a> 
+			<span class="keyw">Number</span> nesnesi prototipi için bir üst sınıf sorgulaması
+			yapılmakladır. Program kodları aşağıda görülmektedir. Sonuç ancak FireFox
+			altında çalışacak olan
+			<a href="../uygulamalar/b3.4.5-uyg-3.html">uygulama sayfasında</a> görülebilecektir.
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Number.protype.__proto__ = '</span><span 
+			class="op">,</span> Number<span 
+			class="op">.</span>prototype<span 
+			class="op">.</span><span 
+			class="keyw">__proto__</span><span 
+			class="op">,</span> <span 
+			class="str">'b3.4.5-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent">
+			<em><span class="cursive-green">Number.prototype.__proto__ = </span><span class ="cursive-red">[object Object]</span></em>
+		</p>
+		<p class="nonindent">
+			olmaktadır. (Lütfen <a href="../uygulamalar/b3.4.5-uyg-3.html">uygulama sayfasını</a> FireFox 3 altında çalıştırarak
+			kontrol ediniz!)
+		</p>
+		<p class="indent">
+			Bu gerçek bir hack ve çok önemli bir olguya işaret etmektedir. Number sınıf nesnesinin ilk atası, 
+			<span class="keyw">Object</span> nesnesidir. Bu gerçek, program sonucundan açıkça anlaşılmaktadır. 
+			İncelendiiğinde, tüm diğer öntanımlı sınıflar için de aynı sonuç alınacak ve tümünün prototipinin ilk atasının 
+			<span class="keyw">Object</span> sınıfının prototipi olduğu anlaşılacaktır. Bu gerçek aslında spesifikasyonda
+			yazılıdır. Burada sadece kendimizin bu gerçeği bulmamamızın daha doğru olacağı düşünülmüştür. Spesifikasyon,
+			tüm diğer öntanımlı nesneler gibi <span class="keyw">&quot;Number&quot;</span> nesnesi prototipinin,
+			içsel [[Prototype]] özelliğinin değerinin <span class="keyw">Object</span> prototip nesnesi olduğunu açıkça 
+			belirtmektedir. Yani bulgularımız doğrudur.
+		</p>
+		<p class="indent" id="b3.4.5-uyg-4">
+			Kullanıcı tanımlı nesnelerinin atalarının da incelenmesi için, yine aynı araştırma yöntemi kullanılabilir. Aşağıda
+			görülen <a href="../uygulamalar/b3.4.5-uyg-4-js.html">JavaScript kodları</a>, sadece FireFox da çalışan 
+			bir <a href="../uygulamalar/b3.4.5-uyg-4.html">uygulama</a> sayfasında, aşağıda görülen sonuçları vermiştir:		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Kimlik<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kimlik.protype.__proto__ = '</span><span 
+			class="op">,</span> Kimlik<span 
+			class="op">.</span>prototype<span 
+			class="op">.</span><span 
+			class="keyw">__proto__</span><span 
+			class="op">,</span> <span 
+			class="str">'b3.4.5-uyg-4-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent">
+			<em><span class="cursive-green">Kimlik.prototype.__proto__ = </span><span class ="cursive-red">[object Object]</span></em>
+		</p>
+		<p class="nonindent">
+			olmaktadır. (Lütfen <a href="../uygulamalar/b3.4.5-uyg-4.html">uygulama sayfasını</a> FireFox 3 altında çalıştırarak
+			kontrol ediniz!)
+		</p>
+		<p class="indent">
+			Bu sonuçlar da eksik kalan bilgilerimizi tamamlamıştır. Kimlik sınıfı gibi kullanıcı tanımlı sınıflar da,
+			aynen öntanımlı sınıflar gibi, prototiplerini <span class="keyw">Object</span> sınıfından almışlardır. Yani,
+			öntanımlı olsun, kullanıcı tanımlı olsun tüm nesnelerin ilk kuşak atası <span class="keyw">Object</span>
+			nesne sınıfıdır. Global JavaScript Nesnesi <span class="keyw">Object</span> nesnesinin ilk atası olduğuna
+			göre, tüm Global JavaScript Nesnesinin özellikleri kalıtımla <span class="keyw">Object</span> nesnesine
+			aktarılır. Buna <span class="keyw">Object</span> nesnesinin kendi özellikleri de eklenerek, tüm 
+			<span class="keyw">Object</span> nesnesi alt nesnelerine aktarılır.
+		</p>
+		<p class="subheading" id="bindirme">3.4.6 - Kalıtımla Aktarılan Özelliklerin Bindirilmesi</p>
+		<p class="indent">
+			Nesne sınıflarının alt ve üst sınıflar olarak hiyerarşik yapılanması, sadece tanım sırasında,
+			yazılım kolaylığı açısından başvurulan bir yöntem değildir. Nesne hiyerarşisi kalıcı, uzun soluklu
+			bir ilişkidir. Alt sınıfların kendilerine özgü özellik yazılımları yoktur. Alt sınıflar üst sınıfların özellik 
+			yazılımlarından yararlanırlar. Doğal olarak üst sınıf yazılımlarında yapılacak değişiklikler, alt sınıftan
+			gelecek çağrıları da etkileyecektir. Bu açık etkiden başka, üst sınıf prototipine yapılacak eklemeler
+			anında alt sınıf protiplerine de yansıyacaktır. Bazen çok uygun olan bu yakın ilişkiler, bazen de 
+			çok can sıkıcı olabilmektedir.
+		</p>
+		<p class="indent">
+			Herşeyden önce, bir alt sınıf tanımlamak gereği, yapısı ana sınıfa yakın fakat, belirli farkları olan
+			bir yapılanma ile karşılaşıldığında ortaya çıkmaktadır. Üst sınıf/alt sınıf ilişkisinin kurulması ile, 
+			oluşan hiyerarşik ilişkide, benzerlikleri hedefleyen özellikler, çok iyi işlev yapmasına karşın, 
+			farklıklar ile ilgili özelliklerde sorun çıkmaktadır. Örnek olarak bir üst sınıfta uygun olan bir metot,
+			ile alt sınıfta kesinlikle bir sonuç almak olanağı bulunmayabilir. Bu durumda, bu metodun içeriğini, 
+			alt sınıfa uygun olarak yeniden yazmak bir çözüm olabilir. Örnek olarak, bir GeziGrubu sınıfının
+			alt sınıfı olan Vejetaryen alt sınıfının menüSeçim<span class="op">()</span> metodu ile ,
+			üst sınıfın menüSeçim<span class="op">()</span> metotları arasında dağlar kadar fark 
+			olabilir. Birinin menü listesi &quot;İskender Kebap&quot; gibi liste sıralamaları içerirken
+			diğeri zeytinyaplı hafif yemekler içeren listeler sunmalıdır. Fakat, her iki metodun isminin aynı 
+			olması dikkat çekicidir. Üst sınıftan tüm özellikler gibi, menüSeçim<span class="op">()</span>
+			metodu da kalıtsal olarak Vejateryen alt sınıfına aktarılmış, fakat metodun ismi aynı kaldığı
+			halde, içeriği Vejetaryen alt sınıfında, 
+		</p>
+		<pre>
+<span class="pl-50">Vejetaryen</span><span 
+			class="op">.</span><span class="keyw">prototype</span><span 
+			class="op">.</span>menüSeçim <span 
+			class="op">=</span> <span 
+			class="keyw">function <span 
+			class="op">() {</span></span>
+			<span class="keyw-50">...</span>
+<span class="op-50">};</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde yenilenmiştir. Bu şekilde, kalıtsal olarak aktarılan metotların
+			aktarıldıkları sınıfta  içeriklerinin değiştirilmesine metot bindirme
+			adı verilir. Metot bindirilmesi, hiyerarşik sınıflar tanımlandığında, 
+			bir alt sınıfın üst sınıftan kalıtımla gelen metodun içeriğinin alt sınıfa daha
+			yararlı olacak şekilde yeniden düzenlenmsi gerektiğinde başvurulan çok yararlı bir 
+			yöntemdir. JavaScript <a href="../b2/b2s2.html#object">öntanımlı nesne hiyerarşisinde</a>
+			 metot bindirildiği
+			 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			spesifikasyonundada birçok durumda belirtilmiştir. Kullanıcı tanımlı hiyerarşik sınıflar incelendiğinde bu 
+			konu üzerinde yeniden durulacaktır.
+		</p>
+		<p class="indent">
+			Alt sınıftan bir metot çağrıldığında, JavaScript yorumlayıcısı ilk olarak
+			alt sınıfın prototipine bakacaktır. Bu çağrının ilgili özelliği, çağrıyı
+			yapan alt sınıfın prototipinde yoksa, çağrı doğrudan üst sınıf özelliğine 
+			yönlendirilecektir. Fakat, eğer, çağrı yapılan özelliğe alt sınıf prototipinde
+			bindirme  yapılmışsa, çağrı bindirilmiş alt sınıf özelliğine yönlendirilecektir.
+			Bunun avantajı, kullanıcının çok fazla metot ismi ile çalışmak zorunda
+			kalmamasıdır. Tek isim altında değişik içerikli bir özelliğin adı ve
+			işlevi aynı olduğuna göre, kullanıcının kullanması daha kolay olacaktır.
+			Yani her alt sınıfın menü seçimini sağlayan bir menüSeçim<span class="op">()</span>
+			metodu ve içerikleri farklı olacak fakat kullanıcı her alt sınıfta aynı isimle 
+			metodu kullanabilecektir.
+		</p>
+		<p class="indent">
+			Metot bindirmesinin başka bir örneği, öntanımlı sınıfların çoğunda bulunan 
+			<span class="keyw">toString</span><span class="op">()</span> metodudur. 
+			Bu metot, aktarıldığı hemen her alt nesne prototipinde aktarılmış olduğu 
+			alt nesnenin gereksinmelerine göre yeniden yazılmış yani bindirilmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b3s2.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b4/b4s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b3.4.2-uyg-1.js">
+		</script>
+	<script type="text/javascript" src="../js/b3.4.2-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b3.4.3-uyg-1.js">
+		</script>
+			<script type="text/javascript" src="../js/b3.4.4-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b3.4.5-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b3.4.5-uyg-2.js">
+		</script>
+
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:04 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

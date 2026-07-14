@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:28 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders3.html">
+    <meta http-equiv="content-type"
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 3</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">
+      Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders2.html" 
+          shape="rect" coords="0,0,75,20" />
+          <area alt="" title="" href="ders4.html" 
+          shape="rect" coords="90,0,170,20" />
+        </map>
+      </p>
+      <p>
+        Ders 3
+      </p>
+    </div>
+    <p id="literals" class="title-left verticalTab-10">
+      1.10 -
+      Literaller
+    </p>
+    <p class="indent">
+      Literaller, henüz hiçbir program öğesine bağlanmamış verilerdir. 
+      Literaller tipik olarak, klavyeden değer olarak girilirler, 
+      veya bir dosyadan okunurlar. Python veri tiplerinin en 
+      uygun olarak tanıtılması, literallerinin incelenmesidir.
+    </p>
+    <p id="Numtypes" class="subheading">
+      1.10.1 -
+      Sayısal Literaller
+    </p>
+    <p class="indent">
+      Python sayısal tipleri üç tanedir. Bunlar tamsayılar (integers), 
+      ondalıklı sayılar (floats) ve sanal sayılar (imaginary 
+      numbers) dan oluşurlar. Kompleks sayılar, bir tamsayı 
+      ile bir sanal sayının toplama işleminin sonucunda oluşurlar.
+    </p>
+    <p id="integers" class="subsub">
+      1.10.1.1 -
+      Tamsayı Literalleri
+    </p>
+    <p class="indent">
+      Pyton tamsayı literalleri, on tabanlı sayılar (decimal) 
+      (varsayılan sayı temeli), sekiz tabanlı sayılar (octal), 
+      onaltı tabanlı sayılar (hex) ve iki tabanlı sayılardan 
+      (binary) oluşabilirler.
+    </p>
+    <p class="indent">
+      Python 3.4 dokümantasyonunda tamsayı literaller için verilen 
+      EBNF formülasyonu aşağıda görülmektedir:
+    </p>
+    <pre class="pl-50">
+<strong>integer       </strong> ::=  decimalinteger | octinteger | hexinteger | bininteger
+<strong>decimalinteger</strong> ::=  nonzerodigit digit* | &quot;0&quot;+
+<strong>nonzerodigit  </strong> ::=  &quot;1&quot;...&quot;9&quot;
+<strong>digit         </strong> ::=  &quot;0&quot;...&quot;9&quot;
+<strong>octinteger    </strong> ::=  &quot;0&quot; (&quot;o&quot; | &quot;O&quot;) octdigit+
+<strong>hexinteger    </strong> ::=  &quot;0&quot; (&quot;x&quot; | &quot;X&quot;) hexdigit+
+<strong>bininteger    </strong> ::=  &quot;0&quot; (&quot;b&quot; | &quot;B&quot;) bindigit+
+<strong>octdigit      </strong> ::=  &quot;0&quot;...&quot;7&quot;
+<strong>hexdigit      </strong> ::=  digit | &quot;a&quot;...&quot;f&quot; | &quot;A&quot;...&quot;F&quot;
+<strong>bindigit      </strong> ::=  &quot;0&quot; | &quot;1&quot;</pre>
+    <p class="indent">
+      Tamsayı değerleri için bir üst sınır yoktur. Bu değerler, 
+      makinenin kullanılabilir belleğinin alabileceği kadar 
+      büyük olabilir.
+    </p>
+    <p class="indent">
+      Sıfırdan farklı on tabanlı tamsayılar sıfır ile başlayamazlar. 
+      Bu kısıt, Python 3 den önce kullanılan C-stili sekiz tabanlı 
+      sayılardan farklı olmaları için, konulmuştur. Bu nedenle, 
+      077 geçersiz bir tamsayı literalidir, doğrusu 77 dir.
+    </p>
+    <p class="indent">
+      Varsayılan sayı sistemi olan on tabanlı sayı literalleri 
+      1..9 arası bir sayı ile başlarlar, bu başlangıç sayıları, 
+      (ya 0..9 arası sayılardan istendiği kadar kullanılarak 
+      veya hiç ikinci sayı kullanmadan) veya en az bir sıfır 
+      kullanıp istendiği kadar sıfır eklenerek) devam eder.
+    </p>
+    <p class="indent">
+      Geçerli sayılar, 123, 47397, 16, 12000 vb... olabilir.
+    </p>
+    <p class="indent">
+      Sekiz tabanlı (oktal) sayılar, Önce bir 0 sayısı ile başlar, 
+      sonra bir küçük o veya büyük O oktal sayı öneki ile devam 
+      eder sonra, en az bir 0..7 arası oktal sayı belirtilir 
+      ve istendiği kadar oktal sayı eklenebilir.
+    </p>
+    <p class="indent">
+      Geçerli literaller 0o34, 0O4573296 vb... olabilir.
+    </p>
+    <p class="indent">
+      Hex ve binary sayı literalleri de aynı oktal sayı literalleri 
+      gibi oluşturulurlar. Bazı geçerli değerler,
+    </p>
+    <p class="indent">
+      0xFFFF, 0X12CC, 0xfcde, 0x0000, 0b10001, 0B101010 olabilir.
+    </p>
+    <p id="floats" class="subsub">
+      1.10.1.2 -
+      Ondalıklı Sayı Literalleri
+    </p>
+    <p class="indent">
+      Ondalıklı sayı literalleri, aşağıda görüldüğü gibi tanımlanmışlardır.
+    </p>
+    <pre class="pl-50">
+<strong>floatnumber  </strong> ::=  pointfloat | exponentfloat
+<strong>pointfloat   </strong> ::=  [intpart] fraction | intpart &quot;.&quot;
+<strong>exponentfloat</strong> ::=  (intpart | pointfloat) exponent
+<strong>intpart      </strong> ::=  digit+
+<strong>fraction     </strong> ::=  &quot;.&quot; digit+
+<strong>exponent     </strong> ::=  (&quot;e&quot; | &quot;E&quot;) [&quot;+&quot; | &quot;-&quot;] digit+
+</pre>
+    <p class="indent">
+      Artık nasıl okunduğunu bildiğimiz için sadece geçerli 
+      örnekler yapmamız yeterli olacaktır.
+    </p>
+    <p class="indent">
+      Geçerli örnekler,23.e-35, 04.78E8, 0.12, 0.0005 vb... 
+      olabilir.
+    </p>
+    <p class="indent">
+      Ondalıklı sayılarda başa 0 sayısı konulması yasaldır. 
+      Bu nedenle 04.78E8 geçerli bir ondalıklı literaldir ve 
+      değeri 4.78E8 dir.
+    </p>
+    <p class="indent">
+      Ondalıklı literallerde sayılar işaret içermezler, -10 
+      gibi bir sayı aslında bir ifadedir (expression) ve bir 
+      sayının tekli eksi işlemci ile işlem yapacağını belirtir. 
+      Örnek olarak 23.e-35 değeri aslında yasal olmasına karşın, 
+      bu değerin, alışılmış şekli ile 23.0e-35 olarak ifade 
+      edilmesi daha doğrudur. S.I (Systeme International d'Unités) 
+      bunun 2.3 X e-34 olarak belirtilmesini öngörür. Python 
+      eşdeğeri 2.3e-34 dür ve Python derleyicisi de bu literali 
+      böyle algılar. Aslında bu bir ifadedir ve 2.3 * (1.0 / 
+      1.0e34) ifadesinin sonucudur. İfadede hiçbir sayısal değerin 
+      işaret taşımadığına dikkat ediniz. İfadeleri kısa süre 
+      sonra daha detaylı olarak inceleyeceğiz.
+    </p>
+    <p class="indent">
+      Ondalıkl sayılarda üst sınır, sadece yerleşik python derleyicisinin 
+      kapasitesine bağlı olarak tanımlanmıştır. Python derleyicileri 
+      çok büyük ondalıklı değerleri tanıyabilmekte bu da matematik 
+      çalışmalarında, python programlama diline büyük avantaj 
+      sağlamaktadır. Örnek olarak 5.6e5700 gibi Java ve başka 
+      programlama dillerinin sınırlarının çok dışındaki değerler 
+      ile Python derleyicisinde sorunsuzca işlem yapmak olanağı 
+      sağlanabilmektedir.
+    </p>
+    <p id="imaginary" class="subsub">
+      1.10.1.3 -
+      Sanal (Imaginary) Sayı Literalleri
+    </p>
+    <p class="indent">
+      Sanal sayılar j veya J soneki ile belirtilir. Genel yöntem,
+    </p>
+    <pre>
+<span class="pl-25">sanalsayı</span><span class="op">::= (</span>ondalıklı_sayı_kısmı <span 
+    class="op">|</span> tamsayı_kısmı<span class="op">) (</span><span 
+    class="str">&quot;j&quot;</span> <span class="op">|</span> <span 
+    class="str">&quot;J&quot;</span><span class="op">)</span>
+      </pre>
+    <p class="nonindent">
+      şeklindedir. Geçerli sanal sayı literalleri, 10J , 21.7j, 
+      3.0j, .16j, 1e7J gibi değerlerdir.
+    </p>
+    <p class="indent">
+      Kompleks sayıların oluşturulması için, ondalıklı bir sayı 
+      ile sanal bir sayının toplanması gerekir. Örnek olarak 
+      3.0 + 4j gibi kompleks sayılar oluşturulabilir.
+    </p>
+    <p id="strings" class="subheading">
+      1.10.2 -
+      Sözel Literaller</p>
+    <p class="indent">
+      Sözel literaller, Byte veya String veri tiplerine ait 
+      literaller olabilirler. Byte ve String tipi literller 
+      birbirlerinin aynıdır. Byte veri tipi sadece ASCII karakterlerden 
+      oluşur.
+    </p>
+    <p class="indent">
+      Sözel literallerin EBNF kuralları:
+    </p>
+    <pre class="pl-25">
+<strong>stringliteral  </strong> ::=  [stringprefix](shortstring | longstring)
+<strong>stringprefix   </strong> ::=  &quot;r&quot; | &quot;u&quot; | &quot;R&quot; | &quot;U&quot;
+<strong>shortstring    </strong> ::=  &quot;'&quot; shortstringitem* &quot;'&quot; | '&quot;'
+shortstringitem* '&quot;'
+<strong>longstring     </strong> ::=  &quot;'''&quot; longstringitem* &quot;'''&quot; | '&quot;&quot;&quot;' longstringitem* '&quot;&quot;&quot;'
+<strong>shortstringitem</strong> ::=  shortstringchar | stringescapeseq
+<strong>longstringitem </strong> ::=  longstringchar | stringescapeseq
+<strong>shortstringchar</strong> ::=  &lt;any source character except &quot;\&quot; or newline or the quote&gt;
+<strong>longstringchar </strong> ::=  &lt;any source character except &quot;\&quot;&gt;
+<strong>stringescapeseq</strong> ::=  &quot;\&quot; &lt;any source character&gt;
+</pre><pre class="pl-25">
+<strong>bytesliteral  </strong> ::=  bytesprefix(shortbytes | longbytes)
+<strong>bytesprefix   </strong> ::=  &quot;b&quot; | &quot;B&quot; | &quot;br&quot; | &quot;Br&quot; | &quot;bR&quot; | &quot;BR&quot; | &quot;rb&quot; | &quot;rB&quot; | &quot;Rb&quot; | &quot;RB&quot;
+<strong>shortbytes    </strong> ::=  &quot;'&quot; shortbytesitem* &quot;'&quot; | '&quot;' shortbytesitem* '&quot;'
+<strong>longbytes     </strong> ::=  &quot;'''&quot; longbytesitem* &quot;'''&quot; | '&quot;&quot;&quot;' longbytesitem* '&quot;&quot;&quot;'
+<strong>shortbytesitem</strong> ::=  shortbyteschar | bytesescapeseq
+<strong>longbytesitem </strong> ::=  longbyteschar | bytesescapeseq
+<strong>shortbyteschar</strong> ::=  &lt;any ASCII character except &quot;\&quot; or newline or the quote&gt;
+<strong>longbyteschar </strong> ::=  &lt;any ASCII character except &quot;\&quot;&gt;
+<strong>bytesescapeseq</strong> ::=  &quot;\&quot; &lt;any ASCII character&gt;
+</pre>
+    <p class="indent">
+      Sözcüklerle anlatılmak istenirse, sözel literaller bir 
+      takım öneklerle başyabilirler. Bu öneklerden B, b (Byte), 
+      r, R (Regexp = Regular Expressions =Düzenli Deyimler), 
+      u, U (Unicode) anlamındadır. Bu gibi özellikleri olmayan 
+      sözel verilerde önek kullanılmaz.
+    </p>
+    <p class="indent">
+      Sözel veriler, tek ('), çift(&quot;) ve üçlü (&quot;&quot;&quot;) 
+      tırnak işaretleri arasında belirtilirler. Örnek olarak
+      <span class="str">'Ali'</span> <span class="str">&quot;Bahçekapı&quot;</span>,
+      <span class="str">&quot;&quot;&quot;Ilgaz Dağı&quot;&quot;&quot;</span>
+    </p>
+    <p class="indent">
+      Bu sınır işaretleri arasına ters şlaş (\) veya satırbaşı 
+      karakteri ile,
+    </p>
+    <ul class="listNoMarker">
+      <li>Eğer sözel veri ' arasında tanımlanmışa, ' karakteri,</li>
+      <li>Eğer sözel veri &quot; arasında tanımlanmışa, &quot; 
+      karakteri,</li>
+      <li>Eğer sözel veri ' arasında tanımlanmışa, ' karakteri, 
+      arasında taımlanmışa, ' karakteri,</li>
+      <li>Eğer sözel veri &quot;&quot;&quot; arasında tanımlanmışa, &quot;&quot;&quot; 
+      karakteri,</li>
+    </ul>
+    <p class="nonindent">
+      giremez. Bu karakterlere gerek varsa, bunların Python 
+      derleyicisinden saklanması gerekir. Saklama (kaçırma) 
+      (Kaçış) karakteri, ters slaş (\) karakteridir.
+    </p>
+    <p class="indent">
+      Örnek olarak, 'Haydarpaşa Limanı (&quot;Müdürlük&quot;)' 
+      veya,
+      'Haydarpaşa Limanı (&quot;&quot;&quot;Müdürlük&quot;&quot;&quot;)' 
+      yazılabilir. Fakat, 'Haydarpaşa Limanı('Müdürlük')' 
+      yazamayız, tek tırnağın, kaçırılması (escaped) yani 
+      'Haydarpaşa Limanı (\'Müdürlük\'') şeklinde yazılması 
+      gerekir.</p>
+    <p class="indent">
+      Kaçış karakterlerinin değişik işlevleri vardır.
+    </p>
+    <div class="pagecenter">
+      <table class="CSS_Table_Example tablewidth50">
+        <tr>
+          <td>Escape Sequence</td>
+          <td>Meaning</td>
+          <td>Notes</td>
+        </tr>
+        <tr>
+          <td>\newline</td>
+          <td>Backslash and newline ignored</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\\</td>
+          <td>Backslash (\)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\'</td>
+          <td>Single quote (&gt;&gt;')</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\&quot;</td>
+          <td>Double quote (&quot;)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\a</td>
+          <td>ASCII Bell (BEL)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\b</td>
+          <td>ASCII Backspace (BS)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\f</td>
+          <td>ASCII Formfeed (FF)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\n</td>
+          <td>ASCII Linefeed (LF)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\r</td>
+          <td>ASCII Carriage Return (CR)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\t</td>
+          <td>ASCII Horizontal Tab (TAB)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\v</td>
+          <td>ASCII Vertical Tab (VT)</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>\ooo</td>
+          <td>Character with octal value <em>ooo</em></td>
+          <td>(1,3)</td>
+        </tr>
+        <tr>
+          <td>\xhh</td>
+          <td>Character with hex value <em>hh</em></td>
+          <td>(2,3)</td>
+        </tr>
+      </table>
+    </div>
+    <p class="indent">
+      Sadece string literallerde tanımlı kaçış sekansları:</p>
+    <div class="pagecenter">
+      <table class="CSS_Table_Example tablewidth60">
+        <tr>
+          <td>Escape Sequence</td>
+          <td>Meaning</td>
+          <td>Notes</td>
+        </tr>
+        <tr>
+          <td>\N{name}</td>
+          <td>Character named <em>name</em> in the Unicode database</td>
+          <td>(4)</td>
+        </tr>
+        <tr>
+          <td>\uxxxx</td>
+          <td>Character with 16-bit hex value <em>xxxx</em></td>
+          <td>(5)</td>
+        </tr>
+        <tr>
+          <td>\Uxxxxxxxx</td>
+          <td>Character with 32-bit hex value <em>xxxxxxxx</em></td>
+          <td>(6)</td>
+        </tr>
+      </table>
+    </div>
+    <p class="indent">
+      Notlar:</p>
+    <ol class="list">
+      <li>
+      <p class="indent">
+        Aynen standart C gibi üç oktal rakkam kabul edilir
+      </p>
+      </li>
+      <li>
+      <p class="indent">
+        Standart C den faklı olarak, tam olarak iki hex rakkam 
+        gereklidir.
+      </p>
+      </li>
+      <li>
+      <p class="indent">
+        Byte literallerinde, hex ve oktal kaçış karakterleri 
+        verilen değerde byte karakterlerini, karakter katarı 
+        (string) literallerde ise, verilen değerde unicode karakterlerini 
+        belirtir.
+      </p>
+      </li>
+      <li>
+      <p class="indent">
+        Sürüm 3.3: İsim eşdeğerleri (<a 
+        href="http://www.unicode.org/Public/UNIDATA/NameAliases.txt"> 
+        Unicode Name Aliases</a>) desteği sağlanmıştır.</p>
+      </li>
+      <li>
+      <p class="indent">
+        Bazı suret (surrogate) kod kısımları içeren Unicode 
+        karakter kodları bu kaçış sekansı ile kullanılabilir. 
+        Tam olarak dört hex rakkamı gereklidir.
+      </p>
+      </li>
+      <li>
+      <p class="indent">
+        Tüm Unicode değerleri bu yöntem ile kodlanabilir. Tam 
+        olarak sekiz hex rakkamı gereklidir.
+      </p>
+      </li>
+    </ol>
+    <p class="indent">
+      Standart C den farklı olarak, tüm sözel verilerde ters 
+      slaş ile tanımlanmış olan tüm kaçış sekanslar sözel veri 
+      içinde bırakılabilir. String veriler için tanımlanmış 
+      kaçış sekansları, Byte veri türü için tanımsızdır.
+    </p>
+    <p class="indent">
+      Örnek olarak, r&quot;\&quot;&quot; geçerli bir string 
+      literal iken, r&quot;\&quot; geçerli değildir. Çünkü, 
+      hiçbir sözel literal, tek sayıda kaçış karakteri ile bitemez. 
+      Bunun nedeni ters slaş karakterinin bir sonraki karakteri 
+      saklamasıdır. Ayrıca, bir terş slaş yazıp ardından klavyeden 
+      satırbaşı karakteri girip, sözel literalin bir kısmının 
+      alt satıra alınması, Python derleyicisince gözönüne alınmaz. 
+      Alt satıra geçmek için mutlaka '\n' şeklinde, açıkca bir 
+      alt satıra geçiş kaçış sekansı gereklidir.
+    </p>
+    <p class="indent">
+      Bazı örnekler yapalım. İlk örnek normal bir string (karakter 
+      katarı) örneği,
+    </p>
+    <p class="indent">
+      <span class="str">&quot;Haydarpaşa Limanı&quot;</span>
+    </p>
+    <p class="nonindent">
+      Bu örnek tek satır üzerinde, arada boşluk var ve Türkçe 
+      karakter içeriyor. Bunların hepsi yasal ve bu geçerli 
+      bir sözel veri (string sözcüğü eşdeğeri olarak artık sözel 
+      veri deyimini kullanacağız. Byte cinsinden literaller 
+      zaten byte olarak belirtiliyor).
+    </p>
+    <p class="indent">
+      Eğer, bu sözel literalinin son harfini klavyemizde bulamazsak, 
+      Unicode eşdeğerini de kullanabiliriz. Unicode karakter 
+      giriş noktası (entry point = karakter kodu) = 0131 (Hex). 
+      Eşdeğer sözel literal:
+    </p>
+    <p class="indent">
+      <span class="str">'Haydarpaşa Liman\u0131'</span>
+    </p>
+    <p class="indent">
+      Türkçe karakter klavyesi bulunmadığı zaman, Unicode eşdeğerleri 
+      girilebilir. Türkçe karakterlerin Unicode karşılıkları,
+      <a href="http://www.charset.org/charactersets.php?charset=utf-8">
+      charset.org</a> adresinden bulunabilir.
+    </p>
+    <p class="indent">
+      Bir başka örnek,
+    </p>
+    <p class="indent">
+      <span class="str">'Haydarpaşa\nLimanı'</span>
+    </p>
+    <p class="indent">
+      Python derleyicisi bu sözel literali,
+    </p>
+    <pre>
+<span class="pl-25">Haydarpaşa</span>
+<span class="pl-25">Limanı</span>
+    </pre>
+    <p class="nonindent">
+      olarak algılayacaktır.
+    </p>
+    <p class="indent">
+      Sözel literalleri kullanırken, sözel veri içinde tek büyük 
+      parantez {} kullanılmaması olacaktır. Python derleyicisi, 
+      bu tek parantezi, biçimlendirme olarak algıyacaktır. Eğer 
+      gerçekten büyük paranteze gerek varsa, bu durumda içiçe 
+      çift büyük parantez {{}} kullanılmalıdır. Örnek olarak,
+    </p>
+    <pre>
+<span class="str-25">'Aile Üyeleri {{Eş:Tüzel Varol, Çocuk:Melisa Varol'}}'</span>
+    </pre>
+    <p class="nonindent">
+      yazıldığında, Python derleyicisi bunu,
+    </p>
+    <pre>
+<span class="str-25">'Aile Üyeleri {Eş:Tüzel Varol, Çocuk:Melisa Varol'}'</span>
+    </pre>
+    <p class="nonindent">
+      olarak algılayacaktır.
+    </p>
+    <p class="indent">
+      Normal olarak, sözel veriler satır atlamazlar. Fakat, 
+      eğer sözel veriler üç tırnak (&quot;&quot;&quot; veya 
+      ''') içinde belirtilmişse, kaçış sekansına gerek kalmadan 
+      satır atlatılabilir veya veri içinde &quot;&quot; '' kullanılabilir. 
+      Örnek olarak,
+    </p>
+    <pre>
+<span class="str">"""
+Baba Adı : Tufan Özgür
+Ana Adı  : Hatice Özgür
+Çocuklar : Nisa Özgür "En Büyük Çocuk"
+         : Ziya Özgür
+"""
+</span>
+    </pre>
+    <p class="nonindent">
+      yasal bir sözel literaldir.
+    </p>
+    <p class="indent">
+      Python programlama dili, sözel verilerin işlenmesi için 
+      çok sayıda öntanımlı fonksiyon içermektedir. Bunları kısa 
+      süre sonra uygulayacağız.
+    </p>
+    <p id="lists" class="subheading">
+      1.10.3 -
+      Liste Tipi Literaller (Lists)</p>
+    <p class="indent">
+      Liste tipi literaller, Python programlama dilinin üstünlüğü 
+      olarak kullanıma sunulan, dizilere benzer bileşik (kompozit) 
+      veri gruplarından biridir. Listeler, istenilen uzunlukta 
+      olabilen, istenilen tipte veri içerebilen, verilerin birbirlerinden 
+      virgül ile ayrıldığı, köşeli parantez içinde belirtilen 
+      liste (List) tipi verilerdir. Örnek,
+    </p>
+    <pre class="pl-25">
+<span class="op">[</span>56<span class="op">,</span>128<span 
+    class="op">,</span><span class="str">'Çarşıkapı'</span><span 
+    class="op">,</span>128<span class="op">]</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki örnekte görüldüğü gibi, liste elemanları her 
+      veri tipinde olabilir ve bazı elemanlar birbirinin aynı 
+      olabilir. Liste tipi verilere eleman eklenip çıkarılabilir. 
+      Yani, liste tipi parçalanabilir (mutable) bir veri tipidir. 
+      Liste tipi verilere eleman eklenmesi, cıkarılması listelerden 
+      alt listeler yaratılması için hazır fonksiyonlar ve bildirimler 
+      bulunmaktadır. Bunları ileride inceleyeceğiz.
+    </p>
+    <p id="tuples" class="subheading">
+      1.10.4 -
+      Topluluk Tipi Literaller (Tuples)</p>
+    <p class="indent">
+      Topluluk tipi literaller, Python programlama dilinin topluluk 
+      (tuples) veri tipinde verilerdir. Topluluk tipi aynen 
+      liste tipine benzer, fakat değiştirilemez (immutable) 
+      türde bir veri tipidir. Topluluk litteralleri, parantez 
+      içinde belirtilir. Örnek,
+    </p>
+    <pre class="pl-25">
+<span class="op">(</span>108<span class="op">,</span>25.6<span 
+    class="op">,</span><span class="str">'Beyazıt'</span><span 
+    class="op">,</span>108<span class="op">)</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki örnekte görüldüğü gibi, topluluk veri tipi, 
+      liste veri tipine çok benzer fakat sonradan değiştirilemez. 
+      Topluluk tipinin uygulamalarını ileride inceleyeceğiz.
+    </p>
+    <p id="dicts" class="subheading">
+      1.10.5 -
+      Sözlük Tipi Literaller (Dictionaries)</p>
+    <p class="indent">
+      Sözlük (dictionary) veri tipi, JavaScriptteki ilişkisel 
+      diziler (associative arrays) lere benzerler. Sözlük literalleri 
+      büyük parantezler arasında verilen, anahtar:veri ... sekanslarıdır. 
+      Örnek,
+    </p>
+    <pre class="pl-25">
+<span class="op">{</span><span class="str">'Oyun1'</span><span 
+    class="op">:</span><span class="str">'Romeo ve Juliet</span><span 
+    class="op">,</span><span class="str">'Oyun2'</span><span 
+    class="op">:</span><span class="str">'Julius Caesar'</span><span 
+    class="op">,</span><span class="str">'Oyun3</span><span 
+    class="op">:</span><span class="str">'Hamlet'</span><span 
+    class="op">)</span>
+    </pre>
+    <p class="indent">
+      Sözlük veri tipi değiştirilebilir (mutable) bir veri tipidir. 
+      Sözlük tipinin uygulamalarını ileride inceleyeceğiz.
+    </p>
+    <p id="sets" class="subheading">
+      1.10.6 -
+      Küme Tipi Literaller (Sets)</p>
+    <p class="indent">
+      Küme veri tipi, Python gibi genel amaçlı programlama dillerinde 
+      çok az bulunan bir veri tipidir. Python küme tipi, tam 
+      olarak matematikteki kümeler gibi hareket eder. Üyeler 
+      sonsuz sayıda olabilir, yerleşim belirli bir kurala bağlı 
+      değildir ve bir kümede birbirinin aynı iki eleman olamaz. 
+      Örnek,
+    </p>
+    <pre class="pl-25">
+set<span class="op">([</span>23<span class="op">,</span>69<span 
+    class="op">,</span>87<span class="op">,</span>23<span 
+    class="op">]);</span>
+    </pre>
+    <p class="nonindent">
+      şeklinde tanıtılmış olan bir küme literali, Python derleyicisi 
+      tarafından,
+    </p>
+    <pre class="pl-25">
+<span class="op">{</span>23<span class="op">,</span>69<span 
+    class="op">,</span>87<span class="op">}</span>
+    </pre>
+    <p class="nonindent">
+      olarak algılanacaktır. Bu şekilde, Pythpon küme veri tipi, 
+      Python derleyicisine göre, bir tür, değer bileşeni olmayan 
+      ve sadece anahtar kısımlarını içeren bir sözlük tipi olarak 
+      algılandığı düşünülebilir.
+    </p>
+    <p class="indent">
+      Python küme verileri değiştirilebilir (mutable) veri tiplerindedir. 
+      Yani bir küme, tanımlandıktan sonra elemanları eklenebilir, 
+      çıkarılabilir veya tanımlı bir kümeden yenialt kümeler oluşturulabilir.
+    </p>
+    <p class="indent">
+      Python programlama dilinde değiştirilebilir nitelikte olan kümeler 
+      yanında değiştirilemez nitelikte olan donmuş kümeler (frozensets) 
+      veri tipi de bulunmaktadır. Bu veri tiplerinin uygulamalarını
+      ileride yapacağız.
+    </p>
+    <p id="Boolean" class="subheading">
+      1.10.7 -
+      Mantıksal Literaller (Boolean)</p>
+    <p class ="indent">
+      Python matıksal değer literalleri, True veya False değerleridir.
+      Bunların yanında, 1 ve 0 Python Boolean değerlerini doğru ve
+      yanlış olarak belirtirler. Ayrıca, boş liste(<span class="op">[]</span>)
+      gibi boş değerler, None değeri yanlış (False) olarak değerlendirilirler.
+      Diğer tüm değerler doğru (True) olarak değerlendirilir.  
+    </p>
+    <p class ="indent">
+        İlişkisel işlemciler, mantıksal değerleri (doğru veya yanlış)
+        geri döndürürler.
+    </p>
+
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python Ana Sayfa</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders2.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders4.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site Ana 
+      Sayfa »</em></a></li>
+      <li id="navbottom-sonlama"><br></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:28 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

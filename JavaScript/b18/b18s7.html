@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:50 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s7.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b18s7</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s6.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s8.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 7
+		</p>
+		<p class="title-left" id="location">
+			18.7 - window Nesnesinin location Alt Nesnesi
+		</p>
+		<p class="indent">
+			JavaScript programlama ortamında global nesne görevivi üstlenen <span 
+			class="keyw">window</span> nesnesinin genel özellik ve metotları, 2006 da
+			bir sürmekte olan çalışmanın bir başlangıç önerisi (working draft) olarak
+			W3C tarafından <a href="http://www.w3.org/TR/Window/">yayınlanmıştır</a>.
+			Bu bir öneri henüz bir standart olmamasına karşın, belge çözümleyicilere yol
+			gösteren bir yol haritası belgesi olarak düşünülebilir. Bu belgede 
+			<span class="keyw">window</span> nesnesinin <span class="keyw">location</span>
+			alt nesnesinin aşağıdaki tablolarda görülen özellik ve metotları desteklemesi 
+			öngörülmektedir. 
+		</p>
+		
+		<table class="tablo4" summary="location Nesnesinin w3c tarafından belirtilen özellikleri">
+			<caption class="captionred">
+						Tablo : 18-17: <span class="keyw">location</span> Alt Nesnesinin W3C Tarafından Öngörülen Özellikleri
+			</caption>
+			<colgroup>
+			<col width="40%" />
+			<col width="60%"/>
+			</colgroup>
+			<thead>
+						<tr class="highline color4">
+									<th>Özellik</th>
+									<th>Tanım</th>
+						</tr>
+			</thead>
+			<tbody>
+			<tr class="tbline">
+					<td class="blue">href</td>
+					<td>URI bilgisi (http://x.com gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">hash</td>
+					<td>URI bilgisinin # işaretinden sonraki kısmı (http://x.com#xx gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">host</td>
+					<td>URI bilgisinin köşeli parantezle ve port sayısı ile birlikte ifadesi
+								([http://x.com]:80 gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">hostname</td>
+					<td>URI bilgisinin sunucu ismi kısmı (pegasus gibi)</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">pathname</td>
+					<td>URI bilgisi, köşeli parantez ve port sayısı verilmeden (http://x.com gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">port</td>
+					<td>Port sayısı ( 80 gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">protocol</td>
+					<td>Protokol türü ( http gibi) </td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">search</td>
+					<td>URI bilgisinin ? işaretinden sonraki kısmı (http://x.com?p=depolama
+								gibi)</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="indent">
+			Özellik değerleri genellikle karakter dizigisi (string) tipindedir. Fakat, eğer String nesnesinin
+			metotları uygulanacak ise, sonucun <span class="keyw">toString</span><span class="op">()</span>
+			metodu ile karakter dizigisi (string) tipine dönüştürülmesi sağlk verilmektedir.
+		</p>
+		<table class="tablo4" summary="location Nesnesinin W3C Tarafından Belirtilen Metotları">
+			<caption class="captionred">
+						Tablo : 18-17: <span class="keyw">location</span> Alt Nesnesinin W3C Tarafından Öngörülen Metotları
+			</caption>
+			<colgroup>
+			<col width="40%" />
+			<col width="60%"/>
+			</colgroup>
+			<thead>
+						<tr class="highline color8">
+									<th>Metot</th>
+									<th>Tanım</th>
+						</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">assign<span class="op">(</span>URI<span 
+			class="op">)</span></td>
+					<td>Yeni bir sayfa yerinin belirtilmesi</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">reload<span class="op">(</span>sunucudan<span 
+			class="op">)</span></td>
+					<td>Sunucudan değeri <span class="keyw">true</span> ise sayfayı sunucudan,
+					yoksa cache- bellekten yeniden yükler</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">replace<span class="op">(</span>URI<span 
+			class="op">)</span></td>
+					<td>Sayfayı verilen URI bilgisindeki sayfa ile değiştirir. Bu metodun 
+					<span class="keyw">assign</span><span class="op">()</span>
+					metodunudan farkı, sayfanın oturum <span class="keyw">history</span>
+					listesinde olmayacağı, yani kullanıcının back butonu ile bu sayfaya
+					gidemeyeceğidir.</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="title-left" id="prop">
+					17.1 - location Nesnesinin Özellikleri
+		</p>
+		<p class="subheading" id="href">17.1.1 - location Nesnesinin href Özelliği</p>
+		<p class="indent">
+			Bu özellik değerine, iki klasik yöntem,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">[</span><span 
+			class="str">'href'</span><span 
+			class="op">]</span> 
+		</pre>
+		<p class="nonindent">
+			ve
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">href</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde kullanılabilir. Fakat, prensip olarak <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">location</span> alt nesnesinin varsayılan değeri, 
+		</p>
+		<pre>
+<span class="keyw-25">location</span> <span 
+			class="op">=</span> <span class="keyw">location</span><span 
+			class="op">.</span><span class="keyw">href</span>
+		</pre>
+		<p class="nonindent">
+			olduğundan daha fazlasının kullanılması gereksizdir. Sonucun veri tipi
+			bir nesnedir. Fakat, bu nesnenin <span class="keyw">toString</span><span class="op">()</span> metodu
+			ile karakter dizigisine dönüştürülen değeri görüntülenir. Bu değer
+			üzerinde String nesnesi metotları uygulanacak ise, sonucun tipini
+			açık olarak karakter dizgisi haline dönüştürmek gerekir. Örnek olarak,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span class="keyw">toString</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent" id="b18.7.1.1-uyg-1">
+			şeklinde bir ifade kullanılabilir. Aşağıda kodları görülen 
+			<a href="../uygulamalar/b18.7.1.1-uyg-1-js.html">program</a>, içinde
+			çalıştığı <a href="../uygulamalar/b18.7.1.1-uyg-1.html">sayfanın</a>
+			URI değerini görüntülemektedir.
+		</p>
+		
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> özellikYaz<span 
+			class="op">(</span>mesaj<span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> yazımYeriID<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> yazımYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeriID<span 
+			class="op">),</span> yeniParagraf <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> araYazım<span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> bilgi<span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-green'</span><span 
+			class="op">;</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>mesaj<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-maroon'</span><span 
+			class="op">;</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">' = '</span><span 
+			class="op">));</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">;</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">));</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">yazımYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">,</span> yazımYeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> işlemleriBaşlat<span 
+			class="op">() {</span>
+<span class="pl-50">özellikYaz</span><span 
+			class="op">(</span><span 
+			class="str">'location '</span><span 
+			class="op">,</span> <span 
+			class="keyw">location</span><span 
+			class="keyw"></span><span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> işlemleriBaşlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> işlemleriBaşlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.7.1.1-uyg-1-js.html">programda</a> görüntülenen değer,
+			hesaplanan mutlak URI değeridir. 
+		</p>
+		<p class="indent" id="b18.7.1.1-uyg-2">
+			Doğrudan <span class="keyw">location</span> ile erişilen <span class="keyw">location</span><span 
+			class="op">.</span><span class="keyw">href</span> özeliği, iki yönlü çalışır. Eğer bu özelliğe bir
+			değer atanırsa, sayfa derhal bu yeni lokasyona yer değiştirir. Aşağıda kodları görülen 
+			<a href="../uygulamalar/b18.7.1.1-uyg-2-js.html">program</a>, içinde
+			çalıştığı <a href="../uygulamalar/b18.7.1.1-uyg-2.html">sayfanın</a>
+			yerini yeni URI değerine yönlendirmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">location</span> <span 
+			class="op">=</span> <span 
+			class="str">'http://www.msn.com'</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b17.1.1-uyg-2-js.html">programda</a>, olduğu gibi bir sayfanın 
+			<span class="keyw">location</span><span class="op">.</span><span class="keyw">href</span>
+			özelliğine yeni bir değer atanması ile sayfa yeni bir lokasyona yönlendirildiğinde,
+			sayfanın yeni yerinden belge çözümleyicisinin back düğmesine basıldığında sayfa bir önceki yerine geri 
+			döner. Bunu yukarıdaki <a href="../uygulamalar/b17.1.1-uyg-2-js.html">programda</a> deneyebiliriz. Sayfa,
+			orijinal yerinden http://www.msn.com sayfasına yönlendirilmiştir. Bu sayfadan back butonuna basıldığında
+			yeniden orijinal yerine döner.
+		</p>
+		<p class ="indent">
+			Bu noktada çok dikkatli olmalıyız. Bir sayfada eğer JavaScript işlevselliği iptal edilmişse, 
+			bu durumda, sayfanın JavaScript kullanılmayan bir sürümünü kullanılması ve JavaScript işlevselliği
+			olan belge çözümleyicilerde ise JavaScript ile programlama yapılmış sayfanın çalıştırılması için bir 
+			hazırlık yapılmış olabilir. Aslında bu fazla sağlık verilen bir yöntem değildir çünkü fazla emek gerektirir,
+			karışıklıklara neden olabilir ve bakım yapılması daha zordur. Buna rağmen böyle bir senaryo daima
+			JavaScript işlevselliği desteklenmeyen bir belge çözümleyici ile başlanıldığı varsayımına göre devreye alınır. İlk olarak
+			aynen  yukarıdaki <a href="../uygulamalar/b17.1.1-uyg-2-js.html">programda</a> olduğu gibi,
+			eğer JavaScript işlevselliği çalışıyorsa sayfa JavaScript kullanılan sayfaya yönlendirilir. Burada eğer
+			back butonuna basılırsa, sayfa yeniden başlangıç sayfasına döner ve burda yeniden geldiği sayfaya 
+			yönlendirilir. Yani <span class="keyw">history</span> siklusuna girilemez ve sayfa geriye gidemez.
+			Bu bir sayfa için en istenmeyen durumdur. Eğer bir sayfayı JavaScript işlevselliği olan bir sayfaya 
+			yönlendirme düşünülürse, bunun <span class="keyw">replace<span class="op">()</span> </span> 
+			metodunun kullanılarak yapılmasında yarar bulunmaktadır. Bu şekilde sayfanın back butonu
+			ile geriye gidebilmesi sağlanmış olur.
+		</p>
+		<p class="subheading" id="hash">
+			17.1.2 - location Nesnesinin hash Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin sayı işaretini (#) takip eden kısmıdır. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">hash</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir ve bu iki yönlü bir özelliktir. Yani,hem değer okunabilir, hem de
+			istenirse değer belirlenebilir. Bu özellik bir belge içindeki yer belirleme değerini
+			değiştirebilir. Yanlış bir bir yer belirleme değerine zorlamak hata oluşturur.
+		</p>
+		<p class="indent">
+			Eğer bir sayı işareti yoksa, bu özelliğin sorgulanması, geriye boş bir karakter 
+			dizgisi döndürür. 
+		</p>
+		<p class="indent" id="b18.7.1.2-uyg-1">
+			Aşağıdaki <a href="../uygulamalar/b18.7.1.2-uyg-1-js.html">program</a> bir 
+			sayfanın yer belirleme değerini çalıştığı 
+			<a href="../uygulamalar/b18.7.1.2-uyg-1.html#navbottom">sayfada</a> yazdırmaktadır.
+		</p>
+		<p class="subheading" id="host">
+			17.1.3 - location Nesnesinin host Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, <span class="keyw">hostName</span> ve <span class="keyw">port</span>
+			özelliklerinin birleştirilmiş şeklidir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">host</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir ve bu iki yönlü bir özelliktir. Yani,hem değer okunabilir, hem de
+			istenirse değer belirlenebilir. Sonuç, üstüste iki nokta (kolon) ile ayrılmış olarak, <span 
+			class="keyw">hostname</span> kısmı köşeli parantez içinde <span 
+			class="keyw">port</span> değeri kolondan sonra tabloda görüldüğü gibi görüntülenir, 
+			Eğer bir port değeri yoksa, yani değeri <span class="keyw">null</span> ise, <span 
+			class="keyw">host</span> özelliğinin değeri <span class="keyw">hostname</span> özelliği
+			ile aynı olur.
+		</p>
+		<p class="indent">
+			Bu özellik sayfanın yerini değiştirmek için kullaılabilirse de, yer değiştirmeyi <span 
+			class="keyw">href</span> özelliğinden yararlanarak sağlamak daha uygundur.
+		</p>
+		<p class="subheading" id="hostname">
+			17.1.4 - location Nesnesinin hostname Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin sunucu ismi kısmını veya sayısal adresi geri döndürür. Eğer bir sunucu 
+			bilgisi bulunmazsa boş karakter dizigisi döndürülür. Bu özellik çift yönlüdür, fakat genel olarak
+			sayfa yönlendirme için kullanılmaz. Kullanımı
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">hostname</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir Örnek olarak bir http://www.x.com sayfasının 	
+			<span class="keyw">location</span><span 
+			class="op">.</span><span class="keyw">hostname</span> özelliğinin değeri ,
+			<span class="str">x</span>,<br /> http://127.1.1.1:8000/sites/deneme/examples/hostname.htm sayfasının 
+			<span class="keyw">location</span><span class="op">.</span><span class="keyw">hostname</span> 
+			özelliğinin değeri <span class="str">127.1.1.1</span> olacaktır.
+		</p>
+		<p class="subheading" id="pathname">
+			17.1.5 - location Nesnesinin pathname Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin dosya sistemi kısmını geri döndürür. Bu özellik çift yönlüdür, fakat genel olarak
+			sayfa yönlendirme için kullanılmaz. Kullanımı
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">pathname</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir Örnek olarak bir http://www.x.com/sites/deneme.htm sayfasının, 
+			<span class="keyw">location</span><span 
+			class="op">.</span><span class="keyw">pathname</span> özelliğinin değeri ,
+			<span class="str">/sites/deneme.htm</span>,<br /> 
+			http://127.1.1.1:8000/sites/deneme/examples/pathname.htm sayfasının 
+			<span class="keyw">location</span><span class="op">.</span><span class="keyw">pathname</span> 
+			özelliğinin değeri <br /><span class="str">/sites/deneme/examples/pathname.htm </span> olacaktır.
+		</p>
+		<p class="subheading" id="port">
+			17.1.6 - location Nesnesinin port Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin port sayısını geri döndürür. Port sayısı URI
+			değerinde bulunmadığı durumlarda geriye boş bir karakter dizisi döndürür. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">port</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir Örnek olarak, http://pegasus:8000/sites/deneme/index.htm URI bilgisinin <span 
+			class="keyw">location</span><span class="op">.</span><span class="keyw">port</span>
+			özelliğinin değeri <span class="str">8000</span> olacaktır.
+		</p>
+		<p class="subheading" id="protocol">
+			17.1.7 - location Nesnesinin protocol Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin protokol kısmını geri döndürür. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">protocol</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir Örnek olarak, http://pegasus:8000/sites/deneme/index.htm URI bilgisinin <span 
+			class="keyw">location</span><span class="op">.</span><span class="keyw">protocol</span>
+			özelliğinin değeri <span class="str">http</span> olacaktır.
+		</p>
+		<p class="subheading" id="search">
+			17.1.8 - location Nesnesinin search Özelliği
+		</p>
+		<p class="indent">
+			Bu özellik, URI bilgisinin ? işaretinden sonraki arama-eşleşme kısmını geri döndürür. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">search</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir Örnek olarak, http://tr.msn.com/?acid=iehp URI bilgisinin <span 
+			class="keyw">location</span><span class="op">.</span><span class="keyw">search</span>
+			özelliğinin değeri <span class="str">acid=iehp</span> olacaktır.
+		</p>
+		<p class="title-left" id="metotlar">
+					17.2 - location Nesnesinin Metotları
+		</p>
+		<p class="subheading" id="assign">
+			17.2.1 - location Nesnesinin assign() Metodu
+		</p>
+		<p class="indent">
+			Bu metot, sayfayı adrese yönlendirir. Kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">assign</span><span 
+			class="op">(</span><span 
+			class="str">'URI'</span><span 
+			class="op">)</span> 
+		</pre>
+		<p class="nonindent" id="b18.7.2.1-uyg-1">
+			şeklindedir. Bu metot yaygın olarak kullanılır. En çok kullanıldığı yer aşağıda kodları verilen 
+			<a href="../uygulamalar/b18.7.2.1-uyg-1-js.html">programda</a> olduğu gibi 
+			konuk olduğu <a href="../uygulamalar/b18.7.2.1-uyg-1-js.html">sayfayı</a> 
+			yeni bir adrese yönlendirilmesidir. Bu sayfada JavaScript yorumlayıcısı çalışır 
+			durumda ise yönlendirme gerçekleşir. Sayfada JavaScript yorumlayıcısı çalışır 
+			durumda değil ise, yönlendirme çalışmaz ve kullanıcı verilen bağlantıya kendisi
+			tıklama zorunda kalır.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> yeniYer<span 
+			class="op">() {</span>
+<span class="keyw-50">window<span 
+			class="op">.</span><span 
+			class="keyw">location<span 
+			class="op">.</span>assign</span></span><span 
+			class="op">(</span><span 
+			class="str">'http://www.download.com '</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">window<span 
+			class="op">.</span><span 
+			class="keyw">setTimeout</span></span><span 
+			class="op">(</span><span 
+			class="str">'yeniYer() '</span><span 
+			class="op">,</span> 5000<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="reload">
+			17.2.2 - location Nesnesinin reload() Metodu
+		</p>
+		<p class="indent">
+			Bu metot, sayfayı yeniden yükler. Kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">reload</span><span 
+			class="op">([</span><span 
+			class="keyw">false</span> (varsayılan) veya <span 
+			class="keyw">true</span><span 
+			class="op">])</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Argümanı isteğe bağlı olan mantıksal bir argümandır. Argüman eğer varsayılan
+			olarak bırakılırsa sayfa belge çözümleyicisinin cache-belleğinden, eğer açıkça <span 
+			class="keyw">true</span> olarak belirtilirse, doğrudan doğruya sunucudan
+			yeniden yüklenir. 
+		</p>
+		<p class="indent">
+			Bu metot, JavaScript programlarında sayfayı yeniden yüklemek için eldeki olanaklardan birisidir.
+			Diğerleri, 
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">location</span><span 
+			class="op">.</span><span 
+			class="keyw">href</span>
+		</pre>
+		<p class="nonindent">
+			ve
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">history</span><span 
+			class="op">(</span>-1<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent" id="b18.7.2.2-uyg-1">
+			yöntemleridir. Prensip olarak, bu metodun kullanıcı etkisi ile başlatılması uygun olacaktır. 
+			Aksi halde otomatik olarak başlatılacak sayfa yenilenmesinin durdurulması 
+			çok güç olabilir. Aşağıda kodları görülen 
+			<a href="../uygulamalar/b18.7.2.2-uyg-1-js.html">program</a>, 
+			konuk olduğu <a href="../uygulamalar/b18.7.2.2-uyg-1.html">sayfayı</a> kullanıcının
+			düğmeyi tıklaması ile, 	sunucudaki dosyasından yeniden yüklemektedir.
+		</p>
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> yükle<span 
+			class="op">() {</span>
+<span class="keyw-50">window<span 
+			class="op">.</span><span 
+			class="keyw">location<span 
+			class="op">.</span>reload</span></span><span 
+			class="op">(</span><span 
+			class="keyw">true</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">window<span 
+			class="op">.</span><span 
+			class="keyw">setTimeout</span></span><span 
+			class="op">(</span><span 
+			class="str">'yükle() '</span><span 
+			class="op">,</span> 5000<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Kullanıcı etkisi olmadan otomatik sayfa yenilenmesine genel olarak fazla gereksinme olmayabilir. Fakat,
+			bu yöntemin kullanılması gerektiğinde, sayfanın sadece bir kez yenilenmesinin sağlanmasında yarar
+			olacaktır, çünkü aksi sitem kaynaklarını fazla işgal edecektir. Yukarıda söylendiği gibi, otomatik sayfa tazelenmesi
+			bir kez başlatıldığında durdurulması zor fakat olanaksız değildir. Internet de dolaşan anonim bir script
+			bu sınırlamayı gerçekleştirme başarısını sağlamaktadır. Bu programın 
+			<a href="../uygulamalar/b18.7.2.2-uyg-2-js.html">kodları </a> aşağıda görülmektedir. Bu program, bağlantılı
+			olduğu <a href="../uygulamalar/b18.7.2.2-uyg-2.html">sayfayı</a> yüklendikten 5 saniye (5000 milisaniye)
+			sonra bir kez tazelemektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function</span> mesaj<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> mesajAlanı <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">ilkSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">),</span>
+<span class="pl-50">ikinciSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">),</span>
+<span class="pl-50">ilkMesaj</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Bu Sayfa Kısa Süre Sonra Yeniden Yüklenecektir.'</span><span 
+			class="op">),</span>
+<span class="pl-50">satırBaşı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'br'</span><span 
+			class="op">),</span>
+<span class="pl-50">ikinciMesaj</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Sayfa Yenilenmesi Gerçekleşmezse, Lütfen Sayfanın Yenileme Düğmesine Basınız!'</span><span 
+			class="op">),</span>
+<span class="pl-50">altAlan</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span 
+			class="op">),</span>
+<span class="pl-50">üstAlan</span> <span 
+			class="op">=</span> altAlan<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">mesajAlanı</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-red'</span> <span 
+			class="op">;</span> 
+
+
+<span class="pl-50">ikinciSatır</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>ikinciMesaj<span 
+			class="op">);</span>
+
+<span class="pl-50">iikSatır</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>ilkMesaj<span 
+			class="op">);</span>
+<span class="pl-50">iikSatır</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>satırBaşı<span 
+			class="op">);</span>
+<span class="pl-50">iikSatır</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>ikinciSatır<span 
+			class="op">);</span>
+			
+<span class="pl-50">mesajAlanı</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>iikSatır<span 
+			class="op">);</span>
+
+<span class="pl-50">üstAlan</span><span 
+			class="op">.</span><span class="keyw">insertBefore</span><span 
+			class="op">(</span>mesajAlanı<span 
+			class="op">,</span> altAlan<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> mesajYenile<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> mesajAlanı <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">mesaj</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Sayfanın Yüklenmesi Tamamlandı !'</span><span 
+			class="op">),</span>
+<span class="pl-50">altAlan</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span 
+			class="op">),</span>
+<span class="pl-50">sayfaAlanı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'body'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">mesajAlanı</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'cursive-blue'</span> <span 
+			class="op">;</span>
+
+<span class="pl-50">mesajAlanı</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>mesaj<span 
+			class="op">);</span>
+
+<span class="pl-50">üstAlan<span 
+			class="op"></span></span><span 
+			class="op">.</span><span class="keyw">insertBefore</span><span 
+			class="op">(</span>mesajAlanı<span 
+			class="op">,</span> altAlan<span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> yükle<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> reloaded <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span>
+
+<span class="pl-50">loc</span> <span 
+			class="op">=</span> <span 
+			class="str">''</span> <span 
+			class="op">+</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">location</span><span 
+			class="op">;</span>
+
+<span class="pl-50">loc</span> <span 
+			class="op">=</span> loc<span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'?reloaded='</span><span 
+			class="op">) != -</span>1<span 
+			class="op"> ?</span> loc<span 
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>loc<span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'?reloaded='</span><span 
+			class="op">) + </span>10<span 
+			class="op">,</span> loc<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">) : </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="pl-50">loc</span> <span 
+			class="op">=</span> loc<span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'&amp;'</span><span 
+			class="op">) != -</span>1<span 
+			class="op"> ?</span> loc<span 
+			class="op">.</span><span 
+			class="keyw">substring</span><span 
+			class="op">(</span>0<span 
+			class="op">, </span>loc<span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'&amp;'</span><span 
+			class="op">)) : </span>loc<span 
+			class="str">'</span><span 
+			class="op">;</span>
+<span class="pl-50">reloaded</span> <span 
+			class="op">=</span> loc<span 
+			class="op"> != </span><span 
+			class="str">''</span><span 
+			class="op"> ? (</span> loc <span 
+			class="op">==</span><span 
+			class="str">'true'</span><span 
+			class="op">)</span> <span 
+			class="op">:</span> reloaded<span 
+			class="op">;</span>
+
+<span class="keyw-50">function</span> reloadOnceOnly<span 
+			class="op">() {</span>
+			
+<span class="keyw-75">if</span><span 
+			class="op">(</span>reloaded<span 
+			class="op">) {</span>
+<span class="keyw-100">window</span><span 
+			class="op">.</span><span 
+			class="keyw">location</span><span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span>window<span 
+			class="op">.</span><span 
+			class="keyw">location</span> <span 
+			class="op">+</span> <span 
+			class="str">'?reloaded=true'</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="pl-50">reloadOnceOnly</span><span 
+			class="op">();</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> kontrol <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">location</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">kontrol</span> <span 
+			class="op">==</span> <span 
+			class="str">'file:///F:/sites/opus/uygulamalar/b18.7.2.2-uyg-2.htm'</span> <span 
+			class="op">?</span> mesaj<span class="op">() : </span> mesajYenile<span 
+			class="op">();</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">setTimeout</span><span 
+			class="op">(</span><span 
+			class="str">'yükle()'</span><span 
+			class="op">,</span> 5000<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.7.2.2-uyg-2-js.html">program</a>, karmaşık 
+			görünebilen bir yapıda olmasına karşılık çok basit bir plan üzerine oluşturulmuştur. Bu plan, 
+			sayfanın yayınlandığı URI bilgisini bir karakter dizgisi değişkeni (string) haline getirmek ve 
+			bu veriyi derinliğine analiz etmek olgusuna dayanmaktadır. Eğer, URI bilgisi eklenecek etkisiz
+			arama metni, (search string) içermiyorsa, sayfa tazelenecek ve yer imi olan URI değerine,
+			etkisiz bir belirli arama karakter dizigisi (<span class="str">'?reloaded=true'</span> eklenecektir.
+			Bu şekilde, sayfanın URI değerinin bir kısmı aranacak metni içerdiğinden sayfa birkez daha 
+			tazelenmeyecektir. Bu plan basit olmasına karşın, gerçekleştirilmesi için yazılması gereken 
+			program adımlarının izlenmesi kolay değildir. Bazı program adımları,
+			<a href="http://w3.org/dom">W3C-DOM</a> yöntemlerini, içermektedir ve bu yöntemler 
+			bir sonraki bölümde tartışılacaktır. Bazı program adımları ise daha önce incelenmiş
+			yöntemleri içermektedir. Bu adımların anlaşılması için, ilgili konular yeniden incelenmeli ve
+			program adımları tam olarak açıklığa kavuşturulmalıdır. 
+		</p>
+		<p class="subheading" id="replace">
+			17.2.3 - location Nesnesinin replace() Metodu
+		</p>
+		<p class="indent">
+			Bu metot, prensip olarak  <span class="keyw"><a href="#assign">assign</a></span><a 
+			href="#assign"><span class="op">()</span>
+			</a>metodu ile ile aynıdır. Sadece, bu metot uygulanarak yönlendirilmiş olan
+			sitenin daha önceki  lokasyonuna, belge çözümleyicinin back düğmesi tıklanarak
+			dönülemez. Burada back butonu, sayfayı bir öncekinden daha önceki lokasyona 
+			yönlendirerek, bir önceki sayfada yeniden yönlendirme varsa bu etkiden 
+			kurtulunarak, yeniden <span class="keyw">history</span> siklusuna dahil 
+			olunabilmesini sağlar. Özellikle bu etki, bir sayfayı JavaScript işlevselliği olan
+			eşdeğerine yönlendirmekte yararlıdır. Bu konudaki bilgiler, 
+			<span class="keyw">location</span><span class="op">.</span><span 
+			class="keyw">href</span> özelliğinin incelenmesinde konu 
+			<a href="#href">17.1.1</a> de tartışılmıştır.
+		</p>
+		<p class="indent">
+		Bu metot, sayfadaki belgeyi, belirtilen adresteki belge ile değiştirir. Kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-25">location</span><span 
+			class="op">.</span><span 
+			class="keyw">replace</span><span 
+			class="op">(</span><span 
+			class="str">'URI'</span><span 
+			class="op">)</span> 
+		</pre>
+		<p class ="nonindent">
+			şeklindedir.
+		</p>
+		<p class ="indent" id="locationreplace">
+			Aşağıda, üç tane web sayfası örneği hazırlanmıştır. Bunlardan ilki 
+			<a href="../uygulamalar/locationreplace0.html">orjinal sayfadır</a> ve 
+			bir başka sayfaya bağlantı sağlamaktadır. Yönlendirilmiş sayfanın görüntülendiği 
+			belge çözümleyicisi JavaScript işlevselliğini destekliyorsa, sayfa, JavaScript programının
+			çalıştığı sürüme yönlendirilmekte, aksi halde yönlendirme gerçekleşmemektedir.
+		</p>
+		<p class ="indent">
+			Bu programlar, JavaScript işlevselliğini desteklemeyen 
+			<a href="http://www.w3.org/Amaya/User/BinDist.html">Amaya</a> gibi
+			bir belge çözümleyicide görüntülenirse, yönlendirme, ilk sayfada tamamlanacak ve
+			JavaScript ile programlanan sürüm hiçbir zaman görüntülenmeyecektir. 
+		</p>
+		<p class ="indent">
+			Bu programlar, IE 8 gibi JavaScript işlevselliğini destekleyen ve desteği açık olan
+			bir belge çözümleyicide çözümleniyorsa, yönlendirme, JavaScript destekli son sayfaya 
+			kadar ilerleyecek ve en son sayfada back butonuna basıldığında yine orijinal sayfaya 
+			dönülecektir. Yani back butonu beklendiği gibi çalışacak, kulanıcılar, kullandıkarı
+			belge çözümleyicinin çözümleyecebileceği sürümü göreceklerdir. 
+		</p>
+		<p class ="indent">
+			İlk sayfanın yönlendirdiği ilk sayfada hiçbir JavaScript kullanımı yoktur. Sadece bu sayfada
+			bir yönlendirme script'i bulunmaktadır. Eğer, belge çözümleyicisi JavaScript işlevselliğini
+			destekliyorsa bu script çalışarak sayfayı aynı sayfanın JavaScript programları olan 
+			sürümüne yönlendirecektir. Bu script aşağıda görülmektedir
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">location<span 
+			class="op">.</span>replace</span><span 
+			class="op">(</span><span 
+			class="str">'./locationreplace2.htm'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Özetle, eğer sayfanın biri JavaScript kullanılan, diğeri JavaScript kullanılmayan iki paralel
+			sürümü ile çalışılacaksa, yönlendirmenin JavaScript kullanılmayan sayfaya yapılması ve 
+			bu sayfadan <span class="keyw">location</span><span class="op">.</span><span class="keyw">href</span>
+			özelliğinin değil, <span class="keyw">location</span><span class="op">.</span><span 
+			class="keyw">replace</span><span class="op">()</span> metodunun kullanımı ile, JavaScript 
+			kullanılan sayfaya otomatik yönlendirme yapılması gerekir. Bu şekilde, kullanıcılar belge çözümleyicilerinin
+			destekleyebildiği sürümleeri görecekler ve back butonu da gereği gibi sayfayı <span 
+			class="keyw">history</span> siklusuna sevk edebilecektir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s6.html"><em> &laquo; Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s8.html"><em> Sonraki &raquo;</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s7.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:50 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

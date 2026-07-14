@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:53 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s10.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<link rel="stylesheet" type="text/css" href="../css/b18s8.css" />
+		<title>b18s9</title>
+	</head>
+	<body>
+		<p><img class="banner" alt="Banner"
+			src="../images/banner.png" /></p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s9.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="../b19/b19s1.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 10
+		</p>
+		<p class="title-left" id="screen">18.11 - window Nesnesinin screen Alt Nesnesi (Ekran Çözünürlüğü)</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">window</span> nesnesinin <span class="keyw">screen</span> 
+			alt nesnesi, sadece özelliklerden oluşan ve kulanıcının ekran çözünürlüğünü algılanması amacı ile 
+			oluşturulmuş bir  konuk eden ortam JavaScript nesnesidir. Bu nesnenin ortak olarak desteklenen
+			sadece dört adet özelliği bulunmaktadır.
+		</p>
+		<p class="title-left" id="props">18.11.1 - screen Nesnesinin Özellikleri</p>
+		<p class="subheading" id="aHeight">18.11.1.1 - screen Nesnesinin availableHeight Özelliği</p>
+		<p class ="indent">
+			JavaScript  <span class="keyw">screen</span> nesnesinin availableHeight özelliği kullanıcının 
+			görev çubuğu gibi sistem tarafndan kullanılan kısımları dışında, kullanılabilecek ekran yüksekliğini
+			değerini belirtir.
+		</p>
+		<p class="subheading" id="awidth">18.11.1.2 - screen Nesnesinin availableWidth Özelliği</p>
+		<p class ="indent">
+			JavaScript  <span class="keyw">screen</span> nesnesinin availableWidth özelliği kullanıcının 
+			görev çubuğu gibi sistem tarafndan kullanılan kısımları dışında, kullanılabilecek ekran genişlğini
+			değerini belirtir.
+		</p>
+		<p class ="indent" id="b18.11.1.2-uyg-1">
+			JavaScript  <span class="keyw">screen</span> nesnesinin availableWidthXavailableHeight özellik 
+			değerlerini yazdıran bir<a href="../uygulamalar/b18.11.1.2-uyg-1-js.html"> programın</a>
+			kodları aşağıda görülmektedi. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b18.11.1.2-uyg-1.html">sayfasında</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> insertAfter<span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> ata<span 
+			class="op">=</span> hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">lastChild</span> <span 
+			class="op">===</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> {
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span>hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> ekran<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> yükseklik <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">screen</span><span 
+			class="op">.</span><span 
+			class="keyw">availableHeight</span><span 
+			class="op">,</span> genişlik <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">screen</span><span 
+			class="op">.</span><span 
+			class="keyw">availableWidth</span><span 
+			class="op">,</span> 
+<span class="pl-50">ekranÇözünürlüğü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>genişlik <span 
+			class="op">+</span> <span 
+			class="str">'X'</span> <span 
+			class="op">+</span> yükseklik<span 
+			class="op">),</span>
+<span class="pl-50">p0</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">text</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Ekran Çözünürlüğü : '</span><span 
+			class="op">, + </span>ekranÇözünürlüğü<span 
+			class="op">),</span>
+<span class="pl-50">q</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'ul'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">p0</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">p0</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>text<span 
+			class="op">);</span>
+<span class="keyw-50">insertAfter</span><span 
+			class="op">(</span>p0<span 
+			class="op">,</span> q<span 
+			class="op">[</span>0<span 
+			class="op">]);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> ekran <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> ekran<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="subheading" id="height">18.11.1.3 - screen Nesnesinin height Özelliği</p>
+		<p class ="indent">
+			JavaScript  <span class="keyw">screen</span> nesnesinin availableHeight özelliği kullanıcının 
+			kullanılabilecek ekran yüksekliği değerini belirtir.
+		</p>
+		<p class="subheading" id="width">18.11.1.4 - screen Nesnesinin width Özelliği</p>
+		<p class ="indent">
+			JavaScript  <span class="keyw">screen</span> nesnesinin width özelliği kullanıcının 
+			kullanılabilecek ekran genişliği değerini belirtir.
+		</p>
+		<p class ="indent" id="b18.11.14">
+			JavaScript  <span class="keyw">screen</span> nesnesinin availableWidthXavailableHeight özellik 
+			değerlerini yazdıran bir<a href="../uygulamalar/b18.11.1.4-uyg-1-js.html"> programın</a>
+			kodları aşağıda görülmektedi. Bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b18.11.1.4-uyg-1.html">sayfasında</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> insertAfter<span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> ata<span 
+			class="op">=</span> hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if</span><span 
+			class="op">(</span>ata<span 
+			class="op">.</span><span 
+			class="keyw">lastChild</span> <span 
+			class="op">===</span> hedefElement<span 
+			class="op">) {</span>
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> {
+
+<span class="pl-75">ata</span>.<span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniElement<span 
+			class="op">,</span>hedefElement<span 
+			class="op">.</span><span 
+			class="keyw">nextSibling</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> ekran<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> yükseklik <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">screen</span><span 
+			class="op">.</span><span 
+			class="keyw">availableHeight</span><span 
+			class="op">,</span> genişlik <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">screen</span><span 
+			class="op">.</span><span 
+			class="keyw">availableWidth</span><span 
+			class="op">,</span> 
+<span class="pl-50">ekranÇözünürlüğü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">String</span><span 
+			class="op">(</span>genişlik <span 
+			class="op">+</span> <span 
+			class="str">'X'</span> <span 
+			class="op">+</span> yükseklik<span 
+			class="op">),</span>
+<span class="pl-50">p0</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">),</span>
+<span class="pl-50">text</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Ekran Çözünürlüğü : '</span><span 
+			class="op">, + </span>ekranÇözünürlüğü<span 
+			class="op">),</span>
+<span class="pl-50">q</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementsByTagName</span><span 
+			class="op">(</span><span 
+			class="str">'ul'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">p0</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'blue'</span><span 
+			class="op">;</span>
+<span class="pl-50">p0</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span> <span 
+			class="op">(</span>text<span 
+			class="op">);</span>
+<span class="keyw-50">insertAfter</span><span 
+			class="op">(</span>p0<span 
+			class="op">,</span> q<span 
+			class="op">[</span>0<span 
+			class="op">]);</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> ekran <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> ekran<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s9.html"><em> &laquo; Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="../b19/b19s1.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s10.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:53 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

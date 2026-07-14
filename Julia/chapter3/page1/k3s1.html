@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Julia/chapter3/page1/k3s1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:05 GMT -->
+<head>
+    <meta name="description" content="Julia Programlama Dili">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Julia/chapter3/page1/k3s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Julia Konu 3 Sayfa 1</title>
+    <meta content="Julia Programming Language Tutorial, in Turkish" name="description" />
+    <meta content="Julia Tutorial, in Turkish" name="keywords" />
+    <meta content="Prof. Dr. Bedri Doğan Emir" name="author">
+    <meta content="INDEX,FOLLOW" name="Robots" />
+    <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+    <link href="../../css/juliastyle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <p class="chapter">
+      Julia Programlama Dili
+    </p>
+    <p class="chapter">
+      Bölüm 3
+    </p>
+    <p class="chapter">
+      Geliştirme Bilgileri
+    </p>
+		<p class="pagenum">Sayfa 1</p>
+    <p class="verticalTab-10">
+    </p>
+    <p id="print" class="title-left">
+      3.1 - Bilgilerin Yazdırılması
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, :@printf, :@sprintf, display, displayable, dump, 
+      info, isprint, print, println, print_escaped, print_joined, print_shortest, 
+      print_unescaped, print_with_color, pushdisplay, redisplay, show, showall, 
+      showcompact, sprint, versioninfo, olarak 19 tane kullanılabilir yazdırma amaçlı 
+      öntanımlı fonksiyon
+      <a href="http://www.jlhub.com/julia/manual/en/function/print_shortest ">
+      bulunmaktadır</a>. Bunlar arasında, print_with_color ne yazık ki çalışmamakta 
+      ve safdışı olmaktadır. Diğerleri arsında sadece <span class="keyw">print</span><span 
+      class="op">()</span>,
+      <span class="keyw">println</span><span class="op">()</span> ve
+      <span class="keyw">@printf</span><span class="op">()</span> fonksiyonları 
+      genel uygulamalarda en çok kullanılan fonksiyonlar olarak öne çıkmaktadırlar.
+    </p>
+    <p id="printf" class="subheading">
+     3.1.2 - @printf() Fonksiyonu
+    </p>
+    <p class="indent">
+      İlk inceleyeceğiömiz, <span class="keyw">@printf</span><span class="op">()</span> 
+      fonksiyonunun önündeki @ (add) sembolü, bu fonksiyonun bir makro olduğunu 
+      belirtir. Makrolar üzerinde ileride bilgilenmiş olacağız. Ama bunlar, öntanımlı 
+      fonksiyon gibi işlevleri olan alt programlardır.
+    </p>
+    <p class="indent">
+      Burada, <span class="keyw">@printf</span><span class="op">()</span> fonksiyonu 
+      aslında bir C programlama dili fonksiyonudur ve Julia programlama dilinde, 
+      aynen c deki gibi uygulanabilmektedir. Bu fonksiyon, tarihsel olmakla birbirlikte 
+      canlılığından hiçbirşey kaybetmemiştir ve kullanımı üzerine geniş literatür 
+      bilgileri bulunmaktadır.
+    </p>
+    <p class="indent">
+      Sitemizde, Python programlaması konusunda, bu fonksiyonun kullanılma yöntemi 
+      açıklanmış ve örnekler verilmiştir. Burada bu bilgileri yineleyecek ve uygulama 
+      programlarını Julia programlama dilinde yazarak açıklamaya çalışacağız.</p>
+    <p class="indent">
+      Bu yöntemde % bir yer değiştirme karakteri olarak kullanılır ve s karakteri 
+      sözel, i karakteri tamsayı ve f karakteri bir ondalıklı sayı (float) verisini 
+      belirtmek için kullanılır. Blimsel verilerin belirtilmesi için e (exponent) 
+      karakteri kullanılır. Örnek olarak, 1.2f bir ondalıklı sayı verisinin tamsayıdan 
+      sonra iki hane ondalık olarak görüntüleneceğini belirtir. Bir ondalıklı sayı 
+      verinin %e olarak biçimlendirilmesi istenirse, aynen %1.5e gibi bir tamsayı 
+      dan sonra 5 hane ondalık ve kendi hesapladığı e üzeri gerekli sayı ile görüntüler. 
+      Aynı veri %1.3e ile biçimlendirilirse, bir tamsayı, üç ondalık ve e üzeri 
+      gerekli değer kendiliğinden hesaplanıp görüntülenir. Bu konuda açıklayıcı 
+      bir <a href="#">program</a> aşağıda görülmektedir.
+    </p>
+    <pre>
+    # Program : k2s1@printf1.jl
+
+# Tek özel değer
+
+sokak = &quot;Tavaşi Çeşme Sokak&quot;;
+
+#String veriler için s
+
+@printf(&quot;Bu sokağın ismi = \&quot;%s\&quot; dır.\n&quot;, sokak);
+    
+# Birden çok sözel değer
+
+semt = &quot;Piyer Loti Caddesi (Cağaloğlu)&quot;;
+@printf(&quot;%s , %s üzerindedir.\n&quot;, sokak, semt);
+
+#Tek tamsayı veri
+
+alan = 3;
+@printf(&quot;Bu tarlanın alanı %i dönümdür. \n&quot; , alan);
+    
+# Tek ondalıklı sayı veri
+
+ds = 5.679395839267348
+@printf(&quot;Değer = %1.2f \n&quot;,ds);
+    
+#Bilimsel Biçimlendirme
+
+t= .00067947699;
+@printf(&quot;Değer = %1.3e \n&quot;, t);
+ 
+# karakterler için c
+
+@printf("Alfa : %c\n, '&alpha;')
+
+#Sağa yasla
+
+x=&quot;Fiyat&quot;
+sf=&quot;25.50&quot;
+@printf("\n%s :  %10s\n",x , sf)
+@printf("\n%s :  %10s\n",x , pf)
+
+#Birden çok farklı tipte veri
+
+q = &quot;Değer = &quot;;
+w = 25.78;
+@printf(&quot;%s %1.1f dir.\n&quot;, q , w);    
+    
+    </pre>
+    <p class="nonindent">
+      Bu programın çıktısı :
+    </p>
+    <pre>
+ Bu sokağın ismi = &quot;Tavaşi Çeşme Sokak&quot; dır.
+Tavaşi Çeşme Sokak , Piyer Loti Caddesi (Cağaloğlu) üzerindedir.
+Bu tarlanın alanı 3 dönümdür. 
+Değer = 5.68 
+Değer = 6.795e-04 
+Alfa : 
+
+Fiyat :       25.50
+
+Fiyat :       19.25
+Değer =  25.8 dir.
+[Finished in 0.8s]
+    </pre>
+    <p class="indent">
+      Bu program, Python daki uygulamasın<span lang="en-us">a</span> çok az düzenleme 
+      yapılması gerekerek aynen Julia programlama dilinde çalışmaktadır.
+    </p>
+    <p class="indent">
+      İlk olarak ilk satırı ve çıktısını inceleyelim. Bu program,
+    </p>
+    <p class="nonindent">
+      <span class="keyw">@printf</span><span class="op">(</span><span class="string">&quot;sözel 
+      kısım&quot;</span>, veri1,....veriN<span class="op">)</span>
+    </p>
+    <p class="nonindent">
+      şeklinde çalışmaktadır. Sözel kısım yazdırılma işleminin tanımlandığı kısımdır. 
+      Veriler 1inci veriden N inci veriye kadar tanımlı değerlerdir ve virgül ile 
+      birbirlerinden ayrılmışlardır.
+    </p>
+    <p class="indent">
+      Yazdırma programı ilk olarak, sözel veriyi, karakter karakter okur. Bu işleme &quot;parsing&quot; 
+      adı verilir. Sözel veride % yazdırma sembolüdür. Program ilk % sembolünü görünce 
+      bunun ilk yazılacak veri olduğunu belirler v hemen önündeki veri tipi sembolünü 
+      inceler. Bu semboller özeldir ve s sözel veri, d tamsayı, f ondalıklı değer, 
+      e (exponential) (üstel) anlamına gelir.
+    </p>
+    <p class="indent">
+      İlk programda, sözel veri içinde mesaj olarak, tüm karakterler yazdırılır. 
+      Mesaj içindki \&quot; işaretine (escaped quot) (kaçırılmış tırnak işareti) 
+      adı verilir ve mesajda tırnak işaretinin yazdırılmasını sağlar. Bundan sonra,ilk 
+      yazdırılacak veri için, bir yer tutucu olan % işareti algılanır. Bu yazdırma 
+      işaretinin hemen önündeki s sembolü, yazılacak verinin bir sözel veri olacağını 
+      belirtir. Başka bir yer tutucu olmadığından sadece bir tek veri yazdırılacağı 
+      anlaşılır. Bundan sonraki "escape n" satır içinde yazdırıldıktan sonra, bir 
+      alt satıra geçileceğini belirtir (new line). Mesaj içinde, gerektiğinde aynı 
+      satır içinde bir tab genişliğinde boşluk atlatan \t (escape t) işaretlemesi 
+      de yapılabilir.
+    </p>
+    <p class="indent">
+      Yadırdırma programında sözel kısım tamamlandığında, program kaç tane % işareti 
+      saptamışsa, aynı sayı ve sırada veri beklyecektir. Veriler de olunduktan sonra, 
+      Mesaj içinde, yer tutucularda saklanan yerlere yerleştirilerek, program hatasız 
+      olarak yorumlanmış ve parsing tanımlarına göre veriler yazdırılmış olacaktır.
+    </p>
+    <p class="indent">
+      İlk program, şu şekilde parse edilecektir. &quot;(başla)Mesaj okunuyor. İlk 
+      yazdırma işareti algılandı (%), veririnin yerleştirileceği yer belirlendi, 
+      yazılacak verinin sözel veri olacağı belirtildi (s), sözel veri yazıldıktan 
+      sonra bir alt satıra geçilecektir(\n). (son), Sözel veri aranıyor, bulundu, 
+      program doğrulandı, yazdırma başlıyor, yazdırma tamamlandı, (yazdırma çıkışı), 
+      alt satırın ilk karakterine geçiliyor.&quot;
+    </p>
+    <p class="indent">
+      Gerçekten program çıktısı bu diyaloğu tam olarak yansıtmaktadır.
+    </p>
+    <p class="indent">
+      İkinci program şu şekilde değerlendirilebilir. Mesaj okundu, iki tane sözel 
+      veri yer tutucu yerleştirildi.Mesajdan sonra, bir alt satıra geçilecektir. 
+      Sözel veriler aranıyor, bulundu, veriler yer tutucuların belirttiği yerlere 
+      yerleştirildi. Yazdırma başarılı, yazdırmadan çıkılıyor, alt satırın ilk karakterine 
+      geçiliyor. Sözel verilerin, tırnak içinde yazdırılmadığına dikkat edilmelidir.
+    </p>
+    <p class="indent">
+      Üçüncü program satırında, mesaj içine bir yer tutucu yerleştiriliyor(%) ve 
+      bu yer tutucunun ayırdığı bellek alanına bir tamsayı (i = integer) veri yerleştirileceği 
+      belirtiliyor. Mesaj sözel karakterlerle devam ediyor ve mesajın tamamlanması 
+      ile, bir alt satıra geçileceği belirtiliyor. Bu program çalıştığında (yazdırma 
+      fonkiyonu çağrıldığında), yazdırma fonksiyonu veriyi buluyor ve hiçbir formatlama 
+      olmadan, aynen yer tutucunun belirttiği bellek adresine yerleştiriyor. Mesajı 
+      yazdırıyor ve mesaj yazımı tamamlandığında, kürsör bir alt satırın ilk karakterine 
+      yerleştiriliyor.
+    </p>
+    <p class="indent">
+      Dördüncü program satırı biraz farklı, mesaj sonu, %1.2f\n sembolleri ile belirtilmiş. 
+      Bunun anlamı, mesaj sonuna bir ondalıklı sayı (float) yerleştirileceği ve 
+      bu ondalıklı sayının, 1bir tam, üç ondalık şeklinde formatlanacağı, mesaj 
+      yazımı tamamlandığında, kürsörün, bir alt satırın başına konumlandırılacağı 
+      şeklindedir.
+    </p>
+    <p class="indent">
+      Beşinci yazdırma satırı, verinin bilimsel (eksponansiyel) formatlanması yöntemini 
+      içermektedir. Mesaj sonu, %1.3e \n ile tamamlanmaktadır. Bunun anlamı, verinin 
+      bir tam, iki ondalık ve üstel olarak formatlanması, yazım bitince, kürsörün 
+      bir alt satırbaşına konumlandırılması şeklindedir.
+    </p>
+    <p class="indent">
+      Altıncı yazım satırı, bir karakter (character) kodlaması olan c sembolünü 
+      içermektedir. Kodlama gereğince, yer tutucu bir tek karakter yerini tutmaktadır. 
+      Yerleştirilecek karakter, her türlü latin, greak veya Unicode karakteri olabilir. 
+      Zaten, Julia programlama dilinde, her türlü Unicode karakteri, tanımlayıcılarda 
+      kullanılabilmektedir.
+    </p>
+    <p class="indent">
+      Yedinci satır, fiyat listelerinde olduğu gibi, sayıların sağa yaslanması komutunu 
+      içermektedir. Burada malzemelerin tanımı alt alta bir liste olarak yazımı ve 
+      değerlerin on beş satır sonra, sağa yaslı olarak görüntülendirilmesi yapılmaktadır. 
+      yazım ifadesi,
+    </p>
+    <pre>
+       @printf("\n%s :  %10s\n",x , sf)
+       @printf("\n%s :  %10s\n",x , pf)
+       </pre>
+    <p class="nonindent">
+      şeklinde biribirinden 10 karakter açıklıkta iki sözel verinin yazdırılması 
+      şeklindedir. Formatlama yoktur. Veriler, tanım sırasında sağa yaslı olmaları 
+      için, iki ondalıklı olarak tanımlanmışlardır.
+    </p>
+    <p class="nonindent">
+      Bu programın çıktısı ise,
+    </p>
+    <pre>
+        Fiyat :       25.50
+
+        Fiyat :       19.25
+    </pre>
+    <p class="nonindent">
+      olarak gerçekleşmektedir.
+    </p>
+    <p class="indent">
+      İstendiğinde, veri tipleri farklı olan veriler de aynı satıra yazdırılabilirler. 
+      Son satır bunu belirtmektedir. İlk yer tutucuya bir sözel veri, ikinci yer 
+      tutucuya ise, bir tam bir ondalık şeklinde formatlanmış bir ondalıklı sayı 
+      yazılacaktır. Eğer gerçek veri, tanımlanmış format ile görüntülenemezse, Julia 
+      yorumlayıcısı bu veriyi üstel formatla görüntüleyecektir.
+    </p>
+    <p class="indent">
+      Aşağıdaki programda, bir fiyat listesi uygulaması yapılmaktadır.
+    </p>
+    <pre>
+ dm="Domates"
+dmf=4.75
+pt="Patates"
+ptf=6.25
+@printf("  Fiyat Listesi
+%s          %1.2f
+%s          %1.2f\n",dm,dmf,pt,ptf)
+    </pre>
+    <p class="nonindent">
+      Bu programın çıktısı,
+    </p>
+    <pre>
+      Fiyat Listesi
+Domates          4.75
+Patates           6.25
+[Finished in 0.7s]
+    </pre>
+    <p class="nonindent">
+      olarak gerçekleşmektedir.
+    </p>
+    <p class="indent">
+      Program çıktı<span lang="en-us">ları</span> dikkatle incelendğinde, \&quot;, 
+      \t,\n gibi formatlama yöntemleri kullanılması ile, bu program, başka hiçbir 
+      yazdırma programı gerektirmeyecek kadar göze hoş gelecek ve net çıktıların 
+      oluşturulması için tüm kullanıcı gereksinmelerini karşılayabilecek yetkinlikte 
+      olabileceği görülmektedir.. Kullanıcıların sürekli alıştırmalar yazarak, bu 
+      fonksiyonun kullanılma yöntemlerine alışmaları çok yararlı olacaktır.
+    Buna rağmen, bu fonksiyon artık çok eskidir ve aşağıda göreceğimiz daha kullanışlı yeni kardeşleri geliştirilmiştir.
+    </p>
+    <p class="subheading" id="println">
+       3.1.2 - print() ve println() Fonksiyonları
+    </p>
+    <p class="indent">
+      Kullanılıcılar tarafından çok tutulan iki fonksiyon, programlama dilleri için 
+      çok bilinen,<span class="keyw">print</span><span class="op">()</span> ve
+      <span class="keyw">println</span><span class="op">()</span> fonksiyonlarıdır. 
+      Bu fonksiyonların her iksinin de, kullanılmaları aynıdır. Sadece ilk fonksiyon 
+      çıktısı tamamlandıktan sonra, ilk karakteri aynı satıra devam ederek, ikinci 
+      fonksiyon ise bir alt satırdan başlayarak yazdırır. Julia programlama dilinde,
+      bu fonksiyonları daha da kullanışlı hale getiren
+    
+     veri değerlerinin 
+  sözel mesajlara gömülebilmesini sağlayan $ işareti bulunmaktadır.
+    </p>
+    <p class="indent">
+    Bu fonksiyonun kullanımı basittir. İstenirse, 
+  </p>
+    <p class = "nonindent">
+        <span class="keyw">println</span><span class="op">(</span>
+        <span class="string">&quot;Mesaj1&quot;</span>, değişken1,...
+        <span class="string">&quot;MesajN&quot;</span>, değişkenN&quot;)
+    </p>
+    <p class = "nonindent">
+        şeklinde, istenirse,
+    </p>
+    <p class = "nonindent">
+        <span class="keyw">println</span><span class="op">(</span>
+        <span class="string">&quot;Mesaj&quot;$değişken1...[Mesaj$değişkenN]&quot;</span>
+        <span class="op">)</span>
+    </p>
+    <p class = "nonindent">
+        şeklinde kullanılabilir. Örnek
+    </p>
+    <p class = "indent">
+        <span class="blue">julia&gt;</span>q=55;println(&quot;Sonuç = &quot;, q)<span
+        class="pl-25">&lt; --- Enter</span>
+    </p>
+    <p class = "nonindent">
+            Sonuç = 55 
+    </p>
+    <p class = "indent">
+        <span class="blue">julia&gt;</span>println(&quot;Sonuç = $q&quot;)<span
+        class="pl-25">&lt; --- Enter</span>
+    </p>
+     <p class = "nonindent">
+            Sonuç = 55 
+    </p>
+    <p class = "indent">
+        Görüldüğü gibi her iki yöntem de aynı sonucu veriyor. Fakat, ikinci yöntem,
+         daha kullanışlı gibi görünüyor.
+    </p>
+    <p class = "indent">
+        Bu kısımda görüldüğü gibi, sonuçların  yazdırılması için çağrılabilecek birçok fonksiyon bulunuyor.
+        Bunlar arasında en çok kullanılanları burada inceleme olanağı bulabildik. Program uygulamaları
+        sırasında bu fonksiyonlar kullanılarak çok yaratıcı dökümler alınabilecektir. Bu konuda, 
+        sürekli uygulamalar yapılarak, bu fonksiyonların uygulanmasında yetkinlik kazanılması
+        çok yararlı olacaktır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../index-2.html"><em>« Site Ana Sayfa</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../index.html"><em>« Julia Ana Sayfa</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../../content.html"><em>« Julia Ders İçerikleri</em></a></li>
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../../chapter2/page2/k2s2.html"><em>Sonraki Sayfa»</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../../../Library/lastmodified.js" type="text/javascript">
+        </script>
+    <p style="font-family: Helvetica; color: red; font-size: 14px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      Created With Microsoft Expression Web 4
+    </p>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+      <img alt="Geçerli html5" src="../../images/html5-small-1.gif" /></a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Julia/chapter3/page1/k3s1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:05 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

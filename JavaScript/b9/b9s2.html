@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:18 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b9/b9s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b9s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b9s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b9s3.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 9
+		</p>
+		<p class="chapter">
+			String (Karakter Dizgisi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 9 Sayfa 2	
+		</p>
+		<p class="subheading" id="proto-indexOf">9.2.7 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin indexOf() Metodu</p>
+		<p class="indent">
+          Bu metod, bir kd nesne örneğinde, belirli alt kd verisinin ilk karakterinin, incelenen kd içinde 
+          belirli bir konumdan sonra rastlandığı ilk konumu döndürür. Böyle bir uyuşmaya rastlanmazsa,
+          -1 döndürülür. Eğer arama konumu belirsiz veya belirtilmemişse arama incelenen kd nesne örneğinin
+          ilk karakterinden başlanarak yürütülür. Bu metodun kullanım şekli aşağıda görülmektedir :
+  </p>
+		<pre>
+<span class="str-50"><em>KarakterDizgisiSınıfıNesneÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'Alt KD'</span><span 
+			class="op">, [</span>konum<span 
+			class="op">]);</span>
+		</pre>
+		<p class="indent" id="b9.2.7-uyg-1">
+			Bu konuda bir 
+			<a href="../uygulamalar/b9.2.7-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.7-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> veri <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Atatürk Bulvarı'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İlk Konum = '</span><span 
+			class="op">,</span> veri<span 
+			class="op">.</span><span 
+			class="keyw">indexOf</span><span 
+			class="op">(</span><span 
+			class="str">'Bulvarı'</span><span 
+			class="op">),</span> <span 
+			class="str">'b9.2.7-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.7-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			<a href="../uygulamalar/b9.2.7-uyg-1.html">Program</a> sonucundan görüldüğü gibi, uyuşma 
+			konum 8 deki 9 uncu karakterden başlamaktadır. Bu metodu kısaca ilkKonum metodu olarak 
+			adlandırabiliriz.
+		</p>
+		<p class="subheading" id="proto-LastIndexOf">9.2.8 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin LastIndexOf() Metodu</p>
+		<p class="indent">
+          Bu metod, bir kd nesne örneğinde, belirli alt kd verisinin ilk karakterinin, incelenen kd içinde 
+          belirli bir konumdan sonra rastlandığı ilk konumu döndürür. Böyle bir uyuşmaya rastlanmazsa,
+          -1 döndürülür. Eğer arama konumu belirsiz veya belirtilmemişse arama incelenen kd nesne örneğinin
+          ilk karakterinden başlanarak yürütülür. Bu metodun kullanım şekli aşağıda görülmektedir :
+  </p>
+		<pre>
+<span class="str-50"><em>KarakterDizgisiSınıfıNesneÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">LastIndexOf</span><span 
+			class="op">(</span><span 
+			class="str">'Alt KD'</span><span 
+			class="op">, [</span>konum<span 
+			class="op">]);</span>
+		</pre>
+		<p class="indent" id="b9.2.8-uyg-1">
+			Bu konuda bir 
+			<a href="../uygulamalar/b9.2.8-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.8-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> veri <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Atatürk Bulvarı'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Son Konum = '</span><span 
+			class="op">,</span> veri<span 
+			class="op">.</span><span 
+			class="keyw">lastIndexOf</span><span 
+			class="op">(</span><span 
+			class="str">'a'</span><span 
+			class="op">),</span> <span 
+			class="str">'b9.2.8-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.8-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			<a href="../uygulamalar/b9.2.8-uyg-1.html">Program</a> sonucundan görüldüğü gibi, en son uyuşma 
+			konum 12 deki 13 üncü karakterde sona ermektedir. Bu metodu kısaca sonKonum metodu olarak 
+			adlandırabiliriz.
+		</p>
+		<p class="subheading" id="proto-localeCompare">9.2.9 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin localeCompare() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı iki kd verisinin karşılaştırılmasıdır. Metodun kullanımı
+		</p>
+		<pre>
+<span class="str-50"><em>KarakterDizgisiSınıfıNesneÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">localCompare</span><span 
+			class="op">(</span><span 
+			class="str">&quot;Karşılaştırılacak KD verisi&quot;</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			<span class="keyw">localCompare</span><span class="op">()</span> Metodu, önce her iki kd 
+			nesne sınıfı örneğini ve karşılaştırılaracak kd değerini, ilkel kd tipine dönüştürür ve her iki kd verisini, 
+			varsayılan yerel değerlere karşılaştırır. Spesifikasyon sadece her iki kd verisinin Unicode değerlerinin
+			kanonik olarak birbirine eşitse 0 veya -0, her iki kd verisinin sıralanmasına göre
+			karşılaştırılacak kd sıralamada daha aşıda ise negatif, yukarıda ise pozitif bir değer döndürüleceğini belirtir. 
+			Çoğu belge çözümleyiciler, -1, 0, 1 değerlerini döndürürler. 
+		</p>
+		<p class="indent">
+			Bu metodun yazılımı, JavaScript yorumlayıcısının yazılımına bağlıdır. Genellikle, sözel verilerin 
+			karşılaştırılmaları risklidir ve kullanıcılar aynı sözel ifadeyi amaçlamalarına karşın, yazım farklarından
+			aynı değeri tutturamazlar. Bu konuda, daha önce de belirttiğimiz gibi, programlarda önlemler 
+			alınması gerekir.
+		</p>
+		<p class="indent" id="b9.2.9-uyg-1">
+			Bu konuda bir 
+			<a href="../uygulamalar/b9.2.9-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b9.2.9-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> veri <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Atatürk Bulvarı'</span><span 
+			class="op">),</span> sonuç  <span 
+			class="op">=</span> veri<span 
+			class="op">.</span><span 
+			class="keyw">localCompare</span><span 
+			class="op">(</span><span 
+			class="str">'Atatürk Bulvarı'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">===</span> 0<span 
+			class="op">) {</span>
+<span class="pl-75">sonuç</span> <span 
+			class="op">=</span> <span 
+			class="str">'Tam Uyuşma Sağlandı !'</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+<span class="pl-75">sonuç</span> <span 
+			class="op">=</span> <span 
+			class="str">'Tam Uyuşma Yok !'</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç = '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.9-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.9-uyg-1-sonuç-1"></p>
+		<p class="subheading" id="proto-match">9.2.10 - String (Karakter Dizgisi)
+			Nesne Sınıfı Prototipinin match() Metodu</p>
+		<p class="indent">
+			<span class="str">Not :</span> Bu metodu, <a href="../ekler/ek2/ek2s1.html">ek2</a>
+			de açıklanan düzenli deyimler (regular expressions) (regexp) üzerinde bilgilenmeden
+			ve <span class="keyw">RegExp</span> nesnesini incelemeden okumayınız !
+		</p>
+		<p class="indent">
+			Bu metodun uygulanması, 
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span>regexp<span 
+			class="op">);</span> 
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada <span class="keyw">this</span> bir kd sınıfı, regexp bir <span 
+			class="keyw">RegExp</span> sınıfı nesne örneğidir. 
+		</p>
+		<p class="indent">
+			Bu metodun argümanı bir <span class="keyw">RegExp</span> sınıfı nesne örneği deil de bir kd literali ise,  
+			metot, ilk olarak bu kd verisini bir <span class="keyw">RegExp</span> sınıfı yapılandırıcının argümanı olarak
+			kullanrak yeni bir <span class="keyw">RegExp</span> sınıfı nesne örneği oluşturur. Bu işlem, 
+		</p>
+		<pre>
+<span class="keyw-50">new RegExp</span><span 
+			class="op">(</span>regexp<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu durumda, kullanıcının beslediği kd verisinden oluşturulacak 
+			<span class="keyw">RegExp</span> sınıfı nesne örneği sonucunu önceden iyi 
+			bilmesi gerekir. Normal olarak, bu metodun argümanı olarak önceden oluşturulmuş 
+			<span class="keyw">RegExp</span> literalleri, yani düzenli deyim desenleri kullanılmalıdır.
+		</p>
+		<p class="indent">
+			Bu metot geriye bir dizi döndürecektir. Bu dizinin içeriği, metodun argümanı
+			olan düzenli deyim ifadesinde, g durum değiştiricisinin belirtilmiş olup olmamasına bağlıdır. 
+		</p>
+		<p class="indent">
+			Eğer global arama öngörülmemişse, metot geriye,
+		</p>
+		<pre>
+<span class="pl-50">regexp</span><span class="op">.</span><span class="keyw">exec</span><span 
+			class="op">(</span><span class="keyw">this</span><span class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi ile aynı sonucu döndürür.
+		</p>
+		<p class="indent">
+			Eğer global arama öngörülmüşse, regexp<span class="op">.</span><span 
+			class="keyw">LastIndex</span> özelliği 0 ´a eşitlenir ve artık hiç uyuşma
+			olmayıncaya kadar			regexp<span class="op">.</span><span class="keyw">exec</span><span 
+			class="op">(</span><span class="keyw">this</span><span class="op">)</span> metodu
+			çağrılır. Eğer boş bir kd ile uyuşma olursa regexp<span class="op">.</span><span 
+			class="keyw">LastIndex</span> özelliğinin değeri 1 arttırılarak devam edilir.
+			eğer n uyuşma sayısı ise,  geri döndürülecek dizinin elemanları 0 dan başlanarak
+			uyuşma sağlanan regexp<span 
+			class="op">.</span><span class="keyw">exec</span><span 
+			class="op">(</span><span class="keyw">this</span><span class="op">)</span> çağrılarının
+			 geriye döndürülen ilk elemanlarıdır. Uyuşma olmazsa, <span class="keyw">null</span> değeri
+			 döndürülür.</p>
+		
+		<p class="indent">
+			Bu metodun geri döndüreceği sonucun ilk bakışta öngörülmesi kolay değildir. Geri döndürülecek sonucun
+			denendikten sonra kullanılması uygun olacaktır.
+		</p>
+		<p class="indent" id="b9.2.10-uyg-1">
+			Bu metodun ilk bir <a href="../uygulamalar/b9.2.10-uyg-1-js.html">uygulama programı, </a> ve ilişkili
+			olduğu <a href="../uygulamalar/b9.2.10-uyg-1.html">sayfada</a> verdiği sonuç aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">'(Java)*(Script)'<span 
+			class="op">,</span>'i'</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.10-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-1.html">programda</a>
+			<span class="keyw">match</span><span class="op">()</span> metodunun argümanı bir kd literali 
+			olarak verilmiştir. Oysa ki bu argümanın bir düzenli deyim literali olması gerekirdi. Bu durumda, 
+			<span class="keyw">match</span><span class="op">()</span> metodu, argümanını, kd tipinden
+			regexp (düzenli deyim) tipine dönüştürecektir. Dönüştürme için, 
+			<span class="keyw">match</span><span class="op">()</span> metodu, önce düzenli deyim nesne sınıfı
+			yapılandırıcını çağrırır ve argümanı olarak kendi argümanını kullanarak,aşağıda görüldüğü gibi, 
+			yeni bir düzenli deyim nesne sınıfı örneği yaratır. 
+		</p>
+		<pre>
+<span class="pl-50">düzenliDeyim</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Regexp</span><span 
+			class="op">(</span><span 
+			class="str">'(Java)*(Script)','i'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Sonra, oluşturulmuş olan bu düzenli deyim nesne sınıf örneğini, aşağıda
+			görüldüğü gibi, ilkel kd tipi bir veriye dönüştürür ve yine ilkel kd
+			verisine dönüştürdüğü <span class="keyw">this</span> verisi ile uyuşmasını
+			sınar ve sınama sonucunu döndürür. Bu durumda, yukarıdaki 
+			<a href="../uygulamalar/b9.2.10-uyg-1.html">program</a>, aşağıda görüldüğü
+			gibi de yazılabilir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> düzenliDeyim <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'(Java)*(Script)'</span><span 
+			class="op">,</span><span 
+			class="str">'i'</span><span 
+			class="op">),</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span>düzenliDeyim<span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			Burada, 
+		</p>
+		<pre>
+<span class="keyw-50">var</span> düzenliDeyim <span 
+			class="op">=</span> <span 
+			class="keyw">new RegExp</span><span 
+			class="op">(</span><span 
+			class="str">'(Java)*(Script)'</span><span 
+			class="op">,</span><span 
+			class="str">'i'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			işleminin sonucunda oluşacak düzenliDeyim adlı regexp nesne sınıf örneğinin
+			içeriği, /(Java)*(Script)/i dir. Okunabilirliği en yüksek olacak bir programda,
+			<span class="keyw">match</span><span class="op">()</span> metodunun argümanı
+			olarak bu içerikte bir kd literalinin verilmesi en doğru yöntem olacaktır.
+			Yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-1.html">program</a> en basit
+			olarak aşağıdaki gibi yazılabilir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">/(Java)*(Script)/i</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-1-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-1.html">programda</a> 
+			<span class="keyw">match</span><span class="op">()</span> metodunun
+			argümanı olan düzenli deyimde global arama anahtarı kapalı ve sadece 
+			küçük/büyük karakter seçimi anahtarı açık durumdadır. Bu nedenle arama, 
+			<span class="keyw">this</span> verisindeki tüm olası uyuşmalar tamamlanıncaya 
+			kadar tekrarlanacaktır. Düzenli deyim ifadesinde iki alt sınıf bulunmaktadır. Bu durumda, 
+			kd verisinde global uyuşma, birinci alt sınıfın uyuşması, ikinci alt sınıfın uyuşması üç uyuşma 
+			savı (assertion) sınanacak ve içlerinden birisi bile gerçekleşirse, her üçünün sonucu geri
+			döndürülecek dizinin elemanları olarak atanacaktır.
+		</p>
+		<p class="indent">
+			Burada düzenli deyim <span class="str">'/(Java)*(Script)/i'</span> şeklindedir ve 
+			<span class="str">'JavaScript'</span>, <span class="str">'javascript'</span>, 
+			<span class="str">'JAvaScript'</span>, gibi kd değerlerine, son örneği ele
+			alırsak, <span class="str">'JavaScript'</span><span 
+			class="op">,</span> <span class="str">'JAva'</span><span 
+			class="op">,</span><span class="str">'Script'</span> şeklinde elemanları geri
+			 döndürecektir. Esas ilginç sonuç, aynı düzenli deyimle, <span 
+			class="str">'script'</span> kd verisinin karşılaştırılması sırasında karşılaşılmakta
+			ve burada <span class="str">'script'</span>, <span class="str">''</span>, 
+			<span class="str">'script'</span>, elemanları geri döndürülmektedir. Geri
+			döndürülen dizideki elemanların ilki global yani toplam karşılaştırma sonucudur.
+			İkinci eleman ise bir boş dizidir. Boş dizi olmasının nedeni ikinci alt sınıf
+			olan <span class="str">'(Java)'</span> yerine, bir boş sınıfla karşılaşılmış olmasıdır.
+			Bu düzenli deyim, <span class="str">'istendiği sayıda boşluk'</span> <span 
+			class="op">+</span> <span class="str">'script'</span> şeklinde bir kd verisi
+			ile uyum sağlayabilecektir. Geri döndürülen dizinin üçüncü elemanı ise, her
+			zamanki gibi bir <span class="str">'script'</span> değeri  olmaktadır.
+		</p>
+		<p class="indent" id="b9.2.10-uyg-2">
+			Aşağıda görülen <a href="../uygulamalar/b9.2.10-uyg-2-js.html">programda</a> ise,
+			global arama anahtarı açık olarak aynı arama tekrarlanmaktadır. Bu programın,
+			bir <a href="../uygulamalar/b9.2.10-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">/(Java)*(Script)/gi</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-2-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-2-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.10-uyg-2-sonuç-1"></p>
+		<p class="indent" id="b9.2.10-uyg-3">
+			Bazı basit durumlarda, <span class="keyw">match</span><span class="op">()</span> 
+			metodunun döndüreceği değer önceden kolaylıkla kestirilebilir.
+			Aşağıda görülen <a href="../uygulamalar/b9.2.10-uyg-3-js.html">programda</a>,
+			global arama anahtarı kapalı olarak bir uyuşma aranmaktadır. Bu programın,
+			bir <a href="../uygulamalar/b9.2.10-uyg-3.html">uygulama</a> sayfasında verdiği
+			sonuç aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'Çağdaşlık sadece bilimle sağlanabilir.'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">/il/</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-3-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-3-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.10-uyg-3-sonuç-1"></p>
+		<p class="nonindent">
+			yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-3-js.html">programda</a>, global 
+			arama yapılmadığı için,  <span class="keyw">match</span><span class="op">()</span> 
+			metodu, arama yaptığı kd verisini soldan sağa doğru taramakta ve ilk uyuşmanın 
+			sağlanması ile aramayı sona erdirerek uyuşma sonucunu döndürmektedir.
+		</p>
+		<p class="indent" id="b9.2.10-uyg-4">
+			Aşağıda görülen <a href="../uygulamalar/b9.2.10-uyg-4-js.html">programda</a> ise,
+			aynı arama, bu sefer global arama anahtarı açık olarak yapılmaktadır. Bu programın,
+			bir <a href="../uygulamalar/b9.2.10-uyg-4.html">uygulama</a> sayfasında verdiği
+			sonuç aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'Çağdaşlık sadece bilimle sağlanabilir.'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">/il/g</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.10-uyg-4-sonuç-1"></p>
+		<p class="nonindent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-5-js.html">programda</a>, global
+			 arama yapıldığı için,  <span class="keyw">match</span><span class="op">()</span> 
+			metodunun, ilk uyuşmada işlemi sonlandırmadığı, aramayı kd verisinin sonuna
+			kadar  devam ettirdiği ve tüm uyuşma sonuçlarını sırası ile geri döndürülen
+			dizinin elemanlarının  değeri olarak sakladığı görülmektedir.
+		</p>
+		<p class="indent" id="b9.2.10-uyg-5">
+			Bu metot bazı durumlarda, konu ile fazla ilgili olmayanları şaşırtabilecek 
+			sonuçları geri döndürür. Bunun ilginç örneklerinden biri, aşağıdaki 
+			<a href="../uygulamalar/b9.2.10-uyg-5-js.html">programda</a> görülebilir. 
+			Bu programın bir <a href="../uygulamalar/b9.2.10-uyg-5.html">uygulama</a>,
+			sayfasında verdiği sonuç aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> kd <span 
+			class="op">=</span> <span 
+			class="str">'JavaScript'</span><span 
+			class="op">,</span> sonuç <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">sonuç</span><span 
+			class="op">=</span> kd<span 
+			class="op">.</span><span 
+			class="keyw">match</span><span 
+			class="op">(</span><span 
+			class="str">/(J)*(Script)/i</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>sonuç <span 
+			class="op">!==</span> <span 
+			class="keyw">null</span><span 
+			class="op">) {</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'b9.2.10-uyg-5-sonuç-1'</span><span 
+			class="op">);</span><span 
+			class="op">
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Sağlanamadı !'</span><span 
+			class="op">,</span>  <span 
+			class="str">'b9.2.10-uyg-5-sonuç-1'</span><span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b9.2.10-uyg-5-sonuç-1"></p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b9.2.10-uyg-5-js.html">program</a>, 
+			ilk olark en geniş kapsamlı uyuşma araması olan jscript (küçük/büyük harf
+			önemsiz)  sözcüğünün aranması ile başlar ve başarısız olur. Buna açgözlü
+			uyuşma (greedy match) adı verilir. Bundan sonra script sözcüğü aranır ve
+			bulunur. Bundan sonra null string adı verilen boş bir karakter dizigisi
+			aranır ve tüm kd verileri boş karakter dizigisi ile uyum sağlar. Geri döndürülen
+			dizideki ikinci eleman bu uyuşmadan kaynaklanan boş elemandır. Sonuncu
+			uyuşma ve geri döndürülen dizinin son elemanı yine script sözcüğüdür.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b9s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b9s3.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.7-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.8-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.9-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.10-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.10-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.10-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.10-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b9.2.10-uyg-5.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b9/b9s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:18 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

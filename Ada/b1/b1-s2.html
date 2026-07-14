@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/Ada/b1/b1-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:09 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b1/b1-s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACAdas.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/Ada" />
+		<meta name="Title" content="Ada Turkish Tutorial" />
+ <!-- Turkish Ada Tutorial -->
+		<meta name="Subject" content="AdaTurkish Tutorial" />
+		<meta name="Description" 
+					content="Ada Tutorial in Turkish Language " />
+		<meta name="Keywords" content="Ada Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="Ada Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/Adastyle.css" />
+		<title>Bölüm 2 Sayfa 2</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b1-s1.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="../b2/b2-s1.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 1
+		</p>
+		<p class="chapter">
+			Ada Programlama Ortamının Tanıtımı
+		</p>
+		<p class="pagenum">
+			Bölüm 1 Sayfa 2
+		</p>
+		<p class="title-left" id="compilers">1.3 - Ada Derleyicileri</p>
+		<p class="indent">
+			Ücretsiz Ada derleyicilerinin en tanınmışları, GNAT ve 
+			<a href="http://www.aonix.com/downloads.html">Objective Ada</a>
+			derleyicileridir. Biz GNAT derleyicisi ile çalışacağız. Bu derleyici, 
+			<a href="http://libre.adacore.com/libre/download2/">http://libre.adacore.com/libre/download2/</a> 
+			sitesinden indirilebilir. GNAT derleyicisi GNU General Public Licence (GPL) koşulları
+			ile dağıtılmaktadır. Bu lisans, koşulları içerisinde, her türlü ticari ve bilimsel kullanım için 
+			geçerlidir. GNU (Free Software Foundation) GNAT derleyicisinin her türlü ticari ve bilimsel amaçla kullanımı 
+			ücretsizdir. Ücretsiz GNAT -GPL derleyicisi çok gelişkindir ve hemen her uygulama amacı için yeterlidir.
+			En yeni GNAT - GPL derleyicisi, haziran 2010 da kullanıma verilen GNAT 2010 derleyicisidir. GNAT 2010
+			yeni oluşturulmakta olan Ada 2012 standartlarını kısmen desteklemektedir. Daha  gelişkin bir sürümünün
+			2011 de kullanıma girebileceği belirtilmektedir. Kurulum için, gnat-gpl-2010-i686-pc-mingw32-bin.exe 
+			dosyasının çalıştırılması ,yeterlidir. Kurulum sonunda GNAT derleyicisi sistem yoluna (PATH) yerleşmiş olur. 
+			Kurulumun gerçekleştiğini, bir komut satırından (command shell) gnat yazarak çalışması izlenebilir. Kurulum 
+			tamamlanınca yine aynı siteden indirilecek Ada win-32 binding işlevini gerçekleştiren, win32ada-gpl-2010.exe
+			dosyasının da çalıştırılarak Ada win-32 binding işleminin gerçekleştirilmesi sağlık verilir. Bu dosya her türlü işlemi
+			kendisi yaparak işlevi gerçekleştirmektedir.
+</p>
+		<p class="indent">
+			Ada programları, en basit bir metin yazıcısı örnek olarak notepad ile kolayca yazılarak komut satırı 
+			üzerinden derlenebilir. Komut satırı Türkçe karakterleri desteklemeyebilir, fakat bunun bir önemi 
+			yoktur çünkü Türkçe karakterlerin desteklendiği çıkış ortamları bulunmaktadır.
+		</p>
+		<p class="subheading" id="command">1.3.1 - Ada Programlarıının Komut Satırı Üzerinden Derlenip Çalıştırılması </p>
+		<p class="indent">
+			Ada programları herhangibir metin editöründe, yazılabilir ve programlar 
+		</p>
+		<pre class="app-25">
+<span class="pl-50">&lt;Program_Adı&gt;.ada</span>
+		</pre>
+		<p class="nonindent">
+			veya
+		</p>
+		<pre class="app-25">
+<span class="pl-50">&lt;Program_Adı&gt;.adb</span> (Ada Body)
+		</pre>
+		<p class="nonindent">
+			veya
+		</p>
+		<pre class="app-25">
+<span class="pl-50">&lt;Program_Adı&gt;.ads</span> (Ada Specification)
+		</pre>
+		<p class="nonindent">
+			dosyaları olarak saklanabilir. Ada programlama dili programın tanım kısmının (specs) ve 
+			programın çalışabilir kısmının (body) ayrı ayrı derlenmesine olanak sağlar. Eğer bu iki kısım 
+			birlikte derlenecekse, program *.adb veya *.ada olarak saklanıp derlenebilir. Çalıştırılabilir 
+			kısımları olan programları spec (*.ads) dosyaları halinde saklamaktan kaçınınız. Bu programlar, 
+			*.adb veya *.ada olarak saklanarak birlikte derlenmelidir. Örnek olarak deneme.ada olarak 
+			saklanmış bir program olduğunu düşünelim. Bundan sonra bir komut satırı penceresi açılır ve 
+		</p>
+		<pre class="app-25">
+<span class="pl-50">gcc - deneme.ada</span>
+		</pre>
+		<p class="nonindent">
+			yazılır. Derleyici, programı derler ve hata yoksa, deneme.o (object) ve deneme.ali (Ada Library 
+			Information) dosyalarını oluşturur. Bundan sonra komut satırına 
+		</p>
+		<pre class="app-25">
+<span class="pl-50">gnatbind deneme.ali</span> veya sadece gnatbind deneme
+		</pre>
+		<p class="indent">
+			ve
+		</p>
+		<pre class="app-25">
+<span class="pl-50">gnatlink deneme.ali</span> veya sadece gnatlink deneme
+		</pre>
+		<p class="nonindent">
+			yazılarak, çalıştırılabilir deneme.exe dosyası oluşturulur ve komut satırı üzerinden çalıştırılabilir. 
+		</p>
+		<p class="indent">
+			Bu işlem kısa olarak GNAT derleyicisinin gnatmake fonksiyonu kullanılarak da gerçekleştirilebilir. 
+			Bu durumda,
+		</p>
+		<pre class="app-25">
+<span class="pl-50">gnatmake deneme.ada</span> 
+		</pre>
+		<p class="nonindent">
+			yazılması yeterlidir. Programda hata yoksa derleyici çalıştırılabilir deneme.exe dosyasını oluşturur. 
+			Hata varsa, derleyici hatanın giderilmesi için programcıyı yönlendirir. GNAT 2010 derleyicisi varsayılan 
+			olarak ADA 95 modundadır. Yani ADA 95 programları sorunsuzca derlenir. Burada uygulanan 
+			gnatmake programı son derce güçlü bir derleme yardımcısıdır. Her defa gerekli bağımlılıkları kendisi 
+			bulur ve uygular. Büyük programlar için gnatmake derleme yardımcısının kullanılması kuvvetle sağlık 
+			verilir çünkü bütün bu bağımlıklarının elle girilmesi kolay olmayabilir.
+	</p>
+		<p class="indent">
+			Tüm derleme aşamalarını gerçekleştirebilen gnatmake komutunun çeşitli anahtarları (switch) bulunmaktadır.
+			Bu anahtarların kullanılmaları, programcının gereksinmelerine bağlıdır. Aşağıda GNAT 2010 için gnatmake 
+			programının tüm anahtarları listelenmiştir :
+		</p>
+		<pre class="app-25">
+	&gt;gnatmake<br />
+	Usage: gnatmake  opts  name  {[-cargs opts] [-bargs opts] [-largs opts] [-margs opts]}<br />
+ name is one or more file name from which you can omit the .adb or .ads suffix<br />
+gnatmake switches:<br />
+	-a       Consider all files, even readonly ali files<br />
+	-b       Bind only<br />
+	-B       Build, bind and link full project<br />
+	-c       Compile only<br />
+	-C       Cache source mappings: invoke compiler with temp mapping file<br />
+	-C=mapp  Cache source mappings: invoke compiler with mapping file mapp<br />
+	-D dir   Specify dir as the object directory<br />
+	-eI      Index of unit in multi-unit source file<br />
+	-eL      Follow symbolic links when processing project files<br />
+	-eS      Echo commands to stdout instead of stderr<br />
+	-f       Force recompilations of non predefined units<br />
+	-F       Full project path name in brief error messages<br />
+	-i       In place. Replace existing ali file, or put it with source<br />
+	-jnum    Use nnn processes to compile<br />
+	-k       Keep going after compilation errors<br />
+	-l       Link only<br />
+	-m       Minimal recompilation<br />
+	-M       List object file dependences for Makefile<br />
+	-n       Check objects up to date, output next file to compile if not<br />
+	-o name  Choose an alternate executable name<br />
+	-p       Create missing obj, lib and exec dirs<br />
+	-Pproj   Use GNAT Project File proj<br />
+	-q       Be quiet/terse<br />
+	-R       Do not use a run_path_option when linking<br />
+	-s       Recompile if compiler switches have changed<br />
+	-u       Unique compilation, only compile the given files<br />
+	-U       Unique compilation for all sources of all projects<br />
+	-v       Display reasons for all (re)compilations<br />
+	-vPx     Specify verbosity when parsing GNAT Project Files<br />
+	-we      Treat all warnings as errors<br />
+	-wn      Normal warning mode (cancels -we/-ws)<br />
+	-ws      Suppress all warnings<br />
+	-x       Allow compilation of needed units external to the projects<br />
+	-Xnm=val Specify an external reference for GNAT Project Files<br />
+	-z       No main subprogram (zero main)<br />
+ --GCC=command       Use this gcc command<br />
+	--GNATBIND=command  Use this gnatbind command<br />
+	--GNATLINK=command  Use this gnatlink command<br />
+Project, Source and Library search path switches:<br />
+	-aPdir    Add directory dir to project search path<br />
+	-aLdir    Skip missing library sources if ali in dir<br />
+	-Adir     like -aLdir -aIdir<br />
+	-aOdir    Specify library/object files search path<br />
+	-aIdir    Specify source files search path<br />
+	-Idir     Like -aIdir -aOdir<br />
+	-I-       Don't look for sources &amp; library files in the default directory<br />
+	-Ldir     Look for program libraries also in dir<br />
+	-nostdinc Don't look for sources in the system default directory<br />
+	-nostdlib Don't look for library files in the system default directory<br />
+	--RTS=dir specify the default source and object search path<br />
+	--subdirs=dir real obj/lib/exec dirs are subdirs<br />
+	--unchecked-shared-lib-imports<br />
+	Allow shared libraries to import static libraries<br />
+To pass an arbitrary switch to the Compiler, Binder or Linker:<br />
+	-cargs opts   opts are passed to the compiler<br />
+	-bargs opts   opts are passed to the binder<br />
+	-largs opts   opts are passed to the linker<br />
+	-margs opts   opts are passed to gnatmake<br />
+Compiler switches (passed to the compiler by gnatmake):<br />
+ -fstack-check Generate stack checking code<br />
+	-fno-inline   Inhibit all inlining (makes executable smaller)<br />
+	-fpreserve-control-flow Preserve control flow for coverage analysis<br />
+	-g            Generate debugging information<br />
+	-Idir         Specify source files search path<br />
+	-I-           Do not look for sources in current directory<br />
+	-O[0123]      Control the optimization level<br />
+ -gnata    Assertions enabled. Pragma Assert/Debug to be activated<br />
+	-gnatA    Avoid processing gnat.adc, if present file will be ignored<br />
+	-gnatb    Generate brief messages to stderr even if verbose mode set<br />
+	-gnatB    Assume no bad (invalid) values except in 'Valid attribute<br />
+	-gnatc    Check syntax and semantics only (no code generation)<br />
+	-gnatC    Generate CodePeer information (no code generation)<br />
+	-gnatd?   Compiler debug option ? ([.]a-z,A-Z,0-9), see debug.adb<br />
+	-gnatD    Debug expanded generated code (max line length = 72)<br />
+	-gnatDnn  Debug expanded generated code (max line length = nn)<br />
+	-gnatec=? Specify configuration pragmas file, e.g. -gnatec=/x/f.adc<br />
+	-gnateD?  Define or redefine preprocessing symbol, e.g. -gnateDsym=val<br />
+	-gnatef   Full source path in brief error messages<br />
+	-gnateG   Generate preprocessed source<br />
+	-gnateInn Index in multi-unit source, e.g. -gnateI2<br />
+	-gnatem=? Specify mapping file, e.g. -gnatem=mapping<br />
+	-gnatep=? Specify preprocessing data file, e.g. -gnatep=prep.data<br />
+	-gnateS   Generate SCO (Source Coverage Obligation) information<br />
+	-gnatE    Dynamic elaboration checking mode enabled<br />
+	-gnatf    Full errors. Verbose details, all undefined references<br />
+	-gnatF    Force all import/export external names to all uppercase<br />
+	-gnatg    GNAT implementation mode (used for compiling GNAT units)<br />
+	-gnatG    Output generated expanded code (max line length = 72)<br />
+	-gnatGnn  Output generated expanded code (max line length = nn)<br />
+	-gnath    Output this usage (help) information<br />
+	-gnati?   Identifier char set (?=1/2/3/4/5/8/9/p/f/n/w)<br />
+	-gnatI    Ignore all representation clauses<br />
+	-gnatjnn  Format error and warning messages to fit nn character lines<br />
+	-gnatk    Limit file names to nn characters (k = krunch)<br />
+	-gnatl    Output full source listing with embedded error messages<br />
+	-gnatl=f  Output full source listing to specified file<br />
+	-gnatL    List corresponding source text in -gnatG or -gnatD output<br />
+	-gnatmnn  Limit number of detected errors/warnings to nn (1-999999)<br />
+	-gnatn    Inlining of subprograms (apply pragma Inline across units)<br />
+	-gnatN    Full (frontend) inlining of subprograms<br />
+	-gnato    Enable overflow checking (off by default)<br />
+	-gnatO nm Set name of output ali file (internal switch)<br />
+	-gnatp    Suppress all checks<br />
+	-gnatP    Generate periodic calls to System.Polling.Poll<br />
+	-gnatq    Don't quit, try semantics, even if parse errors<br />
+	-gnatQ    Don't quit, write ali/tree file even if compile errors<br />
+	-gnatr    Treat pragma Restrictions as Restriction_Warnings<br />
+	-gnatR?   List rep info (?=0/1/2/3 for none/types/all/variable)<br />
+	-gnatR?s  List rep info to file.rep instead of standard output<br />
+	-gnats    Syntax check only<br />
+	-gnatS    Print listing of package Standard<br />
+	-gnatt    Tree output file to be generated<br />
+	-gnatTnn  All compiler tables start at nn times usual starting size<br />
+	-gnatu    List units for this compilation<br />
+	-gnatU    Enable unique tag for error messages<br />
+	-gnatv    Verbose mode. Full error output with source lines to stdout<br />
+	-gnatVxx  Enable selected validity checking mode, xx = list of parameters:<br />
+	a    turn on all validity checking options<br />
+	c    turn on checking for copies<br />
+	C    turn off checking for copies<br />
+	d    turn on default (RM) checking<br />
+	D    turn off default (RM) checking<br />
+	e    turn on checking for elementary components<br />
+	E    turn off checking for elementary components<br />
+	f    turn on checking for floating-point<br />
+	F    turn off checking for floating-point<br />
+	i    turn on checking for in params<br />
+	I    turn off checking for in params<br />
+	m    turn on checking for in out params<br />
+	M    turn off checking for in out params<br />
+	o    turn on checking for operators/attributes<br />
+	O    turn off checking for operators/attributes<br />
+	p    turn on checking for parameters<br />
+	P    turn off checking for parameters<br />
+	r    turn on checking for returns<br />
+	R    turn off checking for returns<br />
+	s    turn on checking for subscripts<br />
+	S    turn off checking for subscripts<br />
+	t    turn on checking for tests<br />
+	T    turn off checking for tests<br />
+	n    turn off all validity checks (including RM)<br />
+	-gnatwxx  Enable selected warning modes, xx = list of parameters:<br />
+	a    turn on all info/warnings marked below with +<br />
+	A    turn off all optional info/warnings<br />
+	.a*+ turn on warnings for failing assertion<br />
+	.A   turn off warnings for failing assertion<br />
+	b+   turn on warnings for bad fixed value (not multiple of small)<br />
+	B*   turn off warnings for bad fixed value (not multiple of small)<br />
+	.b*+ turn on warnings for biased representation<br />
+	.B   turn off warnings for biased representation<br />
+	c+   turn on warnings for constant conditional<br />
+	C*   turn off warnings for constant conditional<br />
+	.c+  turn on warnings for unrepped components<br />
+	.C*  turn off warnings for unrepped components<br />
+	d    turn on warnings for implicit dereference<br />
+	D*   turn off warnings for implicit dereference<br />
+	e    treat all warnings (but not info) as errors<br />
+	.e   turn on every optional info/warning (no exceptions)<br />
+	f+   turn on warnings for unreferenced formal<br />
+	F*   turn off warnings for unreferenced formal<br />
+	g*+  turn on warnings for unrecognized pragma<br />
+	G    turn off warnings for unrecognized pragma<br />
+	h    turn on warnings for hiding variable<br />
+	H*   turn off warnings for hiding variable<br />
+	.h   turn on warnings for holes in records<br />
+	.H*  turn off warnings for holes in records<br />
+	i*+  turn on warnings for implementation unit<br />
+	I    turn off warnings for implementation unit<br />
+	.i   turn on warnings for overlapping actuals<br />
+	.I*  turn off warnings for overlapping actuals<br />
+	j+   turn on warnings for obsolescent (annex J) feature<br />
+	J*   turn off warnings for obsolescent (annex J) feature<br />
+	k+   turn on warnings on constant variable<br />
+	K*   turn off warnings on constant variable<br />
+	l    turn on warnings for missing elaboration pragma<br />
+	L*   turn off warnings for missing elaboration pragma<br />
+	m+   turn on warnings for variable assigned but not read<br />
+	M*   turn off warnings for variable assigned but not read<br />
+	.m*  turn on warnings for suspicious modulus value<br />
+	.M   turn off warnings for suspicious modulus value<br />
+	n*   normal warning mode (cancels -gnatws/-gnatwe)<br />
+	o*   turn on warnings for address clause overlay<br />
+	O    turn off warnings for address clause overlay<br />
+	.o   turn on warnings for out parameters assigned but not read<br />
+	.O*  turn off warnings for out parameters assigned but not read<br />
+	p+   turn on warnings for ineffective pragma Inline in frontend<br />
+	P*   turn off warnings for ineffective pragma Inline in frontend<br />
+	.p+  turn on warnings for suspicious parameter order<br />
+	.P*  turn off warnings for suspicious parameter order<br />
+	q*+  turn on warnings for questionable missing parenthesis<br />
+	Q    turn off warnings for questionable missing parenthesis<br />
+	r+   turn on warnings for redundant construct<br />
+	R*   turn off warnings for redundant construct<br />
+	.r+  turn on warnings for object renaming function<br />
+	.R*  turn off warnings for object renaming function<br />
+	s    suppress all info/warnings<br />
+	.s   turn on warnings for overridden size clause<br />
+	.S*  turn off warnings for overridden size clause<br />
+	t    turn on warnings for tracking deleted code<br />
+	T*   turn off warnings for tracking deleted code<br />
+	u+   turn on warnings for unused entity<br />
+	U*   turn off warnings for unused entity<br />
+	.u   turn on warnings for unordered enumeration<br />
+	.U*  turn off warnings for unordered enumeration<br />
+	v*+  turn on warnings for unassigned variable<br />
+	V    turn off warnings for unassigned variable<br />
+	.v*+ turn on info messages for reverse bit order<br />
+	.V   turn off info messages for reverse bit order<br />
+	w*+  turn on warnings for wrong low bound assumption<br />
+	W    turn off warnings for wrong low bound assumption<br />
+	.w   turn on warnings on pragma Warnings Off<br />
+	.W*  turn off warnings on pragma Warnings Off<br />
+	x*+  turn on warnings for export/import<br />
+	X    turn off warnings for export/import<br />
+	.x+  turn on warnings for non-local exception<br />
+	.X*  turn off warnings for non-local exception<br />
+	y*+  turn on warnings for Ada 2005 incompatibility<br />
+	Y    turn off warnings for Ada 2005 incompatibility<br />
+	z*+  turn on warnings for suspicious unchecked conversion<br />
+	Z    turn off warnings for suspicious unchecked conversion<br />
+	*    indicates default in above list<br />
+	+    indicates warning flag included in -gnatwa<br />
+	-gnatW    Wide character encoding method (h/u/s/e/8/b)<br />
+	-gnatx    Suppress output of cross-reference information<br />
+	-gnatX    Language extensions permitted<br />
+	-gnaty    Enable default style checks (same as -gnaty3abcefhiklmnprst)<br />
+	-gnatyxx  Enable selected style checks xx = list of parameters:<br />
+	1-9  check indentation<br />
+	a    check attribute casing<br />
+	A    check array attribute indexes<br />
+	b    check no blanks at end of lines<br />
+	B    check no use of AND/OR for boolean expressions<br />
+	c    check comment format<br />
+	d    check no DOS line terminators<br />
+	e    check end/exit labels present<br />
+	f    check no form feeds/vertical tabs in source<br />
+	g    check standard GNAT style rules<br />
+	h    check no horizontal tabs in source<br />
+	i    check if-then layout<br />
+	I    check mode in<br />
+	k    check casing rules for keywords<br />
+	l    check reference manual layout<br />
+	Lnn  check max nest level &lt; nn<br />
+	m    check line length &lt;= 79 characters<br />
+	n    check casing of package Standard identifiers<br />
+	Mnn  check line length &lt;= nn characters<br />
+	N    turn off all checks<br />
+	o    check subprogram bodies in alphabetical order<br />
+	O    check overriding indicators<br />
+	p    check pragma casing<br />
+	r    check casing for identifier references<br />
+	s    check separate subprogram specs present<br />
+	S    check separate lines after THEN or ELSE<br />
+	t    check token separation rules<br />
+	u    check no unnecessary blank lines<br />
+	x    check extra parentheses around conditionals<br />
+	y    turn on default style checks<br />
+	-    subtract (turn off) subsequent checks<br />
+	+    add (turn on) subsequent checks<br />
+	-gnatyN   Cancel all previously set style checks<br />
+	-gnatzc   Distribution stub generation for caller stubs<br />
+	-gnatzr   Distribution stub generation for receiver stubs<br />
+	-gnat83   Enforce Ada 83 restrictions<br />
+	-gnat95   Ada 95 mode (default)<br />
+	-gnat05   Enforce Ada 2005 restrictions<br />
+	-gnat12   Allow Ada 2012 extensions<br />
+	-gnat-p   Cancel effect of previous -gnatp switch<br />
+	-gnatiw  Wide-character codes (that is, codes greater than 255) allowed in identifiers
+		</pre>
+		<p class="indent">
+			Başlangıçta programcıların hiçbir 
+			anahtar kullanımına gereksinmeleri yoktur. GNAT derleyicisinin 2010 sürümü, 2009 sürümünün aksine,
+			varsayılan olarak ADA 95 modunda gelmektedir. Ayrıca, taşma kontrolü, (overflow check) kapalıdır. Yeni 
+			başlayan kullanıcılar için başlangıçta hiçbir kontrol kullanma gereksinimi yoktur. Kullanıcılar Ada 
+			programlanmasında ilerledikçe programlarının gereği gibi derlenmesini sağlamak için GNAT 
+			(veya kullandıkları derleyici) üzerinde bilgilerini geliştirmeleri gerekli olacaktır. Bu çalışma çerçevesinde, 
+			bizim kullandığımız anahtarlar, 
+		</p>
+		<pre class="app-25">
+<span class ="pl-25">gnatmake   -gnat12 -gnatE -gnatX -gnatf -gnatF -gnatG -gnatl -gnato -gnatiw -fstack-check -O2</span> dosya_adı.adb (veya ada) (veya sadece dosya_adı)
+		</pre>
+	<p class="nonindent">
+			olmaktadır. Fakat, bu anahtarların kullanımı kesinlikle kullanıcıların seçimine bağlıdır. Başlangıçta hiçbir
+			anahtar kullanımı gerekli değildir. 
+</p>
+		<p class="indent">
+			Sonuçta oluşan deneme.exe dosyası, Windows ortamında, her yerde ve her makinede 
+			çalışabilecektir. Bu exe dosyalarının çalışması için, ne Java Sanal Makinesine ne de bir 
+			başka sanal makineye veya bir sanal Web sunucusuna gereksinme bulunmamaktadır. 
+			Ada programlarının her Windows makinesinde çalışabilen *.exe programları oluşturabilmesi 
+			üretilen programların dağıtımları sonunda sorunsuz çalıştırılabilmelerinde büyük kolaylık 
+			sağlamaktadır.
+</p>
+	<p class="subheading" id="ide">1.3.2 - Ada Programlarının Bir Tümleşik Geliştirme Ortamı (IDE) 
+			Üzerinden Geliştirilmesi </p>
+		<p class="indent">
+			Ada, her gelişkin programlama dili gibi, bir tümleşik geliştirme ortamında daha kolaylıkla 
+			geliştirilebilir. Bu konuda, bir Eclipse plug-ini bulunmakta fakat bu platforma çok alışık olmayanlar 
+			için bunun kullanımının yeni başlayanlar için kolay olmadığı söylenebilir. Gnat derleyicisi
+			ile birlikte gelen, Gnat Programming Studio veya kısa adı ile GPS çok iyi bir IDE olmasına karşın 
+			Türkçe karakterleri desteklememektedir. Bu konuda AdaCore'a başvurumuz devam etmektedir. 
+			AdaCore 2011 de kullanıma girebilecek yeni GPS sürümünde Türkçe karakter setinin bulunacağını
+			bildirmiştir. ABD Air Force Academy'nin geliştirdiği IDE olan ADAGIDE yine Türkçe karakterleri 
+			desteklememektedir. Türkçe karakterleri destekleyen en basit gibi görününen fakat tam bir 
+			tümleşik geliştirme ortamı (IDE) olan editörler arasında SciTE (Scintilla) ve Neoxen Qwined gibi IDE
+			sistemleri dikkat çekmektedir. Fakat, aynı işlevi sağlayabilen başka tümleşik geliştirme ortamları da 
+			bulunabilir. 
+</p>
+		<p class="navy" id="scite"><strong>1.3.2.1 - Ada Programlarının SciTE (Scintilla) Tümleşik Ortamında 
+			Geliştirilmesi</strong></p>
+		<p class="indent">
+			SciTE, 
+			<a href="http://www.scintilla.org/SciTEDownload.html">http://www.scintilla.org/SciTEDownload.html</a>
+			sitesinden indirilebilir. Burada ki seçeneklerden biz full download seçeneğini seçeceğiz. Buradan i
+			ndirilen güncel wscite.zip dosyasını açabiliriz. Bizim sürümümüz, wscite211 klasörüne açılmaktadır. 
+			Bu klasörü kullanacağımız bir yere, örnek olarak c:\program files\wscite211 olarak yerleştirebiliriz.
+			Yerleştirilen klasörde Scite.exe dosyası çalıştırılınca Scite IDE çalışmaya başlayacaktır. Başlangıçta 
+			kolaylık olması için ada.properties dosyasını SciTE ile açalım ve en sonlara doğru 63 üncü satırı başına 
+			# işareti koyarak iptal edelim ve bunun yerine,aşağıdaki satırı ekleyelim. Yeni satırlar, şu şekilde olacaktır :
+		</p>
+		<pre class="app-25">
+#adagcc=gcc -c $(FileNameExt)
+adagcc=gnatmake -gnat12 -gnatE -gnatX -gnatf -gnatF -gnatG -gnatl -gnato -gnatiw -fstack-check -O2 $(FileNameExt)
+		</pre>
+		<p class="nonindent">
+			Başka bir şeye dokunmadan dosyayı save edip çıkalım. SciTE kod yazım ortamının yaynında 
+			(veya seçime bağlı olarak altında) SciTE Output Pane adı verilen komut satırı kısmı (SciTE Çıkış Panosu) 
+			bulunmaktadır. Buradan komut satırı bildirimleri yazılıp çalıştırılabilir. Çalışan programların verdiği sonuçlar 
+			yine burada görüntülenir. SciTE çıkış panosunda Türkçe karakterler sorunsuzca görüntülenir.
+		</p>
+		<p class="indent">
+			SciTE çıkış panosunda, istenilen komut satırı komutları yazılarak Ada programları derlenebilir, fakat 
+			daha kolay bir yol vardır. SciTE menu sekmesinden tools&gt;compile seçeneği ile geliştirilmekte olan 
+			programın saklanmış en son sürümü derlenir. Aynı menünün build seçeneği gnatmake programını 
+			çağırarak önceden Ada konfigürasyon dosyasına kaydedilmiş anahtarlar ile çalıştırarak programın 
+			hem derlenmesini hem de link aşamasını gerçekleştirir ve bir hata bulunmazsa, hem *obj hem *ali 
+			hem de çalıştırılabilir *.exe dosyasını oluşturur. Aynı menünün go seçeneği de oluşan *.exe dosyasını 
+			çalıştırarak alınan sonucu SciTe çıkış panosunda görüntüler. SciTE çıkış panosu, bir DOS komut ortamı
+			emülatörüdür ve Türkçe karakterleri destekler.
+</p>
+		<p class="navy" id="jgrasp"><strong>1.3.2.2 - Ada Programlarının jGrasp Tümleşik Ortamında 
+			Geliştirilmesi</strong></p>
+		<p class="indent">
+			Türkçe karakterleri destekleyen bir başka ücretsiz geliştirme ortamı JGrasp adındaki bir programdır. 
+			Bu program Auburn Üniversitesi tarafından aslında Java programları geliştirilmesine karşın başka 
+			programlar gibi Ada programların da derlenmesi için kullanılabilmektedir. 
+		</p>
+		<p class="indent">
+			JGrasp, <a href="http://spider.eng.auburn.edu/user-cgi/grasp/grasp.pl?;dl=download_jgrasp.html">http://spider.eng.auburn.edu/user-cgi/grasp/grasp.pl?;dl=download_jgrasp.html</a> sitesinden indirilebilir. 
+			Bu bir IDE olmaktan da fazla bir platform niteliğindedir. Kullanım yöntemleri aynı siteden inidirilebilir. 
+			Online yardım sistemi <a href="http://www.jgrasp.org/jgrasp/frame.htm">http://www.jgrasp.org/jgrasp/frame.htm</a> 
+			sitesinde yayınlanmaktadır. Bu platformun derleme kolaylığı yanında program yapılarını da diyagramlar 
+			halinde grafik olarak gösteme yeteneği bulunmaktadır. JGrasp platformunun Ada programlarının geliştirilmesinde
+			kullanımı için yardım sisteminin okunması yeterli olacaktır.
+		</p>
+		<p class="navy" id="Qwined"><strong>1.3.2.3 - Ada Programlarının Neoxen Qwined Tümleşik Ortamında 
+			Geliştirilmesi</strong></p>
+		<p class="indent">
+			Neoxen Qwined tümleşik ortamı 2008 de son sürümü çıkan ve SciTE programına çok benzeyen bir
+			tümleşik geliştirme ortamıdır. Aynı SciTe gibi ayarlarının konfigürasyon dosyaları aracılığı ile
+			kolaylıkla gerçekleştirilme olanağı bulunmaktadır. Burada options &gt;preferences&gt;Schema Files
+			&gt;Edit Schema seçeneğinden ada.schema dosyası açılır ve dosyanın sonunda bulunan,
+		</p>
+		<pre class="app-25">
+<span class ="pl-25">command.build.*.ads=gnatmake</span>
+		</pre>
+		<p class="nonindent">
+			satırı yerine,
+		</p>
+		<pre class="app-25">
+<span class ="pl-25">command.build.*.ads=gnatmake</span>  -gnat12 -gnatE -gnatX -gnatf -gnatF -gnatG -gnatl -gnato -gnatiw -fstack-check -O2 $(FileNameExt)
+		</pre>
+		<p class="nonindent">
+			yazılır. Yine aynı dosyada
+		</p>
+				<pre class="app-25">
+<span class ="pl-25">command.build.*.adb=gnatmake</span>
+		</pre>
+		<p class="nonindent">
+			satırı yerine,
+		</p>
+		<pre class="app-25">
+<span class ="pl-25">command.build.*.adb=gnatmake</span>  -gnat12 -gnatE -gnatX -gnatf -gnatF -gnatG -gnatl -gnato -gnatiw -fstack-check -O2 $(FileNameExt)
+		</pre>
+		<p class="nonindent">
+			yazılır. Dosya save edilip çıkılır ve IDE yeniden başlatılırak konfigürasyon dosyasını güncellemesi sağlanır.
+		</p>
+		<p class="indent">
+			Proje oluşturmak gibi zorunluluklardan kaçınmak isteyen kullanıcılar, SciTE tümleşik geliştirme 
+			ortamı gibi, Neoxen Qwined tümleşik geliştirme ortamını da tercih edebilirler. Bu çalışmada 
+			birçok uygulama, Neoxen Qwined ortamında derlenmiştir. Neoxen Qwined tümleşik geliştirme ortamında
+			programların derlenmesi için Tools menüsünün Build seçeneği kullanılır. Derlenme sonucunda 
+			hatası bulunmayan programlar, yine aynı Tools menüsünün go seçeği ile çalıştırılabilir. Neoxen 
+			Qwined tümleşik geliştirme ortamında da, yine aynı SciTE gibi bir DOS emülasyon panosu 
+			bulunmakta ve derleme sonucu oluşturulan çalışabilir *.exe dosyalarının çalışma sonuçları 
+			bu panoda görüntülenmektedir. Bu panoda da SciTE tümleşik geliştirme ortamında 
+			olduğu gibi Türkçe karakterler sorunsuzca desteklenmektedir. Neoxen Qwined programı
+			<a href="http://qwined.org/download/download.htm">http://qwined.org/download/download.htm</a>
+			adresinden indirilebilir.
+	</p>
+	<p class="title-left" id="learning">1.4 - Sözdizimi Konvansiyonları</p>
+		<p class="indent">
+			Ada saklı sözcüklerinin uygulanma yöntemleri genişletilmiş BNF (Backus-Naur Formları) yardımı ile
+			açıklanabilir. <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2102 spesifikasyonu</a>
+			da genişletilmiş Backus-Naur formlarından yararlanmaktadır. Bu formlarda,
+		</p>
+		<ul class="listNoMarker">
+			<li>::=	işareti, bir tanımı açıklar.</li>
+			<li>[] köşeli parantez isteğe bağlı elemanları belirtir.</li>
+			<li>{} Büyük parantezler tekrarlı elemanları belirtir. Büyük parantezlerin içindeki ifadeler sıfır,
+			bir veya birçok kez tekrarlanabilir.</li>
+			<li>| işareti bir seçimi belirtir. Örnek constraint ::= scalar_constraint | composite_constraint 
+					Eğer | işaretinden sonra tekrarlı bir işlem gelirse, seçimin kendisi alternatif haline gelir. Örnek
+					discrete_choice_list ::= discrete_choice {| discrete_choice}</li>
+		</ul>
+		<p class="indent">
+			Bu çalışmada, Ada 2005 (Amendement 2) (Bu durumda, teklif edilen Ada 2012 spesifikasyonu
+			anlamına gelmektedir) spesifikasyonunda verilmiş olan Backus-Naur formları aynen kullanılmıştır. 
+			Bu formlardaki İngilizce terimlerin Türkçe açıklamaları gerektiğinde yapılmıştır.
+		</p>
+		<p class="indent">
+			Ada 95 için bilgisayar ortamında üretilmiş olan BNF diyagramları, Ada programlama dilinin 
+			öğelerinin sözyazımında yararlanılabilecek sözel Backus-Naur formlarını görsel olarak oluşturmaktadır. 
+			Bu diyagramlar İsviçre Cenevre Üniversitesinde geliştirilmiş ve A.B.D de Washington D.C. de
+			<a href="http://www.seas.gwu.edu/~adagroup/ADA 95-syntax/">George Washington University sunucusunda</a>
+			yayınlanmaktadır. Görsel BNF diyagramlarının çok yararlı olmalarına karşın, sadece Ada 95 sürümü için 
+			hazırlanmış olduklarından, günümüzde bazı diyagramlar yeterli olmayabilirler. Bu diyagramların, çalışmalarımızda 
+			dikkatle kullanılmış olmalarına karşın, sadece Ada 2012 spesifikasyonunda tanımlı olan sözel Backus-Naur 
+			formlarının kesin geçerli olduğu gözönünde tutulmalıdır.
+		</p>
+		<p class="title-left" id="learning_Ada">1.5 - Ada Programlama Dilini Nasıl Öğreneceğiz</p>
+		<p class="indent">
+			Ada programlama dili, çok geniş kapsamlıdır. Sınırsız olanaklarına karşın, Ada programlama dili, bir üst düzey
+			programlama dilidir. Bu dilin kullanımı, en basit gündelik hesaplamalar gibi, en alt düzeyde sistem parametrelerine
+			erişim çalışmalarına olanak sağlayabilir. Bu kadar geniş kapsamlı ve kullanıcılara bu kadsar geniş çalışma olanağı
+			sağlayabilen bu programlama dilinin derleyicisinin masa üstü bilgisayarlarına uygulanabilmesi, gerçekten 
+			kutlanması gereken büyük bir başarıdır. Bizim için çalışanların bizlere sağlamış oldukları bu büyük olanaktan
+			yararlanmak gerektiği açıktır. 
+		</p>
+		<p class="indent">
+			Ada programlama dilinin geniş kapsamı nedeni ile, bu dilin sunduğu tüm olanakların birdenbire i
+			ncelenmesine olanak vermez. Ada programlama dili, bir programlama dilinden çok bir bilgisayar kültürüdür. 
+			Bu kültürün yavaş yavaş, anlaşılarak özümsenmesi çok daha gerçekçi olacaktır.
+		</p>
+		<p class="indent">
+			Ada programlama dilinin bir üst düzey programlama dili olması, bu dilin öğreniminde büyük avantaj sağlar, 
+			Bu dili öğrenmeye başlayanlar, ilk önce genel veri tipleri ile genel programlama tekniklerinin uygulanmasında
+			deneyim kazanmalıdır. Kullanıcılar, ilk aşamada genel veri tipleri ile, program tasarımı, program akış kontrolü, 
+			alt programların organizasyonu, temel giriş/çıkış işlemleri, mantıksal işlemler, döngüler, dizlerle çalışmak, dosyalama
+			işlemleri gibi temel işlemlerin uygulamasında yetkinlik kazanmalıdır.
+		</p>
+		<p class="indent">
+			Daha sonraki aşamalarda, öğrenme kapsamı daha genişletilerek, kullanıcıya özel tipler, nesye yönelik programlama,
+			abstrakt sınıflar, kullanıcı kitaplıkları üzerinde bilgi ve deneyim kazanılmalıdır.
+		</p>
+		<p class="indent">
+			Bundan sonra, bellek adreslerine erişim, düşük düzeyli çalışmalar, çok kanallı programlama gibi,
+			özel yöntemler üzerinde deneyim sağlanabilir.
+		</p>
+		<p class="indent">
+			Ada programlama dilinin öğrenimi, kullanıcılarının konularında ilerlemelerini sağlayan bir çalışmadır.
+			Kullanıcılar, konularda ilerleme sağladıkça, problemlerin çözümü için yeni ve daha uygun yöntemlerle
+			tanışır ve bu bilgiler, kendilerinde problemlerin çözümünde üstün bir yetkinlik sağlar.
+		</p>
+		<p class="indent">
+			Ada programlama dilinde ADA 95 spesifikasyonu temeldir. Bu spesifikasyona , nesne yönelimli
+			programlama, Java tipi abstrakt sınıflar, çok kanallı programlama, daha kapsamlı veri tipleri konularında
+			eklemeler yapılarak Ada 2005  ve ADA 2012 spesifikasyonları oluşturulmuştur. Bu nedenle, 
+			ilk aşamada Ada 95 kapsamında kalınacak daha sonraları Ada 2005 ile gerçekleştirilen yenilikler 
+			üzerinde durulacaktır..
+		</p>
+		<p class="indent">
+			En yeni GNAT derleyicileri, Ada 2012 spesifikasyonunu desteklemektedir. Bu bakımdan derleyicilerin en yeni
+			sürümlerinin indirilip çalıştırılmasında yarar bulunmaktadır.
+		</p>
+		<p class="indent">
+			Program listelerinin yazımında konvansiyonel yazım kurallarına uygun davranmaya özen gösterilmiştir. 
+			Öğrencilerin de bu konuya önem vermelerini, kod yazımında, konvansiyonlara uygun ve tutarlı davranmaları 
+			gerekir. Konvansiyonlara uygun, tutarlı yazılımı olan programların ileride okunabilirlikleri daha yüksek olacak
+			ve bu programların geliştirilmeleri daha kolay gerçekleşebilecektir.
+		</p>
+		<p class="indent">
+			Ada programlarında, programların çıkışları başlangıçta sadece komut satırında gerçekleşecektir. Bu aşama, 
+			kullanıcıların daha gözalıcı grafik çıktılar sunabilen programlara yöneltmemelidir. Ada programlarından
+			elde edilecek kazanımlar, program çıktılarının görselliğinden daha fazladır. Ada programlama dilinde daha 
+			ilerdikçe görsel giriş/çıkış için yazılmış olan özel kitaplıkları kullanacak ve görselliği yüksek programlar 
+			gerçekleştirebileceğiz. 
+		</p>
+		<p class="indent">
+			Son olarak, Ada gibi çok yetenekli ve çok geniş kapsamlı bir programlama dilinin öğrenilmesi çok kolay olmayabilir. 
+			Fakat, programcıya çok olanak sağlayabilen bir program dilini öğrenmiş olan bir programcının da sınırları,
+			öğrendiği programlama dili kadar geniş olacaktır. 
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b1-s1.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="../b2/b2-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		 <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml11"
+        alt="Valid XHTML 1.1" height="31" width="88" /></a>
+  </p>
+
+</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b1/b1-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:09 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

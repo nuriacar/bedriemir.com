@@ -1,0 +1,563 @@
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:11 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b2/b2-s2.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 2 Sayfa 2</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b2-s1.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b2-s3.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Başlangıç Bilgileri
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 2
+		</p>
+		<p class="title-left" id="literals">2.9 -  Literaller </p>
+		<p class ="indent">
+			Literaller, (Fr Lettre harf, Lat. Litteratura dilbilgisi, yazılı bilgi) program  listelerinde değerlerin 
+			atanacakları veri tiplerine uygun kodlarda belirtilmesidir. Ada programlama dilinde literaller 
+			sözel veya sayısal olabilirler. Literaller çoğunlukla değişkenlerin başlangıç değerlerini belirtmek i
+			çin kullanılırlar.
+		</p>
+		<p class="subheading" id = "lettera">2.9.1 Sözel Literaller</p>
+		<p class="indent">
+			Sözel literaller tek karakterlerden oluşan Karakter Literalleri ve birden çok karakter içerebilen 
+			karakter dizisi (String) literalleri olarak iki türlüdür.
+		</p>
+		<p class="navy" id="kl"><strong>2.9.1.1 - Karakter Literalleri</strong>
+		</p>
+		<p class="indent">
+			Karakter literalleri, tek karakterden oluşan atomik verilerdir. Bu literaller, tek tırnak arasında , 
+			örnek olarak 'd' şeklinde kullanılır. Karakter literallerinin BNF diyagramları,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">character</span> ::= graphic_character | format_effector | &quot;other control function&quot; 
+		</pre>
+		<p class="indent"><img src="../resimler/character.gif" alt="Karakter" /></p>
+		<p class="indent">
+			Bunlardan sadece grafik karakterler, karakter literallerinde kullanılabilirler. Diğerler,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">format_effector</span> ::= 
+      &quot;HT horizontal tabulation&quot; 
+      | &quot;VT vertical tabulation&quot; 
+      | &quot;CR carriage return&quot; 
+      | &quot;LF line feed&quot; 
+      | &quot;FF form feed&quot; 
+		</pre>
+		<p class="indent"><img src="../resimler/format_effector.gif" alt="Formatlayıcı Karakter" /></p>
+		<p class="nonindent">
+			olarak tanımlanır ve Ada RM de değil, derleyicinin kullanma tarifnamesinde belirtilir. Bunlar 
+			alfabetik karakterler arasında değildir. Kullanıcının üzerinde durması gerekmez. Kullanılabilecek 
+			grafik karakterlerin BNF diyagramı,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">graphic_character</span> ::= identifier_letter | digit | &quot;SPACE&quot; | &quot;ISO_10646 BMP character&quot; 
+		</pre>
+		<p class="indent"><img src="../resimler/graphic_character.gif" alt="grafik karakterler" /></p>
+		<p class="indent">
+			Bu bilgilerden anlaşılabileceği gibi, hertürlü tanımlayıcı karakteri, yanı büyük ve küçük
+			alfabetik karakterler (Unicode destekli olduğundan Türkçe dahil), boşluk ve Unicode
+			tanımlı tüm karakterler, bu arada, bağlaç gibi özel işaretler kullanılabilir. Alışılmış karakterlerin 
+			dışına çıkılmak istendiğinde, derleyici kullanma kataloğunun incelenerek sadece müsaade edilebilen 
+			karakterlerin kullanılmasına dikkat edilmesi gerekir. Örnek olarak, 'Ğ', 'ö', 'I', 'İ' geçerli karakter literalleridir.
+		</p>
+		<p class="navy" id="sl"><strong>2.9.1.2 - Karakter Dizisi (String) Literalleri</strong>
+		</p>
+		<p class="indent">
+			Ada programlama dilinde, String verileri, karakter dizisi, yani, elemanları karakter verilerinden oluşan 
+			tek boyutlu diziler olarak kabul edilirler. Bu çok basit tanım, karakter dizilerinin çalışılmasını son derece 
+			kullanışlı hale getirir. Karakter dizisi literalleri, çift tırnak (Quotation Mark) arasında gösterilirler. Karakter 
+			dizisi literallerinin BNF ifadesi,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">string_literal</span> ::= &quot;{string_element}&quot;
+string_element ::= &quot;&quot; | non_quotation_mark_graphic_character
+		</pre>
+		<p class="indent">
+			Bu tanım çok ilginçtir, çünkü bilinen karakter değerlerinden başka ardarda iki 
+			çift tırnak, tek karakter sayılır. Yani, &quot;Bu yüce dağa &quot;&quot;Ilgaz Dağı&quot;&quot; 
+			adı verilmiştir.&quot; geçerli bir karakter dizisidir ve yazdırıldığında, Bu yüce dağa &quot;Ilgaz Dağı&quot; 
+			adı verilmiştir. cümlesini yazdıracaktır. Yine, &quot;&quot;&quot;Adana&quot;&quot;&quot; 
+			tuhaf fakat geçerli bir karakter dizisidir ve &quot;Adana&quot; olarak algılanacaktır. Genelde, 
+			&quot;Portakal Bahçeleri&quot; gibi basit karakter dizigisi literalleri kullanılır.
+		</p>
+		<p class="indent">
+			Karakter dizisi literallerinin karakterleri arasında satırbaşı karakterinin kullanılmamasına
+			dikkat etmek gerekir. Satırbaşı karakteri derleyicinin kullanma kılavuzundan bulunmalıdır.
+		</p>
+		<p class="subheading" id = "numera">2.9.2 Sayısal Literaller</p>
+		<p class="indent">
+			Sayısal literaller temelde tamsayı ve noktalı sayı literalleri olarak iki türlüdür. Her tür 
+			kendi içinde, on temelli sayı literlleri( desimal) ve 2 den 16 ya kadar değişebilen temelli 
+			literaller olarak ikiye ayrılır. Genelde, desimal literallerin dışında, en çok 2 temelli (binary), 
+			8 temelli (oktal) ve 16 temelli (hex) literaller kullanılır. Derleyiciler için varsayılan sayı temeli 
+			on (desimal) sayı temelidir ve bu gündelik yaşamda kullanılan sayı temelidir, fakat Ada 
+			derleyicisi diğer temelden literalleri de desimal sayılar gibi aynı kolaylıkla kullanır. 
+		</p>
+		<p class="navy" id ="integral-decimal">2.9.2.1 - On Temelli (Desimal) Tamsayı Literaller</p>
+		<p class="indent">
+			On temelli sayılar, Ada derleyicisinin varsayılan sayı temelidir. On temelli sayıların,
+			
+		</p>
+		<p class="subheading" id = "numeral">2.9.2 Sayısal Literaller</p>
+		<p class="indent">
+			Sayısal literaller temelde tamsayı ve noktalı sayı literalleri olarak iki türlüdür. Her tür 
+			kendi içinde, on temelli sayı literlleri (desimal) ve sayı temelleri 2 den 16 ya kadar 
+			değişebilen sayısal literaller olarak ikiye ayrılır. Derleyiciler için varsayılan sayı temeli 
+			on (desimal) sayı temelidir ve bu gündelik yaşamda kullanılan sayı temelidir, fakat Ada 
+			derleyicisi diğer temelden literalleri de desimal sayılar gibi aynı kolaylıkla kullanır.
+		</p>
+		<p class ="indent">Sayısal literallerin
+			Backus-Naur (BNF) diyagramları aşağıda görülmektedir.
+		</p>
+		<p class="nonindent">
+			numeric_literal ::= decimal_literal | based_literal<br />
+			<img src="../resimler/numeric_literal.gif" alt="Sayısal Literal" width="512" height="62" />
+	</p>
+		<pre class="app-25">decimal_literal ::= numeral [ <strong>&quot;.&quot;</strong> numeral ] [ exponent ]   </pre>
+		<p class="nonindent"><br />
+			<img src="../resimler/decimal_literal.gif" alt="desimal literal" width="512" height="62" />
+		</p>
+		<p class="nonindent">
+			numeral ::= digit { [ &quot;_&quot; ] digit }<br />
+			<img src="../resimler/numeral.gif" alt="Numeral" width="512" height="80" />
+		</p>
+		<p class="nonindent">
+			exponent ::= ( <strong>&quot;E&quot;</strong> [ <strong>&quot;+&quot;</strong> ] numeral ) | 
+		( <strong>&quot;E&quot;</strong> <strong>&quot;-&quot;</strong> numeral ) <br />
+		<img src="../resimler/exponent.gif" alt="üstel kısım" width="512" height="80" />
+		</p>
+		<p class="nonindent">
+			based_literal ::= base #&quot; based_numeral &quot;#&quot; [ exponent ]<br />
+			<img src="../resimler/based_literal.gif" alt="based_literal" width="512" height="62" />
+	</p>
+		<p class="nonindent">
+			based_numeral ::= extended_digit { [ &quot;_&quot; ] extended_digit }<br />
+		<img src="../resimler/based_numeral.gif" alt="based_numeral" width="512" height="80" />
+		</p>
+		<p class="nonindent">
+			extended_digit ::= digit | &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot;<br />
+			<img src="../resimler/extended_digit.gif" alt="extended_digit" width="512" height="152" />
+		</p>
+
+		<p class="indent">
+			İlk diyagramı incelersek, bir sayısal literalin yani on temelli (desimal) veya sayı temeli belirtilmiş bir 
+			değer olacağı anlaşılabilir. Yine buradan görüldüğü gibi, eğer sayı temeli açıkça belirtilmememişse, Ada 
+			derleyicisinin bir sayısal literali on temelli (desimal) bir değer olarak algıladığı anlaşılır. Bu doğaldır, 
+			çünkü gündelik yaşamda kullanılan sayı sistemi on temelli (desimal) sayı sistemidir (deka Grekçe 
+			on demektir, buradan Latinceye geçmiştir).
+		</p>
+		<p class="indent">
+			İkinci diyagram on temelli bir sayısal literali açıklamaktadır. Bu sayısal literal, sayısal bir kısım ve 
+			onu izleyen isteğe bağlı bir ondalık noktası, onu izleyen bir başka sayısal kısım ve yine isteğe 
+			bağlı bir üstel kısımdan oluşmaktadır. Henüz sayısal kısmın (numeral) fiziksel yapısı üzerine açıklayıcı 
+			bir bilgi verilmemiştir.
+		</p>
+		<p class="indent">
+			Sayısal kısmın fiziksel yapısı üçüncü diyagramda açıklanmaktadır. Sayısal kısım, 
+			bir sayı ile başlayacak ve bunu izleyebilen istendiği kadar tekrar edebilen 
+			isteğe bağlı bir alt bağlaç ve onu izleyen isteğe bağlı bir başka sayıdan oluşabilecektir. 
+			Bu tanım ile üstel olmayan bir sayısal literalin yapısı belirlenmektedir. Geçerli
+			on temelli sayısal yapılanmalar,
+		</p>
+		<p class="indent">
+			28536 , 7, 76.8, 28_536
+		</p>
+		<p class="nonindent">
+			değerleridir. Sayısal literallerde, alt bağlaç (_)  bir ayrım işareti olarak işareti olarak kullanılabilir. 
+			Ada derleyicisi, sayıyı algılarken bu işareti gözönüne almaz. Bu şekilde,
+		</p>
+		<p class="nonindent">
+			28_516
+		</p>
+		<p class="nonindent">
+			olarak girilen bir sayı, Ada derleyicisi tarafından yine 28516 olarak algılanır. Alt bağlaç sadece binler
+			hanesini belirten bir ayrım işareti olarak kabul edilir ve bu işaret sayısal literalin değeri algılanırken 
+			gözönüne alınmaz.
+		</p>
+		<p class="indent">
+			Sayısal literallerin üstel kısımların yapısı dördüncü diyagramda açıklanmıştır. Burada, üstel kısmın,
+			E harfini izleyen isteğe bağlı bir artı işareti ve sayısal bir kısım veya E harfini izleyen bir eksi
+			işareti ve sayısal kısımdan oluşacağı açıklanmıştır. Bu şekilde,
+		</p>
+		<p class="nonindent">
+			2.863_645_2E6 ve 4.67E-6
+		</p>
+		<p class="nonindent">
+			geçerli on temelli üstel sayısal literallerdir. 
+		</p>
+		<p class="indent">
+			Birinci diyagramda, sayısal literallelerin ondan farklı temelli sayılardan da oluşabileceği 
+			açıklanmıştır. Bu tür yapılanmalar beşinci diyagramda açıklanmıştır. Bu diyagrama göre, 
+			sayı temelindan sonra bir kare (#) işareti, sonra genişletilmiş sayısal bir kısım, isteğe bağlı bir 
+			nokta ve bunu izleyen bir genişletilmiş sayısal kısım, sonra yine bir kare işareti ve üstel kısım 
+			gelmektedir.
+		</p>
+		<p class="indent">
+			Genişletilmiş sayısal kısmın anlamı bir sonraki diyagramda açıklanmıştır. Bu diyagrama göre, 
+			genişletilmiş sayısal kısım ya sayılardan veya A dan E ye kadar alfabetik karakterlerden 
+			oluşabilecektir. 
+		</p>
+		<p class="indent">
+			Sayı temeli belirtilmiş olan sayısal literallerin üstel kısımları da yine aynı ondalıklı üstel sayılar gibi 
+			kendi genişletilmiş sayı sistemleri ile belirtilebilecektir.
+		</p>
+		<p class="indent">
+			Bu şekilde farklı temell, sayılar sadece Ada programlarında bu şekilde kolaylıkla programlara
+			aktarılabilmektedir. Burada dikkat edilecek durum, Ada programlarında, başka temelli olarak 
+			veriien sayıların, Ada derleyicisinde desimal değerlere çevrilerek kullanıldığıdır. Örnek olarak,
+		</p>
+		<p class="nonindent">
+			2#01001#, 8#23145.16#, 16#A1#
+		</p>
+		<p class="nonindent">
+			değerlerinden ilki geçerli iki temelli, (ikili) (binary) tamsayı literali , ikincisi sekiz temelli (oktal) 
+			(Grekçe sekiz) bir ondalıklı sayı literali, üçüncüsü onaltı temelli (hex) bir tamsayı literalidir. Daha 
+			çok iki temelli (ikili), sekiz temelli (oktal) ve özellikle onaltı temelli (hexagésimal) (hex) sayılar kullanılır.
+		</p>
+		<p class="title-left" id="atama">2.10 - Atama İşlemi</p>
+		<p class="indent">
+			Ada programlama dilinde atama işleminin BNF ifadeleri :
+		</p>
+		<p class="indent">
+		assignment_statement ::= variable_name &quot;:=&quot; expression &quot;;&quot; 
+		</p>
+		<p class="indent">
+			variable_name ::= name 
+		</p>
+		<p class="indent">
+		olarak tanımlanmıştır. 
+		</p>
+		<p class="indent">
+			Bu tanıma göre, değişken isimleri olarak geçerli tüm tanımlayıcılar kullanılabilir. Geçerli atama işlemleri,
+		</p>
+		<pre class="app-25">
+<span class="pl-50">Ali</span> := 28.6;
+		</pre>
+		<p class="indent">
+			veya
+		</p>
+		<pre class="app-25">
+<span class="pl-50">Ilk_Deger</span> := 12_56_48;
+		</pre>
+		<p class="indent">
+			olabilir.
+		</p>
+		<p class="title-left" id="objects">2.11 - Object (Nesne) Bildirimleri</p>
+	<p class="indent">
+			Ada programlama dilinde tüm program öğeleri önceden tanıtılmış olmalıdır. Bir
+			prosedür içinde kullanılacak tüm öğeler daha önce tanıtılır. Kullanılacak değişken
+			ve sabitlerin adları ve tipleri ve varsa öndeğerleri  bildirimler bölümünde açıklanır 
+			ve değerleri prosedür içinde belirlenir. Tanımlanmış bir veri tipinin uygulanacak örneğine
+			bir nesne adı verilir. Örnek olarak Integer veri tipinde bir değişken tanımı bir 
+			tamsayı nesnesini (Integer Object) tanımlar. Nesnelerin tanımlanması için 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2102 spesifikasyonunda</a>
+			belirtilen sözdizimi aşağıdaki gibidir.
+		</p>
+		<p class="Examples-Maroon">
+			object_declaration ::=<br />
+			defining_identifier_list : [<b>aliased</b>] [<b>constant</b>] subtype_indication [:= expression];<br />
+			| defining_identifier_list : [<b>aliased</b>] [<b>constant</b>] access_definition [:= expression];<br />
+			| defining_identifier_list : [<b>aliased</b>] [<b>constant</b>] array_type_definition [:= expression];<br />
+			| single_task_declaration<br />
+			| single_protected_declaration<br />
+			defining_identifier_list ::=<br />
+			defining_identifier {, defining_identifier}
+		</p>
+		<p class="indent">
+			Eğer bir nesne, constant saklı sözcüğünü içeriyorsa bir sabiti aksi halde bir değişkeni tanımlar. 
+			Tanım sırasında := işlemcisi bu nesnenin bir öndeğeri (varsayılan değeri) olduğunu belirtir. 
+			Varsayılan değerler, sonucu belirli bir ifade olarak da verilebilirler. Ada programlama dili, 
+			hiçbir nesneye açıkça tanımlanmadıkça bir varsayılan değer vermez. Sadece bellek referans 
+			(access) tipi nesnelerin başlangıç değerleri null olarak kabul edilir. Bir sabit tanımında öndeğer 
+			belirtilmiş ise bu bir tam sabit (full constant) tanımıdır. Eğer öndeğer verilmemişse bu bir 
+			geciktirilmiş (deferred) sabit anlamına gelir. Geciktirilmiş sabitler ileride incelenecektir.
+		</p>
+		<p class="indent">
+			Nesnelerin tanımlanması sırasında, aynı satırda birden çok nesne virgülle ayrılarak
+			beliritilebilir. Bu nesnelerin herbiri aynı tanım ve öndeğeri paylaşır.
+		</p>
+		<p class="indent">
+			Örnek olarak,
+		</p>
+		<p class="nonindent">
+		k : <span class="keyw">constant</span> := 9.81; </p>
+		<p class="nonindent">
+			Dosya_Numarası : Integer <span class="keyw">range</span> 0 .. 3000;
+		</p>
+		<p class="nonindent">
+			geçerli nesne tanımlarıdır. İlk tanım tam bir sabiti ikinci tanım bir tamsayı alt veri tipini
+			tanımlamaktadır. Program uygulamaları yapıldıkça nesne tanımı örrnekleri de
+			görülecektir.
+		</p>
+		<p class="title-left" id="renaming">2.12 - Nesnelerin Yeniden Adlandırılması</p>
+	<p class="indent">
+			Ada yoğun bir yeniden yapılandırma mekanizmasına sahiptir, paket , değişken,sabir
+			dizi tipleri sorunsuz olarak yeniden adlandırılabilirler. Nesnelerin yeniden adlandırılması için
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2102 spesifikasyonunda</a>
+			belirtilen sözdizimi aşağıdaki gibidir.
+		</p>
+		<p class="Examples-Maroon">
+		renaming_declaration ::=<br />
+		object_renaming_declaration<br />
+		| exception_renaming_declaration<br />
+		| package_renaming_declaration<br />
+		| subprogram_renaming_declaration<br />
+		| generic_renaming_declaration </p>
+		<p class="indent">
+			Burada nesnelerin yeniden adlandırılabilmesini sağlayan bildirim
+			<span class="keyw">renames</span> saklı sözcüğüdür.
+		</p>
+	<p class="indent">
+			Nesnelerin yeniden adlandırılması,
+		</p>
+		<p class="Examples-Maroon">
+			object_renaming_declaration ::=<br />
+			defining_identifier : [null_exclusion] subtype_mark <b>renames</b> object_name;<br />
+		| defining_identifier : access_definition <b>renames</b> object_name; </p>
+	<p class="indent">
+			Hata ifadesi (Exception) değerinin yeniden adlandırılması,
+		</p>
+		<p class="Examples-Maroon">
+		exception_renaming_declaration ::= defining_identifier : <b>exception renames</b> exception_name; </p>
+	<p class="indent">
+			Paketlerin yeniden adlandırılması
+		</p>
+		<p class="Examples-Maroon">
+			package_renaming_declaration ::=<br />
+		 <b>package</b> defining_program_unit_name <b>renames</b> package_name; </p>
+  <p class="indent">
+			Alt programların yeniden adlandırılması
+		</p>
+		<p class="Examples-Maroon">
+			subprogram_renaming_declaration ::=<br />
+			[overriding_indicator]<br />
+		subprogram_specification <b>renames</b> callable_entity_name; </p>
+		<p class="indent">
+			Generiklerin yeniden adlandırılması,
+		</p>
+		<p class="Examples-Maroon">
+			generic_renaming_declaration ::=<br />
+			<b>generic package</b> defining_program_unit_name <b>renames</b> generic_package_name;<br />
+			| <b>generic procedure</b> defining_program_unit_name <b>renames</b> generic_procedure_name;<br />
+		| <b>generic function</b> defining_program_unit_name <b>renames</b> generic_function_name; </p>
+		<p class="indent">
+			Yeniden adlandırılmalarda, az sayıda bazı kısıtlmalar ve sakıncalar 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2102 spesifikasyonunda</a>
+			belirtilmiştir. İleride yapacağımız program örneklerinde, çeşitli program öğelerinin yeniden adlandırılması
+			örnekleri görülecektir. 
+		</p>
+		<p class="indent">
+			Ada programlarında, program öğelerinin yeniden adlandırılması, programın okunurluğunu önemli ölçüde
+			azaltabilir. Bu nedenle bu yöntemin aşırı kullanılmaması sağlık verilmektedir.
+		</p>
+<p class="title-left" id="comments">2.13 - Yorumlar</p>
+			<p class="indent">
+			Yorumlar bir satırın herhangibir yerinden ardarda iki bağlaç (--) ile başlar ve satır sonuna 
+			kadar devam eder. Satır aşan Yorum satırları yoktur. Yorum içeriği, satır sonu karakteri
+			dışında her karakterde oluşabilir. Derleyici yorum içeriğini değerlendirmez. Yorumlar sadece
+			kullanıcıya bilgi verilmesi veya hatırlatma amacı ile yazılır.  
+			<a href="http://www.adaic.org/standards/05rm/html/RM-TTL.html">Ada Reference Manual, ISO/IEC 8652:201z Ed. 3</a> 
+			de Yorum satırının BNF ifadesi, 
+		</p>
+		  <pre class="app-25">
+<span class="pl-25">comment</span> ::= --{non_end_of_line_character}
+		</pre>
+		<p class="nonindent">
+			olarak verilmiştir. Örnekler,
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">end</span> program; <span class="comm-25">-- Program Sonu</span>
+<span class="pl-25">Çap</span> := 3.5;<span class="comm-25">-- Kazan çapı (m)</span>
+		</pre>
+		<p class="title-left" id="pragma">2.14 - Pragma Bildirimleri </p>
+		<p class="indent">
+			<span class="keyw">Pragma</span> bildirimi bir derleyici direktifidir ve ancak çok özel 
+			koşullarda başvurulur. <span class="keyw">Pragma</span> bildiriminin BNF tanımı,
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">pragma</span> ::= pragma identifier [(pragma_argument_association {, pragma_argument_association})];
+<span class="pl-25">pragma_argument_association</span> ::= [pragma_argument_identifier =&gt;] name | [pragma_argument_identifier =&gt;] expression
+		</pre>
+		<p class="nonindent">
+			olarak belirtilmiştir. Ayrıca çeşitli derleyiciler kendilerine özel sözyazımı (sentaks) olan 
+			pragma bildirimleri de tanımlayabilirler. Öntanımlı <span class="keyw">Pragma</span>
+			bildirimlerinin listesi 
+			<a href="http://www.adaic.org/standards/05rm/html/RM-TTL.html">Ada Reference Manual, ISO/IEC 8652:201z Ed. 3</a> 	
+			Annex - L de verilmiştir. Bu bildirimler çok özel olduklarından ve ancak uygulanan programlarda 
+			gereksinme olduğunda veya derleyiciyi uyarmak amacı ile kullanılırlar. Örnek,
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">pragma</span> Optimize(Off); <span class="comm-25">-- İsteğe Bağlı Optimizasyonu İptal Eder.</span>
+		</pre>
+		<p class="title-left" id="veri">2.15 - Ada Veri Sistemi</p>
+		<p class="indent">
+			Ada çekirdek programlama dili (Core Language) veri sistemi tanımlamaz. Ada veri
+			sistemi, her programın derlenmesi sırasında çalışan Standard paket 
+			tarafından oluşturulur. 
+		</p>
+		<p class ="indent">
+			Standard paketin çalışması sonunda oluşan veri sistemi, kullanıcılara hiçbir programlama 
+			dilinde sunulmayan sayıda veri tipi kullanma olanağı sağlar. Bu olağanüstü geniş öntanımlı 
+			veri tipleri yanında, kullanıcılar bu öntanımlı veri tiplerinin  kapsamı kendi belirledikleri değer 
+			sınırları içinde  olacak yeni alt veri tiplerini de tanımlama olağına sahiptir. Bu şekilde öntanımlı 
+			veri tiplerine dayalı sonsuz sayıda kullanıcıya özgü alt veri tipi üretilebilmektedir. 
+		</p>
+		<p class="indent">
+			Aşağıdaki şemada, Ada veri tiplerinin olağanüstü genişlikteki evreni, şematik olarak 
+			açıklanmaktadır.
+		</p>
+		<p class="sayfaortala"><img src="../resimler/719px-Ada_types.png" alt="ortala" /></p>
+		<p class="sayfaortala">2.15- Şekil- 1 Ada Veri Tipleri (Wiki books) </p>
+		<p class="indent">
+			Yukarıdaki şekilde, ana hatları açıklanmaya çalışılan Ada veri sistemi ilk bakışta karmaşık gibi
+			görülebilirse de, dikkatli incelendiğinde basit fakat olağanüstü kapsamlı olduğu görülür. 
+			Gerçekten, günümüzde hiçbir üst düzey bilgisayar programlama dili, Ada da olduğu kadar 
+			ayrıntılı bir veri sistemine sahip değildir.		</p>
+		<p class="indent">
+			Ada programlama dili, daima tanımlı öğelerden yeni öğeler yaratılması ile gelişir. Veri istemleri de
+			basit ve bileşik veriler olarak ikiye ayrılır. Bileşik veri tipleri, basit tiplerin biraraya toplanmaları
+			ile oluşturulur. Basit veri tipleri ise, Access ve Skaler veri tipleri olarak ikiye ayrılır. Access veri tipleri,
+			ileride inceleyeceğimiz bellek işeretçileri (pointer) tipi verilerdir. İkinci tür veri tipleri, başlangıç için 
+			daha önemli olan, skaler veri tipleridir. Skaler sözcüğü, latince scala dan kaynaklanır. Ölçüt anlamına
+			gelen bu sözcük, Türkçeye Skala, İskele gibi sözcüklere geçmiştir. Matematikte tek boyutlu verilere 
+			skaler adı verilir. 
+		</p>
+		<p class="indent">
+			Skaler verileri bir taraftan Ayrık (Discrete) ve Ayrık Olmayan (Real) veriler olarak ikiye ayrılırlar. Fakat daha
+			anlamlı bir ayrım, kesikli çizgilerle açıklanan Matematiksel ve Ayrık (Discrete) veriler şeklindeki bir ayrımdır.
+			Ayrık veriler Tamsayılar, sayılabilir nesneler gibi, birbirinden ayrılabilen değerlerdir. Bu konun matematikte
+			karşılığı (Ayrık Matematik) (Discrete Mathematics) kavramıdır. Ayrık Veriler sözel veya sayısal olabilir.
+			Sözel olan ayrık veriler, sayılabilen (enümeratif) değerler olarak adlandırılan 'mavi', 'kırmızı', 'beyaz' ...
+			gibi, sözcük sıralarıdır. Ayrık matematiksel veriler tamsayı türleridir. Ayrık olmayan veriler, sadece 
+			matematik verilerdir ve bunlar tamsayı olmayan değerleri kapsar. Gündelik yaşamda bunlara ondalıklı 
+			sayılar adı verilir. Ada programlama dili sadece on temelli (decimal) tamsayı olmayan verileri
+			destekler. Bu nedenle, tamsayı olmayan büyüklükler, ondalıklı sayılar olarak tanımlanabilir.Ada programlama
+			dilinde tamsayı olarak 2 (binary) den 16 (hex) temeline kadar sayı temelleri ile çalışılabilir.
+		</p>
+		<p class="indent">
+			Matematiksel olan ayrık türler, Tamsayı ve Sayılabilir (Enumeration)  türleridir. Tamsayılar 1 den 
+			sonsuza kadar tanım alanı olan pozitif adlı küme, 0 dan sonsuza kapsam alanlı olan doğal (natural) 
+			tamsayı kümesi ve eksi sonsuz artı sonsuz arası kapsam alanı olan İşaretli Tamsayı (Signed Integer) 
+			tipi ve bunların alt türleridir. Üst ve alt sınırlar çalışılan sistemin desteleyebildiği değerler ile sınırlanmıştır.
+		</p>
+		<p class="indent">
+			Tamsayı türlerinden modüler türler periyodik türlerdir. Az kullanılan bu türler, üst sınıra ulaştığında
+			yeniden alt sınırdan başlar ve bir sınır aşımı (constraint error) hatası oluşturmaz.
+		</p>
+		<p class="indent">
+			Tamsayı olamayan tipler arasında en çok kullanılanılan , ondalık sayısı değişen Float veri tipidir. 
+			Ondalık sayısı sabit olan Fixed veri tipi fazla kullanılmaz. 
+	</p>
+		<p class="indent">
+			Bileşik tipler arasında diziler (Array) veri sıralarıdır.
+		</p>
+		<p class="indent">
+			Record adı verilen veri toplulukları bir isim altından toplanmış çeşitli veri tiplerinden
+			oluşur. Bu veri toplulukları, C<sup>++</sup> deki struct yapılanmalarına karşı gelirler.
+			Tagged olarak tanımlanmış record tipleri, Java sıonıflarına benzer ve nesne yönelimli
+			programlama için yararlanılır.
+		</p>
+		<p class="indent">
+			Protected ve Task tipi veriler özel çalışmalar için kullanılır.
+		</p>
+		<p class="indent">
+			Tanımlanmış bir veri tipinin (type) uygulanabilir ilk alt tipi (subtype) kendisidir. Yani, 
+			tip tanımı sadece bir tanımdır. Bu tanımın uygulanabilir ilk örneği, bu tipin ilk alt 
+			tipi olarak kabul edilir. Bir tipin ilk alt tipinin özellikleri tip tanımında belirtilen
+			özelliklerdir.
+		</p>
+		<p class="indent">
+			Ada Standard paketinde tanımlanmış veri tipleri kullanıcılar tarafından bir isim verilerek
+			yaratılmadıklarından anonim (adsız) tipler olarak nitelendirilirler.
+		</p>
+		<p class="indent">
+			Ada veri tiplerine uygulanabilen işlemciler, aşağıdaki tabloda verilmiştir. 
+		(Richard Riehle &quot;Ada Distilled..&quot;)</p>
+		<p class="sayfaortala"><img src="../resimler/operators.png" width="1062" height="497" alt="Ada Tiplerine Uygulanan İşlemcileri" />
+	</p>
+<p class="title-left" id ="nitelikler">2.16 - Nitelikler (Attributes)</p>
+		<p class="indent">
+			Ada programlama diline özgü bir özellik, verilerin öntanımlı nitelikleri olmasıdır. Nitelikler
+			bir tür hazır fonksiyonlar gibi düşünülebilir. Verilere uygulanan nitelikler, kullanıcılara
+			yararlı bilgiler sağlarlar ve programlara kolaylık getirirler. Nitelikler aşağıdaki BNF gösterimine
+			uygun olarak düzenlenir ve kullanılırlar.
+		</p>
+		<div class="Indented1">
+			<span class="Examples-Maroon">attribute_reference&nbsp;::=&nbsp;prefix'attribute_designator</span>
+	</div>
+		<div class="Examples-Maroon">
+			attribute_designator&nbsp;::=&nbsp;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;identifier[(<em>static_</em> 
+			expression)]<br />
+			&nbsp;&nbsp;|&nbsp;Access&nbsp;|&nbsp;Delta&nbsp;|&nbsp;Digits&nbsp;|&nbsp;Mod
+		</div>
+		<div class="Examples-Maroon">
+			range_attribute_reference&nbsp;::=&nbsp;prefix'range_attribute_designator
+		</div>
+		<div class="Examples-Maroon">
+			range_attribute_designator&nbsp;::=&nbsp;Range[(<em>static_</em>expression)]
+		</div>
+		<p class="indent">
+			Verilere uygulanabilecek olan nitelikler, 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> Annex K (informative) de
+			Language-Defined Attributes adı ile verilmiştir. Annex K aynı şekilde ek-4 de de verilmiştir. Ada programlama dilinde
+			tanımlanmış çok sayıda nitelik bulunmakta ve tümü bu listede açıklanmaktadır. Bu niteliklerin bazıları 
+			çok spesifiktir ve ancak çok özel amaçlar için yararlı olabilirler. Bazıları ise çok genel amaçlıdır ve uygulamalarda 
+			geniş ölçüde kullanılırlar.
+		</p>
+		<p class="indent">
+			Her tanımlı nitelik her veri tipine uygulanamaz. Nitelikler ancak kendilerine uygun veri tiplerine uygulanabilirler. Tanımları 
+			uygulanabilecekleri veri tipleri hakkında fikir verir. Örnek olarak S'First (S: Scalar) skaler veri tiplerine
+			A'Length (A: Array) diziler için uygulanabilir niteliklerdir. 
+		</p>
+		<p class="indent">
+			Veri sitemleri ile çalışmalarımız ilerledikçe, verilere uygulanabilecek nitelikleri daha yakından tanıyacak ve
+			programlarımızda gerekli olduğunda, kolaylıkla uygulayabileceğiz. 
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>indeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b2-s1.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="b2-s3.html"><em> Sonraki &raquo;</em></a></li>
+		</ul>
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer"><img
+				src="http://www.w3.org/Icons/valid-xhtml11"
+				alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:11 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

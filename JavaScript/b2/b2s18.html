@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s18.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:01 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s18.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta 	content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5	at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s18</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1"/></a>
+				<a href="b2s17.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b3/b3s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.14 - Verilerin Değer ve Referansla Aktarımı (Devam) 
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 18
+		</p>
+		<p class="subheading" id="byRef">
+					2.14.2 - Referansla Aktarım
+		</p>
+		<p class="indent">
+			Bazı verilerin boyutları çok büyük olabilir. Nesnelerle çalışırken bu verilerin içiçe
+			istendiği kadar kadar derinlikte tanımlanabileceği görülmüştü. Bu veriler, inanılmaz
+			büyüklükte oluşturulabilirler ve bellekte inanılmaz büyüklükte bir alan adresleyebilirler.
+			Bu veriler aktarımda kopyalanma ile aktarılsa kısa sürede adrslenebilen bellek alanı 
+			tükeneceğinden program devreden çıkar. Bu veriler, belleğe bir kez yerleştirildikten
+			sonra bir daha yerinden oynatılmaz ve kopyalanarak başka bir alana da taşınmaz. Bu veriler,
+			nesne (object) tipindedir.Bu verilerin kopyalanması, fonksiyonlarda argüman olarak 
+			kullanılması ve karşılaştırılmaları için başka mekanizmalar bulunması gerekli olmuştur. 
+			Bulunan yöntem, verinin sabit kalması, yapılacak değişikliklerin aynı veri üzerinde 
+			yapılması, verinin sürekli güncellenebilmesi fakat taşınmamasına dayanmaktadır. 
+			Bir değişkene atanmış olan bir nesne, başka bir değişkene de aktarılmak istenirse, 
+			değerin kopyası değil işaretçinin kopyası yeni değişkene aktarılır. İşaretçi bir tamsayı 
+			(hex sayı) dır. Bu bir ilkel değer olduğundan bellekte az yer kaplar ve değerle yani 
+			kopyalanarak aktarılabilir.
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/b2.14-img-2.gif" alt="deger kopyası" width="310" height="555" />
+		</p>
+		<p class="sayfaortala">
+			Referansla Aktarım Mekanizması
+		</p>
+		<p class="indent" id="b2.14.2-uyg-1">
+			Yukarıdaki şemada, bir referansla veri aktarımının yürüyüş şeması görülmektedir.
+			İlk olarak s değişkenine bir nesne literali atanmaktadır. Bu atamadan
+			sonra, s değişkeninin bellek işaretçisi, nesne literalinin bulunduğu bellek
+			adresini işaret etmektedir. Bundan sonra, s değişkeninin değeri, bir B
+			değişkenine aktarılmaktadır. Burada s değişkeninin değeri, sadece nesnenin
+			bulunduğu belleğin yerini işaret eden bir hex sayı olan bellek işaretcisidir.
+			Bu durumda, B değişenine sadece s değişkeninin değeri olan tamsayı
+			tipinde bellek işaretçisinin bir kopyası atanacaktır. Nesne bulunduğu
+			yerde kalmakta ne yer değiştirmekte ne de kopyalanmaktadır. Bu  atamadan
+			sonra aynı nesnenin bellek adresini işaret eden işaretçi sayısı ikiye 
+			çıkmış, hem s hem de B aynı nesneyi işaret eder hale gelmişlerdir. Sonra,
+			B değişkeni nesnenin bir özelliğini değiştirmiş, yani nesneyi güncellemiştir.
+			Bunun olabilmesi,nesnelerin mutasyona uğrayabilme yeteneğinden dolayıdır.
+			Bu durumda, nesne mütasyona uğramış yani yani yeni bir şekil alarak 
+			güncellenmiştir. Nesne sadece bir tanedir. Güncellenen
+			aynı nesnedir. Güncelleme sonunda nesnenin bazı özelliklerinin değeri değişmiş, 
+			fakat diğer özelliklerinin değeri değişmememiştir. Aynı nesneye işaret eden hem s 
+			hem de B değişkenleri, artık nesnenin güncellenmiş değerine erişim sağlayabilirler. Yani
+			s değişkeni de nesnenin güncellenmiş değerlerine erişim sağlamaktadır.
+			Bir nesne, bir kez güncellenirse, o nesneye işaret eden tüm değişkenler
+			güncellenmiş değerlere erişim sağlayabilirler. Deneyimsiz programcılar
+			için en büyük yanılgı kaynağı olan bu güncel değerin nesneye işaret eden
+			her değişkene yansıması, değişkenin değil referansının kopyalanmasının
+			sonucudur. Bu mekanizmaya referansla aktarım adı verilir. Tüm nesneler
+			referansla aktarılırlar. Referansla aktarımın verinin yedeklenmesi anlamına
+			gelmediğini belirtelim. Burada sadece nesnenin referansı yani nesnenin
+			bellekteki yerine işaret eden ve ilkel hex tamsayı tipinde olan bellek
+			işaretçisi  (pointer) kopyalanmaktadır. Nesnenin gerçek kopyasının alınabilmesi,
+			aynı nesnenin literal olarak (değerin klavyeden yeniden girilmesi veya
+			başka bir yöntem ile orijinal verilerin başka bir değişkene yeniden atanması ile 
+			gerçekleştirilebilecektir. Yukarıdaki şemada izlenebilen, referansla aktarım işlemi, bir 	
+			<a href="../uygulamalar/b2.14.2-uyg-1-js.html">JavaScript programında</a> 
+			uygulanmış ve bu programın bağlantılı olduğu 
+			<a href="../uygulamalar/b2.14.2-uyg-1.html">sayfada</a> verdiği
+			sonuç aşağıda verilmiştir.
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> s <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">},</span> B <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="pl-50">B</span> <span 
+			class="op">= </span>s<span 
+			class="op">;</span>
+<span class="pl-50">B<span 
+			class="op">.</span>x <span 
+			class="op">=</span> 36<span 
+			class="op">;</span></span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'s.x = '<span 
+			class="op">,</span> </span>s<span 
+			class="op">.</span>x<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+				<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.2-uyg-1-sonuç-1"></p>
+		<p class="nonindent">
+			Program sonucunda, güncellenmiş nesneye işaret eden tüm bellek işaretçileri
+			nesnenin güncellenmiş haline işaret etmektedirler. Bu yüzden orijinal değer
+			de güncellenmiş değer olarak değişmiştir. Bu olguya programlarda
+			çok dikkat edilmesi gerekir.
+		</p>
+		<p class="indent" id="b2.14.2-uyg-2">
+			Nesnelerin fonksiyonlarda argüman olarak kullanılmaları durumunda, 
+			sadece işaretçileri, argüman olarak kullanılır. Bu durumda, 
+			fonksiyonların içinde bu nesnelere uygulanacak değişiklikler, doğrudan 
+			nesneyi günceller. Bu durumu açıklayan bir 
+			<a href="../uygulamalar/b2.14.2-uyg-2.html">uygulamanın</a> 
+			JavaScript <a href="../uygulamalar/b2.14.2-uyg-2-js.html">kodları</a> 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">function </span>byRef<span
+			class="op">(</span>nesne<span 
+			class="op">);</span>
+<span class="pl-75">nesne</span><span 
+			class="op">.</span>x <span 
+			class="op">=</span> 36<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">var</span> s <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">},</span> B <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">B</span> <span 
+			class="op">= </span>s<span 
+			class="op">;</span>
+<span class="pl-50">byRef(B)<span 
+			class="op">;</span></span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'s.x = '<span 
+			class="op">,</span> </span>s<span 
+			class="op">.</span>x<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.2-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.2-uyg-2-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Elde edilen bu sonuç, tüm referansla yürütülen işlemlerde olduğu gibi,
+			anlaşılması ilk bakışta güç  bir sonuç olmaktadır. Aslında fonksiyonun 
+			yaptığı işlem bir önceki uygulamada yapılan işlemin aynısıdır. Sadece,
+			nesnenin güncellenmesi, fonksiyon tarafından gerçekleştirilmektedir. 
+			Bu uygulamaların her ikisinde de, B değişkeninde gerçek bir değer yoktur.
+			B değişkeni sadece bir yönlendiriciden ibarettir. B değişkeni, kendisi 
+			üzerinden yapılan tüm değişiklikleri, gerçek verinin bulunduğu s 
+			değişkenine yönlendirmektedir. Referansla aktarılan tüm veri tipleri
+			fonksiyonlarda argüman olarak kullanılıp, fonksiyon içinde bir güncellemeye 
+			uğrarlarsa, bu değişiklik orijinal nesneye yansıyacaktır.
+		</p>
+		<p class="indent">
+			Fonksiyona bir değişkenin referansla aktarımı terimi, değişik program dillerinde
+			değişik şekilde algılanmaktadır. Çoğunlukla, eğer değişken fonksiyon içinde
+			bir  değişikliğe uğrar ve bunun sonunda dış değer de etkilenirse, büyüklüğün
+			referansla akatarıldığı belirtilmektedir. Burada ise daha net bir kavram
+			kullanılmıştır. Burada  gerçek durum ile yani bir fonksiyona argüman olarak
+			aktarılan değişkenin, gerçek  değerin kopyasını mı yoksa referansını mı
+			içerdiği ile ilgilenmekteyiz. Gerçek değerle  aktarılan büyüklükler, gerçek
+			değerin bir kopyasını aktarırlar. Referansla aktarılan büyüklükler, gerçek
+			değerin bir ve tek (benzersiz) bir hex tamsayı olan referansını aktarırlar.
+			 Bir fonksiyona aktarılmış olan bir değişken, bir değerin referansını (bellekteki
+			posizyonunu  açıklayan hex sayıyı) (hex sayılar tanım olarak tamsayıdır)
+			içeriyorsa, fonksiyon içinde tahrip edici bir atamaya uğramazsa, uğradığı
+			tüm değişikler, işaretçi yani referansın işaret  etttiği bellek bölgesinde
+			gerçekleşir. Yani, fonksiyon içinde yaşanan değişiklikler, fonksiyon dışındaki
+			ana büyüklüğe yansır. Eğer bir fonksiyona aktarılmış olan bir değişken,
+			bir değerin  referansını içeriyorsa ve fonksiyonda bir değişikliğe uğramazsa,
+			fonksiyon içindeki tüm hesaplar, bu bellek bölgesindeki değişkenin değerlerinden
+			yararlanılarak gerçekleşir, fakat  bu değerler değiştirilmediği için, dış
+			büyüklük değişmeden kalır. Fonksiyona değer olarak  beslenen argümanlar,
+			gerçek değerin başka bir bellek bölgesinde olan kopyası üzerinde işlem
+			yaptıklarından, fonksiyonda gerçekleşen değişikler, sadece kopyayı etkiler,
+			esas büyüklüğü etkilemez.  Fonksiyonda salt okunur veya okunur/yazılır
+			bir işlem yapılması fonksiyonun iç işidir.  Fonksiyonun işlevi argümanın
+			ne şekilde beslendiğini belirlemez. Argüman değer ile  aktarılmışsa, esas
+			değerin kopyasını, argüman referans ile aktarılmışsa argümanın referansını
+			 içerir. Burada, değer ve referansla aktarım kavramını bu gerçek şekliyle
+			algılıyoruz.
+		</p>
+		<p class="indent" id="b2.14.2-uyg-3">
+			Bazı durumlarda, nesne referanslarının bir fonksiyonda argüman 
+			olarak kullanıldığında, fonksiyon içindeki güncellemenin dış nesneye 
+			yansımaması istenebilir. Bu durumda, değerle aktarım için bir düzenleme
+			yapılması gerekir. Eğer fonksiyon içinde, nesne referansına yeni bir değer
+			atanırsa, referansın ana nesne ile ilişkisi kesilir. Bu durumda, ilişkinin 
+			kesildiği satırdan sonraki değişiklikler dış nesneye yansımaz. Fonksiyon 
+			dışında ise, nesne ve referansları arasındaki ilişki aynen devam eder. Bu konuda bir 
+			
+			<a href="../uygulamalar/b2.14.2-uyg-3-js.html">JavaScript programı</a> ve ilişkilendirilmiş
+			olduğu <a href="../uygulamalar/b2.14.2-uyg-3.html">sayfada</a> verdiği sonuçlar, 
+			aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">function </span>byVal<span
+			class="op">(</span>nesne<span 
+			class="op">);</span>
+
+<span class="keyw-75">var</span> d <span 
+			class="op">= {};</span> 
+
+<span class="pl-75">d</span><span 
+			class="op">.</span>x <span 
+			class="op">=</span> nesne<span 
+			class="op">.</span>x <span 
+			class="op">/</span> 2<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+
+
+<span class="keyw-50">var</span> s <span 
+			class="op">= {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">},</span> B <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">B</span> <span 
+			class="op">=</span> s<span 
+			class="op">;</span>
+<span class="pl-50">byVal</span><span 
+			class="op">(</span>B<span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'s.x = '</span>, s<span 
+			class="op">.</span>x<span 
+			class="op">,</span> <span 
+			class="str">'b2.14.2-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.14.2-uyg-3-sonuç-1">
+		</p>
+		<p class="indent">
+			Sonuçlar, byVal<span class="op">()</span> fonksiyonun, işlevini yaparak, 
+			argümanını güncellemeden özelliklerine erişebildiğini göstermektedir.
+			Kodları satır satır izlemeye çalışalım. İlk olarak bir <span 
+			class="op"> {</span>x <span 
+			class="op">:</span> 12<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 44<span 
+			class="op">}</span> nesne literali yaratılarak referansı s değişkenine
+			atanıyor. Sonra, bir B değişkenine s referansı kopyalanıyor. B referansı
+			( s ile aynı) bir byVal<span 
+			class="op">()</span> fonksiyonuna argüman olarak olarak besleniyor. Fonksiyon
+			içinde, yeni boş d nesne literali yaratılıyor. Bu boş nesne litraline bir
+			x özelliği ekleniyor ve değeri nesne argümanın x özelliğinin değerinin yarısına
+			eşitleniyor. Bu değişiklik sadece fonksiyon içinde tanımlanmış yani yerel
+			kapsamda bir değişken olan, d nesnesini etkilemektedir. Fonksiyon içindeki
+			d nesnesinin fonksiyon dışındaki s nesnesi ile bir ilişkisi yoktur. Burada
+			d nesnesi, s nesnesinin x özelliğine sadece erişmekte fakat güncellememektedir.
+			Fonksiyon dışında s nesnesinin x özelliği orijinal değeri ile kalmaktadır.
+	</p>
+		<p class="indent">
+			Referans tipi olarak adlandırılan nesnelerin karşılaştırmaları, 
+			<a href="b2s10.html">bölüm 2.10 de</a> ayrıntılı olarak incelenmiştir. Bu konu 
+			gözden geçirilmeli ve bilgiler netleştirilmelidir.
+		</p>
+				<p class="subheading" id="strings">
+					2.14.3 - Sözel Verilerin Aktarımı
+		</p>
+		<p class="indent">
+			Sözel veriler, karakter dizigisi (string) tipindedir. Bu tip veriler, 
+			kuramsal olarak sonsuz büyüklükte olabilmelerine karşın, pratikte
+			bilgisayar programcılığında kullanılan sözel verilerin büyüklüğü,
+			fazla büyük değildir. Sözel verilerin bir özelliği, mütasyona 
+			uğramayan (immutable), yani ekleme veya çıkarma yapılamayan 
+			veri türleri olduklarından, yenilenmelerinin ancak tahrip edeci total 
+			atama yolu ile olabilmesidir. Bu verilerin parsiyel yenilenmeleri ve 
+			mütasyonları olanağı olmadığından, referans veya değerle aktarılıp 
+			aktarılmadıkları ,deneysel olarak anlaşılamaz. Bu konuda pratik sonuçlar 
+			geçerlidir. 	JavaScript yorumlayıcısı, ileri bir tasarım 
+			teknolojisine sahiptir ve birçok programlama dilinin aksine, 
+			sözel verileri, görünürde değerle aktarabilme ve değerle karşılaştırma
+			yeteneğine sahiptir. Bu konuda sözel verilerin sayısal verilerden 
+			hiçbir farkı olmadığı gibi bir izlenim edinilir. Gerçek mekanizma ise,
+			JavaScript yorumlayıcısınının yazılımına bağlıdır, kullanıcıya kapalıdır ve 
+			kullanıcıyı etkilemez. 
+		</p>
+		<p class="subheading" id="tablo">
+					2.14.4- Verilerin Aktarım ve Karşılaştırma Yöntemleri Tablosu
+		</p>
+		<p class="indent">
+			Aşağıdaki tablo çeşitli JavaScript veri tiplerinin aktarım ve karşılaştırma
+						işlemlerindeki davranışlarını açıklamaktadır.
+		</p>
+		<div class="pl-200"
+			<table summary="Verilerin Aktarım ve Karşılaştırma Yöntemleri">
+				<caption>
+					Verilerin Aktarım ve Karşılaştırma Yöntemleri
+				</caption>
+				<tr>
+					<th class="first">
+						<strong>Veri Tipi</strong>
+					</th>
+					<th class="second">
+						<strong>Kopyalanması</strong>
+					</th>
+					<th class="third">
+						<strong>Fonksiyon Argümanı Olarak Kullanımı</strong>
+					</th>
+					<th class="fourth">
+						<strong>Karşılaştırılması</strong>
+					</th>
+				</tr>
+				<tr>
+					<td>
+						Sayısal (number)
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Mantıksal (Boolean)
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sözel (string)
+					</td>
+					<td>
+						Bölünemez (Değerle Kopyalanıyor Şeklinde Algılanır)				</td>
+					<td>Bölünemez (Değerle Aktarılıyor Şeklinde Algılanır)				</td>
+					<td>
+						Değerle
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Öntanımlı Sayı Nesnesi (Number Object)
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Referansla
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Öntanımlı Mantıksal Nesne (Boolean Object)
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Değerle
+					</td>
+					<td>
+						Referansla
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Öntanımlı Sözel Nesne (String Object)
+					</td>
+					<td>
+						Bölünemez (Değerle Kopyalanıyor  Şeklinde Algılanır)				</td>
+					<td>Bölünemez (Değerle Aktarılıyor Şeklinde Algılanır)				</td>
+					<td>
+						Referansla
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nesne (object)
+					</td>
+					<td>
+						Referansla</td>
+					<td>
+						Referansla</td>
+					<td>
+						Referansla</td>
+				</tr>
+			</table>
+		<p class="indent">
+			Bu tablodan açıkça, nesne olarak yapılandırılmış ilkel verilerin 
+			karşılaştırmalarda sorun yaşayacağı görülüyor. Bir veri eğer değerle
+			aktarılıyorsa, karşılaştırılma dahil her mekanizmada değer olarak 
+			aktarıldığında program homojenitesi daha iyi sağlanabilir. Oysa, bu tip
+			tanıtılmış veriler, tüm işlemlerde değerle aktarılırken, karşılaştırılmalarda
+			nesne olduklarından, referans ile karşılaştırılıyorlar. Bu da yanılgıları 
+			birlikte getirebilir. Daha homojen bir kod ortamının oluşturulabilmesi için,
+		</p>
+		<ul class="list">
+			<li>a <span class="op">=</span><span class="keyw"> new Object</span><span class="op">();</span> 
+			yerine a <span class="op">= {};</span> kullanın. Bu boş bir nesne literali 
+			açmak ile aynı anlama gelmektedir.</li>
+			<li>a <span class="op">=</span> <span class="keyw">new Object</span><span 
+			class="op">(</span>12<span class="op">);</span> veya a <span class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>12<span class="op">);</span> yerine a <span class="op">=</span> 12<span 
+			class="op">;</span> kullanın.</li>
+			<li>a <span class="op">=</span> <span class="keyw">new Object</span>(<span 
+			class="str">'Ayla'</span>); veya a = <span 
+			class="keyw">new String</span>(<span 
+			class="str">'Ayla'</span>); yerine a = <span 
+			class="str">'Ayla'</span>; kullanın.</li>
+			<li>a <span class="op">=</span> <span class="keyw">new Object</span><span 
+			class="op">(</span><span class="keyw">true</span><span class="op">);</span> 
+			veya a <span class="op">=</span> <span class="keyw">new Boolean</span><span 
+			class="op">(</span><span class="keyw">true</span><span class="op">);</span> 
+			tanımlarını hiç kullanmayın, onların yerine daima a <span class="op">=</span> <span 
+			class="keyw">true</span><span class="op">;</span> kullanın.</li>
+		</ul>
+		<p class="nonindent">
+			İlkel değerlerin nesne olarak tanıtılmaları, çok az rastlanılan bazı özel
+			  durumlar dışında,  hiç bir performans artışı sağlamaz, üstelik potansiyel
+			  bir hata kaynağı olabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s17.html"><em>« Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="../b3/b3s1.html"><em>Sonraki »</em></a
+			></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.2-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.14.2-uyg-3.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s18.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:01 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

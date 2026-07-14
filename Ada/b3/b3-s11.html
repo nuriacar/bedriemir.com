@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s11.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:22 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s11.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 11</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <p>
+      <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+    </p>
+    <div class="navtop">
+      <p>
+        <a href="../index.html"><img class="navbutton"
+          alt="index" src="../resimler/index.gif" /></a>
+        <a href="b3-s10.html"><img class="navbutton"
+          alt="previous" src="../resimler/previous.gif" /></a>
+        <a href="../b4/b4-s1.html"><img class="navbutton"
+          alt="next" src="../resimler/next.gif" /></a></p>
+    </div>
+    <p class="chapter">
+      Ada Programlama Dili Temelleri	
+    </p>
+    <p class="chapter">
+      Bölüm 3
+    </p>
+    <p class="chapter">
+      Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+    </p>
+    <p class="chapter">
+      Character ve String Veri Tipleri
+    </p>
+    <p class="pagenum">
+      Bölüm 3 Sayfa 11
+  </p>
+		<p class="subheading" id="character-attrs">3.4.1 - Character Veri Tipine Uygulanabilen Nitelikler</p>
+		<p class="indent">
+			Character veri tipi, Standard pakette tanımlanmış olan sayılabilir bir veri tipidir. Bu veri tipi, Boolean 
+			veri tipi ile aynı özelliklere sahiptir bu nedenle, Boolean veri tipine uygulanabiliecek niteliklerin tümü
+			Character veri tipine de uygulanabilir. Bu konularda yapılmış uygulamaların yeniden incelenmesi yararlı 
+			olacaktır. Burada özellikle Character'Pos ve Character'Val nitelikleri üzerinde duracağız.
+</p>
+		<p class="indent">
+			Aşağıda görülen <a href="../uygulamalar/b3_4_1_uyg_1.html">prosedürde</a>, Türkçe 'ş' 
+			karakterinin, CP-1254 altında, Character veri tipinin bir elemanı olarak, on temeline göre Unicode 
+			giriş kodu belirlenmektedir.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_4_1_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S11">Kod_Giriş_Noktası</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Character<span class="S4">'</span>Pos<span class="S4">(</span><span class="S5">'ş'</span><span class="S4">);</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"ş Karakterinin Kod Giriş Noktası &nbsp;(on temeline göre) : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Kod_Giriş_Noktası</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_4_1_uyg_1<span class="S4">;</span>
+
+Bu prosedürün sonucu :
+
+<span class="pl-25 green">ş Karakterinin Kod Giriş Noktası  (on temeline göre) :         254</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_4_1_uyg_1.html">prosedürde</a>, alınan sonuç, 
+			aslında Standard paket ile Character veri tipi olarak, '&thorn;' (thorn) karakterinin kod giriş noktası olan,
+			on temeline göre 254 sayısı, kod sayfası CP-1254 ile kaydedilip çalıştırılan programlarda 'ş' harfinin
+			kod giriş sayısı olarak belirlenmektedir. Ada bize ş harfinin kod giriş noktasının değil thorn karakterinin
+			giriş kodunu belirtmektedir. Klavyeden girdiğimiz ş harfi, CP-1254 ile kaydedilen bir program listesinde,
+			thorn karakteri olarak değerlendirilmekte ve tüm hesaplamalar bu karakter kullanılarak yapılmakta,
+			sonuç olarak da thorn karakterinin kod giriş noktası döndürülmektedir. Bu karakter CP-1254 altında 
+			ş olarak görüntülendiğinden biz thorn yerine ş karakteri kullanabiliyoruz. Aslında ş karakteri Ada için, 
+			Wide_Character veri tipinin bir elemanıdır ve kod giriş noktası da on tabanına göre 351, Hex 15F dir. 
+			CP-1254 altında ş harfi Character veri tipinin 255 inci elemanı (kod giriş noktası 254 veya Hex FE), veya
+			Wide_Character veri tipinin hem 255 (kod giriş noktası 254 veya Hex FE) 	hem de 352 inci elemanı 
+			(kod giriş noktası 351 veya Hex 15F) olarak tanımlıdır. Bu durumda, Standard 
+			pakette tanımlı Character verileri olarak belirtilen karakterlerin kod giriş noktaları, sadece Latin-1 kod 
+			sayfası (ISO-8859-1) altında geçerlidir, aksi halde geçerli kod sayfasının, Latin-1 ile aynı karakter giriş 
+			noktalarına karşı gelen karakterleri görüntülenecektir (thorn yerine ş karakterinin görüntülendiği gibi). 
+		</p>
+		<p class="indent">
+			Aşağıda görülen <a href="../uygulamalar/b3_4_1_uyg_2.html">prosedürde</a>, on temeline göre
+			254 (Hex 15F) kod giriş noktasının karakter kılıfını belirtmektedir.
+		</p>
+				<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_4_1_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S11">Karakter_Kılıfı</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Wide_Character<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Wide_Character<span class="S4">'</span>Val<span class="S4">(</span><span class="S3">351</span><span class="S4">);</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"On Temeline Göre Unicode Giriş Noktası 351 (Hex 15F) olan Kodun Kılıfı (Glyph) : "</span><span class="S0">  </span><span class="S4">&amp;</span><span class="S0"> </span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Wide_Character<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Karakter_Kılıfı</span><span class="S4">));</span>
+
+
+
+<span class="S1">end</span><span class="S0"> </span>b3_4_1_uyg_2<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green"> 351  Giriş Noktası (On Temeline Göre) olan Kodun Kılıfı (Glyph) : Hex_0000015F</span>
+
+<span class="nonindent">olmaktadır.</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_4_1_uyg_2.html">prosedürde</a>, alınan sonuç çok önemli
+			bilgiler vermektedir. Bu sonuç, herşeyden önce, Ada programlama dilinin sadece Character kümesinin 
+			kod giriş noktalarının kılıflarını algılayıp görüntüleyebileceğini belirtmektedir. Burada alınan sonuç, 
+			&quot;sorduğunuz karakter ş harfidir fakat kendisini görüntüleyemiyorum, Hex kod giriş numarası 
+			15F dir.&quot; şeklinde yorumlanmalıdır. Bu yanıt, Ada programlama dilinin Unicode yapısının CP-1254 ile 
+			kaydedilip görüntülenen programlar için de geçerli olduğunu ve ş harfinin değişmez, kod giriş noktasının 
+			Hex 15F olacağını belirtmektedir. Fakat ilk prosedürde olduğu gibi, CP-1254 altında, Wide_Character'Pos('ş')
+			olarak yapacağımız bir sorgulamada alabileceğimiz yanıt 254 yani thorn karakterinin Wide_Character Unicode
+			giriş noktası olacaktır. Bunun nedeni, CP-1254 altında işletim sistemi, 'ş' olarak girilen karakteri Ada derleyicisine 
+			thorn olarak aktarmakta ve Ada derleyicisi thorn olarak değerlendirdiği karakterle prosedürde belirtilen 
+			işlemleri yapmakta ve prosedür sonucunda geriye thorn karakteri giriş noktasının ondalıklı kodunu döndürmektedir. 
+			CP-1254 altında thorn karakterini görüntüleme olanağımız yoktur, çünkü CP-1254 altında, her thorn giriş kodunun 
+			görüntüsüne ulaşılmak istendiğinde,  geriye thorn karakterinin yerine geçmiş olan 'ş' karakterinin görüntüsü 
+			döndürülecektir.
+		</p>
+		<p class="indent">
+			Yeni bir <a href="../uygulamalar/b3_4_1_uyg_3.html">prosedürde</a>, thorn karakterinin Unicode giriş 
+			noktasının CP-1254 altında karakter kılıfını sorgulayalım. Küçük thorn karakterinin Unicode giriş noktası 
+			Hex 00FE olduğundan, Hex 00FF den küçüktür ve Character veri tipi olarak tanımlanma olanağı bulunmaktadır. 
+			Ada programlama dili Character tipi verilerin kılıflarını görüntüleyebildiğinden sonucu görüntü olarak alabilme 
+			olanağımız bulunmaktadır.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_4_1_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S11">Karakter_Kılıfı</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Character<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Character<span class="S4">'</span>Val<span class="S4">(</span><span class="S3">16#00FE#</span><span class="S4">);</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"On Temeline Göre Unicode Giriş Noktası 254 (Hex 00FE) olan Kodun Kılıfı (Glyph) : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Character<span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Karakter_Kılıfı</span><span class="S4">));</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_4_1_uyg_3<span class="S4">;</span>
+
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">On Temeline Göre Unicode Giriş Noktası 254 (Hex 00FE) olan Kodun Kılıfı (Glyph) : 'ş'</span>
+
+<span class="nonindent">olmaktadır.</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_4_1_uyg_3.html">prosedürden</a>, alınan sonuçlar çok önemlidir.
+			Bu sonuçlar, Ada 2012 de, 'ş' karakterine CP-1254 altında iki türlü erişim olanağı olduğunu belirtmektedir.
+			Bu erişim yollarından ilki, Wide_Character Veri tipi altında, kendi özel ve değişmez kod giriş noktasından (16#015F#).
+			İkinci erişim yöntemi, Character veri tipi altında, CP-1254 'ün 'ş' karakteri ile yer değiştirdiği thorn 
+			karakterinin kod giriş noktasından çağrılma ile erişim olanağı bulunmaktadır. Doğal olarak, kolay yol varken 
+			kimse Wide_Character veri tipini yeğlemeyecektir. 
+		</p>
+	<p class="indent">
+			CP-1254 altında, Latin-1 karakterleri ile yer değiştiren karakterler, 
+		</p>
+	<ul class="listNoMarker">
+			<li>Orijinal kod giriş noktası 
+			16#011E# (286) olan Ğ karakteri, kod giriş noktası 16#00D0# (208) olan
+			İzlanda karakteri büyük ETH &ETH; yerine</li>
+			<li>Orijinal kod giriş noktası 
+			16#0130# (304) olan İ karakteri, kod giriş noktası 16#00DD# (221) olan			
+			İzlanda karakteri büyük y acute &Yacute; yerine</li>
+			<li>Orijinal kod giriş noktası 
+			16#015E# (350) olan Ş karakteri, kod giriş noktası 16#00DE# (222) olan
+			İzlanda karakteri büyük thorn &THORN; yerine</li>
+			<li>Orijinal kod giriş noktası 
+			16#011F# (287) olan ğ karakteri, kod giriş noktası 16#00F0# (240) olan
+			İzlanda karakteri küçük eth &eth; yerine</li>
+			<li>Orijinal kod giriş noktası 
+			16#0131# (305) olan ı karakteri, kod giriş noktası 16#00FD# (253) olan
+			İzlanda karakteri küçük y acute &yacute; yerine</li>
+			<li>Orijinal kod giriş noktası 
+			16#015F# (351) olan ş karakteri, kod giriş noktası 16#00FE# (254) olan
+			İzlanda karakteri küçük thorn &thorn; yerine</li>
+      </ul>
+		<p class="nonindent">
+			geçmektedir. Türkçe karakterler, büyük bir olasılıkla UTF-8 kodlamasına gerek kalmadan,
+			CP-1254 altında görüntülenebilmektedir. Fakat, kod sayfası teknolojisinin eski olduğu ve terkedilmeye 
+			doğru gittiği düşünülürse, UTF-8 kodlamasının yerleştirilip uygulanması en doğru yol olacaktır.
+		</p>
+		<p class="subheading" id="character-ops">3.4.2 -Character Veri Tipi İçin Tanımlı İşlemciler</p>
+		<p class="indent">
+			Character veri tipi saylabilir bir veri tipidir. Bu açıdan, Character veri tipine ancak sayılabilir
+			veri tiplerine uygulanabilir işlemciler uygulanabilr. Bu işlemciler, ilişkisel işlemciler olan, 
+			&lt; , &gt; , &lt;= , &gt;= , /=  Character veri tipi ile kullanılabilir. Bu işlemcilerin 
+			uygulanmaları, yine bir sayılabilir veri tipi olan <a href="b3-s2.html#bool-ops">Boolean</a>
+			veri tipine uygulanan ilişkisel işlemciler ile aynıdır.
+	</p>
+		<p class="indent">
+			Tüm sayılabilir işlemcilerde olduğu gibi, Character veri tipi için de matematiksel işlemciler
+			tanımlı değildir ve Character veri tipi ile matematiksel işlemler yapılamaz.
+		</p>
+		<p class="title-left" id="wide-character">3.5 - Wide_Character Veri Tipi </p>
+		<p class="indent">
+			Ada 83 sadece 126 eleman içerebilen Character veri tipini desteklemekteydi. Bu veri tipinin
+			elemanlarına öntanımlı olarak sadece Latin-1 spesifikasyonu kapsamında olan karakterler atanmıştı. 
+			Bu durumda,Türkçe alfabenin  Ğ, ğ, Ş, ş, i ı karakterleri Latin-1 spesifikasyonu dışında
+			kaldığından, Ada 83 programlarında, Türçenin bu 6 karakteri kullanılaıyordu ve bu 
+			karakterleri içeren tanımlayıcılar kullanıldığında Ada 83 derşeyicisi tanınmayan
+			karakter hatsı vererek programı kabuıl etmiyordu. Linux için,bugün de durum aşağı yukarı
+			aynıdır.
+		</p>
+		<p class="indent">
+			Ada 95 UC-2 yi destekleyince , Ada öntamlı veri tipleri arasına Wide_Character veri tipi 
+			de eklenmiştir. Wide_Character veri tipi için tanımlı nitelik ve işlemciler, Character veri tipi için
+			tanımlanmış olanların aynıdır. Wide_Character veri tipi, Latin-1 karakter kodları kapsamı dışında kalan,
+			fakat Temel Çok Dilli Düzlem (BMP)  kapsamında olan tüm ülkelerin, kodlarını kapsamaktadır. 
+			Uzakdoğu ülelerinde kullanılan İdeografik karakterler gibi sıra dışı karakterler dışında, 
+			tüm karakterler BMP kapsamındadır. Özellikle Latin karakterlerleri kullanan ülkelerin karakterleri ve
+			bu arada Türkçe alfabenin Latin-1 spesifikasyonu kapsamı dışında kalan Ğ, ğ, Ş, ş, i ı karakterleri de 
+			BMP içinde tanımlıdır. Bu durumda bu  6 Türk alfabetik karakteri de Wide_Character veri
+			tipi içinde tanımlanmış durumdadır. 
+		</p>
+		<p class="indent">
+			Wide_Character veri tipinin ilk 256 elemanı, Character veri tipi elemanları ile çakışıktır. Yani, 
+			Character'Pos (254) ile Wide_Character'Pos(254) aynı karakteri verir (Unicode altında). 
+			Bu durumda, alfabelerinin tüm karakterleri Latin-1 spesikasyonuna girebilen ülkelerin kullanıcıları, 
+			kendi karakterlerini görüntülemek için Wide_Character veri tipini kullanma gereğini duymazlar. 
+			Türkçe gibi, alfabetik karakterlerinin bir kısmı Latin-1 spesifikasyonu dışında kalan ülkelerin 
+			kullanıcılarının ise, ülkelerinin Latin-1 spesifikasyonu dışında kalan alafabetik karaktaterlerine 
+			Unicode altında erişmek için Wide_Character veri tipini kullanmaları zorunlu olur. Türkçe 
+			açısından sorun Ada 95 den ibaren çözülmüştür. Türk Alfabesinin tüm karakterleri 
+			Ada 95 ve sonrası sürümü derleyicilerde kabul edilir ve bu karakterleri içeren
+			programların sonuçları hesaplanır ve sayısal sonuçları sorunsuzca görüntülenir. 
+		</p>
+		<p class="indent">
+			Aynı destek ne yazık ki karakter verilerinde elde edilemez. Karakter kodlamaları 
+			Unicode altında faklı, DOS altında farklıdır. DOS altında girilen karakter verileri Unicode 
+			düzenine, Unicode düzeninde oluşmuş karakter verilerinin DOS ortamına dönüştürülmesi
+			gerekir. Bunun için Karakter Dönüştürücü Biçem (Unicode Transformation Format) (UTF)
+			programları kullanılır. Bunlar arasında en yaygın olarak kullanılan UTF-8 kod dönüştürücüsüdür.
+			GNAt 2012 sürümü sadece Unicode altında sadece UTF-8 ile kodlanmış program listelerini
+			çalıştırabilir. Henüz UTF-16 , UTF- 32 dönüştürücüleri ile kodlanmış program listelerini GNAT 2012
+			derleyicilerinin güncel sürümleri kabul etmemektedir.
+		</p>
+		<p class="indent">
+			UTF-8 altında kodlanmış programların sayısal sonuçlarının DOS emülatörleri altında 
+			görüntülenmesinde hiçbir sorun olmamasına karşın, alfabetik karakterler için aynı durum 
+			söz konusu değildir. GNAT derleyicisinin güncel sürümleri, tek destekledikleri kod dönüştürücüsü
+			olan UTF-8 altında oluşan karakter kodlarını DOS emülatörlerinde düzgün görüntüleyemezler. 
+			Windows konut satırı (Shell) (Kabuk) ise, zaten Latin-1 spesifikasyonunun ilk 126 karakterinin 
+			ötesinde kalan karakterleri hiçbir şekilde doğru görüntüleyemez.
+		</p>
+		<p class="indent">
+			Bu durumda, alfabelerinin bazı karakterleri Latin-1 spesifikasyonu dışında kalmış olan ülkelerin
+			kullnıcılarını kendi ülkelerinin karakterlerini düzgün görüntüleyebilmek için, programlarını UTF-8 
+			altında değil, kendi ülkelerine kod sayfaları altında kodlamak zorunda kalmaktadırlar. Ada 
+			Programlarının UTF-8 desteğinin düzgün olmasının sağlanması için üçüncü parti programlara 
+			gereksinme bulunmaktadır.
+		</p>
+		<p class="indent">
+			Eski ve terkedilmiş bir teknoloji olan, kod sayfası teknolojisi, Character veri tipine ait 
+			256 elemandan bazılarının değerini değişltirir. Bu durumda, Unicode tarafından sağlanmış 
+			olan kod giriş noktasının karakter kodu ile aynı olması prensibi bozulur. Kod sayfasının 
+			değiştirdiği kod giriş noktasına ait karakterin kodu, kod giriş noktasından farklı olur. Daha 
+			önce de belirtilmiş olduğu gibi, CP-1254 altında, kod giriş noktası 254 olan karakterin kodu,  
+			Unicode altındaki gibi 254 değil, 351 dir.
+		</p>
+		<p class="indent">
+			Bu durumda, Unicode karakter kodu  351 olan karaktere, CP-1254 altında Character veri 
+			tipinin  254 sıra sayılı konumu ile Wide_Character veri tipinin 351 sıra sayılı konumundan 
+			erişilebilir. Tüm karakter kodları on sayı temeline belirtilmiştir. Bu durum, aşağıda görülen 
+			<a href="../uygulamalar/b3_5_uyg_1.html">prosedürde</a> görülmektedir.
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_5_uyg_1<span class="S0"> </span><span class="S1">is</span><span class="S0"> &nbsp;</span><span class="S10">-- CP 1254 altında...</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Character<span class="S4">'</span>Image<span class="S4">(</span>Character<span class="S4">'</span>Val<span class="S4">(</span><span class="S3">254</span><span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Wide_Character<span class="S4">'</span>Image<span class="S4">(</span>Wide_Character<span class="S4">'</span>Val<span class="S4">(</span><span class="S3">351</span><span class="S4">)));</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_5_uyg_1<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">'ş'</span>
+
+<span class="pl-25 green">Hex_0000015F</span>
+
+<span class="nonindent">olmaktadır.</span>
+
+		</pre>
+	<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_5_uyg_1.html">prosedürün</a>, sonuçlarından görüldüğüne göre, 
+			CP-1254 altında,
+		</p>
+		<ul class="list">
+			<li>Character veri tipinin eleman sıralarındaki elemanların değerleri açısından Unicode düzeni bozulmakta
+				ve Unicode altında, 254 (16#FE#) kod noktasına, karakter kodu 254 (16#FE#) olan, Character veri
+				tipinin 256 elemanından 255 incisi olan  küçük thorn karakteri yerine, karakter kodu 351 (16#15F#)
+				olan, 'ş' karakteri geçmektedir.  Latin-1 spesifikasyonu dışında kalan, diğer 5 karakter de yine 
+				Character veri tipinin başka 5 elemanının yerini almaktadır.</li>
+			<li>CP-1254 , Wide_Character veri tipinin elemanlarının Unicode tarafından belirlenmiş değerlerini 
+				değiştirmemektedir. Wide_Character veri tipinin 351 ( 16#15F#) sayılı kod noktasında bulunan,
+				Wide_Character veri tipinin 65536 elemanından 352 incisi olan elemanın değeri, Unicode (UTF-8)
+				ve CP-1254 altında daima karakter kodu 351 ( 16#15F)# olan 'ş' karakteridir.</li>
+			<li>DOS emülatörleri, Wide_Character veri tipindeki elemanlarının değerlerini görüntüleyememekte,
+				sadece değerin Hex kodlarını yazdırmaktadır.</li>
+		</ul>
+		<p class="title-left" id="wide-wide-character">3.6 - Wide_Wide_Character Veri Tipi </p>
+		<p class="indent">
+			Ada 95 de UCs-2 desteği sağlandıktan sonra geçen sürede UCS-2 nin yetersiz kalacağı düşüncesi 
+			ile 32 bit genişliğinde karakter kodlaması yapabilen UCS-4 kodlamasına geçilmiş ve UCS-2 terkedilmiştir. 
+			32 bit genişliğindeki UCS-4 , 16 bit genişliğindeki UCS-2 ile kodlanmış karakterlerin kodlarını değiştirmediği
+			sadece yeni karakterler için ilave kod giriş noktaları açtığı için, UCS-4 e geçiş kodlanmış karakterlerin
+			kod giriş noktaları değişmememektedir. ADA 2012 UCS-4 ü desteklediğinden, UCS-2 altında tanımlanmış olan,
+			Character ve Wide_Character veri tipleri ve içerikleri Ada 2012 de aynı kalmış fakat yeni UCS-4 kod
+			noktalarını kapsayabilecek kapsam genişliğinde yeni bir Wide_Wide_Character veri tipi konulmuştur.
+			Wide_Wide_Character veri tipinin ilk 256 karakteri Character veri tipi ile, ilk 65536 karakteri Wide_Character
+			veri tipinin elemanları ile aynıdır. Tüm nitelik ve tanımları da Character veri tipi ile aynıdır. 
+		</p>
+		<p class="indent">
+			Wide_Wide_Character veri tipi sadece uzakdoğu karakterleri için gereklidir ve Türkçe gibi konvansiyonel
+			alfabetik karakterler kullanan dillerde kullanımı gereksiziir. 
+		</p>
+		<p class="title-left" id="string">3.7 - String Veri Tipi</p>
+		<p class="indent">
+			Standard pakette tanımlanan son veri tipi olan String veri tipi bağımsız bir veri tipi
+			değildir. Ada programlama dilinde String veri tipi, olması gerektiiği gibi bir karakter
+			dizisi olarak kabul edilir. String olarak adlandırılan karakter dizileri, Ada derleyicisi için
+			tam olarak ve tüm hakları ile bir dizi olarak algılanır. Öntanımlı String veri tipinin,
+			bu durumda öntanımlı bir dizi türü olarak düşünülmesi gerekir.
+	</p>
+		<p class="indent">
+			String literallerinin çift tırnak içinde isim := <span class="str">&quot;Ali&quot;</span>
+			şeklinde tanıtıldığı daha önce açıklanmıştı. Bu şekilde String ve Character veri tipinden 
+			literallerin birbirlerine karıştırılması engellenmiş olur. String verileri Ada.Text_IO öntanımlı
+			paketi yardımı ile görüntülenebilir. Ayrıca String verileri ile çalışılabilmesi için, 
+			çok zengin öntanımlı paketler de derleyici ile birlikte gelmektedir. Bu konu ileride 
+			diziler incelendikten sonra ayrınılı olarak ele alınacaktır.
+		</p>
+	<ul id="navbottom">
+<li id="index">
+          <a href="../index.html"><em>« İndeks</em></a>
+        </li>
+        <li id="denge"></li>
+        <li id="sayfa">
+          <a href="b3-s10.html"><em> &laquo;Önceki</em></a></li>
+        <li id="denge1"></li>
+        <li id="kodlama">
+      <a href="../b4/b4-s1.html"><em> Sonraki &raquo;</em></a></li>
+        <li id="navbottom-sonlama"></li>
+      </ul>
+
+</body>
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s11.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:22 GMT -->
+</html>
+
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:54 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b19s1</title>
+	</head>
+	<body>
+		<p><img class="banner" alt="Banner"
+			src="../images/banner.png" /></p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="../b18/b18s10.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b19.6.1-s1.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri		</p>
+		<p class="chapter">
+			Bölüm 19
+		</p>
+		<p class="chapter">
+			W3C Belge  Nesne Modeli (W3C Document Object
+			Model) (W3C-DOM)</p>
+		<p class="pagenum">
+			Bölüm 19 Sayfa 1
+		</p>
+		<p class="title-left" id="document">19.1 - window Nesnesinin document Alt Nesnesi (Belge Yapılanması)</p>
+		<p class ="indent">
+			JavaScript <span class="keyw">window</span> nesnesinin <span class="keyw">document</span> 
+			alt nesnesi, geniş içeriği ve kuramsal kapsamı nedeni ile tüm çalışmalarda başlı başına özel bir 
+			bölümde incelenmektedir. JavaScript <span class="keyw"> document</span> alt nesnesi, web 
+			sayfasının ana amacı olan belgeyi kapsar. Bir web sayfası, bir belgenin yapılandırılmış şeklidir. 
+			Yapılandırma organizasyon ile ilgilidir. Organizasyon belirli çalışma yöntemleri gerektirir. 
+			Bu çalışma yöntemlerini istersek standartlar olarak da adlandırabiliriz. 
+		</p>
+		<p class ="indent">Belgeler, başlık, paragraf, tablo gibi sayfa öğelerini kapsar. Yapılandırma, 
+			belgelerin sayfa öğelerinin belirli bir öntanıma göre düzenlemesini öngörür. Belirli bir standarda 
+			göre yapılandırılmış belgelerde aynı türden sayfa öğeleri bulunur. Yani belge yapısı standart hale 
+			getirilmiş olur. Blege yapılarının satndart hale getirilmesinden sonra, bu yapıların çeşitli 
+			ortamlarda anlamlı sonuçlar verecek şekilde çözümlenmesi daha kolay ve daha sistematik bir 
+			işlem olacaktır.
+		</p>
+		<p class ="indent">Belge yapılanması için kabul edilmiş olan temel yapılanmanın SGML temeline 
+			dayalı bir yapılanma yöntemi olması uzun araştırmalardan sonra kabul edilmiştir. SGML gerçek bir 
+			devrim olarak düşünülebilir. Bu bir tür yapılanmanın genel kuralları olarak işlev yapar. SGML 
+			temeline dayalı, XML, HTML gibi uygulama yapaılanma yöntemleri oluşturulmuştur. SGML uygulama 	
+			yapılanmalarının oluşturulması için sonsuz olanaklar sağlar. Ne var ki bu olanaklar sınırlı sayıda 
+			kullanılabilir, çünkü her yapılanmanın gerçek sonuçlara dönüştürülebilmesi için çözümleyicilerin 
+			de geliştirilmesi gerekmektedir.
+		</p>
+		<p class ="indent">Web yayınları, HTML yapılanmasını çözümleyebilen çözümleyicilerin geliştirilmesi 
+			ile yaygınlık kazanmıştır. Buna XML çözümleyicileri de eklenmiştir. XHTML yapılanması, bir XML 
+			alt yapılanma türü olarak geliştirilmiştir. Günümüzde dah en az on yıl süreceği öngörülen HTML5 
+			yapılanması hazırlıkları sürmektedir.
+		</p>
+		<p class="title-left" id="tree">19.2 - Belge Öğelerinin Ağaç Yapısı</p>
+		<p class ="indent">
+			W3C-DOM belge yapılanmasını destekleyen belge çözümleyiciler, çözümlenmiş 
+			sayfa kodlarını ağaç yapılanması şeklinde organize ederler. 
+			Bu yapıda her öğe bir düğüm (node) olarak yerleştirilir. Bu şekilde düğümlerin düzenlenmesi, 
+			yenilenmesi, mevcut ağaç yapısına yerleştirilmesi niteliklerinin değiştirilmesi daha kolay 
+			gerçekleştirilebilir. Burada dikkat edilecek nokta her düğümün belirli bir düğüm 
+			sınıfına ait ayrı bir nesne örneği olduğudur. W3C-DOM belge yapılanması alışılmışın dışındadır.
+			Örnek olarak paragraf elementi ayrı bir düğüm iken, paragraf içerikleri farklı tipte birçok 
+			düğümden oluşur. Boşluklar, noktalama işaretleri gibi tüm öğeler ayrı bir yapıtaşı olarak 
+			ağaç yapısında yerlerini alırlar. Fakat çoğu zaman kullanıcıların fazla ayrıntıya girmeleri gereği olmaz.
+		</p>
+		<p class ="indent">
+			En basit bir HTML yapılanmasının bile ağaç yapısı ilk bakışta alışılmamış gelebilir. 
+			Örnek olarak,
+		</p>
+		<pre>
+DTD açıklamaları
+<span class="keyw">&lt;</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>Ağaç Yapısı<span
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span
+			class="elm">title</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">head</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">Belgenin Ağaç Yapısı</span>
+<span class="keyw-25">&lt;</span><span
+			class="op">/</span><span
+			class="elm">p</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-10">&lt;</span><span
+			class="op">/</span><span
+			class="elm">body</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw">&lt;</span><span
+			class="op">/</span><span
+			class="elm">html</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class ="nonindent">
+			Şematik olarak bu kodların ağaç yapısı aşağıdaki gibidir:
+		</p>
+		<p class="sayfaortala"><img src="../images/b19.2-img-1.png" width="276" height="233" /></p>
+		<p class="sayfaortala">Şekil 19.2-1 : (X)HTML Kodlamasında Belgenin Ağaç Yapısı</p>
+		<p class ="indent">
+			Programcılar için ise, kodlanmış belgenin W3C-DOM spesifikasyonuna göre çözümlenmiş halinin 
+			ağaç yapısı daha ilginç olabilir. Burada kök (en tepe) nesne, tüm belgenin tek kök elementi olan 
+			<span class="keyw">Document</span> düğümüdür. Element düğümlerinin en üst düzey düğümü ise,
+			<span class="keyw">&lt;</span><span class="elm">html</span><span 
+			class="keyw">&gt;</span> elementidir ve iki eşdüzey (kardeş) (sibling) alt nesnesi 
+			bulunmaktadır. Bunlar, <span class="keyw">&lt;</span><span 
+			class="elm">head</span><span class="keyw">&gt;</span>  ile,
+			<span class="keyw">&lt;</span><span class="elm">body</span><span class="keyw">&gt;</span> 
+			nesneleridir. Bu nesneler eşdüzey (kardeş) nesnelerdir, 
+			çünkü üst düzey nesneleri (ana-babaları) aynıdır. Bu kardeş nesnelerin 
+			de kendi alt nesneleri vardır. Bunlardan <span class="keyw">&lt;</span><span 
+			class="elm">head</span><span class="keyw">&gt;</span> elementinin alt 
+			nesnesi <span class="keyw">&lt;</span><span class="elm">title</span><span 
+			class="keyw">&gt;</span> elementi, <span class="keyw">&lt;</span><span 
+			class="elm">body</span><span class="keyw">&gt;</span> elementinin alt 
+			nesnesi <span class="keyw">&lt;</span><span class="elm">title</span><span 
+			class="keyw">&gt;</span> elementidir. Bu son iki nesne eşdüzey değillerdir, 
+			çünkü üst düzey nesneleri farklıdır. Bu son iki nesnenin içerikleri de, birer alt 
+			nesne olarak hiyerarşik yapılanmada yerini alır. İçeriklerin ayrı alt nesneler 
+			olarak organize edildiğine dikkat edilmelidir. Belgenin ağaç yapısının, basitleştirilmiş
+			hiyerarşik yorumu aşağıda görülmektedir.
+		</p>
+		<p class="sayfaortala"><img src="../images/b19.2-img-2.png" width="411" height="428" /></p>
+		<p class="sayfaortala">Şekil 19.2-2 : Belgenin Ağaç Yapısının Hiyerarşik Yorumu (Sadece Element Düğümleri ile Sınırlı Basitleştilmiş Görünüm) </p>
+		<p class ="indent">
+			Aslında, şekil 19.2-2 ye bakılınca, çözümlenmiş nesnenin düğüm yapısının kodlanmış belgeye 
+			göre çok daha karmaşık olduğunu görüyoruz. Ayrıca, çözümlenmiş belgenin düğüm organizasyonu,
+			her belge çözümleyiciye göre diğerinden farklı olabilir. Yani, bilinen bir düğümden,
+			 üç düzey yukarı çıkılıp, üç düzey ileriye gidilince, erişelecek düğüm her belge çözümleyicide
+			farklı olabilir. Bu açıdan belirli bir düğüme erişim için, bu düğümün <span class="att">id</span>
+			niteliği gibi değişmez ve belge içinde sadece birt ek düğümün sahip olabileceği bir nitelikten yararlanmak
+			doğru düğüme ulaşmak adına tutulabilecek olan en garantili yol olabilir.
+		</p>
+		<p class ="indent">
+			W3C-DOM API deki interface olarak belirtilen arabirimlerin girdilieri (X)HTML kodlama değerleri, çıktıları ise 
+			API 'nin hedeflediği dildir. Belge çözümleyiciler, JavaSCript API yi desteklemektedirler. Bu yüzden çözümlenmiş 
+			belgenin düğüm noktaları, JavaScript program adımları ile ulaşılabilecek değerler olması gerekir. Gerçekten,
+			W3C-DOM API yi desteklyen bir belge çözümleyici tarafından çözümlenmiş sayfa kodlarında, yukarıdaki 
+			şekillerde görülen ve JavaScript program adımları ile ulaşılabilen bir ağ yapısını oluştururlar.
+		</p>
+		<p class ="indent">
+			Oluşmuş olan ağın, her düğüm noktası farklı bir düğüm türü olabilir. W3C-DOM API, Coment düğüm tipi, 
+			Document düğüm tipi, Attr (attributes) düğüm tipi, Text düğüm tipi gibi 11 farklı tip düğüm tipi tanımlamıştır.
+			Her düğüm tipi belirli bir nesne tipidir. Düğüm noktaları, belirgin  nesne türlerinin örnekleridir.
+		</p>
+		<p class ="indent">
+			JavaScript programlama dilinde, nesneler, bellek referansları kanalı ile yöntilirler. JavaScript programlama dili,
+			bellek referanslarına doğrudan erişimi desteklemez. Bellek referansları JavaScript yorumlayıcısındaki hazır 
+			yöntemlerden yararlanılarak elde edilebilir ve değişkenlere atanarak, bu değişkenler yardımı nesnelere 
+			erişilebilir. W3C-DOM API de bu hazır yöntemlerden biridir. Arayüzlerde tanımlanmış yöntemlerden yararlanılarak,
+			JavaScript değişkenlerine atanabilecek bellek referansları elde edilebilir ve bu değişkenler yardımı ile 
+			düğümü oluşturan nesne tipinin W3C-DOM API de tanımlanmış olan özelliklerine ulaşılabilir. 
+		</p>
+		<p class ="title-left" id="tarih">19.3 - Tarihsel Bilgiler</p>
+		<p class ="indent">
+			İlk Javasccript programlama dili 1996 da devreye girmiştir. Netscape tarafından 
+			yapılan bu atağa, Microsoft da JScript yorumlayıcısı ile karşılık vermiştir. Her iki 
+			yorumlayıcı başlangıçta sadece form değerlendirmesi ve resim rolloverleri 
+			için kullanıldığından başlangıçta fazla bir sorun yaratmamıştır. Bu devreye Legacy DOM
+			devresi adı verilmektedir.
+		</p>
+		<p class ="indent">
+			JavaScript'in kullanışlı yapısı sonucunda, kullanım yöneleri kısa sürede artmıış ve 
+			büyük ölcüde sayfa görüntüsünün dinamik olarak değiştirilmesi için kullanılır
+			olmuştur. Kullanım yönleri artmış, JavaScript DOM API'si genişlemiş uyumsuz
+			yönler artmış ve ticari kaygılarla uyumsuzlar arttırılmıştır. Bu devereye 
+			geçiş dönemi DOM'u (intermediate DOM) adı verilmiştir. Bu zaman aralığı, 
+			geliştiricilerin büyük sorunlar yaşadığı dönemlerdir ve sonuçta,
+			tüm uyumsuzların tek çözümü olan standartlaşma dönemi başlamıştır. 
+		</p>
+		<p class ="indent">
+			Standartların oluşturulması ve bilimsel koordinasyon görevini üstlenen W3C
+			1996 da kurulmuştur. JavaScript'in standartlaştırılması başka bir kanaldan
+			yürütülmüş ve JavaScript standardı ECMAScript adı altında
+			1997 de yayınlanmıştır. Günümüzde, tüm belge çözümleyiciler ECMA-262
+			standartlarını desteklemektedirler. Bu açıdan, ortak olarak desteklenebilen 
+			programların yazılmasında en azından programalama dili açısından bir standartlaşma
+			sağlanabilmiştir.
+		</p>
+		<p class ="indent">
+			W3C, ilk DOM standardını <a href="http://www.w3.org/DOM/DOMTR#dom1">DOM düzey-1</a> adı ile 
+			1998 de gerçekleştirilmiştir. Bunu 2000 de 
+			<a href="http://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/">DOM-düzey-2 ikinci sürüm</a>
+			izlemiştir. DOM-düzey-1 büyük ölcüde ortak olarak desteklenebilen programların
+			yazılabilme yolunu açmıştır. Programcılar bu standardı bir ortak çözüm yöntemi olarak benimsemiş 
+			ve kullanmaya başlamışlardır. Belge çözümleyicilerin üreticileri de giderek 
+			W3C-DOM uyumlu sürümler çıkarmaya özen göstermişlerdir. DOM-düzey-1 den sonra, 
+			eski nesil DOM yöntemleri büyük ölcüde çağdışı kalmış fakat eskiye uyum kaygısı 
+			sonucunda, günümüzde dahi desteklenmeye devam edilmektedir. Fakat doğal olarak, 
+			bu desteğin uzun süre devam etmeyeceği, yeni programların güncel yöntemlerle
+			oluşturulmasının ve eski programların güncellenmesinin gerekli olduğu belirtilmektedir.
+		</p>
+		<p class ="indent">
+			W3C, DOM spesifikayonlarının
+			<a href="http://www.w3.org/2001/05/level-2-src.zip"> ikincisini</a>, 2000 
+			yılında açıklanmıştır. DOM düzey-2 çok daha detaylı ve modüler olarak yayınlanmıştır. 
+			günümüzde, önde gelen belge çözümleyicilerin son sürümleri, DOM düzey-2 yi
+			büyük ölçüde desteklemektedirler. 
+		</p>
+		<p class ="indent">
+			W3C, DOM düzey 2 spesifikasyonları, sitesinden 
+			<a href="http://www.w3.org/2001/05/level-2-src.zip"> indirilebilir</a> . Bu spesifikasyon,
+		</p>
+		<p class ="indent">
+	<ul class="listNoMarker">
+				<li> Yeni yöntemleri içeren 
+				<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/">Core (Çekirdek)</a>
+				spesifikasyonu,</li>
+				<li> Belgenin gösterimi ile ilgili
+				<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Views-20001113/">Views</a> spesifikasyonu</li>
+				<li>Olayları içeren <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/">Events</a>
+				spesifikasyonu</li>
+				<li>CSS yöntemlerini içeren
+				<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113/">Style</a>
+				spesifikasyonu</li>
+				<li>Belge içinde dolaşım yöntemlerini belirten 
+				<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/">Traversal-Range</a>
+				spesifikasyonu</li>
+				<li>Eski yöntemleri düzenleyen <a href="http://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/">HTML</a>
+				spesikasyonu</li>
+	</ul>
+		</p>
+		<p class ="nonindent">
+			kısımlarından oluşmaktadır.
+		</p>
+		<p class ="indent">
+			W3C-DOM Düzey 2 Core (Çekirdek) standardı, XML ve XHTML belgeleri ile kullanılmak üzere 
+			yeni yöntemleri içermektedir. Bu yöntemler ileri de geçerli olacaklardır. Bu yüzden, çalışmalarımızda
+			sadece çekirdek yöntemlerini uygulayacağız. W3C-DOM Düzey 2 HTML belgelerinde uygulanan
+			eski W3C-DOM önccesi yöntemleri düzenlemek amacı ile hazırlanmıştır. Günümüzde 
+			eskiye uyum amacı ile desteklenmektedir ve bu desteğin ne kadar devam edeceği belli değildir.
+			Bu nedenle zaman aşımına uğramış bu yöntemlerde uzak durmaya çalışacağız. 
+		</p>
+		<p class ="indent">
+			W3C-DOM Düzey 2 standardı çok geniştir. Burada ancak çok kullanılan çekirdek ve satıriçi stil 
+			yöntemleri üzerinde durulabilecektir. Programcılar, spesifikasyonun tümünü inceleyerek
+			gerektiğinde yeni  yöntemleri uygulayabileceklerdir.
+		</p>
+			<p class ="indent">
+			W3, DOM standartlarının en yenisini, 2004 de 
+			<a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/">DOM düzey 3</a>
+			adı ile yayınlanmıştır. DOM-düzey-3'ün desteği giderek artmaktadır. Destek yeterli olunca, 
+			ikincisinden fazla farkı olmayan bu spesifikasyon da uygulanabilecektir.
+		</p>
+		<p class="title-left" id="w3cdom">19.4 - W3C-DOM API</p>
+		<p class ="indent">
+			W3C-DOM yani W3C Belge Nesne Modeline göre, bir belge çözümleyicide 
+			çözümlenmiş olan kodlanmış belgenin yapısı hiyerarşik bir düzenle 
+			yapılanmış düğümlerden (Nodes) oluşmaktadır. Her düğümün üst (parent)
+			alt (child) ve eşdüzey (sibling) düğümleri olabilir. Belgenin en üst düzey düğümü,
+		her belgede sadece bir tane bulunabilen kök düğümüdür.
+		</p>
+			<p class="sayfaortala">
+				<img src="../images/b19.2-img-3.png" alt="ÇÖzümlenmiş Belgenin Yapılanması" 
+				width="404" height="400" />
+		</p>
+			<p class="sayfaortala">
+			Şekil 19.2-3 : Belgenin W3C-DOM API ye göre Ağ Yapısı Yorumu
+		</p>
+		<p class="indent">
+			Yukarıda şemada görüldüğü gibi, belge yapılanmasının W3C-DOM API'sinin 
+			ağ yapısı yorumuna göre, belge yapılanması, belge köküne eklenen birleşim 
+			noktalarından, veya düğümlerden oluşur. başka düğüm noktalarının kendine 
+			eklenmesine olanak veren düğümlere dal, başka düğümlerin kendine eklenmesine 
+			olanak vermeyen sonlandırıcı düğümlere yaprak adı verilir. 
+		</p>
+
+		<p class ="indent">
+			W3C-DOM API sinin birinci sürümünde, 12 düğüm türü öğesi belirtilmiştir. 
+			Bu sayı ikinci ve üçüncü sürümlerde de aynı kalmış fakat tanımlar geliştirilmiştir. Çözümlenmiş
+			sayfa yapılanmasında bulunabilecek 12 düğüm tipi aşağıda görülmektedir:
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="cursive-maroon">ELEMENT_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-maroon">ATTRIBUTE_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-green">TEXT-NODE (alt düğümler içeremez) (yaprak)</span></li>
+			<li><span class="cursive-green">CDATA_SECTION_NODE (alt düğümler içeremez) (yaprak)</span></li>
+			<li><span class="cursive-maroon">ENTITY_REFERENCE_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-maroon">ENTITY_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-green">PROCESSING_INSTRUCTION_NODE (alt düğümler içeremez) (yaprak)</span></li>
+			<li><span class="cursive-green">COMMENT_NODE (alt düğümler içeremez) (yaprak)</span></li>
+			<li><span class="cursive-maroon">DOCUMENT_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-green">DOCUMENT_TYPE_NODE (alt düğümler içeremez) (yaprak)</span></li>
+			<li><span class="cursive-maroon">DOCUMENT_FRAGMENT_NODE (alt düğümler içerebilir) (dal)</span></li>
+			<li><span class="cursive-green">NOTATION_NODE (alt düğümler içeremez) (yaprak)</span></li>
+		</ul>
+		<p class ="indent">
+			W3C-DOM CORE spesifikasyonları, çözümlenmiş belgenin yukarıdaki şekilde görüldüğü
+			gibi sayfa yapısına erişmek ve bu yapıda dinamik değişikler gerçekleştirilmesini sağlayacak 
+			programların yazılmasını sağlayacak API lerin yapısını tanımlamaktadır.
+		</p>
+		<p class ="indent">
+			W3C-DOM API de API nin açılılmı Application Programming Interface yanı Uygulama 
+			Programlama Arayüzüdür. Bir programlama arayüzü, bir tür çevirici görevi yapar. 
+			Arayüze veri olarak beslenen bir programlama dili öğeleri, arayüzün içinde dönüştürülerek,
+			başka bir programlama dilinin ögeleri haline getirilir. Arayüzün iç yazılımı önemli değildir,
+			önemli olan, arayüzün giriş verileri ve sonuç çıktılarıdır.
+		</p>
+		<p class ="indent">
+			W3C-DOM spesifikasyonları Interface (Arayüz) tanımları vermektedir. Inteface tanımları, 
+			Java sanal sınıfları (abstract classes) tanımlarına benzer. Bu tanımlarda giriş ve 
+			çıkışlar açıkça belirlenmekte ve arayüzün iç yazılımı tamamen özgür bırakılmaktadır.
+		</p>
+		<p class ="indent">
+			W3C-DOM API arayüzlerinin girişleri (X)HTML kodlamasındaki sayga ögeler, yani 
+			element adları, niteli adları ve değerleri gibi sayfa öğeleridir. Çıktılar ise, 
+			her scripting programlama dilinde olabiir. Güncel olarak sadece W3C-DOM JavaScript API 
+			kullanılmaktadır ve W3C-DOM JavaScript API, W3C-DOM API olarak adlandırılmaktadır.
+		</p>
+		<p class ="indent">
+			Düğüm oluşturabilecek ögeler arasında, (X)HTML sayfa kodlarında yer
+			alan Element gibi ögeler dışında, metinler (Text), belge parçacıkları (DocumentFragment), 
+			notasyon gibi düğüm türleri de bulunmaktadır. W3C-DOM CORE API de belirtilmiş 12 
+			düğüm oluşturabilen arabirim tanımları dışında, sayfa yapılanmasına katılmayan,
+			NodeList gibi NamedNodeMap Attr gibi, benzer yapıda düğüm topluluklarının
+			yönetimini tanımlayan arabirim türleri de bulunmaktadır.
+		</p>
+		<p class ="indent">
+			W3C-DOM CORE Arabirimlerinin hiyerarşisi, yani özelliklerin kalıtım yolu ile 
+			düğümden düğüme aktarılma sistematiği 
+			<a href="http://reference.sitepoint.com/javascript/domcore">sitepoint</a> sitesinden 
+			alınmış olan aşağıda görülen şemada belirtilmiştir.
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/DOMkal.png" alt="DOM CORE Düğümleri Hiyerarşi Listesi" 
+			width="599" height="761" />
+		</p>
+		<p class="sayfaortala">
+			Şekil 19.2-4 :  W3C-DOM CORE Düzey-2 Spesifikasyonunda Bulunan Arabirimlerin Hiyerarşisi
+		</p>
+		<p class ="indent">
+			Yukarıdaki şemada açıklanan W3C-DOM CORE Düzey-2 Spesifikasyonunda tanımlanan 
+			arabirim nesnelerinin hiyerarşik yapısı sonucu, üst sınıf arabirim nesnelerinin özellikleri 
+			kalıtım yolu ile alt arabirim nesne sınıflarına aktarılır.
+		</p>
+		<p class ="indent">
+			Her belge çözümleyicinin W3C-DOM API arabirimleri iç yazılımları birbirlerinden 
+			farklıdır. Bunun sonucu olarak her belge çözümleyicinin varsaydığı  çözümlenmiş
+			sayfa kodlarının sanal düğüm yapılanması da birbirinden farklıdır. Yine de 
+			aşağıda görüldüğü gibi, sayfa kodlamasına koşut (paralel) bir ortalama düğüm
+			yapısının her belge çözümleyicide az çok farklılıklar ile gerçekleştiği varsayılır.
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/b19.2-img-4.png" width="418" height="342" />
+		</p>
+		<p class="sayfaortala">
+			Şekil 19.2-5 : Belgenin W3C-DOM API ye göre Ağ Yapısnın Şematik Yorumu
+		</p>
+		<p class ="indent">
+			Yukarıda görülen basitleştirilmiş şematik ağ yapısı da aynen bir önceki belge yapısı yapısı 
+			gibi, ilk düğümün document düğümü olduğunu açıklamaktadır. Basitleştirilmiş 
+			ağ yapısında document düğümünün sadece bir tek element alt düğümü içermekte
+			gibi görünmesine karşın gerçekte, daha başka tipte düğümler de bulunmaktadır. 
+			<span class="keyw">Document</span> tipinde document düğümünün,
+			<span class="keyw">Element</span> tipi tek alt düğümü, belge kodlanmasında kök element
+			olan html elementi düğümü olmaktadır. Ağ yapısı bundan sonra iki yöne doğru 
+			gelişmektedir. Yukarıdaki şeklin basitleştirilmiş olduğu, gerçek dallanmanın çok 
+			daha karmaşık olduğu daima gözönüne alınmalıdır. Kullanıcılar ağın yapısını 
+			tahmin edip üç ileri eşdüzey düğümden sonra gelen düğümün 
+			ikinci niteliği gibi ifadelerle ağ içinde gezinmekten kaçınmalıdırlar.
+		</p>
+		<p class ="indent">
+			Çözümlenmiş belge yapılanması içinde kök düğümün document düğümü olması, sadece 
+			şekil 19.2-3 ve şekil 19.2-5 deki belge yapılanması içinde düğümlerin üst/alt düzey 
+			hiyeraşisini ilgilendirir. Şekil 19.2-4 de görülen arabirim sınıflarının hiyerarşik yapısı 
+			ve bunun sonucu olan arabirim kalıtım sistemi, sayfa yapılanması ile hiçbir şekilde
+			ilgili değildir. Şekil 19.2-4 de görüldüğü gibi, yazılım açısından bazı arabirimler
+			hiçbir kalıtım düzeni içinde değilken, bazılarının kök tipi 
+			<span class="keyw">Node</span> arabirim tipidir ve <span class="keyw">Document</span>
+			düğüm tipi, <span class="keyw">Node</span> arabirim tipinin bir alt nesnesi olarak
+			<span class="keyw">Node</span> arabirim tipinin özelliklerini katımla elde eder. 
+			Yani, document düğümü belge yapılanmasında kök düğüm iken, 
+			<span class="keyw">Document</span> arabirimi, <span class="keyw">Node</span>
+			arabiriminin bir alt nesnesidir. Diğer arabirim tipleri için de kalıtım sistematiği 
+			benzer olarak şekil 19.2-4 den izlenebilir. 
+		</p>
+		<p class ="indent">
+			W3C-DOM API arabirimlerinin iç yazılımları, belge çözümleyiciden belge çözümleyiciye 
+			farkı olmasına karşın, arabirim giriş ve çıkışları, spesifikasyonda kesin olarak belirlenmiştir.
+			İzomorfi prensibi, aynı program adımlarının her belge çözümleyicide aynı sonuçları 
+			gerektiğini belirtir. Ne var ki izomorfi sadece kuramsal olarak geçerlidir. Pratikte,
+			W3C-DOM Düzey 2 CORE API yi bile tam olarak hiçbir belge çözümleyici 
+			destekleyemez. Daha kötüsü çok nadir olmakla birlikte, desteklendiği belirtilen
+			bazı yöntemler bile bazen desteklenmeyebilir. En kötü destek de, en çok
+			kullanılan Internet Explorer belge çözümleyicisindedir. Bu belge 
+			çözümleyicisinin son sürümü olan MS IE 8 de hatalar kısmen de olsa 
+			düzeltilmiştir. Fakat yine de, her programın çeşitli belge çözümleyicilerinin en son
+			sürümlerinde denenmesi ve destek yetersizse, uygulanan W3C-DOM API
+			düzeyini düşürülmesi hatta, W3C-DOM öncesi yöntemlerin kullanılması gerekebilir.
+		</p>
+		<p class="title-left" id="domstring">19.5 - DOMString tipi</p>
+		<p class ="indent">
+			W3c-DOM da karakter dizgisi olarak kullanılan DOMString UTF-16 kodlamasına göre 16 lık bit 
+			katarları olarak tanımlanmıştır. Gerek java gerek ECMAScript UTF-16 kodlamasını kullandıklarından
+			uyum sorunu ortya çıkmammaktadır. Fakat, HTML ve XML UCS (ISO/IEC 10646) spesifikasyonunu
+			kabul ettiğinden, bazı durumlarda kaynak kodunda tek sayısal karakter referansı, iki tane UTF-16 
+			sekansına karşı gelebilir. Bu durum kullanıcıyı etkilemez.
+		</p>
+		<p class ="indent">
+			HTML karakter yazılımına duyarlı değilir bu nedenle element adları HTML için küçük veya
+			büyük harflerle yazılabilir. XML ise karakter yazılımına duyarlıdır ve tanımlanmış element isimleri, 
+			tanımlandığı gibi yazılmalıdır. XHTML bir XML türü olduğundan, element isimleri DTD de tanımlanmış
+			olduğu şekilde küçük harflerle yazılmalıdır.	
+		</p>
+		<p class="title-left" id="core">19.6 - W3C-DOM Düzey 2 Çekirdek (CORE) Yöntemleri Spesififasyonu Temel Arabirimleri</p>
+		<p class ="indent">
+			W3C-DOM Temel arabirimleri, çok geniş kapsamlıdır ve bir çok tanımı
+			kullanıcıdan çok arabirim yazarlarını ilgilendirmektedir. Bu nedenle, burada yapılacak tanım 
+			spesifikasyonlarının incelenmesi kullanıcıların ilgilenmesi gereken en az
+			sayıda tanımı içerecektir. Bu konuda daha geniş bilgiler, W3C spesifikasyonlarından 
+			alınabilir. W3C-DOM, ilk sürümünde çok iyi hazırlanmış olduğundan, sürümler 
+			arasında dramatik değişiklikler olmamış sadece tanımlara katkılar yapılmış ve 
+			hatalar düzeltilmiştir. Son sürüm olan W3C-DOM düzey 3 ün henüz 
+			ortak desteği tam olarak sağlanamamıştır. İkinci sürüm ise, günümüzde kullanılmakta
+			olan çeşitli yenilikler içermekte ve tüm belge çözümleyicilerde neredeyse tam olarak
+			desteklenmektedir. Bu nedenle, incelemeler, birinci sürüme göre daha gelişkin ve
+			desteği tam olan ikinci sürüm üzerinden yapılacaktır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="../b18/b18s10.html"><em> &laquo; Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b19.6.1-s1.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:54 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

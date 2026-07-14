@@ -1,0 +1,989 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    <meta name="robots" content="noindex, follow">
+        <meta name="generator" content=
+        "HTML Tidy for Windows (vers 1st February 2003), see www.w3.org">
+        <meta http-equiv="Content-Language" content="tr">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href=
+        "../CSS/newstyle.css" media="all">
+        <title>
+            Bağlantı Temelleri
+        </title>
+    </head>
+    <body>
+        <p>
+            <img src="../images/SharedImages/Ekler.gif" alt=
+            "Ekler.png" width="390" height="200" class="x">
+        </p>
+        <p style="text-align: right">
+            <a href="../index.htm"><img src=
+            "../images/SharedImages/index.gif" alt="Index.htm"
+            width="40" height="40" class="x"></a> <a href=
+            "ek1s2.htm"><img src="../images/SharedImages/next.gif"
+            alt="Next s" width="40" height="40" class="x"></a>
+        </p>
+        <p class="chapter">
+            Ek 1
+        </p>
+        <p class="pagenum">
+            Sayfa 1
+        </p>
+        <hr>
+        <p class="chapter-title">
+            Bağlantı Temelleri
+        </p>
+        <p class="subheading" id="uri">
+            URL, URN, URI
+        </p>
+        <p class="indent">
+            Dünyada gerçekleşen her olay, insanoğlu için bir
+            deneyim anlamına gelir. Bu birikimlerin aktarılmasında
+            kullanılacak her bilgi de, bir kaynak (resource)
+            oluşturur. Internet sisteminde, bir belge, kaynaklara
+            bağların yardımı ile ulaşabilir. Bu şekilde bir belge,
+            kendisine bağlanan diğeri için bir kaynak işlevini
+            yapar. Bağ oluşturan element nitelikleri, URI olarak
+            adlandırılan bir adres sisteminden yararlanarak ilgili
+            kaynakları bulurlar. URI (Uniform Resource Identifier)
+            (Tek Biçimli Kaynak Belirleyici) anlamına gelen ve Web
+            üzerindeki belgelerin yerlerinin belirlenmesi için
+            standartlaştırılmış bir ifade şeklidir. Bu ifade şekli,
+            bir belge için en üst düzeyi Kaynak belirleyicidir ve
+            iki tane alt düzeyi kaynak belirleyicisini içerdiği
+            varsayılmaktadır. Bu iki alt düzeyi kaynak
+            belirleyicileri,URN ve URL dir. URL (Uniform Resource
+            Locator) (Tek Biçimli Kaynak Bulucu), bu spesifikasyon
+            günümüzde belge çözümleyicilerin çalıştırabildiği tek
+            düzenlemedir. URN (Uniform Resource Name) (Tek Biçimli
+            Kaynak Adı) belgenin kimliği ile ilgilidir. Bir
+            belgenin orijinal veya kopya olduğu, URN bilgileri ile
+            belirtilebilecektir. URN, belgenin kimliğinin
+            belirlenmesi ve yerinin kimliğine dayalı olarak
+            saptanması ile ilgili daha temel bir düzenleme
+            şeklidir, fakat bugün henüz geliştirilme aşamasındadır.
+            URN düzenlemesi henüz uygulamaya konulma aşamasına
+            gelmemiştir. URL bilgileri, belgenin sadece bulunması
+            ile ilgilidir ve günümüzde pratikte gerçekleşebilen tek
+            belge yeri belirtme yöntemidir.
+        </p>
+        <p class="indent">
+            Bugün için, gerçekleşebilen uygulama ise henüz URL
+            yapılanması düzeyindedir. URN sistemi ise henüz
+            geliştirilme aşamasındadır. URI bilgileri, bugün için
+            URL ve URN lerin yerine kullanılmaktadır. URI
+            bildirimi, her iki düzenlemeyi de üst düzeyi olarak
+            içerdiğinden, tam olarak geliştirilip uygulandığında,
+            belgelerin niteliği ve yerleri üzerine daha iyi bir
+            kontrol sağlanabilecektir.
+        </p>
+        <p class="subheading">
+            URI Temel Sözdizimi :
+        </p>
+        <p class="indent">
+            Temel URI sözdizimi,
+        </p>
+        <p class="indent">
+            <span style="color: #000080">erişim şeması:erişim
+            şemasına uygun bilgiler</span>
+        </p>
+        <p class="nonindent">
+            olarak açıklanabilir. Erişim şeması protokol olarak
+            adlandırılır. Aslında, iletişim şeması bir özgün bir
+            protokol olarak değil, http protokulunun bir tanımı
+            olarak işlev yapmaktadır. İletişim tanımını takip eden
+            kısım ise, tanımlanan iletişim türünde ilişkiye
+            geçilecek belgenin yerini belli edebilecek bilgilerdir.
+        </p>
+        <p class="indent">
+            URI tanımlanmasında sadece US-ASCII görüntülenebilen
+            karakterleri kullanılır. Bu karakterler dışında rezerve
+            ve güvenilir olmayan karakterlerin kullanımı gerekirse,
+            üç tane karakter kullanılarak istenilen karakterin
+            etkisi yaratılabilir. Bunlardan ilk karakter yüzde
+            işareti, ikinci ve üçüncü karakterler yazılması
+            istenilen karakterin US-ASCII değerine karşılık gelen
+            onaltılı (hexagesimal)( kısaca hex) karakterlerdir.
+            Örnek olarak boşluk karakterinin değeri, hex 20
+            değeridir. Eğer bir dizinde boşluk karakteri varsa,
+            örnek olarak ../My Documents/.. gibi, URI yazılımı
+        </p>
+        <p class="indent" style="text-align:center">
+            .../My%20Documents/...
+        </p>
+        <p class="nonindent">
+            şeklinde olacaktır. Aşağıdaki tabloda rezerve ve
+            güvenli olmayan karakterlerin karşılıkları verilmiştir.
+        </p>
+        <p class="nonindent" id="unsafe">
+            Rezerve ve Güvenli Olmayan Karakterler ve Hex
+            Karşılıkları
+        </p>
+        <table border="1" cellpadding="0" cellspacing="0"
+               style="{border-collapse: collapse; text-align: center}"
+               width="80%" id="AutoNumber2" summary="unsafe" align=
+               "center">
+            <tr>
+                <td width="25%">
+                    <p style="{text-align: center}">
+                        Karakter
+                    </p>
+                </td>
+                <td width="25%">
+                    <p style="{text-align: center}">
+                        Tanım
+                    </p>
+                </td>
+                <td width="25%">
+                    <p style="{text-align: center}">
+                        Kullanım
+                    </p>
+                </td>
+                <td width="25%">
+                    <p style="{text-align: center}">
+                        Kodlama
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        ;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p style="text-align: left">
+                        Semicolon
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3B
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        /
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Slash
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %2F
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        ?
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Soru İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3F
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        :
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Colon
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3A
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        @
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        At İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %40
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        =
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Eşit İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3D
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        &amp;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Ampersand
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Rezerve
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %26
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        &lt;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Küçüktür İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3C
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        &gt;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Büyüktür İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %3E
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        &quot;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Çift Tırnak
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %22
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        #
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Diyez İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %23
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        %
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Yüzde İşareti
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %25
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        {
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Sol Süslü Parantez
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %7B
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        }
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Sağ Süslü Parantez
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %7D
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center"></td>
+                <td width="25%" align="left">
+                    <p>
+                        Dikey Çizgi
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %7C
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        \
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Ters Slash
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %5C
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        ^
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Caret
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %5E
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        ~
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Tilde
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %7E
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        [
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Sol Köşeli Parantez
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %5B
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        ]
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Sağ Köşeli Parantez
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %5D
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%" align="center">
+                    <p>
+                        &#39;
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Geri Tek Tırnak
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        Güvensiz
+                    </p>
+                </td>
+                <td width="25%" align="left">
+                    <p>
+                        %60
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p class="indent">
+            Genel olarak karakterleri kodlamanın hiçbir zararı
+            olmadığı gibi, karakterin güvensiz olduğu düşünülen
+            durumlarda kesin olarak karakter kodlaması
+            kullanılmalıdır.
+        </p>
+        <p class="subheading">
+            http URI :
+        </p>
+        <p class="indent">
+            http URI, Web üzerinde ençok kullanılan URI türüdür.
+            http (Hiper Text Transfer Protocol) Olarak çözümlenirse
+            de, aslında dosya transferi daha alçak düzeyide, TCP/IP
+            protokolu ile sağlanır. http protokolu olarak
+            adlandırılan bildirim, daha çok tarayıcı ile hizmet
+            birimi arasındaki iletişimin sağlanma yöntemini
+            belirtir. http Protokolu iki temel yapılanma ile
+            bildirilebilir. Bunlar,
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://sunucu:port/yol#fragment</span>
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://sunucu:port/yol?arama</span>
+        </p>
+        <p class="nonindent">
+            şeklindedir. Herşeyden önce, protokoldan sonra,
+            sunucuyu tanımlayan karakterler, bir DNS (Domain Name
+            Server) de değerlendirildiğinde, tek bir DNS numarası
+            vermelidir. Web deki tüm sunucuların özgün bir DNS
+            numaraları vardır ve istendiğinde, http protokolu
+            yapılanması doğrudan DNS numaraları üzerinden
+            yapılabilir. DNS numaraları, periyod ile ayrılmış dört
+            tane 0-255 arası on tabanlı (decimal) karakterden
+            oluşurlar. Örnek olarak 234.226.78.33 geçerli bir DNS
+            numarasıdır. http protokolu bildirimleri, DNS
+            numaraları üzerinden,
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://DNS
+            Numarası:port/yol#erişim noktası id değeri</span>
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://DNS
+            Numarası:port/yol?arama</span>
+        </p>
+        <p class="nonindent">
+            şeklinde de bildirilebilirler. Bu tip bildirimin,
+            anlamlı sözcüklerin sıcaklığından yoksun olacakları
+            düşünülmelidir. Genel olarak, hiçbir şirket kendi
+            reklamını kullanıcıya itici gelen bu sayısal yaklaşımla
+            yapmaya yanaşmaz ve sıcak sözcükleri yeğ tutar. Bu
+            şekilde, akılda kolay tutulabilecek sıcak isimler, DNS
+            çeviricileri tarafından sonuçta belirli DNS
+            numaralarına çözümlenecektir.
+        </p>
+        <p class="indent">
+            http Protokolunda sunucu olarak adlandırılan kısım,
+            birbirlerinden periyodla ayrılmış, iki ayrı bildirimden
+            oluşmaktadır. Bunlar :
+        </p>
+        <p class="indent" style="text-align:center;">
+            makineadı.alanadı.alantürü
+        </p>
+        <p class="nonindent">
+            şeklindedir. Makine adı tüm Web boyunca kolay
+            hatırlanması için www olarak adlandırılmıştır. Son
+            yıllarda, makine adlarının yazılmadığı adresler de
+            devreye girmiştir. Alan adları ise, InterNic adlı kâr
+            amacı gütmeyen bir kuruluş tarafından başvuru üzerine
+            yıllık abonelik temeline göre kaydedilmektedir. Alan
+            türü, alan adı kaydı sırasında, başvuruyu yapan
+            kuruluşun niteliğine göre tahsis edilmektedir. Bu
+            konuda son yıllarda büyük değişiklikler olmuş, alan
+            adlarında yerel kuruluşlara daha çok yetki verilmiş ve
+            kullanılabilir alan türlerinde de serbestlik artmıştır.
+            Artık her isteyenin alan adı almasının önündeki
+            engeller azalmıştır.
+        </p>
+        <p class="indent">
+            <a id="domaintypes">Alan</a> türleri, alan adlarını
+            takip eden bir periyod dan sonra gelen tür takıları ile
+            belirtilir. A.B.D. için kullanılan alan türleri,
+        </p>
+        <p>
+             
+        </p>
+        <div style="{text-align: center}">
+            <table border="1" cellspacing="0" style=
+            "{border-collapse : collapse;text-align:center;}"
+                   width="70%" id="AutoNumber1" summary=
+                   "Alan Türü">
+                <tr>
+                    <td width="33%" height="19">
+                        <p style=
+                        "{font-weight: bold; text-align: center}">
+                            Alan Türü
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p style=
+                        "{font-weight: bold; text-align: center}">
+                            Açıklama
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p style=
+                        "{font-weight: bold; text-align: center}">
+                            Örnek
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            com
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            Genel Amaçlı, Ticari
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p>
+                            msn.com
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            net
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            İletişim Ağları
+                        </p>
+                    </td>
+                    <td width="34%" height="19"></td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            org
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            Sosyal Organizasyonlar
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p>
+                            w3.org
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            edu
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            Eğitim Kurumları
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p>
+                            ucla.edu
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            gov
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            Kamusal Kuruluşlar
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p>
+                            whitehouse.gov
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="19">
+                        <p>
+                            mil
+                        </p>
+                    </td>
+                    <td width="33%" height="19">
+                        <p>
+                            Askeri Kuruluşlar
+                        </p>
+                    </td>
+                    <td width="34%" height="19">
+                        <p>
+                            nosc.mil
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" height="18">
+                        <p>
+                            us
+                        </p>
+                    </td>
+                    <td width="33%" height="18">
+                        <p>
+                            Yönetim Kurumları
+                        </p>
+                    </td>
+                    <td width="34%" height="18"></td>
+                </tr>
+            </table>
+        </div>
+        <p>
+             
+        </p>
+        <p class="indent">
+            A.B.D. dışında alan adları ise, ülke kodunun da
+            belirtilmesi ile,
+        </p>
+        <p class="indent" style="text-align: center;">
+            http://www.alan adı.alan türü.ülke kodu
+        </p>
+        <p class="nonindent">
+            haline gelir. Örnek olarak,
+        </p>
+        <p class="indent">
+            <a href=
+            "http://www.e-kolay.net.tr">http://www.e-kolay.net.tr</a>
+        </p>
+        <p class="nonindent">
+            geçerli bir URI bilgisidir.
+        </p>
+        <p class="indent">
+            http Port numaraları, giriş-çıkış iletişimi için
+            kullanılan bir değerdir. Bu değer, genel olarak 80 dir
+            ve bu varsayılan değer olduğundan belirtilmesi
+            gerekmemektedir. https Secure server yapılanması, 478
+            numaralı port dan iletişim kurmaktadır ve bu da
+            varsayılan bir değer olduğundan belirtilmesi
+            gerekmemektedir. Belirli bir port numarasının verilmesi
+            çok seyrek olarak rastlanan bir bildirimdir ve ancak
+            iletişimin gerçekleşeceği standart dışı port numarası
+            ile ilgili ayrıntılı bilgi verilmesi gereğinde
+            belirtilmektedir . http Sunucularının adları,
+            küçük/büyük harflere duyarlı değildir, yani
+               <span style="color:blue;text-decoration:underline;">http://westway.com</span>
+               ile <span style=
+               "color:blue;text-decoration:underline;">HTTP://WESTWAY.COM</span>
+               aynı Web sayfasını gösterir.
+        </p>
+        <p class="indent">
+            Belgeler, <a href="../html401/cover.html">HTML</a>
+            konvansiyonuna göre bir Web yapılanması içinde,
+            sunucunun dosyalama sisteminde saklanmış, uzantıları
+            .html veya daha kullanışlı olarak .htm olan basit metin
+            dosyalarıdır. Bir Web tek bir sayfadan da oluşabilir,
+            birbiri ile ilişkide olan <a href=
+            "../html401/cover.html">HTML</a> dosyaları topluğu da
+            olabilir, önemli olan bu dosyaların sunucu
+            bilgisayarının belirli bir dizin yapısı altında
+            saklanmış olmasıdır. Bu dizin yapısı içinde,
+            hedeflenenen bir dosyaya ulaşımı sağlayan komut
+            topluluğuna yol (path) adı verilir. Sunucu Unix işletim
+            sistemi altında çalışıyorsa, dizin ve dosya adları
+            küçük/büyük harflere duyarlıdır. Sunucu Windows işletim
+            sistemi altında çalışıyorsa, dizin ve dosya adları
+            küçük/büyük harflere duyarlı değildir. İstemcilerin,
+            sunucuların sistemini bilebilmeleri olanağı
+            olmadığından, dizin ve dosya adlarının Unix sisteminde
+            olduğu gibi, küçük/büyük harflere duyarlı olarak kabul
+            edilmesi gerekir. http Protokolunda, yol ifadelerindeki
+            dizinlerin , UNIX tipi düz slash karakteri ile
+            ayrılması gerekir.
+        </p>
+        <p class="indent">
+            Sunucular, alan adından sonra, genel olarak index.htm
+            veya default.htm olarak adlandırılan bir ana sayfayı
+            otomatik olarak gösterirler. Bu durumda,
+        </p>
+        <p class="indent">
+            <span style=
+            "{text-decoration:underline ; color : blue}">http://www.westway.com/index.htm</span>
+        </p>
+        <p class="nonindent">
+            şeklinde bir URI,
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://www.westway.com</span>
+        </p>
+        <p class="nonindent">
+            şeklinde belirtilebilir. Eğer, yol ifadesi daha
+            karmaşıksa, o zaman tüm yol ifadesinin yazılması
+            gerekir. Örnek olarak,
+        </p>
+        <p class="indent">
+            <span style=
+            "color:blue;text-decoration:underline;">http://westway.com/departments/productions/schedule.htm</span>
+        </p>
+        <p class="nonindent">
+            bildirimi, westway.com adlı Web deki alt
+            weblerde(subwebs) bulunacağı yol belirlenmiş olan
+            schedule.htm adlı bir sayfayı açacaktır.
+        </p>
+        <p class="indent">
+            http Protokolunda, açılacak sayfa yanında, sayfanın
+            belirli bir kısmını işaret eden diyez işaretini takip
+            eden karakterler, aynı sayfada belirli bir id niteliği
+            değerini belirtirler. Her id değeri, bir erişim noktası
+            oluşturur. Uzun belgelerde, ilgili yerlere atlama bu
+            şekilde gerçekleştirilir. Bu nedenle, belgedeki uygun
+            konu başlıkları, paragraflar (&lt;p&gt;), bölümler
+            (&lt;div&gt;) veya gerekli olabilecek herhangibir
+            elemente, bir id niteliği atamak çok yararlı olacaktır.
+            Bu id nitelikleri ile hem elementlerin <a href=
+            "http://www.w3.org/TR/CSS21/">CSS</a> scriptleri
+            kullanımı ile görüntüsel olarak etkilenebilmesini, hem
+            de linklerle belge içinde uygun noktaya atlanma olanağı
+            sağlanmasında yararlı olacaklardır.
+        </p>
+        <p class="indent">
+            http Protokolunda açılacak sayfanın bir arama işlemi
+            sonunda belirlenmesi, çok rastlanılan fakat ileri bir
+            programlama tekniğidir. En azından normal bir kullanıcı
+            bu şekilde bir sayfa açılımına gerek duymayacaktır. Bu
+            tip sayfa Başlangıcı bir tür Dinamik HTML (DHML) olayı
+            sayılabilir. Sayfayı çağıran kullanıcı, sayfadaki bir
+            takım tercihler belirleyebilir ve bu tercihler, bir
+            sorgulama işlemini çalıştırarak açılacak bir sonraki
+            sayfayı belirler. Tekrar edelim, sorgulama ne denli
+            karmaşık olursa olsun, sonuç daima bir DNS numarası
+            olarak değerlendirilecektir.
+        </p>
+        <p class="indent">
+            http Protokolu üzerine çeşitli uygulama örnekleri,
+            <a href="../b4/b4s2.htm">çapa (anchor)</a> satıriçi
+            elementinin incelenmesi sırasında verilmiştir.
+        </p>
+        <p>
+             
+        </p>
+        <table class="navtablebottom" summary="layout">
+            <tr>
+                <td valign="top">
+                    <p>
+                        <a href="../index.htm"><img src=
+                        "../images/sharedimages/indeksbelgesi.png"
+                        alt="index" class="x"></a>
+                    </p>
+                </td>
+                <td valign="top">
+                    <p>
+                        <a href="../ek1/ek1s2.htm"><img class="x"
+                        src=
+                        "../images/sharedimages/sonrakibelge.png"
+                        alt="next"></a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1209981118" alt="setstats" border="0" width="1" height="1"></noscript>

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s12.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:55 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s12.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s12</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s11.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s13.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>	
+		<p class="pagenum">
+			Bölüm 2 Sayfa 12
+		</p>
+		<p class="title" id="special">
+			2.10 - Özel İşlemciler 
+	</p>
+		<p class="indent">
+			Javascript programlama dilinde azımsanmayacak sayıda özel işlemciler bulunmaktadır.
+			Bunların herbirinin değişik işlevleri vardır. Bu işlemcilerden,
+			<a href="b2s4.html#typeof">typeof</a>, <a href="b2s4.html#delete">delete</a> ve 
+			<a href="b2s7.html#void">void</a>, 
+			<a href="b2s1.html#comma">Satırıçi Ardışık Çoklu İşlemler İşlemcisi (Virgül İşlemcisi)</a>, 
+			işlemcileri, daha önce incelenmişti. Geri kalanları da 
+				burada incelemeye çalışacağız.
+		</p>
+		<p class="subheading" id="new">2.10.1 - Nesne oluşturma İşlemcisi (new İşlemcisi)
+	</p>
+		<p class="indent">
+			<span class="keyw">new</span> İşlemcisini önceden de uygulamalarda kullandık. Bu 
+			bir tekli işlemcidir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">new</span> YapılandırıcıFonksiyon([argümanlar])
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Yapılandırıcı fonksiyonlar, <span class="keyw">Object</span><span 
+			class="op">()</span>, <span class="keyw">Number</span><span 
+			class="op">()</span>, <span class="keyw">String</span><span 
+			class="op">()</span>, <span class="keyw">Boolean</span><span 
+			class="op">()</span>, <span class="keyw">Array</span><span 
+			class="op">()</span>, <span class="keyw">Function</span><span 
+			class="op">()</span> gibi öntanımlı altı yapılandırıcı yanında, 
+			kullanıcı tanımlı yapılandırıcılar da olabilir. Yapılandırıcı fonksiyonlar,
+			genel yapıları ile bir fonksiyondur ve argümanlarının olması isteğe bağlıdır. 
+			Öntanımlı nesne yapılandırıcılarının sadece kullanımları açıklanmıştır. 
+			Kullanıcı tanımlı yapılandırıcı fonksiyonları kullanıcının kendisi tasarlar,
+			yazılım ve kullanımlarını yapar. Bu konuları ileride detaylı olarak inceleyeceğiz.
+			Örnek olarak, 
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">new</span> <span class="keyw">Object</span><span 
+			class="op">(); </span>
+		</pre>
+		<p class="nonindent">
+			şeklinde yeni bir öntanımlı <span class="keyw">Object</span> nesnesi
+			örneği yaratan <span class="keyw">Object</span><span 
+			class="op">()</span> öntanımlı yapılandırıcı fonksiyonun bir argümanı yoktur.
+			Bu işlem, prensip olarak, boş bir öntanımlı<span class="keyw"> Object</span> 
+			nesnesi örneği veya başka bir ismi ile boş bir nesne literali yaratır ve referansını
+			a değişkenine atar. Bu işlem prensip olarak,
+		</p>
+		<pre>
+<span class="pl-50">a</span><span class="op">=</span> <span 
+			class="op">{}; </span>
+		</pre>
+		<p class="nonindent">
+			işlemi ile eş anlamlıdır.		</p>
+		<p class="subheading" id="dot">2.10.2 - Nesne Özelliklerine Erişim İşlemcisi
+			(Nokta İşlemcisi) 
+	</p>
+		<p class="indent">
+			Nesnelerin değer ve fonksiyon özelliklerine (metotlarına) erişim için nokta
+			işlemcisi kullanılır. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">writeln(<span class="str">'Doğum Günü'</span>)<span 
+			class="op">;</span> </span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Nokta işlemcisi iki işlenenli bir işlemcidir. Sol işleneni kesin bir nesne değişkeni,
+			sol işleneneni ise, bu nesnenin bir özellik veya metodudur. Sol işlenende hiçbir şekilde tırnak
+			içinde ifadeler bulunamaz. Sadece özellik veya metot isminin kullanılması gerekir. Nokta 
+			işlemcisi için <a href="b2s6.html#dot">paragraf 2.6.4.1</a> de ayrıntılı bilgi verilmiştir.
+		</p>
+		<p class="subheading" id="big">2.10.3 - [] İşlemcisi
+	</p>
+		<p class="indent">
+			JavaScript programlama dilinde, <span class="op">[]</span> İşlemcisi, dizi başalatıcısı 
+			(dizi literali oluşturma), dizi elemanlarına ve nesne özelliklerine erişim gibi çeşitli ve
+			önemli işlevlere sahiptir. Bu kısımda bu işlevlerini inceleyeceğiz.
+			<span class="op">[]</span> İşlemcisi için <a href="b2s6.html#parantez">paragraf
+			2.6.4.2</a> de ayrıntılı bilgi verilmiştir. 
+		</p>
+		<p class="subsub" id="arrayLiterals">2.10.3.1 - Dizi Literalleri
+	</p>
+		<p class="indent">
+			Dizi literalleri, bir standart JavaScript dizi sınıf nesne örneği yani bir dizidir. Boş bir dizi, ister 
+			bir dizi başlatıcısı ile, 
+		</p>
+		<pre>
+<span class="keyw-25">var</span> ekip <span class="op">=</span> <span class="op">[];</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde, istenirse öntanımlı dizi yapılandırıcısı ile 
+		</p>
+		<pre>
+<span class="keyw-25">var</span> ekip <span class="op">=</span> <span class="keyw">new Array</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şelinde tanımlanır. Her iki yöntemde de sonuç aynıdır ve ekip adında, boş bir dizi açılmış olur. 
+		</p>
+		<p class="indent">
+			Dizi literalleri, yoğun diziler (dense arrays) adı verilen dizilerin başlangıç elemanları ile birilikte de açılabilir. Örnek
+			olarak, 
+		</p>
+		<pre>
+<span class="pl-25">iletişim</span> <span 
+			class="op">=</span> <span 
+			class="op">[</span><span 
+			class="str">'teleks'</span><span 
+			class="op">,</span> <span 
+			class="str">'faks'</span><span 
+			class="op">,</span> <span 
+			class="str">'telefon'</span><span 
+			class="op">];</span> 
+		</pre>
+		<p class="nonindent">
+			şeklinde bir tanıtım,
+		</p>
+		<pre>
+<span class="pl-25">iletişim</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'teleks'</span><span 
+			class="op">,</span> <span 
+			class="str">'faks'</span><span 
+			class="op">,</span> <span 
+			class="str">'telefon'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+		ile aynı işleve sahiptir. Her iki bildirimin de sonunda, iletişim adlı yeni
+			bir dizi açılır ve ilk elemanı  olarak <span class="str">'teleks'</span>,
+			ikinci elemanı olarak <span class="str">'faks'</span>, 
+		üçüncü elemanı olarak, <span class="str">'telefon'</span> değerleri atanmış
+		olur. Sonuç aynı olduğuna göre, yeni bir dizinin dizi literali olarak ve veya
+		dizi yapılandırıcısı ile başlatılması  kullanıcının seçimine bağlı olmaktadır. 
+	</p>
+		<p class="subsub" id="associative">2.10.3.2 - İlişkisel Diziler
+	</p>
+		<p class="indent">
+			İlişkisel diziler olarak adlandırılan yapılanma, önce boş bir dizi açılarak,
+		</p>
+		<pre>
+<span class="pl-25">aylar</span><span 
+			class="op">= [];</span> 
+		</pre>
+		<p class="nonindent">
+			sonra bu boş diziye eleman atayarak,
+		</p>
+		<pre>
+<span class="pl-25">aylar</span><span 
+			class="op">[</span><span 
+			class="str">'Kasım'</span><span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			veya
+		</p>
+		<pre>
+<span class="pl-25">aylar</span> <span 
+			class="op">=</span> <span 
+			class="op">{</span>Kasım <span 
+			class="op">:</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">,</span> Aralık <span 
+			class="op">:</span> <span 
+			class="str">'Aralık'</span><span 
+			class="op">};</span>
+		</pre>
+		<p class="nonindent">
+			veya
+		</p>
+		<pre>
+<span class="pl-25">aylar</span> <span 
+			class="op">=</span> <span 
+			class="op">{</span><span 
+			class="str">'Kasım'</span> <span 
+			class="op">:</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aralık'</span> <span 
+			class="op">:</span> <span 
+			class="str">'Aralık'</span><span 
+			class="op">};</span>
+		</pre>
+		<p class="nonindent">
+			hatta,
+		</p>
+		<pre>
+<span class="pl-25">aylar</span> <span 
+			class="op">=</span> <span 
+			class="op">{</span>Kasım</span> <span 
+			class="op">:</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aralık'</span> <span 
+			class="op">:</span> <span 
+			class="str">'Aralık'</span><span 
+			class="op">};</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde gerçekleştirilir. Sonuçta, dizi indisleri sözel olan bir tür dizi elde edilir ve buna İlişkisel Diziler
+			(Associative Arrays) adı verilir. Diziler büyük çapta verilerin işlenebilmesini sağlaması gerken
+			yapılanmalardır ve bu işlevlerini tamsayı olan sayısal indislerinin döngü mekanizmalarından 
+			yararlanan otomasyon yöntemleri ile işlenebilme yeteneklerini kullanarak gerçekleştirirler. 
+			Sözel indisler bu otomasyon programları arasında sadece <span class="keyw">for .. in</span>
+			döngülerinden yararlanabilir ve bunun sonucu olarak otomasyon özellikleri son derece
+			kısıtlıdır. Bu nedenle, ilişkisel diziler, prensip olarak aşırı otomasyon gerektirecek kadar
+			aşırı sayıda eleman içerecek şekilde oluşturulmaz. Bunlar prensip olarak aynı diziler gibi
+			sadece tek veri olarak kullanılacak, az sayıda eleman içerecek, genellikle sözel indisleri dolayısı ile
+			erişimleri açıklayıcı olması için tercih edilmiş yapılanmalar olarak uygulanırlar.
+		</p>
+		<p class="indent">
+			İlişkisel dizilerin teknik olarak dizi olmamalarına karşın, dizilerle karıştırılması, 
+			JavaScript programlama dilinde, dizilerin de bir nesne türü olmasından kaynaklanan
+			dizi-nesne analojisinden dolayıdır. Bu analoji, dizi elemanı ile nesne özelliğinin aynı şey
+			olduğunu belirtir. Örnek olarak,
+		</p>
+		<pre>
+<span class="pl-25">aylar</span><span 
+			class="op">[</span><span 
+			class="str">'Kasım'</span><span 
+			class="op">] ===</span> aylar<span 
+			class="op">[</span><span 
+			class="str">'Kasım'</span><span 
+			class="op">]</span> 
+		</pre>
+		<p class="nonindent">
+			ifadesinde ilk terim ilişkisel dizinin ilk elamanını, ikinci terim ise
+			nesne  örneğinin ilk özelliğini belirtir. Yoksa tersi mi geçerli idi?
+			Hangisinin hangi yapılanma olduğunun anlaşılması olanaksızdır. Bunun
+			nedeni, her ikisinin de aynı yapılanma olduğunu yadsımamaktan geçer.
+			Yani diziler prensip olarak nesnedir ve elemanları aynı zamanda nesne
+			özelliiğidir. Ama tersi geçerli değildir. Diziler özel nesnelerdir ve
+			her nesneye dizi özellikleri uygulanamaz. Sadece her ilişkisel dizi elemanına,
+			nesne özelliğine erişir gibi, <span class="op">[]</span> işlemcisi kullanılarak erişilebilir. 
+			Bundan sonra farklılıklar başlar. Örnek olarak dizi elemanları nesne özelliklerinin 
+			analogu olmalarına karşın, dizi elemanlarına nesne özelliklerine erişildiği gibi (eşdeğer olarak,
+			ilişkisel dizilerin elemanlarına erişildiği gibi) nokta kovansiyonu ile erişilmez. 
+			Ayrıca nesne örneklerinin (ilişkisel diziler dahil) <span class="keyw">length</span> 
+			özellikleri yoktur. 
+		</p>
+		<p class="indent">
+			Diziler ve nesnelerin aynı olduğunu düşünmek kullanıcıya yarar getirmez.
+			Dizilerin amaçları farklı, nesnelerin amaçları farklıdır. Diziler tüm özellik
+			isimleri tamsayı olan nesnelerdir. Bir dizide milyonlarca eleman 
+			olabilir. Bir dizi başka bir diziden (kopyası olmadıkça) farklı fiziksel bir veridir. 
+			Nesne sınıfları, veri tipi oluşturulması amacı ile belirli bir yapılandırıcı fonksiyondan 
+			yararlanılarak yaratılan yapılanmalardır. Bir nesne sınıfının eğer bir nesne yapılandırıcısı
+			tanımlanmışsa, gerçek fiziksel veri olan sonsuz sayıda sınıf örneği yaratılabilir. Diziler de 
+			böyle bir somut (öntanımlı) veri  yapılandırıcısından yararlanılarak oluşturulmuş, 
+			yapıları aynı, özellik değerleri farklı, sınıf örneklerinden ibarettir.
+		</p>
+		<p class="indent">
+			Dizi literalleri ise, ne tam olarak bir dizi ne de tam olarak klasik bir nesne örneği sayılabilirler.
+		</p>
+		<p class="indent">
+			Dizi literalleri bir dizi sayılamazlar, çünkü <span class="keyw">length</span> özellileri yoktur ve 
+			elemanları sayısal bir sıra indisine sahip değildir. Dizi literalleri eleman indisleri sözel olan özel
+			bir dizi olarak düşünülebilir. 
+		</p>
+		<p class="indent">
+			Dizi literalleri klasik bir nesne örneği sayılamazlar, çünkü tanımlanmış bir sınıf tanımlayıcları ( sınıf
+			yapılandırıcıları) yoktur. Yapısına uydukları nesne sınfının tanımlayıcıları fiziksel olarak tanımlanmamıştır.
+			Bunlar soyut sınıflardır ve Java programlama dilinin <span class="keyw">abstract</span> sınıflarına
+			benzerler, fakat bunlardan da daha soyutturlar çünkü hiçbir program adımında açıklanmamışlardır. Bir nesne
+			literalinin soyut sınıfı ancak yapısı incelenerek anlaşılabilir. Yapılandırıcı fonksiyonları fiziksel
+			olarak tanımlanmamış olduğundan dolayı, aynı yapıdaki örnekleri üretilemez, ancak yapıları başka bir 
+			değişkenin yapısı olarak kopya edilebilir. Zaten birden fazla değişkenin yapılarının aynı olması gereksinimi 
+			doğarsa, bu yapının soyut bir sınıf olarak uygulanması yerine, gerektiği gibi, doğudan doğruya bir yapılandırıcı
+			fonksiyon olarak tanımlanması ve bu yapılandırıcı fonksiyonun (nesne sınıfının) örnekleri olarak tanımlanmaları,
+			en doğrusu olacaktır. 
+		</p>
+		<p class="indent">
+			İlişkisel diziler üzerine bir açıklama, <a href="http://javascript.about.com/library/blassoc.htm">about.com</a> da
+			Prof. Dr. Steven Chapman tarafından yapılmıştır. İlişkisel dizilerin kullanımları abartılmamamalı hatta 
+			çok gerekli olmadıkça kullanılmamaları, 
+			<a href="http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/">Andrew Dupont</a>
+			tarafından ayrıntılı olarak açıklanarak belirtilmiştir. 
+		</p>
+		<p class="indent">
+			İlişkisel diziler, tarih verilerinin türkçeleştirilmesi için,  <a href="../uygulamalar/b20.4.2-uyg-1.html">b20.4.2</a> de
+			uygulanmıştır.
+		</p>
+		<p class="subsub" id="access">2.10.3.3 - [] İşlemcisinden Nesne Özelliklerine
+			Erişim İçin Yararlanılması 
+	</p>
+		<p class="indent">
+			Daha önce,<a href="b2s6.html#parantez"> bölüm 2.6.4.2 de</a> <span 
+			class="op">[]</span> işlemcisi ile nesne özelliklerine erişimi görmüştük. Nesneler
+			 üzerinde daha fazala bilgimiz olduğundan bu konuya yeniden döneceğiz. Bir nesne 
+			 örneğinin özelliğine <span class="op">[]</span> işlemcisi yardımı ile ulaşılması için
+			gerekli yazılım,
+		</p>
+		<pre>
+<span class="pl-25"><em>nesneÖrneğiAdı</em></span><span 
+class="op">[</span>ÖzellikAdı<span class="op">]</span> 
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Özellik adı sayısal olabildiği sözel bir büyüklük de olabilir. Burada esneklik
+			çok büyüktür ve bunun yararlı olduğu zararlı yönleri de görülebilir. Bir örnek üzerinde 
+			inceleyelim:
+		</p>
+		<pre>
+<span class="pl-25">medya</span> <span 
+			class="op">= [</span> <span 
+			class="str">'Gazete'</span><span 
+			class="op">,</span> <span 
+			class="str">'Televizyon'</span><span 
+			class="op">];</span>
+		</pre>
+		<p class="nonindent">
+			Burada medya bir dizidir ve elemanlarının indisleri 0 ve 1 dir. Bu bir
+				dizi olduğundan elemanlarına nokta notasyonu ile erişilemez. Bu Elemanlara
+				en doğru olarak şekilde, medya<span 	class="op">[</span>0<span class="op">]</span> şeklinde
+				erişilir. Fakat, eğer medya<span class="op">[</span><span class="str">'0'</span><span class="op">]</span> şeklinde
+				 bir çağrı da olursa, JavaScript yorumlayıcısı sözel ifadeyi sayısala uyarlayarak
+				(coercion) çağrıyı hatasız sonuçlandıracaktır. Bu olanak aslında hem iyi
+				hem kötüdür. İyidir çünkü, sağladığı esneklik  yararlı olabilir. Kötüdür
+				çünkü hatalı bir gidiş doğru gibi sonuçlanırsa, bu tip mantık hatalarını
+				bulmak çok güç olabilir.
+		</p>
+		<p class="indent">
+			Nesne örneklerinin özelliklerine erişim için en gerçerli yöntem nokta noktasyonudur. Örnek olarak 
+			yukarıda tanımlanmış olan aylar nesne literalinin ilk özelliğine, en geçerli olarak, 
+		</p>
+		<pre>
+<span class="pl-25">aylar</span><span 
+			class="op">.</span>Kasım
+		</pre>
+		<p class="nonindent">
+			olarak erişilir. Özellik adı sözel olarak tanımlandığı halde bu çağrı geçerli olmaktadır. 
+		</p>
+		<p class="indent">
+			Aynı nesne örneğinin elemanlarına <span class="op">[]</span> işlemcisi ile erişilmek istenirse,
+			sadece aylar<span class="op">[</span><span class="str">'Kasım'</span><span 
+			class="op">]</span> şeklindeki çağrı geçerli olur. aylar<span class="op">[</span>Kasım<span 
+			class="op">]</span> şeklindeki çağrı tanrıya şükür ki hata verir.
+		</p>
+		<p class="indent">
+			Özellik isminin tek bir sözel değer olmayıp, tek bir sözel değere indirgenebilen 
+			bir sözel ifade olduğu zaman, nokta konvansiyonunun kullanılmasına olanak 
+			yoktur. Çünkü nokta konvansiyonunda noktadan sonra tek bir değer kullanılması 
+			gerekir. Noktadan sonra bir ifade kullanılamaz. Köşeli parantez konvansiyonun 
+			üstünlüğü ve kullanımının tek 	doğrulanabildiği kullanım alanı da budur. Özellik 
+			adının <span class="str">'Ka'</span> <span class="op">+</span> <span 
+			class="str">'sım'</span> gibi bir sözel ifade olması halinde, özellik değerine 
+			erişim için tek seçenek köşeli parantez konvansiyonudur. Köşeli parantezler,
+			sözel ifadeyi çözümleyerek tek bir sözel değer oluşturur ve bu değerle 
+			nesnenin özellik değerine erişim sağlarlar. Yoksa, sözel ifadeyi ayrıca 
+			çözümleyip, bir değişkene atayıp, o değişkenle nokta konvansiyonunu uygulayıp,
+			nesne özelliğine erişimden başka çare kalmaz. Özellik adının sözel bir ifade olduğu 
+			aşağıdaki örnekte, nesne özelliğine erişim için, köşeli parantez konvansiyonu
+			kullanılması zorunluğu vardır. Örnek olarak
+		</p>
+		<pre>
+			aylar<span 
+			class="op">[</span><span 
+			class="str">'Ka'</span> <span 
+			class="op">+</span> <span 
+			class="str">'sım'</span><span 
+			class="op">]</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir çağrı, <span class="op">[]</span> işlemcisi ile kolayca çözümlenir
+			ve çağrı gerçekleşir.  Özellik adlarında bu sözel ifadelere, döngülerde kolaylık
+			sağlanması için, bilgisayar tarafından oluşturulmuş sentetik özellik adlarında
+			(alan adlarında) bazı durumlarda karşılaşılabilir.
+		</p>
+		<p class="subheading" id="call">2.10.4 - Fonksiyon Çağırma  İşlemcisi
+		  ()
+	</p>
+		<p class="indent">
+			Fonksion çağırma işlemcisinin ilk işleneni daima bir fonksiyon tanımlayıcısı
+			  veya bir fonksiyon tanımlayıcısına indirgenebilen bir sözel ifadedir.
+			  İkinci işlenenin ise sayısı belli değildir. Bu işlenenler, ilk parantezden
+			  sonra virgül işlemcisi ile ayrılmış olarak parantezin içine yerleştirilirler.
+			  Geçerli bir fonksiyonda hiç argüman da olmayabilir.  Son işlenen (argüman)
+			  da yazıldıktan sonra, parantez kapanır. Fonksiyon işlemcisi, argümanlarını
+			  değerlendirdikten sonra, ilk işleninin belirttiği fonksiyonu çağırır.
+			  Örnek:
+		</p>
+		<pre>
+<span class="pl-25">a</span><span 
+			class="op">(</span>x<span 
+			class="op">,</span> y<span 
+			class="op">)</span>
+		</pre>
+		<p class="indent">
+			Javascript programlama dilinde fonksiyonlar birinci sınıf nesnelerdir ve 
+			değişkenlere atanabilirler. Bu atama fonksiyon çağırma işlemcisinin kullanılması
+			ve kullanılmaması ile farklı olarak değerlendirilir. Eğer fonksiyon çağırma işlemcisi
+			kullanılmazsa, atama
+		</p>
+		<pre>
+			d <span class="op">=</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde olur. burada d değişkenine a fonksiyonun referansı (bellek işaretçisi) atanır. 
+			Bundan sonra d değişkeni a nın yeteneğini kazanır ve 
+		</p>
+		<pre>
+<span class="pl-25">d</span><span class="op">(</span>14<span 
+			class="op">,</span> 16<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde fonksiyonu çağırabilir. Fakat atamada fonksiyon çağırma işlemcisi de
+			kullanılırsa durum değişir:
+		</p>
+		<pre>
+<span class="pl-25">d</span> <span class="op">=</span> a<span class="op">(</span>14<span 
+			class="op">,</span> 16<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Bu durumda, öncelik sırası daha büyük olan sağ işlenen işlenir ve 
+			fonksiyon çağrılarak değeri hesaplanır. Sonra bu değer d değişenine atanır. 
+			Bu işlem sonunda d değişkenine fonksiyonun referansı değil, hesapladığı değer
+			atanır ve d(4, 8) gibi çağrılar yapılamaz. Fonksiyonlar üzerinde daha fazla bilgi 
+			fonksiyon nesnesinin incelenmesi sırasında verilecektir.
+		</p>
+		<p class="subheading" id="RegExp">2.10.5 - // İşlemcisi
+	</p>
+		<p class="indent">
+			JavaScript programlama dilinde, <span class="op">//</span> İşlemcisi, düzenli
+			deyim başlatıcısı (düzenli deyimi literali oluşturma), amacı ile kullanılmaktadır.
+		</p>
+		<p class="subsub" id="RegExpLiterals">2.10.5.1 - Düzenli Deyim (RegExp)
+			Literalleri
+	</p>
+		<p class="indent">
+			Düzenli deyimler, karakter dizigisi verileri ile uyuşma amacı ile hazırlanmış özel
+			şablonlardan oluşur. Düzenli deyimler matematiksel bir tanımdır ve PERL scripting
+			dili ile en geniş kullanım alanı bulmuştur. JavaScript, PERL kadar olmamakla beraber
+			oldukça gelişmiş bir düzenli deyim desteği sağlamaktadır. Düzenli deyim sistematiği, 
+			<a href="../ekler/ek2/ek2s1.html">ek-2</a> de açıklanmıştır.
+		</p>
+		<p class="indent">
+			Bir düzenli deyim literalinde <span class="op">//</span>arasında düzenli deyim
+			deseni, bunun dışında ise durum değiştiricileri veya anahtar olarak adlandırılan
+			yönergeler bulunur.  JavaScript sadece global arama anahtarı g, küçük/büyük
+			harf farkının gözardı edilmesi anahtarı olan i ve çok satırlı düzenli deyim anahtarı olan
+			m anahtarlarını destekler. 	Örnek bir düzenli deyim literali,
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span 
+			class="op">= /</span>^c*<span 
+			class="op">/</span>gi
+		</pre>
+		<p class="nonindent">
+			olabilir. Düzenli deyim öntanımlı nesne sınıfı <a href="../b10/b10s1.html">bölüm 10</a> da incelenmiştir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s11.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s13.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s12.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:55 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:17 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s5.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 5</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <!-- !CSS --> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+  </head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s4.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s6.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 5
+		</p>
+		<p class="title-left" id="real">3.3 -  Öntanımlı Gerçek Sayı Veri Tipleri</p>
+		<p class="indent">
+			Ada programlama dilinde, tamsayı olmayan sayısal veriler, gerçek sayılar 
+			(real numbers) olarak nitelendirilir. Gerçek sayılar, sadece skaler (tek boyutlu) 
+			değerlerdir, ayrık(discrete) ve sayılabilir (Enumeratif) değerler sayılmazlar. Ada 
+			programlama dili sadece on temelli sayı sistemindeki gerçek sayı veri tiplerini 
+			destekler. Gerçek sayıların tamsayı ve ondalıklı kısımları bulunur. İstenildiğinde 
+			bu sayılar üstel olarak da gösterilebilirler. Bu konuda sayısal literaller tanıtılırken 
+			örnekler yapılmıştı. Bu örneklerin yeniden incelenmesi yararlı olacaktır.
+		</p>
+		<p class="indent">
+			
+		</p>
+		<p class="indent">
+			Gerçek sayı verilerin ondalık sayısına duyarlık (precision) adı verilir. Genel 
+			olarak duyarlık yüksek olunca hataların azalacağı düşünülürse de bu düşünce 
+			doğru değildir. Bir sayısal değerin üzerinde birden çok ve birbirinden farklı hata 
+			türü bulunmaktadır. Aritmetiik işlemden kaynaklanan yuvarlatma hatası, hata 
+			türlerinden sadece birisi ve değerin toplama hatasına belki de en az etki
+			eden hata türüdür.  İşlemlerin duyarlığı arttırılarak sonuçların yuvarlatma hataları 
+			azltılabilir. Fakat bu sayının üzerindeki tüm hatanın ortadan kalktığını göstermez.
+			Gerçek yaşamda çoğu sayılar ölçü aletleri ile ölçümlerin sonuçları olarak elde edilir. 
+			Ölçü aletlerinin de duyarlığı çoğu zaman yüksek değildir. Bu nedenle hesaplarda
+			uygulanmak istenen çok fazla sayısal duyarlık büyük bir çoğunlukla değerlerin
+			alındığı ölçü aletlerinin duyarlığından çok fazladır. Örnek olarak 
+			pH hesaplarında aletsel duyarlık sadece 3 ondalıkla sınırlıdır ve aslında sadece 
+			ilk iki ondalık sağlam, üçüncüsü fazla güvenilir değildir. Bu nedenle, pH hesaplamalarında
+			sonuçların iki ondalıkla verilmesi yeterlidir. Fazlası, sonucu verenin bilgisizliğini ortaya
+			çıkarır. Bu örnek, tüm fiziksel sistemler için geçerlidir.
+		</p>
+		<p class="indent">
+			Sayılarla çalışması gereken ve çalışacakları sayının nasıl ölçüldüğünü, duyarlığının ne 
+			olğunu, bu konuda yayınlanmış önceki sonuçları bilmeyen bir kullanıcının öncelikle
+			literatürden bu bilgileri toplaması ve incelemesi gerekir. Bundan sonra uygulanacak
+			yöntemler ve sonuçların verileceği formatlar üzerine daha bilinçli olarak karar verilir.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			ile birlikte gelen Standard pakette iki tür gerçek sayı tanımlanmıştır. Bunlardan ilki, değişken
+			duyarlıklı gerçek sayılar, ikincisi de sabit duyarlıklı (Fixed Point) gerçek sayılardır. Sabit duyarlıklı olan
+			gerçek sayılar, ayrı bir kategoride inceleneceklerdir. Burada ilk olarak, en çok kullanım alanı olan,
+			değişken duyarlıklı gerçek sayı veri tipleri incelenecektir.
+		</p>
+		<p class="indent">
+			Gerçek sayı veri tipleri, doğru (accurate) değerler olan tamsayı verilerine göre, hem daha fazla bellek 
+			alanı kullanırlar, hem de gerçek sayı ifadelerinin sonuçlarında belirli bir hata ( bağıl hata) oluşur. 
+			Yine de salt makine hesaplamalarından kaynaklanan hata payı, ölçüm hatalarına göre sonuçları tek 
+			başına etkileyecek büyüklükte değildir. Ada dahil tüm programlama dillerinde gerçek sayıların makinede 
+			tanımlanması için kabul edilen kanonik (kanon lat: kanun, yasa) gösterim şeklinde, sıfırdan farklı 
+			değerler için,
+	</p>
+<p class="sayfaortala">
+			+/- mantis (T'Machine_Radix sayı temelinde) T'Machine_Radix<sup>eksponent(tamsayı)</sup>
+		</p>
+		<p class="indent">
+			Çalışılan IA32 (X86) (Intel) (AMD) mimarisinde, makine mimarisi (T'Machine_Radix) 2 (binary) 
+			olarak belirlenir. Bu durumda, gerçek sayıların x86 sisteminde kanonik gösterimi,
+		</p>
+		<p class="sayfaortala">
+			+/- mantis (ikili sayı temelinde tamsayı) 2<sup>eksponent(ikili sayı temelinde <sup>tamsayı</sup>)</sup>
+		</p>
+		<p class="nonindent">
+			olarak belirlenir. Bu gösterim şekli , gerçek sayılarla ilgili birçok gerçeğin açıklanmasında aydınlatıcı olmaktadır. 
+			İkil sistem sadece 1 ve 0 sayıları içeren rakkam sıralarıı tanıyabilir. Bu rakkam sıralarında, tek sayıya bit (0 veya 1) 
+			adı verilir. Konvansiyel olarak 2<sup>3</sup> = 8 bit içeren sıralara byte, belirli bir byte miktarına word adı verilir. 
+			Örnek olarak 32 bitlik bir word, 4 byte içerir.(4 x 8 = 32). Buradan tamsayılar için bir tek word alanı yeterli iken,
+			gerçek sayıların makinye tanıtılması için, mantis değeri için bir ve eksponent değeri için de bir tane olmak üzere iki tane 
+			word alanı gerekli olur. Bu durumda, gerçek sayıların makinede hesaplanabilmeleri için, tamsayılardan fazla
+			bellek alanına gereksinme olduğu anlaşılır. Yine gerçek sayıların kanonik gösteriminden, kullanıcının
+			belirttiği gerçek sayı ile, makinede tanıtılabilen gerçek sayınının (makine sayısı) farklı olabileceği de anlaşılır. 
+			Yani, kullanıcının bellirttiği gerçek sayı, gerçek sayılarının makineye tanıtılabildikleri dizilimin, en uygun olanına
+			indirgenerek makineye tanıtılabilir. genel kural, gerçek sayıların kanonik gösterimlerinde mantis sayısı 
+			ne kadar fazla olursa gerçek sayının duyarlığı da o kadar artar. Sonuçta, gerçek sayıların ifadeleri, çok sayıda 
+			makine komutu (instruction) ile gerçekleşen mantis-eksponent hesaplamaları ve sonuçların birleştirilmesi ile oluşan 
+			ve üzerinde hata olan değerler verebilir.
+</p><p class="subheading" id="root_real">3.3.1 - root_real</p>
+			<p class="indent">
+			Bu veri tipi aynı root_integer gibi bir kuramsal veri tipi olup kullanıma kapalıdır ve sadece 
+			matematiksel çelişkilerin giderilebilmesi amacı ile gerçek sayı tiplerinin en üst atası olarak 
+			tanımlanmıştır. 
+		</p>
+		<p class="indent">
+			Kuramsal root_real tamsayı veri tipi, tüm tamsayı tiplerin en üst atası (ultimate ancestor)
+			konumundadır. Sınırları sistemin olanak sağladığı en yüksek gerçek sayı sınır, duyarlık sınrları
+			System.Max_Digits sınırları arasındadır. Bu değerler, derleyicinin yerleştirildiği çalışılan sistem 
+			karakteristiklerine bağlı doğrudan saptanma olanağı olmayan, kuramsal
+			değerlerdir. Hiçbir gerçek sayı tipinin kapsam aralığı ve duyarlığı root_real tipinden geniş olamaz.
+			root_real gerçek sayı veri tipi sadece matematiksel belirsizlilerin giderilmesi amacı ile oluşturulmuş 
+			olup programlarda veri tipi olarak tanımlanamaz. Kullanıcılar, gerçek programlama çalışmaları 
+			sırasında root_real veri tipi ile karşılaşmazlar.
+		</p>
+		<p class="subheading" id="universal_real">3.3.2 -  universal_real</p>
+		<p class="indent">
+			Standard pakette tanımlanmış olan ikinci değişken duyarlıklı gerçek sayı veri tipi, 
+			universal_real veri tipidir. Bu veri tipi, root_real veri tipinin alt tipidir. En küçük 
+			ve en büyük değerleri root_real ile aynıdır. Standard pakette tanımlanmış olan 
+			universal_real veri tipi, tüm gerçek sayı tipleri için sınıf boyu (class wide) tip 
+			olarak tanımlıdır ve bu özelliği ile tüm gerçek sayı veri alt veri tipleri ile uyumludur, 
+			fakat kullanıcılar tarafından değişken tipi olarak tanımlanamaz ve alt tipleri 
+			oluşturulamaz. Matematiksel olarak, tüm tanım aralığındaki 
+			gerçek sayıların ve işlemcilerin birleşimi (union) ile oluşan bir küme olarak 
+			tanımlanır. universal_real Veri tipi tam olarak kuramsal değildir. Programlarda, 
+			gerçek sayı literalleri universal_real veri tipindedir. Ayrıca, gerçek sayı veri
+			tipine uygulanabilen birçok nitelik değerinin döndürdüğü değerler yine universal_real 
+			tipindedir. Programcılar çok az kullanılan bazı alt düzey işlemler dışında 
+			universal_real veri tipi ile sadece bu değerlerlerde karşılaşırlar. Programcıların 
+			universal_real veri tipinde nesneler ve alt veri tipleri tanımlayamazlar. universal_real 
+			Veri tipinin kendine ait alt programlar tanımlı değildir fakat, universal_real veri tipleri tüm,
+			root_real veri tipinin alt tipleri le uyumludur. Bu nedenle, tüm gerçek sayı nesneleri ile
+			aynı işlemcileri paylaşabilir, aynı ifadelerde bulunabilir ve değişkenlerine atanabilirler.
+		</p>
+		<p class="subheading" id="float">3.3.3 - Float</p>
+		<p class="indent">
+			Standard pakette tanımlı ve kullanıcıların yararlanabileceği, root_real 'in kısıtsız 
+			(unconstrained) bir alt tipi, öntanımlı Float veri tipidir. Float veri tipi, irrasyonel 
+			sayıların, kuramsal olarak sınırsız, gerçekte ise makinenin sağlayabildiği olanaklar 
+			ile sınırlı olan en geniş kapsamlı göreli (rölatif) duyarlıklı gerçek sayı veri tipidir. 
+			Kullanıcılar bu veri tipinden değişkenler tanımlayabilir ve bu tipin kendilerine 
+			özgü alt tiplerini yaratabilirler.
+		</p>
+		<p class="indent">
+			Float öntanımlı veri tipi Standart pakette aşağıda görüldüğü gibi tanımlanmıştır.
+		</p>
+	<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;floating&nbsp;point&nbsp;type&nbsp;root_real&nbsp;and&nbsp;the</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;corresponding&nbsp;universal&nbsp;type&nbsp;universal_real&nbsp;are&nbsp;predefined.</em></div>
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Float&nbsp;<b>is</b>&nbsp;<b>digits</b>&nbsp;<em>implementation-defined</em>;</div>
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;predefined&nbsp;operators&nbsp;for&nbsp;this&nbsp;type&nbsp;are&nbsp;as&nbsp;follows:</em></div>
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;=&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;/=&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;=&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;=&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Boolean;</div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;+&quot;&nbsp;&nbsp;&nbsp;(Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;<br />
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;-&quot;&nbsp;&nbsp;&nbsp;(Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;<br />
+
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>abs</b>&quot;&nbsp;(Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;</div>
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;+&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;<br />
+
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;-&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;<br />
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;*&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;<br />
+
+&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;/&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Float)&nbsp;<b>return</b>&nbsp;Float;</div>
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;**&quot;&nbsp;&nbsp;(Left&nbsp;:&nbsp;Float;&nbsp;Right&nbsp;:&nbsp;Integer'Base)&nbsp;<b>return</b>&nbsp;Float;</div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;specification&nbsp;of&nbsp;each&nbsp;operator&nbsp;for&nbsp;the&nbsp;type&nbsp;root_real,&nbsp;or&nbsp;for</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;any&nbsp;additional&nbsp;predefined&nbsp;floating&nbsp;point&nbsp;type,&nbsp;is&nbsp;obtained&nbsp;by</em><br />
+
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;replacing&nbsp;Float&nbsp;by&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;type&nbsp;in&nbsp;the&nbsp;specification&nbsp;of&nbsp;the</em>
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;corresponding&nbsp;operator&nbsp;of&nbsp;the&nbsp;type&nbsp;Float.</em></div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--<em>&nbsp;In&nbsp;addition,&nbsp;the&nbsp;following&nbsp;operators&nbsp;are&nbsp;predefined&nbsp;for&nbsp;the&nbsp;root</em><br />
+&nbsp;&nbsp;&nbsp;--<em>&nbsp;numeric&nbsp;types:</em></div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>function</b>&nbsp;&quot;*&quot;&nbsp;(Left&nbsp;:&nbsp;<em>root_integer</em>;&nbsp;Right&nbsp;:&nbsp;<em>root_real</em>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b>&nbsp;<em>root_real</em>;</div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>function</b>&nbsp;&quot;*&quot;&nbsp;(Left&nbsp;:&nbsp;<em>root_real</em>;&nbsp;&nbsp;&nbsp;&nbsp;Right&nbsp;:&nbsp;<em>root_integer</em>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b>&nbsp;<em>root_real</em></div>
+
+<div class="paranum">&nbsp;</div>
+<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>function</b>&nbsp;&quot;/&quot;&nbsp;(Left&nbsp;:&nbsp;<em>root_real</em>;&nbsp;&nbsp;&nbsp;&nbsp;Right&nbsp;:&nbsp;<em>root_integer</em>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b>&nbsp;</div>
+
+
+<p class="indent">
+			Float tipi ve alt tiplerinin <em>makine sayısı (machine number)</em> 
+			makinenin algıladığı, bu tipin kısıtsız örneklerinin sayısal değeridir. Aynı 
+			örneklerin tanım aralığı olarak tanımlanan temel tanım aralığı (base range), 
+			Float tipler için, 0 etrafında simetriktir, sadece bazı yerleşimlerde negatif 
+			tarafta ek tanım aralığı olabilir.
+		</p>
+		<p class="indent">
+			Float tipi ve alt tiplerinin temel ondalık duyarlığı (base decimal precision), bu tipin tüm 
+			örneklerinin içerdiği ondalık duyarlık sayısıdır. GNAT 2012 derleyicisinde, Float tipi
+			için duyarlık 6, Long_Float için duyarlık 15 ondalık olarak belirlenmiştir. Long_Long_Float
+			veri tipi için donanımın desteklediği en üst duyarlık değeri uygulanmıştır. Çalıştığımız 
+			sistemde bu 18 ondalık olarak belirlenmiştir. Duyarlık konusuna dikkatle
+			yaklaşılmalıdır. Verilerin kaynaklandığı ölçüm cihazları (sensörler) aslında çoğunlukla ölçüm
+			hata eşiği yüksek cihazlardır. Bu sensörlerden alınacak veriler için, aşırı duyarlıkta
+			algoritmaların uygulanması, yanıltıcı bir sanal gerçeklik duygusu yaratabilir. Sonuçlar, 
+			algoritmalara katılan verilerin en azından en çok hatalısı kadar hata payı içerir. Duyarlık 
+			uygulanırken veya sonuçların duyarlıkları saptanırken daima kullanılanılan verilerin 
+			uygulanan duyarlıkla uyum içinde olup olmadığı düşünülmeli ve sonuçlar gerçekte 
+			ölçüm cihazları ile desteklenebildiğinden çok ondalık sayısı ile verlimemelidir.
+</p>
+		<p class="indent">
+			Float veri tipi öntanımlı ondalıklı (real) bir tiptir. Ada programlama dilinde sadece
+			on temelli sayılar noktalı sayılar olarak uygulanabilir. Noktalı sayılar (real numbers) 
+			matematik hesaplarda kullanılabilen veri tipleridir. Ada programlama dilinde büyük 
+			çapta matematik desteği ve öntanımlı matematik paketi bulunmaktadır. Bu 
+			hesaplamalar için öntanımlı veya kullanıcı tanımlı gerçek sayı veri tipleri kullanılır. 
+			Gnat 2012 öntanımlı olarak, Short_Float (Float ile aynıdır), Float, Long_Float, long_Long_Float
+			veri tipilerini tanımılar. Kullanıcılar bu veri tiplerinden yararlanarak, kendileri için gerekli 
+			duyarlık ve kapsamda özgün gerçek sayı veri tipleri yaratıp kullanabilirler.
+</p>
+		<p class="indent">
+			Float veri tipinin değerlerinin standart çıkış cihazında (genel olarak monitor)
+			görüntülenmesinin sağlandığı bir giriş/çıkış paketi, Ada.Text_IO paketindeki soysal (generik)
+			Ada.Text_Float_IO(num) alt paketinin  Float veri tipi için örneklenmesi ile
+			Ada.Float_Text_IO(num) paketi öntanımlı olarak kullanıcıların kullanımına açılmıştır. Bu 
+			öntanımlı paketin tanıtımı ve uygulanması, <a href="../ek3/ek3-s3.html">ek2-s3</a> de 
+			açıklanmıştır. Long_Float ve Long_Long_Float öntanımlı veri tipleri içinde aynı şekilde 
+			Ada.Long_Float_Text_IO(num) ve Ada.Long_Long_Float_Text_IO(num) öntanımlı paketleri
+			tanımlanmıştır ve hepsinin kullanımı yöntemi Ada.Float_Text_IO(num) paketi ile aynıdır.
+		</p>
+		<p class="indent">
+			Float veri tipinin sayıları yuvarlatma özelliğinin belirlenmesi için 
+			<a href="../uygulamalar/b3_3_3_uyg_1.html">aşağıdaki prosedür</a> çalıştırılmıştır.
+		</p>
+				<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Float_Değer_1</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">constant</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">4.5555</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Float_Değer_2</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">constant</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">4.4445</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Değer &nbsp;: "</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Float_Değer_1</span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot; Yuvarlatılmış Değer =>   &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Float_Değer_1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Değer &nbsp;: "</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Float_Değer_2</span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">&quot; Yuvarlatılmış Değer =>   &quot;</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Float_Değer_2</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_uyg_1<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">Float Değer  : 4.5555 Yuvarlatılmış Değer =>   4.556</span>
+<span class="pl-25 green">Float Değer  : 4.4445 Yuvarlatılmış Değer =>   4.444</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_uyg_1.html">prosedürden</a> alınan
+			sonuçlar çok önemlidir ve Ada programlama dilinin gerçek sayı verilerin gösterimini
+			kayma engelleyici yuvarlatma yöntemi uygulayarak gerçekleştiğini belirtmektedir.
+			Kayma engelleyici yuvarlatma yöntemi, (unbiased rounding) eğer yuvarlatılacak sayı,
+			alt ve üst değerler arasında ise sayının en yakın tamsayıya yuvarlaılmasını öngörür.
+			Kayma önleyici yuvarlatma yöntemi, sonuçlardaki yuvarlatma hatasının bir yöne doğru
+			yığılmasının önlenmesi amacı ile uygulanan en değerli yuvarlatma yöntemidir.
+		</p>
+<p class="subheading" id="float-attrs">3.3.3.1 - Float Veri Tipine Uygulanabilen Nitelikler</p>
+		<p class="indent">
+			Flaot veri tipi, skaler (tek boyutlu) bir veri tipidir. Bu nedenle skaler veri tiplerine
+			uygulanabilen tüm nitelikler Float gibi gerçek sayı tiplerine de uygulanabilir. Bunu
+			dışında gerçek sayılar için uygulanabilen nitelikler de bulunmaktadır. Bazı gerçek sayı
+			nitelikleri sistem ile ilgilidir ve fazla uygulama alanı yoktur. Burada programlarda 
+			uygulanma olasılığı yüksek olan nitelikler üzerinde duracağız. İlk olarak, öntanımlı 
+			Float, Long_Float ve Long_Long_Float 	veri tiplerinin ondalık duyarlıkları ve güvenli 
+			çalışma aralığı niteliklerini inceleyeleceğiz.
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Digits</span> : <span class="pl-15">İstenilen</span> duyarlık (requested precision) değerini döndürür.</li>
+			<li><span class="pl-75">T tipinin S temel alt tipinin (base subtype) </span> istenilen duyarlık değeri, d nin en yüksek değeridir. Öyle ki,</li>
+			<li><span class="pl-75">ceiling(d * log(10) / log(T'Machine_Radix)) + g <= T'Model_Mantissa</span></li>
+			<li>Burada g Machine_Radix değeri 10 sayısının positif bir üssü ise 0 yoksa 1 değerindedir.</li>
+			<li><span class="pl-100">Bu </span> niteliğin sonucu, universal_integer tipindedir.</li>
+		</ul>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Safe_First</span> : <span class="pl-15">Her </span>kayan noktalı
+			tipin alt tipi S için güvenli kapsam aralığının en alt sınırını döndürür.</li>
+			<li><span class="pl-100">Bu </span> niteliğin sonucu, universal_real tipindedir.</li>
+		</ul>
+	<ul class="listNoMarker">
+			<li><span class="red">S'Safe_Last</span> : <span class="pl-15">Her </span>kayan noktalı
+			tipin alt tipi S için güvenli kapsam aralığının en üst sınırını döndürür.</li>
+			<li><span class="pl-100">Bu </span> niteliğin sonucu, universal_real tipindedir.</li>
+		</ul>
+		<p class="nonindent">
+			Bir <a href="../uygulamalar/b3_3_3_1_uyg_1.html">prosedür</a> ile Float, Long_Float
+			ve Long_Long_Float öntanımlı veri tiplerinin, öntanımlı ondalık duyarlıkları ile çalışılan 
+			sistemde güvenli kapsam aralıklarının alt ve üst sınırlarını sorgulayalım:
+		</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_1_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Veri Tipinin Öntanımlı Ondalık Duyarlığı : "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">81</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span><span class="S1">Digits</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;Ondalık"</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Long Float Veri Tipinin Öntanımlı Ondalık Duyarlığı : "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">75</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;Ondalık"</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Long_Long_Float Veri Tipinin Öntanımlı Ondalık Duyarlığı : "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">68</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" &nbsp;Ondalık"</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Veri Tipinin Alt Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">90</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Safe_First<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Veri Tipinin Alt Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">90</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Safe_First<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Long Float Veri Tipinin Alt Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">85</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span>Safe_First<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Long_Long Float Veri Tipinin Alt Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">79</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span>Safe_First<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Veri Tipinin Üst Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">90</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Safe_Last<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">0</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Float Veri Tipinin Üst Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">90</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Safe_Last<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Long Float Veri Tipinin Üst Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">85</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span>Safe_Last<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Long_Long Float Veri Tipinin Üst Güvenli Kapsam Sınırı &nbsp;: "</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">79</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span>Safe_Last<span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span><span class="S1">Digits</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+
+Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_1<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green">Float Veri Tipinin Öntanımlı Ondalık Duyarlığı :                                          6  Ondalık</span>
+<span class="pl-25 green">Long Float Veri Tipinin Öntanımlı Ondalık Duyarlığı :                                15  Ondalık</span>
+<span class="pl-25 green">Long_Long_Float Veri Tipinin Öntanımlı Ondalık Duyarlığı :                      18  Ondalık
+</span>
+<span class="pl-25 green">Float Veri Tipinin Alt Güvenli Kapsam Sınırı  :                                          -340282346638528860000000000000000000000.000000</span>
+<span class="pl-25 green">Float Veri Tipinin Alt Güvenli Kapsam Sınırı  :                                          -3.402823E+38</span>
+<span class="pl-25 green">Long Float Veri Tipinin Alt Güvenli Kapsam Sınırı  :                                  -1.797693134862316E+308</span>
+<span class="pl-25 green">Long_Long Float Veri Tipinin Alt Güvenli Kapsam Sınırı  :                         -1.189731495357231770E+4932
+</span>
+<span class="pl-25 green">Float Veri Tipinin Üst Güvenli Kapsam Sınırı  :                                          340282346638528860000000000000000000000.000000</span>
+<span class="pl-25 green">Float Veri Tipinin Üst Güvenli Kapsam Sınırı  :                                          3.402823E+38</span>
+<span class="pl-25 green">Long Float Veri Tipinin Üst Güvenli Kapsam Sınırı  :                                  1.797693134862316E+308</span>
+<span class="pl-25 green">Long_Long Float Veri Tipinin Üst Güvenli Kapsam Sınırı  :                         1.189731495357231770E+4932</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_1.html">prosedürden</a>,
+			çok önemli sonuçlar alınmıştır. Buradan Float veri tipinin kapsam ve duyarlık açısından
+			öntanımlı gerçek sayı tipleri arasında en mütevazi olan tip olduğu görülmektedir.
+			Long_Float daha geniş duyarlık ve kapsam da ve JavaScript sayısal tipine denk
+			gelen bir veri tipidir. Long_Long_Float öntanımlı gerçek sayı veri tipi ise,
+			hem duyarlık hem de destekleyebildiği kapsam alanı açısından, gerçekten göz kamaştırıcı
+			değerlere sahiptir. Sonuçlar aşağıdaki tabloda toplanmıştır.
+</p>
+		<div class="sayfaortala">
+			<table width="80%" border="1" id="kapsam" class="tablo1">
+				<caption class="captionred ">
+						Öntanımlı Gerçek Sayı Veri Tiplerinin Karakteristikleri
+				</caption>
+				<colgroup>
+					<col class="st1"  width="25%" />
+					<col class="st1"  width="25%" />
+					<col class="st1"  width="25%" />
+					<col class="st1"  width="25%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4 st1">
+						<th>Veri Tipi</th>
+						<th>Duyarlık</th>
+						<th>Güvenli Kapsam Alt Sınırı</th>
+						<th>Güvenli Kapsam Üst Sınırı</th>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">Float</td>
+						<td class="sayfaortala">6</td>
+						<td class="sayfaortala">-3.402823E+38</td>
+						<td class="sayfaortala">3.402823E+38</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">Long_Float</td>
+						<td class="sayfaortala">15</td>
+						<td class="sayfaortala">-1.797693134862316E+308</td>
+						<td class="sayfaortala">1.797693134862316E+308</td>
+					</tr>
+					<tr class="st1">
+						<td class="sayfaortala">Long_Long_Float</td>
+						<td class="sayfaortala">18</td>
+						<td class="sayfaortala">-1.189731495357231770E+4932</td>
+						<td class="sayfaortala">1.189731495357231770E+4932</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			Yukarıdaki tablodaki sonuçlardan, Float veri tipi için öntanımlı requested precision değeri olan 6 ondalık,değerinin 
+			verilen, 
+		</p>
+		<pre class="app-25">
+<span class="pl-25">ceiling(d * log(10) / log(T'Machine_Radix)) + g &lt;= T'Model_Mantissa</span>
+		</pre>
+		<p class="nonindent">
+			kriteryumunun sağlanıp sağlanmadığını kontrol edelim. Burada ileride saptayacağımız gibi, çalışılan sistemin 
+			mimarisi 2 temelli sayı sistemi (binary) olduğundan g = 1 olacaktır. Yine ileride saptayacağımız gibi, Float
+			veri tipi için, Model_Mantissa = 24 değerindedir. Ceiling (tavan) gerçek sayıların değerlerinin en yüksek 
+			tamsayı eşdeğerine yükseleltilmeleri işlemidir. Buradan 
+		</p>
+		<pre class="app-25">
+<span class="pl-25">ceiling(6 * log(10) / log(2)) + 1 = 21 ( 21 &lt; 24 )</span>
+		</pre>
+	<pre class="app-25">
+<span class="pl-25">ceiling(7 * log(10) / log(2)) + 1 = 25 ( 25 &gt; 24 )</span>
+		</pre>
+		<p class="nonindent">
+			olarak bulunur ve Float tipinin gerçekleşebilecek en yüksek requested precision değerinin 6
+			ondalıkta kalacağı görülür. Uygulamalarda, Float tipinin işlem sonuçlarının 6 ondalıktan fazla
+			görüntülenmemesi uygun olur. Gözlemlerimiz, Float veri tipinin hesaplarında 8 haneye 
+			kadar bozulma görülmediği şeklindedir. Yine de 6 haneden fazlasına itibar etmemek güvenli
+			olacaktır.
+		</p>
+		<p class="indent">
+			Bilgisayarlarla yürütülen aritmetik işlemlerde bazı durumlarda, nisbeten büyük bir sayıya
+			çok çok küçük bir başka sayı eklenmek istendiğinde, eğer eklenmek istenen sayı makinenin
+			algılayabileceğinden daha küçükse, değeri toplama yansımayabilir. buna aritmetik duyarsızlık
+			(underflow) adı verilir. Bazı durumlarda ise işlemin sonucu, aşırı büyük sayılar oluşturabilir.
+			Buna aritmetik taşma (overflow) adı verilir. Aritmetik taşma sonunda bir değer kapsam sınırını 
+			aşarsa, derleyici kapsam hatası oluşturur. Bazı durumlarda, örnek olarak denklemlerin köklerinin
+			sayısal yöntemle bulunmasında, sayılar arası farkların (epsilon) incelenmesi gerekir. Genel olarak, 
+			eğer kullanılan veri tiürünün duyarlığı D ise , makinenin algılayabileceği epsilon olarak kullanılabilecek 
+			en düşük değerin 10<sup>-D</sup> olacağı kabul edilr. Yani 6 ondalık duyarlığı olan Float veri
+			tipi kullanılarak yapılan çalışmalarda, epsilon olarak 0.00001 değerinin alınması uygun olacaktır.
+			Bazı fonksiyon yaklşım problerinde, epsilon değerinin azaltılabilmesi için yüksek duyarlık ondalık sayılı
+			veri tipleri bu nedenle tercih edilmektedir.
+		</p>
+<p class="indent">
+			Sonucu 0 olan ifadeler, pozitif veya negatif yönden sıfıra ulaşmış olabilirler. Derleyicinin çalışmakta olduğu
+			donanım, işaretli sıfırları desteklerse, derleyici işaretli sıfırları kullanabilir. İşaretli sıfırlar, hesaplarda 
+			normal 0 olarak hareket ederler. Derleyicinin çalışmakta olduğu donanımın işaretli sıfırları destekleyip 
+			desteklemediği, bir T tipi için, S'Signed_Zeros niteliği ile sorgulanabilir. Bu niteliğin tanımı aşağıda görülmektedir. 
+</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Signed_Zeros</span> : <span class="pl-15">Eğer</span> T 
+					tipinin donanım tarafından algılanan şeklinde</li>
+			<li><span class="pl-75">işaretli sıfırlar destekleniyorsa True, </span> yoksa False değerini verir.</li>
+			<li><span class="pl-75">İşaretli sıfırlar</span>, IEC 559:1989 da belirlendiği gibi bazı öntanımlı işlemlerin uygulanmasında
+				oluşturulur ve kullanılır.
+			</li><li><span class="pl-75">Bu </span> niteliğin sonucu, Boolean tipindedir.</li>
+		</ul>
+		<p class="indent">
+			Bu niteliğin değerini belirlemek için aşağıda görülen 
+			<a href="../uygulamalar/b3_3_3_1_uyg_2.html">prosedür</a> uygulanmıştır.
+			
+		</p>
+    <pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_1_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>Boolean_IO<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Enumeration_IO<span class="S4">(</span>enum<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Boolean<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Küçük_Harf</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Type_Set<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Lower_Case<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">use</span><span class="S0"> </span><span class="S1">type</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Type_Set<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"İşaretli Sıfırlar Dstekleniyor Mu ? : &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Boolean_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Signed_Zeros<span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">,</span><span class="S0"> </span>Set<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Küçük_Harf</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_2<span class="S4">;</span>
+
+
+Bu programın sonucu,
+
+<span class="pl-25 green">İşaretli Sıfırlar Dstekleniyor Mu ? :  true     </span>
+
+olmaktadır. Bu sonuç işaretli sıfırların donanım tarafından desteklendiğini belirtmektedir.
+		</pre>
+		<p class="indent">
+			Gerçek sayı veri tiplerinin nesnelerinin derleyici tarafından algılanan değerleri, S'Machine niteliği
+			ile sorgulanabilir. Bu niteliğin tanımı aşağıda görülmektedir. 
+		</p>
+		<ul class="listNoMarker">
+			<li><span class="red">S'Machine</span> : <span class="pl-15">Her</span> gerçek sayı alt 
+					veri tipi için </li>
+			<li><span class="pl-100">Bu nitelik,</span> aşağıda tanımı görülen fonksiyonu belirtir:</li>
+		</ul>
+		<pre class="app-25">
+<span class="pl-150"><span class="keyw">function</span></span> S'Machine (X : T)
+<span class="pl-175"><span class="keyw">return</span></span> T
+		</pre>
+		<ul class="listNoMarker">
+			<li><span class="pl-100">Bu</span> fonksiyon, eğer X, T tipinde bir makine sayısı 
+					ise, bu fonksiyon X değerini,</li>
+			<li><span class="pl-100">Yoksa</span>, X değerinin yuvarlatılması veya kesilmesi 
+					ile oluşan T tipinin herhangibir bitişik makine sayısını döndürür.</li>
+			<li><span class="pl-100">Eğer</span>, X tipinin yuvarlatılması veya kesilmesi 
+					sonucunda oluşan makine sayılarının duyarlığı, S tipinin temel</li>
+			<li><span class="pl-100">kapsam</span> aralığının (base range) dışında kalırsa, kapsam aşımı
+					hatası (Constraint_Error) oluşur.</li>
+			<li><span class="pl-100">Eğer</span> S'Signed_Zeros niteliği True ise, sonuç sıfır olduğunda,
+					sonucun işareti X değerinin işareti ile aynıdır.</li>
+			<li><span class="pl-100">Bu</span> nitelik, geriye T tipinde bir değer döndürür.</li>
+		</ul>
+		<p class="indent">
+			Öntanımlı Float, Long_Float ve Long_Long_Float veri tipinden nesnelerin makine sayılarının
+			sorgulanması aşağıdaki <a href="../uygulamalar/b3_3_3_1_uyg_3.html">prosedürde</a> 
+			uygulanmıştır. 
+	</p>
+		<pre class="app-25"><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">;</span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> &nbsp;</span>b3_3_3_1_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+F<span class="S4">:</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.123456E-8</span><span class="S4">;</span>
+
+L_F<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.123456789012345E138</span><span class="S4">;</span>
+
+L_L_F<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.123456789012345678E3156</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" Float Veri : 2.123456E-8 , Makine Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Float<span class="S4">'</span>Machine<span class="S4">(</span>F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">6</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" Long_Float Veri : 2.123456789012345E138 , Makine Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Float<span class="S4">'</span>Machine<span class="S4">(</span>L_F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">15</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">3</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" Long_Long_Float Veri : 2.123456789012345678E3156 , Makine Değeri : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>Long_Long_Float<span class="S4">'</span>Machine<span class="S4">(</span>L_L_F<span class="S4">)</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">18</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S1">end</span><span class="S0"> </span>b3_3_3_1_uyg_3<span class="S4">;</span>
+
+Bu programın sonucu,
+
+<span class="pl-25 green"> Float Veri : 2.123456E-8 , Makine Değeri : 2.123456E-8</span>
+<span class="pl-25 green"> Long_Float Veri : 2.123456789012345E138 , Makine Değeri : 2.123456789012345E+138</span>
+<span class="pl-25 green"> Long_Long_Float Veri : 2.123456789012345678E3156 , Makine Değeri : 2.123456789012345680E+3156</span>
+
+olmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_3_3_1_uyg_3.html">prosedürde</a>, 
+			alınmış olan sonuçlarda Float ve Long_Float veri tiplerinde, kullanıcı değeri ve makine
+			değeri arasında hiçbir fark yaşanmamış olduğunu belirtmektedir. Fakat bu hiçbir farklılık
+			yaşanmayacağının garantisi değildir. Belki kapsam sınırına daha yakın değerlerde değişik 
+			davranışlar gözlenebilir. Long_Long_Float verisinde ise gözlenebilen bir bozulma olmuştur. Bu
+			veri tipinin 17 ve 18 inci karakterleri yukarıya doğru yuvarlatılmıştır. Fakat, donanımın 
+			çok sıradan, sayının çok yüksek, duyarlığın çok büyük  ve bozulmanın da çok küçük olduğu 
+			gözönüne alınırsa, yaşanan bozulmanın fazla bir sorun olmayacağı düşünülebilir.
+			Doğal olarak bozulmanın önemli olup olmadığı çalışılan konuya bağlıdır. Yine de onyedinci 
+			ondalık değerinin etkileyebileceği fiziksel olay sayısı fazla değildir. Donanımın değişmesi ile 
+			birlikte bu hatanın azalması olasığı da her zaman vardır. 
+	</p>
+		<p class="indent">
+			<span class="pl-600">Devam =========></span>
+</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+		<a href="b3-s4.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+		<a href="b3-s6.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:17 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

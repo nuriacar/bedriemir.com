@@ -1,0 +1,788 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+    <head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/HTMLandCSS/CSS3/inheritance/css3-inh-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content=
+        "HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+              name="generator">
+        <meta http-equiv="Content-Language" content="tr">
+        <meta name="description" content=
+        "HTML learning,Document Organisation and Coding">
+        <meta name="keywords" content=
+        "HTML, Generic Coding in Turkish Language">
+        <meta name="s-Id" content="css3-inh-s1">
+        <meta name="Author" content="Prof. Dr. Bedri Doğan Emir">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=utf-8">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <link rel="stylesheet" type="text/css" href=
+        "../../css/newstyle.css" media="all">
+        <title>
+            Kalıtım 1
+        </title>
+    </head>
+    <body>
+        <div>
+            <span>
+                <img name="htmlmap" 
+                     src="../../images/reservedimages/html-map.png"
+                   width="384" height="140" class="x" 
+                   usemap="#htmlmap" alt="HTML Image Map" 
+                   style="margin:0px;padding:0px;"></span>
+                <map name="htmlmap">
+                    <area shape="circle" coords="278,16, 9"
+                          href="../../b2/b2s1.html" alt="b2s1">
+                    <area shape="circle" coords="317,72, 9"
+                          href="../../ek4/ek4s1.html" alt="Ek4">
+                    <area shape="circle" coords="257,93, 9"
+                          href="../../ek6/ek6s1.html" alt="Ek 6">
+                    <area shape="circle" coords="336,72, 9"
+                          href="../../ek5/ek5s1.html" alt="Ek5">
+                    <area shape="circle" coords="297,36, 9"
+                          href="../../b8/b8s1.html" alt="b8s1">
+                    <area shape="circle" coords="258,17,9"
+                          href="../../b1/b1s1.html" alt="b1s1">
+                    <area shape="rect" coords="323,111,370,123"
+                          href="../../ek7/attributes.html" 
+                          alt=" Ek7 Nitelikler">
+                    <area shape="circle" coords="338,14, 9"
+                          href="../../b5/b5s1.html" alt="b5s1.htm">
+                    <area shape="circle" coords="278,72, 9"
+                          href="../../ek2/ek2s1.html" alt="Ek2">
+                    <area shape="circle" coords="297,15, 9"
+                          href="../../b3/b3s1.html" alt="b3s1">
+                    <area shape="circle" coords="297,73, 9"
+                          href="../../ek3/ek3s1.html" alt="Ek3">
+                    <area shape="circle" coords="277,36, 9"
+                          href="../../b7/b7s1.html" alt="b7s1">
+                    <area shape="rect" coords="256,113,311,123"
+                          href="../../ek7/elements.html"
+                          alt="Ek7 Elementler">
+                    <area shape="circle" coords="258,73, 9"
+                          href="../../ek1/ek1s1.html" alt="Ek1">
+                    <area shape="circle" coords="317,15, 9"
+                          href="../../b4/b4s1.html" alt="b4s1">
+                    <area shape="circle" coords="258,36, 9"
+                          href="../../b6/b6s1.html" alt="b6s1">
+                    <area shape="circle" coords="277,93,9"
+                          href="../../ek7/catalogue.html"
+                          alt=" Ek7 Catalogue">
+                </map>
+            <span 
+			       style="position:absolute;right:730px;top:10px;
+			              margin:0px;padding:0px;">    
+                <a href="../../index.html">
+                    <img class="topindex" 
+                         src="../../images/sharedimages/index.gif" 
+                         alt="index" width="40" height="40"></a> 
+                <a href="../selectors/css3-sel-s3.html">
+                    <img class="topprevious"
+                         src="../../images/sharedimages/previous.gif"
+                         alt="previous" width="40" height="40"></a>
+                <a href="../values/css3-val-s1.html">
+                     <img class="topnext" 
+                          src="../../images/sharedimages/next.gif" 
+                          alt="next"  width="40" height="40"></a>
+            </span>
+        </div>
+        <p class="chapter">
+            Katlı Stil Sayfaları (Sürüm3)
+        </p>
+        <p class="chapter-title">
+            Katlı Stil Etkisi ve Kalıtım
+        </p>
+        <p class="pagenum">
+            Sayfa 1
+        </p>
+        <hr>
+        <p>
+             
+        </p>
+        <p class="title-left" id="cascsde">
+            Katlı Stil Etkisi (Cascade Effect)
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            <a href="http://www.w3.org/style/css/">CSS</a>
+            programlama dilinin çıkış nedenlerinden birisi, belge
+            yazarlarına ve belgeyi okuyanlara (kulanıcı), belgenin
+            görüntülenmesinde belirli bir kontrol olanağı
+            sağlanmasıdır. Bu kontrolün sağlanabilmesi için, bir
+            belge bulunun bir element veya özellik üzerinde gerek
+            yazar, gerekse kullanıcı taarfından uygulanabilen
+            çeşitli etki mekanizmaları kullanılabildiği gibi, bu
+            element/özelliğin değerini kalıtım mekanizması da
+            ekiler.
+        </p>
+        <p class="indent">
+            Bir yazar, bir sayfa içindeki belirli bir öğenin
+            görüntülenmesini etkileyebilmek için, stil kuralları
+            oluşturabilir. Stil kuralları, bir elementin stil
+            niteliğinden yararlanılarak belirlenebildiği gibi (
+            satırıçı stil=inline style), bu kuralları, aynı sayfa
+            içinde &lt;style&gt; elementinin içeriği olarak
+               <a href="http://www.w3.org/style/css/">CSS</a>
+               kuralları içeren &quot;gömülü&quot; (embedded) stil
+               sayfası programlarından yararlanabilir. Bundan başka
+               birden çok sayfaya bağlanabilecek bağımsız
+               dosya_adı.css uzantılı çeşitli dış <a href=
+               "http://www.w3.org/style/css/">CSS</a> dosyalarının
+               da sayfaya bağlanma (link) veya ithal (importing)
+               yöntemleri ile bağlanmaları olanağı vardır.
+               Kullanıcılar da özellikle belge çözümleyicilerinin
+               ayarları yardımı ile indirdikleri belgelerin
+               görüntülenmesi üzerinde etkili olabilirler. Bir
+               elementi hedefleyen açık stil kuralları, o elementin
+               görüntüsünü etkilediği gibi, aynı elementin kalıtım
+               yeteneği dolayısı ile, kalıtım yolu ile
+               kazanabileceği değerler, son görüntüsünde etkili
+               olabilir.
+        </p>
+        <p class="indent">
+            Bu mekanizmanın daha iyi anlaşılması için elementin bir
+            hedef durumunda olduğu ve bu hedefi çeşitli
+            yüksekliklerde (düzeylerde) etki alanlarının etkilemeye
+            çalıştığı düşünülebilir. Kalıtım mekanizması da bu
+            etkilerden biridir. Sonuçta, bu etki kaynaklarından en
+            güçlüsü yarışmayı kazanır ve elementin görüntüsü,
+            kazanan etkinin belirttiği şekilde oluşturulur. Bu
+            yarışmaya &quot;Kat Etkisi&quot; (Cascading Effect) adı
+            verilir. Katlı Stil Sayfaları (Cascading Style Sheets)
+            adı da bu etki dolayısı ile verilmiştir. Hangi etkinin
+            kazanacağı ise, basit fakat sistematik ve yerine göre
+            çok sayıda olabilen eliminasyon yöntemleri ile yapılır.
+            Bu işlemler sonucunda, kazanmakta olan etki çoğunlukla
+            zor takip edilir. Bu nedenle, alınacak sonucun
+            (oluşacak görüntünün), her zaman önceden (a priori)
+            anlaşılması kolay değildir.
+        </p>
+        <p class="indent">
+            Katlı stil etkisi sonunda bir özelliğin değeri
+            belirlenmemişse, bu değer önce kalıtım yolu ile
+            edinilmeye çalışılır, eğer kalıtım da yoksa, varsayılan
+            başlangıç değerine eşitlenir.
+        </p>
+        <p class="title-left" id="winning">
+            Kazanan Etkinin Belirlenmesi
+        </p>
+        <p class="indent">
+            Katlı stil ekisinin amacı bir element/özelliğin
+            görünümünü belirleyecek &quot;<strong>kazanan
+            bildirim</strong>&quot; &#39;in belirlenmesidir. Genel
+            olarak uygulanacak olan değer belirlenince, ortamın
+            durumuna göre yeni bir hesaplama yapılarak, uygulanacak
+            değer saptanır. Aşağıda önem sırasına göre
+            uygulananacak olan, kazanacak değerin bulunma koşulları
+            sıralanmıştır.
+        </p>
+        <ul class="list">
+            <li>
+                <p>
+                    <strong>Ağırlık</strong> : <a href=
+                    "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+                    katlı etkinin ağırlığının bulunmasında önceliği
+                    bildirimin kaynağına vermiş ve bunun bir
+                    ağırlık katsayısı ile değerlendirilebileceğini
+                    belirtmiştir. Ağırlık katsayısının hesaplanma
+                    yöntemi, aşağıda ayrı bir şekilde
+                    incelenmiştir. Ağırılığı en fazla olan bildirim
+                    kazanacaktır.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <strong>Spesifiklik</strong> : Bir selektörün
+                    ne kadar özel tanımlandığına bağlı bir
+                    kriteryumdur. Spesifikliği en yüksek olan bir
+                    bildirim kazanacaktır. Bu özellik selektörler
+                    ile birlikte daha yakından incelenecektir.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <strong>Bildirim Sırası</strong> : En son
+                    belirtilen bildirim kazanacaktır.
+                </p>
+            </li>
+        </ul>
+        <p class="nonindent">
+            Değerlendirme, kazanan bildirim bulununcaya kadar devam
+            edecektir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="inheritance">
+            Kalıtım
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Kalıtım, özelliklerin atadan oğula geçmesidir. Birçok
+            özelliğin kalıtım ile kazanılma yeteneği vardır.
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> de
+            tüm özelliklere, açık olarak kalıtım ile edinilme
+            özelliği verilebilir. Kalıtımla edinilen değerler,
+            çoğunlukla hesaplanmış değerlerdir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="default">
+            Başlangıç Değerleri
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bir değer, katlı stil etkisi veya kalıtım ile
+            kazanılamadığı durumlarda, başlangıç değeri
+            kullanılacaktır. <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> ile
+            başlangıç değerlerinin açık olarak belirtilmesi olanağı
+            sağlanmıştır. Başlangıç değerlerinin spesifikasyonlarda
+            açık olarak belirtilmediği durumlarda, belge
+            çözümleyiciler kendi özel değerlerini kullanırlar.
+            Kullanıcılar için bir başka zorluk da, bu özel
+            değerlerin açık olarak belirtilmemesi nedeni ile,
+            belgelerin görüntülerinin bazı durumlarda önceden
+            tahmin edilememesi olmaktadır.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="weight">
+            Katlı Stil Etkisinin Ağırlığının Hesaplanması
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> de
+            katlı stil etkisinin hesaplanması, stil kuralının
+            kökeni ile belirtilmiş önemlilik durumuna göre
+            hesaplanır.
+        </p>
+        <p class="indent">
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> de
+            stil sayfalarının üç tür kökeni olabilir. Bunlar,
+            yazar, kullanıcı ve belge çözümleyicisi stil
+            sayfalarıdır. Yazar stil sayfaları, yazarın sayfaya
+            uyguladığı stil sayfalarıdır. Kullanıcının normalde
+            indirdiği sayfaya bir stil uygulaması olanağı yoktur.
+            Belki çok karmaşık teknikler, kullanıcı stil sayfası
+            olarak etki yapabilir. Belge çözümleyicilerin ise en
+            azından stil sayfası olmayan belgelerin görüntülenmesi
+            için bir başlangıç değerlerinden oluşan bir stil
+            değerleri olabilir. Kullanıcılar, çeşitli menüler
+            yardımı ile bu değerleri değiştirebilirler. Bu durumda,
+            aşağıda verilen önem sırası bir çok yönden kuramsal
+            sayılabilir. Stil sayfalarının önemi, yukarıdan aşağıya
+            doğru artmak üzere,
+        </p>
+        <ol class="list">
+            <li>
+                <p>
+                    Belge çözümleyicileri stil sayfaları
+                </p>
+            </li>
+            <li>
+                <p>
+                    Kullanıcı normal stil sayfaları
+                </p>
+            </li>
+            <li>
+                <p>
+                    Yazar normal stil sayfaları
+                </p>
+            </li>
+            <li>
+                <p>
+                    Yazar önemli stil sayfaları
+                </p>
+            </li>
+            <li>
+                <p>
+                    Kullanıcı önemli stil sayfaları
+                </p>
+            </li>
+        </ol>
+        <p class="nonindent">
+            olarak verilmiştir.
+        </p>
+        <p class="indent">
+            Sayfaya ithal edilen stil sayfalarında bulunan
+            tanımlar, ithal eden sayfada bulunan tanımlardan daha
+            az önceliklidir. İthal edilen edilen sayfa da başka
+            sayfalar ithal edebilir, bunlardaki tanımlar da
+            kendisinde bulunanlardan daha az öncelikli olacaktır.
+        </p>
+        <p class="indent">
+            Pratikte sadece yazar stil sayfaları kullanıldığını
+            belirtelim. Belge çözümleyicisinin özel stil ayarları,
+            kullanıcı tarafından değiştirilemez. Belge
+            çözümleyicilerinin menü kontrolleri ile sadece yazı
+            büyüklüğü ve karakter kodlaması belirtilebilir.
+            Kullanıcı stil sayfaları da bugün için kullanımda
+            değildir. Sadece Firefox yeni 1.0 sürümünde kullanıcı
+            stil sayfaları (user style sheets) kullanımına olanak
+            sağlamaktadır.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left">
+            Katlı Stil ve Kalıtım Etkisinin Verileri ve Sonucun
+            Belirlenmesi
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Bu süreci etkileyen girdiler,
+        </p>
+        <ul class="list">
+            <li>
+                <p>
+                    Söz konusu element/özellik öğesini etkileyen
+                    tanımlar. (Bazı tanımlar, çözümlemenin
+                    yapıldığı medya türünü desteklemezse yok
+                    sayılırlar)
+                </p>
+            </li>
+            <li>
+                <p>
+                    Özelliğin kalıtımla edilen değeri
+                </p>
+            </li>
+            <li>
+                <p>
+                    Özelliğin başlangıç değeri
+                </p>
+            </li>
+        </ul>
+        <p class="indent">
+            Bu sürecin sonucunun belirlenmesi için uygulanacak
+            aşamalar,
+        </p>
+        <ol>
+            <li class="list">
+                <p>
+                    Eğer katlı stil etkisi bir kazanan değer
+                    sağlıyorsa ve bu değer &quot;initial&quot; veya
+                    &quot;inherit&quot; değilse, bu değer
+                    kullanılır.
+                </p>
+            </li>
+            <li class="list">
+                <p>
+                    Yoksa, eğer değer &quot;inherit&quot; ise,
+                    kalıtımla edinilen değer kullanılır.
+                </p>
+            </li>
+            <li class="list">
+                <p>
+                    Yoksa, değer &quot;initial&quot; ise varsayılan
+                    başlangıç değeri kullanılır.
+                </p>
+            </li>
+            <li class="list">
+                <p>
+                    Yoksa, değer kalıtımla edinilebiliyorsa,
+                    kalıtımla edinilen değer kullanılır.
+                </p>
+            </li>
+            <li class="list">
+                <p>
+                    Yoksa, varsayılan başlangıç değeri kullanılır.
+                </p>
+            </li>
+        </ol>
+        <p class="indent">
+            Görüldüğü gibi bu son derece karmaşık, çok aşamalı ve
+            sonucu ilk bakışta öngörülemeyecek bir süreçtir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="practical">
+            Pratik Öneriler
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="multitude">
+            Çok Sayıda Dış Stil Dosyası Kullanılmamalı
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Katlı etki sürecinin karmaşık ve öngörülmesi zor
+            niteliği, ilk bir önlem olarak basit ve anlaşılır
+            yöntemler kullanılarak azaltılabilir. Herşeyden önce,
+            bir Web alanı, çoğunlukla birden çok sayfa içerir. Bu
+            sayfalarda, tekdüzeliğin sağlanması için genellikle her
+            sayfada ayrı bir stil sayfası belirlemekten kaçınmak ve
+            genel bir stil syfasından tüm sayfaların yararlanmasını
+            sağlamak uygun olur. Böylelikle bir yazar, kullandığı
+            selektörlere alışkanlık kazanmış olur ve etkilerini
+            daha kolaylıkla öngörebilir. Aynı düşünceyle, mutlaka
+            gerekli olmadan, sayfa içindeki bir elemente stil
+            niteliğini kullanarak bir stil atamamak gerekir. Uzun
+            çalışmalarda bu araya serpiştirilmiş stil deyimleri iyi
+            takip edilemez ve bir etkinin nedenini anlamak zaman
+            alabilir. Sadece, Katlı etki sürecinin etkilerini
+            gidermek için bu yola başvurulabilir.
+        </p>
+        <p class="indent">
+            Bir sayfaya sadece bir tek stil sayfası bağlanırsa,
+            sonuçların öngörülmesi daha kolaylaşır. Sayfaya ithal
+            etme veya bağlanma yolu ile birden fazla stil sayfası
+            bağlanması yerine, tüm stil deyimlerinin tek bir
+            sayfada toplanması, sonuçların öngörülmesinde kolaylık
+            sağlayacaktır.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="controlled">
+            Kalıtımın Kontrollü Olarak Kullanılması
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            Kalıtım etkisi, yerine göre kolaylık, yerine göre de
+            gerçek bir başağrısı olabilir. Kalıtım etkisinin
+            azaltılması kolay değildir. Bazı durumlarda kalıtımdan
+            yararlanılarak önemli ölçüde kod ekonomisi yapılabilir.
+            Bu konuda benimsenebilecek en uygun tutum, kalıtımdan
+            gerekli olduğu sürece yararlanmak, fakat kalıtım
+            yayılmasının kontrolünü olanaklar ölçüsünde elde
+            tutarak, kontrolsuz etkilere olanak vermemek olabilir.
+        </p>
+        <p>
+             
+        </p>
+        <p class="subheading" id="clean-code">
+            Karmaşık Stil Kurallarından Kaçınma
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> son
+            derece geniş ve yıllardır üzerinde çalışılmasına rağmen
+            henüz her modülü &quot;önerilen yöntem&quot; niteliğini
+            elde etmemiş bir çalışmadır. Bu konuda Kasım 2004 de
+            spesifikasyon olma şamasına gelmesi beklenmektedir. Şu
+            anda ancak <a href="http://www.w3.org/TR/CSS1">CSS1</a>
+            spesifikasyonun uygulamada büyük ölçüde
+            desteklenebildiğini ve bu desteğin de tam olmadığını
+            vurgulayalım. <a href=
+            "http://www.w3.org/TR/CSS21">CSS2.1</a> ise daha tam
+            uygulanamadan yenilenme aşamasına girilmiş bir
+            spesifikasyondur. Burada <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            öğrenmemizin tek nedeni en yeniye uyum sağlama
+            kaygısıdır ve bilgi teknolojilerinde bu tercih,
+            kuramsal açıdan çok geçerli olmasına karşın, uygulamada
+            her zaman en iyi sonuç veren bir yol değildir.
+            Uygulamacılar çoğunlukla teknolojiyi biraz geriden
+            takip eden, sistemlerin bir müddet uygulanmasını,
+            sorunların giderilmesini bekleyen tutum takınabilirler.
+            Bu tutum, ilk başlangıçta işleri kolaylaştırabilir gibi
+            görünebilirse de, sıkı sıkıya yapışılan sistemler kısa
+            bir müddet sonunda tamamen demode olabilir ve yeni
+            sistemlere adapte olmak daha da zor hale gelebilir. Bu
+            nedenle yenilerin daima kontrollu olarak fakat
+            gecikmeksizin benimsenmesi yararlı olur. Bunun için,
+            çalışmalarımızda en yeni <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            spesifikasyonunu kullanmayı öngörüyoruz.
+        </p>
+        <p class="indent">
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            &#39;ün çok yeni ve geniş bir sistem olduğundan
+            uygulamada desteği henüz yeterli değildir. Doğal olarak
+            <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            hergün daha çok desteklenmekte, fakat açıklamalar
+            yetersiz olduğundan, şu an için hangi belge
+            çözümleyicisinin, hangi spesifikasyonu ne ölçüde
+            desteklediği tam olarak önceden kestirilememektedir.
+            Aslında <a href="http://www.w3.org/TR/CSS21">CSS2.1</a>
+            &#39;in bile henüz tam olarak desteklenmediği
+            bilinmektedir. Bu nedenle, karmaşık ve destekleneceği
+            kuşkulu ifadelerden olabildiğince kaçınmak
+            gerekmektedir. Olabildiğince basit kurallar oluşturup,
+            bunları sıkı sıkıya deneyerek uygulamaya konulması
+            gerekmektedir. Kullanıcılar, günümüzde adeta sadece MS
+            Internet Explorer kullanmaktadır. Bu nedenle IE
+            platformunda çalışmayan hiçbir programın uygulamaya
+            alınmaması gerekmektedir.
+        </p>
+        <p class="indent">
+            Karmaşık terim gösterisinde bulunanlar değil,
+            yazdıkları kodlar geniş ölçüde desteklenen, açık
+            ifadeler kullanan ve kullanıcılar tarafından kolay
+            takip edilebilen program kodları yazanlar başarılı bir
+            Web yazarı sayılabilirler.
+        </p>
+        <p>
+             
+        </p>
+        <p class="title-left" id="application">
+            Uygulama Örnekleri
+        </p>
+        <p>
+             
+        </p>
+        <p class="indent">
+            İlk olarak &quot;al_yaz.css&quot; adlı bir program
+            yazıp saklayacağız.
+        </p>
+        <pre class="navy">
+.yaz {color:red}
+        </pre>
+        <p class="indent">
+            İkinci olarak &quot;kahverengi_yaz.css&quot; adlı bir
+            program yazıp saklayacağız.
+        </p>
+        <p>
+            <span class="navy">.yaz {color:maroon}</span>
+        </p>
+        <p class="indent">
+            Bundan sonra aşağıdaki programı <a href=
+            "dene_kat_etkisi_bildirim.htm">dene_kat_etkisi_bildirim.htm</a>
+            adı ile saklayacağız.
+        </p>
+        <pre class="navy">
+&lt;html lang=&quot;tr&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;tr&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./al_yaz.css&quot; media=&quot;all&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./kahverengi_yaz.css&quot; media=&quot;all&quot;&gt;<br>&lt;title&gt;CSS3 Deneme Kat Etkisi Bildirim Sırası&lt;/title&gt;<br>&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;yaz&quot;&gt;Rengime Bakın Stilimi Anlarsınız !&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p class="nonindent">
+            <strong>Uygulama Sonucu</strong> : Yazının rengi
+            kahverengi olarak görüntülendi. Burada iki stil sayfası
+            &quot;yaz&quot; sınıfından bir paragrafın içeriğinin
+            yazdırılacağı rengi belirlemek içi yarışıyorlar. Her
+            ikisinin de spesifikliği aynı, çünkü her ikisi de genel
+            bir yaz selektörünün rengini belirtiyorlar fakat,
+            &quot;kahverengi_yaz.css&quot; stil sayfası elemente en
+            yakın <a href="http://www.w3.org/style/css/">CSS</a>
+            bildirimini oluşturduğu için yarışmayı kazanıyor ve
+            paragrafın içeriği kahverengi renkte görüntüleniyor.
+        </p>
+        <p class="nonindent">
+            <strong>Destekleyen Platformlar</strong> : Hepsi.
+        </p>
+        <p class="indent">
+            İkinci örneğimiz aynı rekabete bir de kalıtım unsurunun
+            katılması ile kazanan etkinin belirlenmesi amacı ile
+            hazırlanmıştır. Bu senaryo, aşağıda görülen <a href=
+            "dene_kat_kal.htm">dene_kat_kal.htm</a> programı ile
+            denenmiştir.
+        </p>
+        <pre class="navy">
+&lt;html lang=&quot;tr&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;tr&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./al_yaz.css&quot; media=&quot;all&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./kahverengi_yaz.css&quot; media=&quot;all&quot;&gt;
+&lt;title&gt;CSS3 Deneme Kat Etkisi ve Kalıtım Etkisi&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;color:blue&quot;&gt;
+&lt;p class=&quot;yaz&quot;&gt;Rengime Bakın Stilimi Anlarsınız !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p class="indent">
+            Bu katlı stil etkisi incelendiğinde, birinci kurala
+            göre, üstün çıkan değer, &quot;inherit&quot; veya
+            &quot;initial&quot; olmadığına göre, kazanan taraf
+            olacak ve paragraf içeriğinin rengi, kalıtıma
+            bakılmaksızın yine kahverengi kalacaktır. Uygulama
+            sonucu da bu öngörünün doğru çıktığını belirtmektedir.
+        </p>
+        <p class="nonindent">
+            <strong>Uygulama Sonucu</strong> : Yazının rengi,
+            beklendiği gibi kahverengi olarak görüntülendi. Kalıtım
+            etkisi sonucu etkilemedi.
+        </p>
+        <p class="nonindent">
+            <strong>Destekleyen Platformlar</strong> : Hepsi.
+        </p>
+        <p class="indent">
+            Üçüncü örnek salt bir kalıtım etkisinin incelenmesi
+            olacaktır. Buradaki senaryo, sayfaya hiçbir stil
+            etkisinin olmadığı durumda kalıtım mekanizmasından
+            yararlanarak bir içerik sağlayıcı elementin içeriğinde
+            bulunan bir elementin bir niteliği kalıtımla
+            kazanmasıdır. Bunun için aşağıda görülen <a href=
+            "dene_kal.htm">dene_kal.htm</a> programı yazılmıştır.
+        </p>
+        <pre class="navy">
+&lt;html lang=&quot;tr&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;tr&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;<br>&lt;title&gt;CSS3 Salt Kalıtım Etkisi&lt;/title&gt;<br>&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;color:blue&quot;&gt;
+&lt;p&gt;Rengime Bakın Stilimi Anlarsınız !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p class="indent">
+            Son örnek, salt bir <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            yeniliği olan, bir özelliğin &quot;inherit&quot;
+            değerini alabilmesi ile ilgilidir. bu özellik değeri,
+            bilindiği gibi katlı stil etkisinin sonucunu
+            değiştirmektedir. Buradaki amacımız, <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a> ile
+            getirilmiş olan bu olanağın, uygulamada desteğinin
+            belirlenmesidir. Bunun için aşağıdaki gibi yeni bir
+            stil programı yazılmış ve inherit.htm olarak
+            kaydedilmiştir.
+        </p>
+        <pre class="navy">
+.yaz {color:inherit}
+        </pre>
+        <p class="nonindent">
+            Bundan sonra aşağıdaki program k <a href=
+            "dene_kat_inherit.htm">dene_kat_inherit.htm</a> olarak
+            kaydedilerek etkisi incelenmiştir.
+        </p>
+        <pre class="navy">
+&lt;html lang=&quot;tr&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;tr&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./al_yaz.css&quot; media=&quot;all&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./inherit.css&quot; media=&quot;all&quot;&gt;
+&lt;title&gt;CSS3 inherit Özellik Değerinin Katlı Etki Sürecine Etkisi&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;color:blue&quot;&gt;
+&lt;p class=&quot;yaz&quot;&gt;Rengim Stilimi Belirtiyor !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p class="indent">
+            Bu katlı stil etkisi incelendiğinde, birinci kurala
+            göre, üstün çıkan değer, &quot;inherit&quot; olduğuna
+            göre, kazanan taraf olacak ve paragraf içeriğinin
+            rengi, kalıtımla edinilecek değeri alacak ve kırmızı
+            olarak görüntülenecektir.
+        </p>
+        <p class="nonindent">
+            <strong>Uygulama Sonucu</strong>: Yazının rengi,
+            kalıtım sonucuna göre belirlendi ve kırmızı olarak
+            görüntülendi. Salt <a href=
+            "http://www.w3.org/Style/CSS/current-work">CSS3</a>
+            özellik değeri olan inherit uygulamada da
+            destekleniyor.
+        </p>
+        <p class="nonindent">
+            <strong>Destekleyen Platformlar</strong> : Hepsi.
+        </p>
+        <p class="indent">
+            !important Olarak belirtilmiş kuralların katlı etki
+            sırasını değiştirdiği bilinmektedir. Bu kuralın
+            denenmesi için, aşağıdaki kodlar oluşturulmuştur:
+        </p>
+        <pre class="navy">
+@charset &quot;utf-8&quot;;
+/* CSS Document */
+.yaz{color:red !important}
+</pre>
+        <p class="indent">
+            Bu dosya <a href=
+            "al_yaz_important.css">al_yaz_important.css</a> olarak
+            kaydedilmiştir. dene_kat_etkisi_bildirim.htm dosyasında
+            aşağıda görülen değişikliği yapalım ve bu yeni dosyayı
+            <a href=
+            "dene_kat_etkisi_important.htm">dene_kat_etkisi_important.htm</a>
+            adı ile kaydedelim:
+        </p>
+        <pre class="navy">
+...
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;al_yaz_important.css&quot; media=&quot;all&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;kahverengi_yaz.css&quot; media=&quot;all&quot;&gt;
+...
+</pre>
+        <p class="indent">
+            Bu programın çalışması sonunda, iki yazar stil sayfası
+            olarak aynı ağırlıkta, spesifiteleri aynı olduğunda
+            yine aynı ağırlıkta iki stil sayfasından normalde son
+            çağrılanın üstün çıkacağı beklenirken, birincideki
+            kuralın !important olarak belirtilmesi sonucunda, katlı
+            etki sırasının değiştiği ve birincinin üstün çıkması
+            gerektiği öngörülür.
+        </p>
+        <p class="nonindent">
+            <strong>Uygulama Sonucu</strong> : Gerçekten yazının
+            rengi kırmızı olmuş ve !important kuralının çalıştığı
+            gözlenmiştir.
+        </p>
+        <p class="nonindent">
+            <strong>Destekleyen Platformlar</strong> : Hepsi.
+        </p>
+        <p class="indent">
+            Bu denemede, !important kuralının çalıştığı görülmesine
+            rağmen, uygulamada, katlı etki sırasının öngörülmesini
+            zorlaştıran bu kuralın kullanılması sağlık verilmez.
+        </p>
+        <p>
+             
+        </p>
+        <div>
+            <p>
+                <a href="../../index.html">
+                <img src="../../images/sharedimages/indeksbelgesi.png"
+                            class="bottomindex" alt="index"></a>
+               <a href="../selectors/css3-sel-s3.html">
+                <img src="../../images/sharedimages/oncekibelge.png"
+                           class="bottomprevious" alt="prev"></a>
+               <a href="../values/css3-val-s1.html">
+                <img src="../../images/sharedimages/sonrakibelge.png"
+                          class="bottomnext" alt="next"></a>
+            </p>
+        </div>
+        
+        <p>
+            <a href=
+            "http://validator.w3.org/file-upload.html">validate in
+            W3C !</a>
+        </p>
+    </body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1408064634" alt="setstats" border="0" width="1" height="1"></noscript><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

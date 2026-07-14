@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:15 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s5.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<style type="text/css">
+			caption{ 
+			background-color:#FFCCFF;
+				color : navy;
+			}
+			table.Tablo1 {
+				font:18px Verdana, Arial, Helvetica, sans-serif;
+				position:relative;
+				left :500px;
+				text-align:center;
+				border-color:#000099;
+				border-style:solid;
+				
+			}
+			thead{
+				background-color: #CCCCFF;
+			}
+			td.tbl{
+				
+			   border-style:solid;
+				
+			}
+		</style>
+		<title>b8s5</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b8s4.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b8s6.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 5
+		</p>
+		<p class="title-left" id="instances">8.3 - Dizi Sınıfı Nesne Örneklerinin Özellikleri</p>
+		<p class="indent">
+			Dizi sınıfı nesne örneklerine kısaca diziler adı verilir. Diziler programlama dilleri için çok önemlidir,
+			çünkü büyük sayıda uyumlu (coherent) verinin döngüler yardımı ile işlenmesine olanak sağlar. 
+			JavaScript programlama dili için, dizilerin özel önemi vardır, çünkü, web sayfalarındaki elemanlar
+			nesne dizileri şeklinde oluşturulmuş olduğundan, web sayfalarında JavaScript programlama 
+			yöntemlerinin uygulanabilmesi için, dizi elemanlarına erişim yöntemlerinin iyi özümsenmiş olmaları gerekir. 
+		</p>
+		<p class="indent">
+			Bir nesne örneğinin dizi olabilmesi için, gerekli ve yeterli şart, nesne örneğinin bazı özelliklerinin adlarının
+			tamsayı olmasıdır. Bu tamsayılara eleman indisleri adı verilir. Bazı özelliklerinin 
+			adları tamsayı olmayan hiçbir nesne örneği dizi sınıfından değildir. İlişkisel dizi olarak adlandırılan
+			özellik adları sözel olan nesne örnekleri, dizi sınıfından değil generik nesne sınıfındandır.
+		</p>
+		<p class="indent">
+			Diziler sadece dizi yapılandırıcısı ile (a <span class="op">=</span> <span 
+			class="keyw">new Array</span><span class="op">()</span>) şeklinde veya, dizi başlatıcısı ile 
+			(a <span class="op">= [];</span>) şeklinde oluşturulabilirler. Oluşturuluş bir dizinin bellek 
+			referansının başka bir değişkene atanması yeni bir dizi oluşturmaz, var olan diziye iki 
+			farklı değişken ile erişilebilmesini sağlar.
+		</p>
+		<p class="indent">
+			Dizilere kullanıcılar tarafından sözel isimli özellikler eklenebilir. Bu kullanıcı tanımlı özellikler, 
+			dizi elemanı değil dizilerin kendilerine özgü özellikleridir. Dizilere eklenen kullanıcı tanımlı 
+			özellikler eklenmenin yapılmış olduğu diziye özgüdür, başka dizilerde tanımlı değildir.
+		</p>
+		<p class="indent">
+			Bir a dizisinin elemanlarına a<span 	class="op">[</span>0<span class="op">]</span> 
+			veya a<span class="op">[</span><span class="str">'0'</span><span class="op">]</span> 
+			olarak erişilebilir, fakat a<span class="op">.</span>0 olarak erişilemez.
+		</p>
+		<p class="indent">
+			Bir a dizisinin kullanıcı tanımlı yetkili özelliğine a<span 
+			class="op">[</span><span class="str">'Yetkili'</span><span class="op">]</span> 
+			veya a<span class="op">.</span>Yetkili şeklinde erişilebilir.
+		</p>
+		<p class="indent">
+			Dizi nesne örneklerinin (dizilerin) kendilerine özgü prototipleri yoktur. Diziler, dizi sınıfının
+			prototipini paylaşırlar. JavaScript yorumlayıcısı, dizilere kullanıcı eliyle yapılan özellik katkılarının
+			bir envanterini tutar ve bu özelliklere dizilere erişilebilen kapsamlardan erişim sağlar.
+		</p>
+		<p class="indent">
+			Dizilerin sadece <span class="keyw">length</span> (uzunluk) özellikleri vardır.
+		</p>
+		<p class="subheading" id="array-length">8.3.1 - Dizi Sınıfı Nesne Örneklerinin length Özelliği</p>
+		<p class="indent" id="b8.3.1-uyg-1">
+			Dizilerin <span class="keyw">length</span> özelliğinin değeri, ismi dizi indisi olan özelliklerin 
+			en büyüğünün değerinden sayıca bir fazlasıdır. Eğer dizi aşağıdaki örnekte görüldüğü
+			gibi, <span class="indent">bitişik-sürekli </span>bir dizi ise, yani elemanlarının
+			indisleri sıfırdan başlayarak, birer artacak şekilde dizi sonuna kadar gelişiyorsa,
+			uzunluk özelliğinin döndürdüğü değer, aynı zamanda dizi içindeki eleman sayısına
+			da eşit olur. Aşağıda <a href="../uygulamalar/b8.3.1-uyg-1-js.html">JavaScript
+			kodları</a> verilmiş olan <a href="../uygulamalar/b8.3.1-uyg-1.html">uygulama</a>,
+			bu konuda bir örnek vermektedir: </p>
+		<pre><span class="keyw-25">function</span> diziVerileri() <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> d<span 
+			class="op"> = </span><span 
+			class="keyw">new Array ()</span><span 
+			class="op">;</span>
+<span class="pl-50">d[0] </span><span 
+			class="op">= </span><span 
+			class="str">'Selin'</span><span 
+			class="op">;</span>
+<span class="pl-50">d[1]</span><span 
+			class="op"> = </span><span 
+			class="str">'Buket'</span><span 
+			class="op">;</span>
+<span class="pl-50">d[2]</span><span 
+			class="op"> =</span><span 
+			class="str"> 'Müge'</span><span 
+			class="op">;</span>
+<span class="pl-50">d[3]</span><span 
+			class="op"> = </span><span 
+			class="str">'Aylin'</span><span 
+			class="op">;
+
+</span><span class="pl-50">diziElemanlarıDikeyYazımı</span>(d<span 
+			class="op">, </span><span 
+			class="str">'b8.3.1-uyg-1-sonuç-1'</span>)<span 
+			class="op">;</span>
+<span class="pl-50">diziUzunluğu</span>(d,<span 
+			class="str"> 'b8.3.1-uyg-1-sonuç-2'</span>);
+<span class="op-25">}</span>
+
+		</pre>
+		<p class="cursive-green"> Bu Programın Sonuçları : </p>
+		<p class="indent" id="b8.3.1-uyg-1-sonuç-1"> </p>
+		<p class="indent" id="b8.3.1-uyg-1-sonuç-2"> </p>
+		<p class ="indent">
+			Bu programda dizi elemanlarının alt alta görüntülenmesini sağlayan diziElemanlarıDikeyYazımı<span 
+			class="op">()</span> fonksiyonun iki argümanı bulunmaktadır. Bunlardan ilki 
+			dizi değişkeni, ikincisi, görüntülenmenin yapılacağı sayfa elemanının <span 
+			class="att">id</span> değeridir. Bu fonksiyonu şimdilik sadece kullanmakla
+			yetineceğiz.  Bu fonksiyon, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a>
+			program kitaplığına konulmuştur. Bu fonksiyonun yazılımı aşağıda görülmektedir:
+		</p>
+		<pre>
+
+<span class="keyw-25"></span>function diziElemanlarıDikeyYazımı<span 
+			class="op">(</span>dizi<span class="op">,</span> öncekiElementId<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> öncekiElement <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>öncekiElementId<span 
+			class="op">),</span>
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-blue'</span><span 
+			class="op">);</span>
+<span class="pl-50">inserAfter</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">,</span> öncekiElement<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'br'</span><span 
+			class="op">));</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> dizi <span 
+			class="op">.</span> <span 
+			class="keyw">length</span><span 
+			class="op">;</span>  i<span 
+			class="op">++ ) {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>dizi <span 
+			class="op">[</span>i<span 
+			class="op">] ==</span> <span 
+			class="keyw">undefined</span><span 
+			class="op">) {</span>
+<span class="pl-100">dizi</span><span 
+			class="op">[</span>i<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="str">'undefined'</span><span 
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="pl-75">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'br'</span><span 
+			class="op">));</span>
+<span class="pl-75">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>dizi<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent" id="b8.3.1-uyg-2">
+			Diziler, her zaman bitişik-sürekli
+			olarak tanımlanmak zorunda değildir. Aşağıdaki örnekte görülen e dizisi yani
+			dizi sınıfı örneği, böyle bir diziyi belirtmektedir. Bu durumda, dizininin
+			uzunluk özelliğinin döndürdüğü sayı, tanımlı eleman sayısına eşit değildir.
+			Bu değer, ancak tanımlanan dizi, bir bitişik- sürekli dizi olsa ve dizi indisi
+			orijinden (JavaScript programlama dili için orijin = 0 dır) başlasa, eleman
+			sayısına eşit olur. Bunun dışındaki durumlar için, Pratik olarak dizideki
+			en büyük indis <span class="str">n</span> ise, dizi uzunluğu özelliği daima 
+			<span class="str">n+1</span> değerini döndürecektir. Aşağıda 
+			<a href="../uygulamalar/b8.3.1-uyg-2-js.html">JavaScript kodları</a> 
+			verilmiş olan <a href="../uygulamalar/b8.3.1-uyg-2.html">uygulama</a>,
+			bu durumu açıklamaktadır. 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> diziVerileri1()<span 
+			class="op">{</span>
+<span class="keyw-50">var</span> e<span 
+			class="op"> =</span><span 
+			class="keyw"> new Array ()</span><span 
+			class="op">;</span>
+<span class="pl-50">e[5]</span><span 
+			class="op"> = </span>12<span 
+			class="op">;</span>
+
+<span class="pl-50">diziUzunluğu</span>(e, <span 
+			class="str">'b8.3.1-uyg-2-sonuç-1'</span>);
+<span class="pl-50">diziTabloTekBoyut</span>(<span 
+			class="str">'b8.3.1-uyg-2-sonuç-2'</span><span 
+			class="op">,</span> <span 
+			class="str">'e Dizisi Elemanları'</span><span 
+			class="op">,</span> <span 
+			class="str">'e', </span>e)<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="cursive-green"> Bu Programın Sonuçları : </p>
+		<p class="indent" id="b8.3.1-uyg-2-sonuç-1"> </p>
+		<table id="b8.3.1-uyg-2-sonuç-2">
+		</table>
+		<p class="title-left" id="ArrayFunction">8.4 - Array() Fonksiyonu</p>
+		<p class="indent">
+			<span class="keyw">Array</span><span class="op">()</span> fonksiyonu, 
+			yapılandırıcı olarak değil de serbest fonksion olarak da kullanılırsa,
+			 yine bir dizi nesne sınıfı örneğinin yaratılmasını sağlar. Kullanımı,
+		</p>
+		<pre>
+<span class="str-50"><em>diziSınıfıNesneÖrneği</em></span> <span 
+			class="op">=</span> <span 
+			class="keyw">Array</span><span 
+			class="op">([</span>birim1<span 
+			class="op">[,</span> birim2<span 
+			class="op">[,</span> ...<span 
+			class="op">]]]);</span>
+		</pre>
+		<p class="nonindent"> şeklindedir. Bu çağrının aynı <span 
+			class="keyw">new Array</span><span 
+			class="op">();</span> çağrısınının etkisini yapacağı belirtilmiştir. 
+		</p>
+		<p class="indent">
+			Bu tip bir çağrı, Yeni dizi sınıf örneklerinin yaratılması için, üçüncü
+			ve yeni bir yöntemi oluşturmaktadır. Bu yöntemin, alışılmamış bir yöntem
+			olacağını, fakat istendiğinde uygulanmasında bir sakınca olmayacağı düşünülebilir.
+		</p>
+		<p class="title-left" id="special">8.5 - Özel Dizi Teknikleri</p>
+		<p class="subheading" id="parallel-arrays">8.5.1 - Paralel Diziler- Veri Yapıları</p>
+		<p class="indent" id="b8.5.1-uyg-1">
+			Bazı durumda veriler birbirleri ile ilişkilidir.
+			Örnek olarak bir klüp üyesinin üye sıra numarası,
+			adı, soyadı, takma adı, yaptığı spor türü, aldığı
+			ödüller aynı kişi ile ilişkili bilgilerdir. Bu
+			bilgiler basit olarak tek bir dizide tutulamaz, çünkü
+			bir dizi elemanına basit olarak tek bir bilgi
+			yerleştirilebilir. Bu durumda yanı kişi ile bilgileri
+			birden çok diziye yerleştirmek gerekecektir. Kulüp
+			üyelerinin tümünün bilgileri birbiri ile aynı olarak
+			organize edilirse, her dizi elemanı, bir üyenin
+			benzer bilgilerini saklar. Örnek olarak her üye
+			numarası sütununa, isim dizisinden bir isim, spor
+			dizisinden bir spor dalı karşı gelir. Bu tip dizi
+			guruplarına paralel diziler adı verilir. Paralel
+			dizilerin kullanılması ile birbirleri ile ilişkili
+			onlarca özellik birlikle işlenebilir. 
+			<a href="../uygulamalar/b8.5.1-uyg-1.html">Örnek</a>:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> paralelDiziler()<span 
+			class="op"> {</span>
+
+<span class="keyw-50">var</span> numara <span 
+			class="op">= [</span>1<span 
+			class="op">,</span> 2<span 
+			class="op">,</span> 3<span 
+			class="op">],</span>
+<span class="pl-50">isim</span> <span 
+			class="op">= [</span><span 
+			class="str">'Hasan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Theodor'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nigar'</span><span 
+			class="op">];</span>
+<span class="pl-50">soyad</span> <span 
+			class="op">= [</span><span 
+			class="str">'Çörekçi'</span><span 
+			class="op">,</span> <span 
+			class="str">'Özkasap'</span><span 
+			class="op">,</span> <span 
+			class="str">'Hoşer'</span><span 
+			class="op">],</span>
+<span class="pl-50">spor</span> <span 
+			class="op">= [</span>'<span 
+			class="str">Yüzme'</span><span 
+			class="op">, </span><span 
+			class="str">'Tenis'</span><span 
+			class="op">,</span> <span 
+			class="str">'Dağcılık'</span><span 
+			class="op">],</span>
+<span class="pl-50">bilgiAlanı</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'TabloBaşı'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">()</span><span 
+			class="op">,</span> 
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> numara<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++) {</span>
+<span class="pl-75">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>numara<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>isim<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>soyad<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>spor<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+
+<span class="pl-75">bilgiAlanı</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>paralelDiziler</span><span 
+			class="op">);</span>
+
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<table width="30%" id="tablo" summary="Tablo Yapım" border="2"
+		cellspacing ="2" cellpadding="2" class="Tablo1">
+			<col class="st1"  width="25%"/>
+			<col class="st1"  width="25%"/>
+			<col class="st1"  width="25%"/>
+			<col class="st1"  width="25%"/>
+			<caption>Üye Kayıtları</caption>
+			<thead class="tablobilgi">
+				<tr>
+					<th>Nr</th><th>Ad</th><th>Soyad</th><th>Spor Dalı</th>
+				</tr>
+			</thead>
+			<tbody id="alan">
+			</tbody>
+			<tfoot>
+			</tfoot>
+	</table>
+
+
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.5.1-uyg-1.html">uygulamada</a>
+			görüldüğü gibi, paralel diziler, ayrı isimli ayrı dizilerdir. Fakat, 
+			her dizinin absis ekseninde eşit sayıda ilerleme ile erişilen aynı dizi indisi ile 
+			erişilebilen her eleman, aynı bilginin farklı özellklerini belirtir. Paralel dizilerin 
+			verileri saklama şekli, aşağıdaki şemada görülebilir :
+		</p>
+		<p class="chapter">
+			<img src="../images/b8s5-img-1.png" alt="paralel diziler" width="411" height="308" />		</p>
+		<p class="chapter">
+			Paralel Diziler
+		</p>
+		<p class="indent">
+			Yukarıdaki şekilde görüldüğü gibi, paralel Dizileri, orijinleri aynı ortogonal 
+			eksene dayanan, paralel absis eksenleri olarak düşünebiliriz. 
+			Her absis ekseni, elemanların yerleştiği ayrı bir diziyi belirtir. Aynı üye 
+			oluşumu ile ilgili veriler, her dizinin 	absisinin aynı indisinde bulunur. Örnek 
+			olarak, soyad<span class="op">[</span>2<span 	class="op">]</span> üçüncü 
+			üyenin soyadı özelliği, spor<span 	class="op">[</span>2<span 	class="op">]</span>,
+			 üçüncü üyenin 	spor seçeneğidir.
+		</p>
+		<p class="indent">
+			Paralel diziler, verilerin işlenmesi için çok ekonomik bir alternatif olabilirler.
+			Doğal olarak bazı limitasyonları bulunabilir, fakat, az bir programlama bilgisi ile 
+			hiçbir ücretli programa gerek duyulmadan her türlü bilginin bilgisayar ortamında
+			işlenebileceği basit yapılanmalar olarak öne çıkarlar.
+		</p>
+		<p class="indent">
+			Paralel dizilerde saklanacak verilerin daha iyi anlaşılması için, öncelikle
+				veri terminoljisini bilmememiz gerekir. Bir veri sonlu bir bilgidir. Örnek
+				olarak yukarıdaki 
+			<a href="../uygulamalar/b8.5.1-uyg-1.html">uygulamada</a> paralel dizilere
+			yerleştirilen  üye bilgileri bir veri olarak nitelendirilir. 
+		</p>
+		<p class="indent">
+			Her verinin bir yapısı vardır. Bir verinin yapısı, bu veride bulunacak alt veri parçalarını
+			içerir. Veri yapısında bulunacak alt veri parçalarına veri alanı adı verilir. Yukarıdaki 
+			<a href="../uygulamalar/b8.5.1-uyg-1.html">uygulamada</a>, üye veri yapısının, 
+			numara, isim, soyad, spor şeklinde dört veri alanı bulunmaktadır. 
+		</p>
+		<p class="indent">
+			Veri yapılarındaki veri alanlarının belirli bir veri tipi vardır. JavaScript programlama dilinde 
+			veri alanları sayısal, sözel veya nesne tipinde olabilirler. Bu olanaklar veri yapılarına olağanüstü
+			bir esneklik ve genişleme yeteneği sağlar.
+		</p>
+		<p class="indent">
+			Bir veri yapısı belirgin ve değişmezdir. Bu veri yapısında sonsuz sayıda veri üretilebilir. Veriye bir 
+			örnek veya kayıt adı verilir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde veri yapılarına öntanımlı veya kullanıcı tanımlı nesne yapıları 
+			karşı gelir. Nesne yapılarına, nesne sınıfı,  sınıf nesnesi veya nesne ailesi adları da verilmektedir. 
+			Tanımlamış olan her nesne sınıfının bir prototip görevini yapar. Bu prototipe uygun nesne örnekleri 
+			üretilir. 
+		</p>
+		<p class="indent">
+			Veri yapıları sadece bir yönergedir. Bu yönerge, olan veri yapısını belirtir.
+				Örnek olarak,  kullanıcı tanımlı bir üye nesne sınfının yapısı, bu nesne
+				sınıfı dört veri alanından oluşacaktır. Birinci veri alanının adı numara,
+				veri tipi sayısal, ikinci veri alanının adı isim, veri tipi sözel...
+				şeklinde bir bildirimdir. Öntanımlı nesne sınıflarının (<span class="keyw">Math</span> sınıfı
+				gibi) veri yapıları JavaScript yorumlayıcısı tarafından önceden tanımlanmıştır.
+				Kullanıcı tanımlı  veri yapıları, bir sonraki bölümde göreceğimiz, yapılandırıcı
+				fonksiyonlarla bildirilirler.
+		</p>
+		<p class="indent">
+			Veri yapılarına uygun olarak oluşturulan kayıtlar, nesne sınıf örnekleridir.
+				Bunlara kısaca  nesne örnekleri adı verilir ve bunlar gerçek, nesnel,
+				fiziksel büyüklüklerdir. Nesne örneklerinin yapısı, nesne sınıfı tarafından
+				kesin olarak belirtilmiştir. Bu yönergeye bağlı olarak istendiği kadar
+				fiziksel sınıf örneği oluşturulabilir. 
+		</p>
+		<p class="indent">
+			Nesne literalleri ise, gerçek nesne örnekleridir ama sınıf yapıları önceden
+			belirtilmemiştir.  JavaScript yorumlayıcısı nesne literallerinin yapısını
+			dinamik olarak atama sırasında algılar.  Birbiri ile aynı yapıda farklı
+			nesne literalleri, belirtilmemiş bir sanal sınıfın örnekleri gibi düşünülebilirler.
+		</p>
+		<p class="indent">
+			Paralel dizilere yerleştirilmiş bilgiler ise, belirtilmemiş bir sanal sınıfın,
+			belirtilmememiş bir  sanal örneğinin, çesitli dizilerin aynı düşey koordinatlarına
+			yerleştirilmiş özellik değerleri  olarak düşünülebilir. Örnek olarak, yukarıdaki 
+			<a href="../uygulamalar/b8.5.1-uyg-1.html">uygulamada</a> paralel dizilere
+			yerleştirilen  üye bilgileri, deklare edilmemiş bir nesne literalinin 
+		</p>
+		<pre>
+<span class="pl-50">a</span> <span 
+			class="op">= {</span>numara <span 
+			class="op">:</span> 1<span 
+			class="op">,</span> isim <span 
+			class="op">:</span> <span 
+			class="str">'Hasan'</span><span 
+			class="op">,</span> soyad <span 
+			class="op">:</span> <span 
+			class="str">'Çörekçi'</span><span 
+			class="op">,</span> spor <span 
+			class="op">:</span> <span 
+			class="str">'Tenis'</span><span 
+			class="op">};</span>
+		</pre>
+		<p class="nonindent">
+			özellik değerleri olan 1, 'Hasan', 'Çörekçi', 'Tenis' değerleri, dört paralel
+			dizinin ilk elemanları olarak yerleştirilmiştir. Programcılar, bu bilgilere,
+			<span class="indent">yukarıdaki 
+			<a href="../uygulamalar/b8.5.1-uyg-1.html">uygulamada</a> olduğu
+			gibi, </span>yerleştirdikleri sistematikle erişebilirler.
+		</p>
+		<p class="indent">
+			Paralel dizilerin, verilerin çalışılması için çok kırılgan bir sistem olduğu
+			bilinmelidir.  Paralel dizilerde, aynı birime ait bilgiler birbirinden bağımsız
+			dizilere yerleştirilmiştir. Bu dizilerin birinde eleman kayması olursa tüm
+			sistemin bilgileri kaybolacaktır.  Paralel diziler yerine, veri sistemine
+			dayalı, kullanıcı tipli nesne sınıflarının yaratılması ve kullanılması çağdaş
+			bir düşünce olacaktır. 
+		</p>
+		<p class="indent">
+			Kullanıcı tipii bir veri yapısının geliştirilmesi için, yapılması gereken, ilk
+			çalışma veri yapısını belirlemektir. Bu örnekte, paralel dizilerde çalışılmış olan,
+			veri yapısı yukarıda açıklanmıştı. Bu veri yapısında, her üyenin kolay takip edilmesi ve 
+			veri yığının kolay sort edilebilmesini sağlamak amacı ile her üyeye özgü ve tüm veri 
+			yığını içinde benzersiz bir tamsayı olankayıt numarasının bulunması çok yerinde olmuştur. 
+			Üyeler nesne sınıfının final veri alanları,
+		</p>
+		<pre>
+<span class="op-50">{</span>nr <span 
+			class="op">(</span>Tamsayı<span 
+			class="op">),</span> ad <span 
+			class="op">(</span>Sözel<span 
+			class="op">),</span> soyad <span 
+			class="op">(</span>Sözel<span 
+			class="op">),</span> spor <span 
+			class="op">(</span>Sözel<span 
+			class="op">) }</span>
+		</pre>
+		<p class="nonindent">
+			olarak belirlenmiştir.
+		</p>
+		<p class="indent">
+			Veri çalışmalarında, başlangıçta saptanması gereken veri yapısının, proje süresince tüm 
+			gereksinmeleri karşılayacak şekilde iyi bir şekilde belirlenmiş olması çok önemlidir.
+			Başlangıç şamasında gerekli incelemelerin tam anlamı ile yapılarak değişmesi gerekmeyecek
+			bir veri yapısının saptanması gerekir. Bunun nedeni, proje için tüm yazılımların bu veri 
+			yapısına göre geliştirileceğidir. Proje tamamlandığında veri yapısında değişiklik yapılması,
+			büyük ölçüde yazılımın yeniden yazılımasını gerektirir ve bu da hem emek hem de 
+			para israfı anlamına gelir. 
+		</p>
+		<p class="indent">
+			prjenin daha sonrak aşaması yazılımdır. Yazılımın ilk aşaması , bir kullanıcı tipli 
+			yapılandırıcı fonksiyonun yazılmasıdır. Yapılandırıcı fonksiyonların yazılımı, 
+			<a href="../b7/b7s2.html#instances-proto"> Bölüm 7.6.1</a> de açıklanmıştı.
+			Burada kendi veri yapımıza özgü, yapılandırıcı fonksiyonumuzu yazalım. Yapılandırıcı
+			fonksiyonun adı, yapısı belirlenmiş olan kullanıcı tipli veri tipinin adıdır. 
+		</p>
+		
+		<pre>
+<span class="keyw-25">function</span> Üyeler<span 
+			class="op">(</span>num<span 
+			class="op">,</span> isim<span 
+			class="op">,</span> soyisim<span 
+			class="op">,</span> etkinlik<span 
+			class="op">) {</span> 
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr <span 
+			class="op">=</span> num <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad <span 
+			class="op">=</span> isim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad <span 
+			class="op">=</span> soyisim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>spor <span 
+			class="op">=</span> etkinlik <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Bu yapılandırıcı fonksiyon, JavaScript yorumlayıcısına, Üyeler adında kullanıcı tipli
+			bir yeni veri tipinin kullanılacağını bildirir. Bu bildirimden sonra, JavaScript yorumlayıcısı,
+			Üyeler nesne sınıdının <span class="keyw">prototype</span> özelliğini olşturur ve
+			bu özelliğin değeri olarak, Üyeler nesne sınıfının prototip nesnesini yerleştirir. 
+			Üyeler nesne sınıdınıfın prototip nesnesinin başlangıç özellikleri, Üyeler
+			yapılandırıcı fonksiyonunda belirtilen sınıf özellikleri olan nr, ad, soyad,spor 
+			özellikleridir. Bu özelliklerin değerlerinin veri tipleri yapılandırıcı fonksiyonda belli değildir. 
+			JavaScript programlama dili, veri tiplerini kontrol etmez. Bu kontrolü, kullanıcılar, veri
+			girişeri yazılımları ile kontrol edebilirler. Üyeler gibi, kullanıcı tanımlı nesne sınıflarının 
+			özellik değerlerinin varsayılan değerleri, Üyeler<span class="op">()</span> yapılandırıcı 
+			fonksiyonun yazılımında olduğu gibi belli ise, prototip nesnesine alınmış olur. 
+		</p>
+		<p class="indent">
+			Projenin bundan sonraki aşaması, veri girişlerinin düzenlenmesidir. Veri girişleri, 
+			prensip olarak, etkileşimli ekran girişleri olarak düzenlenirler. Giriş panellerinde, 
+			veri girişleri, veri düzeltilmesi, 	veri silinmesi ve verilerin yazdırılması gibi seçenekler 
+			bulunmalıdır. JavaScript programlama dilinde, veri giriş panellerinin programlanması 
+			çok kolaydır. Çünkü JavaScript program adımları, standart sayfa elementleri ile,
+			kolayca iletişim sağlayabilir ve giriş panelleri birer Web sayfası yazılımı gibi düzenlenebilir. 
+			Bu konular W3C-DOM konuları içinde, incelenecektir. Bu nedenle, bu proje için veriler 
+			elle girilecektir. Veri giriş modüllerinin bir başka görevi de girilen verilerin tipinin kontrol edilmesi ve
+			veri alanı ile uyuşmayacak verilerin girişinin engllenmesidir. Bu konuda, mantıksal filtreler ve 
+			düzenli deyimlerden yararlanmak olanağı bulunmaktadır. Bu işlev için, JavaScript programlama dili,
+			kullanıcılara geniş olanaklar sunmaktadır. Bu konu da giriş panellerinin tasarımı sırasında 
+			açıklanmış olacaktır
+		</p>
+		<p class="indent">
+			Veri girişlerinde, veri sınıfının örnekleri oluşturulacaktır. Oluştuulan örnekler, veri yığını
+			adı da verilen ve elemanları, girilmiş olan nesne örnekleri olan, bir diziye yerleştirilir.
+		</p>
+		<p class="indent">
+			Veri dizisinin sıralanması büyük önem taşır. Üyeler nesne snıfında, u sıralama veri yapısının 
+			sayısal nr alanından yararlanılarak ve <span class="keyw">sort</span><span class="op">()</span>
+			fonksiyonunda, sayısal alanı olan nesne örneklerinin sıralnmaı için geliştirilmiş olan sıralama
+			algoritması kullanılacaktır. 
+		</p>
+		<p class="indent">
+			En son aşama, veri dizinin saklaması ve dosyadaki veriler yenden erişilmesidir. 
+			JavaScript programlama dilinde, güvenlik nedenleri ile dosya sistemlerine erişim
+			olanağı sağlanmamaıştır. Fakat, Microsoft Internet Explorer, ActiveX denetimleri
+			yardımı ile metin dosyalarına kullanıcı erişimi sağlayabilmektedir. Bu olanağın da kullanılması
+			ile, JavaScript programlama dili veri çalışmaları için çok uygun olanakalra sahip bir programlama
+			dili olarak kabul edilebilir.
+		</p>
+		<p class="indent">
+			Tüm projenin giriş panelleri dışında yazılımı, aşağıda görülmektedir. Giriş panelleri ile,
+			 giriş verilerinin denetim ve filtrelenmesi için uzun bir incelenecek konular listemiz bulunmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+<span class="comm-25">/* Proje Üyeler */</span>
+<span class="comm-25">/* Veri Yapısı */</span>
+<span class="comm-50">/* nr (Tamsayı) (Benzersiz)*/</span>
+<span class="comm-50">/* ad (Sözel) */</span>
+<span class="comm-50">/* soyad (Sözel) */</span>
+<span class="comm-50">/* spor (Sözel) */</span>
+
+<span class="comm-25">/* Yapılandırıcı Fonksiyon*/</span>
+
+<span class="keyw-25">function</span> Üyeler<span 
+			class="op">(</span>num<span 
+			class="op">,</span> isim<span 
+			class="op">,</span> soyisim<span 
+			class="op">,</span> etkinlik<span 
+			class="op">) {</span> 
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr <span 
+			class="op">=</span> num <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad <span 
+			class="op">=</span> isim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad <span 
+			class="op">=</span> soyisim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>spor <span 
+			class="op">=</span> etkinlik <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* Veri Dizisi */</span>
+
+<span class="pl-25">üye</span><span 
+			class="op">= [];</span> 
+
+<span class="comm-25">/* Girilmiş Veriler */</span>
+
+<span class="pl-25">üye</span><span 
+			class="op">[</span>0<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>45<span 
+			class="op">,</span> <span 
+			class="str">'Selim'</span><span 
+			class="op">,</span> <span 
+			class="str">'Özkent'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tenis'</span><span 
+			class="op">);</span>
+<span class="pl-25">üye</span><span 
+			class="op">[</span>1<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>14<span 
+			class="op">,</span> <span 
+			class="str">'Gülcan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Hazer'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tenis'</span><span 
+			class="op">);</span>
+<span class="pl-25">üye</span><span 
+			class="op">[</span>2<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>13<span 
+			class="op">,</span> <span 
+			class="str">'Elif'</span><span 
+			class="op">,</span> <span 
+			class="str">'Elver'</span><span 
+			class="op">,</span> <span 
+			class="str">'Yüzme'</span><span 
+			class="op">);</span>
+			
+<span class="comm-25">/* Verilerin Üye Kayıt Numarasına Göre Sıralanması */</span>
+		
+<span class="keyw-25">function</span> nesneSıralama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> a<span 
+			class="op">.</span>nr <span 
+			class="op">-</span> b<span 
+			class="op">.</span>nr<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">üye</span> <span 
+			class="op">=</span> üye<span 
+			class="op">.</span><span 
+			class="keyw">sort</span><span 
+			class="op">(</span>nesneSıralama<span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* Sıralanmış Verilerin Listelenmesi */</span>
+
+<span class="keyw-25">function</span> üyeListesi<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> bilgiTablosu <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'Tablo1'</span><span 
+			class="op">),</span> başlık <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> tabloGövdesi <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> 
+<span class="pl-75">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> yeniSütun <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'caption'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üyelerin Listesi'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+
+<span class="pl-50">başlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'thead'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Numarası'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Adı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Soyadı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Spor Dalı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span 
+			class="op">
+</span><span class="pl-50">başlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+<span class="pl-50">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>başlık<span 
+			class="op">);</span>
+
+
+<span class="pl-50">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tbody'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>üye<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+
+<span class="pl-75">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>nr<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>ad<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>soyad<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>spor<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+<span 
+			class="op">
+</span><span class="pl-75">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+<span class="pl-75">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>tabloGövdesi<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class ="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>üyeListesi<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent" id="b8.5.1-uyg-2">
+			Bu <a href="../uygulamalar/b8.5.1-uyg-2-js.html">programın</a> bağlantılı olduğu,
+			bir <a href="../uygulamalar/b8.5.1-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<table class="Tablo1" id="Tablo1"></table>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b8.5.1-uyg-2.html">uygulama</a> sayfasında görülldüğü gibi,
+			alınan sonuçlar, küçük bir işletmenin tüm veri çalışmalarını hiçbir dış programa 
+			gereksinme olmadan salt JavaScript programlama dili uygulanarak rahatlıkla
+			yürütülebileceğini belirtmektedir. Daha büyük projeler için dış program desteği 
+			gerekebilecektir.
+		</p>
+		<p class="indent">
+			Çok sayıda veri ile çalışılacak, stok kontrol, maaş bordrosu, nufus idaresi,
+			şirket muhasebesi gibi sistemler, veri yöntemi için uygun olan veri
+			temeli programları ile çalışılırlar.Bu programlara, 
+			SQL (<span class="str">S</span>tructural <span 
+			class="str">Q</span>uery <span class="str">L</span>anguage)
+			(Yapısal Sorgulama Dili) programları adı adı verilir. Son yıllarda çok
+			kullanılan PHP-MYSQL ikilisi bu tür veri temeli programlarına örnek olarak
+			gösterilebilr. Bu programlar, verilerin saklanması, erişimi, düzenlenmesi
+			gibi işlemler için özel yöntemler içerirler. Klasik program dillerinde
+			de, veriler ile çalışılmasının kolaylaştırılması için özel I.S.A.M (<span 
+			class="str">I</span>ndexed <span 
+			class="str">S</span>equential <span 
+			class="str">A</span>ccess <span 
+			class="str">M</span>ethods) yöntemleri
+			gibi yardımcı programlar kullanılabilir. JavaScript programlama dili
+			için de özel şirketlerden ücret karşılığı alınabilen bu gibi yardımcı
+			programlar bulunmaktadır. Verilere hızlı erişimin sağlandığı bu gibi
+			özel programlar yardımı ile JavaScript programlama dili gibi klasik 
+			programlama dilleri de birer veri temeli programlama diline dönüşebilirler.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b8s4.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b8s6.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.3.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.3.1-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.5.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.5.1-uyg-2.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:15 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

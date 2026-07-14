@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s11.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:54 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s11.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s11</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s10.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s12.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.9 - Mantıksal İşlemciler 
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 11
+		</p>
+		<p class="indent">
+			Mantıksal işlemciler, mantıksal ifadelerin oluşturulması için kullanılır. İsimlerinin
+			mantıksal olmasına karşın, bu işlemciler mantıksal değer döndürmezler. 
+			Döndürdükleri değer, işlenenlerin değeridir. 
+		</p>
+		<p class="subheading" id="and">2.9.1 - Mantıksal VE (AND) İşlemcisi (&amp;&amp;)
+	</p>
+		<p class="indent">
+			Mantıksal VE işlemcisi, iki işlenenli bir işlemcidir. Eğer ve sadece eğer
+			  iki işlenenin ikisinin de değerleri <span class="keyw">true</span> ise geriye 
+			<span class="keyw">true</span>, aksi halde, yani işlenenlerden herhangibirisinin
+			 değeri <span class="keyw">false</span> ise, geriye <span class="keyw">false</span> 
+			sonucunu döndürür. Mantıksal olmayan değerlerin mantıksal değerler vermesi
+			için  aşağıdaki yönergede belirtilen yöntemler gözetilir :
+		</p>
+		<ul class="list">
+			<li>
+					Tüm nesneler <span 
+			class="keyw">true</span> kabul ediir.
+			</li>
+			<li>
+					Karakter dizgileri  sadece ve sadece boş
+					iseler, <span 
+			class="keyw">false</span> kabul edilirler.	
+			</li>
+			<li>
+					<span class="keyw">null</span>
+					ve <span class="keyw">undefined</span>
+					<span class="keyw">false</span> kabul edilir.
+			</li>
+			<li>
+					Sayılar, sadece ve sadece sıfır iseler,
+					<span class="keyw">false</span> kabul edilirler.
+			</li>
+		</ul>
+		<p class="indent">
+			Çok basit gibi görünen bu işlem, tüm programcılar için çok dikkat edilmesi
+			gereken noktalar içerir. Çünkü bu işlemcinin işleyiş tarzı göründüğü kadar
+			basit değildir. 
+		</p>
+		<p class="indent">
+			Bu işlemci ilk olarak sol işleneni yorumlamaya çalışır. Eğer sol işlenenin
+			   değeri <span class="keyw">false</span> değerine indirgenebiliyorsa, 
+			yani mantıksal <span class="keyw">false</span> olmaktan başka, 
+			<span class="keyw">null</span>, <span class="keyw">undefined</span>,
+			<span class="str">''</span> (veya<span class="str">&quot;&quot;</span>),
+			veya aritmetik 0 olursa sol işlenenin değerini döndürerek işlevini tamamlar
+			 ve sağ işleneni gözardı eder. Burada dikkat edilmesi gereken çok şey vardır.
+		</p>
+		<p class="indent">
+			Herşeyden önce <span class="keyw">undefined</span>, 
+			<span class="keyw">null</span>, <span class="str">''</span> (veya<span 
+			class="str">&quot;&quot;</span>), veya aritmetik 0 değerlerine programcının
+			isteği dışında da erişilebileceğini hatırlatalım. &amp;&amp; işlemcisinin
+			işlenenlerinin, mantıksal işleme girmeden önce, programda ulaştıkları değerler,
+			 son deece dikkatle kontrol edilmelidir. Heri iki işlenen de birer ifade
+			olabilecekleri için bu inceleme çok detaylı ve yanıltıcı olabilir. Onun
+			için her olasılığın hesaplanarak, işlemcilerin işleme girmeden önce doğruu
+			değerler alacakları garanti edilmelidir. Özellikle, ifadenin aritmetik
+			0 değerine indirgenmesi, kontrol altına alınamaz ve verilere bağlıdır.
+			Bu durumda, verilerde böyle bir olasılık varsa ve tüm
+			sol işlenenin değerinin <span 
+			class="keyw">false</span> olarak belirlenmesi istenmiyorsa, en iyi yol,
+			bu işlemcinin  kullanımından vazgeçilmesidir. Diğer değerler için de aynı
+			şey tekrarlanabilir.		</p>
+		<p class="indent">
+			Bundan başka sol işlenenin değeri <span class="keyw">false</span> olduğunda
+			işlemin bitirilmesi, değerlendirilmeyi bekleyen sağ işlenen için hayal kırıklığına
+			yol açabilir. Sağ işlenenin değerlendirme beklyen hiç bir işlemi gerçekleşmeyebilir.
+			Örnek olarak, 
+		</p>
+		<pre>
+<span class="op-25">(</span>x <span 
+			class="op">===</span> y<span 
+			class="op">)</span> &amp;&amp; <span 
+			class="op">((</span><span 
+			class="str">'0.16'</span> <span 
+			class="op">*</span> 1 <span 
+			class="op">)</span> <span 
+			class="op">===</span> z<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			işleminde, sol işlenenin değeri <span 
+			class="keyw">false</span> ise sağ işlenen hiç değerlendirilmeyecektir. 
+			Yani, <span class="str">'0.16'</span> sayıya dönüştürülebilen sözel değer, 
+			sağ işlenende öngörüldüğü gibi, sayısal ilkel tipe dönüştürülmeyecektir.
+			Programın ileriki aşamalarında bu dönüşüm olmuş gibi kod yazılırsa
+			bu kod hata verebilecektir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki örnekte görüldüğü gibi, (&amp;&amp;) işlemcisinin sağ işlenenine, 
+			hiçbir kritik kod konulmamalıdır. Daha da iyisi bu işlemcinin her iki 
+			işlenenini de konulacak ifadeler, gelişmesi tamamlanmış ve bu işlemden bir beklentisi
+			olmayan terimlerden oluşmalıdır. Yani, (&amp;&amp;) işlemcisi bir tür işaret feneri gibi 
+			salt bir mantıksal işlemci olarak uygulanmalıdır.
+		</p>
+		<p class="subheading" id="or">2.9.2 - Mantıksal VEYA (OR) İşlemcisi (||) 
+	</p>
+		<p class="indent">
+			Mantıksal VEYA işlemcisinin işletişi bir önceki işlemci gibi basit gibi
+			   görünmesine karşın yine karmaşık ve yanıltıcı olabilmektedir. Mantıksal
+			VEYA işlemcisi, iki işlenenli bir işlemcidir ve işlenenlerden herhangibirisi
+			<span class="keyw">true</span> ise bu değeri, işlenenlerden her ikisi de 
+			<span class="keyw">false</span> olarak değerlendiriliyorsa
+			<span class="keyw">false</span> değerini döndürür. İşlenenlerin 
+			değerlendirilmesi, bir önceki işlemci ile aynıdır.
+		</p>
+		<p class="indent">
+			Bu işlemci de aynen bir önceki gibi önce, sol işleneni değerlendirir. Eğer değer
+			<span class="keyw">true</span> ise, bu değeri döndürür ve sağ işlemci ile 
+			ilgilenmeden işlemi sonlandırır. Sağ işlenen ancak sol işlenenin 
+			<span class="keyw">false</span> değerine indirgenmesi ile değerlendirilir. 
+			Yine bir önceki işlemci gibi sağ işlenene yan etkisi olabilecek hiçbir ifadenin 
+			konulmaması uygun olur.
+		</p>
+		<p class="subheading" id="not">2.9.3 - Mantıksal Olumsuzluk (NOT) İşlemcisi (!)
+	</p>
+		<p class="indent">
+			Mantıksal olumsuzluk işlemcisi tek işlenenli bir ifadedir ve işlenenin değerini tersine 
+			çevirir. Eğer işlenenin değeri <span class="keyw">true</span> veya bu değere indirgenebilen
+			bir ifade ise değeri <span class="keyw">false</span> değerine döndürülür. 
+			Eğer işlenenin değeri <span class="keyw">false</span> veya bu değere indirgenebilen
+			bir ifade ise değeri <span class="keyw">true</span> değerine döndürülür. 
+		</p>
+		<p class="indent">
+			Mantıksal olumsuzluk işlemcisi, bir ifadeyi mantıksal değere açık olarak dönüştürme 
+			aracı olarak kullanılabilir. Aşağıda bu işlemlerin sonucunu içeren tablolar görülmektedir. 
+		</p>
+		<div class="pl-200">
+			<table summary="Mantıksal Değere Zorlama" class="tablo1" width="70%">
+				<caption class="captionred">Mantıksal İlkel Veri Tipine Açık Dönüştürme</caption>
+				<colgroup>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+					<col class="st1"/>
+				</colgroup>
+				<tr>
+					<th>
+						<span class="op">!</span><span class="keyw">null</span>
+					</th>
+					<th>
+						<span class="op">!</span><span class="keyw">undefined</span>
+					</th>
+					<th>
+						<span class="op">!</span><span class="keyw">NaN</span>
+					</th>
+					<th>
+						<span class="op">!</span>0
+					</th>
+					<th>
+						<span class="op">!</span>1
+					</th>
+					<th>
+						<span class="op">!</span>5.7
+					</th>
+					<th>
+						<span class="op">!</span><span class="str">'0.16'</span>
+					</th>
+					<th>
+						<span class="op">!</span><span class="str">'Aladağ'</span>
+					</th>
+				</tr>
+				<tr>
+						<td>
+						<span class="keyw">true</span>
+					</td>
+						<td>
+						<span class="keyw">true</span>
+					</td>
+						<td>
+						<span class="keyw">true</span>
+					</td>
+						<td>
+						<span class="keyw">true</span>
+					</td>
+						<td>
+						<span class="keyw">false</span>
+					</td>
+					<td>
+						<span class="keyw">false</span>
+					</td>
+					<td>
+						<span class="keyw">false</span>
+					</td>
+					<td>
+						<span class="keyw">false</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			Bu işlemci, <span class="op">!!</span>şeklinde ardışık olarak da uygulanabilir. 
+			Bu durumda, tabloda görülen sonuçların tersi döndürülür. Örnek olarak, 
+			<span class="op">!!</span>0 işleminin sonucu <span class="keyw">false</span>
+			olacaktır.
+		</p>
+		
+		<p class="chapter"></p>
+		<p class="title" id="special"> 2.10 - Özel İşlemciler </p>
+		<p class="indent">
+			Javascript programlama dilinde çeşitli özel işlemciler bulunmaktadır.
+			Bunların herbirinin değişik işlevleri vardır. Bu işlemcilerden,
+		<a href="b2s4.html#typeof">typeof</a>, <a href="b2s4.html#delete">delete</a> ve 
+		<a href="b2s7.html#void">void</a> işlemcileri, daha önce incelenmişti. Geri kalanları da 
+			burada incelemeye çalışacağız.
+		</p>
+		<p class="subheading" id="comma">2.10.1 - Satırıçi Ardışık Çoklu İşlemler İşlemcisi (Virgül İşlemcisi)
+	</p>
+		<p class="indent">
+			Bu işlemci, aynı satırdaki ifadeleri ardışık olarak çalıştırır. Sözdizimi,
+		</p>
+		<pre>
+<span class="str-25"><em>ifade1</em></span><span class="op">,</span> <span 
+			class="str"><em>ifade2</em></span><span class="op">,</span> <span class="keyw">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada
+			<span class="str"><em>ifade1</em></span>
+			ve <em class="str">ifade2</em> her türlü
+			ifadeyi kapsar. Örnek:
+		</p>
+		<pre>
+		<span class="keyw">var</span> d <span 
+		class="op">=</span> 9<span 
+		class="op">,</span> p <span 
+		class="op">=</span> 4<span 
+		class="op">;</span>
+		</pre>
+		<p class="indent">
+			Bu işlemci, program yazımında büyük kolaylık sağlamaktadır.
+		</p>
+		<p class="subheading" id="new">2.10.2 - Nesne oluşturma İşlemcisi (new İşlemcisi)
+	</p>
+		<p class="indent">
+			<span class="keyw">new</span> İşlemcisini önceden de uygulamalarda kullandık. Bu 
+			bir tekli işlemcidir. Kullanımı,
+		</p>
+		<p class="sayfaortala">
+			 <span class="keyw">new</span> YapılandırıcıFonksiyon([argümanlar])
+		</p>
+		<p class="nonindent">
+			şeklindedir. Yapılandırıcı fonksiyonlar, <span class="keyw">Object</span><span 
+			class="op">()</span>, <span class="keyw">Number</span><span 
+			class="op">()</span>, <span class="keyw">String</span><span 
+			class="op">()</span>, <span class="keyw">Boolean</span><span 
+			class="op">()</span> gibi öntanımlı dört yapılandırıcı yanında, 
+			kullanıcı tanımlı yapılandırıcılar da olabilir. Yapılandırıcı fonksiyonlar,
+			genel yapılaraı ile bir fonksiyondur ve argümanları olabilir veya olmayabilir. 
+			Örnek olarak, 
+		</p>
+		<p class="sayfaortala">
+		a  <span class="op">=</span> <span class="keyw">new</span> <span 
+			class="keyw">Object</span><span class="op">(); </span>
+		</p>
+		<p class="nonindent">
+			şeklinde yeni bir öntanımlı <span class="keyw">Object</span> nesnesi
+			örneği yaratan <span class="keyw">Object</span><span 
+			class="op">()</span> öntanımlı yapılandırıcı fonksiyonun bir argümanı yoktur.
+			Bu işlem, prensip olarak, boş bir öntanımlı<span class="keyw"> Object</span> 
+			nesnesi örneği veya başka bir ismi ile boş bir nesne literali yaratır ve referansını
+			a değişkenine atar. Bu işlem prensip olarak,
+		</p>
+		<pre>
+<span class="pl-50"></span>a</pre> <span class="op">=</span> <span class="op">[]; </span>
+		
+		<p class="nonindent">
+			işlemi ile eş anlamlıdır ve sonuncu yazılım daha uygun karşılanmaktadır.
+		</p>
+		<p class="subheading">2.10.3 - Nesne Özelliklerine Erişim İşlemcisi (Nokta İşlemcisi) 
+	</p>
+		<p class="indent">
+			Nesnelerin değer ve fonksiyon özelliklerine (metotlarına) erişim için nokta
+			işlemcisi kullanılır. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">document</span><span class="op">.</span><span 
+			class="keyw">writeln(<span class="str">'Doğum Günü'</span>)<span 
+			class="op">;</span> </span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s10.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s12.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s11.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:54 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

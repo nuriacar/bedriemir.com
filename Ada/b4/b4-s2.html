@@ -1,0 +1,565 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:24 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b4/b4-s2.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 4 Sayfa 2</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+ <body>
+  <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <p>
+    <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+    <a href="b4-s1.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+    <a href="b4-s3.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a></p>
+  </div>
+  <p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+  <p class="chapter">
+   Bölüm 4
+  </p>
+  <p class="chapter">
+   Kullanıcı Tanımlı Veri Tipleri
+  </p>
+  <p class="pagenum">
+   Bölüm 4 Sayfa 2
+ </p>
+
+  <p class="title-left" id="enum">4.5 - Sayılabilir (Enumeration) Tipinde Veriler</p>
+  <p class="indent">
+   Sayılabilir tipte veriler, aslında tek bir veri tipi değil bir tür veri topluluğudur. Bu veri tipinde,
+   veriler bir isim altında araya virgül konarak yerleştirilir. Genellikle verilerin  haftanın günleri,
+   yılın ayları, unvanların hiyerarşik sırası gibi mantıklı bir yerleşim sırası vardır.
+  </p>
+  <p class="indent">
+   Standart pakette, Boolean ve Character adında iki tane sayılabilir (Enumeration) tipi veri,
+   öntanımlı olarak tanıtılmıştır. Bu veri tiplerinin incelemesi sırasında,
+   sayılabilir verilerin tanıtıldığı  bilgiler verilmiştir.</p>
+  <p class="indent">
+   Sayılabilir tipte bir verinin tanıtımı için sözdizimi,
+  </p>
+  <div class="Examples-Maroon">
+   enumeration_type_definition&nbsp;::=&nbsp;<br />
+   &nbsp;&nbsp;&nbsp;(enumeration_literal_specification&nbsp;
+   {,&nbsp;enumeration_literal_specification})
+  </div>
+  <div class="Examples-Maroon">&nbsp;</div>
+  <div class="Examples-Maroon">
+   enumeration_literal_specification&nbsp;::=&nbsp;&nbsp;defining_identifier
+   &nbsp;|&nbsp;defining_character_literal
+  </div>
+  <div class="Examples-Maroon">&nbsp;</div>
+  <div class="Examples-Maroon">
+   defining_character_literal&nbsp;::=&nbsp;character_literal
+  </div>
+  <p class="indent">
+   şeklindedir. Bu söz dizimi, sayılabilir tipte bir verinin belirli bir tanımlayıcı ile tanıtılacağını,
+   elemanların sayılabilir literaller veya karakter literalleri olabileceğini, araya virgül konularak
+   istenildiği kadar eleman tanıtılabileceğini, elemanların tanımlayıcıların standart tanıtımlayıcı
+   karakteristiklerini taşıması gerektiğini belirtmektedir.
+  </p>
+  <p class="indent">
+   Her sayılabir verinin tanımlanması ve sayılabilir veri içindeki elemanların tanımlayıcıları,
+   birbirlerinden farklı olmalıdır.
+  </p>
+  <p class="indent">
+   Sayılabilir bir veri literalini tanıtan bir tanımlayıcı , tanımlayıcının veya tanımlayıcı karakter
+   literalinin adında ve sonucu sayılabilir veri tipinin ilk alt tipi olan bir tür parametresiz bir
+   fonksiyon gibidir.
+  </p>
+  <p class="indent">
+   Her sayılabilir veri tipi, konum sayıları 0 dan başlayan elemanlar içerebilir. Her sayılabilir
+   veri literali, belirli bir sayılabilir veri tipine ve belirli bir konum sayısına karşı gelir. Her
+   elemanın konum sayısı, kendisinden önce gelen elemanın bir fazlasıdır.
+  </p>
+  <p class="indent">
+   Sayılabilir veri elemanları içinde büyüklük ilişkilerini elemanların sıra numaraları
+   (konum sıraları) belirler. Sıra numarası büyük olan eleman bir öncekinden daha büyük
+   olarak kabul edilir.
+  </p>
+  <p class="indent">
+   Bu tanıma uygun olarak, aşağıdaki sayılabilir veri tipi örnekleri tanıtılabilir:
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">type</span> Gün <span
+   class="keyw">is</span> (pazartesİ, salI, çarşamba, perşembe, cuma, cumartesİ, pazar);
+
+<span class="keyw-25">type</span> Ay <span
+   class="keyw">is</span> (ocak, şubat, mart, nİsan, mayIs, hazİran);
+
+<span class="keyw-25">type</span> Renkler <span
+   class="keyw">is</span> (kahverengİ, kIrmIzI, yeşİl, sarI, turuncu, mavİ, portakal, hakİ, beyaz, sİyah);
+
+<span class="keyw-25">type</span> Özel <span class="keyw">is</span> ('y', a4, KIrmIzI Kordela);
+  </pre>
+  <p class="indent">
+   Bu sayılabilir veri tiplerinin elemanlarının bazıları ilk bakışta garip gelebilir. Fakat,
+   düşününce hiçbir tuhaflık olmadığını bunun sadece bazı karakterlerlemizin Latin-1 sınıfı
+   dışına atılmasının kötü sonuçlarından kaynaklandığı görülecektir. Herşeyden önce Ada
+   derleyicisi tüm değişken adlarını büyük harflare dönüştürerek değerlendirir. Bunu yaparken
+   Latin-1 spesifikasyonu çerçevesinde tanımlanmış karakter için öntanımlı bir
+   küçük harf/ büyük harf dönüştürme sisteminden yararlanır. Kod sayfası, Latin-1 den
+   Latin-5 (CP-1254) e dönüştürüldüğünde, Latin-1 kod sayıları ile tanımlanmış karakterlerden
+   bazıları Türkçe karakterlerle yer değiştirir.  Ada derleyicisi Türkçe alfabenin bazı
+   karakterlerini içeren tanımlayıcıları ile tanıtılmış olan sayılabilir veri elemanlarını
+   yanlış büyük harflare çevirerek algılar. Bunun engellenmesi için spesifik bir
+   <span class="keyw">pragma</span> bildirimi kullanılması gerekir. Ada derleyicisi, i
+   karakterinin büyük harfini I olarak kabul eder. Oysa Türkçe dilbilgisi kurallarına göre,
+   i harfinin büyük harfinin İ olması gerekir. Yine aynı şekilde, Ada derleyicisi ı harfinin
+   büyük harfini de İ olarak kabul eder oysa bu harf de I olmalıdır.
+   Bu nedenle ı ve i harflerini  içeren sayılabilir değerlerde sorun yaşanır. Bu sorunun
+   yaşanmaması için,  i harfi içeren değerler İ ile
+   ı harfi içeren değerler I ile tanıtılmalıdır. Örnek olarak, mavi yerine mavI olarak, salı
+   yerine salİ olarak tanıtılır . Bu ayrıntıya dikkat edilirse, Türkçe kod sayfası ile derlenen
+   programlarda, derleyicinin sayılabilir veri değerlerini büyük harflere dönüştürerek
+   algılamasında hiçbir sorun yaşanmaz.
+  </p>
+  <p class="indent">
+   Sayılabilir tiplerin tanıtımları sonrasında, derleyici, elemanlara 0 dan başlayan ve
+   her eleman için bir artarak devam eden tanım sıra numarası (İndis) (Index) atar.
+   Bu indis numaralarından elemanlara erişim için yararlanılabilir.
+  </p>
+  <p class="indent">
+   Aynı tanım bölgesinde aynı tanıtıcı hem bir sayılabilir veri tipi elemanı, hem de
+   bir değişken tanımlayıcısı olarak belirtilemez. Derleyici bu durumda çalişkiye düşer
+   ve derleme sürecinde veri tipinin geliştirilmesi (analiz edilip uygunluğunun denetlenmesi)
+   aşamasında programı kabul etmez.
+  </p>
+  <p class="indent">
+   Tanımlandıktan sonra, sayılabilir verilerin elemanları tanımlanmış değişken satatüsünü kazanır,
+   her türlü uygulamada kullanılabilir ve yeni değerler atanabilir. Örnek olarak, Cumartesİ := Şabat;
+   şeklinde bir atama yasaldır.
+  </p>
+  <p class="indent">
+   Sayılabilir verilerin standart giriş/çıkış ortamında giriş/çıkışlarının sağlanması
+   için uygulanabilecek bir yöntem, bu verilerin sözel imajlarının alınarak,
+   sözel verilerin giriş/çıkış işlemlerini sağlayabilen öntanımlı Ada.Text_IO
+   paketinin metotalarının kullanılması ile giriş/çıkış işlemlerinin gerçekleştirilmesidir.
+   Bu yöntemin uygulandığı bir <a href="../uygulamalar/b4_5_uyg_1.html">prosedür</a>
+   aşağıda görülmektedir.
+  </p>
+  <pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_5_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Günler</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span><span class="S11">Pazartesİ</span><span class="S4">,</span><span class="S0"> </span>SalI<span class="S4">,</span><span class="S0"> </span><span class="S11">Çarşamba</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Perşembe</span><span class="S4">,</span><span class="S0"> </span>Cuma<span class="S4">,</span><span class="S0"> </span><span class="S11">Cumartesİ</span><span class="S4">,</span><span class="S0"> </span>Pazar<span class="S4">);</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Haftanın ilk günü : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S11">Günler</span><span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Pazartesİ</span><span class="S4">));</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_5_uyg_1<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu : </span>
+
+<span class="pl-25 green">Haftanın ilk günü : PAZARTESİ</span>
+
+<span class="nonindent">olmaktadır.</span>
+  </span></pre>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b4_5_uyg_1.html">prosedürün</a> sonuçlarından,
+   görüntülenen sayılabilir veri elemanın büyük harfle yazıldığı ve Türkçe
+   karakterlerin CP-1254 altında, uygun bir şekilde girildiğinde, sonucun doğru
+   olarak okunabildiği görülmektedir. Prosedür sonunda veriler büyük harflere
+   dönüştürülerek görüntülenecektir. Bu nedenle, veri Pazartesİ olarak verilmiştir.
+   Burada tek sorunlu karakter İ dir. Bu nedenle doğrudan büyük harf karakteri ile
+   tanımlanmıştır. Derleyici bu veriyi Pazartesİ veya paZARTesİ gibi şekillerle
+   algılayacak fakat asla, pazartesi değil pazartesı olarak algılayacaktır. Bu nedenle,
+   Pazartesİ olarak tanımlanmıştır. Program içinde bu veri pazartesı (küçük ı ile) veya
+   PAZARTESİ (büyük i ile) çağrılabilir. Sonuç her iki durumda da, büyük harfle PAZARTESİ
+   olarak görüntülenecektir.
+  </p>
+  <p class="indent">
+   Sayılabilir veri tiplerinin standart ortamda giriş/çıkışlarının sağlanmasının ikinci bir
+   yöntemi, Ada.Text_IO öntanımlı paketinin sayılabilir veriler için generik bir alt paketi
+   olan Enumeration_IO program paketininin, tanımlanmış olan sayılabilir veri tipi için
+   spesifik bir örneğinin oluşturularak, tanımlanmış sayılabilir veri tipi için, standart
+   ortamda giriş/çıkış işlemleri için kullanılmasıdır.
+  </p>
+  <p class="indent">
+   Bu yöntem, <a href="../ek3/ek3-s4.html">ek4-s4</a> de ayrıntılı olarak açıklanmıştır.
+   Bu yöntemin uygulandığı bir <a href="../uygulamalar/b4_5_uyg_2.html">prosedür</a>
+   aşağıda görülmektedir.
+  </p>
+ <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_5_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Günler</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span><span class="S11">PazartesI</span><span class="S4">,</span><span class="S0"> </span>Salİ<span class="S4">,</span><span class="S0"> </span><span class="S11">Çarşamba</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Perşembe</span><span class="S4">,</span><span class="S0"> </span>Cuma<span class="S4">,</span><span class="S0"> </span><span class="S11">CumartesI</span><span class="S4">,</span><span class="S0"> </span>Pazar<span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>Enum_IO<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Enumeration_IO<span class="S0"> </span><span class="S4">(</span>enum<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Günler</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Gün</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Günler</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Küçük_Harf</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Type_Set<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Type_Set<span class="S4">'</span>First<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">use</span><span class="S0"> </span><span class="S1">type</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Type_Set<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Haftanın Günlerinden Birini Giriniz (İlk Harf İstenirse Büyük, Diğerlerinin Tümü Küçük Harflerle) : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Enum_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Gün</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Girilen Gün : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Enum_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Gün</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>set<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Küçük_Harf</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_5_uyg_2<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu : </span>
+
+<span class="pl-25 green">Girilen Gün : pazartesi</span>
+
+<span class="nonindent">olmaktadır.</span>
+  </pre>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b4_5_uyg_2.html">prosedürde</a>,
+   GNAT 2012 derleyicisinin sayılabilir verileri (sayılabilir veri tiplerinin elemanlarının
+   değerleri, çoğunlukla sayılabilir veri şeklinde bir kısayol ifadesi olarak belirtilir),
+   tanımlandıkları karakterlerle veya bu karakterlerin CP-1254 altındaki küçük/büyük harf
+   eşdeğerlerine göre tanıyabildiği görülür. Veriler küçük harflerlerle yazdırılacaktır. Bu
+   nedenle kuçük harfi i ile yazılan veriler I (büyük ı ) ile küçük harfi ı ile olan veriler ise
+   İ (büyük i ) ile salİ verisinde olduğu gibi tanıtılmıştır. Bu verilere Salı, salı, sALı, Salİ
+   (Büyük İ) şeklinde veriler girilebilir, sonuç daima salı olacaktır. Diğerleri de aynı Salı
+   örneğinde olduğu gibidir. Bu verilere, tanıtılan değerler veya küçük/büyük
+   harf eşdeğerleri dışında, örnek olarak SALI gibi değer girilirse, derleyici girilen veriyi
+   tanıyamayacağı için, <span class="comm">raised ADA.IO_EXCEPTIONS.DATA_ERROR</span>
+   şeklinde bir veri hatası mesajı vererek programı sonlandıracaktır.
+</p>
+  <p class="indent">
+   Bazı prosedürlerde, bir sayılabilir veri tipinin elemanı olarak tanımlanmış bir değer,
+   başka bir sayılabilir veri tipinin de elamanları arasında bulunabilir. Buna bindirme
+   (overloading) adı verilir. Ada derleyicleri, bu elemnı en son tanımlandığı sayılabilir
+   veri tipi içinde bulunduğunu varsayar ve önceki tanımları gözardı eder. Bu şekilde
+   derleyici çelişkiye düşmekten kurtulur. Örnek olarak,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">type</span> Birinci_Bölge <span
+   class="keyw">is</span> (Adana, Gaziantep, Mersin, Hatay)
+<span class="keyw-25">type</span> İkinci_Bölge <span
+   class="keyw">is</span> (Diyarbakır, Mardin, Urfa, Hatay)
+  </pre>
+  <p class="indent">
+   şeklinde iki sayılabilir veri tipi tanımında, Hatay bindirilmiş bir elemandır. Çünkü önce
+   Birinci_Bölge veri tipinin elemaı olarak tanımlanmış, sonra İkinci_Bölge sayılabilir veri
+   tipi tanımı sırasında, elemanlar araında yine Hatay tanımlarak bu eleman üzerine bindirilmiştir.
+   Hatay elemanını içeren sayılabilir veri tipleri arasında en son tanımlanan İkinci_Bölge adlı
+   veri tipi tanımlanmış olduğundan, derleyici Hatay elemanını İkinci_Bölge adlı sayılabilir
+   veri tipinin elemanı olarak düşünür ve tüm düzenlemelerini buna göre gerçekleştirir.
+   Örnek olarak, Hatay elemanından önce gelen eleman sorgulandığında yanıt Urfa olur.
+  </p>
+  <p class="indent">
+   Bir prosedürde, bu iki veri tipini tanımlayalaım ve Hatay elemanının ait olduğu
+   veri tipini sorgulayalım. Bunun için üyelik testi (membership test) adı verilen
+   bir sorgulamayı gerçekleştireceğiz. Üyelik sorgulanması <span class="keyw">in</span>
+   işlemcisi ile gerçekleştirilir. Bu sorgulama, aşağıda görülen
+   <a href="../uygulamalar/b4_5_uyg_3.html">prosedürde</a>, gerçekleştirilmiştir.
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_5_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Adana<span class="S4">,</span><span class="S0"> </span><span class="S11">Gazıantep</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Mersın</span><span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">İkinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Diyarbakir<span class="S4">,</span><span class="S0"> </span><span class="S11">Mardın</span><span class="S4">,</span><span class="S0"> </span>Urfa<span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span>Yedek<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Adiyaman<span class="S4">,</span><span class="S0"> </span><span class="S11">Maraş</span><span class="S4">,</span><span class="S0"> </span>Denizli<span class="S4">);</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Hatay Birinci_Bölge Kapsamında mıdır ? Yanıt : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>Hatay<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">));</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Hatay İkinci_Bölge Kapsamında mıdır ? Yanıt : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>Hatay<span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S11">İkinci_Bölge</span><span class="S4">));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_5_uyg_4<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu : </span>
+
+<span class="pl-25 green">Hatay Birinci_Bölge Kapsamında mıdır ? Yanıt : TRUE</span>
+
+<span class="pl-25 green">Hatay İkinci_Bölge Kapsamında mıdır ? Yanıt : TRUE</span>
+
+<span class="nonindent">olmaktadır.</span>
+  </pre>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b4_5_uyg_3.html">prosedür</a> sonucundan da görüldüğü
+   gibi, Hatay literali iki farklı sayılabilir veri tipinin de elemanı olarak tanımlanmakta ve derleyici
+   bu literali her iki sayılabilir veri tipin de elemanı olduğunu kabul etmektedir. Bu literal,
+   bindirilmiş bir literaldir.
+  </p>
+  <p class="indent">
+   Ada derleyicisinin bindirilmiş literallerin kulanıldığı prosedür çağrılarında çelişkiye
+   düşeceği yani prosedürü çağıram bindirilmiş literalin her iki veri tipinin birden
+   üyesi olduğu için, prosedürü çağıran veri tipinin hangisi olduğu konusunda çelişkiye
+   düşeceği birçok literatürde belirtilmektedir. Aslında GNAT 2012 sürümü, çok gelişmiş
+   analiz yetenekleri donatılmıştır ve içeriğin incelenmesi ile prosedürü çağıran veri
+   tipini çelişkisiz olarak saptama yeteneğine sahiptir. Bu konuda ,
+   aşağıda görülen <a href="../uygulamalar/b4_5_uyg_4.html">prosedür</a>,
+   herhangibir çelişkinin yaşanıp yaşanmayacağının belirlenmesi amacını taşımaktadır.
+
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_5_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Adana<span class="S4">,</span><span class="S0"> </span><span class="S11">Gazıantep</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Mersın</span><span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">İkinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Diyarbakir<span class="S4">,</span><span class="S0"> </span><span class="S11">Mardın</span><span class="S4">,</span><span class="S0"> </span>Urfa<span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Enumeration_IO<span class="S0"> </span><span class="S4">(</span>enum<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">function</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">)</span><span class="S0"> </span><span class="S1">return</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">return</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Pred<span class="S4">(</span><span class="S11">İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span><span class="S11">Önceki_İl</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">in</span><span class="S0"> &nbsp;</span><span class="S1">Out</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">)</span><span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Pred<span class="S4">(</span><span class="S11">İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S11">Önceki_İl</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bir_Önceki_İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Hedef_İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bir_Önceki_İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S4">(</span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Hatay İlinden Önceki Sırada Olan Birinci Bölge İli : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Bir_Önceki_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Hedef_İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Hatay<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" İlinden Önceki Sırada Olan Birinci Bölge İli : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Önceki_İl</span><span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_5_uyg_4<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu : </span>
+
+<span class="pl-25 green">Hatay İlinden Önceki Sırada Olan Birinci Bölge İli : MERSİN</span>
+
+<span class="pl-25 green">HATAY İlinden Önceki Sırada Olan Birinci Bölge İli : MERSİN</span>
+
+<span class="nonindent">olmaktadır.</span>
+  </pre>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b4_5_uyg_4.html">prosedürün</a>,
+   sonuçları, aynen beklendiği gibi olmaktadır. Yani, GNAT 2012
+   derleyicisi, foksiyon ve prosedürü çağıran argüman Birinci_Bölge veri
+   tipinde olduğundan ve Hatay da bir Birinci_Bölge veri tipi elemanı
+   olduğundan, prosedürü çağıran veri tipinin saptanması konusunda
+   bir çelişkiye düşmememiş, doğru veri tipini içeriği analiz ederek doğru
+   bir şekilde saptamıştır. Yani bu konuda eski literatürün verdiği
+   bilgiler belki eski sürüm derleyicilerin davranışı üzerine verilmiş
+   ve artık geçersiz olmuş bilgiler olabilir. Yine de eğer belki
+   prosedürü çağıran veri tipi üzerinde derleyici çelişkiye
+   düşebilir şeklinde bir düşünce olursa, çağıran sayılabilir veri tipinin
+   nitelendirilmesi, (kalifikasyonu) derleyiciye prosedürü çağıran
+   sayılabilir veri tipini açıkça belirtebilir ve çelişki olasılığı tam
+   olarak ortadan kalkar.
+  </p>
+  <p class="indent">
+   Tam nitelendirilmiş (Fully Qualified) sayılabilir bir veri tipinin elemanı
+  </p>
+  <pre class="app-25">
+<span class="pl-25">Sayılabilir_Veri_Tipi'(literal)</span>
+  </pre>
+  <p class="nonindent">
+   şeklinde belirtilir. Yukarıdaki <a href="../uygulamalar/b4_5_uyg_4.html">prosedürde</a>,
+   nitelendirilmemiş sayılabilir veri tipleri ile yürütülmüş olan programın, tam nitelendirilmiş
+   sayılabilir veri tipleri ile yürütüldüğü sürümü, aşağıda
+   <a href="../uygulamalar/b4_5_uyg_5.html">prosedürde</a>,görülmektedir:
+  </p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_5_uyg_5<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Adana<span class="S4">,</span><span class="S0"> </span><span class="S11">Gazıantep</span><span class="S4">,</span><span class="S0"> </span><span class="S11">Mersın</span><span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">İkinci_Bölge</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S4">(</span>Diyarbakir<span class="S4">,</span><span class="S0"> </span><span class="S11">Mardın</span><span class="S4">,</span><span class="S0"> </span>Urfa<span class="S4">,</span><span class="S0"> </span>Hatay<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Enumeration_IO<span class="S0"> </span><span class="S4">(</span>enum<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">function</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">in</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">)</span><span class="S0"> </span><span class="S1">return</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">return</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Pred<span class="S4">(</span><span class="S11">İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">procedure</span><span class="S0"> </span><span class="S11">Önceki_İl</span><span class="S0"> </span><span class="S4">(</span><span class="S0"> </span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S1">in</span><span class="S0"> &nbsp;</span><span class="S1">Out</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">)</span><span class="S0"> </span><span class="S1">is</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S11">İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Pred<span class="S4">(</span><span class="S11">İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S11">Önceki_İl</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bir_Önceki_İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Hedef_İl</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Birinci_Bölge</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bir_Önceki_İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S11">Bir_Önceki</span><span class="S4">(Birinci_Bölge'(</span>Hatay)<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Hatay İlinden Önceki Sırada Olan Birinci Bölge İli : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Bir_Önceki_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Hedef_İl</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Birinci_Bölge'(Hatay)<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Birinci_Bölge</span><span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" İlinden Önceki Sırada Olan Birinci Bölge İli : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Önceki_İl</span><span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Birinci_Bölge_Giriş_Çıkış</span><span class="S4">.</span>Put<span class="S4">(</span><span class="S11">Hedef_İl</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_5_uyg_5<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu : </span>
+
+<span class="pl-25 green">Hatay İlinden Önceki Sırada Olan Birinci Bölge İli : MERSİN</span>
+
+<span class="pl-25 green">HATAY İlinden Önceki Sırada Olan Birinci Bölge İli : MERSİN</span>
+
+<span class="nonindent">olmaktadır.</span>
+  </pre>
+ <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b4_5_uyg_5.html">prosedürde</a>,
+   Tam nitelikli sayılabilir veri tiplerinin kullanımı ile derleyicinin çelişkiye
+   düşme olasılığı tamamen ortadan kaldırılmıştır. GNAT 2012 derleyicisi
+   çelişkili olabilecek durumlarla kendisi başa çıkabildiği için, hiçbir zaman
+   tam nitelikli sayılabilir veri tipi tanımlarının yapılması gerekmemektedir.
+   Yine de paranoya stilini benimseyen programcılar için tam nitelikli tanımların
+   yapılmasını engelleyecek bir durum bulunmamaktadır.
+  </p>
+  <p class="indent">
+   Ada programlama dili, sayılabilir veri tiplerinin elemanları olarak karakter
+   literallerini kabul eden az sayıda program dillerinden biridir. Standard
+   pakette tanımlı Character veri tipi bu şekilde tanıtılmıştır. Örnek olarak,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">type</span> Türkçe_Farklı_Karakterler <span
+   class="keyw">procedure</span>  <span class="keyw">is</span> ('ı' , 'İ' , 'ş', 'Ş', 'Ğ', 'ğ');
+  </pre>
+  <p class="nonindent">
+   elemanları karakter literalleri olan bir sayılabilir veri tipidir. Bu veri
+   tipinin Character ve Wide_Character veri tipleri ile bir ilgisi yoktur.
+   Türkçe_Farklı_Karakterler veri tipi, Character veri tipinden farklıdır
+   ve elemanlarının Ada.Text_IO öntanımlı paketinin metotlarından
+   yararlanılarak standart ortamda giriş/çıkışları sağlanamaz. Bunun
+   için diğer sayılabilir veriler için uygulanan yöntemlerden yararlanılması
+   gerekir.
+  </p>
+  <p class="indent">
+   Sayılabilir verilerin elemanlarının gerçekte kuramsal olarak birer
+   fonksiyon oldukları belirtilmişti. Kuramsal da olsalar her fonksiyon
+   gibi bu tür fonksiyonların da yeniden adlandırılması olanağı
+   bulunmaktadır. Örnek olarak bir X_Pack paketinde tanımlanmış
+   Renk sayılabilir veri tipinin Yeşil isimli elemanı, eğer X_Paketi
+   görünür durumda ise,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">function</span> Yeşil <span
+   class="keyw">return</span> X_Paketi.Renk <span
+    class="keyw">renames</span> X_Paketi.Yeşil;
+  </pre>
+  <p class="nonindent">
+   şeklinde yeniden adlandırılabilir ve bu şekilde <span class="keyw">use</span>
+   X_Pack bildirimine gerek olmadan X_Paketinde tanımlı Renk sayılabilir veri tipinin
+   Yeşil elemanına erişilebilir. Doğal olarak, bu sıradışı yönteme nadiren başvurulur.
+  </p>
+  <p class="indent">
+   Sayılabilir verilerin alt tipleri tanımlanabilir. Örnek olarak,
+  </p>
+  <pre class="app-25">
+<span class="keyw-25">subtype</span> Bir_Kısım_Türkçe_Farklı_Karakterler <span
+   class="keyw">is</span> Türkçe_Farklı_Karakterler <span class="keyw">range</span> 'ı' .. 'ş';
+  </pre>
+  <p class="nonindent">
+   Bir sayılabilir veri tipi, alt tipi tanımıdır.
+  </p>
+  <p class="subheading" id="enum-attrs">4.5.1 - Enumeration Veri Tipine Uygulanabilen Nitelikler</p>
+  <p class="indent">
+   Sayılabilir veri tipi skaler, ayrık bir veri tipidir ve bu tip verilere uygulanabilien
+   tüm nitelikler bu veri tipi için de uygulanabilir . Bu konuda bir sayılabilir
+   veri alt tipi olan <a href="../b3/b3-s1.html#bool-attrs">Boolean</a> veri tipinde
+   bu konuda geniş uygulama örnekleri verilmiştir.
+  </p>
+ <p class="subheading" id="enum-ops">4.5.2 - Enumeration Veri
+       Tipi İçin Tanımlı İşlemciler</p>
+  <p class="indent">
+   Sayılabilir veri tipindekli nesneler için aritmetik işlemciler tanımlanmamıştır.
+   Sadece ilişkisel işlemciler olan &quot;=' , &quot;&lt;&quot; , &quot;&lt;=&quot;
+   , &quot;=&quot; , &quot;/=&quot; , &quot; &gt;= &quot;, &quot;&gt;&quot;
+   işlemcileri ve üyelik işlemcisi olan <span class="keyw">in</span> işlemcisi
+   tanımlıdır. Bu işlemcilerin uygulamaları bir sayılabilir veri alt tipi olan
+   <a href="../b3/b3-s1.html#bool-ops">Boolean</a> veri tipi incelenirken yapılmıştır.
+  </p>
+  <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+   </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+   <a href="b4-s1.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+   <a href="b4-s3.html"><em> Sonraki &raquo;</em></a>
+   </li>
+  </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:24 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

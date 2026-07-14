@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:49 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s6.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b18s6</title>
+
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s5.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s7.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 6
+		</p>
+		<p class="title-left" id="navigator">
+			18.6 - window Nesnesinin navigator Alt Nesnesi
+		</p>
+		
+		<p class="indent">
+			<span class="str">window</span><span 	class="op">.</span><span 
+			class="keyw">navigator</span> Alt nesnesi, <span class="keyw">window</span> nesnesinin
+			en kafa karıştııcı ve tasarlandığı işlevini kaybetmiş alt nesnesidir. Bu alt nesne,
+			orijinal olarak, sadece Netscape Navigator 'un tek belge çözümleyicisi olduğu
+			bir zamanda, JavaScript programlama dili Netscape tarafından oluşturulurken,
+			kullanılmakta olan Netscape Navigator'un tanımlanması amacı ile, konuk eden ortamın
+			JavaScript nesneleri arasına konulmuştur. İlerleyen süreç içinde, Netscape
+			Navigator geri plana düşünce, programcilar bu alt nesneden, kullandıkları
+			belge çözümleyicisinin, Internet Explorer veya Netscape Navigator olup olmadığını
+			sınama amacı ile kullanmaya çalışmışlar, <span class="keyw">navigator</span> 
+			yerleşik alt nesnesinin orijinal tasarım amacı bu olmadığından, istedikleri sonucu 
+			alamamışlardır. Başlangıçta kontroller doğru sonucu verirken, birbirlerinin 
+			pazar payını olabildiğince azaltmaya çalışan belge çözümleyicileri üreten ticari kuruluşlar, 
+			yanıltıcı yanıtlar alımasını sağlayacak şekilde yazılımlar üretmişlerdir. Günümüzde bu alt 
+			nesnenin çeşitli metotları  uygulanarak, kullanılan belge çözümleyicinin türünün güvenilir bir şekilde
+			saptanması olanaksızdır. Bu nedenle, alınacak sonuçlara şüpheyle yaklaşmak,
+			bu sonuçlara dayanarak çalışacak yöntemler, tasarlamamak gerekir. Alınacak
+			sonuçlar, sadece bir ön bilgi olarak düşünülmelidir.
+		</p>
+		<table class="tablo2" summary="Navigator Nesnesinin Ortak Özellikleri">
+			<caption class="captionred">
+					Tablo : 18-8: 
+			<span class="keyw">navigator </span>Alt Nesnesinin
+			Ortak Desteklenen Özellikleri
+			</caption>
+			<colgroup>
+				<col width="30%" />
+				<col width="70%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color1">
+					<th>Özellikler</th>
+					<th>Tanım</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td>
+						<span class="comm">appCodeName</span>
+					</td>
+					<td>
+						Belge Çözümleyicinin Kod İsmini Döndürür.
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">appName</span>
+					</td>
+					<td>
+						Belge Çözümleyicinin Gerçek İsmini Döndürür.
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">appVersion</span></td>
+					<td>
+						Karakter dizgisi Olarak Belge Çözümleyicisinin Sürümünü Döndürür
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">cookieEnabled</span>	
+					</td>
+					<td>
+						Cookie'lerin Kabul Edilip Edilmediklerini Mantıksal Olarak Döndürür	
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">onLine</span>
+					</td>
+					<td>
+						Belge Çözümleyicisinin On-Line Durumunuı Mantıksal Olarak Döndürürür.
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">platform</span>
+					</td>
+					<td>
+						Belge Çözümleyicisinin Çalıştığı Platformu Karakter dizgisi Olarak Döndürür.
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<span class="comm">userAgent</span>
+					</td>
+					<td>
+						Belge Çözümleyici Hakkında Bilgileri 
+						Karakter Dizgisi Olarak Döndürür.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="nonindent" id="b18.6-uyg-1">
+			Yukarıdaki tablodan görüldüğü gibi, ortak desteklenen 
+			özellik sayısı fazla değildir. <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">navigator</span> nesnesinin
+			ortak destekelenen tek metodu, <span class="keyw">javaEnabled</span><span 
+			class="op">()</span> metodudur. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">javaEnabled</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metot, belge çözümleyici Java appletlerini destekliyorsa geriye <span 
+			class="keyw">true</span>, desteklemiyorsa, <span 	class="keyw">false</span>
+			döndürür.
+		</p>
+		<p class="indent" id="b18.6-uyg-1">
+			<span class="keyw">window</span><span class="op">.</span><span class="keyw">navigator</span>
+			nesnesinin ortak desteklenen özellik ve ve metotlarının sonuçlarının görüntülendiğ bir 
+			<a href="../uygulamalar/b18.6-uyg-1-js.html">JavaScript programının</a> kodları aşağıda görülmektedir.
+			Bu program ilişikli olduğu <a href="../uygulamalar/b18.6-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> özellikYaz<span 
+			class="op">(</span>mesaj<span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> yazımYeriID<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> yazımYeri <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeriID<span 
+			class="op">),</span> yeniParagraf <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> araYazım<span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> bilgi<span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">cursive-green</span><span 
+			class="op">;</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">cursive-maroon</span><span 
+			class="op">;</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span><span 
+			class="str">' = '</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">araYazım</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">('</span><span 
+			class="str">span'</span><span 
+			class="op">);</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">cursive-red</span><span 
+			class="op">;</span>
+<span class="pl-50">araYazım</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">);</span>
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>araYazım<span 
+			class="op">);</span>
+
+<span class="pl-50">yazımYeri</span><span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">,</span> yazımYeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> işlemleriBaşlat<span 
+			class="op">() {</span>
+<span class="pl-50">özellikYaz</span><span 
+			class="op">(</span><span 
+			class="str">'navigator.appCodeName '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigato</span>.<span 
+			class="keyw">appCodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.appName '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span>.appName<span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.appVersion '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span><span 
+			class="op">.</span>appVersion<span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.cookieEnabled '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span>.<span 
+			class="keyw">cookieEnabled</span>, <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.onLine '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">onLine</span><span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.platform '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">platform</span><span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.userAgent '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">userAgent</span><span 
+			class="op">,</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);</span>
+<span class="pl-50">özellikYaz</span> <span 
+			class="op">(</span><span 
+			class="str">'navigator.javaEnabled() '</span><span 
+			class="op">,</span> <span 
+			class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">javaEnabled</span><span 
+			class="op">(),</span> <span 
+			class="str">'navbottom'</span><span 
+			class="op">);
+</span><span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> işlemleriBaşlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> işlemleriBaşlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.6-uyg-1.html">sayfanın</a> çeşitli
+			 belge çözümleyicilerde çalışması sonucunda elde edilen sonuçlar dikkatle
+			 incelenmeli ve değerlendirilmelidir. Bu sonuçlar aşağıdaki tablolarda
+			açıklanmaktadır:
+		</p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özellikleri">
+			<caption class="captionred">
+					Tablo : 18-9 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">appCodeName</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="80%" />
+				<col width="20%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color2">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						Mozilla
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						Mozilla
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						Mozilla
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						Mozilla
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						Mozilla
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri AppName">
+			<caption class="captionred">
+					Tablo : 18-9: 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">appName</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color3">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						Microsoft Internet Explorer
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						Netscape
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						Opera
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						Netscape
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						Netscape
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo4" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri AppVersion">
+			<caption class="captionred">
+					Tablo : 18-10 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">appVersion</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="40%" />
+				<col width="60%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color4">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)					</td>
+					<td class="red">
+						4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 1.1.4322; .NET CLR 3.0.30618; OfficeLiveConnector.1.2; .NET CLR 3.5.30729)					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)					</td>
+					<td class="red">
+						5.0 (Windows; en-GB)					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)					</td>
+					<td class="red">
+						9.64 (Windows NT 6.0; U; en)					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))					</td>
+					<td class="red">
+						5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)					</td>
+					<td class="red">
+						5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.33 Safari/530.5					</td>
+				</tr>
+			</tbody>
+	</table>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri cookieEnabled">
+			<caption class="captionred">
+					Tablo : 18-11 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">cookieEnabled</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color5">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						true					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+			</tbody>
+		</table>
+				<p class="dikeyTab-10"></p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri onLine">
+			<caption class="captionred">
+					Tablo : 18-12 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">onLine</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color6">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+			</tbody>
+		</table>
+				<p class="dikeyTab-10"></p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri platform">
+			<caption class="captionred">
+					Tablo : 18-13 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">platform</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color7">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						Win32					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						Win32
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						Win32
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						Win32
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						Win32
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo4" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri userAgent">
+			<caption class="captionred">
+					Tablo : 18-14: 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">userAgent</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="40%" />
+				<col width="60%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color4">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 1.1.4322; .NET CLR 3.0.30618; OfficeLiveConnector.1.2; .NET CLR 3.5.30729)
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						5.0 (Windows; en-GB)
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						9.64 (Windows NT 6.0; U; en)
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.33 Safari/530.5
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo3" summary="Navigator Nesnesinin Ortak Özelliklerinin Değerleri javaEnabled">
+			<caption class="captionred">
+					Tablo : 18-15 
+			<span class="keyw">navigator</span><span 
+			class="op">.</span><span 
+			class="keyw">javaEnabled</span> Özelliğinin Değeri
+			</caption>
+			<colgroup>
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color3">
+					<th>Belge Çözümleyici</th>
+					<th>Değer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8.0.6001.18763)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Firefox (Sürüm 3.0.11)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera (Sürüm 9.64)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari (Sürüm 4.0.2 (530.19.1))
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome (Sürüm 2.0.172.33)
+					</td>
+					<td class="red">
+						true
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="indent">
+			Yukarıdaki tablolar incelendiğinde, <span class="keyw">appCodeName</span> özelliği ile
+			hibir belge çözümleyiciyi diğerinden ayırdetme olanağı bulunmadığı görülmektedir. Çünkü,
+			tüm inceleneen belge çözümleyicilerinin <span class="keyw">appCodeName</span> özelliklerinin
+			değerleri <span class="str">'Mozilla'</span> olarak görülmektedir. 
+		</p>
+		<p class="indent">
+			İncelenen belge çözümleyicilerinin <span class="keyw">appName</span> özelliklerinin
+			değerleri karşılaştırıldığında, sadece Internet Explorer ve Opera belge çözümleyicilerinin 
+			kendilerini gerçek adları tanıttıkları diğerlerin kendilerini, <span class="str">'Netscape'</span>
+			 olarak tanıttıları görülmektedir. Bu davranışın kabul edilecek bir yönü yoktur.ve 
+			GECKO motoruna dayalı olarak oluşturulan, Netscape belge çözümleyicisinin gerçek mirasçısı
+			sayılan FireFox belge çözümleyicisine, yapılamış olan bir haksızlıktır. Kendilerini 
+			<span class="str">'Netscape'</span> olarak tanıtan Safari ve Chrome belge çözümleyicileri, 
+			gerçekçe Apple kuruluşunun WebKit motoruna dayalı olarak oluşturulan farklı aileden belge 
+			çözümleyicileridir. 
+		</p>
+		<p class="indent">
+			İncelenen bir sonraki özellik olan <span class="keyw">appVersion</span> özelliği ise,
+			belenenden çok bilgi vericidir. Bu özelliği değerinin detaylı analizi ile Google'un Chrome 
+			belge çözümleyicisi bu özellik değerinde chrome karakterleri olması ile FireFox ve Apple'in
+			Safari bilgisayarından ayrılabilir. Geriye kalan Safari de bu özelliliğin değerinde Wekit sözcüğü
+			bulunduğu ve FireFox da ise bulunmadığı için bu ikisi de birbirinden ayrılabilir. 
+		</p>
+		<p class="indent">
+			Diğer özellikler arasında ise en işe yararyanlar, Java appletlerinin desteklenebildiğinin ve 
+			cookie lerin kabul edlip edilemeyeceğinin saptanabilmesi olmaktadır. JavaScript programlama
+			dilinin ilerlemesi le artık Java appletleri iyice önemini kaybetmeiş sayılabiilir. Fakat cookie'lerin
+			kabul edilip edilmediğinin başarı saptanabilmiş olması, büyük önem taşımaktadır.
+		</p>
+		<p class="indent">
+			Bu sonuçların uygulanması için iki genel uygulama senaryosunu düşünülebilir. İlk senaryo, 
+			kapalı intranet adı verilen ve yayılanan sayfanın sadece şirket çalışanları gibi sınırlı sayıda
+			ve kullanacakları yazılımın önceden belirtileceği kullanıcıların istemcilerine indirileceği bir
+			kullanım şeklidir. Bu kullanım şeklinde, belge çözümleyicinin kontrolüne gerek olmayacaktır, çünkü
+			kullanıcıların belge çözümleyicilerin adı ve sürümü ile diğer yardımcı programlar kullanıcılara daha önce 
+			belirtilmiş olmaktadır. 
+		</p>
+		<p class="indent">
+			İkinci senaryo, genel yayınlama adı verilen ve bir sunucu üzerinde yayınlanan bir sayfayı, 
+			her marka ve sürümdeki çeşitli belge çözümleyicileri kullanan kullanıcıların kendi istemcilerine
+			indirmesi yöntemidir. Bu ortamın koşulları kaotik olarak nitelendirilebilir, çünkü kullanıcıların
+			kullanacakları belge çözümleyiciler üzerinde sayfayı yayınlayanın en küçük bir kontrolü bile yoktur.
+		</p>
+		<p class="indent">
+			Genel yayınlamadaki bir sayfanın kullanıcı ortamında her zaman yeterince değerlendirilememesi 
+			olasılığı yüksektir. Örnek oarak, JavaScript gerektiren bir durumda, kullanıcının
+			belge çözümleyicisinde JavaScript yorumlayıcısının kapalı olması bazı bilgilerin kullanıcıya 
+			ulaşamaması sonucunu da getirecektir. Bir sayfa, belirli bir belge çözümleyicisini gerektiren kodlar
+			içerdiğinde, kullanıcının bu belgeyi başka bir belge çözümleyici ile açmak istemesi, sayfanın gerektiği
+			gibi değerlendirememesi durumunu ortaya çıkaracaktır. Bu durumda, kullanıcının belge çözümleyicisinin 
+			özelliklerinin kontrolü ve yetersiz olduğu durumlarda kullanıcının uyarılması çok önem kazanmaktadır. 
+		</p>
+		<p class="indent">
+			Genel yayınlamadaki bir sayfanın kullanıcı ortamında yeterince değerlendirileme olasılığının azaltılması için
+			gerek kullanıcıların gerekse belge çözümleyici üreticilerinin uymaları gereken yükümlülükler bulunmaktadır.
+			Kullanıcılar, en azından kullandıkları belge çözümleyicinin en son sürümünü indirip kullanmalıdırlar. Oysa, 
+			kullanıcıların hepsi de ücretsiz olarak dağıtılan belge çözüleyicilerin en son sürümlerini indirip kurmak 
+			sorumluluğunu çoğunlukla yerine getirmedikleri görülmektedir. Aşağıdaki tabloda görülen
+			<a href="http://www.w3schools.com/browsers/browsers_stats.asp">W3Schools</a> belge çözümleyici
+			istatistikleri bu konuda bir fikir vermektedir:
+		</p>
+		<p class="dikeyTab-10"></p>
+		<table class="tablo4" summary="W3Schools Belge Çözümleyici İstatistikleri">
+			<caption class="captionred">
+					Tablo : 18-16 W3Schools Belge Çözümleyici İstatistikleri
+			(Haziran 2009) 
+			</caption>
+			<colgroup class="">
+				<col width="60%" />
+				<col width="40%"/>
+			</colgroup>
+			<thead>
+				<tr class="highline color7">
+					<th>Belge Çözümleyici</th>
+					<th>Kullanım Yüzdesi</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 6)
+					</td>
+					<td class="red">
+						14.9
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 7)
+					</td>
+					<td class="red">
+						18.7
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Internet Explorer (Sürüm 8)
+					</td>
+					<td class="red">
+						7.1
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						FireFox (Sürüm 2)
+					</td>
+					<td class="red">
+						2.5
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						FireFox (Sürüm 3)
+					</td>
+					<td class="red">
+						43.4
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						FireFox (Sürüm 3.5)
+					</td>
+					<td class="red">
+						1.2
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Chrome
+					</td>
+					<td class="red">
+						6
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Safari
+					</td>
+					<td class="red">
+						3.1
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td class="blue">
+						Opera
+					</td>
+					<td class="red">
+						2.1
+					</td>
+				</tr>
+		</tbody></table>
+		<p class="indent">
+			Yukarıda görülen kullanıcı istatistikleri, kullanıcıların genel olarak yarı yarıya Internet ve FireFox Kullandıkları ve 
+			Chrome, Safari, Opera gibi belge çözümleyicilerinin kullanımlarının ise, henüz marjinal olduğunu göstermektedir. 
+			Bu bilgilere göre, kullanıcılar kullandıkları belge çözümleyicilerinin en son sürümlerini indirip kullanmakta 
+			fazla istekli değillerdir. Bu istatistiklerin verdiği iyi haberler ise, kullanıcıların tamamının yeni nesil belge 
+			çözümleyicileri olan IE 5.5 den yukarısını ve FireFox 2.0 dan yukarısını kullanmakta olduklarıdır. Yani, 
+			genel kullanıma açık sayfalarda </p><p class="indent">
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			spesifikasonuna uyumlu JavaScript programlama dili desteklenebilmektedir. Aynı şekiilde 
+			<a href="http://www.w3.org/TR/CSS21/">CSS 2.1</a> ve en azından 
+			<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/">W3C-DOM düzey 2</a>
+			spesifikasyonun destekleneceğinin olasılığının yüksek olacağını göstermektedir. Ayrıca aynı istatistikler,
+			Oacak 2009 itibariyle kullanıcı belge çözümleyicilerinin %95 inde JavaScript desteğinin açık olduğunu 
+			belirtmektedir. Bu durumda, genel kullanıma açık bir sayfa, genel olarak bu spesifikasyonları kullanması 
+			durumunda, ortalama bir kullanıcı tarafından okunabilirlik olasılığı yüzde yüze yakın olacaktır. Yani, genel 
+			kullanıma açık sayfalarda, kritik bilgilerin, standart dışı metotlar kullanılarak sunulmasından kaçınılması 
+			gerekmektedir.
+		</p>
+		<p class="indent">
+			Belge çözümleyici üreticilerin de kendi özel yöntemlerini zorlamak yerine genel Web standartlarını
+			desteklemeye yoğunlaşmaları kullanıcılar için daha yararlı olacaktır. Genel kullanıma açık sayfaların 
+			anacak belirli belge çözümleyicilerde desteklenebilecek yöntemler kullanması akla yakın olmayacaktır.
+			Örnek olarak, <a href="http://www.mozilla.com/en-US/">Mozilla</a> tarafından geliştirilen 
+			<a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference">JavaScript 1.5 </a>
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			standardına göre daha ileri olmasına karşılık, genel yayına açık sitelerde kullanım şansı bulunmamaktadır.
+		</p>
+		<p class="indent">
+			Genel yayına açık sitelerde, 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			satandardı dışına çıkılmaması gerekir. Biz çalışmalarda daima standartlar içinde kalmayı ve bu şekilşde
+			yazınlanacak sayfaları daima geel destek alabilmelerini gözetiyoruz. Bu konuda iki noktada zorlanabiliriz. 
+			Bunlardan ilki, JavaScript programların sadece Internet Explorer tarafından desteklenen dosyalama desteği,
+			diğeri de W3C tavsiyesi olmasına karşılık, Microsoft'un inatla desteklemediği 
+			<span class="keyw">addEventListener</span><span class="op">()</span> metodudur. İlk konuda genel
+			yayına açık asayfalarda dosyalama çaıllşması yapılmaması ve bunun özel sanal sunucu (localhost) ile 
+			sınırlı tutulmaması iyi bir fikir olacaktır. Çünkü, zaten kullanıcı Firewall programları gibi koruma programları,
+			kullanıcı dosya sistemine iyi niyetle bile olsa girilmesine olanak tanımayacaktır. İkinci yöntemin kullanılması için
+			hiçbir engel yoktur. Bu konuda genel olan yöntem, belge çözümleyicinin değil metot desteğinin 
+			kontrol edilmesidir. Bu konuda temel yöntem b18.5.2-uyg-js.htm dosyasında görüldüğü gibi, belge çözümleyicinin 
+			metodu destekleyip desteklemediğinin kontrol edilmesi ve iki alternatiften hangisini destekliyorsa onu kullanmasıdır. 
+			Genel kanıya göre Microsoft <span class="keyw">addEventListener</span><span class="op">()</span>
+			metodunu eninde sonunda destekleyecektir. O gün gelinceye kadar programlarda
+			<span class="keyw">addEventListener</span><span class="op">()</span>ve 
+			<span class="keyw">attachEvent</span><span class="op">()</span> alternatiflerinin birlikte 
+			kullanılması gerekecektir.
+		</p>
+		<p class="indent">
+			Detaylı analizler yaparak kullanıcının belge çözümleyicisi üzerinde bilgi alınmasını sağlayan bir program, 
+			<a href="../uygulamalar/ultimate-browser-check.html">ultimate-browser-check.htm</a> adlı bir 
+			programdır.. bu programın <a href="../js/ultimate-browser-check.js">kaynak kodları </a> incelenerek
+			istenilen bilgiler yazdırılabilir. 
+		</p>
+		<p class="indent">
+			Genel kullanıma açık sayfaların indirildirildiği kullanıcı belge çözümleyicilerinde, JavaScript desteğinin
+			açık olup olmadığının saptanarak açık olmaması durumunda bir uyarı mesajının görüntülenmesi,
+			<span class="keyw">&lt;</span><span class="elm">noscript</span><span class="keyw">&gt;</span>
+			mesaj<span class="keyw">&lt;</span><span 	class="op">/</span><span 
+			class="elm">noscript</span><span class="keyw">&gt;</span> şeklinde belirtilebilir. 
+		</p>
+		
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s5.html"><em> &laquo; Önceki</em></a>			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s7.html"><em> Sonraki &raquo;</em></a>			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript"
+		src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:49 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

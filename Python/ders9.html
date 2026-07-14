@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:54 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders9.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 9</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 1 </h2>
+    <h3 class="chapter">Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders8.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders10.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 9
+      </p>
+    </div>
+    <p id="nrformat" class="subsub verticalTab-10">
+      1.18.2.2 - Yeni Yönteme Göre Sayısal Verilerin Biçimlendirilmesi
+    </p>
+    <p class="indent">
+      Yeni yönteme göre sayısal verilerin temel biçimlendirilmesi, 
+      aşağıdaki formata göre uygulanır.
+    </p>
+    <p class="indent">
+      <a href="http://www.python-course.eu/python3_formatted_output.php">
+      python-course.eu</a> da açıklanan dönüştürme kodları, 
+      aşağıda görülmektedir.
+    </p>
+    <div class="pl-150">
+      <table class="CSS_Table_Example tablewidth90">
+        <caption class="captionred">Dönüştürme Kodları</caption>
+        <tr>
+          <td>Dönüştürme</td>
+          <td>Anlamı</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>İşaretli Tamsayı Ondalık.</td>
+        </tr>
+        <tr>
+          <td>i</td>
+          <td>İşaretli Tamsayı Ondalık.</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>İşaretli Tamsayı Ondalık.</td>
+        </tr>
+        <tr>
+          <td>o</td>
+          <td>İşaretsiz Oktal.</td>
+        </tr>
+        <tr>
+          <td>u</td>
+          <td>İşaretsiz Desimal.</td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>İşaretsix Hex (Küçük Harf).</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>İşaretsiz Hex (Büyük Harf).</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>Ondalıklı Sayı Bilimsel Gösterim (Küçük Harf).</td>
+        </tr>
+        <tr>
+          <td>E</td>
+          <td>Ondalıklı Sayı Bilimsel Gösterim (Büyük Harf).</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>Ondalıklı Sayı Ondalıklı Gösterim.</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>Ondalıklı Sayı Ondalıklı Gösterim.</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td>Ondalıklı Sayı Bilimsel Göstrerim ile Aynı (eğer 
+          üs -4 den büyük veya duyarlıktan küçük ise) yoksa 
+          f.</td>
+        </tr>
+        <tr>
+          <td>G</td>
+          <td>Ondalıklı Sayı Bilimsel Göstrerim ile Aynı (eğer 
+          üs -4 den büyük veya duyarlıktan küçük ise) yoksa 
+          F.</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>Tek Karakter (sözel veya sayısal)</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>Tek Karakter (sözel veya sayısal)</td>
+        </tr>
+        <tr>
+          <td>r</td>
+          <td>Sözel Veriyi Sayısal Eşdeğerine rep() Fonksiyonu 
+          ile Dönüştürür.</td>
+        </tr>
+        <tr>
+          <td>s</td>
+          <td>Sayısal Veriyi Sözel Eşdeğerine str() Fonksiyonu 
+          ile Dönüştürür.</td>
+        </tr>
+        <tr>
+          <td>%</td>
+          <td>Herhangibir Argüman Dönüştürülmesi Yok. Sadece 
+          % Karakter Döndürür.</td>
+        </tr>
+      </table>
+    </div>
+    <p class="indent">
+      Bu tablodan yararlanarak, ondalıklı sayılar (float) için, 
+      biçimmlendirme yöntemlerini oluşturalım:
+    </p>
+    <ul class="listNoMarker">
+      <li>{:.2f} : İki ondalık ile göster.</li>
+      <li>{:+.2f} : İki ondalık ve işaret ile birlikte göster.</li>
+      <li>{:0f} : Ondalık sayı yok, en yakın tamsayıya tamamla.</li>
+    </ul>
+    <p id="uyg1" class="indent">
+      Aşağdaki
+      <a href="uygulamalar/ders9/ders9program1.html">program</a> 
+      bu yöntemlerin sınanmasını sağlamak için, konsoldan girilen 
+      değişik ondalıklı sayı tipinde verilerin biçimlenmiş şekillerini 
+      görüntüleyecek ve esas verinin Python derleyicisindeki 
+      geçerli değerini belirtecek şekilde düzenlenmiştir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders9program1.py</span>
+
+nr <span class="op">=</span> input<span class="op">(</span><span 
+    class="str">&quot;Bir Ondalıklı Sayı Giriniz = &quot;</span>);
+nr <span class="op">=</span> float<span class="op">(</span>nr<span 
+    class="op">);</span>
+print<span class="op">(</span><span class="str">&quot;Girilen : &quot;</span><span 
+    class="op">,</span> nr<span class="op">);</span>
+print<span class="op">(</span><span class="str">&quot;Nr =  {0:.2f}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>nr<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;Nr =  {0:+.2f}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>nr<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;Nr =  {0:.0f}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>nr<span 
+    class="op">));</span>
+print<span class="op">(</span>nr<span class="op">*</span>2<span 
+    class="op">);</span>
+
+<span class="green">
+&quot;&quot;&quot;
+Program Sonucu :
+Bir Ondalıklı Sayı Giriniz = 12.2343
+Girilen : 12.2343
+Nr =  12.23
+Nr =  +12.23
+Nr =  12
+24.4686
+&quot;&quot;&quot;</span></pre>
+    <p class="indent">
+      Yukarıdaki programı, satır satır inceleyelim. Program 
+      herhangibir ondalıklı verinin konsoldan girişi ile başlamakta 
+      ve input ile girilen değer sözel veri tipinde olduğu için, 
+      ondalıklı sayı veri tipine dönüştürülüp yine aynı tanıtıcının 
+      işaret ettiği bellek alanına yerleştiriliyor. Bu bir tahrip 
+      edici atama işlemidir. Konsoldan girilen sayısal karakterler 
+      içeren sözel değer, bir tanıtıcı ile erişilebilen bir 
+      bellek alanına yerleştirilmiş, sonra aaynı bilgi aynı 
+      tanıtıcı ile geri çağrılmış, ondalıklı veri tipine dönüştürülmüş, 
+      tekrar aynı tanıcı ile erişilebilen bellek alanın yerleştirilmiştir. 
+      Dönüştürülmeden önce, veri salt sayısal karakterler içermektedir, 
+      sadece veri tipi sözelddir. Dönüştürüldükten sonra verideki 
+      sayısal karakterler aynıdır sadece veri tipi ondalık sayı 
+      (float) veri tipidir. Eğer sayısal veri salt sayısal karakterler 
+      içeriyorsa, sözelden sayısala dönüştürme kayıpsız olarak 
+      gerçekleşir.
+    </p>
+    <p class="indent">
+      Bundan sonraki aşama, sayısal bir verinin, görüntüsünü 
+      biçimlendirmektir. Bunun verinin ondalık sayısını istenilen 
+      kadar yapacak şekilde, verinin işaretinin belirtilip belirtilmeyecek 
+      şekilde yapılabildiğini görebiliyoruz. Ondalık karakterleri 
+      olan bir verinin, onddalıksız olarak biçimlendirilmesi 
+      istenirse, bu verinin tamsayıya uyarlanmış şekli görüntüleniyor.
+    </p>
+    <p class="indent">
+      Yukarıdaki programın bize verdiği en önemli bilgi, biçimlendirmenin 
+      ana bellekteki veriyi değiştirmediğidir. Programdaki son 
+      işlem olan çarpım işlemi bu gerçeği ortaya çıkarmaktadır. 
+      Çeşitli biçimde gösterilmiş olmakla birlikte, ana veri 
+      değişmememiştir. Bunun kanıtı çarpma sonucunun, işlemin 
+      girilmiş olan ilk değer üzerinden yapılmış olduğununu 
+      belirtmesidir. Yani, 12.2343 girilmiş ve çarpma işlemi 
+      sonucu 24.4686 olarak alınmıştır. Bu sonuç, girilen değerin, 
+      yapılmış olan tüm işlemler sonunda, değişmeden kaldığını 
+      belirtmektedir.
+    </p>
+    <p id="uyg2" class="indent">
+      Ondalıklı verilerin üstel ve yüzde olarak gösterimleri, 
+      aşağıdaki
+      <a href="uygulamalar/ders9/ders9program2.html">programda</a> 
+      görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders9program2.py</span>
+
+q <span class="op">=</span> input<span class="op">(</span><span 
+    class="str">&quot;Bir Ondalıklı Sayı Giriniz = &quot;</span>);
+nr <span class="op">=</span> float<span class="op">(</span>q<span 
+    class="op">);</span>
+print<span class="op">(</span><span class="str">&quot;Girilen : &quot;</span><span 
+    class="op">,</span> q<span class="op">);</span>
+print<span class="op">(</span>q = <span class="str">&quot;{0:E}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>q<span 
+    class="op">));</span>
+
+a <span class="op">=</span> 45<span class="op">;</span>
+b <span class="op">=</span> 347<span class="op">;</span>
+c <span class="op">=</span> a <span class="op">/</span> b<span 
+    class="op">;</span>
+
+print<span class="op">(</span><span class="str">&quot;% = {0:%}&quot;</span>.format<span 
+    class="op">(</span>c<span class="op">));</span>
+
+<span class="green">
+&quot;&quot;&quot;
+Program Sonucu :
+Bir Ondalıklı Sayı Giriniz : 23.7866343
+Girilen : 23.7866343
+q = 2.378663E+01
+% = 12.968300%
+&quot;&quot;&quot;</span></pre>
+    <p class="indent">
+      Yukarıdaki program, ondalıklı sayılar için üstel ve yüzde 
+      biçimlendirilmesini gösteriyor. Ondalıklı sayıların biçimlendirilmesi 
+      göreli olarak daha az seçenek içeriyor.
+    </p>
+    <p class="indent">
+      Tamsayılar, presip olarak sözel verilere çok benzerler. 
+      Her tamsayı verisinde belirli sayıda karakter vardır. 
+      Bu avantaj, tamsayıların sözel veriler gibi biçimlendilmeleri 
+      olanaklarını da sağlar. Bu nedenle, tamsayı biçimlendirilmeleri, 
+      tam olarak sözel verilerin biçimlendirilmesinde uygulanan 
+      kodların uygulanması ile yapılır. Tamsayı verilerini, 
+      önceden saptanmış belirli sayıda karakter alabilen bir 
+      alana, sağa, sola yaslayıp, ortaya yerleştirilme gibi 
+      biçimlendirmeler yapmak olanakları sağlanmıştır.
+    </p>
+    <p id="uyg3" class="indent">
+      Tamsayı biçimlendirme simgesi d (D) dir. Bunun anlamı, 
+      desimal (digit) yani on temelli bir sayı için ayrık bir 
+      karakter yeri anlamındadır. Bu bağlamda, 10d simgesi, &quot;10 
+      temelli bir tamsayı verisini, alan uzunluğu 10 karakter 
+      olan bir alana yerleştir&quot; anlamındadır. Başka bir 
+      yaslama simgesi kullanılmadıkça, varsayılan stil, verinin 
+      belirtilen alan uzunluğunda sağa yaslı olarak görüntülenmesidir. 
+      Tamsayıların biçimlendirilmesi için açıklayıcı bir
+      <a href="uygulamalar/ders9/ders9program3.html">program</a>, 
+      aşağıda verilmiştir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders9program3.py</span>
+
+t <span class="op">=</span> 23<span class="op">;</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:*&gt;10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:-&lt;10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0: 10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:#^10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;t =  {0:^10d}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>t<span 
+    class="op">));</span>
+
+<span class="green">
+&quot;&quot;&quot;
+Program Sonucu :
+t =          23
+t =  ********23
+t =  23--------
+t =          23
+t =  ####23####
+&quot;&quot;&quot;</span></pre>
+    <p id="uyg4" class="indent">
+      On temelli tamsayılar, başka temelli sayılar olarak görüntülendirilebilirler. 
+      Aşağıdaki
+      <a href="uygulamalar/ders9/ders9program3.html">program</a> 
+      bu konuda bir örnek vermektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders9program4.py</span>
+
+print<span class="op">(</span><span class="str">&quot;&quot;&quot;On temelli (Desimal) : {0:d}
+Onaltı Temelli : (Hex) : {0:x}
+Sekiz Temelli (Oktal) : {0:o}
+İki Temelli (Binary) : {0:b}&quot;&quot;&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>121<span 
+    class="op">));</span>
+
+<span class="green">
+&quot;&quot;&quot;
+On temelli (Desimal) : 121
+Onaltı Temelli : (Hex) : 79
+Sekiz Temelli (Oktal) : 171
+İki Temelli (Binary) : 1111001
+&quot;&quot;&quot;</span></pre>
+    <p class="subsubsub">
+      Biçimlendirme üzerine
+    </p>
+    <p class="indent">
+      Python 3 biçimlendirme konusunda daha fazla olanaklar 
+      sağlamakla birlikte, genel olarak pratikte uygulanan yöntemler 
+      bu seksiyonda tanıtılmaya çalışılmıştır. Python 3 de biçimlendirme 
+      bir mini-programlama dili olarak
+      <a href="https://docs.python.org/3.4/library/string.html">
+      Python 3.4.2 dokümantasyonundan</a> incelenebilir.Bu sayfanın 
+      yazdırılıp el altında tutulması çok yararlı olacaktır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders8.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders10.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:00 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

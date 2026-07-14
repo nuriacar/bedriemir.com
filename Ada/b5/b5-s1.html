@@ -1,0 +1,454 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+ 
+<!-- Mirrored from www.bedriemir.com/Ada/b5/b5-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:26 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b5/b5-s1.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bölüm 5 Sayfa 1</title>
+  <meta name="Subject" content="Ada Turkish Tutorial" />
+  <meta name="Description" content="Ada Tutorial in Turkish Language " />
+  <meta name="Keywords" content="Ada Tutorial Turkish" />
+  <meta name="Abstract" content="Ada Turkish Tutorial" />
+  <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+  <meta name="Distribution" content="Local" />
+  <meta name="Robots" content="Index" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <!-- !CSS -->
+  <link href="../css/Adastyle.css" rel="stylesheet" />
+ </head>
+ <body>
+   <p>
+   <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+  </p>
+  <div class="navtop">
+   <a href="../index.html"><img class="navbutton"
+     alt="index" src="../resimler/index.gif" /></a>
+   <a href="../b4/b4-s3.html"><img class="navbutton"
+     alt="previous" src="../resimler/previous.gif" /></a>
+   <a href="b5-s2.html"><img class="navbutton"
+     alt="next" src="../resimler/next.gif" /></a>
+  </div>
+<p class="chapter">
+   Ada Programlama Dili Temelleri
+  </p>
+<p class="chapter">
+   Bölüm 5
+  </p>
+  <p class="chapter">
+   Program Akışının Yön Değiştirmesi
+  </p>
+  <p class="pagenum">
+  Bölüm 5 Sayfa 1
+  </p>
+  <p class="title-left" id="structural">5.1 Yapısal Programlama Prensibi</p>
+  <p class="indent">
+   Bilgisayar programları başlangıçtan sona kadar birbiri ardınca çalıştırılan bildirimler
+   halinde devam etmez. Bazı durumlarda &quot;Eğer şu koşul gerçekleşirse, program
+   şu noktaya atlasın ve oradan devam etsin&quot; şeklinde mantıksal bir karar
+   mekaniziması sonunda program bir alt satırdan devam etmez ve mantıksal karar
+   mekanizmasının belirttiği program adımından devam eder. Mantıksal karar adımının
+   programın devam edeceği satırı belirtme yöntemi son derece önemli ve programın
+   yapısını belirleyici bir yöntemdir. Buna kısaca atlama mekanizması adı verilir.
+  </p>
+  <p class="indent">
+   Bilgisayarların bilimsel ortamlarda yaygın olarak kullanılmaya başlandığı 1960 lardan
+   1980 lere kadar, bilgisayarlara kullanıcıların erişimi çok sınırlı olabilmiştir. O zamanlarda,
+   bilgisayarlar büyük makinelerdi, ayrı odalarda tutulmaları, mekanisyenden başlayarak
+   adına &quot;Bilgisayar Uzmanı&quot; adı verilen ve insanlara uzaydan gelmiş gibi
+   tepeden bakan insanlar tarafından çalıştırılmaları gerekiyordu. Kullanıcıların makinelere
+   erişimi günde bir iki defa olabilien ve adına &quot;program alma&quot; denilen bir işlemle,
+   delikli kartlarını kart okuyucuya okutabilmeleriile sınırlıydı. Program alma işlemi sonucunda
+   çoğunlukla hata mesajları ile dolu bir çıktı, kullanıcının eline tutuşturulur ve kullanıcı,
+   program hatasından mı, yoksa işletim sisteminin karmaşık yöntemlerinden birinin
+   ihlali sonunda mı oluştuğu belli olmayan kriptik bilgilerle dolu olan bir çıkış listesi ile
+   başbaşa kalırdı. Kullanıcların bilgisayarlarla bu çok sınırlı ilişkisi, programcılara
+   program dillerini yeterince tanımak ve uzmanlaşmak olanağını kısıtlı olarak
+   sunabilmekteydi.
+  </p>
+  <p class="indent">
+   Kullanıcıların, bilgisayarlara çok kısıtlı erişimi nedeni ile çoğu kullanıcı, çalıştığı
+   bilgisayarda bulunan derleyicileri bile yeterince tanıyamazdı. Bu dar olanaklı
+   ortam, bilimsel programlar çalıştırmak isteyen kullanıcılara tek seçenek
+   olarak FORTRAN programlama dilini bırakmıştır. FORTRAN modülarite olanakları
+   sınırlı, program yönlendirme mekanizması, mantıksal koşul sonucunda programları
+   belirli numaralı bir satıra atlatmaktan başka bişey olmayan bir programlama dilidir.
+   Üstelik programların satır numaralarının birbirini izlemesi koşulu da olmadığından,
+   bir iki atlama sonunda, programın izlenmesi neredeyse olanaksız hale gelmekteydi.
+   Bu yönteme, &quot;Basit GO TO&quot; mekanizması adı verilmiştir. Bu olumsuz
+   program yön değiştirme yöntemi, 1970 sonlarına doğru kullanıma giren basit
+   BASIC programlama dili ile devam etmiş ve 1980 lerin bilgisayar yaygınlaşmasının
+   ilk evresi bu basit BASIC yöntemi ile geçmiştir. Bunun sonucunda hiçbir zaman kalıcı
+   olamamış ve genel kullanım için uygun olmayan izlenmesi olanaksız derecede
+   zor olan programlar ortaya çıkmıştır.
+  </p>
+ <p class="indent">
+   Bu olumsuz duruma son veren olay, 1980 lerin başlarında ortaya çıkan Pascal
+   programlama dili olmuştur. Pascal, çağının çok ilerisinde bir bilgisayar dili idi ve
+   programlarının modüler yapısı yanında, program yönünün değişmelerini mantıksal
+   temele dayandıran ilk yaygın programlama dili olmuştur. Pascal aynı olanaklara
+   sahip fakat bilgisayarlara yeterli erişimin sağlanamaması nedeni ile fazla
+   yaygınlaşamamış ALGOL programlama dili sınıfından bir progamlama dilidir.
+   Pascal programlama dilinin gelişmesi, önce Modula-2 sonra da Ada programlama
+   dilinin oluşmasına olanak sağlamıştır.
+  </p>
+  <p class="indent">
+   Program yönünün değişmesine kısaca program dallanması (branching) adı verilir.
+   Pascal, program dallanmasını, belirli bir satıra atlatma yöntemi olan GO TO
+   yönteminden,  &quot;eğer şu koşul gerçekleşirse, bu işlemleri yap, gerçekleşmezse
+   şu işlemleri yap&quot; olarak açıklanabilen mantıksal program dallanması yöntemine
+   taşımıştır.
+  </p>
+  <p class="indent">
+   Program dallanmasında mantıksal program dallanması yönteminin kullanılmasına
+   &quot;Yapısal Programlama Yöntemi&quot; adı verilir. Yapısal programlama yöntemi
+   1960 yıllarından beri bilinmesine karşın ancak son yıllarda yaygınlık kazanmış ve
+   günümüzde yegane uygulanan modern program yazım tekniğidir. Yapısal
+   programlama yöntemi kullanılarak geliştirilmiş programlarda modülerlik, parçaların
+   yeniden kullanılabilmesi ve program yürüşünün kolayca izlenebilmesi olanağı
+   sağlanabilmektedir.
+  </p>
+  <p class="indent">
+   Yapısal programlama tekniği, parçaların daha küçük parçalara bölünerek
+   çözümlenmesini sonra da çözümlenmiş parçaların yeniden birleştirilerek tüm
+   problemin çözümünün sağlanması yöntemini uygular. Bir problem, modüler
+   parçaların biraraya getirilmesi ile çözümlenir ve bir problemin çözümünde
+   kullanılmış bir modül, başka bir programda da aynı amaçla kullanılabilir.
+   Yapısal programada modüllere sadece giriş ve çıkış yapılarak iletişim sağlanır.
+   Modülün iç yapısının dış ortamdan soyutlanmış olması gerekir. Ada programlama
+   dili, bu olanakları en ileri düzeyde sağlar ve program parçalarının modülaritesini
+   en gelişkin şekilde düzenler. Yani, Ada programlama dili, yapısal programlama
+   açısından modernitenin erişebileceği en son aşama sayılabilir.
+  </p>
+  <p class="indent">
+   Ada programlama dili, yapısal programlama tekniği yanında, programcılara eski
+   GO TO yöntemini de uygulayabilme olanağı sağlar. Bu yöntemin, olanaklar
+   ölçüsünde çok az veya en iyisi hiç kullanılmaması sağlık verilir. Günümüzde,
+   program tasarımında yapısal programlama teknikleri ile sağlanmış olan ilerleme
+   yanında geri ve kaçınılması gereken GO TO tekniklerinin kullanımının hiçbir nedeni
+   yoktur. Bazı durumlarda GO TO yönteminin sunabileceği geçici kolaylıklara
+   kapılmamalı, bazen zor, belki daha uzun, fakat kesinlikle daha sağlam ve okunabilir
+   yapısal programlama yöntemlerinin sıkı sıkıya uygulanmasında yarar bulunmaktadır.
+  </p>
+  <p class="title-left" id="lojik">5.2 Mantıksal Program Dallanması</p>
+  <p class="indent">
+   Programların mantıksal olarak dallanması, <span class="keyw">if</span> , <span
+   class="keyw">then</span> ,<span class="keyw"> else</span> yapılanması ile
+    gerçekleşir. Bu yapılanmanın sözdizimi aşağıda görülmektedir:
+  </p>
+  <p class="Examples-Maroon">
+   if_statement ::=<br />
+   if condition then<br />
+   sequence_of_statements<br />
+   {elsif condition then<br />
+   sequence_of_statements}<br />
+   [else<br />
+   sequence_of_statements]<br />
+   end if;<br />
+  condition ::= boolean_expression
+  </p>
+  <p class="indent">
+   Bu yapılanmada koşul, mantıksal bir ifadedir. Mantıksal ifade, sonucu Boolean olan
+   bir ifadedir. Bu ifade tek ilişkisel bir işlemciden oluşan basit bir ifade olabileceği gibi,
+   çok sayıda ilişkisel ve mantıksal işlemcilerin kullanıldığı kompleks bir mantıksal ifade
+   de olabilir. Tek koşul, sonucun mantıksal bir değere indirgenebilmesidir.
+  </p>
+  <p class="indent">
+   Programlarda, <span class="keyw">if</span> , <span
+   class="keyw">then</span> ,<span class="keyw"> else</span> yapılanmasına
+    karar yapılanması adı verilir. Her karar yapılanması, program yürüyüşünün yönünü,
+    mantıksal olarak değiştirir. Aşağıdaki şema, bunu açık olarak belirtmektedir.
+  </p>
+  <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/if1.gif"
+    alt="İf karar yapılanması" width="450" height="300" /></p>
+ <p class="sayfaortala dikeyTab-25">Şekil 5.2-1 Basit Karar Mekanizması</p>
+<p class="indent">
+   Yukarıdaki akım şemasından görüldüğü gibi, program yürüyüşü, karar mekanizması
+   sonucunda yön değiştirmektedir. Karar mekanizması aşamasında, eğer (if)
+   G değeri 20 den büyükse, program sağa doğru yönelmekte ve bir mesaj
+   yazdırılmakta ve bu mesaj yazımı tamamlanınca, program karar
+   mekanizmasından bir sonraki satırdan devam etmektedir. Yoksa, yani karar
+   mekanizması aşamasında G değeri 20 den küçükse, program mesaj yazdırma
+   bildirimini pas geçmekte ve doğal işleme sekansına devam ederek, yine karar
+   mekanizmasının bir sonraki satırından devam etmektedir.
+  </p>
+  <p class="indent">
+   Karar mekanizmasının çalışması sonucunda, koşul gerçekleşirse (<span
+   class="keyw">if</span>(koşul = <span class="keyw">true</span>),
+   program sağ tarafa yönlenmekte ve orada belirtilen bildirimleri çalıştırmaktadır.
+   Bu bildirimlerin sonunda, programın tamamlanması bildirilmezse, program
+   kesinlikle karar mekanizmasından bir sonraki satıra geçecektir. Şekil 5.2-1 deki
+   akım şemasından bu çalışma şekli açıkça görülmektedir.
+</p>
+  <p class="indent">
+   Aşağıdaki <a href="../uygulamalar/b5_2_uyg_1.html">prosedürde</a>
+   Şekil 5.2-1 deki akım şemasında belirtilen programın çalışması görülmektedir.
+</p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b5_2_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+G<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Tamsayı Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">5</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span class="S1">then</span><span class="S0"> </span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Büyüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Program Tamamlandı ! "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b5_2_uyg_1<span class="S4">;</span>
+</pre>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_1.html">prosedürün</a>
+   çalışmasının sonucu, girilen G değerine göre iki olasılıklı olarak şekillenir.
+  </p>
+  <p class="indent">
+   Eğer girilen G değeri 20 den büyükse, program sonucu,
+  </p>
+  <p class="indent green">
+   Lütfen Bir Tamsayı Giriniz :  60
+  </p>
+  <p class="indent green">
+   G Değeri 20 den Büyüktür !
+  </p>
+ <p class="indent green">
+   Program Tamamlandı !
+ </p>
+  <p class="nonindent">
+   şeklinde olmaktadır.
+  </p>
+  <p class="indent">
+   Eğer girilen G değeri 20 den küçükse, program sonucu,
+  </p>
+  <p class="indent green">
+   Lütfen Bir Tamsayı Giriniz :  15
+  </p>
+  <p class="indent green">
+   Program Tamamlandı !
+  </p>
+  <p class="nonindent">
+   şeklinde olmaktadır.
+  </p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_1.html">prosedürden</a> de
+   görüldüğü gibi, karar mekanizmasında bir tek sınama sonucu ( doğru veya
+   yanlış), programın da yönlendirilebileceği bir tek yön seçimi ( sağ veya sol)
+   gerçekleşebilir. Bir üçüncü olasılık ve bir üçüncü yol yoktur. Burada, konuyu
+   iyi bilmeyenlerden gelen bilgisayarlarda esneklik olmadığı ve herşeyin ya siyah
+   ya da beyaz olabildiği eleştirisi üzerinde duralım. Aslında gerçekten bir üçüncü
+   yol yoktur ve ertelenen çözümler sadece daha fazla aacılı geçecek bir sürece
+   malolur. Sonuçta ya siyah, ya beyaz bir karar vermek, bir yönde saf tutmak
+   gerekir. Her zana verilen kararların doğru olacaklarını umalım ve sözü büyük
+   şair Vergilius' bırakalım, Montaigne, Vergilius' den alıntı yapmıştır:
+  </p>
+  <article>"Ea non media, sed nulla via est, velut eventum, expectianum
+  quo fortunae consinglia sua applicent"...</article>
+  <p class="nonindent">
+   anlamı : Ortada duranlar, sanki başka bir yol yokmuş gibi, olayları bekliyor,
+   ve kaderin kendi yararına çalışmasını umuyor... şeklindedir. Yorumu okuyuculara
+   bırakıyorum.
+  </p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_1.html">prosedürde</a>
+   programın yönlendiği yönde, sadece bir tane uygulanacak program satırı
+   bulunmaktadır. Bu yüzden <span class="keyw">if</span> (koşul) dan
+   sonra sadece tek bir bildirim ve sonra <span class="keyw">end if</span>
+   ile blok tamamlanmıştır. Eğer birden fazla çaılıştırılacak bildirim
+   bulunuyorsa, her bildirim ; ile tamamlanınca bir alttaki bildirime geçilir
+   ve ardarda bildirimler tamamlandığında otomatik olarak bloktan çıkılmış olur.
+   Fakat eğer istenirse, bir blok açıp, tüm bildirimler aşağıda görüldüğü
+   gibi, bir blok içine alınabilir.
+  </p>
+  <pre class="app-25">
+<span class="keyw">if</span> koşul <span class="keyw">then</span>
+<span class="keyw-25">begin</span>
+<span class="pl-50">Bildirim(1)...</span>
+...
+<span class="pl-50">Bildirim(n-1)...</span>
+<span class="pl-50">Bildirim(n)...</span>
+<span class="keyw-25">end</span>;
+<span class="keyw">end if</span>;
+  </pre>
+  <p class="nonindent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_1.html">prosedürden</a>
+   de görüldüğü gibi, Ada programlama dili,
+   başka program dillerine göre, en temiz if bloğu yazılımına sahip
+   olan program dilidir. Yazılım son derece temiz ve nettir. Yazılım,
+   karar mekaniziması sonucuna göre programın yönleneceği yönü,
+   yönlendiği yerde yapılacak işlemleri, bu işlemler tamamlandığında,
+   programın devam edeceği bildirim satırını açık bir şekilde belirtir.
+   Yazılımın düzgünlüğü sonunucunda işlemlerin yürüyüş şekli üzerine,
+   ne derleyicinin, ne program yazarının, ne de yazılmış programı
+   tekrar okumaya çalışanın en ufak bir kuşkusu olmaz. Ada programlama
+   dilinin komiteler tarafından yazıldığı, liberal akademik çevrelerde hep
+   eleştiri konusu olmuştur. Bilgili insanlardan oluşan komitelerde, birliğlerin
+   birleşiminden ne denli iyi şeyler çıkabileceği, Ada program dilinin
+   tasarımından anlaşılmaktadır. Pascal 'dan Modula-2 ye daha iyileştirilmiş
+   olan <span class="keyw">if</span> bloğu  yazılımın Ada ile
+   mükemmeliyete ulaşmış olduğunu belirtmek yanlış olmaz.
+  </p>
+  <p class="indent">
+   Program adımlarında, tek bir karar bloğu tek bir kararı algılayabilir ve
+   bu kararın sonucuna göre, programı tek bir yöne yönlendirebilir. Eğer
+   incelenecek birden fazla olasılık varsa, ozaman karar bloklarının
+   birbiri ardınca yerleştirilmeleri gerekir. Doğal olarak, burada da
+   çeşitli variyasyonlar olabilir. Örnek olarak, aşağıdaki akım şemasında
+   olduğu gibi, birbirini dışlamayan, yani biri gerçekleşince, diğeri
+   kesin gerçekleşmeyecek şekilde bir bilgi olmayan olasılıklar,
+   ardarda konulan karar blokları ile kontrol edilebilir. Burada olasılıklar,
+   birbirinden bağımsız kabul edilir. Bu nedenle bloklar ardardarda yerleştirilebilir.
+   Program bir bloktaki inceleme tamamlanınca ikinciye geçer, olasılıklar
+   arasında bir bağlantı düşünülmediğinden doğal olarak karar mekanizmalarından
+   hangisi gerçekleşirse, program o bloğun belirttiği yöne doğru dallanır.
+   bazen de hiçbir koşul gerçekleşmezve program dallanmadan yürüşüne
+   devam eder. Aşağıda böyle bir akım şeması görülmekedir.
+  </p>
+  <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/else6.gif"
+    alt="alternatif karar mekanizmaları" width="338" height="523" /></p>
+  <p class="sayfaortala dikeyTab-25">Şekil 5.2-2 Ardışık Karar Mekanizmaları</p>
+  <p class="indent">
+   Yukarıdaki akım şemasında sadece iki tane olasılığın gerçekleşebilme
+   olasılığı olabilir. Olasılıklar arasında dışlayıcı ilişki kurulmadığından
+   program ilk kontrole girecek, kontrol gerçekleşirse belirtilen bildirim
+   çalıştırılacak yani bir mesaj  yazdırılacak ve kontrol hiç gereksiz olmasına
+   karşın ikinci kontrole geçecektir. Bu kontrol ancak birinci kontrolün
+   gerçekleşmediği durumlarda gerçekleşebilecek ve belirtilen bir başka mesajı
+   yazdıracaktır. Bu akım şeması ile belirtilen programda, kaçış olasılığı
+   yoktur ve iki kontrolden birisi mutlaka gerçek olmak zorundadır. Yani bir
+   sayı ya 20 den büyük, ya da 20 den küçük veya 20 ye eşit olmak zorundadır.
+   Yukarıda görülen akım şemasını karşılayabilecek program parçacığı aşağıda
+   görülmektedir.
+  </p>
+<pre class="app-25">
+...
+<span class="pl-25">Get</span>(G);
+<span class="keyw-25">if</span> G > 20 <span class="keyw">then</span>
+<span class="pl-50">Put</span>(&quot;G > 20&quot;);
+<span class="keyw-25">end if</span>;
+<span class="keyw-25">if</span> G <= 20 <span class="keyw">then</span>
+<span class="pl-50">Put</span>(&quot;G <= 20&quot;);
+<span class="keyw-25">end if</span>;
+...
+  </pre>
+  <p class="indent">
+   Yukarıda görülen program parçacığı, doğru çalışmasına karşın,
+   çalışma şekli zaman kaybettiricidir. Şekil 5.2-2 de görülen akım
+   şemasında, ilk kontrol bloğu doğrulanmışsa programın ikinci
+   kontrol bloğuna girmesi gereksiz ve zaman kaybettiren bir işlem
+   olacaktır. Bu işlem için doğru akım şeması aşağıda görüldüğü gibidir.
+</p>
+  <p class="dikeyTab-25">&nbsp;</p>
+  <p class="sayfaortala"><img src="../resimler/else7.gif"
+    alt="alternatif karar mekanizmaları else" /></p>
+  <p class="sayfaortala dikeyTab-25">Şekil 5.2-3 Düzenli Çalışan Bir Karar Mekanizması</p>
+  <p class="indent">
+   Yukarıdaki akım şemasında, zaman kaybının önlenmesi için sadece tek
+   bir karar mekanizması bulunmaktadır. Bu akım şemasını gerçekleştirebilecek
+   bir program yazımı aşağıdaki gibi olabilir.
+  </p>
+<pre class="app-25">
+...
+<span class="pl-25">Get</span>(G);
+<span class="keyw-25">if</span> G > 20 <span class="keyw">then</span>
+<span class="pl-50">Put</span>(&quot;G > 20&quot;);
+<span class="pl-50">GO TO Atla</span>;
+<span class="keyw-25">end if</span>;
+<span class="pl-25">Put</span>(&quot;G <= 20&quot;);
+<span class="keyw-25">Atla : </span>-- program adımı --;
+...
+  </pre>
+  <p class="indent">
+   Yukarıda görülen program parçacığı, Şekil 5.2-3 deki akım şemasında
+   belirtilen program yürüyüşünü tam olarak gerçekleştirebilirse de,
+   bu tür tür GO TO deyimleri kullanan bir program çağdışı, mantıksal
+   dallanma sistematiği dışında ve yürüşünün izlenmesi güç bir program yazımı
+   olarak nitelendirilir. Bunun yerine Ada gibi programlama dillerinin
+   daha elegan bir çözümü bulunmaktadır.  Bu çözüm <span
+   class="keyw">if</span> bloğuna eklenebilen bir
+   <span class="keyw">else</span> bloğudur. Bu şekilde, program
+   dallanması gereksiz adımlardan arınmış, mantıksal dallanma sistematiği
+   içinde, çağdışı GO TO deyimi içermeyen, aşağıda görülen modern bir
+   <a href="../uygulamalar/b5_2_uyg_2.html">program</a> yazım yöntemi
+   elde edilmiş olmaktadır.
+</p>
+  <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b5_2_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+G<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Lütfen Bir Tamsayı Giriniz : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Get<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">5</span><span class="S0"> </span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">if</span><span class="S0"> </span>G<span class="S0"> </span><span class="S4">&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span class="S1">then</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Büyüktür !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">else</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"G Değeri 20 den Küçük veya 20 ye Eşittir !"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">end</span><span class="S0"> </span><span class="S1">if</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Program Tamamlandı ! "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b5_2_uyg_2<span class="S4">;</span>
+</pre>
+  <p class="indent">
+   Yukarıdaki prosedürün çalışmasının sonucu, girilen G değerine göre iki
+   olasılıklı olarak şekillenir.
+  </p>
+  <p class="indent">Eğer girilen G değeri 20 den büyükse, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  60 </p>
+  <p class="indent green"> G Değeri 20 den Büyüktür ! </p>
+  <p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="indent"> Eğer girilen G değeri '0 ye eşit veya 20 den küçükse, program sonucu, </p>
+  <p class="indent green"> Lütfen Bir Tamsayı Giriniz :  15 </p>
+  <p class="indent green"> G Değeri '0 ye Eşit veya 20 den Küçüktür ! </p>
+  <p class="nonindent"> şeklinde olmaktadır. </p>
+  <p class="indent">
+   Yukarıdaki <a href="../uygulamalar/b5_2_uyg_2.html">prosedürde</a>
+   program yazım tekniği kolay izlenebilen mantıksal bir yöntemin
+   uygulandığı moden bir program  yazım tekniğidir ve günümüzde
+   uygulanması gereken tek yöntemdir.
+  </p>
+  <p class="indent">
+   <span class="pl-600">Devam =></span>
+  </p>
+  <ul id="navbottom">
+   <li id="index">
+    <a href="../index.html"><em>« İndeks</em></a>
+   </li>
+   <li id="denge"></li>
+   <li id="sayfa">
+   <a href="../b4/b4-s3.html"><em> &laquo;Önceki</em></a>
+  </li>
+   <li id="denge"></li>
+   <li id="kodlama">
+   <a href="b5-s2.html"><em> Sonraki &raquo;</em></a>
+   </li>
+ </ul>
+ </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b5/b5-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:26 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:47 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s4.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s4</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b2s3.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s5.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>	
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.4 - JavaScript Programlama Dilinde Atama İşlemleri </p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 4
+		</p>
+		<p class="subheading" id="atama">
+			2.4.1 - Atama İşlemleri Ve Atama İşlemcisi
+	</p>
+		<p class="indent"> JavaScript programlama dilinde, atama işlemi, iki işlenenli
+		  atama işlemcisi kullanılarak yapılır. Atama işlemcisinin çalışma şekli, 
+		</p>
+		<p class="title">
+			sol işlenen <strong><span class="op">=</span></strong> sağ işlenen; 
+		</p>
+		<p class="nonindent">
+			olarak tanımlanır. Sağ işlenen, sonucu hesaplanabilen her türlü basit
+			veya karmaşık ifade, fonksiyon veya nesne olabilir.
+		</p>
+		<p class="indent">
+			İşlemcilerin öncelik sıraları, <a href="b2s1.html#order">1.1.2.1</a> deki 
+			öncelik tablosunda açıklanmıştır. Bu <a href="b2s1.html#order">tablodan</a> 
+			görülebileceği gibi atama işlemcisinin işlem önceliği çok düşüktür. Bu nedenle,
+			atama işleminde öncelik sırası sağ işlenendedir. Önce ikinci taraf (sağ taraf) 
+			ifadesinin değerlendirilmesi yapılır. Değerlendirme sonunda hem bir sonuç, 
+			hem de geçerli veri tipi saptanır. Bu ön hesap herhangibir nedenden dolayı
+			gerçekleşemezse, (örnek olarak sağ işlenin değeri belli değilse) atama işlemi
+			başarısız olur ve program hata verir (bir istisna fırlatılır) ve hata yakalanmazsa 
+			programın çalışması kesilerek bir hata mesajı görüntülenir. 
+		</p> 
+		<p class="indent">
+			JavaScript programlama dilinin programcıya çok özgürlük tanıyan yapısı ve başka program
+			dilleri ile karşılaştırılaması <a href="../b1/b1s6.html">bölüm 1.6.4</a> de yapılmıştır. Bu 
+			konunun yeniden okunması yaralı olacaktır.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinin esnek ve kullanıcı dostu programlama kuralları,
+			atama işlemlerinde kendini gösterir. Programcılar, atama işleminde atamasın yapılacağı
+			değişkeni ve tipini önceden belirtimek zorunluluğunda değillerdir. Atamada veri tipi 
+			belirtilmez. Veri tipini JavaScript yorumlayıcısı,
+			atanacak literali inceleyerek kendine göre saptar ve atanacak değişken ile 
+			ilişkilendirir. Değişkenin değeri değişmedikçe, değişkenin değeri ve veri tipi, 
+			program sonuna kadar program belleğinde (stack memory) saklanır. En 
+			basit bir atama, içsel (implicit) atamadır. Örnek, 
+		</p>
+		<pre>
+<span class="pl-25">g</span> <span 
+			class="op">=</span> 16.9<span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki örnekte olduğu gibi, içsel atamalarda, JavaScript yorumlayıcısı 
+			g değişkenini yaratır ve atanacak literalin değer ve tipini saptayarak g değişkenine
+			atar. İçsel değişkenler daima globaldir yani, programın he tarafından erişilebilirler. 
+			Global ve yerel kapsamlar biraz sonra açıklanacaktır. İçsel değişkenler <span 
+			class="keyw">delete</span> işlemcisi ile silinebilirler bunu da biraz sonra göreceğiz.
+		</p>
+		<p class="indent">
+			Değişken isimlerinin oluşturulması için, Javascript programlama dilinde de, Java 
+			programlama dili geleneği devam ettirilir. Bu geleneğe göre değişken isimleri daima 
+			küçük harfle başlar. Birden çok sözcük içermesi istenen değişken isimleri için, deveHörgücü 
+			gibi bir düzenleme yapılır veya deve_Hörgücü şeklinde bir alt bağlaç kullanılır.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, bir değişkene bir atama yapıldığında, aynı değişkene 
+			farklı tipte bir veri atanabilir. Bu atamaya &quot;Tahrip Edici Atama&quot; adı verilir. 
+			Tahrip edici atama sonunda, değişkenin eski değeri kaybolur, yeni değer ve tipi eskisinin
+			yerine geçer. Örnek,
+		</p>
+		<pre>
+<span class="pl-25">x</span> <span 
+			class="op">=</span> <span 
+			class="str">'Ahmet'</span><span 
+			class="op">;</span><span class="comm-50">ilk atama !</span>
+<span class="pl-25">x</span> <span 
+			class="op">=</span> 23.45<span 
+			class="op">;</span><span class="comm-50">Tahrip edici atama !</span>
+		</pre>
+		<p class="nonindent">
+			Yukarıdaki örnekte ik olarak x değişkenine bir karakter dizigisi tipinde
+			literal atanmışken, ikinci atamada sayısal bir değer atanmış ve ilk atamanın
+			değer ve tipi kaybolmuştur. Tahrip edici atamanın yararı, değişken sayısını 
+			arttırmaması ve bu şekilde program belleğinde fazla tüketimin önüne geçilmesidir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinin özgürrlükçü yapısı küçük programlar için bri avantaj 
+			gibi görünmesine karşın genelde programlarda bir dağınıklık ve düzensiz 
+			kodlama stili  sonucu doğurmaya yatkın olduğu gözlenmiştir. Bu mükemmel 
+			program dilinin hakkını vererek kullanılmasının sağlanması için, kullanıcıların 
+			uyması halinde daha okunabilir ve birbirine uyumlu yazılımlar elde edilebileceği
+			kodlama standartları geliştirilmişir. Bu kodlama standartları atama işlemleri için, 
+		</p>
+		<ul class="list">
+			<li>
+				Değişkenlerin ve fonksiyonların daima küçük harfle başlamasını, sınıf isimlerinin ise
+			daima büyük harfle başlamasını,
+			</li>
+			<li>
+				Değişkenlerin daima kullanılacakları blokların başında tanımlanmaları,
+			</li>
+			<li>
+				Değişkenlerin amaçlarına uygun bir şekilde isimlendirilmeleri, 
+			</li>
+			<li>
+				Değişkenlerin yerel kapsamda tanımlanmaları 
+			</li>
+		</ul>
+		<p class="nonindent">
+			bir konvansiyon olarak topluma sunulmuştur. Tüm deneyimli 
+			programcılar bu kurallara uymanın kendi yararlarına olacağını 
+			algılamışlardır. Büyük çoğunluk bu kurallara uymaktadır. 
+		</p>
+		<p class="subheading" id="shortcut">2.4.2 - Kısayol Atama İşlemleri </p>
+		<p class="indent">
+			Atama işlemcisinin çok düşük önceliğe sahip olmasından dolayı, atama 
+			işlemlerinde sağ işlenendeki ifade çözümlendikten sonra, sonuç sol işlenene
+			atanır. Fakat, bazı ifadelere çok sık rastlandığından, bu ifadelerin atama
+			işlemlerinde çabuk kodlanabilmeleri için bir tür stenografik kodlar geliştirilmiştir.
+			Bu kodlara, kısayol atama işlemleri adı verilmektedir. 
+		</p>
+		<p class="indent"> Kısayol atama işlemleri, aşağıdaki gibi tanımlanır: </p>
+		<div class="pl-300">
+			<table width="50%"summary="Kısayol Atama 	İfadelerinin Açıklanması" class="tablo1">
+				<caption class="captionred">
+					Kısayol Atama İşlemcileri
+				</caption>
+				<colgroup>
+					<col class="st1"/>
+					<col class="st1"/>
+				</colgroup>
+				<tbody>
+					<tr class="highline color2">
+						<th> <p> <strong>Kısayol Atama İşlemi</strong> </p></th>
+						<th> <p> <strong>İşlem Tanımı</strong> </p></th>
+					</tr>
+					<tr class="tbline">
+						<td> x+=y; </td>
+						<td> x=x+y; </td>
+					</tr>
+					<tr class="tbline">
+						<td> x-=y; </td>
+						<td> x=x-y; </td>
+					</tr>
+					<tr class="tbline">
+						<td> x*=y; </td>
+						<td> x=x*y; </td>
+					</tr>
+					<tr class="tbline">
+						<td> x/=y; </td>
+						<td> x=x/y; </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent"> Bu tabloda görüldüğü gibi, kısayol atama
+			işlemlerinde, işlemlerin yürüyüşü açık ve basittir,
+			fakat bu işlemleri gerçekleştiren ifadeleri akılda
+			tutmak kolay olmayabilir. Yine de profesyonel
+			programların çoğunda kullanıldıklarından, hatırda
+			tutmak yararlı olacaktır. (Kısayol atama işlemcilerinin 
+			hatırda tutulması için sağlık verilen bir yöntem, bu işlemcileri, 
+			x'e y'i ekle (sonucu x'e ata) , x'den y'i çıkar (sonucu x'e ata) , 
+			x'i y ile çarp (sonucu x'e ata) , x'i y ile böl (sonucu x'e ata)  
+			şeklinde okumaktır). 
+		</p>
+		<p class="indent" id="b2.4.2-uyg-1">
+			Kısayol atama işlemcilerinin bir uygulaması, 
+			<a href="../uygulamalar/b2.4.2-uyg-1-js.html">JavaScript kodları</a> 
+			aşağıda görülen bir <a href="../uygulamalar/b2.4.2-uyg-1.html">uygulamada</a>
+			verilmiştir.
+		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */
+
+</span><span class="keyw-50">function </span>sonuç<span 
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span><span 
+			class="str">'</span>1<span 
+			class="op">;</span>
+<span class="keyw-75">var</span> e <span 
+			class="op">=</span><span 
+			class="str">'</span>23<span 
+			class="op">;</span>
+
+<span class="pl-75">e</span> <span 
+			class="op">+=</span> s<span 
+			class="op">;</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>e<span 
+			class="op">,</span> <span 
+			class="str">'b2.4.2-uyg-1-sonuç'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span><br />
+			<span class="cursive-blue">e</span>
+			<span class="cursive-maroon">=</span>
+			<span class="cursive-red" id="b2.4.2-uyg-1-sonuç"></span>
+		</p>
+		<p class="indent">
+			Kısayol atama işlemleri, kodlara profesyonel bir görünüm
+			vermelerine karşın, programın okunabilirliğini de önemli 
+			ölçüde azaltmaktadır. Bu açıdan kullanılmaları tamamı ile 
+			programcının kişisel seçimine bağlı olmaktadır.
+		</p>
+		<p class="subheading" id="var">2.4.3 - var Bildirimi</p>
+		<p class="indent">
+			JavaScript programlama dilinde, <span class="keyw">var</span> 
+			bildiriminin kullanımın zorunlu olduğu yerler fonksiyon içeriğinde 
+			tanımlanan bir değişkenin yerel kapsamda olmasının sağlanması ve 
+			tanımlanan bir değişkenin <span class="keyw">delete</span> işlemcisi ile
+			silinebilirliğinin önlenmesidir.
+		</p>
+		<p class="indent">
+			Bu işlevlerin dışında kullanımı zorunlu olmamasına karşın, 
+			<a href="../ekler/ek1/ek1s2.html">Ek-2 de </a>verilmiş olan JavaScript kodlama
+			konvansiyonu, yukarıda görülen kurallara göre, <span class="keyw">var</span> bildirimini,
+			JavaScript programlarında, Java programlarına yakın bir şekilde kullanımını
+			öngörmektedir. Bu bildirimin kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">var</span> değişken1 [ = değer [, değişken2 [ = değer ,...]
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bir değişkenin tanıtılması sırasında başlangıç değerinin verilmesi
+			isteğe bağlıdır. Fakat, önceden tanıtılıp değeri belirtilmememiş bir değişken ile değer gerektiren
+			bir  işlem yapılmak istenirse, program hata vererek durdurulur. Bu yüzden,
+			değişkenlerin ilk bildirimi sırasında başlangıç değerlerinin verilmesi uygun
+			olacaktır. İlk atama sırasında başlangıç değeri verilmek istenmezse, aşağıdaki
+			gibi <span class="keyw">null</span> değeri verilebilir.
+		</p>
+		<pre>
+<span class="keyw-50">var</span> bilgi <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Burada <span 
+			class="keyw">null</span> değeri, bir tür yer tutucu işlevini yapar. Değişkenin 
+			değeri ilk fırsatta gerçek bir değerle değiştirilmelidir. 
+		</p>
+		<p class="indent">
+			İyi programlama yöntemleri, tüm değişkenlerin programın başında <span 
+			class="keyw">var</span> bildirimi ile bildirilmelerini öngörmektedir. 
+		</p>
+		<p class="indent">
+			<span class="keyw">var</span> Bildirimi ile tanıtılmış değişkenler, <span 
+			class="keyw">delete</span> işlemcisi ile program belleğinden kaldırılamazlar.
+		</p>
+		<p class="indent">
+			Fonksiyon içinde <span class="keyw">var</span> bildirimi ile tanıtılmış olan değişkenlerin, 
+			kapsam alanı, yerel kapsamla sınırlandırılırlar, aynı zamanda <span 
+			class="keyw">delete</span> işlemcisi ile program belleğinden kaldırılamazlar.
+			<a href="../ekler/ek1/ek1s2.html">JavaScript kodlama konvansiyonu</a>,
+			değişkenlerin fonksiyon içinde <span class="keyw">var</span> bildirimi ile 
+			yerel kapsamda kalacak şekilde tanıtılmasını öngörmektedir. 
+		</p>
+		<p class="indent">
+			Aynı başlangıç değerini paylaşan birden çok değişkenin tanıtımında,
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> b <span 
+			class="op">=</span> c <span 
+			class="op">=</span> d <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir tanıtım olanağı bulunmasına karşın, Douglas Crokford´un yazmış olduğu
+			bir JavaScript kod yazılım doğrulayıcısı olan <a href="http://www.jslint.com/">JSLint</a>
+			bu ifade yerine, 
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> b <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> c <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> d <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklinin kullanılmasını sağlık vermektedir.
+		</p>
+		<p class="subheading" id="global">2.4.4 - Global Değişkenler </p>
+		<p class="indent">
+			JavaScript program kodlarının bir Web sayfası içinde çalıştırılmasının
+			sağlanmasının  incelendiği 
+			<a href="../b1/b1s3.html#script">Bölüm 1.3.1 de</a> görülmüş olduğu gibi, 
+			bir XHTML Web sayfasında tüm <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span> elementlerinin içeriği 
+			olan tüm alanlar, aşağıda görüldüğü gibi, tek bir alan olarak kabul edilirler ve bu alana 
+			Global Kod Çalıştırma Alanı veya Üst Düzey Programlama Alanı adı verilir. 
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span> <span 
+			class="att">type</span><span 
+			class="str">&quot;text/javascript&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">program adımları (Global Kod Çalıştırma Alanı), (Üst Düzey Programlama Alanı)</span>
+<span class="keyw-25">&lt;</span><span class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			Global Kod Çalıştırma Alanı veya Üst Düzey Programlama Alanı adı verilen alanda 
+			çalışabilecek tüm program kodları çalışır. Bir Web sayfasına bir JavaScript kod sayfası 
+			bağlı ise, nekadar kod sayfası bağlanmış olursa olsun, tümünün içeriği tek ve 
+			tümü Global Kod Çalıştırma Alanı veya Üst Düzey Programlama Alanı olarak kabul edilir. 
+			Bunu kısaca sadece Global Alan olarak adlandırabiliriz.
+		</p>
+		<p class="indent">
+			Global alanda ister implicit olarak ister <span class="keyw">var</span> 
+			bildirimi ile tanımlansın, tüm tanımlanan değişkenler, global değişken
+			niteliğindedir. Global değişkenler, tüm programlama alanında fonksiyon
+			alanları dahil olarak tanımlı olurlar.
+		</p>
+		
+		<p class="indent">
+			Global değişkenlerin kullanımından kaçınılması konusunda kesin uyarılar
+			bulunmaktadır. Bunun ilk ve en önemli nedeni, global değişkenlerin fonksiyon
+			içeriklerinde de tanımlı olması ve fonksiyonlara dışarıdan bilgi giriş/çıkışına
+			olanak sağlamasıdır. Oysa ki, yapısal program akışı prensiplerine göre,
+			fonksiyonlara tek bilgi girişi, argümanları aracılığı ile, tek bilgi
+			çıkışı ise, <span class="keyw">return</span> bildirimi ile olmalıdır.
+			Global değişkenlerin etkisi, fonksiyonun, fonksiyon dışı ortamdan sterilitesini
+			yoketmekte, yapısal programlama prensiplerini ortadan kaldırmaktadır.
+		</p>
+		<p class="indent">
+			Global değişkenlerin bir başka sakıncalı tarafı da özellikle uzun programlarda,
+			değerinin kontrolünün güçleşmesi ve kaza ile değerinin değişmesi olasılığının
+			bulunması ve bunun program sonuçlarının yanlış olarak hesaplanmasına
+			neden olacağıdır.
+		</p>
+		<p class="indent">
+			Bir fonksiyon içinden, global bir değişken çağrıldığında, JavaScript
+			yorumlayıcısı bu global değişkeni bulana kadar, yukarıya doğru tüm kapsam
+			zincirlerinde arama yapar. Bir fonksiyon içinde tanımlı bir fonksioyonun
+			içeriğinden bir global değişkene erişilmek istendiğinde, fonksiyon önce
+			kendi kapsam zincirinde, sonra üst fonksiyon kapsam zincirinde, sonra
+			global kapsam zincirinde arama yapacaktır. Buna değişken adı çözümlenmesi
+			adı verilir. Bu işlem, özellikle döngüler içinde gerçekleştiğinde, program
+			hızını, dolayısı ile program performasını azaltıcı yönde etki yapacaktır.
+		</p>
+		<p class="indent">
+			Bir fonksiyon içinden erişilmek istenen bir global değişken, fonksiyonun
+			çalışması bitince de kapsam zincirinin kapanmasına engel olabilecektir.
+			JavaScript çöp toplayıcısı, bunu bir potansiyel çağrı olarak kabul ederse
+			fonksiyon sürekli açık kalacak ve program belleğini sürekli işgal edecektir.
+		</p>
+		<p class="indent">
+			Global değişkenler, tanımlandıktan sonra, program sonuna kadar kullanıma
+			hazır olarak bekletilirler. Bu değişkenlerin işgal ettiği stack
+			bellek, program sonuna kadar boşaltılamaz, bu da önemli bir performans
+			azalması yaratır ve program belleğinin gereksiz yere işgal edilmesine
+			neden olur.
+		</p>
+		<p class="indent">
+			Javascript programlama dilinde birçok açık olmayan global değer (implied
+			global) bulunabilmektedir. Örnek olarak öntanımlı nesnelerin özelliklerine
+			eklentiler yapılması bu tip bir gizli global yaratılması sayılabilir. Bu
+						tür gizli global  değerler de fonksiyonların taşınabilirliğini kesinlikle
+						ortadan kaldırır. Fonksiyon, taşınacağı yeni ortamda, bu gizli global
+						değeri bulamayınca kesinlikle çalışmaz. Üstelik bu gibi sorunların anlaşılması
+						da son derece güç olur. Bu durumda, Programlarda her türlü açık ve
+						açık olmayan global değer kullanımından kaçınılması son derece önemlidir.
+						Fonksiyon tanımları kesinlikle yapısal programlama prensiplerine uygun
+						olarak tasarlanmalı, girişler daima argümanlar kanalı ile, çıkışlar ise
+						daima <span class="keyw">return</span> bildirimi
+						ile gerçekleştirilmeli, bunun dışında, fonksiyon kapsam alanı dışından
+						bir bilgi beklememeli ve bir bilgi vermemelidir. Bir fonksiyon, başka
+						bir fonksiyonu çağırdığında, döndürülecek değer varsa bu sadce yerel değişkenlere
+						atanmalıdır.  Bir fonksiyon ancak bu koşullara uyularak tasarlanmışsa
+						modüler olabilir ve bulunduğu ortamdan başka bir ortama
+			taşındığında işlevini beklendiği gibi sorunsuz yerine getirebilir. Özetle,
+			fonksiyonların modülarite ve taşınabilirliğinin sağlanabilmesi için,
+			steriliteleri tam olarak gerçekleşmeli, ve programda ne açık ne de 
+			gizli, hiçbir global değer kullanılmamalıdır. 
+		</p>
+		<p class="indent">
+			Üst düzey progrogramlama alanında sadece fonksiyon tanımları ve 
+			kullanılacaksa, nesne kitaplıkları tanımlanabilir. Bunun dışında hiç bir 
+			şey bulunmamalıdır.
+		</p>
+		<p class="indent">
+			Bazı durumlarda, ilk bakışta problemin global değişken olmadan 
+			çözümlenemeyecek gibi görünür. İyi incelendiğinde mutlaka bir başka 
+			yolun bulunduğu ve global değişkene gerek duyulmadan da problemin 
+			çözümlenebileceği görülecektir. Burada anahtar sözcük, iyi incelemedir.
+		</p>
+		<p class="indent" id="b2.4.4-uyg-1">
+			Global değişkenlerin kullanımına ait bir 
+			<a href ="../uygulamalar/b2.4.4-uyg-1-js.html">JavaScript programının</a>, 
+			bağlantılı olduğu <a href ="../uygulamalar/b2.4.4-uyg-1.html">uygulama sayfasında</a>, 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+<span class="pl-50"></span>var q <span 
+			class="op">=</span> <span 
+			class="str">'global değişken'</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">function </span>yazdır<span 
+			class="op">(</span>yer<span 
+			class="op">) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>q<span 
+			class="op">,</span> yer<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="keyw-50">function </span>başlat<span 
+			class="op">() {</span>
+<span 
+			class="pl-75">yazdır</span><span 
+			class="op">(</span><span 
+			class="str">'b2.4.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">global değişkenin değeri : </span>
+			<span class="cursive-red" id="b2.4.4-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="subheading" id="local">2.4.5 - Yerel Değişkenler</p>
+		<p class="indent">
+			Gobal çalışma alanı içinde, fonksiyon içeriklerinde <span class="keyw">var</span>
+			bildirimi ile bildirilmiş olan değişkenler, sadece fonksiyon alanı içinde tanımlı olurlar ve 
+			global alanda <span class="keyw">undefined</span> değerini alırlar. Bu tür değişkenelere
+			yerel değişken adı verilir. <a href="../ekler/ek1/ek1s2.html">JavaScript kodlama konvansiyonu</a>,
+			tüm değişkenlerin yerel değişken olarak tanımlanmasını öngörmektedir. Fonksiyon içeriklerinde 
+			<span class="keyw">var</span> bildirimi ile tanıtılmamış olan değişkenler, global değişken
+			niteliğindedir ve bundan kesinlikle kaçınılması gerekir.
+		</p>
+		<p class="indent" id="b2.4.5-uyg-1">
+			Aşağıda görülen <a href="../uygulamalar/b2.4.5-uyg-1-js.html">JavaScript programı</a>, global ve 
+			yerel değişkenlerin konumlarını şematik olarak açıklamaktadır . Bu programın ilişkilendirilmiş olduğu
+			<a href="../uygulamalar/b2.4.5-uyg-1.html">sayfada</a> verdiği sonuçları görmek için,
+			Mesaj Göster ! düğmesini tıklayınız.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-25">Fark</span> <span 
+			class="op">=</span> 0.1<span 
+			class="op">;</span><span class="comm-25">// İçsel (implicit) atama, global değişken, kesinlikle	kullanmayın !!!</span>
+<span class="keyw-25">var</span> katsayı <span 
+			class="op">=</span> 5<span 
+			class="op">;</span><span class="comm-25">// Global değişken, kullanmamaya çalışın.</span>
+
+<span class="keyw-25">function</span> topla<span 
+			class="op">(</span>birinciDeğer<span 
+			class="op">,</span> ikinciDeğer<span 
+			class="op">) {</span>
+<span class="pl-50">k</span> <span 
+			class="op">=</span> 2<span 
+			class="op">;</span><span class="comm-25">// İçsel (implicit) atama, global değişken, kesinlikle	kullanmayın !!!</span>
+<span class="keyw-50">var</span> toplam <span 
+			class="op">=</span> birinciDeğer <span 
+			class="op">+</span> ikinciDeğer<span 
+			class="op">;</span><span class="comm-25">// Yerel değişken, sadece bu tip değişkenler kullanın.</span>
+<span class="keyw-50">return</span> toplam<span 
+			class="op">;</span>
+<span class="elm-25">}</span>
+
+<span class="keyw-25">function</span> mesajGöster<span 
+			class="op">() {</span>
+<span class="keyw-50">alert</span><span 
+			class="op">(</span><span 
+			class="str">'Toplam = '</span> <span 
+			class="op">+</span> topla<span 
+			class="op">(</span>22.5<span 
+			class="op">,</span> 5345.78<span 
+			class="op">));</span>
+<span class="keyw-50">return false</span><span 
+			class="op">;</span>
+<span class="elm-25">}</span>
+
+<span class="keyw-25">function</span> panel<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> düğmeAdı <span 
+			class="op">=</span> <span 
+			class="str">'hesapla'</span><span 
+			class="op">;</span><span class="comm-25">// Yerel değişkenler, sadece bu tip değişkenler kullanın.</span>
+<span class="pl-50">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> mesajGöster<span 
+			class="op">;</span>
+<span class="elm-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>panel<span 
+			class="op">);</span>
+ <span class="keyw-50">...</span>
+		</pre>
+		<ul id="center-navlist">
+			<li>
+				<a href="http://www.olmayanyer.com/" id="hesapla"><em>Mesaj Göster !</em></a>
+			</li>
+		</ul>
+		<p class="indent" id="b2.4.5-uyg-2">
+			Yerel bir değişkenin global bir değişkenle aynı isimde olması halinde bir isim 
+			çakışması yaşanır. İsim çakışmalarında, global ve yerel değişkenler birbirlerinden bağımsızdır.
+			Global alanda global değişkenin değeri, yerel alanda, yerel değişkenin değeri geçerlidir.
+			Bu konuda bir 
+			<a href="../uygulamalar/b2.4.5-uyg-2-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.4.5-uyg-2.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+	</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> q <span 
+			class="op">=</span> <span 
+			class="str">'global değişken'</span><span 
+			class="op">;</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'değerYazdır() fonksiyonu dışında q değişkeninin değeri = '</span>, q<span 
+			class="op">,</span> <span 
+			class="str">'b2.4.5-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">function </span>değerYazdır<span 
+			class="op">(</span>yer<span 
+			class="op">) {</span>
+<span class="keyw-75">var </span>q <span 
+			class="op">=</span> <span 
+			class="str">'yerel değişken'</span><span 
+			class="op">;</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'değerYazdır() fonksiyonu içinde q değişkeninin değeri = '</span>, q<span 
+			class="op">,</span> yer<span 
+			class="op">);
+</span><span class="op-50">}</span>
+
+<span class="pl-50"></span>değerYazdır<span 
+			class="op">(</span><span 
+			class="str">'b2.4.5-uyg-2-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.4.5-uyg-2-sonuç-1"></p>
+		<p class="indent" id="b2.4.5-uyg-2-sonuç-2"></p>
+		<p class="indent" id="b2.4.5-uyg-3">
+			Yerel bir değişken global tanım alanında kesinlikle tanımsızdır (<span class="keyw">undefined</span>).
+			Bu konuda bir 
+			<a href="../uygulamalar/b2.4.5-uyg-3-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b2.4.5-uyg-3.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">function </span>prim<span 
+			class="op">(</span>varlık<span 
+			class="op">) {</span>
+<span class="keyw-75">var </span>çarpan <span 
+			class="op">=</span> 2<span 
+			class="op">;</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'prim() fonksiyonu içinde çarpan değişkeninin değeri = '</span>, çarpan<span 
+			class="op">,</span><span class="str">'b2.4.5-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">try</span> <span 
+			class="op">{</span>
+<span class="pl-75">prim</span><span 
+			class="op">(</span>1600<span 
+			class="op">);</span> 
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'prim() fonksiyonu dışında çarpan değişkeninin değeri = '</span>, çarpan<span 
+			class="op">,</span> <span 
+			class="str">'b2.4.5-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">catch</span><span 
+			class="op">(</span>e<span 
+			class="op">) {</span> 
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'çarpan değişkeninin prim() fonksiyonu dışında  değeri tanımsızdır ve çağrılırsa program bir hata mesajı ile kesilir ! Hata sınıfı ve nedeni  : '</span>, e<span 
+			class="op">.</span><span class="keyw">toString</span><span class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.4.5-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b2.4.5-uyg-3-sonuç-1"></p>
+		<p class="indent" id="b2.4.5-uyg-3-sonuç-2"></p>
+		<p class="indent">
+			Yukarıdaki programda, programın hata oluşması nedeni ile kesilmesini önlemek
+						amacı ile,  hata verebilecek program adımları bir <span class="keyw">try </span><span 
+			class="op">{}</span> bloğuna yerleştirilmiş ve bir <span class="keyw">catch</span><span 
+			class="op">() {}</span> bloğu içinde yakalanmıştır. Hata yakalama yöntemleri,
+						ileride 
+			<a href="../b13/b13s1.html#ErrorConstructor">bölüm 13 de</a> incelenecektir.
+		</p>
+		<p class ="indent">
+			Bu uygulamada sonuçların görüntülenmesi için yararlanılan sonuçYaz<span 
+			class="op">()</span> fonksiyonu,<a href="../uygulamalar/bdelib-src.html"> bdelib.js</a>
+			program kitaplığındaki bir yazdırma fonksiyonudur. Bu fonksiyonun kullanımı aşağıdaki gibidir:
+		</p>
+		<pre>
+<span class="pl-25">sonuçjYaz</span><span 
+			class="op">(</span><span 
+			class="str">'mesaj'</span><span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> <span 
+			class="str">'sonucunİçeriğineEklenecekSayfaElementininIdDeğeri'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class ="indent">
+			Burada kullanılan sonuçYaz<span class="op">()</span> fonksiyonunun
+			yazılımı, W3C-DOM (W3C Belge Nesne Modeli) nin
+			incelenmesi sırasında, bölüm <a href="../b20/b20.3-s1.html#sonucyaz">b20.3.2 de</a>
+			açıklanmıştır.		</p>
+		<p class="subheading" id="typeof">2.4.6 - typeof İşlemcisi</p>
+		<p class="indent">
+			<span class="keyw">typeof</span> İşlemcisi, bir 
+			ifadenin veri tipini belirler. Sözdizimi,
+		</p>
+		<p class="indent">
+			<span class="keyw">typeof</span>
+			<strong>[ ( ]</strong><em>geçerli bir JavaScript
+			ifadesi</em><strong>[ ) ] ;</strong>
+		</p>
+		<p class="indent">
+			Geçerli bir JavaScript ifade, tip bilgisinin arandığı
+			tek bir tanımlı değişken dahil her türlü geçerli
+			JavaScript ifadesi olabilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">typeof</span> ifadesi, işleneninin değerlendirilmemiş 
+			veri tipini döndürür. Geri döndürülen tipler :
+		</p>
+		<ul class="list">
+			<li>
+				Bir sayısal veri, <span class="str">number</span> sonucunu döndürür.
+			</li>
+			<li>
+				Bir sözel veri, <span class="str">string</span> sonucunu döndürür.
+			</li>
+			<li>
+				Bir mantıksal veri, <span class="str">boolean</span> sonucunu döndürür.
+			</li>
+			<li>
+				<span class="keyw">null</span> değeri, <span class="str">object</span> 
+				sonucunu döndürür.
+			</li>
+			<li>
+				Metotlar,fonksiyonlar ve öntanımlı nesneler, <span 
+				class="str">function</span> sonucunu döndürür.
+			</li>
+			<li>
+				Bir değişken, kendisine atanmış değerin tipini döndürür.
+			</li>
+			<li>
+				Bir nesnenin değer özelliği (kısaca özelliği), kendi tipini döndürür.
+			</li>
+		</ul>
+		<p class="indent">
+			Sözdiziminde belirtildiği gibi, <span class="keyw">typeof</span>
+			işlemcisinin uygulanmasında, gruplama işlemcisinin (parantez) kullanımının 
+			isteğe bağlı olduğu görülüyor. Bu işlemci istendiğinde parantezle, 
+			istendiğinde parantezsiz olarak kullanılabilir. Fakat parantezlerin 
+			kullanılması sağlık verilmektedir.
+		</p>
+		<p class="indent">
+			typeof işlemcisi, JavaScript programlarında büyük
+			önemi olan bir işlemcidir. Bu işlemci özellikle
+			JavaScript programlarında sürekli değişen
+			büyüklüklerin tiplerinin izlenmesinde yararlı olur.
+			Doğru tipe uyarlanmazlarsa, ifadelerin hesaplarında
+			beklenmeyen sonuçlar görülebilir. Programcının
+			geçerli veri tipleri  üzerinde kontrolunun kaybolabileceği
+			durumlarda, <span class="keyw">typeof</span>
+			işlemcisi çok değerli bir yardımcı olarak görev yapar.
+		</p>
+		<p class="indent" id="veriyaz">
+			<span class="keyw">typeof </span>İşlemcisinin uygulamalarda daha 
+			kolay kullanılması için, aşağıdaki fonksiyon oluşturulmuş ve 
+			<a href="../uygulamalar/bdelib-src.html">bdelib</a> fonksiyon kitaplığına 
+			eklenmiştir. Aşağıda görülen bu fonksiyonu şimdilik sadece kullanmakla 
+			yetineceğiz. Bu fonksiyonun açıklanması çok ileride, 
+			<a href="../b20/b20.3-s2.html#veriyaz">b20.3.4</a> konusunda yapılmıştır.		</p>
+		<p class ="indent">
+			Bu foksiyonun amacı veri le birlikte veri tipinin de belirtilmesidir. Yazılımı 
+			aşağıda görülmektedir : 
+		</p>
+		<pre>
+<span class="keyw-25">function </span>veriYaz(veri , yazımYeri1 , yazımYeri2)<span
+			class="op"> {</span>
+<span class="keyw-50">var</span> bağlantıNoktası <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeri1<span
+			class="op">);</span>
+
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç : '</span> <span 
+			class="op">+</span> veri<span
+			class="op">);</span>
+<span class="pl-50">bağlantıNoktası</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeri2<span
+			class="op">);</span>
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Veri Tipi : '</span> <span 
+			class="op">+</span> <span 
+			class="keyw">typeof</span> veri<span
+			class="op">));</span>
+<span class="op-25">}</span></pre>
+		<p class="indent" id="b2.4.6-uyg-1">
+			Program içinde veri tipi değişebilen bir değişkenin son 
+			veri tipi, <a href="../uygulamalar/b2.4.6-uyg-1-js.html">JavaScript kodları</a>, 
+			aşağıda görülen bir <a href="../uygulamalar/b2.4.6-uyg-1.html">uygulamada</a> 
+			sorgulanmaktadır.
+		</p>
+
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */
+
+</span><span class="keyw-50">function </span>sonuç<span 
+			class="op">() {</span>
+
+<span class="keyw-75">var</span> s <span 
+			class="op">=</span><span 
+			class="str">'123'</span> <span 
+			class="op">*</span> 3<span 
+			class="op">;</span>
+<span class="pl-75">veriYaz</span><span 
+			class="op">(</span>s<span 
+			class="op">,</span> <span 
+			class="str">'b2.4.6-uyg-1-sonuç'</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.4.6-uyg-1-sonuçTipi'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç  ve Sonucun Veri Tipi : </span>
+			<span class="cursive-green" id="b2.4.6-uyg-1-sonuç"></span><span 
+			class="cursive-red" id="b2.4.6-uyg-1-sonuçTipi"></span>
+		</p>
+		<p class="indent">
+			Bu sonuç fazla şaşırtıcı olabilir. Uygulamada ilk başta s veri tipi, 
+			<span class="red">string</span> (karakter dizgisi) tipindedir.
+			Fakat dikkat edilirse bu veri, sayısala çevrilebilen nitelikte bir 
+			karakter dizgisidir. JavaScript yorumlayıcısı, bu veri ile bir çarpım 
+			işlemi gerçekleştirmesi istenince önce her iki işlenenin sayısal olup
+			olmadığını sınamaktadır. Burada sol işlenen 3 sayısal tipte bir veridir. 
+			Sağ işlenen ise karakter dizgisi tipinde olduğu için işlem gerçekleşemez. 
+			Bunun üzerine JavaScript yorumlayıcısı sol işlenenin sayısala çevrilip
+			çevrilemeyeceğini sınar. Bu durumda, sol işlenen sayısala çevrilebilen
+			bir karakter dizigisi olduğundan sayısal tipe çevrilir ve artık her iki işlenen 
+			sayısal tipte olduğundan çarpma işlemi gerçekleştirilebilr. Son olarak
+			çarpma işlemi gerçekleştirilir ve sonuç ile sonucun veri tipi program 
+			belleğine alınır. Bu şekilde sonucun değeri sayısal çarpma işlemi
+			sonucu, sonucun veri tipi de sayısal olarak verilmektedir.
+		</p>
+		<p class="indent">
+			JavaScript yorumlayıcısının bu şekilde, yapması gereken
+			işlemler için önerilen verilerin tiplerini uyarlamasına 
+			(coercion) adı verilir. Uyarlama JavaScript yorumlayıcısının
+			en güçlü yeteneklerinden biridir, fakat uyarlamalarda çok 
+			dikkatli olmak gerekir. JavaScript yorumlayıcısı, uyarlama sonunda
+			hiç düşünülmeyen bir tip dengelemesi yapabilir ve beklenmeyen bir
+			sonuç oluşabilir. Programcılarının olanaklar çerçevesinde, veri tipi
+			dönüştürmelerini açık (explicit) olarak yapmaları sonra işlemlerde 
+			veri tipleri uyumlu verileri kullanmaları sağlık verilir. Böylelikle, daha 
+			güvenli sonuçlar alınabilir.
+		</p>
+<p class="subheading" id="delete">
+			2.4.7 - delete İşlemcisi
+</p>
+		<p class="indent">
+			<span class="keyw">delete</span> İşlemcisi Bir nesne özelliğini, bir dizi
+			elemanını, bir silinebilir değişkeni program belleğinden silmek için kullanılır. 
+			<span class="keyw">delete</span> İşlemcisinin kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-25">delete</span> <span 
+			class="op">[(]</span>ifade<span 
+			class="op">])]</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. İfadenin sonucu silinebilir bir öğeye indirgenebilir olmalıdır. 
+			Başarılı bir silme işleminin sonucu <span class="keyw">true</span> aksi 
+			halde <span class="keyw">false</span> olur.
+		</p>
+		<p class="indent" id="b2.4.7-uyg-1">
+			Henüz nesne ve dizileri incelememiş olduğumuzdan, sadece <span 
+
+			class="keyw">var</span> bildirimi ile tanıtılmamış silinebilir değişkenlerin
+			silinmesi üzerine, <a href="../uygulamalar/b2.4.7-uyg-1-js.html">JavaScript kodları</a> 
+			aşağıda görülen bir <a href="../uygulamalar/b2.4.7-uyg-1.html">uygulama</a>
+			yapılmıştır.
+		</p>
+		<pre>
+<span class="comm-50">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-50">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */
+
+</span><span class="keyw-50">function </span>veriSil<span 
+			class="op">() {</span>
+
+<span class="pl-75">fark</span> <span 
+			class="op">=</span> 13<span 
+			class="op">;</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="keyw">delete</span><span 
+			class="op">(</span>fark<span 
+			class="op">),</span> <span 
+			class="str">'b2.4.7-uyg-1-silgi'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>veriSil<span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="comm-50">/* ]]&gt; */</span>
+		</pre>
+		<p>
+			<span class="cursive-green">Sonuç : </span>
+			<span class="cursive-red" id="b2.4.7-uyg-1-silgi"></span>
+		</p>
+		<p class="nonindent">
+			Sonucun <span class="keyw">true</span> olması, işlemin başarı ile sonuçlandığını,
+			yani fark olarak adlandırılmış silinebilir değişkenin program belleğinden (stack) 
+			kaldırılmış olduğunu belirtmektedir.
+		</p>
+		<p class="indent">
+			Kullanımı tamamlanmış program öğelerin program belleğinden silinmesi, özellikle 
+			c<sup>++</sup> gibi, otomatik çöp toplayıcı olmayan programlar için önemlidir. 
+			Bu işlem özellikle, sistemde donanım olarak fiziksel belleğin kısıtlı olduğu ve 
+			işletim sistemlerin küçük sayıda belleği adresleyebildiği eski günler için büyük önem
+			taşımaktaydı. Günümüzde, hem fiziksel bellekler daha yüksek kapasiteli olarak
+			üretilebilmekte, hem de işletim sistemleri, büyük sayıda bellek adresleyebilmekte, 
+			dolayısı ile, istemde program belleğine ayrılabilen bellek alanında eskiyle kıyaslanmayacak
+			kadar artış sağlanabilmektedir. Bundan başka, Java programlama dili ile başlayıp, Javascript 
+			programlama dili ile devam eden bir olanak olan otomatik çöp toplayıcısı, programlama dillerine
+			eklenmiş ve bu nedenle, programcıların, program belleğini boşaltmaya çalışmaları gereksiz 
+			hale gelmiştir. Otomatik çöp toplayıcısı, kullanmı tamamlanmış programlama öğelerini, 
+			otomatik olarak devreden çıkararak program belleğini rahatlatmaktadır. Bu durumda,
+			Javascript programlama dilinde, çok büyük dizilerin çalışıldığı özel programlar dışında,
+			programcıların kullandıkları geniş program öğelerinin, programlarını yavaşlatacağı veya
+			eldeki kullanılabilir program belleğininin kapasitesinin aşılıp, program belleğinin taşmasını 
+			(stack overflow) ve bu yüzden programın çalışma süresi hatası (runtime error) vereceği
+			kaygına kapılmaları için bir neden kalmamıştır. JavaScript yorumlayıcısı, çöp toplama yeteneği
+			ile bu gibi arkaik sorunların yaşanmasına olanak tanımayacaktır. Bu durumda, genel olarak,
+			programcıların <span class="keyw">delete</span> işlemcisini kullanmalarına gerek 
+			olmayacaktır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s3.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s5.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.4-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.5-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.5-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.5-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.6-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.4.7-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:47 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

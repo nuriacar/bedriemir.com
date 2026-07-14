@@ -1,0 +1,734 @@
+../b17/b17s2.htm<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b17/b17s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:41 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b17/b17s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b17s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b16/b16s3.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b17s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 17
+		</p>
+		<p class="chapter">
+					Programların  Kapsam Alanları
+		</p>
+		<p class="pagenum">
+			Bölüm 17 Sayfa 1
+		</p>
+		<p class="title-left" id="kapsam">
+			17.1 -  Kapsam Alanlarının Tanıtımı
+		</p>
+		<p class="indent">
+			Kapsam alanları JavaScript programlarında çalıştırılabilir bir kodun çalışmasında
+			oluşan çalışma alanlarıdır. Çalışma kapsam alanları sanal bir program bellek
+			alanı (stack memory)  oluştururlar. Etkin çalışma alanının program bellek
+			alanı en üst düzeydedir yani en önce çalışır. JavaScript, üç türlü çalışma
+			kapsamı alanı tanımlar. Bunlar Global, Eval ve Fonksiyon çalışma  kapsam
+			alanlarıdır.
+		</p
+		>
+		<p class="subheading" id="global">
+			17.1.1 - Global Kapsam Alanı
+		</p>
+		<p class="indent">
+			Global kapsam alanı, 
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="att"> type</span> <span 
+			class="op">=</span> <span 
+			class="str">&quot;text/javascript&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">global kodlar</span>...
+<span class="keyw">&lt;</span><span 
+			class="op">/</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde script elemanları arasında veya sayfaya bağlantılı kodlar.js
+			gibi  bir dış JavaScript sayfasında, fonksiyon <span class="op">{}</span> çalışma
+			alanları dışında olan kodlardır. Global kapsam alanına, Üst Düzey
+			Çalışma Alanı adı da verilir. Üst düzey çalışma alanında bulunan
+			çalışabilen tüm kodlar çalışır. Her sayfada sadece bir tane üst düzey
+			çalışma alanı bulunur. Bir sayfada ne kadar script elemanı içeriği
+			tanımlanırlarsa tanımlansın, hepsinin içeriği aynı global kapsam
+			alanı içindedir. Aynı şekilde, kaç tane olursa olsun, tüm bağlantılı
+			JavaScript kod sayfaları aynı global kapsam alanına açılır. İster
+			sayfa içinde tanımlanmış script elemanı içeriğinden gelsin, ister
+			bir dış JavaScript program sayfasının global alanında tanımlansın,
+			tüm global kodlar aynı global kapsam alanının bir parçasıdır. Global
+			alanda tanımlanmış olan her değişken ve fonksiyona, global alana
+			erişilebilen her yerden erişilebilir.
+		</p>
+		<p class="subheading" id="eval">
+			17.1.2 - Eval  Kapsam Alanı
+	</p><p class="indent">
+			Eval  kapsam alanı, <span class="keyw">eval</span><span 
+			class="op">(</span><span class="str">'kodlar'</span><span 
+			class="op">)</span>, şeklinde, eval fonksiyonunun argümanı olarak
+			tanımlanmış karakter dizgisidir. Bu karakter dizigisi argümanın içeriği,
+			aynı bir JavaScript programı gibi çalışır. Bu kodlara kısaca eval
+			makroları adı da verilir. Her <span class="keyw">eval</span><span 
+			class="op">()</span> fonksiyonu, stack bellğindeki en son değeri geri 
+			döndürür. Bunun anlamı, tüm <span class="keyw">eval</span><span 
+			class="op">()</span> argümanı kodlarının çalışıp sonucunun geri 
+			döndürüldüğüdür. <span class="keyw">eval</span><span class="op">()</span> 
+			argümanında tanımlanımış kodlarda tüm JavaScript programları gibi, global
+			kapsam alanı ve fonksiyon kapsam alanları bulunur. <span 
+			class="keyw">eval</span><span class="op">()</span> kodlarına örnek olarak 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a> programı
+			verilebilir. 
+		</p>
+		<p class="indent">
+			Genel kanı olarak <span class="keyw">eval</span><span class="op">()</span>
+			kodlarının programları yavaşlattığı ve kullanılmaması sağlık verilmektedir. Bunun
+			geçerliği duruma bağlıdır. Yukarıda örnek olarak verilen 
+			<a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a> programı,
+			matematik ifadelerin sonuçlarının kısa yoldan alınması için çok kulanışlıdır ve 
+			programda başka adım da olmadığından, yavaşlatacak başka kod da bulunmamaktadır.
+			Doğal olarak kapsamlı JavaScript programlarında <span class="keyw">eval</span><span 
+			class="op">()</span> kodları kullanılmamalıdır. Genel olarak bu kodlar yerine daima 
+			aynı işlevi görebilecek başka yöntemler olduğu belirtilmektedir.
+		</p>
+		<p class="subheading" id="function">
+			17.1.3 - Fonksiyon Kapsam Alanları
+	</p><p class="indent">
+			JavaScript programlarında, fonksiyonlar, genel fonksiyon bildirimi, fonksiyon literaller
+			ve fonksion nesne sınıf örneği olarak yaratılabiliir. Hangi yöntemle yaratılırsa, 
+			yaratılsın, fonksiyon içeriklerinin kapsam alanları birbiribinin aynıdır. Her fonksiyon
+			içeriği bağımsız bir kod çalıştırma alanı olarak hareket eder.
+		</p>
+		<p class="title-left" id ="var">
+			17.2 -  Değişken Nesne Sınıfı Örnekleri
+	</p><p class="indent">
+			Her kapsam alanı kendine bağlı bir değişken sınıf nesne örneği içerir. 
+			Bu kapsam alanında tanımlanmış her değişken ve fonksiyon, bu değişken nesnesi 
+			sınıf örneğinin özelliklerine eklenir. JavaScript çalışma sisteminin de nesne teknolojisine
+			dayalı olması çok ilginçtir. 
+		</p>
+		<p class="indent">
+			Başlangıç değeri verilmemiş değişkenler, <span class="keyw">undefined</span> 
+			değerini alırlar. Eğer bir fonksiyon ismi veya parametresi, bir değişken ismi ile 
+			çakışırsa, çakışma fonksiyon isimini veya parametresini etkilemez. Eğer aynı adla 
+			ve aynı parametre listesi ile, daha önceden tanımlanmış bir fonksiyon varsa içeriği 
+			yenisi ile değiştirilir. Buna çok dikkat etmek gerekir, çünkü bir hata uyarısı vermez 
+			ama yanlış sonuçlara neden olabilir. En doğrusu, her programda, her öğenin ayrı 
+			isimleri olmasıdır.
+		</p>
+		<p class="indent">
+			Fonksiyon kapsamı içinde, değişkenler nesnesinin özellikleri, fonksiyonun formal 
+			parametre listesini ve tanımlanmış değişkenleri içerir. Eğer içlerinden bazılaraının adı aynı ise, 
+			en son tanımlannın değeri gerçerlidir. Bu yüzden aynı isimle tanımlamalar yapmaktan
+			kaçınılması gerekir. Bir fonksiyon, formal parametre listesinden daha fazla sayıda 
+			argümanla çağrılırsa, ekstra argümanlarının değeri <span class="keyw">undefined</span>
+			olarak kabul edilir. 
+		</p>
+		<p class="title-left" id="zincir">
+			17.3 -  Kapsam Zinciri ve Değişken Çözümlenmesi
+	</p><p class="indent">
+			Program kontrolü yeni bir kapsam alanına gidiğinde yeni bir değişken nesne sınıfı
+			örneği yaratılır ve eskisi tahrip edilir. Değişken nesnesi tamamı ile bir iç çalışma 
+			mekanizmesıdır ve kullamıcının bu nesneye erişimi yoktur. Bu nesne kapsam 
+			alanında tanımlanan 	her değişken ve fonksiyonu yani bir özellik olarak içerir. 
+			Kullanıcılar sadece bu özelliklere erişebilirler. Her kapsam alanının 
+			kendine özgü bir kapsam zinciri vardır. Kapsam zinciri, bir değişkenin değeri aranırken 
+			arama listesinde olan öğelerden oluşur. Kapsam alanı sadece değişken nesnesi 
+			tarafından belirlenir. Kapsam zincirleri birbirlerine bağlanabilir. Bu durumda alt 
+			kapsamda değeri bulunamayan değişkenler ve değişken değerleri bir üst kapsamda 
+			aranır. Arama en üst kapsam alanı olan üst düzey kapsam alanına (global alan) 
+			erişilinceye kadar devam eder. Kapsam zincirleri sadece <span class="keyw">with</span> 
+			bildirimleri ve <span class="keyw">catch</span> cümlecikleri tarafından kesintiye uğratılırlar.
+			Kapsam zinciri, bir kapsam alanına girilince yaratılır ve kapsam alanı terkedilince
+			tahrip edilir, fakat özellikle kapalı devrelerde henüz etkin olan değişken nesnesi 
+			değişkenleri saklar. Kapalı devrelerde alt kapsamlar bu değişkenlere bu şekilde erişebilirler.
+		</p>
+		<p class="title-left" id =globalnesne>
+			17.4 -  Global Nesne
+	</p><p class="indent">
+			Her program için tek bir global nesne bulunabilir. Global nesnenin başlangıçta,
+			<span class="keyw">Math</span>, <span class="keyw">Date</span> gibi,
+			öntanımlı nesneleri bulunur. Bunlara, programın konuk edildiği (host) ortamın
+			tanımlı nesnleri de katılır. Konuk eden ortamın nesne özelliklerinden birinin
+			değeri global nesnenin kendisi olabilir. Örnek olarak (X)HTML ortamında,
+			global nesnenin <span class="keyw">window</span> özelliğinin değeri, 
+			global nesnenin kendisidir. Kolaylık olması için bazen  <span class="keyw">window</span>
+			nesnesinin belirtilmesi ihmal edilebilir. Örnek olarak,  <span class="keyw">window</span><span 
+			class="op">.</span><span class="keyw">Math</span> yerine sadece <span 
+			class="keyw">Math</span> olarak belirtilebilir.
+		</p>
+		<p class="indent">
+			Global kapsam alanında program çalışmaya başladığında, global nesnenin
+			başlangıç özelliklerine yeni tanımlanan değişken ve fonksiyonlar da yeni özellikler
+			olarak eklenirler ve başlangıç özellik değerlerinin bazıları değişebilir.
+		</p>
+		<p class="title-left" id="active">
+			17.5 -  Aktivasyon Nesnesi
+	</p><p class="indent">
+			Etkinleştirme( Aktivasyon) nesnesi, JavaScript yorumlayıcısının çalışma
+			sistemi ile ilgilidir ve kullanıcıların bu nesneye erişimleri yoktur, fakat 
+			özelliklerine erişilebilir. 
+		</p>
+		<p class="indent">
+			Bir fonksiyon kapsam alanına girildiğinde, bir etkinleştirme nesnesi
+			<span class="keyw">arguments</span> isimli bir özellikle birlikte 
+			oluşturulur. Bu özellik bir nesnedir ve kullanımı aşağıda açıklanmıştır.
+			Bundan sonra etkinleştirme nesnesi, değişken nesnesinin örneklenmesi
+			için kullanılır. 
+		</p>
+		<p class="subheading" id="args">
+					17.5.1 - Arguments Nesnesi
+		</p>
+		<p class="indent">
+			Bu nesnenin prototipi, <span class="keyw">Object</span>
+			nesnesinin prototipidir. Yani bu nesne bir generik nesne sınıfı
+			alt sınıfıdır. 
+		</p>
+		<p class="indent">
+			Program kontrolü bir fonksiyon kapsam alanına girince, 
+			<span class="keyw">arguments</span> isimli bir nesne sınıf örneği
+			aşağıda açıklanan özellikler ile yaratılır. 
+		</p>
+		<p class="indent">
+			Bu nesnenin <span class="keyw">callee</span> özelliğinin değeri,
+			fonksiyonun kendisidir. Böylece, anonim fonksiyonların rekürsiv 
+			olabilmeleri sağlanabilecektir.
+		</p>
+		<p class="indent">
+			Bu nesnenin <span class="keyw">length</span> özelliğinin değeri, fonksiyona
+			kullanıcılar tarafından tanımlanan gerçek formal parametre listesinin 
+			formal parametre sayısıdır. Bu özelliğe <span class="keyw">arguments</span><span 
+			class="op">.</span><span class="keyw">length</span> şeklinde ulaşılır.
+		</p>
+		<p class="indent">
+			Fonksiyon kodunun belirtiği kadar
+			<span class="keyw">arguments</span> <span 
+			class="op">[</span>0<span 
+			class="op">]</span>, <span class="keyw">arguments</span> <span 
+			class="op">[</span>1<span 
+			class="op">]</span>, <span class="keyw">arguments</span> <span 
+			class="op">[</span>2<span 
+			class="op">]</span>... şeklinde erişilebilen özellikler yaratılır. Bu özelliklerin 
+			başlangıç değerleri, kullanıcıların fonksiyon yazılımında belirttikleri başlangıç 
+			değerleridir. Bu değerler, bir dizinin elemanları değil, <span class="keyw">arguments</span>
+			nesnesinin özellikleridir. Yine de erişim metoduna bakılarak buna 
+			<span class="keyw">arguments</span> dizisi denilmektedir.
+		</p>
+		<p class="indent" id="b17.5.1-uyg-1">
+			Fonksiyonların tanımında, <span class="keyw">arguments</span> nesnesinden,
+			formal parametresi olmadan tanımlanmış fonksiyonların, formal parametre
+			listesi ile çağrılması olanağının sağlanması için yararlanılır. Bu bir
+			tür gizli parametre listesi olan fonksiyon tanımı anlamına gelir. Bu yöntemin,
+			formal parametre listesi değişmeyecek olan fonksiyonlar için fazla bir
+			avantajı yoktur, sadece olayı bilmeyenler kodları okurken biraz şaşırabilirler,
+			fakat en büyük avantaj, formal parametre listesinin uzunluğu olaydan olaya
+			değişen istatistik hesaplar için değişken sayıda argüman içerebilen fonksiyonların
+			tanımında elde edilir. Aslında, bu sorun da formal paramatre olarak basit
+			bir dizinin tanımlanması ile çözülebilirdi. Yine de aşağıda kodları görülen,
+			gizli parametreli bir <a href="../uygulamalar/b17.5.1-uyg-1-js.html">ortalama
+			fonksiyonu</a> hoş bir çözüm sunabilir. Bu programın çalışması, 
+			<a href="../uygulamalar/b17.5.1-uyg-1.html">bağlantılı olduğu sayfada</a>
+			denenebilir. 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> ortalama<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> toplam <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span><span 
+			class="keyw">arguments</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">toplam</span> <span 
+			class="op">+=</span> <span 
+			class="keyw">arguments</span><span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">return </span>toplam <span 
+			class="op">/</span> <span 
+			class="keyw">arguments</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">...</span>
+<span class="keyw-25">var</span> değer <span 
+			class="op">=</span> <span class="op">[]</span>;
+<span class="pl-25">değer<span 
+			class="op">[</span>0<span 
+			class="op">]</span>  <span 
+			class="op">=</span> 98<span 
+			class="op">;</span></span>
+<span class="pl-25">değer<span 
+			class="op">[</span>1<span 
+			class="op">]</span>  <span 
+			class="op">=</span> 99<span 
+			class="op">;</span></span>
+
+<span class="pl-25">bilgiYaz</span><span 
+			class="op">(</span>ortalama<span 
+			class="op">(</span>değer<span 
+			class="op">[</span>0<span 
+			class="op">]</span><span 
+			class="op">,</span>değer<span 
+			class="op">[</span>1<span class="op">])</span>, <span 
+			class="str">'b17.5.1-uyg-1-sonuç-1'</span><span 
+			class="op">);
+<span class="keyw-25">...</span></span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent" id="b17.5.1-uyg-2">
+			Doğal olarak, değişken parametre sayılı bir ortalama hesabı
+			fonksiyonun tasarımı için <span class="keyw">arguments</span> 
+			nesnesine mutlak gereksinmemiz yoktur. Prensip olarak 
+			kodları aşağıda görülen, parametresi basit bir dizi olan bir 
+			<a href="../uygulamalar/b17.5.1-uyg-2-js.html">ortalama fonksiyonu</a> 
+			da aynı işlevi sağlayabilecektir. Bu programın çalışması, 
+			<a href="../uygulamalar/b17.5.1-uyg-2.html">bağlantılı olduğu sayfada</a>
+			görülebilir. 
+		</p>
+    <pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> ortalamaDeğer<span 
+			class="op">(</span>veriler<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> toplam <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>veriler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">toplam</span> <span 
+			class="op">+=</span> veriler<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">return </span>toplam <span 
+			class="op">/</span> veriler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">...</span>
+<span class="keyw-25">var</span> değer <span 
+			class="op">=</span> <span class="op">[]</span>;
+<span class="pl-25">değer<span 
+			class="op">[</span>0<span 
+			class="op">]</span>  <span 
+			class="op">=</span> 98<span 
+			class="op">;</span></span>
+<span class="pl-25">değer<span 
+			class="op">[</span>1<span 
+			class="op">]</span>  <span 
+			class="op">=</span> 99<span 
+			class="op">;</span></span>
+
+<span class="pl-25">bilgiYaz</span><span 
+			class="op">(</span>ortalamaDeğer<span 
+			class="op">(</span>değer<span class="op">)</span>, <span 
+			class="str">'b17.5.1-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-25">...</span>
+		</pre>
+		<p class="indent" id="b17.5.1-uyg-3">
+			Bu programların etkileşimli (interaktif) çözümlerinde, 
+			<span class="keyw">arguments</span> nesnesinin kullanımına
+			gerek duyulmamaktadır. Kodları aşağıda verilen, 
+			<a href="../uygulamalar/b17.5.1-uyg-3-js.html">İlk etkileşimli çözüm örneğinde</a>, 
+			JavaScript yorumlayıcısının değeri paha biçilmez 
+			<span class="keyw">split</span> metodundan yararlanılmıştır. Bu program ilişikli 
+			olduğu <a href="../uygulamalar/b17.5.1-uyg-3.html">uygulama sayfasında</a>
+			denenebilir.
+		</p>
+		<p class="indent" id="b17.5.1-uyg-4">
+			Her zaman kendi kod çözümleyicilerimizi kolaylıkla yazabileceğimiz bu dersler çerçevesinde
+			sık sık açıklanmıştı. Aşağıdaki <a href="../uygulamalar/b17.5.1-uyg-4-js.html">program</a>
+			 bunu kanıtlamaktadır. Aşağıdaki 
+			 <a href="../uygulamalar/b17.5.1-uyg-4-js.html">programda</a>, 
+			JavaScript yorumlayıcısının hiçbir hazır metodu kullanılmamış, tüm kodlar sıfırdan başlanarak
+			yazılmıştır. Bu programın iyice incelenmesi sağlık verilir.
+		</p>
+    <pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+<span class="comm-25">
+</span><span class="keyw-25">function</span> ortalama<span 
+			class="op">(</span>veriler<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> toplam <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>veriler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">toplam</span> <span 
+			class="op">+=</span> veriler<span 
+			class="op">[</span>i<span 
+			class="op">]</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">return </span>toplam <span 
+			class="op">/</span> veriler<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> veriGir<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> _gizli <span 
+			class="op">=</span> <span class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>sınırlama <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>_gizli <span 
+			class="op">) {</span>
+<span class="pl-75">çözümle</span><span 
+			class="op">();</span>
+<span class="op-50">}</span>
+<span class="pl-50">_gizli</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-25">}
+
+
+</span><span class="keyw-25">function</span> çözümle<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> bileşen <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">,</span> sayılar <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">,</span> veri <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">,</span> geçici <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">,</span> j <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="pl-50">veri</span> <span 
+			class="op">=</span> oku<span 
+			class="op">(</span><span 
+			class="str">'veriler'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op"> &lt;</span> veri<span 
+class="op">.</span><span class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">sayı</span>lar<span 
+			class="op"> = </span> sayılar <span 
+			class="op">+ </span>veri<span 
+			class="op">[</span>i<span 
+			class="op">];
+<span class="keyw-75">if</span> (</span>veri<span 
+			class="op">=[</span>i<span 
+			class="op">] == </span> <span 
+			class="str">''</span><span 
+			class="op">) {</span>
+<span class="keyw-100">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> k <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> k <span 
+			class="op">&lt; </span>sayılar<span 
+class="op">.</span><span class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-125">geçici</span> <span 
+			class="op">=</span> geçici <span 
+			class="op">+</span> sayılar<span 
+			class="op">[</span>k<span 
+			class="op">]; </span>
+<span class="op-100">}</span>
+<span class="pl-100">bileşen</span><span 
+			class="op">[</span>j<span 
+			class="op">] = </span>geçici<span 
+			class="op">;</span>
+<span class="pl-100">sayılar</span><span 
+			class="op"> = </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="pl-100">j</span><span 
+			class="op">++;</span>
+<span class="op-50">}</span>
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> k <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> k <span 
+			class="op">&lt; </span>sayılar<span 
+class="op">.</span><span class="keyw">length</span> <span 
+			class="op">-</span> 1<span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">geçici</span> <span 
+			class="op">=</span> geçici <span 
+			class="op">+</span> sayılar<span 
+			class="op">[</span>k<span 
+			class="op">]; </span>
+<span class="op-50">}</span>
+<span class="pl-50">bileşen</span><span 
+			class="op">[</span>j<span 
+			class="op">] = </span>geçici<span 
+			class="op">;</span>
+<span class="pl-50">sayılar</span><span 
+			class="op"> = </span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>bileşen<span 
+class="op">.</span><span class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+<span class="pl-75">bileşen</span><span 
+			class="op">[</span>i<span 
+			class="op">] = </span> <span 
+			class="keyw">Number</span> <span 
+			class="op">(</span>bileşen<span 
+			class="op">[</span>i<span 
+			class="op">]);</span> 
+<span class="op-50">}</span>
+
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">,</span> ortalama<span 
+			class="op">(</span>veriler<span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sonuç Hesaplandı, Yeni Bir Ortalamanın Hesaplanması için Lütfen Sayfayı Yenileyiniz !'</span><span 
+			class="op">,</span> <span 
+			class="str">'mesaj'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlangıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> tıklama <span 
+			class="op">=</span> <span class="keyw">new</span> VeriGir<span 
+			class="op">();</span>
+
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'veriler'</span><span 
+			class="op">,</span> <span 
+			class="str">''</span><span 
+			class="op">);</span>
+<span class="pl-50">yaz</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">,</span> <span 
+			class="str">''</span><span 
+			class="op">);</span> 
+
+<span class="pl-50">çalıştır</span><span 
+			class="op">(</span><span 
+			class="str">'gir'</span><span 
+			class="op">,</span> tıklama<span 
+class="op">.</span>sınırlama<span 
+			class="op">);</span>
+<span class="op-25">}</span> 
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b17.5.1-uyg-4-js.html">program</a>, ilişkili
+			olduğu <a href ="../uygulamalar/b17.5.1-uyg-4.html">uygulama sayfasında</a> denenebiir.
+		</p>
+		<p class="indent">
+			Gerek yukarıdaki, gerekse bir önceki çözümleyici programlar, endüstriyel ölçekte
+			dayanıklı ve hata kalıdırabilen programlardır. Kullanıcılar virgülden sonra boşluklar
+			bıraksalar da kod çözümleyiciler bunları doğru okuyacaklardır. Heriki programda da
+			kod kullanıcıların tıklayabilecekleri tek defa ile sınırlandırılmıştır. Sonuçlar alındıktan 
+			sonra, yeni bir sonuç için, sayfayı yenileme tuşuna basılarak sayfa yenilenmelidir. 
+		</p>
+		<p class="title-left" id="kapsamlar">17.6 - Kapsam Alanlarına Giriş ve Çıkış</p>
+		<p class="indent">
+			Her fonksiyon çağrısı yeni bir kapsam alanına girilmesine neden olur. Her 
+			<span class="keyw">return</span>bildirimi, fonksiyon kapsam alanından
+			çıkılmasına neden olur.
+		</p>
+		<p class="indent">
+			Bir kapsam alanına girildiğinde, kapsam zinciri oluşturulur, değişken sınıfı
+			nesne örneği yaratılır ve <span class="keyw">this</span> değeri
+			belirlenir. Bu olayların gelişimi, girilen kapsam alanı türüne bağlıdır. 
+		</p>
+		<p class="subheading" id="globalkodlar">17.6.1 - Global Kodlar
+	</p><p class="indent">
+			Global kodlar, sadece global olarak geçerli kodları kapsar. Bu kodlar,
+			kapsam zincirinin sadece global nesneyi içermesi ve başka hiçbir 
+			kapsamı içermemesini sağlayacak şekilde oluşturulur. Burada, değişken
+			nesnesi global nesnedir ve <span class="keyw">this</span> saklı sözcüğü,
+			global nesneyi işaret eder.
+		</p>
+		<p class="subheading" id="evalkodlar">17.6.2 - Eval Kodları
+	</p><p class="indent">
+			Kontrol eval kodlarını içeren yeni bir kapsam alanına girince, çağıran 
+			kapsam olarak adlandırılan önceki kapsam alanı, değişken nesnesini, 
+			kapsam zincirini ve <span class="keyw">this</span> değerini belirler.
+			Eğer bir çağıran kapsam yoksa, değişken nesnesi, kapsam zinciri ve 
+			<span class="keyw">this</span> değeri, aynı global nesne gibi 
+			oluşturulur.
+		</p>
+		<p class="indent">
+			Eğer bir çağıran kapsam varsa, kapsam zinciri, çağıran kapsam ile 
+			aynı sıralama ile, aynı nesnelerle oluşturulur. Buna <span 
+			class="keyw">with</span> ve <span class="keyw">catch</span>
+			cümlecikleri de dahildir. Bu durumda, değişken nesnesi, aynı çağıran 
+			kapsam değişkenleri ile fakat boş özellik değerleri ile açılır. Buradaki 
+			<span class="keyw">this</span> değeri, çağıran kapsamın
+			<span class="keyw">this</span> değeridir.
+		</p>
+		<p class="subheading" id="functionkodlar">17.6.3 - Fonksiyon Kodları
+	</p><p class="indent">
+			Fonksiyon kapsamında, kapsam zinciri , etkinleşme nesnesini içerecek 
+			şekide, oluşan fonksiyon nesne sınıf örneğinin kapsam özelliğine uygun 
+			olarak açılır. Değişken nesnesi, etkinlik nesnesi değişken nesnesi olarak 
+			alınarak oluşturulur. Bu nesne, fonksiyon veya dış fonksiyon çağrılıncaya 
+			kadar tanımlanmış 	olan tüm değişkenleri, global nesneyi( 
+			<span class="keyw">window</span> nesnesini), tüm belirtilmiş parametreleri 
+			içeren <span class="keyw">arguments</span> nesnesini içerir. Burada 
+			<span class="keyw">this</span> nesnesini çağıran kapsam sağlar. 
+			Geçerli bir <span class="keyw">this</span> değerininin
+			sağlanamadığı durumlarda <span class="keyw">this</span> değeri,
+			global nesne olarak kabul edilir. Bu kuralın en büyük istisnası,
+			fonksiyonun bir nesnenin metodu olması halidir. Bu durumda
+			<span class="keyw">this</span> değeri, nesneyi işaret eder.
+		</p>
+    <ul id="navbottom">
+      <li id="index">
+        <a href="../index.html"><em>« Indeks</em></a>
+      </li>
+      <li id="denge"></li>
+      <li id="sayfa">
+        <a href="../b16/b16s3.html"><em>« Önceki</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama">
+        <a href="b17s2.html"><em>Sonraki »</em></a>
+      </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <p class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload"><img
+           src="../images/valid-xhtml11.png"
+           alt="Valid XHTML 1.1" height="31"
+           width="88" /></a>
+    </p>
+    <!--Script Alanı Başlangıcı -->
+    <script type=&quot;text/javascript&quot; src="../js/lastmodified.js">
+    </script>
+    <!--Script Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b17/b17s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:41 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

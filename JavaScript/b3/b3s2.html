@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:03 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b3/b3s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b3s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b3s3.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Global JavaScript Nesnesi
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 2
+		</p>
+		<p class="title-left" id="methods">
+			3.3 - Global JavaScript Nesnesinin Fonksiyon Özellikleri (Metotları)
+		</p>
+		<p class="subheading" id="eval">
+			3.3.1 - eval() Metodu
+		</p>
+		<p class="indent"><span class="keyw">eval</span> <span 
+			class="op">()</span> Metodu, kod içeren bir 
+			karakter dizgisinin kodlarını değerlendirir (evaluate) ve çalıştırır. 
+			Bu metot, bir tür JavaScript kodlarını çalıştırma ortamı olarak 
+			işlev yapar. Sözdizimi,
+		</p>
+		<pre>
+<span class="keyw-25">eval(</span><span 
+			class="str">&quot;Kod İçeren Karakter dizgisi&quot;</span><span 
+			class="keyw">)</span><span class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">eval</span><span 
+			class="op">()</span> metodunun argümanı isteğe bağlıdır. Fakat, 
+			argümansız bir <span class="keyw">eval</span><span 
+			class="op">()</span> metodu, <span 	class="keyw">undefined</span>
+			değerini döndürecektir. <span class="keyw">eval</span><span 
+			class="op">()</span> metodu, önce argümanı olan karakter 
+			dizigisinin sözdizimini (sentaks) kontrol edecek, sözdizimi doğru ise, 
+			karakter dizigisi argümanda bulunan tüm ifadeleri sırası ile değerlendirecek 
+			ve sonuncu ifade bir değerse o değeri, bir ifade ise ifadeyi değerlendirerek 
+			sonuç değerini döndürecektir. Bu metot, bir tür makro değerlendirme yazılımı 
+			olarak da düşünülebilir. Bu düşünce ile, <span class="keyw">eval</span><span 
+			class="op">()</span> metodunun argümanı olan karakter dizgisine, ardarda 
+			çalışabilecek JavaScript kodları konulabilir. <span class="keyw">eval</span><span 
+			class="op">()</span> Metodu, argümanındaki 	en son ifadenin sonucunu döndürecektir. 
+		</p>
+		<p class="indent">
+			Daha önceleri <span class="keyw">eval</span><span class="op">()</span> metodunun
+			soysal (generik) <span class="keyw">Object</span> nesnesinin metodu
+			olarak da ikinci bir tanımı yapılmışsa da, bu tanım ECMA v.3 Standardına
+			alınmamış ve artık devam ettirilmemektedir. Günümüzde, <span 
+			class="keyw">eval</span><span class="op">()</span> metodunun
+			tek yasal tanımı, ECMA v.3 Standardında belirtilen tek tanım olan, Global
+			JavaScript Nesnesinin, bir metodu olarak tanımıdır. Aşağıda, <span 
+			class="keyw">eval</span><span class="op">()</span> metodunun
+			bir 	<a href="../uygulamalar/JavaScriptDeneme.html">uygulamasının</a> 
+			<a href="../uygulamalar/JavaScriptDeneme-js.html">JavaScript kodları</a> 
+			verilmiştir. Bu uygulama, web sayfasında bir verinin alınıp, hesap sonucunun
+			 yine aynı sayfada görüntülenmesinin yöntemini içerdiğinden, aynı zamanda
+			 JavaScript ifadelerini on-line deneme olanağı sağladığından dolayı çok
+			önemlidir ve çok iyi incelenmelidir.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm-25">// Bu Program bdelib-style.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> işlem(a<span 
+			class="op">,</span>b) <span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> f <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">,</span> t<span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">f</span><span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>a<span 
+			class="op">);</span>
+<span class="pl-50">f</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-165">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç'</span><span 
+			class="op">)</span><span 
+			class="op">.</span><span 
+			class="keyw">value</span> <span 
+			class="op">=</span> <span class="keyw">eval<span 
+			class="op">(</span>document<span 
+			class="op">.</span>getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'veri'</span><span 
+			class="op">)</span><span 
+			class="op">.</span><span 
+			class="keyw">value</span><span 
+			class="op">);</span>
+<span class="keyw-165">return false</span><span 
+			class="op">;</span>
+<span class="pl-25"></span><span class="op-100">}</span><span 
+			class="op">;</span>
+<span class="pl-50">t</span><span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span class="op">(</span>b<span 
+			class="op">);</span>
+<span class="pl-50">t</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span><span 
+			class="op">=</span><span 
+			class="keyw">function()</span><span 
+			class="op">{</span>
+<span class="keyw-165">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span class="op">(</span><span 
+			class="str">'sonuç'</span><span class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">=</span><span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-165">document<span 
+			class="op">.</span>getElementById</span><span class="op">(</span><span 
+			class="str">'veri'</span><span class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">=<span 
+			class="str">''</span>;</span>
+<span class="keyw-165">return false</span><span 
+			class="op">;</span>
+<span class="pl-25"></span><span class="op-100">}</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> geriGit<span class="op">(</span>kimlik<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> x <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="pl-50">x</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'kimlik'</span><span 
+			class="op">);</span>
+<span class="pl-50">x</span><span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {</span>
+<span class="keyw-165">window</span><span 
+			class="op">.</span><span 
+			class="keyw">history</span><span 
+			class="op">.</span><span 
+			class="keyw">back</span><span 
+			class="op">(</span>-1<span 
+			class="op">);</span>
+<span class="keyw-165">return false</span><span 
+			class="op">;</span>
+<span class="pl-25"></span><span class="op-100">};</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span> 
+<span class="pl-50">işlem</span><span 
+			class="op">(</span><span 
+			class="str">'makro'</span><span 
+			class="op">,</span> <span 
+			class="str">'sil'</span><span 
+			class="op">);</span>
+<span class="pl-50">geriGit</span><span 
+			class="op">(</span><span 
+			class="str">'tepe'</span><span 
+			class="op">);</span>
+<span class="pl-50">geriGit</span><span 
+			class="op">(</span><span 
+			class="str">'alt'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>başlat<span 
+			class="op">);</span></span>
+
+<span class="comm-25">/*   ]]&gt;  */</span>
+		</pre>
+		<p class="indent" id="b3.3.1-uyg-1">
+			<span class="keyw">eval</span><span class="op">()</span> Metodunun 
+			bir başka ilginç uygulaması, standart olmayan ve her belge çözümleyiciye 
+			göre farklı özellikleri olan <span class="keyw">document</span> , <span 
+			class="keyw">window</span> gibi sayfa nesnelerinin özelliklerinin 
+			taranmasıdır. Bu özelliklerin iyi bilinmesi, programlarda doğru özelliklerin 
+			kullanılması için gereklidir. Bir programda, öntanımlı nesnelerin olmayan 
+			bir özelliği belirtilirse, programın bir hata 	oluşturması olasılığı gözardı 
+			edilmemelidir. Aşağıdaki 
+			<a href="../uygulamalar/b3.3.1-uyg-1-js.html">JavaScript kodları</a>, 
+			bu tip nesnelerin 	özelliklerinin taranması için gerekli program adımlarını vermektedir.
+		Bu program, ilişkilendirilmiş olduğu 
+		<a href="../uygulamalar/b3.3.1-uyg-1.html">web sayfasından</a> çalıştırılabilecektir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+			
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+
+
+<span class="keyw-25">function</span> özellikler<span class="op">() {</span>
+
+
+<span class="keyw-50">for </span><span class="op">(</span><span 
+			class="keyw">var </span>özellik <span 
+			class="keyw">in eval</span><span class="op">(</span><span 
+			class="keyw">document</span><span class="op">)) {</span>
+<span class="pl-100">döngüYaz</span><span class="op">(</span>özellik <span 
+class="op">+ </span><span 
+			class="str">' : '</span><span 
+			class="op"> + </span><span 
+			class="keyw">document</span><span class="op">[</span>özellik<span 
+			class="op">], </span><span 
+			class="str">'b3.3.1-uyg-1-sonuç-1'</span>)<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>özellikler<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			Bu programın sonucunu görmek için, 
+			<a href="../uygulamalar/b3.3.1-uyg-1.html") >uygulama</a>, 
+			farklı belge çözümleyicilerle çalıştırılmalı ve öntanımlı 
+			nesnelerin özelliklerindeki farklar belirlenmelidir.		</p>
+		<p class="indent">
+		<span class="keyw">eval</span><span class="op">()</span> Metodu, 
+			argümanı olan makroyu çalıştırmak için, yeni bir çalıştırma alanı açar, 
+			tüm kodlar değerlendirildikten sonra bu alan kapanır. JavaScript yorumlayıcısı, 
+			bu işlem için azımsanmayacak bir süre harcar. Bu nedenle, özellikle döngü içlerinde, 
+			<span class="keyw">eval</span><span class="op">()</span> metodunun kullanılmaması 
+			sağlık verilmektedir. Bu zaman kayıplarının önemi, programdan 
+			programa değişir. Bazı durumlarda, programın amacına ulaşması 
+			için bir miktar zaman kaybını göze almak gerekir. Doğal olarak, 
+			zaman kaybettirici eylemlerden uzak durmak ve başka çözüm 
+			yöntemleri bulunabilirse, bunlara dönmek en iyi önlem olacaktır. 
+			Çoğunlukla <span class="keyw">eval</span><span class="op">()</span>
+			metoduna eşdeğer başka bir yöntem bulunabilir.
+			Eşdeğer bir çözüm bulunamazsa, programın gecikme süresini kabullenmek gerekir. 
+			Fazla sayıda iterasyon yapılmazsa, günümüzdeki makine hızları, 
+			bu yöntemin gerektirdiği süreleri, tolere edilebilecek sınırlara indirmektedir. 
+			Özetle, öncelikle gerekli olan program adımları gereken yerlerde kullanılmalı 
+			ve ilk öncelik olarak programın sonuç vermesi sağlanmalıdır. Performans 
+			arttırıcı önlemler daha sonra denenerek devreye alınabilir.		</p>
+		
+		<p class="subheading" id="parseint"> 3.3.2 - parseInt() Metodu </p>
+				<p class="indent">
+			Sayısal değere çevrilebilecek bir karakter dizgisinin,sayısal tipe dönüştürüldükten
+			sonra ondaklık kısmının kesilerek tamsayı kıamının döndürülmesi için, <span 
+			class="keyw">parseInt</span><span 	class="op">() </span>metodu kullanılabilir.
+			<span class="keyw">parseInt</span><span 	class="op">()</span> Metodunun 
+			kullanılış şekli,		</p>
+				<pre>
+<span class="keyw-25"><em>parseInt</em></span><span 
+			class="op">(</span><span 
+			class="str"><em>Sayısala Çevrilebilir bir Karakter dizgisi</em></span><span 
+			class="op"><em>,</em> [</span><span 
+			class="comm">sayı tabanı</span><span 
+			class="op">]);</span>
+		</pre>
+		<p class="indent">
+			<span class="str">Sayısala Çevrilebilir
+			bir Karakter dizgisi</span> = İçeriğinde Sayısal
+			Karakter (ler) olan Karakter dizgisi.
+		</p>
+		<p class="indent">
+			<span class="comm">Sayı Tabanı</span> =
+			2 ile 36 arası bir sayı tabanı, eğer hiçbir sayı
+			verilmezse, 0x ile başlayan sayılar hex (on altı
+			tabanlı), 0 ile başlayan sayılar oktal ( 8 tabanlı)
+			olarak alınır. Diğer sayılar on tabanlı olarak kabul
+			edilir.
+		</p>
+		<p class="indent">
+			Görüldüğü gibi sayı tabanının belirtilmesi isteğe
+		bağlıdır.
+		</p>
+		<p class="indent">
+			<span class="keyw">parseInt</span><span 	class="op">()</span> Metodu
+			sözel atgüman gerektirmesine karşın, sayısal argümanla da çağrılabilir.
+			JavaScript yorumlayıcısı, kendine özgü uyarlama(coercion) yeteneği ile,
+			sayısal Veriyi sözel veriye dönüştürerek 
+			<span class="keyw">parseInt</span><span 	class="op">()</span> metodunu
+			çalıştıracak ve sonucu döndürecektir.
+		</p>
+		<p class="indent">
+			Javascript programlama dilinde tek sayısal bir tip
+			vardır. Tamsayılar ile kayan noktalı sayılar aynı sayısal
+			veri tipini paylaşırlar. Bu nedenle, ondaklı bir değeri olan
+			bir değişkenin değerini bir tamsayıya çevirmek için, 
+			aşağıda görüldüğü gibi, 
+		</p>
+		<p class="indent cursive-blue">
+			n <span class="op">=</span> 98.34<span 
+			class="op">;</span>
+		</p>
+		<p class="indent cursive-blue">
+			n <span class="op">=</span> 98<span 
+			class="op">;</span>
+		</p>
+		<p class="nonindent">
+			şeklinde bir tahrip edici atama ile değişkenin yeni değerini tanımlamak
+			yeterli olacaktır. 
+		</p>
+		<p class="indent" id="b3.3.2-uyg-1">
+			<span class="keyw">parseInt</span><span 	class="op">()</span> Metodunun
+			bir uygulamasının <a href="../uygulamalar/b3.3.2-uyg-1-js.html">JavaScript programı</a>
+			aşağıda görülmektedir. Bu kodlar, bağlı olduğu 
+			<a href="../uygulamalar/b3.3.2-uyg-1.html">uygulama </a> sayfasında çalışmaktadır.
+		</p>
+		<p class="cursive-blue">
+			...<br />
+			var veri = 67.89;<br />
+			veriYaz(veri, ...<br />
+			veriYaz(parseInt(veri), ..
+		</p>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent">
+			<span class="cursive-green" id="b3.3.2-uyg-1-sonuç-1">Veri : </span><span 
+			class="cursive-red pl-25" id="b3.3.2-uyg-1-sonuç-2">Veri Tipi :  </span>
+		</p>
+		<p class="indent">
+			<span class="cursive-green" id="b3.3.2-uyg-1-sonuç-3">Sonuç : </span><span 
+			class="cursive-red pl-25" id="b3.3.2-uyg-1-sonuç-4">Sonuç Tipi : </span>
+		</p>
+		<p class="nonindent">
+			Sonuçtan görüldüğü gibi, öncelikle <span class="keyw">parseInt()</span>
+			metodunun argümanı bir karakter dizgisi olması gerekirken, doğrudan 
+			doğruya bir sayısal veri argüman olarak kullanılmıştır. JavaScript 
+			yorumlayıcısı, bu sayısal veriyi kendi içinde sözel veriye çevirerek, 
+			<span class="keyw">parseInt()</span> metodunun argümanı olarak 
+			kullanmıştır. Bu uyarlama (coercion) JavaScript yorumlayıcısının 
+			dinamik karakterinden kaynaklanmaktadır. Ayrıca, <span 
+			class="keyw">parseInt</span><span class="op">()</span> Metodunun uygulanması
+			ile,  geri döndürülen değer, argümanın bir üst tamsayıya yuvarlatılmamamış,
+			 sadece ondalık kısmı kesilmiş olan tamsayı değeridir. <span 
+			class="keyw">parseInt</span> <span 	class="op">()</span>Metodu, bir yuvarlatma
+			 metodu  değildir. Sayıların yuvarlatılması için daha ileride göreceğimiz,
+			 Global JavaScript Nesne sınıfının öntanımlı <span class="keyw">Number </span>alt
+			 nesne sınıfının, öntanımlı <span 
+			class="keyw">toFixed</span><span class="op">()</span>metodu kullanılmalıdır.
+		</p>
+		<p class="indent">
+			<span class="keyw">parseInt()</span>
+			metodunun tamsayı olarak hareket edecek bir sayısal
+			tipte değer oluşturabilmesi için, argümanının
+			sayısal bir değere dönüştürülebilecek nitelikte bir karakter
+			dizgisi olması gereklidir. Aksi halde <span 
+			class="keyw">NaN</span> (<span 
+			class="keyw">N</span>ot <span 
+			class="keyw">a N</span>umber) sonucu oluşur.
+			Örnek :
+		</p>
+		<p class="indent cursive-blue">
+			var semt <span class="op">=</span> <span 
+			class="str">'Tarabya'</span><span 
+			class="op">;</span>
+		</p>
+		<p class="indent cursive-blue">
+			var semtNr <span class="op">=</span> <span 
+			class="keyw">parseInt</span><span 
+			class="op">(</span><span 
+			class="str">'Tarabya'</span><span 
+			class="op">);</span>
+		</p>
+		<p class="indent">
+			Sonuç : <span class="keyw">NaN</span>
+		</p>
+		<p class="indent" id="b3.3.2-uyg-2">
+			<span class="keyw">parseInt()</span> Çok güçlü bir
+			 fonksiyondur. <span class="keyw">parseiInt()</span> Metodu, 
+			 argümanı olan karakter dizgisini soldan
+			başlayarak tarar ve argümanında sayıya çevrilebilir
+			bir veri bulursa, bu veriyi tamsayı değerinde sayısal bir veriye dönüştürür.
+			 Aşağıda görülen <a href="../uygulamalar/b3.3.2-uyg-2-js.html">JavaScript programı</a>
+			<a href="../uygulamalar/b3.3.2-uyg-2.html">uygulama</a>
+			sayfasında çalışmaktadır. Bu programın karakter dizgisi verisinin başlangıcında, 
+			sayıya dönüştürülebilen bir kısım bulunmaktadır. 
+			<span class="keyw">parseInt</span><span class="op">()</span> Metodu, bu veriyi 
+			 tarar, başlangıçtaki sayıya dönüştürülebilen kısmı bir tamsayı değere 
+			 dönüştürür ve verinin geri kalan kısmını gözardı eder.		</p>
+		<p class="cursive-blue">
+			...<br />
+			var tk = '118 Sabahat Nurcihan 34 Sokak No:56', mb = null;<br />
+			mb = parseInt(tk);<br />
+			veriYaz(mb, ..
+		</p>
+
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent">
+			<span class="cursive-green" id="b3.3.2-uyg-2-sonuç-1">mb: </span><span 
+			class="cursive-red pl-25" id="b3.3.2-uyg-2-sonuç-2">Veri Tipi :  </span>
+		</p>
+		<p class="indent">
+			Birçok verinin, tek bir karakter dizgisine yerleştirilebildiği profesyonel 
+			uygulamalarda, bu özellik adeta bir çözümleyici (decoder) işlevini 
+			görebilmektedir. Daha karmaşık durumlarda kendi çözümleyicilerimizi 
+			yazmamız gerekir ki, bu da veri yapısını bildikten sonra hiç de zor 
+			olmayacaktır.
+		</p>
+		<p class="indent">
+			Yukarıdaki örneklerden görüldüğü gibi, <span 
+			class="keyw">parseInt</span><span class="op">()</span> metodu, açık (explicit)
+			 olarak kayan noktalı verileri tam sayı değerlere dönüştürmek 
+			için kullanılabilecek JavaScript yöntemlerinden biridir. <span 
+			class="keyw">parseInt</span><span class="op">() </span>Metodu, bu dönüşümü,
+			 ondalıklı verinin, ondalık kısmını keserek gerçekleştirir. Bu nedenle <span 
+			class="keyw">parseInt</span><span class="op">() </span>metodu,
+			sözel verileri sayısal tipe dönüştürmek için genel bir yöntem olarak
+			kullanılamaz.
+		</p>
+		<p class="subheading" id="parsefloat">3.3.3 - parseFloat() Metodu </p>
+		<p class="indent">
+			<span class="keyw">parseFloat</span><span class="op">()</span> Metodu, bir karakter
+			dizgisinin bir ondalıklı sayıya dönüştürülmesi için kullanılır. Söz Dizimi, 
+		</p>
+		<pre>
+<span class="str-50"><em>parseFloat</em></span><span 
+			class="op">.(</span>Sayıya Dönüştürülebilen Bir Karakter Dizgisi<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent"> 
+			şeklindedir. Metodun argümanı olan sayıya dönüştürülebilen
+			bir karakter dizigisi, içeriğinde sayılar olan bir karakter dizgisidir.
+			Metodun bir argümanla birlikte kullanılması zorunludur. Metot, geriye bir
+			ondalıklı değer döndürür. Argümanı olan ve sayısal bir değere dönüştürülebileceği
+			varsayılan karakter dizgisi, sayısal değere dönüştürülemezse, 
+			<span class="keyw">NaN</span> değeri döndürülür. Örnek : 
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-50">a</span> <span class="op">=</span> <span class="keyw">parseFloat</span><span 
+			class="op">(</span><span 
+			class="str">'Emel'</span> <span 
+			class="comm">//NaN değeri döndürülür. a = NaN olur.</span>
+<span class="keyw-50">...</span>
+<span class="pl-50">a</span> <span class="op">=</span> <span 
+			class="keyw">parseFloat</span><span 
+			class="op">(</span><span class="str">'123.123'</span><span 
+			class="op">);</span> <span 
+			class="comm">//123.123 değeri döndürülür. a = 123.123, tipi sayısal (number) dir.</span>
+		</pre> 
+		<p class="nonindent">
+			Değerin gerçekten <span class="keyw">NaN</span> olup olmadığı, bir sonra incelenecek 
+			metot olan, <span class="keyw">isNaN</span><span class="op">()</span> metodunun 
+			uygulanması ile anlaşılabilir.
+		</p>
+		<p class="indent" id="b3.3.3-uyg-1">
+			<span class="keyw">parseFloat</span><span class="op">()</span> Metodu, 
+			aynı <span class="keyw">parseInt</span><span class="op">()</span> metodu
+			gibi argümanı olan karakter dizgisini soldan başlayarak tarar, sayıya çevrilebilir
+			bir veri  bulabilirse bu veriyi sayısal bir değere dönüştürür ve verinin
+			geri kalan kısmını gözardı eder. Bu konuda bir 
+			<a href="../uygulamalar/b3.3.3-uyg-1.html">uygulama</a> sayfasında
+			çalışan <a href="../uygulamalar/b3.3.3-uyg-1-js.html">JavaScript kodları</a> ve
+			uygulama  sonucu aşağıda görülmektedir :		</p>
+		<p class="cursive-blue">
+			var bilgi = <span class="str">'1.67e-3-birinci çevrim-123'</span> , qt = null;
+		</p>
+		<p class="cursive-blue">
+			qt=parseFloat(bilgi);
+		</p>
+		<p class="cursive-blue">
+			veriYaz(qt, ....
+		</p>
+		<p class="cursive-green">
+			Program Sonucu : 
+		</p>
+		<p class="indent">
+			<span class="cursive-green" id="b3.3.3-uyg-1-sonuç-1">qt : </span><span 
+			class="cursive-red pl-25" id="b3.3.3-uyg-1-sonuç-2">Veri Tipi :  </span>
+		</p>
+		<p class="nonindent"> Bu sonuç, <span class="keyw">parseFloat</span><span 
+			class="op">()</span> metodunun, <span class="keyw">parseInt</span><span 
+			class="op">()</span> metodundan daha genel bir kapsamı olduğunu belirtmektedir. <span 
+			class="keyw">parseFloat</span><span 	class="op">()</span> metodu, tüm sayıya
+			 dönüştürülebilecek karakter dizigisi tipindeki verileri, sayısal tipe
+			çevirebilir. Sonuç, bir tamsayı ise, tamsayı olarak, sonuç bir ondalıklı sayı
+			ise, ondalıklı sayı olarak kullanılır.	
+		</p>
+		<p class="subheading" id="isfinite">3.3.4 - isFinite() Metodu</p>
+		<p class="indent">
+			<span class="keyw">isFinite</span><span class="op">()</span> Metodu, 
+			argümanınn, makinenin çalıştırabileceği sınırlar içinde bir sonlu sayı olup olmadığını kontrol 
+			eder. Sonuç olumlu ise mantıksal <span class="keyw">true</span> sonucunu verir. Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-50">isFinite</span><span 
+			class="op">(</span>sayı<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent"> şeklindedir. Bu metodu sınamak için lütfen birinci uygulamadaki 
+			<a href="../uygulamalar/JavaScriptDeneme.html">eval() makrosunu</a> kullanınız. Örnek; 
+		</p>
+		<pre>
+<span class="keyw-50">isFinite</span><span 
+			class="op">(</span>1/200<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			<span class="cursive-blue">Sonuç : </span><span 
+			class="cursive-red">true </span>
+		</p>
+		<p class="nonindent">
+			olarak görülmektedir. 
+			
+		</p>
+		<p class="subheading" id="isnan">3.3.5 - isNaN() Metodu</p>
+		<p class="indent">
+			<span class="keyw">isNaN</span><span class="op">()</span> Metodu, argümanının 
+			geçerli bir 	sayı olup olmadığını kontrol eder. Sonuç olumlu ise, yani argüman bir sayı 
+			değilse mantıksal <span class="keyw">true</span> sonucunu döndürür. 
+			Bu metot, <span class="keyw">parseInt<span class="op">()</span></span> ve <span 
+			class="keyw">parseFloat<span class="op">()</span></span> gibi ifadelerin sonucunu 
+			kontrol etmek için çok yararlıdır. Kullanımı, 
+		</p>
+		<pre>
+<span class="keyw-50">isNaN</span><span 
+			class="op">(</span>sayı<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metodu sınamak için lütfen birinci uygulamadaki
+			<a href="../uygulamalar/JavaScriptDeneme.html">eval() makrosunu</a> kullanınız. Örnek;
+		</p>
+		<pre>
+<span class="keyw-50">isNaN</span><span 
+			class="op">(</span><span 
+			class="keyw">parseFloat</span><span 
+			class="op">(</span><span 
+			class="str">'1/200'</span><span 
+			class="op">));</span>
+		</pre>
+		<p class="nonindent">
+			<span class="cursive-blue">Sonuç : </span><span 
+			class="cursive-red">false </span>
+		</p>
+		<p class="nonindent">
+			olarak görülmektedir. Yani, argümanın gerçek bir sayı 	olduğu belirtilmektedir.
+		</p>
+		<p class="subheading" id="encodeURI">
+			3.3.6 - encodeURI() ve encodeURIComponent() Metotları</p>
+		<p class="indent">
+			<span class="keyw">encodeURI<span class="op">()</span></span> Metodu,
+			bir karakter dizgisini Uniform Resource 	Identifier (URI) olarak kodlar. Sözdizimi,
+		</p>
+		<pre>
+<span class="keyw-50">encodeURI</span><span 
+			class="op">(</span><span 
+			class="str">'Metin'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="nonindent">
+			<span class="keyw">encodeURI</span><span class="op">()</span> metodu, kodlanmış bir 
+			URI değerini geri döndürür. Geri döndürülen değer, bir 
+			<span class="keyw">decodeURI</span><span class="op">()</span>metoduna
+			beslenirse, yeniden  orijinal metin parçasına geri dönülür. 
+			<span class="keyw">encodeURI</span><span class="op">()</span> 
+			metodu,&quot;:&quot;, &quot;/&quot;, &quot;;&quot;, 
+			ve &quot;?&quot;	 karakterlerini kodlamaz. Bu karakterlerin
+			kodlanması için, <span class="keyw">encodeURIComponent</span> <span class="op">()</span>
+			metodunun, kullanılması gerekir. Kodlamanın başarısı için verinin 	UNIX tipi yer bilgisi içeren, yani klasör
+			ayrımını düz kesme (slash) ile belirten bir Karakter dizgisi literal olması gerekir. Aksi halde,
+			<span class="str">'file:///f:\myfiles\noway.htm'</span> de <span class="str">\n</span>,
+			escape newline olarak nitelendirip yanlış sonuç üretecektir. Doğru
+			ifade, <span class="str">'file:///f:/my files/noway.htm'</span> olmalıdır.
+			 Bu ifade, hem UNIX (LINUX) hem de WINDOWS işletim sisteminde çalışacaktır.
+	</p>
+		<p class="indent">
+			Günümüzde URI değerleri her türlü karakteri kabul ettiği için bu metodun artık kullanım 
+			gerekçesi kalmamış gibidir.
+		</p>
+		<p class="nonindent">
+			Örnek :
+		</p>
+		<pre>
+<span class="keyw-50">encodeURI(</span><span 
+			class="str">'http://www.muğlayöresi.com'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Sonuç:
+		</p>
+		<p class="cursive-green">
+			http://www.mu%C4%9Flay%C3%B6resi.com
+		</p>
+		<p class="subheading" id="decodeURI">
+			3.3.7 - decodeURI() ve decodeURIComponent() Metotları</p>
+		<p class="indent">
+			<span class="keyw">decodeURI<span class="op">()</span></span> Metodu,
+			kodlanmış URI yazılımını çözer. <span 
+			class="keyw">decodeURI</span><span class="op">()</span> Metodunun
+			sözdizimi,
+		</p>
+		<pre>
+<span class="keyw-50">decodeURI</span><span 
+			class="op">(</span><span 
+			class="str">'URI'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">decodeURI</span><span 
+			class="op">()</span> Fonksiyonun argümanı, kodlanmış bir URI yazılımı olan bir karakter 
+			dizgisidir. <span class="keyw">decodeURI</span><span 
+			class="op">()</span> Fonksiyonu, geriye içeriği kodu çözülmüş bir URI değeri olan bir 
+			karakter dizgisi gönderir. Eğer argüman olan URI karakter dizgisi geçerli bir URI kodlaması
+			değilse, bir URI hatası oluşur.
+		</p>
+		<p class="nonindent">
+			Artık devam ettirilmeyen <span class="keyw">unescape</span><span 
+			class="op">()</span> metodu yerine,  <span 
+				class="keyw">decodeURI()</span> metodu kullanılmalıdır.
+	</p>
+		<p class="nonindent">Örnek : </p>
+		<pre>
+<span class="keyw-25">decodeURI</span><span 
+			class="op">(</span><span 
+			class="str">'http://www.mu%C4%9Flay%C3%B6resi.com'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			Sonuç:
+		</p>
+		<p class="cursive-green">
+			http://www.muğlayöresi.com
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p>
+					<a href="../index.html"><em>« Indeks</em></a>
+				</p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p>
+					<a href="b3s1.html"><em>« Önceki</em></a>	
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p>
+					<a href="b3s3.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b3.3.2-uyg-1.js">
+		</script>
+	<script type="text/javascript" src="../js/b3.3.2-uyg-2.js">
+		</script>
+	<script type="text/javascript" src="../js/b3.3.3-uyg-1.js">
+		</script>
+
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b3/b3s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:03 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

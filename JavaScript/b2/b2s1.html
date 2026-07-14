@@ -1,0 +1,1800 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:44 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b1/b1s6.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>	
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.1 - JavaScript Programlama Dili Sözdizimi (Sentaks) ve Sözyazımı (Semantik)
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 1
+		</p>
+		<p class="subheading" id="lexicum">
+			2.1.1 - JavaScript Programlama Dili Sözdizimi
+	</p>
+		<p class="indent">
+			Bir programlama dilinin yazılım özellikleri, bu programlama dili ile 
+			yazılmış programların nasıl görüldükleri, programlarda kullanılan 
+			değişken ve benzeri öğelerin nasıl isimlendirileceği, yorum satırlarının 
+			nasıl belirtileceği, program adımlarının birbirinden nasıl ayrılacağı gibi 
+			bilgilerdir. Bu kısımda, bu bilgileri inceleyeceğiz.
+		</p>
+		<p class="navy" id="unicode">	<strong>2.1.1.1 - Unicode Desteği</strong></p>
+		<p class="indent">
+			Unicode sistemi, tüm dünya dillerinde kullanılan alfanümerik 
+			karakterlerin bilgisayarlarda gösterimini sağlamak için geliştirilmiş bir 
+			karakter kodlama sistemidir. Unicode karakterleri, Unicode Kod Noktaları 
+			adı verilen onaltılı (hex) sayılarla ve özel bir isimle tanımlanır. Unicode 
+			sistemi, 7 ve 8 bit ASCII sistemini bir alt set olarak içerir yani, 
+			utf-8 spesifikasonu ile tanımlanan Türkçe karakterler gibi, 
+			ASCII karakter kodları ile Unicode Kod Noktaları biribirleri ile aynıdır. 
+		</p>
+		<p class="indent">
+			JavaScript, <a href="http://www.unicode.org/">Unicode Standardı sürüm 2.1</a> 
+			ve daha sonraki sürümlerini destekler. Günümüzde bu standardın 5.1 sürümü 
+			hazırlanmaktadır. Unicode standardı, her karakteri 2 bayt (8bit+8bit) 
+			uzunluğunda olan UCS-2 (Universal Character Set) karakterlerini özümsemiştir.
+			Unicode karakterlerini gerçek karakter bitlerine çevirmek için Unicode dönüştürme 
+			biçimi (Unicode Transformation Format) kullanılır.  Unicode dönüştürme 
+			biçimleri, UTF-8, UTF-16, UTF-32 dir. Bunlardan hangisinin uygulanacağı tamamen 
+			JavaScriptin yerleştirildiği, belge çözümleyici ortamına bağlıdır. UTF-8, biçimlendirme 
+			yöntemi, ilk olarak ilk 8 bit kısmını dönüştürmeyi dener, eğer ikinci bayt değerlerinin 
+			kullanılması gerekirse onları da kullanarak döüşümü tamamlar. Günümüzde ,
+			belge çözümleyiciler minimum UTF-8 biçimlendirmesini desteklerler. Türkçe 
+			karakterler, utf-8 spesifikasyonunda olduklarından, ilk oktet içindedirler ve 
+			UTF-8 ile ilk aşamada sorunsuzca dönüştürülürler. 
+		</p>
+		<p class="indent">
+			JavaScript, her karakter için Unicode 2.1 spesifikasyonun öngördüğü 
+			şekilde 2 bayt karakter uzunluğunu kullanır ve Unicode UTF-16 
+			dönüşüm formatını destekler. Bu önemli değildir, çünkü UTF-8 ile 
+			UTF-16 uyumludur ve belge çözümleyiciler UTF-16 ifadelerini 
+			UTF-8 olarak uygularlar. Bu iç düzenleme, kullanıcı için önemli değildir, 
+			çünkü tüm düzenleme ve iç dönüşüm, JavaScript yorumlayıcısı ve 
+			belge çözümleyicisi tarafından gerçekleştirilir. Kullanıcıyı ilgilendiren 
+			 kısmı, yerel dilleri destekleyen bir metin editörü ile çalışarak kodları yazmaktır. 
+		</p>
+		<p class="indent">
+			JavaScript Unicode karakter kodlamasını desteklemektedir. Fakat, bu her 
+			Unicode kodlamasının görüntüleneceği anlamına gelmez. Karakterin &quot;Glyph&quot; 
+			(Kılıf) ad verilen görüntüsünün de belge çözümleyinin repertuvarında olması 
+			gerekmektedir. Doğal olarak bu olasılık az kullanılan ve arkaik diller için 
+			geçerlidir. Batı dillerine ait tüm karakterler sorunsuzca görüntülenecektir. 
+			Diğerlerinin de görüntü kodları repertuvarı hergün zenginleştirilmektedir.
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinin Unicode karakterlerini desteklemesi, 
+			 JavaScript programlarında, değişkenler, fonksiyonlar gibi, kullanıcı 
+			tanımlı her öğenin, Türkçe isimlerle tanıtılıp çağrılabileceğini belirtir. 
+			Bu yerel olarak programın anlaşılabilirliğini arttırır, fakat uluslarası 
+			ortamda, yerel diller ile yazılmış  programların anlaşılabilirliği azalır.
+		</p>
+		<p class="indent">
+			JavaScript programlarında, klavyede olmayan karakterler, Unicode kaçış 
+			(escape) sekansı ile Unicode kod noktası değerlerinden elde edilir. Örnek olarak 
+			U+221E, infinity olarak adlandırılmış &#x221E; işaretinin Unicode kod 
+			noktasıdır. Bu karakter, başka bir çıktıdan kopyalanabileceği gibi, bir 
+			JavaScript ifadesinde, 
+			&quot;Bu Değer,&quot;+\u221E+&quot;Olarak Kabul Edilecektir.&quot; 
+			şeklinde yazılır. Aynı karakter, bir (X)HTML paragraf elementinin içeriğinde, 
+			&amp;#x221E;olarak yazılacak ve &#x221E; olarak görüntülenecektir. 
+			JavaScxript programlarında sadece hex sayılar ile ifade edileb Unicode 
+			kod noktaları, (X)HTML işaretleme dilinde istenirse ondalılı karşılıkları ile 
+			de kullanılabilir, fakat genel olarak onaltı tabanlı (hex) giriş noktaları (kod 
+			noktaları) yeğ tutulur.
+		</p>
+		<p class="indent">
+			Tüm Unicode kod noktaları, son derece kullanışlı olarak <a 
+			href="http://macchiato.com/unicode/chart/">yayınlanmıştır.</a>
+		</p>
+		<p class="navy" id="case">	<strong>2.1.1.2 - Küçük/Büyük Karakter Duyarlığı</strong></p>
+		<p class="indent">
+			JavaScript programlama dili, küçük/büyük karakter yazılımına 
+			duyarlıdır. Örnek olarak &quot;ev&quot; ifadesi, &quot;Ev&quot; 
+			ifadesinden kesinlikle farklı olarak algılanır. Burada en büyük karışıklık 
+			JavaScript programlama dilinde ve (X)HTML kodlarında aynı adlarla 
+			tanımlanmış olay yöneticileri ile çalışılırken ortaya çıkabilir. Örnek 
+			olarak, mouse ile tıklamayı dinleyen olay yöneticisi, JavaScript 
+			programlama dilinde onclick olarak küçük harflerle tanımlanmıştır ve 
+			bunun değiştirilmesi olanağı yoktur. (X)HTML işaretleme dilinde ise, 
+			aynı olay yöneticisi OnClick, onClick, onclick şeklinde ifade edilebilir, 
+			çünkü (X)HTML işaretleme dili, küçük/büyük karakter yazılımına 
+			duyarlı değildir. 
+		</p>
+		<p class="indent">
+			Küçük/büyük karakter duyarlığı, programlarda hataların başlıca kaynaklarından 
+			biridir. Programcılar, tanımladıkları değişkenleri veya öntanımlı öğeleri 
+			farklı karakter büyüklükleri ile çağırırlarsa, programda hata oluşur. Bunun 
+			önlenmesi için, tanımlanan ve çağrılan öğelerin kodlarına özen 
+			gösterilmelidir. 
+		</p>
+		<p class="navy" id="spaces"><strong>2.1.1.3 - Boşluklar ve Satır Aralıkları ve 
+			İsteğe Bağlı Noktalı Virgül</strong></p>
+		<p class="indent">
+			JavaScript bir karakter dizgisi veya bir düzenli ifade (regular expression) gereği olmadıkça, 
+			her türlü boşluk, satır aralığı ve tab karakterlerini gözardı eder. Bu nedenle, 
+			kendimiz için en anlamlı kod düzenlemelerini yaparak, program yazım 
+			konforuna sahip olabiliriz. JavaScript programlama dili, Algol/Pascal/ADA 
+			serbest yazım formunu benimser. Yazılım yöntemi çok esnek olmasına 
+			karşın, alışkanlıktan kaynaklanan belirli kalıplar içinde kalmanın 
+			büyük yararı görülür. Çünkü alışılmış kalıplar içinde yazılmış olan bir 
+			programın, ilerideki bakımı çok daha kolay olacaktır.
+		http://www.jslint.com/lint.html</p>
+		<p class="indent">
+			JavaScript programlarında, satır araları, istediği kadar açılabilir. Değişkenler, 
+			nesneler, fonksiyonlar gibi program öğeleri, istenilen sütunlara konulabilir. 
+			Örnek olarak,
+		</p>
+		<pre>
+<span class="pl-25">r=4</span><span 
+			class="op">;</span><span class="pl-25">alan</span><span 
+			class="op">=</span><span 
+			class="keyw">Math</span><span 
+			class="op">.</span>PI<span 
+			class="op">*</span>r<span 
+			class="op">*</span><span 
+			class="op">r</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			kod satırında görüldüğü gibi, araya noktalı virgül (ifade sonlandırıcısı) (boş bildirim) konularak, aynı satıra istenildiğ kadar bildirim yazılabilir. Bu şeklde yazılmış kodlar kullanışlı görülebilir. Fakat, alışılagelmiş
+			yöntemler, her satırda tek bir bildirim olmasını öngörür. Ayrıca,
+			<a href="http://www.jslint.com/lint.html">JSLint</a> gibi,
+			JavaScript kod denetleyicileri, hataları satır numaraları ile 
+			belirtirler ve bir satırda birden fazla bildirim olması, hatanın 
+			düzeltilmesini zorlaştırabilir. Bundan başka, aynı satıra birden fazla bildirim 
+			yazılmış kodları içeren programların bakımı da kolay olmayabilir. Bu 
+			nedenlerle, iyi programlama yöntemleri,
+			her satırda bir tek bildirim olmasını kesinlikle şart koşmaktadır. Yukarıdaki kodlar, 
+		</p>
+		<pre>
+<span class="pl-25">r=4</span><span 
+			class="op">;</span>
+<span class="pl-25">alan</span><span 
+			class="op">=</span><span 
+			class="keyw">Math</span><span 
+			class="op">.</span>PI<span 
+			class="op">*</span>r<span 
+			class="op">*</span><span 
+			class="op">r</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde yazılmalıdır.
+		</p>
+				<p class="navy" id="noblock"><strong>2.1.1.4 - Blok {} Kapsamının Olmaması</strong></p>
+		<p class="indent">
+			Javascript programlama dilinde, bazı program dillerinde olduğu gibi,
+			blok içine alınmış kodlar, yeni bir kapsam alanı yaratmazlar. 
+			JavaScript yorumlayıcısı, bildirim bekleyen <span class="keyw">if</span> 
+			gibi program öğelerine tek bidirim yerine birden çok bildirim 
+			belirtilebilmesi için çalıştırılacak bildirimlerin bir bildirim bloğu <span 
+			class="op">{}</span> içine alınmasını öngörmüştür. Bildirim 
+			bloğu kullanılabilecek program adımları bellidir ve bunlarda 
+			kullanılacak bildirim bloğu <span class="op">{}</span> 'nun 
+			amacı, içeriğine yeni bir kapsam alanı açmak değil, 
+			içeriği olan bildirimlerin sıra ile çalıştırılmasını sağlamaktır.
+			Javascript programlama dilinde yeni bir kapsam alanını ancak 
+			fonksiyonlar ve <span class="keyw">with</span> bildirimi
+			açabilir.
+		</p>
+		<p class="navy" id="comment"><strong>2.1.1.5 - JavaScript Yorum Satırları</strong>
+	</p>
+		<p class="indent">
+			JavaScript programlama dilinde yorumlar, tek bir satır içinde 
+			<span class="comm">//</span> işarertleri ile yapılır. Örnek, 
+		</p>
+		<pre>
+<span class="keyw-25">if(</span><span class="op">!</span>sum<span 
+			class="keyw">)</span> f<span 
+			class="op">=</span><span 
+			class="keyw">false</span><span 
+			class="op">;</span><span 
+			class="comm-50">// Bayrak İnik !</span>
+		</pre>
+		<p class="nonindent">
+			Burada satır, <span class="comm">//</span> işaretine kadar 
+			normal bir program satırı kabul edilir. Bundan sonrası ise, 
+			yorum olarak kabul edilir ve JavaScript yorumlayıcısı, bu kısmı
+			gözardı eder.
+		</p>
+		<p class="indent">
+			Birden çok satırı kapsayacak yorumlar ise, aynı C ve Java programlarında 
+			olduğu gibi, <span class="comm">/*....*/</span> işaretleri arasında tutulur.
+			Örnek:
+		</p> 
+		<pre>
+<span class="comm-25">/* Bunlar çok satırlı</span>
+<span class="comm-25">yorumlardır. */</span>
+		</pre>
+		<p class="nonindent">
+			Çok satırlı yorumlar içiçe yuvalanamazlar.
+		</p>
+		<p class="navy" id="identifiers"><strong>2.1.1.6 - JavaScript Tanımlayıcıları (Identifiers)</strong>
+	</p>
+		<p class="indent">
+			Tanımlayıcılar, Javascript değişkenlerini,
+			fonksiyonlarını, nesnelerini ve tüm diğer öğelerini
+			adlandırmak üzere kullanılabilen alfasayısal karakter
+			topluluklarıdır. Görevleri, belirli bellek bloklarının,
+			program boyunca belirli bir tanımla çağrılmalarını
+			sağlamaktır. Yani, tanımlayıcılar birer isimdir. Tanımlayıcıların yazılımı 
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">
+			ECMA-262</a> de detaylı olarak verilmiştir ve bu tanım
+			uygulamada tüm belge çözümleyicilerce de desteklenmektedir. <a href=
+"http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+      de verilmiş olan tanımlayıcı tanımı :
+		</p>
+		<div class="nonindent">
+			<p>
+				<strong>Syntax</strong>
+			</p>
+			<p>
+				<br />
+			 <em>Identifier <strong>::</strong></em><em><br />
+				 IdentifierName <strong>but not</strong>
+				ReservedWord</em>
+			</p>
+			<p>
+				<em><br />
+				 dentifierName <strong>::</strong></em><em><br />
+				IdentifierStart</em><em><br />
+				IdentifierName IdentifierPart</em>
+			</p>
+			<p>
+				<em>IdentifierStart <strong>::</strong></em><em><br />
+				UnicodeLetter<br />
+				<strong>$</strong><br />
+				<strong>_</strong><br />
+				<strong>\</strong> UnicodeEscapeSequence</em>
+			</p>
+			<p>
+				<em><br />
+				IdentifierPart <strong>::</strong><br />
+				IdentifierStart<br />
+				UnicodeCombiningMark<br />
+				UnicodeDigit<br />
+				UnicodeConnectorPunctuation<br />
+				<strong>\</strong> UnicodeEscapeSequence</em>			</p>
+			<p>
+				<br />
+				<em>UnicodeLetter</em><br />
+				any character in the Unicode categories Uppercase
+				letter (Lu), Lowercase letter (Ll), Titlecase letter
+				(Lt), Modifier letter (Lm), Other letter (Lo), or
+				Letter number (Nl).			</p>
+			<p>
+				<br />
+				<em>UnicodeCombiningMark</em><br />
+				any character in the Unicode categories Non-spacing
+				mark (Mn) or Combining spacing mark (Mc)			</p>
+			<p>
+				<br />
+				<em>UnicodeDigit</em><br />
+				any character in the Unicode category Decimal number
+				(Nd)
+			</p>
+			<p>
+				<br />
+				<em>UnicodeConnectorPunctuation</em><br />
+				any character in the Unicode category connector
+				punctuation (Pc)
+			</p>
+			<p>
+				<br />
+				<em>UnicodeEscapeSequence</em><br />
+				see section 7.8.4.			</p>
+			<p>
+				<br />
+				<em>HexDigit</em> <strong>:: one of</strong><br />
+				<strong>0  1  2  3  4  5  6  7  8  9  a  b  c  d  e 
+				f  A  B  C  D  E  F</strong>	
+			</p>
+		</div>
+		<p class="indent">
+			Görüldüğü gibi, tamımlayıcıların oluştulması için gayet
+			geniş sınırlar içinde hareket olanakları getirilmiştir. 
+			JavaScript programlama dilinde tanımlayıcılar, aynen 
+			Java, C ve çoğu programlama dilinde olduğu gibidir. 
+			Yukarıdaki tanıma göre, bir tanımlayıcıda, 
+		</p>
+		<ul class="list">
+			<li>
+				İlk karakter bir sayı, altbağlaç (_) veya gerekirse $ işareti olmalıdır. 
+				İlk karakter sayısal bir karakter olmamalıdır. Bu şekilde, 
+				 JavaScript yorumlayıcısı, sayısal literaller ile tanımlayıcıları 
+				 birbirinden ayırt edecektir. 
+			</li>
+			<li>
+				İkinci ve onu takip eden karakterler, bir karakter, bir sayı, bir 
+				alt bağlaç veya bir $ işareti olabilir. 
+			</li>
+			<li>
+					Tanımlayıcı bir saklı sözcük olmamalıdır.
+			</li>
+		</ul>
+		<p class="indent">
+			Tanımlayıcılar $ işareti ile başlayabilir, fakat güncel
+			kullanımda bu olanak sadece makine tarafından oluşturulan
+			otomatik JavaScript kodlarına bırakılmaktadır. Yani
+			insanlar tarafından oluşturulan kodlarda, önleyici hiçbir
+			kural olmamasına karşın, tanımlayıcılarda $ karakteri
+			kullanılmamalıdır.
+		</p>
+			<p class="indent">
+			Yukarıdaki tanımların açıkladıklarına göre, JavaScript
+			programlarında, tüm Unicode karakterleri kullanılabilmektedir. 
+			Bu durumda, Türkçe karakter içeren literaller ve tanımlayıcıların (identifier) 
+			kullanılması kesinlikle yasaldır. Bu karakterlerin,
+			<a 
+			href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			standardını destekleyen tüm belge
+			çözümleyicilerce de destekleneceği (bunlar arasında
+			kullanıcıların büyük bir kısmının kullandığı Internet
+			Explorer ile Firefox da bulunmaktadır) açıklıkla
+			görülmektedir. Bu konuda dikkat edilecek nokta, 
+			tanımlayıcılar ve yorum satırlarında Türkçe karakterlerin kullanılması, 
+			programların ulusal alanda okunabilirliğini arttırırken, uluslararası alanda, 
+			okunabilirliklerini azalttığıdır.
+		</p>
+		<p class="indent">
+			Web son derece uluslarası bir
+			ortamdır. Yazılan scriptler, çoğu durumlarda farklı
+			ülkelerdeki kullanıcılar tarafından adapte edilmektedir.
+			Bu bilgi iletimini sağlayabilmek için profesyonel
+			çalışmalarda, her türlü tanımlayıcının İngilizce olarak
+			oluşturulması uygun olacaktır.		</p>
+		<p class="indent">
+			Tanımlayıcılar $ işareti ile başlayabilir, fakat güncel
+			kullanımda bu olanak sadece makine tarafından oluşturulan
+			otomatik JavaScript kodlarına bırakılmaktadır. Yani
+			insanlar tarafından oluşturulan kodlarda, önleyici hiçbir
+			kural olmamasına karşın, $ karakteri
+			kullanılmamamaktadır.	
+		</p>
+		<p class="indent">
+			JavaScript küçük/büyük karakter yazılımına duyarlı bir
+			programlama dilidir. Yani <em>Belgelerim</em>
+			tanımlayıcısı <em>belgelerim</em> tanımlayıcısından
+			farklıdır. Buna rağmen program içinde salt küçük/büyük
+			karakter farkı olan <em>Turfan</em> ve <em>turfan</em>
+			gibi iki tanımlayıcının aynı programda kullanılmaması
+			daha güvenli olacaktır.	
+		</p>
+		<p class="indent">Örnek olarak, boğazkesen, güğüm, kaşağı, _süreç1, _kap_3,
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">
+			ECMA-262</a> standardına göre geçerli tanıtıcılar iken,
+			06Ankara
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">
+			ECMA-262</a> standardına göre geçersiz olacaktır, çünkü
+			ilk karakteri, sayısal bir karakterdir.		</p>
+		<p class="navy" id="reserved-words">
+			<strong>2.1.1.7 - Saklı Sözcükler (Reserved Words)</strong>
+	</p>
+		<p class="indent">
+			Aşağıda verilen saklı sözcükler listelerinden görüldüğü
+			gibi, ECMA-262, JavaScript 1.5 ve JScript saklı
+			sözcükleri birbirlerinden farklıdır. Uyumlu olması olması
+			hedeflenen kodlarda, bu saklı sözcüklerin hiçbiri
+			kullanılmamalıdır.	
+		</p>
+		<div class="pl-300">
+			<table summary="ECMA-362 Saklı Sözcükleri" width="60%" class="green">
+				<caption class="captionred">
+					<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+					Saklı Sözcükleri (Bugün İçin Geçerli Olanlar)
+				</caption>
+				<tbody>
+					<tr>
+						<td>break</td>
+						<td>else</td>
+						<td>new</td>
+						<td>var</td>
+					</tr>
+					<tr>
+						<td>case</td>
+						<td>finally</td>
+						<td>return</td>
+						<td>void</td>
+					</tr>
+					<tr>
+						<td>catch</td>
+						<td>for</td>
+						<td>switch</td>
+						<td>while</td>
+					</tr>
+					<tr>
+						<td>continue</td>
+						<td>function</td>
+						<td>this</td>
+						<td>with</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>if</td>
+						<td>throw</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>delete</td>
+						<td>in</td>
+						<td>try</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>do</td>
+						<td>instanceof</td>
+						<td>typeof</td>
+						<td></td>
+					</tr>
+				</tbody>
+		</table>
+			<p class="dikeyTab-10"></p>
+			<table summary="JScript Güncel Saklı Sözcükleri" width="60%" class="green">
+				<caption class="captionred">
+					JScript Saklı Sözcükleri <br />
+					(Bugün İçin Geçerli Olanlar)
+				</caption>
+				<tbody>
+					<tr>
+						<td>break</td>
+						<td>else</td>
+						<td>new</td>
+						<td>var</td>
+					</tr>
+					<tr>
+						<td>case</td>
+						<td>finally</td>
+						<td>return</td>
+						<td>void</td>
+					</tr>
+					<tr>
+						<td>catch</td>
+						<td>for</td>
+						<td>switch</td>
+						<td>while</td>
+					</tr>
+					<tr>
+						<td>continue</td>
+						<td>function</td>
+						<td>this</td>
+						<td>with</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>if</td>
+						<td>throw</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>delete</td>
+						<td>in</td>
+						<td>try</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>do</td>
+						<td>instanceof</td>
+						<td>typeof</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="dikeyTab-10"></p>
+	
+			<table summary="ECMA-262 Gelecekte Kullanılacak Saklı Sözcükler" width="60%" class="green">
+				<caption class="captionred">
+					<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+					Gelecekte Kullanılacak Saklı Sözcükler
+				</caption>
+				<tbody>
+					<tr>
+						<td> abstract </td>
+						<td> enum </td>
+						<td> int </td>
+						<td> short </td>
+					</tr>
+					<tr>
+						<td> boolean </td>
+						<td> export </td>
+						<td> interface </td>
+						<td> static </td>
+					</tr>
+					<tr>
+						<td> byte </td>
+						<td> extends </td>
+						<td> long </td>
+						<td> super </td>
+					</tr>
+					<tr>
+						<td> char </td>
+						<td> final </td>
+						<td> native </td>
+						<td> synchronized </td>
+					</tr>
+					<tr>
+						<td> class </td>
+						<td> float </td>
+						<td> package </td>
+						<td> throws </td>
+					</tr>
+					<tr>
+						<td> const </td>
+						<td> goto </td>
+						<td> private </td>
+						<td> transient </td>
+					</tr>
+					<tr>
+						<td> debugger </td>
+						<td> implements </td>
+						<td> protected </td>
+						<td> volatile </td>
+					</tr>
+					<tr>
+						<td> double </td>
+						<td> import </td>
+						<td> public </td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="dikeyTab-10"></p>
+			<table summary="JScript Gelecekte Kullanılacak Saklı Sözcükler" width="60%" class="green">
+				<caption class="captionred">
+					JScript Gelecekte Kullanılacak Saklı Sözcükler
+				</caption>
+				<tbody>
+					<tr>
+						<td> abstract </td>
+						<td> enum </td>
+						<td> int </td>
+						<td> short </td>
+					</tr>
+					<tr>
+						<td> boolean </td>
+						<td> export </td>
+						<td> interface </td>
+						<td> static </td>
+					</tr>
+					<tr>
+						<td> byte </td>
+						<td> extends </td>
+						<td> long </td>
+						<td> super </td>
+					</tr>
+					<tr>
+						<td> char </td>
+						<td> final </td>
+						<td> native </td>
+						<td> synchronized </td>
+					</tr>
+					<tr>
+						<td> class </td>
+						<td> float </td>
+						<td> package </td>
+						<td> throws </td>
+					</tr>
+					<tr>
+						<td> const </td>
+						<td> goto </td>
+						<td> private </td>
+						<td> transient </td>
+					</tr>
+					<tr>
+						<td> debugger </td>
+						<td> implements </td>
+						<td> protected </td>
+						<td> volatile </td>
+					</tr>
+					<tr>
+						<td> double </td>
+						<td> import </td>
+						<td> public </td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="dikeyTab-10"></p>
+			<table summary="javascript 1.5 Bugün ve Gelecekte Kullanılacak Saklı Sözcükler" width="60%" class="green">
+				<caption>
+					javascript 1.5 Bugün ve Gelecekte Kullanılacak Saklı Sözcükler
+				</caption>
+				<tbody>
+					<tr>
+						<td>abstract</td>
+						<td>else</td>
+						<td>instanceof</td>
+						<td>switch</td>
+					</tr>
+					<tr>
+						<td>boolean</td>
+						<td>enum</td>
+						<td>int</td>
+						<td>synchronised</td>
+					</tr>
+					<tr>
+						<td>break</td>
+						<td>export</td>
+						<td>interface</td>
+						<td>this</td>
+					</tr>
+					<tr>
+						<td>byte</td>
+						<td>extends;</td>
+						<td>long</td>
+						<td>throw</td>
+					</tr>
+					<tr>
+						<td>case</td>
+						<td>false</td>
+						<td>native</td>
+						<td>throws</td>
+					</tr>
+					<tr>
+						<td>catch</td>
+						<td>final</td>
+						<td>new</td>
+						<td>transient</td>
+					</tr>
+					<tr>
+						<td>char</td>
+						<td>final</td>
+						<td>new</td>
+						<td>transient</td>
+					</tr>
+					<tr>
+						<td>char</td>
+						<td>finally</td>
+						<td>null</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>class</td>
+						<td>float</td>
+						<td>package</td>
+						<td>try</td>
+					</tr>
+					<tr>
+						<td>const</td>
+						<td>for</td>
+						<td>private</td>
+						<td>typeof</td>
+					</tr>
+					<tr>
+						<td>continue</td>
+						<td>function</td>
+						<td>protected</td>
+						<td>var</td>
+					</tr>
+					<tr>
+						<td>debugger</td>
+						<td>goto</td>
+						<td>public</td>
+						<td>void</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>if</td>
+						<td>return</td>
+						<td>volatile</td>
+					</tr>
+					<tr>
+						<td>delete</td>
+						<td>implements</td>
+						<td>short;</td>
+						<td>while</td>
+					</tr>
+					<tr>
+						<td>do</td>
+						<td>import</td>
+						<td>static</td>
+						<td>with</td>
+					</tr>
+					<tr>
+						<td>double</td>
+						<td>in</td>
+						<td>super</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			<a 	href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			ve JScript bugün için ve gelecekte
+			kullanılmaları planlanmış tüm saklı sözcükler de bu
+			tablodaki saklı sözcükler ile çakışmaktadır. Bu durumda
+			son tablo, tanımlayıcılarda kullanılmaması gereken saklı
+			sözcüklerin tümünü kapsamaktadır.
+		</p>
+		<p class="indent">
+			Ayrıca, tanımlayıcılar, <a 
+			href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			uyumlu bir JavaScript içinde yerleşik olan
+			hiçbir öntanımlı fonksiyon, nesne, özellik veya değer ile
+			aynı olmamalıdır. Bu konuda Microsoft tarafından 
+			yayınlanmış JScript 5.6 referansı yararlı olacaktır.
+		</p>
+		<p class="indent">
+			Yukarıdaki tablodan da görülebileceği gibi, Javascript 1.5 sürümümün
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">	ECMA-262</a> 
+			uyumlu bir JavaScript den daha ileri olduğu
+			düşünülebilir ve bu kesinlikle doğrudur. Ne yazık ki günümüzde 
+			Internet kullanıcılarının %90 lara varan bir çoğunluğunca
+			kullanılmakta olan Internet Explorer
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">	ECMA-262</a> 
+			ve <a href="http://www.w3.org/DOM/">W3C-DOM</a> 
+			uyumlu kısımları olan bir Javascript variantı olan
+			JScript'i desteklemektedir. Bu nedenle
+			çalışmalarımız, JavaScript programlama dili ailesinin
+			JScript ve Mozilla JavaScript1.5 variyantlarının,
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			ve <a href="http://www.w3.org/DOM/">W3C-DOM</a> 
+			uyumlu kısımları ile sınırlı kalacaktır. Uyumlu
+			veya platformlarası olarak adlandırılabilecek bu
+			JavaScript variyantının temel (core) kısmı, ECMAScript
+			olarak adlandırılmaktadır. (X)HTML sayfalarının
+			içeriğinin JavaScript ile etkileşim sistemini
+			düzenleyen Belge Nesne Nodeli (DOM) standartları
+			<a href="http://www.w3.org/DOM/">W3C-DOM</a> olarak
+			yayınlanmıştır. Bu sınırlama, yazılacak JavaScript
+			programlarının, hem IE 6+, hem Firefox 1+, hem de
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			ve <a href="http://www.w3.org/DOM/">W3C-DOM</a> 
+			spesifikasyonunu destekleyen diğer belge
+			çözümleyicilerle desteklenebilmesi amacı ile yapılmıştır.
+			Bu çalışmalardaki hedefimiz, ilk önce en çok
+			kullanılanlar olmak üzere, olabildiğince çok belge
+			çözümleyici tarafından desteklenebilen kodların
+			yaratılabileceği uyumlu bir JavaScript programlama
+			ortamını tanıtmaktır.
+		</p>
+		<p class="subheading" id="operators">
+			2.1.2 - JavaScript İşlemcilerininTanıtımı
+	</p>
+		<p class="indent">
+			JavaScript işlemcileri C<sup>+++</sup>, Java, Perl
+			gibi diğer modern programlama dillerinde olan 
+			işlemci (operatör) lere çok benzerler. JavaScript işlemcilerinin
+			bazıları basit işaretler, bazıları da bir tür hazır fonksiyona benzeyen 
+			saklı sözcüklerdir. 
+		</p>
+		<p class="indent">
+			İşlemciler, işlenen (operand) adı verilen bilgi parçacıklarını yorumlar ve
+			onlara yeni anlamlar kazandırılar. <a 
+			href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			uyumlu Javascript programlama dilinde, 
+			tek işlenenli (unary) (tekli), çift işlenenli (binary)(çiftli) ve de bir tane 
+			üç işlenenli (tertiary) (üçlü) işlemci bulunur.
+			Bu işlemciler, aşağıda görülmektedir.
+		</p>
+		<div class="pl-200">
+			<table summary="İşlemciler" id="unary" width="60%" class="tablo1">
+			<caption class="captionred">
+					Tekli İşlemciler
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tr class="highline color1">
+					<th>
+							İşlemci
+					</th>
+					<th>
+							Adı
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>
+						delete
+					</td>
+					<td>
+						delete işlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						void
+					</td>
+					<td>
+						void (Boşluk) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						typeof
+					</td>
+					<td>
+						typeof İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						++
+					</td>
+					<td>
+						Arttırma (Increment) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+					--
+					</td>
+					<td>
+					Eksiltme (Decrement) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						+
+					</td>
+					<td>
+						Tekli Artı (Unary Plus) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						-
+					</td>
+					<td>
+						Tekli Eksi (Unary Minus) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						~
+					</td>
+					<td>
+						Bit Temelli Olumsuzluk (Bitwise NOT) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						!
+					</td>
+					<td>
+						Mantıksal Olumsuzluk (Logical NOT) İşlemcisi
+					</td>
+				</tr>
+			</table>
+			<p class="dikeyTab-10"></p>
+			<table summary="İkili İşlemciler" id="binary" class="tablo1" width="70%">
+			<caption class="captionred">
+					İkili İşlemciler
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tr class="highline color1">
+					<th>
+						<strong>İşlemci</strong>
+					</th>
+					<th>
+						<strong>Adı</strong>
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>Çarpım İşlemcileri</strong></em>
+					</td>
+					<td></td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						*				</td>
+					<td>
+						Çarpma İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						/
+					</td>
+					<td>
+						Bölme İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						%				</td>
+					<td>
+						Modulo (Kalan) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<p><em><strong>Toplam İşlemcileri</strong></em> </p>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						+
+					</td>
+					<td>
+						Toplama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						-				</td>
+					<td>
+						Çıkarma İşlemcisi				</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<p><em><strong>Bit Temelli İşlemciler</strong></em></p>
+					</td>
+					<td>
+						<p></p>	
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&lt;&lt;
+					</td>
+					<td>
+						Sola Kaydırma İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&gt;&gt;
+					</td>
+					<td>
+						İşaretli Sağa Kaydırma İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<p>
+							&gt;&gt;&gt;
+						</p>
+					</td>
+					<td>
+						İşaretsiz Sağa Kaydırma İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<p><em><strong>İlişkisel İşlemciler</strong></em></p>
+					</td>
+					<td>
+						<p>&nbsp;</p>
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&lt;
+					</td>
+					<td>
+						Küçüktür İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&gt;
+					</td>
+					<td>
+						Büyüktür İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&lt;= 
+					</td>
+					<td>
+						Küçüktür-veya-Eşittir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&gt;= 
+					</td>
+					<td>
+						Büyüktür-veya-Eşittir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<strong>Instanceof</strong>
+					</td>
+					<td>
+						Instanceof İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<strong>in</strong>
+					</td>
+					<td>
+						in İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>Eşitlik İşlemcileri</strong></em>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						==				
+					</td>
+					<td>
+						Değerle Eşittir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						!=	
+					</td>
+					<td>
+						Değerle Eşit Değildir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						===
+					</td>
+					<td>
+						Değer ve Tiple Eşittir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						!==
+					</td>
+					<td>
+						Değer ve Tiple Eşit Değildir İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>Bit Temelli İkili
+						İşlemciler</strong></em>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&amp;
+					</td>
+					<td>
+						Bit Temelli AND İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						^
+					</td>
+					<td>
+						Bit Temelli XOR İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						|				
+					</td>
+					<td>
+						Bit Temelli OR İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>Mantıksal İkili
+						İşlemciler</strong></em>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&amp;&amp;
+					</td>
+					<td>
+						Mantıksal AND İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						| |
+					</td>
+					<td>
+						Mantıksal OR İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>Atama İşlemcileri</strong></em>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						=
+					</td>
+					<td>
+						Basit Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						+=	
+					</td>
+					<td>
+						Bileşik Toplama Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						*=
+					</td>
+					<td>
+						Bileşik Çarpma Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						/=	
+					</td>
+					<td>
+						Bileşik Bölme Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						%=
+					</td>
+					<td>
+						Bileşik Modulo Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&amp;=
+					</td>
+					<td>
+						Bit Tabanlı Bileşik AND Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						^=				</td>
+					<td>
+						Bit Tabanlı Bileşik XOR Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						|=	
+					</td>
+					<td>
+						Bit Tabanlı Bileşik OR Atama İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&lt;&lt;=
+					</td>
+					<td>
+						Bit Tabanlı Bileşik Sola Kaydırıp Atama
+						İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&gt;&gt;=
+					</td>
+					<td>
+						Bit Tabanlı Bileşik Sağa Kaydırıp Atama
+						İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>&gt;&gt;&gt;=
+					</td>
+					<td>
+						Bit Tabanlı Bileşik İşaretli Sağa Kaydırıp
+						Atama İşlemcisi
+					</td>
+				</tr>
+		</table>
+		<p class="dikeyTab-10"></p>
+			<table  summary="Ternary Operator" id="ternary" class="tablo1" width="70%">
+			<caption class="captionred">
+					Üçlü İşlemci
+			</caption>
+				<tr class="highiline color1">
+					<th>
+						İşlemci
+					</th>
+					<th>
+						Adı
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>
+						?	
+					</td>
+					<td>
+						Üçlü Koşul İşlemcisi
+					</td>
+				</tr>
+			</table>
+			<p class="dikeyTab-10"></p>
+			<table summary="Special Operators" id="special" class="tablo1" width="70%">
+			<caption class="captionred">
+					Özel İşlevli İşlemciler
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tr class="highline color1">
+					<th> 
+						İşlemci
+					</th>
+					<th> 
+						Adı
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>
+						,
+					</td>
+					<td>
+						Virgül (Komma) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						()
+					</td>
+					<td>
+						Gruplama (Parantez) İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						new
+					</td>
+					<td>
+						new İşlemcisi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			Görüldüğü gibi, etkileyici sayıda işlemci
+			bulunmaktadır. Bunlar konular içinde 
+			teker teker tanıtılacaktır.		</p>
+		<p class="navy" id="order">
+			<strong>2.1.2.1 - JavaScript İşlemcilerinin İşlem Sıraları</strong>
+	</p>
+		<p class="indent">
+			JavaScript ifadelerinin hesaplanmaları sırasında, aşağıda
+			verilmiş olan işlem sırasına uyulur.
+		</p>
+		<div class="pl-200">
+			<table summary="Öncelik Sırası" id="" width="70%" class="tablo1">
+				<caption class="captionred">
+						JavaScript İşlemcilerinin Öncelik Sıraları <br />
+						(En yüksek Öncelik en Üstte) 
+				</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tr class="highline color1">
+					<th>
+						İşlemci
+					</th>
+					<th>
+						Adı
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>
+						. [] ()	
+					</td>
+					<td>
+						Alan Çağırma, dizi indeksleme, fonksiyon
+						çağrıları ve ifade gruplandırmaları
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						++ -- - ~ ! delete new typeof void
+					</td>
+					<td>
+						Tekli işlemciler, return veri tipi, nesne
+						oluşturulması, undefined değerler
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						* / %
+					</td>
+					<td>
+						Çarpma, bölme, Modulo (Kalan) bölmesi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						+ - +
+					</td>
+					<td>
+						Toplama, çıkartma, karakter dizgisi
+						birleştirilmesi (string concatenation)
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						<em><strong>&lt;&lt; &gt;&gt;
+						&gt;&gt;&gt;</strong></em>
+					</td>
+					<td>
+							Bit kaydırma
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							&lt; &lt;= &gt; &gt;= instanceof	
+					</td>
+					<td>
+							Küçüktür, küçük veya eşit, büyüktür, büyük veya
+							eşit, instanceof	
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							== != === !==
+					</td>
+					<td>
+							Eşitlik, eşitsizlik, kesin eşitlik, kesin
+							eşitsizlik
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&amp;
+					</td>
+					<td>
+							Bit temelli AND
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							^
+					</td>
+					<td>
+							Bit temelli XOR
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							|
+					</td>
+					<td>
+							Bit temelli OR
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						&amp;&amp;
+					</td>
+					<td>
+							Mantıksal AND
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							||
+					</td>
+					<td>
+							Mantıksal OR
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							?:
+					</td>
+					<td>
+							Üçlü koşul
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							=<em>OPERAND</em>=
+					</td>
+					<td>
+							Atama, işlemle birlikte atama,
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							,
+					</td>
+					<td>
+							Çoklu değerlendirme
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			JavaScript programlama dilinde, ifade sonuçlarının 
+			öngörülen yönde gelişmesinin sağlanabilmesi için, 
+			yukarıdaki tabloda belirtilen öncelik sıralarının 
+			büyük önemi vardır. Öncelik sıraları uygun olmazsa,
+			parantezler yardımı ile uygun hesaplama ifadeleri. 
+		oluşturulabilir. 
+		</p>
+		<p class="navy" id="comma">2.1.2.2 - <strong>Satırıçi Ardışık Çoklu İşlemler İşlemcisi (Virgül İşlemcisi)</strong>
+	</p>
+		<p class="indent">
+			İlk olarak inceleyeceğimiz bu işlemci sadece aynı satırdaki ifadeleri ardışık olarak çalıştırır. Sözdizimi,
+		</p>
+		<p class="indent">
+			<span class="str"><em>ifade1</em></span>
+			<span class="op">,</span>
+			<span class="str"><em>ifade2</em></span>
+			<span class="op">,</span>
+			<span class="keyw">...</span>		</p>
+		<p class="nonindent">
+			şeklindedir. Burada
+			<span class="str"><em>ifade1</em></span>
+			ve <em class="str">ifade2</em> her türlü
+			ifadeyi kapsar. Örnek:
+		</p>
+		<pre>
+		<span class="keyw">var</span> d <span 
+		class="op">=</span> 9<span 
+		class="op">,</span> p <span 
+		class="op">=</span> 4<span 
+		class="op">;</span>
+		</pre>
+		<p class="indent">
+			Bu işlemci, program yazımında büyük kolaylık 
+			sağlamaktadır.
+		</p>
+		<p class="subheading" id="bildirimler">2.1.3 - JavaScript Bildirimlerinin Tanıtımı 
+	</p>
+		<p class="indent">
+			Bildirimler, JavaScript yorumlayıcısına yapması gereken işlemleri
+			belirten komutlardır. <a 
+			href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+			uyumlu Javascript programlama dilinde kullanılan bildirimler
+			aşağıda görülmektedir :
+		</p>
+		<div class="pl-200">
+			<table summary="bildirimler" id="" width="70%" class="tablo1">
+				<caption class="captionred">
+						ECMA-362 Bildirimleri
+				</caption>
+					<colgroup>
+						<col class="st1" />
+						<col class="st1" />
+					</colgroup>
+					<tr class="highline color1">
+					<th>
+						İşlev
+					</th>
+					<th>
+						Bildirim
+					</th>
+				</tr>
+				<tr class="tbline">
+					<td>{}
+					</td>
+					<td>
+						Bloklama
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						var
+					</td>
+					<td>
+						Değişken Tanımlanması
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						;
+					</td>
+					<td>
+						Boş Bildirim
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						ifade
+					</td>
+					<td>
+						İfade
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						if ..else
+					</td>
+					<td>
+						Dallanma
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						do ..while
+					</td>
+					<td>
+						Döngü
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						while
+					</td>
+					<td>
+							Döngü
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						for
+					</td>
+					<td>
+							Döngü
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							for ..in
+					</td>
+					<td>
+							Döngü
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							continue
+					</td>
+					<td>
+							İterasyon	Atlama
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						break
+					</td>
+					<td>
+							Döngü	Sonu
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						function
+					</td>
+					<td>
+						Fonksiyon Bildirimi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						return
+					</td>
+					<td>
+						 Fonksiyon Sonucunun Döndürülmesi
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						with
+					</td>
+					<td>
+						Nesne İçi İşlem
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						switch ..case
+					</td>
+					<td>
+							Dallanma
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							Etiketli İfadeler
+					</td>
+					<td>
+							Dallanma
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						throw
+					</td>
+					<td>
+						Hata Oluşturma
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+						try ..catch
+					</td>
+					<td>
+						Hata Yakalama
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							try ..finally
+					</td>
+					<td>
+						Hata Yakalama
+					</td>
+				</tr>
+				<tr class="tbline">
+					<td>
+							try ..catch finally
+					</td>
+					<td>
+						Hata Yakalama
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="navy" id="empty"><strong>2.1.3.1 - Boş Bildirim(;)</strong>	</p>
+		<p class="indent">
+			JavaScript bildirimleri, JavaScript yorumlayıcısına çalıştırılacak 
+			program adımlarını bildirirler. İlk olarak inceleyeceğimiz bildirim
+			olan boş bildirim (<span class="op">;</span>) hiçbirşeyi çalıştırmayan
+			ve hiçbirşey yaptırmayan bir bildirimdir. Onun için, boş bildirim 
+			(empty statement) adı verilmiştir.
+		</p>
+		<p class="indent">
+			Boş bildirim programın her yerinde kullanılabilir ama, işlevsiz kullanımı
+			gereksizdir ve iyi bir programlama stili değildir. Boş bildirimin tek kullanım
+			yeri, bildirim sonunun belirtilmesidir. Bu da zorunlu değildir fakat, 
+			<a href="../ekler/ek2/ek2s1.html">Ek-2 de</a> verilmiş olan ve deneyimli programcıların
+			çoğunluğu tarafından uygulanan JavaScript Kodlama Konvansiyonu, her bildirimin 
+			mutlaka boş bildirim ile sonlandırılmasını gerekli kılmaktadır. Aynı konvansiyona göre, 
+			her satırda sadece tek bir bildirim olması ve bunun da bildirim sonlandırıcısı 
+			(boş bildirim) (noktalı virgül) ile bitirilmesi öngörülmüştür.
+		</p>
+		<p class="indent">
+			JavaScript bildirimleri, istenirse bildirim sonu belirtilmeden
+			alt satıra geçilerek de yazılabilirler. Bu durumda, JavaScript yorumlayıcısı
+			bildirim sonlandırıcısını bizim için bildirime ekleyecektir. Buna rağmen, 
+			Javascript bildirim sonlandırıcısı olan noktalı virgülün ihmal edilmesi iyi 
+			bir programlama tekniği değildir. Böyle bir ihmal ileride programın 
+			anlaşılmasını ve bakımını zorlaştırır. Ayrıca, noktalı virgülleri ihmal etmek, 
+			JavaScript yorumlayıcısının, program yazılımını yanlış olarak algılamasına da 
+			neden olabilir. Örnek
+		</p>
+		<pre>
+<span class="keyw-25">return</span>
+<span class="pl-25">a</span>
+		</pre>
+		<p class="nonindent">
+			satırlarını,  JavaScript yorumlayıcısı,
+		</p>
+		<pre>
+<span class="keyw-25">return</span><span 
+			class="op">;</span>
+<span class="pl-25">a</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde yorumlar. Aslında, büyük bir olasılıkla,
+		</p>
+		<pre>
+<span class="keyw-25">return</span>&nbsp;a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			bildirimi yapılmak istenmiş fakat JavaScript yorumlayıcısı, 
+			programcının amacı ile hiç ilgisi olmayan bir yorum yapmıştır. 
+			Bu durumda, Bildrimlerin sonuna noktalı virgüllerin konulması kuralına
+			kesinlikle uyulmalı ve JavaScript yorumlayıcısının noktalı virgülün 
+			yerini tahmin etmesine gerek bırakılmamalıdır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p>
+					<a href="../index.html"><em>« Indeks</em></a>
+				</p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p>
+					<a href="../b1/b1s6.html"><em>« Önceki</em></a>	
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p>
+					<a href="b2s2.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+	<script type="text/javascript" src="../js/lastmodified.js"> 
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:44 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

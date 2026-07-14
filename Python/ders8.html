@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders8.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:36 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders8.html">
+    <meta http-equiv="content-type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 8</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders7.html" 
+          shape="rect" coords="0,0,75,20" />
+          <area alt="" title="" href="ders9.html" 
+          shape="rect" coords="90,0,170,20" />
+        </map>
+      </p>
+      <p>
+        Ders 8
+      </p>
+    </div>
+    <p id="format" class="title-left verticalTab-10">
+      1.18 - Python Program Çıktılarının Biçimlendirilmesi (Formatlanması)
+    </p>
+    <p class="indent">
+      Python program çıktıları sadece print<span class="op">()</span> 
+      fonksiyonu ile sağlanırlar. Bu fonksiyon, çıktıları, basit 
+      kontrol karakterleri yanında, C programlama dilinin, prinf<span 
+      class="op">()</span> fonksiyonu ile aynı klasik biçimlendirme 
+      yönteminin yanı sıra, kendine özgü ve Python 2.7 sürümü 
+      ile başlayan bir modern biçimlendirme yöntemini de destekler. 
+      Bu kısımda, print<span class="op">()</span> fonksiyonunun 
+      her iki yeteneğini de inceleyecek ve uygulayacağız.
+    </p>
+    <p id="printf" class="subheading">
+      1.18.1 - Çıktıların printf() Tipi Biçimlendirilmesi
+    </p>
+    <p class="indent">
+      C programlama dilinin çıktılarını sağlayan printf<span 
+      class="op">()</span> fonksiyonu şeklinde biçimlendirme 
+      sistemi artık eski bir model olarak yürürlükten kalmak 
+      üzeredir. Yine de bir bilgi olarak bu yöntemin nasıl çalıştığını 
+      görmek yararlı olacaktır.
+    </p>
+    <p id="uyg1" class="indent">
+      Bu yöntemde % bir yer değiştirme karakteri olarak kullanılır 
+      ve s karakteri sözel, i karakteri tamsayı ve f karakteri 
+      bir ondalıklı sayı (float) verisini belirtmek için kullanılır. 
+      Blimsel verilerin belirtilmesi için e (exponent) karakteri 
+      kullanılır. Örnek olarak, 1.2f bir ondalıklı sayı verisinin 
+      tamsayıdan sonra iki hane ondalık olarak görüntüleneceğini 
+      belirtir. Bir ondalıklı sayı verinin %e olarak biçimlendirilmesi 
+      istenirse, aynen %1.5e gibi bir tamsayı dan sonra 5 hane 
+      ondalık ve kendi hesapladığı e üzeri gerekli sayı ile 
+      görüntüler. Aynı veri %1.3e ile biçimlendirilirse, bir 
+      tamsayı, üç ondalık ve e üzeri gerekli değer kendiliğinden 
+      hesaplanıp görüntülenir. Bu konuda açıklayıcı bir
+      <a href="uygulamalar/ders8/ders8program1.html">program</a> 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : ders8program1.py</span>
+
+<span class="comm"># Tek özel değer</span>
+
+sokak <span class="op">=</span> <span class="str">"Tavaşi Çeşme Sokak"</span><span 
+    class="op">;</span>
+print<span class="op">(</span><span class="str">"Bu sokağın ismi = %s dır."</span> %sokak<span 
+    class="op">);</span>
+    
+<span class="comm"># Birden çok sözel değer</span>
+
+semt <span class="op">=</span> <span class="str">'Piyer Loti Caddesi (Cağaloğlu)'</span><span 
+    class="op">;</span>
+print<span class="op">(</span><span class="str">'%s , %s üzerindedir.'</span> %<span 
+    class="op">(</span>sokak, semt<span class="op">));</span>
+<span class="comm">#Tek tamsayı veri</span>
+alan <span class="op">=</span> 3<span class="op">;</span>
+print<span class="op">(</span><span class="str">'Bu tarlanın alanı %i dönümdür'</span> %alan<span 
+    class="op">);</span>
+    
+<span class="comm"># Tek ondalıklı sayı veri</span>
+
+ds = 5.679395839267348
+print<span class="op">(</span><span class="str">'Değer = %1.2f'</span>%ds<span 
+    class="op">);</span>
+    
+<span class="comm">#Bilimsel Biçimlendirme</span>
+
+t<span class="op">=</span> .00067947699<span class="op">;</span>
+print<span class="op">(</span><span class="str">'Değer = %1.3e'</span> %t<span 
+    class="op">);</span>
+    
+<span class="comm">#Birden çok farklı tipte veri</span>
+
+q <span class="op">=</span> <span class="str">'Değer = '</span><span 
+    class="op">;</span>
+w <span class="op">=</span> 25.78<span class="op">;</span>
+print<span class="op">(</span><span class="str">'%s %1.1f dir.'</span> %<span 
+    class="op">(</span>q <span class="op">,</span> w<span 
+    class="op">));</span>    
+    </pre>
+    <p class="cursive-maroon">
+      Bu programın çıktısı:
+    </p>
+    <pre class="pl-25 cursive-green">
+Bu sokağın ismi = Tavaşi Çeşme Sokak dır.
+Tavaşi Çeşme Sokak , Piyer Loti Caddesi (Cağaloğlu) üzerindedir.
+Bu tarlanın alanı 3 dönümdür
+Değer = 5.68
+Değer = 6.795e-04
+Değer =  25.8 dir.    
+    </pre>
+    <p class="nonindent">
+      olarak gerçekleşmiştir.
+    </p>
+    <p class="indent">
+      Python print<span class="op">()</span> fonksiyonunda, 
+      mesajların yeni satıra yönlendirilmesi,
+      <span class="str">&quot;\nMesaj :&quot;</span> şeklinde 
+      yapılabildiği gibi,
+    </p>
+    <pre>
+<span class="str">&quot;&quot;&quot;
+Mesaj 1  : %s
+
+Mesaj 2  : %s
+&quot;&quot;&quot;</span> %<span class="op">(</span>değer1 , değer2</pre>
+    <p id="uyg2" class="nonindent">
+      şeklinde de yapılabilir. Oldukça pratik olan bu yöntemin 
+      bir <a href="uygulamalar/ders8/ders8program2.html">uygulaması</a> 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : ders8program2.py</span>
+
+değer1 <span class="op">=</span> 55<span class="op">;</span>
+
+değer2 <span class="op">=</span> 33<span class="op">;</span>
+
+print<span class="op">(</span><span class="str">"""Değer 1 :  %s
+Değer 2 :  %s"""</span> %<span class="op">(</span>değer1 , değer2<span 
+    class="op">));</span>
+
+<span class="cursive-maroon">Bu programın çıktısı:</span>
+
+<span class="cursive-green">
+Değer 1 :  55      
+Değer 2 :  33
+</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, eski yöntemle biçimlendirme ile, oldukça 
+      kolay bir şekilde çekici görüntülü çıktılar alınabilmektedir. 
+      Yine de bu artık eski bir biçimlendirme yöntemidir ve 
+      günümüzde kullanılmasının gereği yoktur. Bu nedenle, bu 
+      çalışmamızda çıktıların daha çok yeni yöntemle biçimlendirilmesine 
+      ağırlık vereceğiz.
+    </p>
+    <p id="modern" class="subheading">
+      1.18.2 - Python Çıktılarının Yeni Yöntemle Biçimlendirilmesi
+    </p>
+    <p class="indent">
+      Yeni Python biçimlendirme yöntemi, eskisine göre, daha 
+      etkili ve kullanışlıdır. Genel kullanımı
+    </p>
+    <pre>
+print<span class="op">(</span><span class="str">'Biçimlendirme'</span><span 
+    class="op">.</span>format<span class="op">(</span>Değer<span 
+    class="op">));</span></pre>
+    <p class="nonindent">
+      şeklindedir.
+    </p>
+    <p id="strformat" class="subsub">
+      1.18.2.1 - Yeni Yönteme Göre Sözel Verilerin Biçimlendirilmesi
+    </p>
+    <p class="indent">
+      Yeni yönteme göre sözel verilerin temel biçimlendirilmesi, 
+      aşağıdaki formata göre uygulanır.
+    </p>
+    <pre>
+print<span class="op">('</span><span class="str">Mesaj_1{}'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'sözel_veri_1'</span><span class="op">));</span></pre>
+    <p id="uyg3" class="indent">
+      Bu yöntem, aşağıdaki
+      <a href="uygulamalar/ders8/ders8program3.html">programda</a> 
+      uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+
+<span class="comm"># Program : ders8program3.py</span>
+    
+<span class="comm">#Temel Sözel Veri Biçimlendirilmesi</span>
+
+<span class="comm"># Veriler Biçimlendirilmiş Şekilleri ile Doğrudan Yazdırılabilir</span>
+
+print<span class="op">(</span><span class="str">'Mesaj_1{}'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'sözel_veri_1'</span><span class="op">));</span>
+    
+<span class="comm"># Bir Sözel Veri Değiştirilebilir</span>
+        
+s1 <span class="op">=</span> <span class="str">'Mesaj_1{}'</span>.format<span 
+    class="op">(</span><span class="str">'sözel_veri_1'</span><span 
+    class="op">);</span>
+    
+print<span class="op">(</span>s1<span class="op">);</span>
+
+<span class="comm"># Yeni Bir Biçimlenmiş Sözel Veri Oluşturulup Yazdırılabilir</span>
+
+s2 <span class="op">=</span> <span class="str">'Mesaj_1{}'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">' : sözel_veri_1'</span><span class="op">));</span>
+    
+print<span class="op">(</span>s2<span class="op">);</span>
+
+  
+<span class="cursive-maroon">Bu programın sonucu:</span>
+
+<span class="cursive-green">
+Mesaj_1sözel_veri_1
+Mesaj_1sözel_veri_1
+Mesaj_1 : sözel_veri_1
+</span></pre>
+    <p class="indent">
+      Yukarıdaki programdan çok sayıda bilgi alınabilir. Öncellikle, 
+      bu yeni biçimlendirme yönteminde değişim bölgesi, desenli 
+      parantez {} arasında belirtilmektedir. Desenli parantez 
+      ile belirtlen bölgede, format<span class="op">()</span> 
+      topluluğundaki(tuple) ilk eleman ile mesaj, sözel veri 
+      birleştirilmesi (string concatenation) ile birleştirilip 
+      tek bir biçimlendirilmiş sözel veri haline getirilerek 
+      görüntülendirilmektedir.
+    </p>
+    <p class="indent">
+      Python derleyicisi, değiştirilecek sözel verinin karakter 
+      sayısını kendiliğinden algılmakta ve mesaj ile birleştirildikten 
+      sonra oluşan biçimlenmiş sözel verinin toplam karakter 
+      uzunluğu mesaj<span class="op"> + </span>değiştirilecek 
+      sözel verinin toplam karakter sayısı olarak ve arada hiç 
+      boşluk kalmayacak şekilde, ilk çıktı satırında görüldüğü 
+      gibi görüntülendirilmektedir.
+    </p>
+    <p class="indent">
+      Biçimlendirilmenin, print<span class="op">()</span> fonksiyonu 
+      ile yazdırılma (görüntülenme) sırasında olması gereği 
+      yoktur. Programda görüldüğü gibi, biçimlendirilmiş bir 
+      sözel veri, bir tanıtıcının adresini tanımladığı bir bellek 
+      bölgesine yerleştirilip, programın ileri aşamalarında, 
+      bağımsız bir sözel veri olarak yararlanılabilir.
+    </p>
+    <p class="indent">
+      Biçimlendirme sonucunda oluşan biçimlenmiş sözel veride, 
+      mesaj ve değerin arada boşluk kalmayacak şekilde birleştirilmesi 
+      çok hoş bir görüntü vermeyecektir. Bunu biraz daha güzel 
+      görünümlü hale getirmek için, programda görüldüğü gibi 
+      biraz değişiklik yapılabilir. Olanaklar sonsuzdur ve programda 
+      uygulandığı gibi, araya bir boş karakter eklendikten sonra 
+      oluşturulan sonuç sözel verisininin görüntüsü, programın 
+      son çıktı satırında görülmektedir.
+    </p>
+    <p class="indent">
+      Değişim elemanlarının sanal bir sıralaması vardır ve bu 
+      sıralama 0 ınci elamandan başlayarak numaralandırılabilmektedir. 
+      Her bir değişim elemanı numarası, format<span 
+      class="op">()</span> metodunun sıfırdan başlayan argüman 
+      sırasına denk gelmektedir. Varsayılan sıra indisi 0 dır 
+      ve yukarıdaki programda olduğu gibi, eğer tek bir değişim 
+      elemanı sözkonusu ise, sıra numarası vermeye gerek kalmamaktadır.
+    </p>
+    <p class="indent">
+      Oluşacak biçimlenmiş sözel veride {} parantezlerin kullanımına 
+      gereksinme varsa, desenli parantezlarin kaçış karakterleri 
+      yine desenli parantezlerdir. Bu durumda, yer değiştirme 
+      işlemcisini çift desenli parantezler içinden yani {{{}}} 
+      şeklinde kullanmak gerekir. Örnek olarak
+    </p>
+    <pre>
+sözel_veri = <span class="str">'Katılanlar : {{{}}}'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'Ali Mert , Ahmet Cinanoğlu, Dario Benhabib'</span><span 
+    class="op">);</span>
+print<span class="op">(</span>sözel_veri<span class="op">);</span></pre>
+    <p class="nonindent">
+      programlama adımları, çıkış ortamına,
+    </p>
+    <pre class="cursive-green">
+Katılanlar : {Ali Mert , Ahmet Cinanoğlu, Dario Benhabib}</pre>
+    <p class="nonindent">
+      yazdıracaktır.
+    </p>
+    <p class="indent">
+      Eğer birden çok sözel veri yer değiştirecekse, bunun için 
+      kullanıcının kaygılanması gerekmez. Python derleyicisi, 
+      konumsal (pozisyonel) parametrelerin sırasını belleğinde 
+      tutar ve yer değiştirmeleri bu sıraya göre yapar. Örnek:
+    </p>
+    <pre>
+print<span class="op">(</span><span class="str">'{} ve {} en güzel çiçeklerdir.'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'Glayöl' </span><span class="op">,</span> <span 
+    class="str">'Gül'</span><span class="op">));</span></pre>
+    <p class="nonindent">
+      Bu program adımının sonunda, çıkış ortamına,
+    </p>
+    <pre class="cursive-green">
+Glayöl ve Gül en güzel çiçeklerdir.</pre>
+    <p class="nonindent">
+      yazılacaktır.
+    </p>
+    <p class="indent">
+      Konumsal parametreler yerine, değiştirme elemanlarının 
+      sıra numaraları da belirtilebilir. Değiştirme elemanları, 
+      format<span class="op">(</span>arg[0] , arg[1] ,arg[2] 
+      ...<span class="op">)</span> argümanlarıdır ve argüman 
+      sırası bilindiği gibi 0 sırasından başlar. Bu şekilde 
+      sonradan değiştirme sırasını değiştirmek istendiğinde, 
+      ifadenin yeniden yazılmasına gerek kalmaz. Örnek:
+    </p>
+    <pre>
+Ali <span class="op">=</span> <span class="str">&quot;Ali Koşar&quot;</span><span 
+    class="op">;</span>
+Veli <span class="op">=</span> <span class="str">'Veli Canatar'</span><span 
+    class="op">;</span>
+print<span class="op">(</span><span class="str">&quot;&quot;&quot;Bu maçta en iyi performans gösterenler : 
+1 - {0}
+2 - {1}
+olmuştur.&quot;&quot;&quot;</span><span class="op">.</span>format<span 
+    class="op">(</span>Ali <span class="op">,</span> Veli<span 
+    class="op">));</span>    
+    </pre>
+    <p class="indent">
+      Bu programın çalışması ile çıkış ortamına,
+    </p>
+    <pre class="cursive-green">
+Bu maçta en iyi performans gösterenler : 
+1 - Ali Koşar
+2 - Veli Canatar
+olmuştur.</pre>
+    <p class="nonindent">
+      yazılacaktır. İstendiğinde, yazdırma sırası değiştirilebilir 
+      ve ikinci eleman daha önce, birinci eleman ise ikinciden 
+      sonra yazdırılabilir. Böylece, oyuncuların gösterdikleri 
+      performans hakkında görüşler değişirse, programın yeniden 
+      yazılmasına gerek kalmaz.
+    </p>
+    <pre>
+print<span class="op">(</span><span class="str">&quot;&quot;&quot;Bu maçta en iyi performans gösterenler : 
+1 - {1}
+2 - {0}
+olmuştur.&quot;&quot;&quot;</span><span class="op">.</span>format<span 
+    class="op">(</span>Ali <span class="op">,</span> Veli<span 
+    class="op">));</span>    
+    </pre>
+    <p class="indent">
+      Bu programın çalışması ile çıkış ortamına,
+    </p>
+    <pre class="cursive-green">
+Bu maçta en iyi performans gösterenler : 
+1 - Veli Canatar
+2 - Ali Koşar
+olmuştur.</pre>
+    <p class="nonindent">
+      yazılacaktır.
+    </p>
+    <p class="indent">
+      Numaralandırılmış değişim parametreleri, değiştirilecek 
+      sözcüklerin tekrarlanabilmesini sağlar. Örnek olarak,
+    </p>
+    <pre>
+print<span class="op">(</span><span class="str">'Aslında {0} {0} sinemaya gitmek istemiyorum.'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'sabah'</span><span class="op">));</span></pre>
+    <p class="nonindent">
+      program adımı, standart çıktı ortamında,
+    </p>
+    <pre class="cursive-green">
+Aslında sabah sabah sinemaya gitmek istemiyorum.</pre>
+    <p class="nonindent">
+      mesajını görüntülendirir.
+    </p>
+    <p id="uyg4" class="indent">
+      Sıralama amacı ile sadece sayısal indisler degil, sözel 
+      indisler de kullanılabilir. Sözel indisler JavaScript 
+      ilişkisel diziler (associative arrays) veya Python sözlük 
+      tipi verilerin anahtar (key) değerlerine benzerler. Sözel 
+      indisler, aynen sayısal indisler gibi, değiştirilerecek 
+      olan terimlerin değişim sırasını belirler. Bu konuda bir
+      <a href="uygulamalar/ders8/ders8program4.html">örnek</a>, 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders8program4.py</span>
+
+print<span class="op">(</span><span class="str">'{Sufle} {masaya} {geldi} mi?'</span><span 
+    class="op">.</span>format<span class="op">(</span>Sufle <span 
+    class="op">=</span> <span class="str">'Paralar'</span> <span 
+    class="op">, </span>masaya <span class="op">=</span> <span 
+    class="str">'kasaya'</span> <span class="op">,</span> geldi <span 
+    class="op">=</span> <span class="str">'girdi'</span><span 
+    class="op">));</span>
+
+<span class="cursive-maroon">Program Sonucu :</span>    
+
+<span class="cursive-green">Paralar kasaya girdi mi?</span>
+    </pre>
+    <p class="indent">
+      Python derleyicisi değiştirilecek sözel değerlerin uzunluğunu 
+      otomatik olarak algıladığından genellikle değişecek sözel 
+      veri için mesaj kısmında yer açmak için özel bir çaba 
+      sarfedilmesi gerekmeyebilir. Özellikle, yer değişecek 
+      olan sözel veri, aşağıda görüldüğü gibi mesajın sonuna 
+      eklenecek ise,
+    </p>
+    <pre class="pl-25">
+print<span class="op">(</span><span class="str">'Ankaranın en sevdiğim yeri, {}'</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">'Anadolu Uygarlıkları Müzesidir.'</span><span 
+    class="op">));</span>
+    </pre>
+    <p class="indent">
+      eklenecek sözel verinin yerleşeceği yer için, önceden 
+      bir veri uzunluğu ayarlaması yapılması tam olarak gereksizdir. 
+      Bu durumda, Python derleyicisi, gerekli uzunlukta bir 
+      yer açacak ve eklenecek veriyi buraya sorunsuzca yerleştirecektir.
+    </p>
+    <p class="indent">
+      Buna rağmen, bazı durumlarda, daha güzel görünüşlü ve 
+      daha kolay okunabilecek çıktılar alabilmek için, yer değişecek 
+      verinin yerleşeceği yerin uzunluğunun önceden belirlenmesi 
+      gereği olabilir. Bunun için gerekli olanaklar sağlanmıştır.
+    </p>
+    <p id="uyg5" class="indent">
+      Değişecek veri için belirli karakter sayısı içeren bir 
+      yerleşme yeri hazırlanması için iki ayrı yöntem uygulanabilir. 
+      Bunlardan ilki, aşağıda görülen
+      <a href="uygulamalar/ders8/ders8program5.html">programda</a> 
+      uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders8program5.py</span>
+
+print<span class="op">(</span><span class="str">&quot;{0:30}{1:10}{2:5}{3:5}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&quot;Fasulye :&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;15&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;TL&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;(kilo)&quot;</span><span 
+    class="op">));</span>
+    
+print<span class="op">(</span><span class="str">&quot;{0:31}{1:9}{2:5}{3:5}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&quot;Kabak :&quot;</span><span class="op">,</span><span 
+    class="str"> &quot;5&quot;</span><span class="op">,</span><span 
+    class="str"> &quot;TL&quot;</span><span class="op">,</span><span 
+    class="str"> &quot;(kilo)&quot;</span><span class="op">));</span>
+
+<span class="cursive-maroon">Program Sonucu :</span>    
+
+<span class="cursive-green">
+Fasulye :                     15        TL   (kilo)
+Kabak :                        5        TL   (kilo)</span></pre>
+    <p class="indent">
+      Yukarıdaki programda yer değiştirme terimleri birer tek 
+      elemanlı sözlük tipleridir. Bunlar{anahtar:değer} şeklinde 
+      düzenlenmiştir. Anahtar değerleri değiştirilecek sözel 
+      değerlerin sıra numarasıdır. Değerler ise, değişecek sözel 
+      değerlerin yerleştirileceği karakter sayısıdır. 
+      Değişecek olan değerler, format<span class="op">(</span><span 
+    class="str">&quot;Fasulye :&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;15&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;TL&quot;</span><span 
+    class="op">,</span><span class="str"> &quot;(kilo)&quot;</span><span 
+    class="op">)</span>
+    
+      şeklinde bir topluluk (tuple) olarak 
+      yerleştirilmiştir. Bu değişeşecek değerler 
+      topluluğunun her elemanı, sözlük verilerinin anahtar 
+      değerleri olan indis sayıları ile belirtilmektedir. Değişecek 
+      değerler, sözlük verilerinin değeri olarak belirtilen karakter sayısı kadar geniş 
+      alana, varsayılan olarak sola yaslı şekilde görüntülenirler.
+    </p>
+    <p id="uyg6" class="indent">
+      Değişecek sözel değerleri belirli bir uzunluktaki alana 
+      yerleştirmek için, ikinci bir yöntem, aşağıdaki
+      <a href="uygulamalar/ders8/ders8program6.html">programda</a> 
+      uygulanmıştır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders8program6.py</span>
+
+print<span class="op">(</span><span class="str">&quot;Kadıköyden kalkan {0:{1}} vapuru {2:{3}} iskelesinden kalkar.&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span><span 
+    class="str">&quot;Adalar&quot;</span><span class="op">,</span> <span 
+    class="op">6 ,</span><span class="str">&quot;kendi&quot;</span><span 
+    class="op"> , 5));</span>
+    
+<span class="cursive-maroon">Program Sonucu :</span>
+    
+<span class="cursive-green">
+
+Kadıköyden Kadıköyden kalkan Adalar vapuru kendi iskelesinden kalkar.</span></pre>
+    <p class="indent">
+      Yer değiştirme kodlarının çok iyi anlaşılması gerekir. 
+      İlk önce, format<span class="op">()</span> şeklinde
+      tanımlanan parantez içi bir veriler bir topluluk
+      (tuple tipi ver olarak düşünülebilir. Bu topluluk,
+      <span class="op">(</span><span class="str">'Adalar'</span>
+      <span class="op">,</span> 6<span class="op">,</span> <span
+      class = "str">'kendi'</span><span class="op">,</span> 
+      5<span
+      class="op">)</span> şeklindedir. Bu topluluk tipi verinin,
+      ilk elemanı, indis değeri 0 olan <span class="str">'Adalar'</span>
+      değeridir. İkinci eleman, indis değeri 1 olan 6 sayısıdır.
+      Üçüncü eleman, indis değeri 2 olan, <span
+      class = "str">'kendi'</span> sözel değeridir. Dördüncü ve
+      son eleman, indis değeri 3 olan 5 sayısal değeridir. Bu topluluk,
+      içindeki veriler, ikili çiftler halinde sözlük tipi veriler
+      olarak da düşünülebilir. Bu durumda <span class="op">(</span>indis [0]: indis [1], indis [2]: indis [3]<span class="op">)</span>
+      şeklinde bir sanal sözlük yapılanmasını düşünebiliriz. Bu yapılanma,
+       her sözlük verisi gibi, sözel bir anahtar değeri: 
+      değer şeklinde organize olmuş gibidir. Dikkat edilirse 
+      topluluk elemanlarının anahtar olarak kullanılan indis 
+      değeri [0] ve [2] olan elamanları sözel değerlerdir Bu 
+      durumda, sanal sözlük
+      <span class="op">{</span><span class="str">'Adalar'</span><span 
+      class="op">:</span> 6 <span class="op">,</span>
+      <span class="str">'kendi'</span> <span class="op">:</span> 
+      5<span class="op">}</span> şeklinde düzenlenmiş olarak 
+      kabul edilebilir. Anahtar değerleri, yerleştirilecek 
+      olan sözel değerler, anahtar değerlerine karşı gelen 
+      veriler ise, anahtar değerlerinin&nbsp; 
+      yerleştirilecekleri alan uzunluğudur.</p>
+    <p class="indent">
+      Bu bilgilerle,</p>
+    <ul class="listNoMarker">
+      <li>{0:{{1}} anlamı : Yer değiştirecek sözel veri : format<span 
+      class="op">()</span> fonksiyonun argümanı olan, topluluk 
+      (tuple) tipi verinin indis değeri 0 olan ilk elemanı 
+      '<span class="str">Adalar'</span>, indis değeri 1 olan 
+      ve değeri 6 olan yerleştirilecek alan uzunluğunu 
+      belirten ikinci elemanı, </li>
+      <li>{2:{{3}} anlamı : Yer değiştirecek sözel veri : format<span 
+      class="op">()</span> fonksiyonun argümanı olan, topluluk 
+      (tuple) tipi verinin indis değeri 2 olan üçüncü elemanı, 
+      değeri <span class="str">'kendi'</span> (..,6,
+      <span class="str">&quot;kendi&quot;</span> , ...), 
+      yerleştirilecek alan uzunluğunu belirten, indis değeri 
+      3 olan dördüncü eleman, değeri 5 ,&nbsp; (...,...,..,5)</li>
+      <li>Görüldüğü gibi, program çıktısında, bu biçimlendirme 
+      kodları aynen uygulanmıştır.</li>
+    </ul>
+    <p id="uyg7" class="indent">
+      Belki en kolay anlaşılır biçimlendirme yöntemi, isimlendirme 
+      ile uygulanan ve aşağıdaki
+      <a href="uygulamalar/ders8/ders8program7.html">programda</a> 
+      uygulanan yöntem olabilir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders8program7.py</span>
+
+print<span class="op">(</span><span class="str">&quot;yiyecek : {yiyecek:{uzunluk}} Fiyat :{fiyat:{uzunluk1}} TL <span 
+    class="op">\</span>
+&quot;</span><span class="op">.</span>format<span 
+    class="op">(</span>yiyecek <span class="op">=</span> <span 
+    class="str">&quot;Fasulye&quot;</span><span class="op">,</span> uzunluk <span 
+    class="op">=</span> 20<span class="op">,</span> fiyat <span 
+    class="op">=</span> <span class="str">&quot;15&quot;</span> <span 
+    class="op">,</span> uzunluk1 <span class="op">=</span> 20<span 
+    class="op">));</span>
+
+<span class="cursive-maroon">Program Sonucu :</span>
+    
+<span class="cursive-green">
+yiyecek : Fasulye              Fiyat :15                   TL       </span></pre>
+    <p class="nonindent">
+      Yukarıda görülen biçimlendirme yöntemi, prensip olarak 
+      bir önceki yöntemle aynıdır. Buradaki fark sadece sayısal 
+      değil, sözel değişim indislerinin kullanılmış olmasıdır. 
+      Kullanılan sözel değişim indisleri, biçimlendirme yöntemini, 
+      daha kolay anlaşılır kılmaktadır.
+    </p>
+    <p class="nonindent">
+      Yukarıdaki programda, uzun olan bir sözel verinin görüntüsünü 
+      sayfanın görünür kısmında tutmak, yani kaydırma çubuğunun 
+      kullanılmasına gerek bırakmamak için, <span class="op">
+      \</span> kodunun kullanıldığı görülebilir. Programlarda, 
+      uzun olabilecek satırları bölmek için bu yöntem kullanılabilir. 
+      Bu şekilde, görüntü,
+    </p>
+    <pre class="pl-25">
+<span class="str">&quot;Bir sözel</span> <span class="op">\</span>
+<span class="str">verinin iki satırda gösterimi&quot;</span></pre>
+    <p class="nonindent">
+      şeklinde iki satıra yayılabilir. Burada sadece görüntü 
+      iki satıra yayılmıştır. Python derleyicisine göre, sözel 
+      veri hala,
+    </p>
+    <pre class="pl-25">
+<span class="str">&quot;Bir sözel verinin iki satırda gösterimi&quot;</span></pre>
+    <p class="nonindent">
+      şeklinde tek bir sözel veridir.
+    </p>
+    <p class="indent">
+      Bütün bu biçimlendirme sonuçlarından, göze güzel görünecek 
+      çıktıların alınabilmesi için, bazen değişecek elemanların 
+      yerleşme uzunluğunun önceden belirlenmesi yanında, yerleşecek 
+      elemanların yaslanma şekillerinin de önceden belirlendiği 
+      şekilde biçimlemeler yapılmasının yararlı olabileceği 
+      farkedilebilebir. Bu şekilde biçimlemelerin yapılabilmeleri 
+      için olanaklar sağlanmştır.
+    </p>
+    <p class="indent">
+      Değişecek elemanların, alan uzunlukları yanında, yaslanma 
+      şekilleri aşağıda görüldüğü gibi belirtilebilir.
+    </p>
+    <ul class="listNoMarker">
+      <li><span class="op">{</span>0<span class="op">,&lt;</span>20<span 
+      class="op">}</span> : sola yasla (varsayılan) (gerekli 
+      olmadıkça belirtilmesine gerek yoktur.)</li>
+      <li><span class="op">{</span>0<span class="op">,&gt;</span>20<span 
+      class="op">}</span> : sağa yasla</li>
+      <li><span class="op">{</span>0<span class="op">,^</span>20<span 
+      class="op">}</span> : ortala </li>
+    </ul>
+    <p id="uyg8" class="indent">
+      Görüldüğü gibi, yaslama şekilleri üzerine kullanıcının 
+      kontrolü de sağlanmıştır. Aşağıdaki
+      <a href="uygulamalar/ders8/ders8program8.html">programda</a>, 
+      bu konuda yapılmış olan bir uygulama görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders8program8.py</span>
+
+print<span class="op">(</span><span class="str">&quot;yiyecek : {yiyecek:{uzunluk}} Fiyat :{fiyat:&gt;{uzunluk1}} TL \
+&quot;</span>.format<span class="op">(</span>yiyecek <span 
+    class="op">=</span> <span class="str">&quot;Fasulye&quot;</span><span 
+    class="op">,</span> uzunluk <span class="op">=</span> 20, fiyat <span 
+    class="op">=</span> <span class="str">&quot;15.00&quot;</span> <span 
+    class="op">,</span> uzunluk1 <span class="op">=</span> 10<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;yiyecek : {yiyecek:{uzunluk}} Fiyat :{fiyat:&gt;{uzunluk1}} TL \
+&quot;</span>.format<span class="op">(</span>yiyecek <span 
+    class="op">=</span> <span class="str">&quot;Top Lahana&quot;</span><span 
+    class="op">,</span> uzunluk <span class="op">=</span> 20, fiyat <span 
+    class="op">=</span> <span class="str">&quot;7.25&quot;</span> <span 
+    class="op">,</span> uzunluk1 <span class="op">=</span> 10<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;yiyecek : {yiyecek:{uzunluk}} Fiyat :{fiyat:&gt;{uzunluk1}} TL \
+&quot;</span>.format<span class="op">(</span>yiyecek <span 
+    class="op">=</span> <span class="str">&quot;Marul&quot;</span><span 
+    class="op">,</span> uzunluk <span class="op">=</span> 20, fiyat <span 
+    class="op">=</span> <span class="str">&quot;2.75&quot;</span> <span 
+    class="op">,</span> uzunluk1 <span class="op">=</span> 10<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;{sub:_&gt;{uzunluk}}&quot;</span><span 
+    class="op">.</span>format<span class="op">(</span>sub <span 
+    class="op">=</span> <span class="str">&quot;&quot;</span><span 
+    class="op">,</span> uzunluk <span class="op">=</span> 51<span 
+    class="op">));</span>
+print<span class="op">(</span><span class="str">&quot;\n{toplam:*&lt;{uzunluk}}{fiyat:*&gt;{uzunluk1}} TL \
+&quot;</span><span class="op">.</span>format<span 
+    class="op">(</span>toplam <span class="op">=</span> <span 
+    class="str">&quot;Toplam : &quot;</span><span 
+    class="op">,</span> uzunluk <span class="op">=</span> 20<span 
+    class="op">,</span> fiyat <span class="op">=</span> <span 
+    class="str">&quot;25.00&quot;</span> <span class="op">,</span> uzunluk1 <span 
+    class="op">=</span> 28<span class="op">));
+</span>
+
+<span class="cursive-maroon">Program Sonucu :</span>
+    
+<span class="green">
+yiyecek : Fasulye              Fiyat :     15.00 TL 
+yiyecek : Top Lahana        Fiyat :      7.25 TL 
+yiyecek : Marul                 Fiyat :      2.75 TL 
+___________________________________________________
+
+Toplam : *********************25.00 TL </span></pre>
+    <p class="indent">
+      Yukarıdaki programın kodlarının dikkatle incelenmesi ile 
+      sözel verilerin, hizalamayı da içeren biçimlendirilmelerinin 
+      uygulamaları, kolaylıkla anlaşılabilecektir.
+    </p>
+    <p id="uyg9" class="indent">
+      Sözel veriler, bir format<span class="op">()</span> fonksiyonun 
+      kullanımı ile, bir biçimlendirme şablonu halinde uygulanabilir 
+      Bu şekilde bir
+      <a href="uygulamalar/ders8/ders8program9.html">uygulama</a> 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+
+<span class="comm"># Program : Ders8program9.py</span>
+
+elektronikPosta <span class="op">=</span> <span class="str">&quot; Elektronik posta adresim : {ePosta}&quot;</span><span 
+    class="op">.</span>format<span class="op">;</span>
+
+print<span class="op">(</span>elektronikPosta(ePosta <span 
+    class="op">=</span> <span class="str">&quot;bedri@bedriemir.com&quot;</span><span 
+    class="op">));</span>
+
+print<span class="op">(</span>elektronikPosta(ePosta <span 
+    class="op">=</span> <span class="str">&quot;bedriemir@gmail.com&quot;</span><span 
+    class="op">));</span>
+
+<span class="green">
+&quot;&quot;&quot;
+Program Sonucu :
+
+Elektronik posta adresim : bedri@bedriemir.com
+Elektronik posta adresim : bedriemir@gmail.com
+&quot;&quot;&quot;
+</span></pre>
+    <p class="indent">
+      Bu uygulama
+      <a href="http://mkaz.com/2012/10/10/python-string-format/">
+      Python String Format Cookbook</a> dan alınmıştır. Bu site de,
+      <a href="http://www.reddit.com/r/Python/comments/174e1i/python_string_format_cookbook/c82ot0h">reddit de</a>
+      earthboundkids tarafından gönderilen bir yorumdan
+      yararlanmış olduğunu belirtmiştir. Bu bir standart 
+      biçimlendirme değil, bir düzenlemedir. Her iki site de çok yararlı
+      Python bilgileri ve site bağlantıları içermektedir.
+    </p>
+    <p class ="subsubsub">
+        Bilgi Notu:
+    </p>
+    <p class ="indent">
+      Bu sayfa çok kullanışlı sözel veri biçimlendirme yöntemlerini
+      içermektedir. Bu sayfa bastırılıp saklanırsa, çok yararlı bir
+      biçimlendirme bilgi kaynağı olarak kullanılabilir.
+    </p>
+    <p class ="indent">
+      Sözel verilerin biçimlendirilmesi konusunda verilecek bilgiler
+      burada tamamlanmaktadır. Bir sonraki sayfada, sayısal bilgilerin
+      güncel yöntemle biçimlendirilmeleri incelenecektir.
+    </p> 
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders7.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders9.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders8.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:54 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

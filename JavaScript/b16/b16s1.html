@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:37 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b16/b16s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b16s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b15/b15s7.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b16s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 16
+		</p>
+		<p class="chapter">
+			Diske Erişim (JScript Özelliği- Sadece Internet Explorer-)
+		</p>
+		<p class="pagenum">
+			Bölüm 16 Sayfa 1
+	</p>
+    <p class="title-left" id="disk">
+      16.1 - JScript Diske Erişim Araçları
+    </p>
+    <p class="indent">
+      JavaScript programlama dili için, istemci bilgisayarında
+      disk dosyalarına erişim, istenmeyen bir
+      özellik sayılmıştır. Bunun nedeni, JavaScript
+      programlama dilinin bir script dili olması ve
+      JavaScript programlarının Web sayfaları ile tüm
+      dünyadaki bilgisayarlarda dolaşım olanağı
+      bulabilmesidir. Bu programlar, kullanıcılarının
+      bilgisayarlarında program çalıştırma olanağı
+      bulurlarsa durumun ne kadar sakıncalı olabileceği
+      düşünülebilir. Bu nedenle, JavaScript script
+      programlama dilini ilk tasarlayanlar, Javascript
+      programlarının kullanıcıların disklerine erişimini
+      hiç bir şekilde öngörmemişlerdir. Bugün için,
+      ECMA-262 de aynı görüşü korumaktadır.
+    </p>
+    <p class="indent">
+      Fakat günümüz teknolojisinde, JavaScript program dilinin
+      ulaştığı şekilde gelişmiş bir programlama dilinin, diske 
+      erişim yeteneği, yadsınamayacak bir gereksinmedir.
+      JavaScript günümüzde gelişkin bir programlama ortamı
+      haline gelmiştir, böyle bir programlama ortamının
+      verilerin diske kaydedilip okunmasından yoksun olması
+      aslında kabul edilemez bir eksikliktir. Bu olanağın
+      paranoyalara kurban edilmemesini düşünen Microsoft,
+      kendi JScript sürümünde ActiveX kontrolleri yardımı
+      ile, disk erişimini desteklemiştir. Standart
+      JavaScript dışındaki bu eklentiler, Internet Explorer
+      dişındaki belge çözümleyiciler tarafından
+      desteklenmemektedir. Yine de, dünyadaki tüm bilgisayarların
+      yüzde doksanbeşinde Internet Explorer kullanılmakta
+      olduğundan JavaScript programlarından diske erişim,
+      çok yaygın bir uygulama desteğine sahip olacaktır.
+      Buna rağmen, <span class="str">diske
+      erişimi öngören tüm JavaScript programları sadece
+      Internet Explorer ile çalışabilecektir.</span> Bu
+      uyarı daima gözönünde tutulmalıdır.
+    </p>
+    <p class="indent">
+      Windows işletim sistemi altında diske erişim olanağını
+      sağlayan Windows Scripting Host teknolojisi, tüm script
+      program dillerinin windows işletim sistemi öğelerine 
+      erişimini sağlayan gelişkin ve karmaşık bir yazılım sistemidir. 
+      JScript programlama dilinin diske erişim olanağını sağlayan 
+      elemanlar da bu geniş ve az tanınan teknolojinin bir parçasıdır.
+      Burda inceleyeceğimiz konular sadece JScript kullanlarak, disk 
+      dosyaların temel yönetimini sağlayacak kısıtlı sayıda metodu 
+      kapsayabilecektir. Bu bölümde Windows Scripting Host üzerinde
+      detaylı bir inceleme yapmak olanağı ne yazık ki bulunamayacaktır.
+      Bu konuda detaylı bilgiler Microsoft kaynaklarında bulunabilir.
+    </p>
+     <p class="indent">
+      Bu konuda ana aktör WSH Scripting teknolojisinin Scripting OLE
+      otomasyon nesnesidir. Bu çok geniş nesnenin sadece 
+      FileSystemObject nesnesinin Sözel Veri dosyaları (buna bazen Sözel Veri 
+      akımı adı da verilmektedir) ile ilgili metotlarının bir kısmını
+      inceleyebileceğiz.
+      
+    </p>
+     <p class="indent">
+      Jscript, dosyalama işlemlerini, bir ActiveX nesnesi
+      olan, Dosya Sistem Nesnesi yardımı ile yürütür. Dosya
+      Sistem Nesnesi, dosyaların yaratılması, okunması, yer
+      değiştirmesi, kopyalanması, silinmesi, veri
+      eklenmesi, veri düzeltilmesi işlemlerini
+      destekleyecek olanakları sağlamaktadır.
+    </p>
+    <p class="indent">
+      ActiveX nesneleri, istemci bilgisayarlara istenmeyen
+      yazılımlarının penetrasyona neden olabileceğinden,
+      güvenlik açısından sakıncalı sayılır. Bu nedenle istemci, 
+      yerel sunucu (localhost) üzerinden çalışmaları 
+      varsayılan olarak kapılı durumdadır. Bu denetimlerin açılması,
+      önemli bir güvenlik riskine neden olabileceğinden,
+      bu denetimlerin doğrudan sunucular üzerinde çalıştırılması
+      gerekir. İstemci sistemlerinde bu denetimlerin 
+      sanal sunucu (localhost) üzerinden değil, işletim sistemi
+      dosya sistemi üzerinden çalıştırılması sağlık verilir. Bunun
+      gerçekleştirilmesi için uygulanabilecek yollardan birisi,
+      Internet Explorer'in dosya menüsünün kullanılması ile 
+      programı içeren dosyanın açılmasıdır.
+    </p>
+    <p class="subheading" id="activeX">
+      16.1.1 - ActiveX Nesnesi
+      <span class="str">(JScript Özelliği
+      -Sadece Internet Explorer)</span>    
+  </p>
+    <p class="indent">
+      ActiveX nesnesi temel otomasyon nesnesine arabirim 
+      oluşturan bir nesnedir. Kullanımı :
+    </p>
+    <pre>
+<span class="pl-25"><span 
+      class="str"><em>yeniNesneÖrneği</em></span></span> <span 
+      class="op">=</span> <span 
+      class="keyw">new ActiveXObject</span><em><span 
+      class="comm"><span 
+      class="op">(</span>programKimliği : </span><span 
+      class="str"></span><span 
+      class="str">Karakter Dizgisi</span> <span 
+      class="comm">[ <span 
+      class="op">,</span> yer : </span><span 
+      class="str"></span><span 
+      class="str">Karakter Dizgisi</span> <span 
+      class="op">])</span></em> <span 
+      class="op">:</span> 
+    </pre>
+    <p class="indent">
+      Burada, 
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>
+      programKimliği</em></span> : (Gerekli) <span 
+      class="str">'Temel Ole Otomasyon
+      SuncusuAdı. TipAdı'</span> şeklinde bir karakter dizgisi. 
+      Temel Ole Otomasyon Sunucusu Excel gibi bir değer olabilir.
+      Dosyalama sistemlerinde, <span 
+      class="str">Scripting</span> nesnesi 
+      kullanılacaktır. TipAdı dosyalama sistemlerinde, 
+      <span class="str">FileSystemObject</span> olacaktır.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>
+      yer</em></span> :  (İsteğe bağlı) Uzak sunucu adı.
+    </p>
+    <p class="indent">
+      ActiveX nesnesinin kendine özgü özellik ve metotları yoktur.
+      Sadece OLE otomasyon nesnesinin metot ve özelliklerine erişim 
+      sağlar. Kullanım Örneği :
+    </p>
+    <pre>
+<span class="pl-25">dosyaSistemNesnesi</span> <span 
+      class="op">=</span> <span 
+      class="keyw">new ActiveXObject</span><span 
+      class="op">(</span><span 
+      class="str">'Scripting</span><span 
+      class="op">.</span><span 
+      class="str">FileSytemObject'</span><span 
+      class="op">);</span>
+    </pre>
+    <p class="subheading" id="filesystemobject">
+      16.1.2 - Dosya Sistem Nesnesi (FileSystemObject)
+      <span class="str">(JScript Özelliği
+      -Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      Dosya Sistem Nesnesi, bir ActiveX nesnesidir. Bir
+      Dosya Sistem Nesnesi aşağıdaki gibi çağrılabilir:
+    </p>
+    <p class="indent">
+      dosyaSistemNesnesi <span class="op">=</span> 
+      <span class="keyw">new ActiveXObject</span><span 
+      class="op">(</span><span 
+      class="str">'Scripting.FileSystemObject'</span><span 
+      class="op">); </span>Dosya Sistem Nesnesi Windows 
+      dosya sistemi ile ilgili birçok nesneye erişim sağlar Bu nesneler 
+      ve koleksiyonlar aşağıda görülmektedir
+    </p>
+		<div class="pl-300">
+			<table class="tablo1">
+				<caption class="captionred">Dosya Sistem Nesnesi</caption>
+				<colgroup>
+					<col class="st1" />
+					<col class="st1" />
+				</colgroup>
+				<tbody>
+					<tr class="highline1 color4">
+						<th>Nesne/Koleksiyon</th>
+						<th>Tanım</th>
+					</tr>
+					<tr class="tbline">
+						<td>FileSystemObject</td>
+						<td>
+							Temel Nesne. Dosyalama sistemi ile ilgili
+							birçok özgün metot ve özellik içerir. 
+						</td>
+					</tr class="tbline">
+					<tr>
+						<td>Drive</td>
+						<td>
+							Nesne. Sisteme bağlı diskler ile ilgili birçok 
+							metot ve özellik içerir. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>File</td>
+						<td>
+							Nesne. Dosyalar ile ilgili
+							birçok özgün metot ve özellik içerir. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>Folder</td>
+						<td>
+							Nesne. Klasörlerle ilgili
+							birçok özgün metot ve özellik içerir. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>TextStream</td>
+						<td>
+							Nesne. Dosyalara sözel verilerin yazılması,
+							eklenmesi, silinmesi, dosyaların açılması, kapanması
+							ile ilgili birçok özgün metot ve özellik içerir. 
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>Drives</td>
+						<td>
+							Koleksiyon. Sisteme bağlı disklerin listesini verir.
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>Folders</td>
+						<td>
+							Koleksiyon. Bir klasör içindeki tüm alt klasörlerin 
+							listesini verir.
+						</td>
+					</tr>
+					<tr class="tbline">
+						<td>Files</td>
+						<td>
+							Koleksiyon. Bir klasör içindeki tüm dosyaların
+							listesini verir.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+    <p class="indent">
+      Yukarıdaki tablodan görüldüğü gibi, <span 
+      class="keyw">FileSystemObject</span> ve ilgili 
+      nesneler, dosyalama sistemi ile ilgili çok geniş 
+      bir yazılım sistemidir. Ne yazık ki , günümüzde 
+      bu yazılımı sadece Windows İşletim SistemiI 
+      altında çalışabilen Internet Explorer belge 
+      çözümleyicisi desteklemektedir.
+    </p>
+    <p class="indent">
+      <span class="keyw">FileSystemObject</span> 
+      yazılımı çok geniş olduğundan, bu bölümde 
+      sadece sözel verilerin dosyalanması ile 
+      ilgili kısıtlı sayıda metot ve özellik incelenebilecektir.
+      Burada incelenemeyen yöntemler için 
+      Microsoft kaynaklarından bilgi edinilebilir.
+    </p>
+    <p class="indent">
+      <span class="keyw">FileSystemObject</span> Nesnesinin
+      özgün metotları bazen bu konu ilgili diğer nesnelerin 
+      metotları ile aynı işlevi yapmaktadır. Bu durumda, 
+      kullanıcılar bu metotlar arasından birisini seçebilirler. 
+    </p>
+    <p class="indent">
+      <span class="keyw">FileSystemObject</span> Nesnesi
+      ile ilgili nesnelerin birçok metodu poliformik metotlardır. 
+      Aynı metot, birçok nesne ile çalışabilmektedir.
+    </p>
+    <p class="indent">
+      <span class="keyw">FileSystemObject</span> Nesnesi
+      ile ilgili nesne ve koleksiyonlar, bu nesnenin ne alt nesnesi,
+      ne de özelliğidirler. Bu nesneler farklı nesneler olmalarına
+      karşın, bunlara sadece <span class="keyw">FileSystemObject</span>
+      nesnesi aracılığı ile ulaşılabilinir. Bu nesnelere erişim, 
+      klasik nesne.özellik yöntemi ile değil, aşılmadık bir şekilde, 
+      sadece <span class="keyw">FileSystemObject</span> nesnesinin
+      metotları çağrıldığında geri döndürülen değerler olarak gerçekleşir.
+      Bu sıradışı erişim yöntemi iyi anlaşıldığında, sözel verilerin 
+      dosyalama yöntemleri de kolayca yönetilebilir.
+    </p>
+    <p class="indent">
+      <span class="keyw">FileSystemObject</span> Nesnesinin
+      çok sayıda özelliğ bulunmaktadır. Bu özellikler, bu bölümde 
+      kullanılmayacağından tüm özellik listesi ve bilgilerin Microsoft 
+      kaynaklarından okunması gerekmektedir. Aynı şekilde, <span 
+      class="keyw">FileSystemObject</span> Nesnesinin,dosya 
+      sistemleri ile ilgili aşağıda belirtilen çok sayıda metodu da 
+      bulunmaktadır. 
+    </p>
+    <div class="pl-50">
+      <p class="nonindent">
+         <span 
+      class="keyw">BuildPath</span> Metodu ,  <span 
+      class="keyw">CopyFile</span> Metodu ,  <span 
+      class="keyw">CopyFolder</span> Metodu <br />
+        <span class="keyw">CreateFolder</span> Metodu , <span 
+      class="keyw"> CreateTextFile</span> Metodu ,  <span 
+      class="keyw">DeleteFile</span> Metodu <br />
+      <span class="keyw">DeleteFolder</span> Metodu ,  <span 
+      class="keyw">DriveExists</span> Metodu ,  <span 
+      class="keyw">FileExists</span> Metodu <br />
+         <span class="keyw">FolderExists</span> Metodu ,  <span 
+      class="keyw">GetAbsolutePathName</span> Metodu ,  <span 
+      class="keyw">GetBaseName</span> Metodu <br />
+      <span class="keyw">GetDrive</span> Metodu ,  <span 
+      class="keyw">GetDriveName</span> Metodu ,  <span 
+      class="keyw">GetExtensionName</span> Metodu <br />
+      <span class="keyw">GetFile Metodu</span> , <span 
+      class="keyw">GetFileName</span> Metodu , <span 
+      class="keyw">GetFolder</span> Metodu <br />
+      <span class="keyw">GetParentFolderName</span> Metodu , <span 
+      class="keyw">GetSpecialFolder</span> Metodu <br />
+      <span class="keyw">GetTempName </span> Metodu , <span 
+      class="keyw">MoveFile</span> Metodu , <span 
+      class="keyw">MoveFolder</span> Metodu <br />
+      <span class="keyw">OpenTextFile</span> Metodu 
+      </p>
+    </div>
+    <p class="nonindent">
+      Bu metotların tümü ,dosyalama sistemi kullanacak 
+      projeler için çok önemlidir. Bu metotlar çok geniş bir 
+      bilgi spektrumunu kapsadığından, Burada 
+      sadece <span class="keyw">FileSystemObject</span> nesnesinden
+      yararlanılarak boş metin dosyalarının yaratılması ile ilgili olan
+      <span class="keyw">CreateTextFile</span>,
+      <span class="keyw">OpenTextFile</span> ve 
+      <span class="keyw">GetFile</span> metotları incelenecektir. 
+      Bu metotlar, bir <span class="keyw">FileSystemObject</span>
+      sınıfı nesne örneğine uygulandığında, ilk ikisi, geriye bir 
+      <span class="keyw">TextStreamObject</span> (sözel veri akımı) nesnesi 
+      döndürürler. Sonuncusu ise bir <span class="keyw">File</span> nesnesi 
+      döndürür.
+    </p>
+    <p class="subsub" id="createtextfile">
+      16.1.2.1 - CreateTextFile() Metodu
+      <span class="str">(JScript Özelliği
+      -Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      Bu metod, diskte yeni bir dosya açar ve dosyaya yazılıp
+      okunmaya olanak veren bir Sözel Veri akımı (text stream)
+      açar. Kullanılışı,
+    </p>
+    <p class="indent">
+      <span class="str"><em>dosyaSistemNesnesi</em></span>
+      <span class="op">.</span>
+      <span class="keyw">CreateTextFile(</span>
+      <span class="comm"><em>dosyaadı</em>[
+      <strong>,</strong>
+      <em>üstüneyazma</em>[<strong>,</strong>
+      <em>unicode</em>]]</span>
+      <span class="keyw">)</span>
+    </p>
+    <p class="nonindent">
+      Burada ,
+    </p>
+    <p class="nonindent">
+      <em class="str">dosyaSistemNesnesi</em> : Gerekli.
+      Bir Dosya Sistem Nesnesi.   </p>
+    <p class="nonindent">
+      <span class="comm"><em>dosyaadı</em></span>
+      : URI bilgisi+Oluşturulacak yeni dosyanın adı
+      şeklinde açılacak dosyayı tanımlayan bir karakter
+      dizgisi (örnek :<span 
+       class="str">'f:/sites/bilgi.data'</span>)
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>üstüneyazma</em></span>
+      : İsteğe bağlı mantıksal bir değer. Bu değer,
+      <span class="keyw">true</span> ise
+      üstüne yazabilir. Yani aynı ad ile eski bir dosya
+      varsa eski dosya silinerek aynı adla yeni bir dosya açılır.
+      <span class="str"><strong>(Dikkat eski
+      dosyanın içindeki tüm veriler kaybolur
+      !)</strong></span>,
+      <span class="keyw">false</span> ise
+      üstüne yazılmaz, yani aynı adla yeni bir dosya
+      açılmaz ve bir hata oluşur (bir kuraldışılık
+      fırlatılır), eğer uygun bir prosedürle hata
+      yakalanması yapılmazsa, program bir hata mesajı ile
+      kesilir. Bu bilgi verilmez ise değeri
+      <span class="keyw">false</span>
+      varsayılır.
+    </p>
+    <p class="nonindent">
+      <em class="comm">unicode</em> : İsteğe
+      bağlı mantıksal bir değer. Bu değer,
+      <span class="keyw">true</span> ise dosya
+      içeriğinin kodlaması Unicode (UTF-16 Little Endian) olacak,
+      <span class="keyw">false</span> ise veya
+      hiç belirtilmemişse, ASCII kodlaması olacaktır.
+      <strong class="str">Türkçe karakterlerin
+      desteklenmesi için, dosyaların Unicode modunda
+      açılması gerekmektedir.</strong>
+    </p>
+    <p class="indent" id="dosyaYarat">
+      <span class="keyw">CreateTextFile</span>
+      metodu, <span class="keyw">FileSystemObject</span> nesnesinin
+      boş bir Sözel Veri dosyası açılması amacı ile kullanılabilecek bir 
+      metodudur. Bu metodun 
+      bir uygulaması,
+      JScript kısmı aşağıda görülen <a href="../uygulamalar/dosyaYarat.html">dosyaYarat.htm</a>
+      programı ile gerçekleştirilmiştir.
+    </p>
+    <pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> dosyaYarat<span 
+class="op">() {</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri1 <span 
+			class="op">=</span> <span 
+			class="str">'f:/sites/opus/veriler/bdeDosya1.txt'</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span>dosyaVarsaÜstüneYazma <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya1 <span 
+			class="op">=</span> dosyaSistemNesnesi.<span 
+			class="keyw">CreateTextFile(</span>dosyaYeri1<span 
+			class="op">,</span> dosyaVarsaÜstüneYazma<span 
+			class="op">,</span> Unicode<span 
+			class="keyw">)</span><span 
+			class="op">;</span><span class="op-50">}</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya1) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri1 <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Yaratıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">' DosyaYaratıldı !'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+    <p class="indent" id="dosyaYaratInteraktif">
+    Bu program interaktif olarak yeniden 
+    <a href="../uygulamalar/dosyaYaratInteraktif.html">düzenlenmiştir.</a>
+    </p>
+    <pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> dosyaYarat<span 
+class="op">() {</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri1 <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri1'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaVarsaÜstüneYazma <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya1<span 
+			class="op">=</span>dosyaSistemNesnesi.<span 
+			class="keyw">CreateTextFile(</span>dosyaYeri1<span 
+			class="op">, </span>dosyaVarsaÜstüneYazma<span 
+			class="op">,</span> Unicode<span 
+			class="keyw">)</span><span 
+			class="op">;
+</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya1) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri1 <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Yaratıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYaratıldı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yarat'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> dosyaYarat;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+    <p class="indent">
+      Yukarıdaki programda, açılacak dosyanın diskteki yeri ve 
+      dosyanın ilk içeriği, sayfanın form kısmında kullanıcı etkileşimi
+      olarak girilir. Sayfanın script kısmı ilk olarak bir
+      Dosya Sistem nesnesi açar. Bundan sonra, girilmiş
+      verilerin yardımı ile yeni bir Sözel Veri dosyası açılır.
+      Açılacak dosya, belirtilen klasörde daha önce aynı
+      ad ile eski bir dosya olmaması koşulu ile açılacak,
+      aksi halde hata oluşacaktır. Açılacak dosya, Türkçe
+      karakterlerin de desteklenebilmesi amacı ile Unicode
+      olarak açılacaktır. Dosyanın yerini belirten dosya
+      URI bilgisi, UNIX notasyonunda ve
+      <span class="str"><strong>mutlak bir dosya URI bilgisi 
+      olarak kullanılmıştır</strong></span>. Dosya yeri göreli
+      olarak bildirilememektedir. Eğer hiçbir klasör yeri
+      belirtilmeden dosya ismi verilirse, dosya masaüstünde
+      açılır.
+    </p>
+     <p class="indent" id="dosyaYarat">
+      Dosyalarla çalışılırken, sayfalar, yerel sanal sunucu (localhost)
+      üzerinden değil, doğudan Internet Explorer'in file menüsü 
+      yardımı ile açılmalıdır. Yerel sanal sanal sunucular ActiveX
+      denetimlerini güvenlik nedeni ile engelleyebilirler.
+  </p><p class="indent" id="dosyaYaratInteraktif">
+      Dosya işlemi tamamlandığında dosyanın kapatıldığına
+      dikkat edilmelidir. Yukarıdaki standart program,
+      <a href="../uygulamalar/dosyaYarat.html">dosyaYarat.htm</a>, 
+      interaktif olanı da,
+      <a href="../uygulamalar/dosyaYaratInteraktif.html">dosyaYaratInteraktif.htm</a>
+      olarak kullanılabilir. Her iki program da çok kullanışlı  programlardır 
+      Bu programların boş olarak açtığı Sözel Veri dosyaları, ileride 
+      Sözel Veri akımı nesnesi metotlarından yararlanılarak 
+      her türlü verinin yazılabileceği, silinebileceği veya
+      değiştirilebileceği, türkçe karakterleri destekleyen 
+      disk dosyalarıdır.
+    </p>
+     <p class="indent">
+      Yukarıdaki dosya yaratma programları , güvenlik açısından
+      salt yeni dosya açabilecek şekilde düzenlenmiştir. Diskte aynı
+      adla eski bir dosya varsa, program hata vererek duracaktır.
+      Bunun nedeni, eğer eski dosya yeniden yaratılırsa içeriğinin
+      tamamı ile kaybolacağıdır. Eğer istenilen kesinlikle bu ise, 
+      eski dosya işletim sisteminin dosya yöntecisi veya DOS 
+      komutları yardımı ile silinmeli, daha sonra yukarıdaki 
+      programlardan birinin kullanılması ile yeniden boş içerikle
+      yeniden yaratılmalıdır.
+      
+    </p>
+     <p class="subsub" id="opentextfile">
+      16.1.2.2 - OpenTextFile() Metodu
+      <span class="str">(JScript Özelliği
+      -Sadece Internet Explorer)</span>
+  </p>
+     <p class="indent">
+      <span class="keyw">OpenTextFile</span>
+      Metodu Dosya Sistem Nesnesinin boş Sözel Veri dosyaları 
+      açılması için kullanılabilecek , ikinci önemli
+      metodudur. Bu metod, yeni bir dosya oluşturabildiği
+      gibi, var olan bir dosyayı da içeriğinin okunması
+      veya yeni veri eklenmesi amacı ile açabilir. Yani son
+      derece geniş kapsamlı bir kullanım alanı
+      bulunmaktadır. Yazılımı,
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><strong>
+      .</strong><span class="keyw">OpenTextFile</span>(
+      <span class="comm"><em>dosyaadı</em>[<strong>
+      ,</strong> <em>giriş/çıkış yöntemi</em>
+      [<strong>,</strong> <em>yarat</em>[<strong>,</strong>
+      <em>biçim</em>]]]</span><span class="keyw">
+      )</span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <span class="str">nesne</span> :
+      Gerekli. Bir Dosya Sistem Nesnesi.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>dosyaadı</em></span>
+      : Gerekli. URI bilgisi+Oluşturulacak yeni dosyanın
+      adı şeklinde açılacak dosyayı tanımlayan bir karakter
+      dizgisi.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>giriş/çıkış
+      yöntemi</em></span> : İsteğe bağlı. Değeri 1,2 veya 8
+      olabilen bir sabit sayı. İlk sabit
+      <strong><span class="str">saltokunur</span></strong>,
+      ikinci sabit
+      <span class="str"><strong>yazma</strong></span>,
+      üçüncü sabit
+      <span class="str"><strong>ekleme</strong></span>
+      yönteminin uygulanacağını belirtir.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>yarat</em></span>
+      : İsteğe bağlı. Mantıksal bir değer. Eğer
+      <span class="keyw">true</span> ise,
+      açılacak dosya yoksa, aynı adla yeni bir dosya
+      açılır. Eğer
+      <span class="keyw">false</span> ise,
+      açılacak dosya yoksa bir kuraldışılık oluşur ve uygun
+      bir yöntemle yakalanmazsa, program hata mesajı ile
+      kesilir. Varsayılan değer
+      <span class="keyw">false</span>
+      değeridir.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>biçim</em></span>
+      : İsteğe bağlı. Üç tane Tristate değerlerinden
+      birisi, İlki
+      <span class="str"><strong>TristateTrue</strong></span>
+      değeri olan
+      <span class="str"><strong>-1</strong></span>,
+      bu değer dosyayı Unicode olarak açar. İkincisi
+      <span class="str"><strong>TristateFalse</strong></span>
+      değeri olan
+      <span class="str"><strong>0</strong></span>,
+      bu değer dosyayı ASCII olarak açar. Üçüncüsü
+      <span class="str"><strong>TristateUseDefault</strong></span>
+      değeri olan
+      <span class="str">-<strong>2</strong></span>,
+      varsayılan karakter kodlama yönteminin
+      kullanılacağını belirtir.
+    </p>
+    <p class="indent" id="yeniDosya">
+      <span class="keyw">OpenTextFile</span>
+      metodunun, yeni bir veri dosyası amacı ile
+      kullanıldığı bir uygulama
+      <a href="../uygulamalar/yeniDosya.html">yenidosya.htm</a>
+      programı olarak kaydedilmiştir. Bu program bir önceki
+      <a href="../uygulamalar/dosyaYarat.html">dosyayarat.htm</a>
+      programı ile benzer bir kullanıcı etkileşim
+      mekanizmasını paylaşır. Script kısmı aşağıda
+      görülmektedir.
+    </p>
+    <pre>
+<span class="comm">/* &lt;![CDATA[  */  </span>
+
+<span class="keyw-25">function</span> yeniDosya<span 
+class="op">() {</span>
+
+<span class="keyw-50">var</span> varsayılan <span 
+			class="op">=</span> -2<span 
+			class="op">,</span> Unicode <span 
+			class="op">=</span> -1<span 
+			class="op">,</span> ASCII <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltOkunur <span 
+			class="op">=</span> 1<span 
+			class="op"> ,</span> okunurYazılır <span 
+			class="op">=</span>2<span 
+			class="op">,</span> ekleme <span 
+			class="op">=</span> 8<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosyaSistemNesnesi <span 
+			class="op">=</span> <span 
+			class="keyw">new ActiveXObject</span><span 
+			class="op">(</span><span 
+			class="str">'Scripting.FileSystemObject'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> dosyaYeri1 <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'dosyaYeri1'</span><span 
+			class="op">).</span><span 
+			class="keyw">value</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> saltEskiDosya <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">,</span> dosyaYoksaYarat <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+<span class="keyw-50">var</span> dosya1<span 
+			class="op">= </span>dosyaSistemNesnesi.<span 
+			class="keyw">OpenTextFile(</span>dosyaYeri1<span 
+			class="op">, </span>okunurYazılır<span 
+			class="op">, </span>dosyaYoksaYarat<span 
+			class="op">,</span> Unicode<span 
+			class="keyw">)</span><span 
+			class="op">;
+</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(dosya1) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span>dosyaYeri1 <span 
+			class="op">+</span> <span 
+			class="str">'Dosyası Yaratıldı !'</span><span 
+			class="op">,</span> <span 
+			class="str">'dosyaYaratıldı'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yarat'</span><span 
+			class="op">);</span>
+<span class="pl-50">a<span 
+			class="op">.</span><span 
+			class="keyw">onclick</span> <span 
+			class="op">=</span> yeniDosya;
+<span class="op-25">}</span>
+</span>
+sayfaYüklendiktenSonraÇalıştır(başlat);
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+    <p class="indent">
+      Bu programda kullanılan<span class="keyw">OpenTextFile</span> 
+      metodu, sadece yeni bir dosya açmak için değil, var olan
+      bir dosyanın açılması ve yeni verilerin kaydedilmesiçin de kullanılabilir. 
+      Bu da, salt yeni bir boş dosya açılmasının istendiği durumlarda, yanlışlıkla
+      içinde veri bulunan dosyalar yaratılmasına neden olabilir. Sadece boş başlangıç
+      dosyalarının açılması istenilen durumlarda, <span class="keyw">CreateTextFile</span>
+       metodunun kullanılması daha güvenli olacaktır.
+    </p>
+    <p class="subsub" id="getFile">
+       16.1.2.3 - getFile() Metodu <span 
+       class="str">(JScript Özelliği -Sadece Internet Explorer)</span>
+    </p>
+    <p class="indent">
+      <span class="keyw">getFile()</span> Metodu geriye bir 
+      <span class="keyw">File</span> nesnesi döndürür. Bu 
+      durumda, metodu çağıran yer tutucu, bir <span 
+      class="keyw">File</span> (dosya) nesnesi örneğine dönüşür ve
+      bu nesnenin metotlarını kullanabilir. Bu metotlar aşağıda
+      açıklanmaktadır.
+    </p>
+    <p class="subheading" id="File">
+      16.1.3 - File Nesnesi <span class="str">(JScript Özelliği -Sadece Internet
+      Explorer)</span> 
+  </p>
+    <p class="indent">
+      <span class="keyw">File</span> Nesnesine 
+      <span class="keyw">FileSystemObject</span> nesnesinin
+      metotları yardımı ile erişilir. 
+    </p>
+    <pre>
+<span class="keyw-25">...</span>
+<span class="keyw-25">var</span> dosyaSistemNesnesi <span 
+      class="op">=</span> <span 
+      class="keyw">new ActiveXObject</span><span 
+      class="op">(</span><span 
+      class="str">'Scripting.FileSystemObject'</span><span 
+      class="op">);
+</span><span class="keyw-25">var</span> dosyaNesnesi <span 
+      class="op">=</span> dosyaSistemNesnesi<span 
+      class="op">.</span><span 
+      class="keyw">getFile</span><span 
+      class="op">(</span><span 
+      class="str">'c:/temp/Rıfat.data'</span><span 
+      class="op">);</span>
+<span class="keyw-25">...</span>
+    </pre>
+    <p class="indent">
+      Bu nesnenin tümü dosyalar 
+      ile ilgili, <span class="keyw">Copy</span><span 
+      class="op">()</span>, <span 
+      class="keyw">Delete</span><span 
+      class="op">()</span>, <span class="keyw">Move</span><span 
+      class="op">()</span>ve <span 
+      class="keyw">OpenAsTextStreamObject</span><span 
+      class="op">()</span> metotları 
+      bulunmaktadır. Bu metotlar arasında, sözel veri akımlarının 
+      yönetimi ile ilgili olan tek metot olan 
+      <span class="keyw">OpenAsTextStream</span><span 
+      class="op">()</span> metodunu 
+      inceleyeceğiz.
+    </p>
+    <p class="subsub" id="OpenAsTextStream">
+      16.1.3.1 - OpenAsTextStream Metodu
+      			<span class="str">(JScript Özelliği -Sadece Internet Explorer)</span>
+</p>
+    <p class="indent">
+      Bu metot, bir Sözel Veri akımını başlatan
+      <span class="keyw">TextStream</span>
+      nesnesini döndürür. Sözdizimi,
+    </p>
+    <p class="indent">
+      <em class="str">object</em>.<span class="keyw">
+      OpenAsTextStream(</span><span class="op">
+      [</span><span class="comm"><em>giriş/çıkış
+      yöntemi</em></span> <em>,</em>
+      <span class="op"><em>[</em></span><span class="comm">
+      <em>biçim</em></span><span class="op">
+      <em>]]</em></span><span class="keyw">)</span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <em class="str">nesne</em> : Bir dosya
+      sistem nesnesidir.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>giriş/çıkış
+      yöntemi</em></span> : İsteğe bağlı. Değeri 1,2 veya 8
+      olabilen bir sabit sayı. İlk sabit
+      <strong><span class="str">saltokunur</span></strong>,
+      ikinci sabit
+      <span class="str"><strong>yazma</strong></span>,
+      üçüncü sabit
+      <span class="str"><strong>ekleme</strong></span>
+      yönteminin uygulanacağını belirtir.
+    </p>
+    <p class="nonindent">
+      <span class="comm"><em>biçim</em></span>
+      : İsteğe bağlı. Üç tane Tristate değerlerinden
+      birisi, İlki
+      <span class="str"><strong>TristateTrue</strong></span>
+      değeri olan
+      <span class="str"><strong>-1</strong></span>,
+      bu değer dosyayı Unicode olarak açar. İkincisi
+      <span class="str"><strong>TristateFalse</strong></span>
+      değeri olan
+      <span class="str"><strong>0</strong></span>,
+      bu değer dosyayı ASCII olarak açar. Üçüncüsü
+      <span class="str"><strong>TristateUseDefault</strong></span>
+      değeri olan
+      <span class="str">-<strong>2</strong></span>,
+      varsayılan karakter kodlama yönteminin
+      kullanılacağını belirtir.
+    </p>
+    <p class="indent">
+      <span class="keyw">OpenAsTextSystemObject</span><span 
+      class="op">()</span> Metodu, bir <span 
+      class="keyw">TextStream</span> nesnesi döndürür ve metodun
+      uygulandığı yer tutucu değişken (çoğunlukla ön değeri <span 
+      class="keyw">null</span> olarak belirtilir) bir <span 
+      class="keyw">TextStream</span> nesnesine dönüşür ve <span 
+      class="keyw">TextStream</span> (Sözel Veri Akımı) nesnesinin
+      özellik ve metotlarının uygulanması olanağı sağlanır.
+    </p>
+    <p class="indent">
+            <span class="keyw">OpenAsTextStream</span><span 
+      class="op">()</span> Metodu, boş bir sözel veri dosyasının açılması için, 
+      <span class="keyw">CreateTextFile</span><span 
+      class="op">()</span> metodunu kullanır. Bu nedenle boş bir sözel 
+      veri dosyasının açılması için, bu metodun uygulanmasına gerek 
+      yoktur. Önceden yaratılmış bir sözel veri dosyasına bilgi 
+      eklenmesi için de, <span class="keyw">FileSystemObject</span>
+      nesnesinin <span class="keyw">OpenTextFile</span><span 
+      class="op">()</span> metodu kullanılabilir. Bu nedenle, 
+      <span class="keyw">OpenAsTextStream</span><span 
+      class="op">()</span> metodunun kullanım alanının sınırlı 
+      olduğu söylenebilir.
+    </p>
+    <p class="subheading" id="TextStreamObject">
+      6.1.4 - TextStreamObject Nesnesi <span class="str">(JScript Özelliği -Sadece Internet
+      Explorer)</span> 
+  </p>
+    <p class="indent">
+      <span class="keyw">TextStreamObject</span> (Sözel Veri Akımı) 
+      nesne sınıfına <span class="keyw">FileSystemObject</span> nesnesinin 
+      <span class="keyw">CreateTextFile</span><span 
+      class="op">()</span>, <span class="keyw">OpenTextFile</span><span 
+      class="op">()</span> veya <span class="keyw">File</span> nesnesinin 
+      <span class="keyw">OpenAsTextStream</span><span 
+      class="op">()</span> metotlarının döndürdüğü değer olarak
+      erişilebilir. Bu nesne sınıfı, İçerdiği metotlar ve özellikler ile, 
+      bir sözel veri dosyasına veri yazılmasını, silinmesini ve eklenmesini 
+      yönetir. 
+    </p>
+    <p class="indent">
+      <span class="keyw">TextStreamObject</span> (Sözel Veri Akımı) 
+      nesne sınıfının <span class="keyw">Close</span><span 
+      class="op">()</span>, <span class="keyw">Read</span><span 
+      class="op">()</span>, <span class="keyw">ReadAll</span><span 
+      class="op">()</span>, <span class="keyw">ReadLine</span><span 
+      class="op">()</span>, <span class="keyw">Skip</span><span 
+      class="op">()</span>, <span class="keyw">SkipLine</span><span 
+      class="op">()</span>, <span class="keyw">Write</span><span 
+      class="op">()</span>, <span class="keyw">WriteBlankLines</span><span 
+      class="op">()</span>, <span class="keyw">WriteLine</span><span 
+      class="op">()</span>, metotları ve <span 
+      class="keyw">AtEndOfLine</span>, <span 
+      class="keyw">AtEndOfStream</span>, <span 
+      class="keyw">Column</span> ve <span 
+      class="keyw">Line</span> özellikleri bulunmaktadır. 
+      Sözel veri dosyaları ile çalışmak için, bu özellik ve metotların
+      iyi bilinmesi gerekmektedir.
+    </p>
+    <p class="subsub" id="close">
+   			  16.1.4.1 - Close() Metodu <span class="str">(JScript
+      Özelliği -Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent"> <span class="keyw">Close</span><span 
+      class="op">()</span> metodu bir açık bir Sözel Veri akımı dosyasını kapatır.  Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span 
+      class="keyw">Close()</span><span 
+      class="op">;</span> 
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : <span 
+      class="str">(Gerekli)</span> Daima bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır.
+    </p>
+    <p class="subsub" id="read">
+   			  16.1.4.2 - Read() Metodu <span 
+      class="str">(JScript Özelliği -Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">Read</span><span 
+      class="op">()</span> metodu
+      karakter okur ve elde edilen karakter dizgisini
+      döndürür. Hassas dosya verilerinin programlı
+      okunmasında, bu metot çok yararlı olur. Sözdizimi,
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span 
+      class="keyw">Read(</span><span 
+       class="str"><em>karakter sayısı</em></span><span 
+       class="keyw">)</span><span 
+      class="op">;</span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. <span class="keyw">Read</span><span 
+      class="op">()</span> metodunun sözdizimi, üç kısımdan oluşmaktadır: 
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : <span 
+      class="str">(Gerekli)</span> Daima bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır. 
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>Karakter Sayısı</em></span> <span 
+      class="str">(Gerekli)</span> Dosyadan okutulmak istenen karakter sayısı.
+    </p>
+    <p class="subsub" id="readall">
+    			16.1.4.3 - ReadAll() Metodu<span 
+      class="str"> (JScript Özelliği-Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent"> <span class="keyw">ReadAll</span><span 
+      class="op">()</span> metodu, bir Sözel Veri akımı dosyasındaki tüm karakterleri
+      okur ve tek bir karakter dizgisi halinde geri döndürür. Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">ReadAll</span><span 
+      class="op">(); </span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada, 
+    </p>
+    <p class="nonindent">
+      <em class="str">nesne</em> : Gerekli. Daima bir Sözel Veri Akımı Nesnesi adı (
+      dosya adı) dır. 
+    </p>
+    <p class="subsub" id="readline">
+    			16.1.4.4 - ReadLine() Metodu <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">ReadLine</span><span 
+      class="op">()</span> metodu, bir Sözel Veri akımı dosyasındaki tüm satırın
+      karakterlerini okur ve tek bir karakter dizgisi halinde geri döndürür. Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">Readline</span><span 
+      class="op">(); </span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : Gerekli. Daima bir Sözel Veri Akımı 
+      Nesnesi adı (dosya adı) dır. 
+    </p>
+    <p class="subsub" id="skip">
+   			  16.1.4.5 - Skip() Metodu <span 
+    class="str">(JScript Özelliği -Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent"> <span class="keyw">Skip</span><span 
+      class="op">()</span> metodu
+      bir Sözel Veri akımı dosyasından belirtilen sayıda
+      karakteri atlatır, yani okunmasını engeller.
+      Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">Skip(</span><span 
+        class="comm"><em>karakter sayısı</em></span><span 
+        class="keyw">)</span><span 
+      class="op">;</span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. <span class="keyw">Skip</span><span 
+      class="op">()</span> metodunun sözdizimi, üç kısımdan oluşmaktadır.:
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span> : <span 
+      class="str">(Gerekli)</span>Daima bir Sözel Veri Akımı 
+      Nesnesi adı (dosya adı) dır.
+    </p>
+    <p class="indent">
+      <span class="str"><em>Karakter Sayısı</em></span> : <span 
+      class="str">(Gerekli)</span> Dosyadan atlatılmak istenen karakter sayısı. 
+    </p>
+    <p class="subsub" id="skipline">
+    			16.1.4.6 -SkipLine() Metodu <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer)</span>
+	</p><p class="indent">
+      <span class="keyw">SkipLine</span><span class="op">()</span> metodu, 
+      bir Sözel Veri akımı dosyasından bir satırı atlatır, yani okunmasını engeller. Kullanımı, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">SkipLine()</span><span 
+      class="op">;</span>
+    </p>
+    <p class="nonindent">
+      şeklinde kullanılır. Burada,
+    </p>
+    <p class="nonindent"> 
+      <em class="str">nesne</em> : <span class="str">(Gerekli)</span> Daima
+      bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır.
+    </p>
+    <p class="subsub" id="write">
+    			16.1.4.7 - Write() Metodu <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">Write</span><span class="op">()</span> metodu, 
+      belirtilen bir sözel (string) veriyi, bir Sözel Veri akımı dosyasına 
+      yazdırır. Kullanımı, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">Write(</span><span 
+      class="str">'sözel veri'</span><span 
+      class="keyw">)</span> <span 
+      class="op">;</span>
+    </p>
+    <p class="nonindent">
+    şeklinde kullanılır. Burada,
+    </p>
+    <p class="nonindent"> 
+      <em class="str">nesne</em> : <span class="str">(Gerekli)</span> Daima
+      bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır.
+    </p>
+      <p class="nonindent">
+        <em class="str">sözel veri </em> : <span 
+        class="str">(Gerekli)</span> Daima bir sözel veridir. 
+      </p>
+    <p class="subsub" id="writeblanklines">
+    			16.1.4.8 - WriteBlankLines() Metodu <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">WriteBlankLines</span><span 
+      class="op">()</span> metodu, bir Sözel Veri akımı dosyasına 
+      boş bir satır yazdırır. Kullanımı,
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span 
+      class="keyw">WriteBlankLines(</span>satır sayısı<span 
+      class="keyw">)</span> <span 
+      class="op">;</span>
+    </p>
+    <p class="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <em class="str">nesne</em> : <span 
+      class="str">(Gerekli)</span> Daima
+      bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır.
+    </p>
+    <p class="nonindent">
+      satır sayısı: <span class="str">(Gerekli)</span> Daima
+      bir tamsayıdır.
+    </p>
+    <p class="subsub" id="writeline">
+    			16.1.4.9 - WriteLine() Metodu <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer)</span>
+  </p>
+    <p class="indent"> 
+      <span class="keyw">WriteLine</span><span class="op">()</span> metodu, 
+      belirtilen bir sözel (string) veriyi, bir Sözel Veri akımı dosyasının yeni bir satırına 
+      yazdırır ve sonuna bir satırbaşı işareti ekler. Kullanımı,
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span><span 
+      class="op">.</span><span class="keyw">Write(</span><span 
+      class="str">'sözel veri'</span><span 
+      class="keyw">)</span> <span 
+      class="op">;</span> </p>
+    <p class="nonindent">
+        şeklinde kullanılır. Burada,
+    </p>
+    <p class="nonindent">
+      <em class="str">nesne</em> : <span 
+      class="str">(Gerekli)</span> Daima
+      bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır.
+    </p>
+    <p class="nonindent">
+      <em class="str">sözel veri </em> : <span class="str">(İsteğe Bağlı)</span> Daima
+      bir sözel veridir, eğer olmazsa dosyaya bir satırbaşı işareti konulur.
+    </p>
+    <p class="subsub" id="atendofline">
+    			16.1.4.10 - atEndOfLine Özelliği <span 
+    class="str">(JScript Özelliği -Sadece Internet Explorer-)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">atEndOfLine</span> Özelliği, Sözel Veri Akımı 
+      Nesnesinde dosya değişkeni satır sonu karakterinin üstüne gelince <span 
+      class="keyw">true</span>, yoksa <span class="keyw">false</span>
+      değerini döndürür. Sadece, okunan dosyalarda uygulanabilir. Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span>.<span 
+       class="keyw">AtEndOfLine</span>
+    </p>
+    <p class="nonindent"> şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : <span 
+      class="str">(Gerekli)</span> Daima bir Sözel Veri Akımı Nesnesi 
+      adı (dosya adı) dır. 
+    </p>
+    <p class="subsub" id="atendofstream">
+    			16.1.4.11 - atEndOfStream Özelliği <span 
+      class="str">(JScript Özelliği -Sadece Internet Explorer-)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">AtEndOfStream</span> özelliği, Sözel Veri Akımı
+       Nesnesinde dosya değişkeni, dosya sonuna gelince <span 
+      class="keyw">true,</span> yoksa <span class="keyw">false</span> değerini
+      döndürür. Sadece, okunan dosyalarda uygulanabilir. Sözdizimi, 
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span>.<span 
+        class="keyw">AtEndOfStream</span>
+    </p>
+    <p class="nonindent"> şeklindedir. Burada, 
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : Gerekli. Daima birSözel Veri
+       Akımı Nesnesi adı (dosya adı) dır. 
+    </p>
+    <p class="subsub" id="column">
+    			16.1.4.12 - Column Özelliği <span 
+      class="str">(JScript Özelliği-Sadece Internet Explorer-)</span> 
+  </p>
+    <p class="indent">
+      <span class="keyw">Column</span> özelliği, Sözel Veri Akımı Nesnesinde
+      okunan karakterin sütun değerini döndürür. Sadece, okunan dosyalarda
+      uygulanabilir. Sözdizimi, 
+    </p>
+    <p class="indent"> <span class="str"><em>nesne</em></span>.<span 
+      class="keyw">Column</span>
+    </p>
+    <p class="nonindent"> şeklindedir. Burada,
+    </p>
+    <p class="nonindent">
+      <span class="str"><em>nesne</em></span> : <span 
+      class="str">(Gerekli)</span> Daima bir Sözel Veri Akımı Nesnesi 
+      adı (dosya adı) dır. 
+    </p>
+    <p class="subsub" id="line">
+    			16.1.4.13 - Line Özelliği<span 
+      class="str"> (JScript Özelliği -Sadece Internet Explorer-)</span>
+  </p>
+    <p class="indent">
+      <span class="keyw">Line</span> özelliği,
+      Sözel Veri Akımı Nesnesinde okunan satır değerini
+      döndürür. Sadece, okunan dosyalarda uygulanabilir.
+      Sözdizimi,
+    </p>
+    <p class="indent">
+      <span class="str"><em>nesne</em></span>.<span 
+      class="keyw">Line</span>
+    </p>
+    <p class="nonindent"> şeklindedir. Burada, </p>
+    <p class="nonindent"> nesne : <span class="str">(Gerekli)</span> Daima
+      bir Sözel Veri Akımı Nesnesi adı (dosya adı) dır. 
+    </p>
+    <p class="indent">
+      Sözel veri dosyaları ile ilgili metot ve özelliklerden kullanılacak olanların 
+      incelenmesi burada tamamlanmış olduğundan artık alıştırmalara
+     geçilecektir.
+    </p>
+    <ul id="navbottom">
+      <li id="index">
+        <a href="../index.html"><em>« Indeks</em></a>
+      </li>
+      <li id="denge"></li>
+      <li id="sayfa">
+        <a href="../b15/b15s7.html"><em>« Önceki</em></a>      </li>
+      <li id="denge1"></li>
+      <li id="kodlama">
+        <a href="b16s2.html"><em>Sonraki »</em></a>      </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <p class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload"><img
+           src="../images/valid-xhtml11.png"
+           alt="Valid XHTML 1.1" height="31"
+           width="88" /></a>
+    </p>
+    <!--Script Alanı Başlangıcı -->
+    <script type="text/javascript" src="../js/lastmodified.js">
+    </script>
+    <!--Script Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b16/b16s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:37 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

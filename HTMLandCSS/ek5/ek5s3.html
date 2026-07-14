@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+    
+<!-- Mirrored from www.bedriemir.com/HTMLandCSS/ek5/ek5s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:15:52 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/HTMLandCSS/ek5/ek5s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content=
+        "HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+              name="generator">
+        <meta http-equiv="Content-Language" content="tr">
+        <meta name="GENERATOR" content="Microsoft Fronts 5.0">
+        <meta name="ProgId" content="Fronts.Editor.Document">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href=
+        "../CSS/newstyle.html" media="all">
+        <script type="text/javascript">
+        <!-- 
+        -->
+        </script>
+        <title>
+            Ek 5 Sayfa 3-DTD okunması (devam)
+        </title>
+        <style type="text/css">
+        <!--
+        -->
+        </style>
+    </head>
+    <body>
+        <p>
+            <img src="../images/SharedImages/Ekler.html" width="390"
+            height="200" alt="Banner" style="float:left;">
+        </p>
+        <div style=
+        "position:relative;left:400px;padding-bottom:75px;padding-top:50px;">
+        <p>
+                <a href="../index.html"><img src=
+                "../images/SharedImages/index.html" alt="index"
+                width="40" height="40" class="x"></a> <a href=
+                "ek5s2.html"><img src=
+                "../images/SharedImages/previous.html" alt="prev"
+                width="40" height="40" class="x"></a> <a href=
+                "ek5s4.html"><img src=
+                "../images/SharedImages/next.html" alt="next"
+                     width="40" height="40" class="x"></a>
+            </p>
+        </div>
+        <p class="chapter">
+            Ek-5
+        </p>
+        <p class="pagenum">
+            Sayfa 3
+        </p>
+        <hr>
+        <p class="title" id="nitelik">
+            DTD Yazılımın Okunması (3)
+        </p>
+        <p class="subheading" id="element">
+            Element Tanımları ve İçerik Modelleri :
+        </p>
+        <p class="indent" id="content">
+            <a href="../html401/sgml/dtd.html">DTD</a> nin amacı,
+            belge içinde kullanılacak elementlerin tanımı ve
+            kullanım şekillerinin belirtilmesidir. Bir elementin
+            kullanımı için, başlangıç ve sonuç imlerinin
+            gerekliliği, nitelik listesi ve bu elementin
+            içerebileceği elementleri gösteren bir içerik modeli
+            <a href="../html401/sgml/dtd.html">DTD</a> de
+            belirtilmelidir. Element tanımları aşağıdaki sıraya
+            göre yapılabilir :
+        </p>
+        <p class="indent">
+            Element adının belirtilmesi, başlangıç ve sonuç
+            imlerinin gerekli olup olmadıklarını belirten ifadeler,
+            elementin içerik modelini belirten ifade.
+        </p>
+        <p class="indent">
+            Bir örnek olarak AREA elementinin <a href=
+            "../html401/sgml/dtd.html">DTD</a> deki tanımını
+            inceleyelim :
+        </p>
+        <pre class="navy" id="empty">
+&lt;!ELEMENT AREA - O EMPTY -- client-side image map area --&gt;
+        </pre>
+        <p class="nonindent">
+            Bu tanımda ilk olarak element adı AREA olarak
+            tanımlanmıştır. Bu elementin başlangıç imi - işareti
+            ile belirtildiği gibi zorunludur. Sonuç imi ise O
+            (Omitted=Vazgeçilebilir) işareti konulduğundan zorunlu
+            değil şeklinde nitelendirilebilirse de, bundan sonra
+            gelen içerik modeli tanımı Empty (boş) olarak
+            belirtildiğinden, sonuç iminin yasak olduğu anlaşılır.
+            Boş elementlerin sonuç imlerinin kullanımı, tanım
+            gereği yasaktır.
+        </p>
+        <p class="subheading" id="repeat">
+            Tekrarlama İşaretleri :
+        </p>
+        <p class="indent">
+            İçerik modelinde, bazı durumlarda tekrar edilebilen
+            ögeler bulunabilir. Bunların belirtilmesi için özel
+            tekrarlama işaretleri kullanılır. Tekrarlama işaretleri
+            aşağıda görülmektedir:
+        </p>
+        <ul class="list">
+            <li>
+                <p>
+                     ? Soru işareti ile belirtilen öğe, seçime
+                    bağlı anlamına gelir ve hiç konulmayabildiği
+                    gibi en çok bir kere kullanılabilir (sıfır veya
+                    bir).
+                </p>
+            </li>
+            <li>
+                <p>
+                    * (Asteristik) işareti ile belirtilen öğe,
+                    seçime bağlı anlamına gelir ve hiç
+                    konulmayabildiği gibi istenildiği kadar
+                    tekrarlanabilir (sıfır veya birçok).
+                </p>
+            </li>
+            <li>
+                <p>
+                    + (Artı) işareti ile belirtilen öğenin , en az
+                    bir kere kullanılması gerekir ve istendiği
+                    kadar tekrarlanabilir. (bir veya daha çok).
+                </p>
+            </li>
+        </ul>
+        <p class="indent">
+            Tekrarlı ve mantıksal işlemlerin bir arada kullanıldığı
+            bir element tanımını inceleyelim :
+        </p>
+        <pre class="navy">
+&lt;!ELEMENT DL - - (DT|DD)+   -- Definition List --&gt;
+        </pre>
+        <p class="nonindent">
+            DL (Definition List=Tanım Listesi) adı verilmiş olan bu
+            elementin hem başlangıç hem de sonuç imlerinin zorunlu
+            olarak kullanılması gerektiği - ve - işaretleri ile
+            anlaşılmaktadır. DL elementinin içeriği olduğu, içerik
+            modelinde bu elementin içerebileceği elementler
+            verildiği için bellidir. Yani DL elementi, bir boş
+            element değildir ve zaten boş element olsaydı, içerik
+            modelinin EMPTY sözcüğü ile tanımlanması ve sonuç
+            iminin yasak olması gerekirdi. İçerik modeli, içinde
+            mantıksal bir işlem olan bir parantezle başlamakta ve
+            parantezin dışında bir + tekrar işareti bulunmaktadır. 
+            İşlemlerin öncelik sırası, parantez içi işlemlere
+            öncelik tanıdığından, mantıksal işlem önce
+            çözümlenecektir. Bu işlem, iki seçenekten sadece
+            birinin seçilebileceğini öngörmektedir. Bu seçim
+            yapılınca, sıra öncelik sırasında sonra gelen olan
+            parantez dışı + işareti ile belirtilen işleme
+            gelecektir. Bu işlem, parantez içi seçim işleminin en
+            az bir kez olmak üzere istenildiği kadar
+            tekrarlanabileceğini belirtmektedir. Sonuçta, DL
+            elementinin başlangıç ve sonuç imlerinin kullanımının
+            zorunlu olduğu ve bu elementin en az bir olmak üzere,
+            istendiği kadar, DT (Definition Term) ve DD (Definition
+            Description) elementini içerebileceği belirtilmiş
+            olmaktadır.
+        </p>
+        <p class="indent">
+            Bu örnekte de görüldüğü gibi, <a href=
+            "../html401/sgml/dtd.html">DTD</a> uzun bir anlatımı,
+            kısa bir yoldan ifade edilebilecek kapasitede, bir tür
+            stenografi işareti (shorthand) gibidir.
+        </p>
+        <p class="subheading">
+            İçeriğe Dahil Olacak ve İçeriğin Dışında Kalacak
+            Öğelerin Bildirimi :
+        </p>
+        <p class="indent">
+            Bir elementin içerik modeli tanımlanırken uzun bir
+            içerik listesi yapılması yerine, içerilebilecek öğeler,
+            generik bir sınıf halinde verilir ve bu sınıf içinde
+            olan bazı ögelerin içerilemeyeceği, bu generik sınıf
+            dışında kalan bazı ögelerin de, içerilebileceği
+            belirtilirse, kısa tanımlar oluşturulabilir. İçerik
+            modeline giremeyecek ögelerin önüne - (eksi) ,
+            girebilecek ögelerin önüne de + (artı) işareti konulur.
+            Buna en çarpıcı örnek &lt;<a href=
+            "../b3/b3s5.html#body">body</a>&gt; elementinin
+            tanımıdır :
+        </p>
+        <pre class="navy">
+&lt;!ELEMENT BODY 0 0 (%block <span class=
+"bar">I</span>SCRIPT)+ +(INS <span class=
+"bar">I</span> DEL)-- Document Body--&gt;
+        </pre>
+        <p class="nonindent">
+            Bu tanımdan anlaşılacağı gibi, belge gövdesini
+            oluşturan &lt;<a href=
+            "../b3/b3s5.html#body">body</a>&gt; elementinin,
+            başlangıç ve sonuç imlerinin kullanımı isteğe bağlıdır.
+            İçerik modelinde, ilk olarak sağ tarafında + işareti
+            olan bir parantez görülmektedir. Bu parantezin
+            değerlendirilmesi ile, &lt;<a href=
+            "../b3/b3s5.html#body">body</a>&gt; elementinin,
+            istendiği kadar <a href=
+            "../b2/b2s4.html#block">blokdüzey</a> elementleri ve
+            &lt;<a href="../b3/b3s1.html#script">script</a>&gt;
+            elementi içerebileceği anlaşılmaktadır. İkinci
+            mantıksal işlem, bir + işaretini takip ettiği için, bir
+            içerik ekleme işlemi olarak nitelendirilir. Bu işlemin
+            değerlendirilmesi ile, &lt;<a href=
+            "../b3/b3s5.html#body">body</a>&gt; elementinin
+            içeriğine, sadece bir tane &lt;<a href=
+            "../../b3/b3s8.html#ins">ins</a>&gt; veya &lt;<a href=
+            "../b3/b3s8.html#del">del</a>&gt; elementinin
+            eklenebileceği anlaşılmaktadır. Diğer satıriçi
+            elementlerinin &lt;<a href=
+            "../b3/b3s5.html#body">body</a>&gt; içinde bağımsız
+            olarak bulunamayacakları, fakat <a href=
+            "../b2/b2s4.html#block">blokdüzey</a> elementlerinin
+            içeriğinde kullanılabilecekleri anlaşılmaktadır.
+        </p>
+        <p class="indent">
+            Bir diğer örnek de önformatlanmış paragraf anlamına
+            gelen, preformatted text &lt;pre&gt; elementinin
+            bildirimidir:
+        </p>
+        <pre class="navy">
+&lt;!ELEMENT <a href="../html401/struct/text.html#edef-PRE"
+     class="noxref"><samp class=
+     "einst">PRE</samp></a> - - (<a href="../html401/sgml/dtd.html#inline">%inline;</a>)*  -(%pre.exclusion;) -- preformatted text --&gt;
+        </pre>
+        <p class="nonindent">
+            Bu tanımda, &lt;pre&gt; elementinin başlangıç ve bitiş
+            imlerinin kullanımının zorunlu olduğu, içeriğinde tüm
+            satıriçi elementlerinin istendiği kadar tekrarlanarak
+            kullnılabileceği, sadece %pre.exclusion <a href=
+            "Ek5/Ek5s2.html#parameterentities">parametre
+            valığının</a> içerik modeli dışında kalacağı
+            belirtilmiştir. Daha açık bilgi edinilmesi için, tüm
+            &lt;pre&gt; elementinin bildiriminin incelenmesi uygun
+            olacaktır :
+        </p>
+        <pre class="navy">
+&lt;!--=================== Preformatted Text ==================--&gt; 
+&lt;!-- excludes markup for images and changes in font size --&gt; 
+     
+&lt;!ENTITY % <a name=
+"pre.exclusion">pre.exclusion</a> &quot;IMG|OBJECT|BIG|SMALL|SUB|SUP&quot;&gt; 
+     
+&lt;!ELEMENT <a href="../html401/struct/text.html#edef-PRE"
+     class="noxref"><samp class=
+     "einst">PRE</samp></a> - - (<a href="../b2/b2s4.html#inline">%inline;</a>)*  -(%pre.exclusion;) -- preformatted text --&gt; 
+
+&lt;!ATTLIST  PRE <a href=
+"../b2/b2s3.html#attrs">%attrs;</a> -- <a href=
+"../b2/b2s3.html#core">%coreattrs</a>, <a href=
+"../b2/b2s3.html#attrs#int">%i18n</a>, <a href=
+"../b2/b2s3.html#scriptable">%events</a> -- &gt;
+</pre>
+        <p>
+             
+        </p>
+        <p class="nonindent">
+            Burada eksik bir tanım kalmadığından, &lt;pre&gt;
+            elementinin içermememesi gereken elementler açıkça
+            görülmektedir.
+        </p>
+        <p>
+             
+        </p>
+        <p>
+                   
+        </p>
+        <table class="navtablebottom" summary="layout">
+            <tr>
+                <td valign="top">
+                    <p>
+                        <a href="../index.html"><img src=
+                        "../images/sharedimages/indeksbelgesi.png"
+                        alt="index" class="x"></a>
+                    </p>
+                </td>
+                <td valign="top">
+                    <p>
+                        <a href="ek5s2.html"><img src=
+                        "../images/sharedimages/oncekibelge.png"
+                        alt="prev" border="0" class="x"></a>
+                    </p>
+                </td>
+                <td valign="top">
+                    <p>
+                        <a href="ek5s4.html"><img src=
+                        "../images/sharedimages/sonrakibelge.png"
+                        alt="next" border="0" class="x"></a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+<!-- Mirrored from www.bedriemir.com/HTMLandCSS/ek5/ek5s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:15:52 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

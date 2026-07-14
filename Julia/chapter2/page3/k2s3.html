@@ -1,0 +1,637 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page3/k2s3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:19:45 GMT -->
+<head>
+    <meta name="description" content="Julia Programlama Dili">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Julia/chapter2/page3/k2s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Julia Konu 2 Sayfa 3</title>
+    <meta content="Julia Programming Language Tutorial, in Turkish" name="description" />
+    <meta content="Julia Tutorial, in Turkish" name="keywords" />
+    <meta content="Prof. Dr. Bedri Doğan Emir" name="author">
+    <meta content="INDEX,FOLLOW" name="Robots" />
+    <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+    <link href="../../css/juliastyle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <p class="chapter">
+      Julia Programlama Dili
+    </p>
+    <p class="chapter">
+      Bölüm 2
+    </p>
+    <p class="chapter">
+      Veri Tipleri Sistematiği
+    </p>
+    <p class="pagenum">
+      Sayfa 3</p>
+    <p class="verticalTab-10">
+    </p>
+    <p id="nonnumeric" class="title-left">
+      2.2 - Sayısal Olmayan Veri Tipleri
+    </p>
+    <p id="absolutenonnumeric" class="subheading">
+      2.2.1 - Soyut Sayısal Olmayan Veri Tipleri
+    </p>
+    <p id="applicablenonnumeric" class="subheading">
+      2.<span lang="en-us">2.2</span> - Somut Sayısal Olmayan Veri Tipleri
+    </p>
+    <p id="string" class="subsub">
+      2.2<span lang="en-us">.2.1</span> - String Veri Tipi</p>
+    <p class="indent">
+      Julia programlama dilinde string verileri daima çift tırnak ile &quot;Ankara&quot; 
+      şeklinde, veya üçlü tırnak ile&quot;&quot;&quot; Anadoluhisarı&quot;&quot;&quot; 
+      şeklinde yazılır.
+    </p>
+    <p class="indent">
+      String veri tipi, Julia tip sisteminde, sayısal olmayan veriler kategorisinde, 
+      Any&gt;String şeklinde, Any tepe üst sınıfının hemen bir altında olarak sınıflandırılmıştır. 
+      String veri tipi, sözel veri tipi anlamındadır ve sayısal veri tipi ile aynı 
+      alt düzeydedir.</p>
+    <p class="indent">
+      Julia programlama dilinde, sözel veriler, sadece <span class="string">&quot;&quot;</span> 
+      arasında yazılır. String tipi veriler, kesinlikle tek tırnak içinde yazılmaz. 
+      Tek tırnak arasında yazım sadece <span class="keyw">Char</span>(Karakter) 
+      tipi veriler için uygulanabilir. Sözel veri içinde tek tırnak kullanıldığı, &quot; 
+      Ankara 'Keçiören' &quot; şeklinde tanımlar geçerlidir.
+    </p>
+    <p class="indent">
+      <span class="keyw">Sözel veriler, typeof</span><span class="op">(</span>veri
+      <span class="op">)</span> şeklinde sorgulandığında, Julia 0.6 sürümü için,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>typeof<span class="op">(</span>&quot;Filyos&quot;
+      <span class="op">)</span><span class="pl-25">&lt; --- Enter</span>
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>String
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>typeof<span class="op">(</span>&quot;Doğa&quot;
+      <span class="op">)</span><span class="pl-25">&lt; --- Enter</span>
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>String
+    </p>
+    <p class="indent">
+      yanıtı alınır. Yeni Julia sürümünde String veri tipi uygulanabilir bir veri 
+      tip haline getirilmiş ve hangi karakter ile tanımlanmış olursa olsun tüm sözel 
+      tanımlar, tek bir String veri tipinde toplanmıştır.
+    </p>
+    <p class="indent">
+      Sözel veriler, sadece karakter elemanlarından oluşmuş bir dizi olarak düşünülebilir. 
+      Sayısal diziler ardarda yerleşik sayılardan oluşurken, sözel diziler de ardarda, 
+      ardarda sıralanmış karakterlerden oluşmaktadır. Dizileri biraz sonra göreceğiz, 
+      fakat sözel verilerle bazı dizi yöntemlerini inceleme olanağı bulacağız.
+    </p>
+    <p class="indent">
+      Atanmış bir değişkendeki veriler geçiş sağlamaya uygun olursa bu değişkene 
+      atanmış olan nesne ancak bir koleksiyon olabilir. Sadece koleksiyon nesneleri, 
+      iterabl (traversabl = geçişe uygun) olabilir. Tek değerlerin geçişe uygunluğu 
+      yoktur (non-iterabl). Çünkü, atanmış değer tek olduğundan bir sonraki veya 
+      bir önceki sırada olan bir değer yoktur. Eğer tek değer üzerinden iterasyon 
+      yapılmaya kalışılırsa, ya hata oluşur, ya da iterasyon ile geçişte tamamlanır, 
+      çünkü eleman sayısı tektir, bir sonrası yoktur.
+    </p>
+    <p class="indent">
+      Julia koleksiyon nesneleri,
+    </p>
+    <ul class="list">
+      <li>Array (Dizi)</li>
+      <li>Tuple (Topluluk)</li>
+      <li>Dict (Sözlük)</li>
+      <li>set (Küme)</li>
+    </ul>
+    <p>
+    </p>
+    <p class="indent">
+      Julia sözel verileri, dizi koleksiyon tipindedir, fakat sözel diziler özeldir.
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, dizi indisleri, doğal sayma yöntemi olan 1 den 
+      başlar ve <span class="keyw">end</span> değerine kadar, ilerler. Saymaya gerek 
+      kalmayabilir. Her elemanın dizideki yerleşme sırası, bir indis sayısı olarak 
+      belirlenir. Dizi boyunca, elemandan elemana geçtikçe (Array Traversal) (Dizi 
+      Geçişi) elemanın indis sayısı bir artarak en son indis sayısına ulaşılıncaya 
+      kadar dizi geçişine devam edilir.
+    </p>
+    <pre>
+    </pre>
+    <p class="indent">
+      Örnek olarak sayısal bir dizi veya bir sözcük, bir &quot;a&quot; değişkenine 
+      atanmış olsun, a[1] dizinin ilk elemanını belirtir. Burda a dizinin atandığı 
+      değişkenin tanımlayıcısı (identifier) ( değişken adı olarak söylenir), köşeli 
+      parantez içindeki sayı, elemanın dizideki indis sayısıdır ve elemanın dizi 
+      içindeki yerleşim yerini belirtir.
+    </p>
+    <p class="indent">
+      Eğer, a <span class="op">=</span> <span class="string">&quot;Ankara&quot;</span> 
+      olarak bir atama yapılmışsa, a[end] , dizinin son elemanı olan
+      <span class="str">&quot;a&quot;</span> karakterini belirtir. Bir örnek olarak, 
+      REPL ortamında,
+    </p>
+    <pre class="indent">
+<span class="blue">julia&gt;</span>
+    </pre>
+    <pre>
+<span class="blue">julia&gt;</span>a<span class="op">=</span>
+<span class="str">&quot;Ankara&quot;</span> <span class="pl-50">&lt;---(Enter)</span>
+<span class="blue">julia&gt;</span>a<span class="op">[</span>1<span class="op">]</span>
+'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)
+<span class="blue">julia&gt;</span>a<span class="op">[</span><span class="keyw">end</span><span class="op">]</span>
+'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)  
+    </pre>
+    <p class="indent">
+&quot;Dizilerin son eleman indisinin bulunması için saymaya gerek kalmayabilir&quot; 
+      demiştik. Gerçekten a değişkenine atanmış olan dizinin son elemanını belirten 
+      a<span class="op">[</span><span class="keyw">end</span><span class="op">]</span> 
+      değerindeki, öntanımlı <span class="keyw">end</span> sözcüğü le belirtilen 
+      elemanın sayısal indis değeri, <span class="keyw">endof</span><span class="op">(a</span><span class="op">)</span> 
+      öntanımlı fonksiyonu ile belirtilir. REPL ortamında,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">endof</span><span class="op">(</span>a
+      <span class="op">)</span><span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class="nonindent">
+      6
+    </p>
+    <p class="nonindent">
+      olarak saptanır. Sayarsak, <span class="str">&quot;Ankara&quot;</span> gerçekten 
+      6 harfli bir sözcüktür ve a<span class="op">[</span><span class="keyw">end</span>
+      <span class="op">]</span> değeri, a<span class="op">[</span>6<span class="op">]</span> 
+      değerine denk düşmektedir. <span class="str">&quot;Ankara&quot;</span> sözcüğünün 
+      karakter sayısının sayılması gereği olmamıştır.
+    </p>
+    <p class="indent">
+      Bir dizi (Array) tipi verinin uzunluğu, dizinin içerdiği eleman sayısı olarak 
+      tanımlanır. Tüm dizlerin eleman sayıları,<span class="keyw">length</span>
+      <span class="op">(</span>String<span class="op">)</span> şeklindeki öntanımlı 
+      fonksiyon yardımı ile belirlenebilir. Sözel diziler de aslında dizi olduklarından 
+      ve sayısal dizilerden tek farklarının elemanlarının daima karakter değerlerinden 
+      oluşması nedeni ile aynı fonksiyondan yararlanabilirler. REPL ortamında,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">length</span><span class="op">(</span> 
+      a<span class="op">)</span><span class="pl-25">&lt; --- Enter</span>
+    </p>
+    <p class="nonindent">
+      6
+    </p>
+    <p class="indent">
+      Şu ana kadar herşey yolunda gibi görünüyor. <span class="str">&quot;Antalya&quot;</span> 
+      sözcğününün karakter sayı ve son indis değeri kolaylıkla saptanabildi ve hiç 
+      sorun yokmuş gibi bir his ediniyoruz.
+    </p>
+    <p class="indent">
+      Oysa bu sorunsuzluk duygusu yanıltıcıdır. Tüm Türkçe sözlükler,
+      <span class="str">&quot;Antalya&quot;</span> gibi değil, 
+      <span class="str">&quot;Tanrıdağı&quot;</span> 
+      gibi sözcükler de var. Bu sözcüğü de deneyelim,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>b<span class="op">=</span>
+      <span class="str">&quot;Tanrıdağı&quot;</span><span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class="nonindent">
+&quot;Tanrıdağı&quot;
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">length</span><span class="op">(</span> 
+      b<span class="op">)</span><span class="pl-25">&lt; --- Enter</span>
+    </p>
+    <p class="nonindent">
+      9
+    </p>
+    <p class="indent">
+      Bu sözel verinin de uzunluğu doğru olarak,<span class="keyw">length</span>
+      <span class="op">()</span> öntanımlı fonksiyon tarafından doğru olarak bulundu. 
+      Bu bilgi ile en son elemanın indis değerinin b<span class="op">[</span>9<span class="op">]</span> 
+      olması gerek. Bunu doğrulamaya çalışalım.
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">endof</span>
+      <span class="op">(</span>b<span class="op">)</span> <span class="pl-50">&lt;---(Enter)</span>
+    </p>
+    <p class="nonindent">
+      11
+    </p>
+    <p class="indent">
+      Sürpriz !!! Biz 9 beklerken 11 gibi bir sonuç oluştu. Bu herşeyi altüst eder.
+    </p>
+    <p class="indent">
+      <span class="str">&quot;Tanrıdağı&quot;</span> sözcüğünde, ilk karakterin 
+      indis değerinin 1 , ve 9 karakterli bir dizi olduğu için, son karakterinin 
+      indis değerin 9 olması beklenir. Halbuki son indis değeri 11 olarak belirtiliyor. 
+      Bu mümkün gibi görünmüyor. Çünkü 9 karakteri bir sözcükte her karakterin indisi, 
+      sözcükteki karakter sıralamasına bağlı olarak, 1 ile 9 arası bir tamsayı olması 
+      gerekiyor. Sözcükte 11 karakter olmadığı için b<span class="op">[</span>10<span class="op">]</span> 
+      ve b<span class="op">[</span>11<span class="op">]</span> elemanlarının yanlış 
+      indisleme olduğu akla geliyor. Aslında son indis değeri doğru ve bu da, büyük 
+      bir soruna işaret etmektedir.
+    </p>
+    <p class="indent">
+      Julia sayısal dizilerinin, atama sırasında içerdikleri eleman tipi ve buradan 
+      da elemanların bayt genişliği tanımlanır. Bir bayt sekiz bit olarak tanımlanmıştır. 
+      Sayısal veriler 64 bitlik makinelerde 64 bit (4 bayt) kadar genişleyebilen 
+      bellek alanlarında saklanan sayısal değerlerden oluşur.
+    </p>
+    <p class="indent">
+      Sayısal dizilerde byte sayısı kullanıcı tarafından belirlenebildiği için, 
+      Julia yorumlayıcısı giriş,çıkış, indeksleme yöntemlerini buna göre belirler 
+      ve hiçbir sorun yaşanmaz.
+    </p>
+    <p class="indent">
+      Sözel dizilerde durum farklıdır. Julia programlama dilinde, sözel diziler 
+      32 bit (4 bayt) lık veriler olarak tanımlanmıştır. A.B.D alfabesinin karakterleri 
+      ASCII karakterleri olarak tanınır. ASCII karakterleri 1 bayt olarak tanımlanmıştır. 
+      Julia yorumlayıcısı sözel dizilerin her bayt değeri için bir indis sayısı 
+      belirler. Sorun da buradan çıkar, çünkü her alfabe A.B.D. alfabesi dışında 
+      karakterler de içerebilir. Bu farklı karakterler, Unicode giriş noktalarına 
+      göre (hex tamsayı) belleğe yerleştirilirler. Türk alfabesinin ASCII karakterleri 
+      dışında olan karakterleri, Unicode giriş noktalarına göre, 2 baytlık bellek 
+      adreslerine yerleştirilirler. Bu durumda, bir ASCII karakteri dışı karakter 
+      için, iki dizi indisi kullanılmış olur. Bunlardan ilki gerçek dizi indisi, 
+      ikincisi ise boş indistir ve karakterin ikinci bayt değerine karşı gelir.
+    </p>
+    <p class="indent">
+      <span class="str">&quot;Tanrıdağı&quot;</span> sözcüğünde, T , a , n , r , 
+      d , a karakterleri ASCII karakterleridir ve toplam 6 tane oldukları için 6 
+      baytlık bellek alanına yerleşmi durumdadırlar. Bu duruma döre 1, 2, 3, 4, 
+      6, 7 indis değerleri gerçektir. ı, ğ, ı karakterleri ASCII dışı karakterlerdir 
+      ve her birisi 2 baytlık alana ayrıldığından 6 baytlık alan işgal ederler. 
+      Böylece, <span class="str">&quot;Tanrıdağı&quot;</span> sözcüğü, 12 baylık 
+      bellek alanı genişliğindedir. Fakat geçerli 12 tane indis değeri yoktur. Bu 
+      karakterlere denk düşen, 2 baytlık bellek alanlarının, sadece ilk baytlarına 
+      karşı gelen, 5, 8, 9, 11 indisleri gerçektir. Böylece gerçek 7 tane (karakter 
+      sayısı kadar) geçerli indis sayısı vardır bunlar, 1, 2, 3, 4, 5, 7, 8, 9, 
+      11 indisleridir. Eğer b<span class="op">[</span>6<span class="op">]</span> 
+      ve b<span class="op">[</span>10<span class="op">]</span> elemanları çağrılırsa, 
+      bu elemanlar olmadığından hata oluşur.
+    </p>
+    <p class="indent">
+      Böylece, Türkçe sözel verilerle, basit öntanımlı fonksiyonlardan yararlanılarak, 
+      tarama (scanning) olanağı olmadığı görülmektedir. Bunun için daha sofistike 
+      kullanıcı tanımlı fonksiyonlar yazılması gerekmekte, fakat bu konular daha 
+      çok sözel verilerle çalışan bankacılık, sosyal araştırmalar gibi konularla 
+      ilgelenen grupların ilgi alanlarına girmektedir. Matematiğe yönelik çalışanların, 
+      sözel verilerle ilgileri, sonuçların açıklanması gibi basit işlevlerle sınırlıdır. 
+      Bu yüzden, bu çalışma kapsamında daha ileri sözel veri fonksiyonu çalışılmayacaktır.
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, sözel dizilerin ilginç bir özelliği bulunmaktadır.Sözel 
+      verilerin içinde $var eklenirse var değişkenin geçerli değeri araya eklenir. 
+      Örnek:
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>q=25;
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="str">&quot;Bu değişkenin değeri 
+      = $q olarak belirlenmiştir.&quot;</span>
+    </p>
+    <p class="nonindent">
+      "Bu değişkenin değeri = 25 olarak belirlenmiştir."
+    </p>
+    <p class="indent">
+      Eğer, bir sözel veri içinde $ gereksinmesi varsa, bunu kaçış (escape) karakteri 
+      ile \$ olarak belirtebiliriz.
+    </p>
+    <p class="indent">
+      Bir aritmetik ifadenin sonucu da aynen bir sözel veri içine yerleştirilebilir. 
+      Örnek:
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="str">&quot;Sonuç = $(25*4)&quot;</span>
+    </p>
+    <p class="nonindent">
+      Sonuç = 100
+    </p>
+    <p class="indent">
+      Bu özellikten genel olarak ,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">println</span><span class="op">(</span>
+      <span class="str">&quot;Sonuç = &quot;</span>, d<span class="op">)</span>
+    </p>
+    <p class="nonindent">
+      yazımı yerine, kısa yoldan,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">println</span><span class="op">(</span>
+      <span class="str">&quot;Sonuç = $d&quot;</span><span class="op">)</span>
+    </p>
+    <p class="nonindent">
+      yazımı için yararlanılabilir.
+    </p>
+    <p class="indent">
+      Julia programlama diline özel bir sözel veri Sembol tipidir. Semboller, sözel 
+      beri atanması sırasında eşit işaretinden sonra, &quot; işaretinden önce, kolon 
+      (:) işareti eklenerak yapılır. Örnek olarak,
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span>d<span class="op">=:</span>&quot;Samsun&quot;
+    </p>
+    <p class="nonindent">
+      bir Sembol atamasıdır. Sembol tipi veriler, sözel tipte (String) verilerden 
+      güçlüdür. Bu tip verilerden, program sonuna kadar değerinden yararlanılabilecek 
+      bir tür sabit değer olarak yararlanılabilir.
+    </p>
+    <p class="indent">
+      String ve Sembol tiipinde veriler, atandıktan sonra elemanları değiştirilemeyan 
+      (immütabl) veriler olarak adlandırılır. Eğer h<span class="op">=</span>&quot;Haydarpaşa&quot; 
+      olarak tanımlanmışsa a<span class="op">[</span>2<span class="op">] =</span>&quot;z&quot; 
+      şeklinde bir atama hata verir ve gerçekleşmez. Bir sözcük veya sembolün karakterleri, 
+      atama yapıldıktan sonra değiştirilemez. Bu işlem, ancak öntanımlı
+      <span class="keyw">replace</span> <span class="op">(</span>h, h
+      <span class="op">[</span>4<span class="op">]</span> , 's'<span class="op">)</span> 
+      fonksiyonu çağrılarak veya yeni bir değişken yaratılarak gerçekleştirilebilir.
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, sözel verilere uygulanabilen metot sayısı:
+    </p>
+    <p class="indent">
+      <span class="blue">julia&gt;</span><span class="keyw">methodswith</span>
+      <span class="op">(</span><span class="keyw">String</span><span class="op">)</span>
+    </p>
+    <p class="nonindent">
+      67
+    </p>
+    <p class="nonindent">
+      olarak belirtilir.
+    </p>
+    <p class="indent">
+      Bütün bu metotları burada deneyemeyeceğiz. Fakat öğrencilerin bu çalışmayı 
+      yaparak, Julia programlama dilinin sözel veri tipi konusunda daha yakın bilgiler 
+      elde etmesi sağlık verilir.
+    </p>
+    <p id="regex" class="subsub">
+      2.2.2.2- Düzenli Deyimler
+    </p>
+    <p class="indent">
+      Düzenli deyimler (Regular E xpressions) (Regex), Perl programlama dili ile 
+      ortaya çıkmış, çok kullanışlı bir sözel veri tipidir. Regex değerleri, büyük 
+      bir veri yığınından, belirli bir sözel yapıya sahip olanları belirli bir dizide 
+      toplar.
+    </p>
+    <p class="indent">
+      Julia programlama dili, Perl tipi düzenli deyimleri destekler. Düzenkli deyimler, 
+      r ile başlayan sözel veriler halinde tanımlanır. Regex sözel verileri, Julia 
+      programlama dilinde, ayrı bir veri tipi olarak tanımlanmıştır.Regex veri tipi 
+      hem soyut, hem de somut veri tip olarak hareket eder, çünkü alt veri tipleri 
+      bulunmamaktadır.
+    </p>
+    <p class="indent">
+      Regex çok geniş bir konudur ve önemli bir ihtisas alanıdır. Bu nedenle, burada 
+      sadece kısa bir tanıtımı ve uygulamada Juia programlama dilinin uygulanabilir 
+      öntanımlı fonksiyonları tanıtılmaya çalışılacaktır.
+    </p>
+    <p class="indent">
+      Regex olayında metakarakterler adı verilen aşağıdaki karakterler özel işleve 
+      sahiptirler:
+    </p>
+    <ul class="listNoMarker">
+      <li>\ </li>
+      <li>^ </li>
+      <li>$</li>
+      <li>. </li>
+      <li>|</li>
+      <li>?</li>
+      <li>* </li>
+      <li>+</li>
+      <li>(</li>
+      <li>)</li>
+      <li>[</li>
+      <li>]</li>
+      <li>{</li>
+      <li>}</li>
+    </ul>
+    <p class="indent">
+      Bu kodların uygulandığı örnekler incelenecektir.
+    </p>
+    <p id="singlechar" class="subsubsub">
+      2.2.2.2.1 - Tek Karakter Uyuşması
+    </p>
+    <p class="indent">
+      Bir Regex tek karakter uyuşması aşağıda görülmektedir.
+    </p>
+    <p class="nonindent">
+      <img alt="Bir regexuyuşması" src="../../chapter3/page1/images1/regex1.png">
+    </p>
+    <p class="indent">
+      Bu örnekte belirli bir düzen (pattern) içeren bir veri (&quot;uyuşmaDüzeni&quot;) 
+      olarak tanımlanıyor.
+    </p>
+    <p class="indent">
+      Örnekte, belirli bir verinin (&quot;giriş&quot;) , verilen regex düzenini 
+      içerip içermediği, öntanımlı <span class="keyw">ismatch</span><span class="op">(</span>regex, 
+      veri<span class="op">)</span> fonksiyonu kullanılarak sınanıyor. Sonuç olumlu 
+      ise, yani veri öngörülen düzeni içeriyorsa, olumlu (true) sonucu döndürülür.
+    </p>
+    <p class="indent">
+      Tek karakter uyuşması, yukarıdaki örnekte olduğu gibi, r&quot;b&quot; şeklinde 
+      belirtilir ve ilk &quot;b&quot; karakteri ile uyuşma sağlamaya çalışır. İkinci &quot;b&quot; 
+      karakteri ile uyuşma istenirse özel olarak bildirmek gerekir.
+    </p>
+    <p id="charclass" class="subsubsub">
+      2.2.2.2.2 - Karakter Sınıfı
+    </p>
+    <p class="indent">
+      Karakter sınıfı <span class="op">[</span>a..z<span class="op">]</span> şeklinde 
+      verilir ve bu karakter aralığındaki karakterlerin sadece bir tanesine veya 
+      ikisine birden uyum sağlandığında regex doğrulanır. Geçerli karakter aralıkları,
+      <span class="op">[</span>A..Z <span class="op">]</span><span class="op">[</span>1..9
+      <span class="op">]</span>. (regex2=r&quot;[ae]&quot;)</p>
+    <p class="indent">
+      <img alt="düzenli deyim [ae]" src="images3/regex2.png" />
+    </p>
+    <p class="indent">
+      Yuradıdaki örnekten de görüldüğü gibi [ae] şeklinde bir karakter aralığı arandığında,
+    </p>
+    <ul class="list">
+      <li>İçinde a harfi olan &quot;gray&quot; sözcüğü</li>
+      <li>İçinde e harfi olan &quot;grey&quot; sözcüğü</li>
+      <li>İçinde hem a harfi, hem de e harfi olan &quot;graey&quot; sözcüğü</li>
+    </ul>
+    <p class="nonindent">
+      uyuşma sağlarlar. Burada, [ae] düzenlemesi, matematik lojikteki &quot;or&quot; 
+      bağlacının işlevi ile denk düşmektedir. Bu uyuşma incelemesi,Matematik lojikteki, 
+      &quot;veya&quot;, &quot;a veya e veya her ikisi birden&quot; şeklinde uygulaması olan
+      ve ve bilgisayarda (a | e) veya ( a or e) olarak, matematikte ise, (a V e) bağlacı ile 
+      belirtilen, &quot;dışlayıcı olmayan veya&quot; işlemi ile denk olmaktadır.
+    </p>
+    <p class="indent">
+      Ayrıca, birden çok değer aralıklarıda belirtilebilir. Örnek olarak, [a-cA-C], 
+      uyuşma kontrolü, a ile c arasındaki karakterler ile, küçük/büyük harf ayrımı 
+      yapmaksızın uyuşma sağlar. (regex3=r&quot;[a-cA-C]&quot;) olarak tanımlandığında,
+    </p>
+    <p class="indent">
+      <img alt="düzenli deyim [a-cA-C]" src="images3/regex3.png" />
+    </p>
+    <p class="nonindent">
+      olarak uyum sonucu sağlar.
+    </p>
+    <p class="indent">
+      Karakter aralığı [0-9] , sıfırdan 9 a kadar, tüm sayılar ile, [0-9a-fA-F], 
+      küçük/büyük karakter ayrımı yapmaksızın tüm hex sayılarla uyum sağlar. Örnek,
+    </p>
+    <p class="indent">
+      <img alt="düzenli deyim [0-9a-fA-F]" src="images3/regex4.png" />
+    </p>
+    <p class="indent">
+      Yukarıdaki örnekte, bir hex sayının verilen düzen ile uyumu sınanmaktadır. 
+      Bu örnekte ilk olarak, <span class="keyw">match</span> <span class="op">(</span>regex, 
+      string<span class="op">)</span> fonksiyonu kullanılmıştır. Bu fonksiyon bir 
+      uyuşmanın gerçekleştiği veriyi döndürür. Bu fonksiyonun geri döndürdüğü değer, 
+      uyum adlı bir değişkene atanmıştır. Bu bir nesne değişkenidir ve
+      <span class="att">offset</span> özelliği, uyuşmanın sağlandığı ilk eleman 
+      sıra numarasını, <span class="att">offsets</span> özelliği ise, uyuşmanın 
+      gerçekleştiği alt stringleri, <span class="att">captures</span> özelliği de 
+      aynı alt stringlerin, bir topluluğun (tuple) elemanları olarak belirtilmesini 
+      sağlamaktadır.
+    </p>
+    <p class="indent">
+      Arama (search) ve yerine yerleştirme (replace) fonksiyonları, regex verilerini 
+      kabul ederler. Örnek olarak,
+    </p>
+    <p class="indent">
+      <img alt="düzenli deyim ile yeniden yerleştirme" src="images3/regex6.png" />
+    </p>
+    <p class="indent">
+      Eğer tüm uyum sağlamış alt stringlere gerek duyulursa, <span class="keyw">
+      mactchall</span> <span class="op">(</span>regex,string<span class="op">)</span> 
+      ve <span class="keyw">eachmatch</span><span class="op">(</span>regex,string
+      <span class="op">)</span> fonksiyonlarından yararlanılabilir. Örnek olarak,
+    </p>
+    <p class="indent">
+      <img alt="düzenli deyim ile alt string oluşumu" src="images3/regex7.png" />
+    </p>
+    <p class="indent">
+      Öntanmlı <span class="keyw">eachmatch</span><span class="op">(</span>regex,string
+      <span class="op">)</span> fonksiyonu, sözel verinin bir karakter dizisi olduğu 
+      ve dizilerin iterabl koleksiyon nesneleri olmalarının gözönüne alınması ile, 
+      bir döngü (loop) mekanizması ile değerlendirilmesinde kullanılır.
+    </p>
+    <p class="indent">
+      <img alt="uyum sayısı" src="images3/regex8.png" />
+    </p>
+    <p class="indent">
+      döngü mekanizmalarını ve <span class="keyw">println</span><span class="op">()</span> 
+      öntanımlı fonksiyonlarını ileride inceleyeceğiz. <span class="keyw">println</span>
+      <span class="op">(</span><span class="str">&quot;\&quot;$(i.match)\&quot; &quot;</span>
+      <span class="op">)</span> ifadesindeki \&quot; tanımları tırnak işaretinin 
+      saklanması (escaped quot) anlamına gelmektedir. Bunun sayesinde çıktılar, &quot;i&quot; 
+      olarak alınabilmiştir.
+    </p>
+    <p class="indent">
+      Değişken <span class="str">&quot;uyum&quot;</span>, uyumun sağlandığı her 
+      durumun elemanı olan bir itrabl dizi niteliğindedir. Döngü değişkeni olan 
+      i, her döngüde, uyum dizisinin sıradaki elemanı ile aynı deeğere eşitlenmektedir. 
+      böylece, her sağlanmış uyum değeri, her iterasyonda uyum sağladığı için yazılmaktadır.
+    </p>
+    <p id="shortcut" class="subsubsub">
+      2.2.2.2.3 - Kısayol Karakter Sınıfları
+    </p>
+    <p class="indent">
+      Kısayol karakter sınıfları, belirli nitelikteki tek karakterleri yakalar. 
+      Bu karakterler,
+    </p>
+    <ul class="list">
+      <li>\d <span class="comm-25">(digit) sadece sayılara uyum sağlar</span></li>
+      <li>\w<span class="comm-25">(word chaacter) sadece alfabetik karakterlere 
+      ve alt bağlaç (underscore)'a uyum sağlar.</span></li>
+      <li>\s<span class="comm-25">(space) sadece boşluk, tab ve satır sonu karakterlerine 
+      uyum sağlar</span></li>
+    </ul>
+    Örnek:
+    <p>
+    </p>
+    <p class="indent">
+      <img alt="\n ile uyum" src="images3/regex10.png" />
+    </p>
+    <p class="indent">
+      <img alt="kısayol yakalama karakteri \d uygulaması" src="images3/regex9.png" />
+    </p>
+    <p class="indent">
+      Diğer kısayol karakterlerinin uygulamaları da aynen bu örnekte olduğu gibidir.
+    </p>
+    <p id="nonprintable" class="subsubsub">
+      2.2.2.2.4 - Yazdırılamayan Karakterler
+    </p>
+    <p class="indent">
+      Yazdırılamayan karakterler (Non Printable Characters) her sözel veride bulunan 
+      ve okuma-görüntüleme-yazdırma işlemlerini kontrol ederek daha anlaşılabilir 
+      metin parçaları oluşturulmasını sağlayan karakterlerdir. Bunlar,
+    </p>
+    <ul class="list">
+      <li>\t (tab karakteri) (ASCII : 0x09)</li>
+      <li>\r (satırbaşı) (carriage return) (0x0D)</li>
+      <li>\n (yeni satır) (line feed) (0x0A)</li>
+      <li>\a (çıngırak sesi) (bell) (0x07)</li>
+      <li>\e (kaçış karakteri) (escape) (0x1B)</li>
+      <li>\f (form feed) (0x0C)</li>
+      <li>\v (dikey tab) (vertical tab)(0x0B)</li>
+      <li>\r\n (windows tipi satır sonu) \n (UNIX tipi satır sonu)</li>
+    </ul>
+    <p class="indent">
+      karakterleridir. Örnek,
+    </p>
+    <p class="indent">
+      <img alt="\t ile uyum" src="images3/regex10.png" />
+    </p>
+    <p id="dot" class="subsubsub">
+      2.2.2.2.5 - Nokta (Dot) Karakteri
+    </p>
+    <p class="indent">
+      Nokta (Dot) Karakteri her karaktere uyum sağlar. Julia için, satır sonu karakterlerine 
+      de uyum sağlar.Örnek,
+    </p>
+    <p class="indent">
+      <img alt="nokta herşey ile uyum sağlar1" src="images3/regex11.png" />
+    </p>
+    <p class="indent">
+      Nokta karakteri herşeye uyum sağladığından fazla kullanışlı değildir.
+    </p>
+    <p class="indent">
+      Not: Regex konusuna burada bir nokta koymak zorundayız. Bu çok geniş, fakat 
+      vereceği sonuç, iyi bir bilgilenme ile, önceden belli olacak bir konudur. 
+      Regex, adeta ayrı bir programlama dilidir. Bu konuda uygulamaların yazımı, 
+      geniş ölçüde bilgi ve deneyime bağlıdır. Çalışmalarımız matematik uygulamalarına 
+      yönelik olduğundan ve regex konusu da daha çok sözel uygulamalarla ilgili 
+      olduğundan, bu konuyu ancak tanıtmakla yetiniyoruz. Bu konuda Julia programlama 
+      dilinin, regex konusunda öntanımlı olarak sağladığı fonksiyonların tanıtımları 
+      ve uygulama örnekleri verilmiştir. Bundan sonra, bu konuda sağlanmış olan
+      <a href="regex.html">yerel özet bilgileri</a> veya aynı bilginin alındığı, 
+      ayrıca daha geniş temel bilgiler içeren
+      <a href="https://www.regular-expressions.info/quickstart.html">web sayfasını</a> 
+      , ayrıca çok geniş diğer literatürün incelenerek, özel uygulamaların yazılması 
+      son derece kolay olacaktır.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../index-2.html"><em>« Site Ana Sayfa</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../index.html"><em>« Julia Ana Sayfa</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../page2/k2s2.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../page4/k2s4.html"><em>Sonraki Sayfa»</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../../../Library/lastmodified.js" type="text/javascript">
+      </script>
+    <p style="font-family: Helvetica; color: red; font-size: 14px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      Created With Microsoft Expression Web 4
+    </p>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+      <img alt="Geçerli html5" src="../../images/html5-small-1.gif" /></a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page3/k2s3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:19:59 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

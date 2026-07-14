@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:48 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b18/b18s5.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b18s5</title>
+
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b18s4.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b18s6.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 18
+		</p>
+		<p class="chapter">
+			Belge Çözümleyicisi Nesne Modeli (Browser Object
+			Model) (BOM)
+		</p>
+		<p class="pagenum">
+			Bölüm 18 Sayfa 5
+		</p>
+		<p class="title-left" id="events">
+			18.5 - window Nesnesinin Olay Yöneticileri
+		</p>
+		<p class="indent">
+			Olay yöneticileri etkileşimli programlamanın ana öğeleridir. Olay yönetiicleri, bir olayı gözler ve bu olay
+			oluştuğunda, programlandıkları işlemi gerçekleştirirler. Bu konuya gelinceye kadar, programlarımızda
+			<span class="keyw">onload</span><span class="op">()</span>, <span class="keyw">onclick</span><span 
+			class="op">()</span>, gibi olay yöneticilerini kullandık ve çalışmalarını programlarımızda izledik. 
+			Bu bölümde ise, konuyu daha yakından incelemek ve belge çözümleyicilerin en çok kullanılanlarının ortak
+			olarak destekledileri olay yöneticilerini tanıtmaya çalışacağız.
+		</p>
+		<p class="indent">
+			Olay yöneticileri on,, sözcüğü ile başlarlar. Bir Web sayfasında, iki türlü, olay yöneticisi kullanılabilir. 
+			bunlardan ilki (X)HTML kodlama diline ait olay yöneticileridir. (X)HTML kodlama dili, karakter yazılımına
+			duyarlı olmadığından, (X)HTML kodlama diline ait olay yöneticileri, onClick, onLoad gibi yazılabilirler. 
+			(X)HTML kodlama diline ait olay yöneticilerinin değeri, üst düzey programlama alanında oldukları 
+			varsayılan JavaScript programlama adımlarıdır. Bu içerik ile tüm JavaScript programının yazılımını
+			gerçekleştirme olanağı bulunabilir. Yine de, bu işlev için <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span>program içeriği...<span 
+			class="keyw">&lt;</span><span class="op">/</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> şeklinde script elementinin kullanılması ve olay yöneticilerine sadece 
+			belirli bir fonksiyonun çalıştırılması yükümlüğünün verilmesi çok daha alışılmış bir yazılım stilidir. 
+		</p>
+		<p class="indent">
+			Bir Web sayfasının kodlarında, (X)HTML olay yöneticilerine JavaScript kodlarının yazılması, sayfanın
+			kod bütünlüğünü bozar, Kod karışıklığının önlenmesi, bu çalışmada daha önce bir çok kez üzerinde
+			durduğumuz bir iyi yazım stilidir. Kod karışıklığının önlenmesi prensibi, bir Web sayfasının kodlarında
+			sadece (X)HTML kodlarının bulunmasını, sayfa ile ile ilgili tüm diğer kodların kendi özel dosyalarında
+			bulunmasını ve sayfaya iliştirilmelerini öngörür. Biz de çalışmalarımızda bu prensibi uygulamaya özen
+			gösteriyoruz. Sorumlu bir programcıdan da bu beklenir. 
+		</p>
+		<p class="indent">
+			Kod karışıklığının önlenmesi prensibi, sayfa ile ilgili tüm JavaScript program adımlarının ayrı bir 
+			JavaScript program dosyasında gerçeleştirilmesini öngördüğünden, olay yöneticilerine JavaScript
+			fonksiyonlarının atanması, Web sayfasında, (X)HTML kodlama dilinin olay yöneticilerinin 
+			kullanılmaması, bunun yerine, sayfaya bağlantılı olan JavaScript program dosyasında, 
+			JavaScript programlama dilinde bulunan olay yöneticilerinin kullanılmasını gerektirir. JavaScript 
+			programlama dili, karakter yazılımına duyarlı olduğundan, JavaScript olay yöneticilerinin 
+			programlarda tanımlandıkları karakterlerle kulanılmaları gerekir.
+		</p>
+		<p class="subheading" id="ortak">18.5.1 - Ortak Olarak Desteklenen Olay Yöneticileri</p>
+		<p class="indent">
+			Inernet Explorer ve FireFox gibi Gecko motoru kullanan belge yöneticilerinin ortak olarak
+			destekledikleri olay yöneticileri, aşağıda belirtilmiştir. Programların ortak olarak
+			desteklenebilmeleri için sadece bu olay yöneticilerinin kullanılmış olmaları gerekir.
+		</p>
+		<div class="pl-100">
+			<table width="100%" id="window_methods" class="tablo1" summary="window events">
+				<caption class="captionred">
+						Tablo : 18-7 - <span class="keyw"> window</span> Nesnesinin Ortak Olarak Desteklenen Olay Yöneticileri
+				</caption>
+				<colgroup>
+				<col class="st1" width="30%" />
+				<col class="st1" width="70%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color2">
+						<th>Olay Yöneticisi </th>
+						<th>İşlev</th>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onabort</span></td>
+						<td><span class="keyw">Terketme eylemi ile bir işlemi başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onbeforeunload</span></td>
+						<td><span class="keyw">Pencerenin terkedilmesinden önce gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onblur</span></td>
+						<td><span class="keyw">Pencerenin üzerinden ilgi odağının kaldırılması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onchange</span></td>
+						<td><span class="keyw">Bir değişmenin gerçekleşmesi ile öngörülen işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onclick</span></td>
+						<td><span class="keyw">Bir tıklama ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">oncontextmenu</span></td>
+						<td><span class="keyw">Bir sağ tıklama ile öngörülen işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onerror</span></td>
+						<td><span class="keyw">Bir hatanın oluşması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onfocus</span></td>
+						<td><span class="keyw">Pencerenin üzerine ilgi odağı oluşması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onkeydown</span></td>
+						<td><span class="keyw">Bir tuşun indirilmesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onkeyup</span></td>
+						<td><span class="keyw">Bir tuşun kaldırılması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onload</span></td>
+						<td><span class="keyw">Bir nesnenin yüklenmsi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onmousedown</span></td>
+						<td><span class="keyw">Mouse'un indirilmesi ile gerçekleşecek işlemleri
+												başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onmousemove</span></td>
+						<td><span class="keyw">Mouse'un yer değiştirmesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onmouseout</span></td>
+						<td><span class="keyw">Mouse'un göstermemesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">mouseover</span></td>
+						<td><span class="keyw">Mouse'un nesnenin üstünden geçmesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">mouseup</span></td>
+						<td><span class="keyw">Mouse'un basılı halden çıkması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onreset</span></td>
+						<td><span class="keyw">Kullanıcının bir formu resetlemesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onresize</span></td>
+						<td><span class="keyw">Pencernin boyutlarının değiştirilmesi ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onscroll</span></td>
+						<td><span class="keyw">sayfanın kaydırılması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onselect</span></td>
+						<td><span class="keyw">Seçilme ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onsubmit</span></td>
+						<td><span class="keyw">Bir formun sunulması ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+					<tr class="tbline">
+						<td ><span class="str">onunload</span></td>
+						<td><span class="keyw">Boşaltma ile gerçekleşecek işlemleri başlatır.</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="subheading" id="delegation">18.5.2 - Olay Yöneticilerine İşlev Bağlanması</p>
+		<p class="indent">
+			JavaScript programlama dilinde, olay yöneticilerine işlev bağlanması (event
+			delegation)  üç ayrı yöntemle yapılabilir. Bu yöntemler sırası ile
+			FireFox ve Gecko motorunu kullanan tüm belge çözümleyiciler tarafından
+			desteklenen W3C yöntemi, ikincisi sadece Internet Explorer tararfından
+			desteklenen Microsoft Metodu, üçüncüsü ise, ortak olarak desteklenen
+			olay yöneticilerinin kullanılması koşulu ile,
+			<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> 
+			spesifikasyonunu destekleyen tüm belge çözümleyiciler tarafından desteklenen,
+			bu konuya gelinceye  kadar tüm programlarımızda uygulamakta olduğumuz,
+			JavaScript yöntemi ile olay yöneticilerine işlev bağlanmasıdır. Sonuncu
+			yöntemi çoğu programlaramızda, örnek olarak, son b18.4.4-uyg-1-js.htm
+			sayfasında yazılımı verilmiş olan programda uygulanmış olduğundan, burada
+			sadece ilk iki yöntem üzerinde durulacaktır.
+		</p>
+		<p class="indent">
+			Klasik JavaScript yöntemi ile olay yöneticilerine işlev bağlanması, fazla oranda sistem 
+			belleğiin kullanılmasına neden olur. Bunun en çarpıcı örneği, Internet Explorer'in 
+			bellek sızıntısı (memeory leak) sorunudur. Bu sorunun azaltılması, sadece gerekli 
+			elementlerin olay yöneticilerine işlev bağlanması (evant delegation) yöntemini 
+			gündeme getirmiştir. Bu konuda
+			<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">W3C</a>
+			kendi DOM sistematiği içinde bir yöntem geliştirmiştir. Bu aslında çok detaylı olan 
+			bu yöntemin sadece, <span class="keyw">addEventListener</span><span class="op">()</span>
+			metodunu inceleyeceğiz. Ne yazık ki bu metot, sadece FireFox ve Gecko
+			motorunu benimseyen belge çözümleyiciler tarafından kullanılmaktadır. 
+		</p>
+		<p class="indent">
+			<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">W3C</a>
+			metodu, olayın tüm sayfa yapısı içinde teperden doruğa doğru yayınlanmasını ve 
+			tekrar başa dönüşü (bubbling phase) (kabarcıklanma fazı) öngörmektedir. Yakalama,
+			kullanıcının öngördüğü fazda yapılabilir, fakat genel olarak geri dönüş fazı kullanılmaktadır. 
+		</p>
+		<p class="indent">
+			<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">W3C</a>
+			yönteminin <span class="keyw">addEventListener</span><span class="op">()</span>
+			metodunun kullanılış şekli aşağıdaki gibidir:
+		</p>
+		<pre>
+<span class="keyw">addEventListener</span><span class="op">(</span>olay yöneticisi, olay fonksiyonu, yakalamanın haber verme vaya geri dönüş fazında yapılacağı<span class="op">);</span> 
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu parametreler,
+		</p>
+		<p class="nonindent">
+			olay yöneticisi : karakter dizgisi tipinde bir değişken, <span 
+			class="str">'click'</span> gibi, olay yöneticisinin on öneki olmadan karakter dizgisi olarak yazılması.
+		</p>
+		<p class="nonindent">
+			olay fonksiyonu : birŞeylerYap<span class="op">()</span> fonksiyonu gibi bir
+			fonksiyonun kopyası olan birŞeylerYap (parantezsiz) ifadesi. Böylece <span 
+			class="keyw">this</span> sözcüğü çağıran nesneyi çağrıştırır.Bu parametre
+			bir anonim fonksiyon da olabilir. Örnek:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> renkDeğiştir<span 
+			class="op">() {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">style</span><span 
+			class="op">.</span><span 
+			class="keyw">color</span> <span 
+			class="op">=</span> <span 
+			class="str">'red'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			son parametre: <span 
+			class="keyw">true</span> ise yakalama gidişte, <span 
+			class="keyw">false</span> ise, yakalama dönüşte yapılır. 
+			Hangisinde yapılacağı hakkında bir fikriniz yoksa <span 
+			class="keyw">false</span> kullanın. Metodun kullanım örneği, 
+		</p>
+		<pre>
+<span class="keyw-25">addEventListener</span><span class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> renkDeğiştir<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Metot geriye bir değer döndürmez, fakat uygulanmsı olumlu geçerse, yani
+			uygulandığı belge çözümleyici metodu destekliyor ise, geriye <span 
+			class="keyw">true</span> aksi halde <span 
+			class="keyw">false</span> döndürür. Bu metodun kullanımı üzerinde detaylı bir açıklama 
+			<a href="http://quirksmode.org/js/events_advanced.html">quirksmode.org</a>
+			sitesinde yapılmıştır.
+		</p>
+		<p class="indent">
+			Microsoft, W3C modelini desteklemek yerine kendi modelini ileriye sürme yolunu seçmiştir. Fakat,
+			kendi yöntemi, W3C yöntemi kadar detaylı değildir. Örnek olarak, yakalamanın gidiş veya 
+			dönüşte yapılacağı üzerine bir belirleme yapmak olanağı tanınmamıştır. Bu konudaki ileri 
+			uygulamalarda bu bir eksiklik olarak kabul edilmektedir. Microsoft yöntemi, 
+			<span class="keyw">attachEvent</span><span 
+			class="op">()</span> metodunu tanılar. Bu metodun kullanımı,
+		</p>
+		
+		<pre>
+<span class="keyw">attachEvent</span><span class="op">(</span>olay yöneticisi, olay fonksiyonu<span 
+			class="op">);</span> 
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Olay yöneticisi parametresi, burada karakter dizigisi olarak olay yöneticisinin tam tanımıdır. 
+			Fonksiyon parametresi ise <span class="keyw">addEventListener</span><span class="op">()</span>
+			metodunda olduğu gibidir. Burada gerçekleşme varsayılan olarak sadece geri dönüş (kabarcıklanma) fazında yapılmaktadır. 
+			İkinci parametrede fonksiyonun kopyası değil, bellek referansı bulunmaktadır ve bundan dolayı 
+			<span class="keyw">this</span> sözcüğü çağıran fonksiyonu değil  <span class="keyw">window</span>
+			nesnesini çağrıştırdığından, burada yararlı değildir. Metot geriye bir değer döndürmez, fakat uygulanması 
+			olumlu geçerse, yani uygulandığı belge çözümleyici metodu destekliyor ise, geriye <span class="keyw">true</span>
+			aksi halde <span 	class="keyw">false</span> döndürür.
+		</p>
+		<p class="indent">
+			Klasik JavaScript yöntemi ile, bir olay yöneticisine sadece bir tek fonksiyon
+						atanması olanağı bulunmaktadır.  Eğer birden fazla fonksiyonun çalışması
+						öngörülecekse, bu fonksiyonlar tek bir fonksiyonun içeriğinden çağrılır.
+						 Daha önce incelediğimiz, ve 
+			<a href="../uygulamalar/bdelib-js.html">bdelib.js</a> kitaplığında bulunan,
+			 sayfaYüklendiktenSonraÇalıştır<span class="op">()</span> fonksiyonu, bu yöntemi
+			 uygulamaktaydı.  Olay yöneticisilerine ileri olay bağlama yöntemleri olarak
+			 adlandırılan, Microsoft ve W3C yöntemleri,  istendiği kadar fonksiyonu
+			 bir tek olay yöneticisi ile ilişkilendirebilmektedir. 
+		</p>
+		<p class="indent">
+			Microsoft ve W3C yöntemleri, farklı tipte belge çözümleyicilerce desteklendiğinden her ikisinin de 
+			ortak olarak desteklenme şansı 	bulunmamaktadır. Fakat, güncel eğilim, belge çözümleyicilerle değil,
+			metotların desteklenmesi ile ilgilenmek olduğundan, burada da aynı prensip uygulanabilir. Yani,
+			bir programa her iki metot da alınabilir. Program hangi tür belge çözümleyicide çalışırsa çalışsın,
+			belge çözümleyicisi desteklediği metodu çalıştırır diğer metodu görmezden gelir. 
+		</p>
+		<p class="indent" id="b18.5.2-uyg-1">
+			Aşağıda <a href="b18.5.2-uyg-1-js.html">JavaScript kodları</a> görülmekte olan program,
+			<span class="str">'onclick'</span> olay yöneticisine, içerikDeğiştir<span class="op">()</span>
+			adlı bir fonksiyonu ileri tekniklerle bağlamayı sağlamaktadır. Bu program, eğer Internet Explorer ve
+			eşdeğerleri türünden belge çözümleyicilerde çalıştırılırsa, olay bağlamasını Microsoft'un öngördüğü
+			element<span class="op">.</span><span class="keyw">attacEvent</span><span class="op">()</span>
+			fonksiyonunu, eğerGecko motorunu kullanan belge çözümleyicilerde çalıştırılırsa, olay bağlamasını W3C'nin öngördüğü
+			element<span class="op">.</span><span class="keyw">addEventListener</span><span class="op">()</span>
+			fonksiyonunu uygulayarak gerçekleştirmektedir. Program kodları, 
+		</p>
+
+		<pre>
+
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> MesajGöster<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> _gizli <span 
+			class="op">=</span> <span 
+			class="keyw">true</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>sınırlama <span 
+			class="op">=</span> function<span 
+			class="op">() {</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>_gizli <span 
+			class="op">)</span><span 
+			class="op"> {</span>
+<span class="pl-100">kutlama</span><span 
+			class="op">();</span>
+<span class="op-75">}</span>
+<span class="pl-75">_gizli</span> <span 
+			class="op">=</span> <span 
+			class="keyw">false</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> kutlama<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> mesajKutusu <span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'mesaj'</span><span 
+			class="op">),</span>
+<span class="pl-50">kutlamaMesajı</span> <span 
+			class="op">=</span> <span 
+			class="str">'Doğum Gününüz Kutlu Olsun !'</span><span 
+			class="op">;</span>
+<span class="pl-50">mesajKutusu</span><span 
+			class="op">.</span>appendChild<span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createtextNode</span><span 
+			class="op">(</span>kutlamaMesajı<span 
+			class="op">));</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> düğme <span 
+			class="op">=</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'klik'</span><span 
+			class="op">),</span>
+<span class="pl-50">bildiri</span> <span 
+			class="op">=</span><span 
+			class="keyw">new</span> MesajGöster<span 
+			class="op">()</span><span 
+			class="op">;</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'click'</span><span 
+			class="op">,</span> bildiri<span 
+			class="op">.</span>sınırlama<span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">düğme</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onclick'</span><span 
+			class="op">,</span> bildiri<span 
+			class="op">.</span>sınırlama<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="comm-25">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlat <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+<span class="keyw-25">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-50">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">,</span> başlat<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Yukarıdaki <a href ="../uygulamalar/b18.5.2-uyg-1-js.html">program</a>,
+			uygulama <a href ="../uygulamalar/b18.5.2-uyg-1.html">sayfasına</a> bağlantılı olarak
+			çalışmakta ve bu uygulama sayfası, başta IE 8, Firefox 3, Opera 10, Safari 4
+			ve Chrome 2 olmak üzere tüm belge çözümleyicilerde sorunsuz olarak çalışmaktadır.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.5.2-uyg-1-js.html">programda</a>, önemli olan başka
+			bir özellik, tıklama etkisinin sınırlandırılmasıdır. Program her sayfa yüklenmesi ile sadece 
+			bir kez mesaj yazılması işlemine izin vermektedir. Bunun için, MesajGöster<span class="op">()</span>
+			yapılandırıcı fonksiyonunun _gizli adlı özel değişkeninden yararlanmaktadır. Düğmenin tıklama
+			olayına bir foksiyon değil bir metot bağlanmaktadır. Bu metot, mesajı yazdırdıktan sonra, 
+			özel değişkenin değerini değiştirmekte ve bu şekilde, sayfa yeniden yüklenmedikçe,
+			kullanıcı sadece bir kez mesaj yazdırabilmektedir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b18.5.2-uyg-1-js.html">program</a>, hiçbir 
+			program kitaplığından yararlanmamaktadır ve tamamen kendi kendine yeten bir programdır. 
+			Program Gecko temelli belge çözüleyicilerde 
+			<span class="keyw">addEventListener</span><span class="op">()</span>
+			IE ile <span class="keyw">attachEvent</span><span class="op">()</span> metotlarını
+			uygulamaktadır. Bu şekilde olay yöneticilerine ileri düzey işlev bağlanması ile önemli ölçüde
+			bellek sızıntısı sorununun etkisini azaltma olanağı bulunabilmektedir.
+		</p>
+		<p class ="indent">
+			JavaScript fonksiyonunu, sayfa yüklendikten sonra çalıştıran program adımları, tek bir
+			fonksiyon halinde düzenlenmiş ve <a href="../uygulamalar/bdelib-src.html">bdelib</a> 
+			fonksiyon kitaplığına eklenmiştir. Bu fonksiyonun yazılımı aşağıda verilmiştir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> sayfaYüklenmesiTamamlandıktanSonraÇalıştır<span 
+			class="op">(</span>başlangıçFonksiyonu<span 
+			class="op">) {</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span><span 
+			class="str">'load'</span><span 
+			class="op">,</span> başlangıçFonksiyonu <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span><span 
+			class="str">'onload'</span><span 
+			class="op">, </span>başlangıçFonksiyonu<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Yukarıda yazılımı görülen sayfaYüklenmesiTamamlandıktanSonraÇalıştır<span 
+			class="op">(</span>başlangıçFonksiyonu<span class="op">)</span> fonksiyonu,
+			bdelib.js kitaplığının kullanıldığı her programda serbestçe çağrılabilir ve sayfa yüklendikten sonra
+			belirtilen fonksiyon çağrılır. Bu fonksiyon daha <a href="../b1/b1s3.html">önce</a> 
+			<a href="http://simonwillison.net/">Simon Willison </a>tarafından düzenlenmiş olan
+			fonksiyonun bir alternatifidir. Eğer bdelib.js kitaplığı kullanılmayacaksa, o vakit bu fonksiyonun
+			içeriğinin yukarıdaki <a href ="../uygulamalar/b18.5.2-uyg-1-js.html">programda</a>
+			kullanıldığı gibi program sayfasında bulundurulması yeterli olacaktır.
+		</p>
+		<p class ="indent">
+			Genel olarak bir sayfa öğesine bir olay dinleyicisinin bağlanması aşağıda görüldüğü
+			gibi yapılabilir. 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> olayDinleyicisiEkle<span class="op">(</span>birim<span 
+			class="op">,</span> olay<span class="op">,</span> etkinlik<span class="op">) {</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici FireFox ise (GECKO Motoru)</span>
+
+<span class="keyw-50">if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">) {</span>
+<span class="pl-75">birim</span><span 
+			class="op">.</span><span 
+			class="keyw">addEventListener</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> etkinlik <span 
+			class="op">,</span> <span 
+			class="keyw">false</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+
+<span class="comm-50">// Eğer Belge Çözümleyici Internet Explorer İse</span>
+
+<span class="keyw-50">else if</span> <span 
+			class="op">(</span><span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">) {</span>
+<span class="pl-75">olay</span> <span 
+			class="op">=</span> <span 
+			class="str">'on'</span> <span 
+			class="op">+</span> olay<span 
+			class="op">;</span>
+<span class="pl-75">birim</span><span 
+			class="op">.</span><span 
+			class="keyw">attachEvent</span><span 
+			class="op">(</span>olay<span 
+			class="op">,</span> etkinlik<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="nonindent">
+			Bu fonksiyon <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığına alınmıştır ve örnek olarak, 
+			olayDinleyicisiEkle<span class="op">(</span><span class="keyw">window</span><span 
+			class="op">,</span> <span class="str">'load'</span><span 
+			class="op">,</span> başlat<span class="op">);</span> şeklinde kullanılır.	
+		</p>
+		<p class ="indent">
+			Bir program öğesine hiçbir hazır fonksiyon kullanılmadan da olay yöneticileri atanabilir. Bunun
+			bir örneği aşağıda verilmiştir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> başlat <span class="op">() {</span>
+<span class="comm-50">// Programlar Buradan Başlatılmaktadır !</span>
+<span class="keyw-50">...</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">window</span><span class="op">.</span><span 
+			class="keyw">onload</span> <span 
+			class="op">=</span> başlat<span 
+			class="op">;</span>
+		</pre>
+		<p class ="nonindent">
+			Burada atanacak fonksiyonu <span class="op">()</span> işlemcisi ile belirtmemek gerekir, 
+			çünkü bu durumda fonksiyonun referansı değil, geri döndüreceği değer olay yöneticisine
+			atanır ve fonksiyon atamadan sonra otomatik olarak, yani  olayın
+			gerçekleşmesi beklenmeden çalıştırılmış olur.
+		</p>
+		<p class="indent">
+			Bu konuda burada sadece en gerekli olan metotlar üzerinde durulabilmiştir. Daha geniş 
+			açıklamalar Internet Explorer için,
+			<a href="http://msdn.microsoft.com/en-us/library/ms535873(VS.85).aspx#">MSDN</a> ve 
+			Firefox ile GECKO temelli belge çözümleyiciler için,
+			<a href="https://developer.mozilla.org/en/Gecko_DOM_Reference">GECKO DOM Reference</a>
+			kaynakları incelenmelidir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b18s4.html"><em> &laquo; Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b18s6.html"><em> Sonraki &raquo;</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript"
+		src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b18/b18s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:48 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

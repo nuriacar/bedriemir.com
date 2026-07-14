@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s14.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:57 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s14.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta 	content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5	at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s14</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1"/></a>
+				<a href="b2s13.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s15.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>	
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.12 - Program Akışının Yön Değiştirmesi
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 14
+		</p>
+		<p class="subheading" id="dallanma">2.12.1 - Dallanma</p>
+		<p class="indent">
+			JavaScript programlama dilinde programlar yukarıdan aşağıya doğru, çalıştırılabilecek
+			bildirimler çalıştırılarak devam eder. Program akışı sadece mantıksal iafadelerle
+			değiştirilebilir. Program akkışışının değişmesine dallanma adı verilir. 
+		</p>
+		<p class="indent">
+			Programların mantıksal olarak dallanması, yazılmış olan programların ileride 
+			yeniden incelemelerinde büyük kolaylık ve anlaşılırlık kazandırır. Bunun için
+			ödenmesi gereken bedel ise, mantıksal olarak dallannan programların  yazımının daha 
+			zor olması, dolayısı ile daha çok zaman alması ve daha fazla emeğe gereksinme duyulmasıdır. 
+			Mantıksal dallanmayı sağlayan bildirimlerin en sık kulanılanı, <span class="keyw">if/else</span>
+			bildirimleridir. 
+		</p>
+		<p class="subheading" id="if-else-apps">
+			2.12.2 - if..else Bildirimi
+		</p>
+		<p class="indent">
+			if..else Bildirimi, aşağıda görüldüğü gibi uygulanır:
+		</p>
+		<p class="indent">
+			 
+		</p>
+		<pre>
+<span class="keyw-25">if</span> <span 
+			class="op">(</span><em class="comm">mantıksal koşul gerçekleşirse</em> <span 
+			class="op">) {</span>
+<em class="pl-50"><span class="str">bildirim 1</span></em><span 
+			class="op">;</span>
+<em class="pl-50"><span class="str">bildirim 2</span></em><span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+<em class="pl-50"><span class="str">bildirim n</span></em><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="op-5">[</span><span class="keyw-10">else</span> <span 
+			class="op">{</span>
+<em class="pl-50"><span class="str">bildirim 1</span></em><span 
+			class="op">;</span>
+<em class="pl-50"><span class="str">bildirim 2</span></em><span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+<em class="pl-50"><span class="str">bildirim n</span></em><span 
+			class="op">;</span>
+<span class="op-25">} ]</span>
+		</pre>
+		<p class="nonindent">
+			 
+		</p>
+		<p class="nonindent">
+			Burada,
+		</p>
+		<p class="indent">
+			<span class="comm">mantıksal
+			koşul</span> : Mantıksal bir ifade. Bu ifadenin
+			sonucunun <span class="keyw">null</span>
+			veya <span class="keyw">undefined</span>
+			olması, koşulun gerçekleşmemiş olması, yani sonucun
+			false olması anlamına gelir (Gerekli).
+		</p>
+		<p class="indent">
+			<em class="str">bildirim1</em> : koşulun
+			gerçekleşmesi durumunda çalıştırılacak ifade. Bir
+			bileşik mantıksal ifade de olabilir (Gerekli).
+		</p>
+		<p class="indent">
+			<em class="str">bildirim2</em> : koşulun
+			gerçekleşmemesi durumunda çalıştırılacak ifade. Bir
+			bileşik mantıksal ifade de olabilir (İsteğe Bağlı).
+		</p>
+		<p class="indent">
+			Bu deyimlerde, en karmaşık mantıksal ifadeler
+			kullanılabilir. Burada tek dikkat edilecek konu,
+			ifadelerin net olması, ve sonucunun
+			<span class="keyw">true</span> veya
+			<span class="keyw">false</span> olarak
+			değerlendirilebilmesidir.
+		</p>
+		<p class="indent">
+			Bir <span class="keyw">if</span>
+			ifadesi, sadece kendisinden sonra gelen ilk Bildirim bloğunu çalıştırabilir.
+			Bildirim bloğunda en az bir bildirim bulunmalıdır. Koşul geçekleşir ve kontrol
+			<span class="keyw">if</span> bildiriminin sağındaki bildirim bloğuna geçerse, 
+			bloktaki tüm bildirimler çalıştırılır. Bildirimler tamamlandığında kontrol, bir
+			sonraki (varsa) <span class="keyw">else</span> bildiriminden bir sonraki 
+			bildirime geçer. İlişikli <span class="keyw">else</span> bildirimi isteğer bağlıdır. 
+			Eğer <span class="keyw">if</span> bildiriminin koşulu gerçekleşmezse, kontrol ilişikli
+			<span class="keyw">else</span> bilidiriminin sağındaki bildirim bloğuna geçer. 
+		</p>
+		<p class="indent">
+			Her <span class="keyw">if</span> ifadesine mutlaka bir <span class="keyw">else</span>
+			bildiriminin ilişkilendirilmesine gerek yoktur. Fakat bir <span class="keyw">else</span> 
+			bildirimi varsa kontrol, ya <span class="keyw">if</span> bildirimini izleyen, ya da 
+			<span class="keyw">else</span>  bildirimini izleyen bloğa girmek zorundadır.  Eğer 
+			<span class="keyw">if</span> bildirimini izleyen bir <span class="keyw">else</span>
+			bildirimi yoksa kontrol bir sonraki bildirime geçer.
+		</p>
+		<p class="indent">
+			Eğer <span class="keyw">if</span> veya <span class="keyw">else</span> 
+			bilidirimlerinin sağındaki bildirim bloklarında sadece bir tane bildirim
+			bile  bulunsa, kural olarak değil fakat iyi yazılım için son zamanlarda kabul
+			edilen ortak yazılım kuralı olarak blok parantezlerinin kullanılması sağlık
+			verilmektedir.		</p>
+		<p class="indent">
+			Her <span class="keyw">if</span>...
+			<span class="keyw">else</span> mantıksal
+			tümcesinin sadece bir tek bloğu çalıştırma hakkı
+			bulunmaktadır. Yani mantıksal ifadenin
+			gerçekleşmesine bağlı olarak, ya
+			<span class="keyw">if</span> ile
+			belirtilen ifade (veya ifadeler bloğu) veya
+			<span class="keyw">else</span> ile
+			belirtilen ifade (veya ifadeler bloğu) 
+			çalıştırılabilir. Ama, her
+			ikisi birden asla çalıştırılamaz.
+		</p>
+		<p class="indent" id="b2.12.2-uyg-1">
+			Her <span class="keyw">if</span> (varsa)
+			kendisinden sonra gelen en yakın
+			<span class="keyw">else</span> ile, her
+			<span class="keyw">else</span> kendisinden
+			önce gelen en yakın
+			<span class="keyw">if</span> ile
+			eşleşir. <a href="../uygulamalar/b2.12.2-uyg-1.html">Örnek</a>:		</p>
+		<pre>
+<span class="comm-25"> /* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> eşleşme ()<span 
+			class="op"> {</span>
+			
+<span class="keyw-50">var</span> k <span 
+			class="op">=</span> <span 
+			class="str">'Tuğba'</span><span 
+			class="op">,</span> h <span 
+			class="op">=</span> <span 
+			class="str">'Tümer'</span><span 
+			class="op">;</span>
+
+<span class="keyw-50">if </span><span 
+			class="op">(</span>h <span 
+			class="op">===</span> k<span 
+			class="op">)</span> <span 
+			class="op">{</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Gerçekleşti !'</span><span 
+			class="op">, </span><span 
+			class="str">'b2.12.2-uyg-1-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Gerçekleşmedi !'</span><span 
+			class="op">, </span><span 
+			class="str">'b2.12.2-uyg-1-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(eşleşme)</span><span 
+			class="op">;</span>
+			
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			Bu programın sonucu:
+	</p>
+		<p class="cursive-green" id="b2.12.2-uyg-1-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Bu programın akım şeması, programlarda mantıksal akış
+			kontrolüne örnek oluşturacaktır :
+		</p>
+		<p class="nonindent" style="padding-left:200px;">
+			<img src="../images/b2s14-img-1.png" alt="FlowChart"
+			width="521" height="398" />
+		</p>
+		<p class="nonindent">
+			Akım şemasında, programın seçim aşamasında iki yöne doğru
+			dallandığı görülmektedir. Eğer seçim koşulu gerçekleşirse,
+			program akışı, <span class="keyw">if</span> ile 
+			belirtilen yöne doğru, yoksa <span class="keyw">else</span> ile 
+			belirtilen yöne doğru devam edecektir.
+		</p>
+		<p class="indent">
+			JavaScript program kodları yazılırken,<span class="keyw">if...else</span>
+			yapılanmalarında, hangi <span class="keyw">else</span>&#39;in
+			hangi <span class="keyw">if</span>&#39;e ait olduğu ilk bakışta anlaşılacak şekilde
+			düzenlenmelidir. Yukarıdaki örnekte verilen yazılım model olarak alınmalıdır. Bu şekilde, 
+			son <span class="keyw">else</span> bildiriminin son <span class="keyw">if</span>
+			bildirimi ile ilgili olduğu açıkça görülmektedir.
+		</p>
+		<p class="indent" id="b2.12.2-uyg-2">
+			Programın koşullu dallanmasının başarısı, sınama grubunun 
+			tutarlığına bağlıdır. Tutarsız sonuç verecek bir sınama grubunun 
+			tasarımı, programın koşullu dallanmasındaki tutarlılığı da daha baştan 
+			olumsuz duruma düşürecektir. Bu konuda, JavaScript programlama dilinde 
+			sınama kuramının incelendiği <a href="b2s10.html">2.9 Mantıksal İşlemler</a>
+			konusu yeniden incelenmeli ve iyice pekiştirilmelidir. Başarılı bir koşullu
+			program dallanması, ancak güçlü bir kuramsal temel üzerinde sağlanabilir. 
+			Bu konuda çok yapılan bir hata örneği <a href="../uygulamalar/b2.12.2-uyg-2.html">verilmiştir</a>. 
+			Bu örneğin <a href="../uygulamalar/b2.12.2-uyg-2-js.html">JavaScript programı</a>
+			aşağıda görülmektedir .
+		</p>
+		<pre>
+<span class="comm-25"> /* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> yanlışKarşılaştırma ()<span 
+			class="op"> {</span>
+			
+<span class="keyw-50">var</span> k <span 
+			class="op">=</span> <span 
+			class="str">'Tuğba'</span><span 
+			class="op">,</span> h <span 
+			class="op">=</span> <span 
+			class="keyw">new String</span><span 
+			class="op">(</span><span 
+			class="str">'Tuğba'</span><span 
+			class="op">);</span>
+<span class="keyw-50">if </span><span 
+			class="op">(</span>h <span 
+			class="op">===</span> k<span 
+			class="op">)</span> <span 
+			class="op">{</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Gerçekleşti !'</span><span 
+			class="op">, </span><span 
+			class="str">'b2.12.2-uyg-2-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Uyuşma Gerçekleşmedi !'</span><span 
+			class="op">, </span><span 
+			class="str">'b2.12.2-uyg-2-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(yanlışKarşılaştırma)</span><span 
+			class="op">;</span>
+			
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			Bu programın sonucu:
+	</p>
+		<p class="cursive-green" id="b2.12.2-uyg-2-sonuç-1">
+		</p>
+		<p class="indent">
+			Yularıdaki <a href="../uygulamalar/b2.12.2-uyg-2.html">programın</a> sonucu
+			şaşırtıcı  olmamalıdır. Programa tanıtılan aynı karakterleri aynı sırada
+			içeren ve bu durumda biribirine eşit  olması gereken iki karakter dizgisinden
+			birisi ilkel karakter dizigisi verisi (String) diğeri ise  karakter dizgisi
+			nesnesi (String Object) tipindedir. Bu iki veri tipi biribirinden farklı
+			olduğundan, birbirleri ile bağdaşmaz ve dolayısı ile birbirleri ile karşılaştırılamaz
+			verilerdir. Karşılaştırma sonucu da bu iki verinin tipleri farklı olduğu
+			için olumsuz çıkmıştır. Bu belki de beklentinin tersi bir durumdur. Bu
+			olumsuzluğun aşılması için bir olasılık belki tip karşılaştırmasını by-pass
+			eden <span 
+			class="op">==</span> karşılaştırma işlemcisinin kullanılması olabilir. Bu
+			yöntem hiç sağlık verilmez.  Problemi bu defa çözer gibi olur fakat bir
+			başka kez aynı sorun yine ortaya çıkar. JavaScript programlarında <span 
+			class="op">==</span> işlemcisinin hiç kullanılmaması en uygun davranış olacaktır.
+			Alınacak en doğru önlem, her veriyi sadece ilkel veri tipi olarak tanıtmaktır.
+			Bu şekilde olumsuz tip uyuşmazlıklarından daha baştan  kurtulunmuş olunur.
+			Bir veriyi öntanımlı nesne tipi olarak tanıtmanın sadece çok tekrarlı döngülerde
+			 öntanımlı nesne özellikleri kullanılacağı zaman bir anlamı olacaktır.
+			Bunun dışında, bir veriyi öntanımlı nesne örneği olarak tanıtmanın hiçbir
+			avantajı yoktur ve olanaklar ölçüsünde bundan kaçınmak gerekir. Aksi halde
+			yukarıdaki <a href="../uygulamalar/b2.12.2-uyg-2.html">programdaki</a> gibi
+			yanıltıcı  karşılaştırma sonuçları ile karşılaşılabilir.
+		</p>
+		<p class="indent">
+			Daha önce <a href="b2s10.html">incelenmiş</a> olan üçlü karşılaştırma
+			işlemcisi <span class="keyw">?</span> nin, bir <span class="keyw">if..else</span>
+			yapılanmasının işlevini görebileceği belirtilmişti. Üçlü işlemci programlarda
+			 belirgin bir okunabilirlik azalmasına neden olur ve tuhaf görünür. Bunun
+			yerine  düzgün bir <span class="keyw">if..else</span> yapılanmasının kullanılması
+			sağlık verilir. Aslında bu öneri, tüm kısayol işlemcileri için de geçerlidir.
+		</p>
+		<p class="nonindent">
+			Çok seçimli sistemler için klasik olarak eskiden çok kullanılmış bir seçim grubu,
+			<span 
+			class="keyw">if...else if...else</span> yapılanmasıdır. Burada, aradaki <span 
+			class="keyw">else...if</span> bildirimi istendiği kadar tekrar edilebilir. Bu 
+			yöntemin bir örneği aşağıda görülmektedir:
+		</p>
+		<dl class="list">
+			<dd>
+				<span class="keyw">if(</span>&lt;koşul1&gt;<span 
+				class="keyw">)</span> <span 
+					class="op">{</span>
+					<dl>
+						<dd class="comm">/* Bildirim Bloğu 1*/</dd>
+					</dl>
+			</dd>
+			<dd>
+				<span class="op">} </span></dd>
+			<dd>
+				<span class="keyw">else</span> <span 
+				class="keyw">if</span> <span 
+				class="keyw">(</span>&lt;koşul 2&gt;<span 
+				class="keyw">)</span> <span 
+				class="op">{</span>
+				<dl>
+					<dd class="comm">/* Bildirim Bloğu 2 */</dd>
+				</dl>
+			</dd>
+			<dd>
+				<span class="op">}</span>
+			</dd>
+			<dd>
+				<span class="keyw">else</span> <span 
+					class="keyw">if</span> <span 
+					class="keyw">(</span>&lt;koşul 3&gt;<span 
+					class="keyw">)</span> <span 
+					class="op">{</span>
+				<dl>
+					<dd class="comm">/* Bildirim Bloğu 3 */</dd>
+				</dl>
+			</dd>
+			<dd><span class="op">}</span></dd>
+			<dd>
+				<span class="keyw">else</span> 
+				<dl>
+					<dd class="comm"> /*else Bildirim Bloğu*/</dd>
+				</dl>
+			</dd>
+		</dl>
+		<p class="nonindent" id="b2.12.2-uyg-3">
+			Burada, &lt;koşul 1&gt; ...&lt;koşul n&gt; <span 
+			class="keyw">true</span> veya <span 
+			class="keyw">false</span> olarak 
+			değerlendirilebilen mantıksal ifadelerdir. Bu <a href="../uygulamalar/b2.12.2-uyg-3.html">yöntemin</a>			<a href="../uygulamalar/b2.12.2-uyg-3-js.html">JavaScript program kodları,</a>		</p>
+		<pre>
+<span class="comm-25"> /* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> elseif()<span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> A <span 
+			class="op">= </span>23 <span 
+			class="op">,</span> B <span 
+			class="op">= </span>48<span 
+			class="op">;</span>
+
+<span class="keyw-50">if (</span>A<span 
+			class="op">===</span>B<span 
+			class="op">) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Veriler Eşit'</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.12.2-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else if</span><span 
+			class="op"> (</span>A<span 
+			class="op">&gt;</span>B<span 
+			class="op">) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Birinci Değer Büyük'</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.12.2-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span 
+			class="op">{</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Birinci Değer Küçük'</span><span 
+			class="op">,</span> <span 
+			class="str">'b2.12.2-uyg-3-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Program Devam Ediyor'</span><span 
+			class="op">, </span><span 
+			class="str">'b2.12.2-uyg-3-sonuç-2'</span><span 
+			class="op">);</span>
+		
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(elseif)</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="green">
+			Bu programın çalışması ile alınan sonuç:
+		</p>
+		<p class="cursive-red" id="b2.12.2-uyg-3-sonuç-1">
+		</p>
+		<p class="cursive-maroon" id="b2.12.2-uyg-3-sonuç-2">
+		</p>
+		<p class="nonindent">
+			Yukarıdaki programda, ilk <span 
+			class="keyw">if</span> ile son <span 
+			class="keyw">else</span> arası, tüm 
+			yapılanmasın, tek bir seçim grubu olduğu ve sadece bir 
+			tek bildirim bloğunun çalıştırılması 
+			olanağı verdiği unutulmamalıdır. Seçim grubu içinde ilk 
+			olarak &lt;koşul 1&gt;değerlendirilir. Eğer bu koşul,
+			<span class="keyw">true</span> olarak 
+			değerlendirilirse, Bildirim Bloğu 1 çalıştırılır ve
+			seçim yapılanmasının gerisi gözardı edilir. Eğer bu ilk 
+			koşul, <span class="keyw">false</span> olarak
+			geri döndürülürse, bir sonraki koşul denenir. Hiçbir koşul
+			gerçekleşmezse, eğer varsa <span 
+			class="keyw">else</span>ile belirtilen
+			işlemler yapılır ve program kontrolü, seçim yapılanmasını
+			izleyen ilk bildirim ile devam eder. Burada, seçim yapılanmasının
+			terkedilmesi ile program kontrolu, &quot;Program 
+			Devam Ediyor &quot; mesajının görüntülenmesi ile devam 
+			etmektedir.
+		</p>
+				<p class="indent">
+			Seçim yapılanmasının çalışma süresinin kısaltılması
+			için, gerçekleşme olasılığı en fazla olan koşullar, en önce
+			sınanmalıdır.
+		</p>
+		<p class="indent">
+			Her koşula bir işlem problemlerinin, yukarıda görüldüğü
+			gibi, bir <span 
+			class="keyw">if...else if ...else</span> 
+			yapılanması ile çözümlenmesinin daha yeni bir şekli,
+			modern programlama dillerinin repertuvarlarına yeni 
+			alınmış bulunan,
+			<span class="keyw">switch()</span> 
+			yapılanmasıdır. Bu yapılanmayı aşağıda inceleyeceğiz.
+		</p>
+		<p class="subheading" id="switch">
+			2.12.3 - switch Bildirimi</p>
+		<p class="indent">
+		<span class="keyw">
+		switch
+</span> 
+Bildirimi, daha önce görmüş olduğumuz,
+<span class="keyw">if...else
+			if...else</span> yapılanmasının kurumsallaştırılmış
+			halidir. Bu bildirim, gelişkin programlama dillerinde
+			sağladığı kolaylıklar gözönüne alınarak JavaScript
+			programlama diline alınmıştır. Kullanımı bir kere
+			alışıldıktan sonra son derece basittir ve eskiyi
+			aratmayacak kadar bağımlılık yaratabilir. Sözdizimi
+			aşağıda verilmiştir:
+		</p>
+		<pre>
+<span class="keyw-25">switch (</span>ifade<span 
+			class="keyw">)</span><span 
+			class="op">{</span>
+			
+<span class="keyw-25">case</span> değer1<span 
+			class="op">:</span>
+<span class="pl-50">bildirim(ler)1</span><span 
+			class="op">;</span>
+<span class="keyw-50">break</span><span 
+			class="op">;</span>
+			
+<span class="keyw-25">case</span> değer2<span 
+			class="op">:</span>
+<span class="pl-50">bildirim(ler)2</span><span 
+class="op">;</span>
+<span class="keyw-50">break</span><span 
+			class="op">;</span>
+			
+<span class="keyw-50">...</span>
+			
+<span class="keyw-25">default</span> <span 
+			class="op">:</span> 
+<span class="pl-50">bildirim(ler)</span><span 
+			class="op">;</span>
+			
+<span class="op"
+			style="padding-left:25px;">}</span>
+</pre>
+		<p class="indent" id="b2.12.3-uyg-1">
+			Yazılım her <span 	class="keyw">case</span> bildiriminin <span class="keyw">switch</span>
+			bildirimi ile aynı hizda olacak şekilde yapılarak aşırı girintilenme önlenmiş
+			olur. Her <span 	class="keyw">case</span> bildiriminde çalıştırılacak bildirimler birden fazla
+			ise, blok parantezlerinin 	<span class="op">{}</span>kullanılması gerekir. 	Bu yapılanmada, <span 
+			class="keyw">case</span> gruplama işlemcisi (parantez) <span 
+			class="keyw">switch</span> ile belirtilen değişkenin değerine tip
+			ve değer olarak (<span 	class="op">===</span> karşılaştırma işlemi ile eşdeğerdir) 
+			eşit olursa <span 	class="keyw">case</span> değer1
+			bloğu aktif olur ve  buradaki tüm ifadeler çalıştırılır, <span 	class="keyw">break</span> bildirimine
+			rastlandığı zaman <span class="keyw">switch</span> ifadesinin sonuna atlanır. Eğer 
+			<span 	class="keyw">break</span> 	bildirimine rastlanmazsa 
+			<span class="keyw">switch</span> 	bildiriminin sonuna 	kadar devam edilir,
+			fakat bu gereksizdir  çünkü normal olarak hiçbir uyuşmaya rastlanmayacaktır.
+			Bu nedenle, zaman kaybının önlenmesi için, her <span class="keyw">case</span> bildirimi, 
+			<span class="keyw">break</span> bildirimi ile sonlandırılır. Hiçbir <span class="keyw">case</span> de uyuşma 	görülmezse,
+			<span class="keyw">default</span> durumundaki bidirim bloğu aktif olur ve
+			buradaki ifade veya ifade bloğu çalıştırılır. Aşağıda 
+			<a href ="../uygulamalar/b2.12.3-uyg-1-js.html">JavaScript kodları</a>
+			verilmiş olan <a href="../uygulamalar/b2.12.3-uyg-1.html">örnek</a> 
+			bu konuyu daha iyi açıklayacaktır.
+		</p>
+		<pre>
+<span class="keyw-25">function</span> seçim() <span 
+			class="op">{</span>
+
+<span class="keyw-25">var</span> f<span 
+			class="op"> = </span>89<span 
+			class="op">;</span>
+<span class="keyw-25">switch (</span>f<span 
+			class="keyw">)</span><span 
+			class="op"> {</span>
+<span class="keyw-25">case</span> 30<span 
+			class="op">:</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="keyw">(</span><span 
+			class="str">&quot;f = 30&quot;</span><span 
+			class="op">,</span><span 
+			class="str"> &quot;2.12.3.-uyg-1-sonuç-1&quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span>
+<span class="keyw-50">break</span><span 
+			class="op">;</span>
+<span class="keyw-25">case</span> 89<span 
+			class="op">:</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="keyw">(</span><span 
+			class="str">&quot;f = 89&quot;</span><span 
+			class="op">,</span><span 
+			class="str"> &quot;2.12.3.-uyg-1-sonuç-1&quot;</span><span 
+			class="keyw">)</span><span class="op">;</span>
+<span class="keyw-50">break</span><span 
+			class="op">;</span>
+<span class="keyw-25">default</span> <span 
+			class="op">:</span> 
+<span class="pl-50">bilgiYaz</span><span 
+			class="keyw">(</span><span 
+			class="str">&quot;Uyuşma Sağlanamadı !&quot;</span><span 
+			class="op">, </span><span 
+			class="str">&quot;2.12.3.-uyg-1-sonuç-1&quot;</span><span 
+			class="keyw">)</span><span class="op">;</span>
+<span class="op"
+			style="padding-left:25px;">}</span>
+
+<span class ="pl-25">sayfaYüklendiktenSonraÇalıştır(seçim)</span><span 
+			class ="op">;</span>
+		</pre>
+		<p class="cursive-green">
+		Sonuç : <span class="cursive-red" id="b2.12.3-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			olarak gerçekleşmiştir. Görüldüğü gibi, 
+			<span class="keyw">switch</span> bildirimi,
+			hem programlama kolaylığı, hem de çalışma süresinin
+			kısalığı ile, <span class="keyw">if-else if-else</span> tipi 
+			çok seçimli seçenek yapılanmalarına güncel bir çözüm 
+			getirmektedir.
+		</p>
+		<p class="indent">
+			Burada,<span class="keyw">switch</span> bildirimin kullanımı için bazı uyrıların
+			yapılması  gerekli olabilir. Bu uyarılar aynen <span class="keyw">if else if else</span> 
+			yapılanmaları	ile <span class="keyw">if else</span> yapılanmaları için de geçerlidir. Bu bildirimlerin
+			çalıştırabileceği  bloklar içine fonksiyon bildirimleri gibi, kritik bildirimler
+			konulmamalıdır. Bunlar olasılık bloklarıdır. Olasılıklar gerçekleşmezse,
+			bu blokların içindeki tanımlar yapılmaz. İleride bu tanımlardan yararlanılması
+			gerekecekse, bu gereksinme karşılanamaz. Bu nedenle, olasılık blokları
+			içine sadece ifadelerin yerleştirilmesi ile yetinilmelidir.
+		</p>
+		<p class="indent">
+			Mantıksal işlemlerle, program akış yönünün değiştirilmesi
+			konusunun incelenmesini burada tamamlıyoruz. Doğal olarak,
+			burada üstünde durmuş olduğumuz temel bilgilerin iyice özümsenmesi için,
+			çok sayıda uygulama yapmak çok yararlı olacaktır..
+		</p>
+
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s13.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s15.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/b2.12.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.12.2-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.12.2-uyg-3.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.12.3-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s14.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:57 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

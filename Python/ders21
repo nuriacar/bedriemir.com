@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset ="utf-8">
+    <title>Python 3 Ders 21</title>
+    <meta content="Python 3 Programming Language Tutorial, in Turkish" 
+    name="description">
+    <meta content="Python 3 Tutorial, in Turkish" 
+    name="keywords">
+    <meta content="Prof. Dr. Bedri Doğan Emir" 
+    name="author">
+    <meta content="INDEX,FOLLOW" name="Robots">
+    <meta content="width=device-width; initial-scale=1.0" 
+    name="viewport">
+    <link href="css/bdestyle.css" rel="stylesheet" 
+    type="text/css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 3</h2>
+    <h3 class="chapter">Veri Tipleri</h3>
+    <div class="pagenum">
+      <p>
+        <img alt="Top Navigasyon" 
+        src="images/topmove-fw.png" usemap="#Map">
+        <map id="Map" name="Map">
+          <area alt="" coords="0,0,75,18" 
+          href="ders19.html" shape="rect" title="">
+          <area alt="" coords="85,0,170,18" 
+          href="ders22.html" shape="rect" title="">
+        </map>
+      </p>
+      <p>
+        Ders 21</p>
+    </div>
+    <p id="apps" class="title-left">
+      3.3 - Sözlük (Dictionary) Tipi Veriler</p>
+    <p class="indent">
+      Koleksiyon tipi veriler, bilgisayar bilimlerinde "Veri 
+      Yapıları" (Data Structures) olarak adlandırılır. Liste 
+      ve topluluk (tuple) veri yapılarından sonra, bu seksiyonda 
+      sözlük (dictionary) veri tipini inceleyeceğiz.
+    </p>
+    <p class="indent">
+      Sözlük tipi veriler, belirli bir düzeni olmayan,&nbsp; 
+      sayıları istendiği kadar olabilen, anahtar:değer çiftleridir. 
+      Sözlükler süslü parantez {} içinde gösterilirler.
+    </p>
+    <p class="indent">
+      Sözlük anahtar değerleri benzersiz (unique) ve hashable 
+      değerler olmalıdır. Bunlar tek değer olabildikleri gibi 
+      df = {('Bölge', 1):16} tanımında olduğu gibi bileşik (kompozit) 
+      anahtar değerleri de olabilirler. Bileşik anahtar değerleri, 
+      sadece hashable tipte topluluklar veya frozensetler olabilir. 
+      Listeler kompozit anahtar değerleri olarak kullanılamaz, 
+      çünkü değişmez tipte değillerdir. Bundan başka her durumda, 
+      her geçerli Python tanıtıcısı sözlük anahtarı olarak kullanılabilir. 
+      Anahtar değeri olarak önceden belirtilmiş bir değer verilmek 
+      istenirse, eski anahtar: değer çifti silinir, yerine yeni 
+      tanımlanan anahtar:değer çifti yerleştirilir. Değerler 
+      ise, her geçerli Python veri tipinden olabilir. Sözlük 
+      tipi verilerde, indis tanımı yoktur. Bu yüzden dilimleme 
+      ile alt sözlüklere ayrılamaz. Ayrıca, indis tanımı olmadığından, 
+      sözlüklerde eleman dizilişi tamamen, gelişigüzel (random) 
+      niteliktedir. Belirli bir düzene göre yapılandırılmış 
+      sözlük verilerinin oluşturulması için özel sıralama yöntemlerinin 
+      uygulanması gerekir.
+    </p>
+    <p class="indent">
+      Sözlükler, değişebilir (mutable) veri tiplerindendir. 
+      Bir kez tanımlandıktan sonra kısmen değiştirilip güncellenebilirler.
+    </p>
+    <p id="dict-build" class="subheading">
+      3.3.1 - Sözlük Tipi Verilerin Oluşturulması
+    </p>
+    <p class="indent">
+      Sözlük tipi veriler, boş bir çift&nbsp; süslü parantez 
+      kullanılarak yaratılabilir. Örnek.
+    </p>
+    <pre class="pl-25 navy">
+a = {}
+print(a)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{}</span>
+</pre>
+    <p class="indent">
+      İstenirse, süslü parantez içeriğinde anahtar:değer çiftleri 
+      ile yaratılabilir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+b = {'AdıveSoyadı' :'Ahmet Kahraman', 'DoğduğuYer' : 'Sulakyurt'}
+print(b)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'AdıveSoyadı': 'Ahmet Kahraman', 'DoğduğuYer': 'Sulakyurt'}</span></pre>
+    <p class="indent">
+      Eğer var olan bir anahtar ile yeni bir anahtar:değer çifti 
+      yaratılmak istenirse, eski anahtar:değer çifti silinir 
+      ve yerine yeni anahtar:çifti konulur. Örnek
+    </p>
+    <pre class="pl-25 navy">
+bd = {'AdıveSoyadı' :'Ahmet Kahraman', 'DoğduğuYer' : 'Sulakyurt',
+'DoğduğuYer':'Konya'}
+print(b)
+
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'DoğduğuYer': 'Konya', 'AdıveSoyadı': 'Ahmet Kahraman'}</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, anahtar değerleri mutlaka benzersiz olmalıdır. 
+      Aksi halde veri temelinde değer karmaşası yaşanır. Bunun 
+      için anahtar değerlerinin saptanmasında olağanüstü dikkat 
+      gerekir. Oluşturulan sözlükler de sıralama olmadığı ve 
+      yaratılan elemanların belirli bir sıra düzenine uymadan, 
+      gelişigüzel olarak oluşturulduğuna dikkat edilmelidir.
+    </p>
+    <p class="indent">
+      Sözlükler, öntanımlı <span class="keyw">dict</span><span 
+      class="op">()</span> fonksiyonu kullanılarak başka koleksiyon 
+      veri tiplerinden, sözlük veri tipine dönüştürerek de yaratılabilir. 
+      Örnek:
+    </p>
+    <pre class="pl-25 navy">
+sözlük1 = dict({'Parça Numarası :':978, 'Parça adı :' : 'Yakıt Pompası'})
+print(sözlük1)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'Parça adı :': 'Yakıt Pompası', 'Parça Numarası :': 978}</span>
+</pre>
+    <p class="indent">
+      Zaten tanımlanmış bir sözlüğü, yeniden sözlük tipine dönüştürmek 
+      çok akıllıca görünmemesine karşın, <span class="keyw">
+      dict</span> <span class="op">()</span> öntanımlı fonksiyonunun 
+      sözlüklerin yüzeysel kopyalanmaları için bir yöntem oluşturduğu, 
+      bu program ile görülmektedir. Bu işlem, istenirse, aşağıda 
+      görüldüğü gibi, bir ara atama yolu ile de gerçekleştirilebilir.
+    </p>
+    <pre class="pl-25 navy">
+sözlük2 = dict(b)
+print(sözlük2)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'AdıveSoyadı': 'Ahmet Kahraman', 'DoğduğuYer': 'Sulakyurt'}</span>
+</pre>
+    <p class="indent">
+      Doğal olarak, bir liste veya topluluk gibi başka koleksiyon 
+      tipinde olan verilerin öntanımlı <span class="keyw">dict</span><span 
+      class="op">()</span> fonksiyonu yardımı ile sözlük tipine 
+      dönüştürmek çok daha anlamlı olacaktır. Örnekler aşağıda 
+      görülmektedir:
+    </p>
+    <pre class="pl-25 navy">
+print(dict([[34, 'Istanbul'], [41, 'Kocaeli'], [56, 'Tekirdağ']]))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{56: 'Tekirdağ', 41: 'Kocaeli', 34: 'Istanbul'}</span>
+</pre>
+    <p class="indent">
+      Yukarıdaki uygulama, kodların nasıl kompakt hale getirilebileceğinin 
+      görülmesi için iyi bir örnektir. Kodların bu şekilde kompakt 
+      hale getirilmesi, programın iyi anlaşılmasını, özellikle 
+      ilk geliştirme sürecinde çok zorlaştırır ve kesinlikle 
+      bu işlem programın ilk sürümlerinde değil, çok daha sonra, 
+      program iyice yerleşik ve fonksiyonel hale geldikten sonraki 
+      sürümlerinde, güncelleme işlemleri arasında yapılmalıdır.
+    </p>
+    <p class="indent">
+      Başlangıç sürümlerinde, programlar daha açık ve anlaşılır 
+      olmalıdır. Örnek :
+    </p>
+    <pre class="pl-25 navy">
+trafik_kodları = [[34, 'Istanbul'], [41, 'Kocaeli'], [56, 'Tekirdağ']]
+sözlük3 = dict(trafik_kodları)
+print(sözlük3)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{56: 'Tekirdağ', 41: 'Kocaeli', 34: 'Istanbul'}</span>
+</pre>
+    <p class="indent">
+      Yukarıdaki programda görüldüğü gibi, bileşik olmayan anahtar 
+      değerleri için listeler kullanılabilir. Veri yapısı sözlük 
+      tipine dönüştürülecek bir koleksiyonun veri yapısı, bu 
+      dönüştürmeye uygun olmadır. Aksi halde hata oluşur. Buna 
+      şekil (shape) koşulunun uygunluğu adı verilir.
+    </p>
+    <p class="indent">
+      Aynı yöntemle, veri yapısı uygun olan koleksiyonlar da,
+      <span class="keyw">dict</span><span class="op">()</span> 
+      öntanımlı fonksiyonunun argümanı olarak tanımlandıklarında 
+      sözlük veri tiplerine dönüştürülebilirler. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+tpl=(('Mayıs', 34), ('Haziran', 40), ('Temmuz' , 42))
+sözlük4 = dict(tpl)
+print(sözlük4)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'Mayıs': 34, 'Temmuz': 42, 'Haziran': 40}</span>
+</pre>
+    <p class="indent">
+      Bu uygulamanın</p>
+    <p class="indent">
+      Bu uygulama, <span class="keyw">dict</span>
+      <span class="op">()</span> fonksiyonun, uygun yapılı topluluklarını, 
+      sözlük veri tipine dönüştürülebileceklerini açıkça göstermektedir. 
+      Bu uygulamanın daha da ilginci <span class="keyw">zip</span>
+      <span class="op">()</span> fonksiyonun da olaya dahil 
+      olmasıdır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+liste = ['Istanbul', 'İzmir', 'Mersin']
+topluluk = ('Enginar', 'Mandalina', 'Portakal')
+sözlük5 = dict(zip(liste, topluluk))
+print(sözlük5)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+<span class="maroon-left">{'İzmir': 'Mandalina', 'Mersin': 'Portakal', 'Istanbul': 'Enginar'}</span>
+</pre>
+    <p class="indent">
+      Yukarıdaki program çok ilginç ve pratik bir sözlük yaratma 
+      metodunu belirtmektedir. Bu metotla, bileşik anahtar değerli 
+      sözlükler de yaratılabilir. Sadece, bileşik anahtar değerli 
+      sözlüklerin anahtar değeri olarak sadece değişemez ve 
+      hashable koleksiyonlar kullanılabilir.&nbsp; Bu kriteryumu 
+      da sadece hashable toplukluklar ve frozensetler karşılayabilir. 
+      Listeler, bileşik anahtar değerli sözlüklerin anahtar 
+      değerleri olarak kullanılamaz. Listelerin, sözlük anahtar 
+      değerleri olarak kullanılamadıkları tek kısıtlama da budur.
+    </p>
+    <p class="indent">
+      Bu sözlük oluşturma yönteminin, sıradan ve ve oluşturuğu 
+      sözlüklerin diğer metotlarla da yapılabileceği düşünülebilir. 
+      Küçük çapta sözlükler için bu düşünce doğru da olabilir. 
+      Fakat, biraz düşününce, bu yöntemin inanılmaz bir olanak 
+      sağladığı anlaşılacaktır. Sözlük değerlerinin aynı zamanda 
+      nesne sınıf örneklerinden oluşabileceği gözönüne alınmalıdır. 
+      İstenilen bir veri yapısı sınıfı yaratarak, bunun binlerce 
+      sınıf örneğini bir disk dosyasına yerleştirip, bir koleksiyon 
+      tipi verinin elemanları olarak okutmak ve bir başka dosyadan 
+      okutulan anahtar değerleri ile akuple ederek, tüm bu anahtar:değer 
+      çiftlerini, <span class="keyw">zip</span>
+      <span class="op">()</span> fonksiyonu ile, bir sözlükte 
+      birleştirmek büyük çapta bir veri temeli yaratmak anlamına 
+      gelmektedir. Böyle bir veri temelinde, çoklu anahtar değerlerinin 
+      her bir anahtarının, nesne örneği değerin bir başka özelliğine 
+      denk getirilmesi inanılmaz yetenekli bir dinamik veri 
+      temelinin geliştirilmesi anlamına gelir. Bu veri temeli 
+      dinamik olacaktır çünkü, disk dosyalarında veriler her 
+      an güncellenebilir niteliktedir. Veri temeli de statik 
+      olmayıp, her çağrıldığında değişik disk dosyaları okunup
+      <span class="keyw">zip</span> <span class="op">()</span> 
+      fonksiyonu ile çalışma sürecinde (runtime) olarak birleştirildiğnden 
+      tam dinamik karakterde olacaktır. Yine de, bu bir amatör 
+      veri temelidir ve verilere erişim çok hızlı olmayabilir. 
+      Bu yüzden erişim hızı çok kritik ise, Python programlama 
+      dilinin, çok kullanışlı veri temeli bağlantılarından yararlanarak 
+      profesyonel bir veri temeli ile, örnek olarak MySql ile 
+      çalışmak çok daha iyi olabilir.
+    </p>
+    <p class="indent">
+      Sözlükler, değişebilir tipte veriler olduklarından, aynı 
+      zamanda dictionary comprehensions denilen yöntemle de 
+      yaratılabilirler. Bu yöntemi, topluluklar ile de incelemiştik. 
+      Burada da tekrar edelim. Topluluklardan farklı olarak, 
+      sözlüklerde, hem anahtar, hem değer vermek gerekir. Anahtarları 
+      bir listeye, değerleri bir başka listeye yerleştirirsek 
+      ister <span class="keyw">zip</span><span class="op">()</span> 
+      fonksiyonu ile, istersek iki içiçe <span class="keyw">
+      for</span> <span class="op">in</span> döngüleri ie bunları 
+      bir sözlükte birleştirebiliriz. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+Anahtar = (('Beşiktaş', 'Akaretler'), ('Fatih', 'Malta' ), ('Feneryolu', 'Kadıköy'))
+Değer = (23, 34, 48)
+sözlük = {}
+x = 0
+for i,j in Anahtar:
+    item = {((i,j), Değer[x])}
+    sözlük.update(item)
+    x+=1
+print(sözlük)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{('Fatih', 'Malta'): 34, ('Beşiktaş', 'Akaretler'): 23, ('Feneryolu', 'Kadıköy'): 48}</span></pre>
+    <p class="indent">
+      Öntanımlı <span class="keyw">zip</span><span 
+      class="op">()</span> fonksiyonu ile daha da pratik:
+    </p>
+    <pre class="pl-25 navy">
+Anahtar = (('Beşiktaş', 'Akaretler'), ('Fatih', 'Malta' ), ('Feneryolu', 'Kadıköy'))
+Değer = (23, 34, 48)
+sözlük = dict(zip(Anahtar,Değer))
+print(sözlük)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{('Fatih', 'Malta'): 34, ('Beşiktaş', 'Akaretler'): 23, ('Feneryolu', 'Kadıköy'): 48}</span></pre>
+    <p class="indent">
+      Sözlüklerin yapılanması sırasında belirli koşullar da 
+      belirleyebiliriz. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+Anahtar = (('Beşiktaş', 'Akaretler'), ('Fatih', 'Malta' ), ('Feneryolu', 'Kadıköy'))
+Değer = (23, 34, 48)
+sözlük = {}
+x = 0
+for i,j in Anahtar:
+    if Değer[x] &lt; 40:
+        item = {((i,j), Değer[x])}
+        sözlük.update(item)
+    x+=1
+print(sözlük) 
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{('Fatih', 'Malta'): 34, ('Beşiktaş', 'Akaretler'): 23}</span></pre>
+    <p class="indent">
+      Eleman değerleri belirli koşulları sağlayan sözlüklerin 
+      oluşturulması, <span class="keyw">zip</span><span 
+      class="op">()</span> ile kolaydır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+Anahtar = (('Beşiktaş', 'Akaretler'), ('Fatih', 'Malta' ), ('Feneryolu', 'Kadıköy'))
+Değer = (23, 34, 48)
+
+sözlük = dict( zip(Anahtar,Değer))
+seri = dict( zip(Anahtar,Değer))
+
+for item in seri.items():    
+    if item[1] &gt; 40:
+        sözlük.pop(item[0])
+        
+del(seri)
+
+print(sözlük)  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{('Fatih', 'Malta'): 34, ('Beşiktaş', 'Akaretler'): 23}</span></pre>
+    <p class="indent">
+      Burada sözlük iki terimli anahtar ve tek değerden oluşuyor. 
+      Önce <span class="keyw">zip</span><span class="op">()</span> 
+      fonksiyonunu uygulayarak sözlük ve seri adlı iki bağımsız 
+      sözlük verisi oluşturuyoruz. Sonra seri sözlüğünün elemanlarını 
+      tarayarak değeri 40 dan büyük olan elemanın anahtar değerini 
+      saptayarak, bu anahtar:veri çiftini, sözlük sözlüğünden 
+      çıkartıyoruz. Eleman sayısı tamamlanınca, sözlük sözlüğünde 
+      istediğimiz özellikleri sağlayan elemanlar kalmış oluyor.
+    </p>
+    <p class="indent">
+      Dictionary comprehensions yöntemi yukarıdaki işlemleri 
+      daha kısaltmak için gerçekleştirilmiştir. Ne yazık ki 
+      bu basit yöntem, ratladığım hiçbir kaynakta açık ve adım 
+      adım anlatılamamış ve bu nedenle kullanıcılar çoğu kez 
+      bu kolay yöntemi kullanmaktan kaçınmaktadırlar. Oysa ilk 
+      kural ile başlayalım:
+    </p>
+    <ul class="list red">
+      <li>Dicitionary comprehensions sadece tek bir koleksiyondan 
+      yararlanır. </li>
+    </ul>
+    <p class="indent">
+      Bu durumda, dictionary comprehensions yöntemini uygulamak 
+      için, ilk önce sözlüğün yaratılması için yararlanılacak 
+      koleksiyonun (liste, topluluk, küme, donmuş küme) daha 
+      önce dikkatle hazırlanması gereklidir.
+    </p>
+    <p class="indent">
+      Sözlüklerin yaratılması için gerekli dosyanın yaratılması 
+      hiç zor değildir. Bu koleksiyon, oluşacak sözlüğün anahtar 
+      : veri çiftlerinin oluşturulabilmesi için gerekli değerleri 
+      sağlamalıdır. Yani, bu dosyanın her elemanı, sözlük oluşturulması 
+      için yeterli bilgiyi sağlamalıdır. Bu da çok basit olarak 
+      sağlanabilir. Bazı olasılıkları gözden geçirelim:
+    </p>
+    <p class="indent">
+      Bir anahtar listesi
+    </p>
+    <pre class="pl-25 navy">
+z = [12, 3, 5, 14] 
+    </pre>
+    <p class="indent">
+      Bu liste sadece anahtar bilgilerini içermektedir. Eğer 
+      böyle bir listenin elemanları ile bir sözlük oluşturulacaksa, 
+      bu liste sadece anahtar değerlerini sağlayabilecektir. 
+      Durum aşağıda görüldüğü gibi olacaktır:
+    </p>
+    <pre class="pl-25 navy">
+12 : ? ,  3 : ? , 5 : ?, 14 : ? 
+    </pre>
+    <p class="indent">
+      Anahtarlar bulundu, ama bu anahtarlara karşı gelecek değerler 
+      bulunumazsa sözlük oluşturulamaz. Değerler önceden belirlenmişse, 
+      sözlük oluşturulabilir. Bu değerlerin nasıl belirlenebilecekleri 
+      belirli olasılıklarla belirlenebiir.</p>
+    <p class="indent">
+      Bir olasılık, bu anahtar değerleri ile veriler arasında, 
+      matematik bir bağıntı olabileceği ve değerlerin, verilerin 
+      anahtar değerlerinden saptanabileceğidir. Örnek olarak 
+      veri = sin(anahtar) olabilir. Bu durumda, sözlük dosyası 
+      tamamlanmıştır. Görevin geri kalanını, dictionary comprehensions 
+      üstlenip sözlüğü oluşturacaktır.
+    </p>
+    <p class="indent">
+      Bir başka olasılık, her bir anahatar değerine karşı, bir 
+      gözlem yapılmış olduğu ve bu gözlem değerlerinin bir veri 
+      listesine kaydedilmiş olmasıdır. Bu da fizikte çok rastlanan 
+      ikili bir ilişki anlamına gelir. Örnek olarak, belirli 
+      sıcaklıklara karşı gelen su buharı basınçları okunup bir 
+      listeye kaydedilmiş olabilir. O zaman da, anahtar ve veri 
+      dosyalarını zipleyerek (anahtar, veri), (anahtar, veri) 
+      çiftlerini oluşturmuş oluruz. Ziplenmiş verileri bir listeye 
+      yerleştiririz ve bundan sonrasını dictionary comprehension 
+      halleder.
+    </p>
+    <p class="indent">
+      Dictionary comprehension yöntemi iki türlü uygulama prosedürünü 
+      destekler. Bunlar,
+    </p>
+    <pre class="pl-25 red">
+{anahtarifadesi <span class="op">:</span> değerifadesi <span 
+    class="keyw">for</span> anahtar<span class="op">,</span> değer&nbsp;<span 
+    class="op">in</span> <em>iterable</em>}
+{anahtarifadesi <span class="op">:</span> değerifadesi <span 
+    class="keyw">for</span> anahtar<span class="op">,</span> değer&nbsp;<span 
+    class="op">in</span> <em>iterable </em><span 
+    class="keyw">if</span> <em>koşul</em>} 
+</pre>
+    <p class="nonindent">
+      şeklindedir. Bu yöntemlerden ilkinin açıklanmasına tanımın 
+      sonundan başlayalım: <span class="keyw">for</span> anahtar, 
+      değer <span class="op">in</span> iterable... Burada iterable, 
+      oluşturulmuş olan, sözlük tanım koleksiyonudur. Bu koleksiyon, 
+      iki döngü değişkeni (anahtar, değer) ile tarandığına göre, 
+      en az iki boyutlu olması gerekir. koleksiyonun yapısı,
+    </p>
+    <pre class="pl-25 navy">
+xy = ((12, 0.20), (3, 0.02), ...) 
+    </pre>
+    <p class="nonindent">
+      şeklindedir. Her iterasyonda, elemanlar hedeflenirse,
+    </p>
+    <pre class="pl-25 navy">
+fofor i in xy:
+    print(i)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">
+(12, 0.2)
+(3, 0.02)
+...</span></pre>
+    <p class="nonindent">
+      olacaktır. Eğer, elemanlarından anahtar:değer çiftleri 
+      oluşturulabiliyorsa, bu veri koleksiyonu, sözlük yapmaya 
+      uygundur. Sözlük yapabilmek için, en az bir anahtar ve 
+      bir&nbsp; değere gereksinme duyululur. Oysa, veri koleksiyonunda 
+      bu yapılanma, açık bir şekilde kendini göstermektedir. 
+      Veri koleksiyonunun her elemanı, iki elemanlı topluluklardan 
+      oluşmaktadır.&nbsp; Her bir elemanın ilk iç elemanı anahtar, 
+      ikinci iç elemanı da değer olarak tanımlanırsa, sözlük 
+      yapılanması gerçekleşmiş olacaktır. Veri koleksiyonun 
+      her bir elemanı, oluşacak sözlüğün anahtar:değer çiftlerininden 
+      birini tanımlayacaktır. Her bir veri koleksiyonu elemanı 
+      için, oluşacak sözlüğün değer çiftlerinden birisinin anahtar 
+      değerini eleman[0], değerini de eleman[1] şeklinde tanımlarsak 
+      olay çözümlenir. Sözlük yapılanması,
+    </p>
+    <pre class="pl-25 navy">
+xy = ((12, 0.20), (3,0.02))
+sözlük = {eleman[0]:eleman[1] for eleman in xy}
+print(sözlük)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{3: 0.02, 12: 0.2}</span></pre>
+    <p class="indent">
+      Topluluk verilerine erişimi incelerken, bir topluluk homojen 
+      ve elemanları iki elemanlı topluluklardan oluşuyorsa, 
+      i, j şeklinde iki döngü değişkenli iterasyonlarla, elemanların 
+      her iki iç elemanına erişmek olanağı olduğunu görmüştük 
+      bu yöntemi, yukarıdaki örnekteki xy topluluğuna uygularsak, 
+      x ve y birer iterasyon değişkeni olarak,</p>
+    <pre class="pl-25 navy">
+xy = ((12, 0.20), (3, 0.02))
+sözlük = {x : y for x,y in xy}
+print(sözlük)
+ 
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{3: 0.02, 12: 0.2}</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, çok kolay ve çok kısa bir tanımlama ile 
+      örnek olara iki elemanlı bir sözcüğü, iki elemanlı ve 
+      iki düzeyli bir koleksiyondan oluşturduk. Bu koleksiyon 
+      binlerce elemanlı olabilir ve binlerce elemanlı tek anahtarlı 
+      bir sözlük oluşturulabilirdi.</p>
+    <p class="indent">
+      Çoklu anahtar değerli sözlüklerde, her anahtar kombinasyonu 
+      için bir değer atanabilir. Olayın çekici tarafı, anahatar 
+      kombinasyonlarının farklı olabilmesi ve bir anahtar sabit 
+      kalarak (pivot) diğer anahtarların değişebilmesidir. Örnek 
+      olaka üç anahtarlı bir sözcükle, her şehrin, her ilçesinin, 
+      her mahallesindeki nufus değerlerini kaydetmek isteyelim. 
+      Kayıtlar istenildiği kadar gelişigüzel olabilir. Okunurken 
+      pivot olarak şehir anahtarını alırsak, ikinci pivot olarak 
+      ilçe anahtarı olacaktır. Bu iki pivot sabit kalaraki beklirli 
+      bir şehrin (ilk pivot), belirli bir ilçesinin (kinci pivot) 
+      tüm mahallelerindeki nüfus sayısı (değişen üçüncü anahtar) 
+      saptamak olanğı bulunabilir. Tüm değişebilecek üçüncü 
+      anahtar değerleri sona erince, yani, belirli bir ilin, 
+      belirli bir ilçesinin tüm mahalleleri tükenince, ikinci 
+      pivota yeni bir değer verilebilir, yanı il aynı kalır 
+      ama ilçe değişir, bu kez değişen ikinci pivot için tüm 
+      mahallaer taranır. En sonunda, belirli bir il için tüm 
+      ilçeler (ikinci pivot değerleri) tükenince, başka bir 
+      ile geçilir (ilk pivot değiştirilir). Yeni il için de 
+      bir öncesinin işlemleri aynen tekrarlanır. Sonunda il 
+      seçenekleri de tamamlanınca tüm sözlük değerlerine erişim 
+      tamamlanmış olur. Burdan çoklu anahtarlı sözlüklerin ne 
+      kadar büyük potansiyelleri olduğu açıkça görülebilir.</p>
+    <p class="indent">
+      Eğer iki anahtar, bir değer, yani (a, b) : c isteminde 
+      bir sözlük oluşturmak istenirse, uygun veri yapısından 
+      (data structure) yola çıkılmalıdır. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+doluluk = (((2014, 'Ocak'), 35), ((2014, 'Temmuz'), 12), ((2015, 'Ocak'),56))
+rapor = {(eleman[0][0] , eleman[0][1]) : eleman[1] for eleman in doluluk}
+print(rapor)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{(2015, 'Ocak'): 56, (2014, 'Ocak'): 35, (2014, 'Temmuz'): 12}</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, rapor sözlüğü başarı ile ve çok pratik 
+      bir yöntemle oluşturuldu. Şimdi yöntemi analiz edelim. 
+      Veri yapısı ile başlayalım. Burada veri yapısı iki düzeylidir. 
+      İlk düzey eleman düzeyidir ve buna aşağıdaki gibi erişilebilir.
+    </p>
+    <pre class="pl-25 navy">
+doluluk = (((2014, 'Ocak'), 35), ((2014, 'Temmuz'), 12), ((2015, 'Ocak'),56))
+for i in doluluk:
+    print (i)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+((2014, 'Ocak'), 35)
+((2014, 'Temmuz'), 12)
+((2015, 'Ocak'), 56)
+<span class="maroon-left"></span></pre>
+    <p class="indent">
+      Bu sonuçlar doğal olarak, sözlük oluşturmaya yönelik değil, 
+      veri yapısı üzerine bilgi edinmeye yöneliktir. Burada, 
+      veri yapısının elemanlarını görebiliyoruz. Herşeyden önce 
+      verilerin tekdüzey (monoton) olduğu ve eleman yapılarının 
+      birbirlerinin aynısı olduğu görülüyor. Sözlük oluşturmada 
+      bu olmazsa olmaz bir koşuldur. Böylece sözlük oluşturmaya 
+      esas veri yapısının uyması gereken ikinci koşulu açıklayabiliriz.
+    </p>
+    <p class="indent red">
+      Dicitionary comprehensions yöntemi ile sözlük oluşturmaya 
+      yönelik bir koleksiyonda eleman yapıları birbirbirlerinin 
+      aynı olmalıdır (şekil koşulu).
+    </p>
+    <p class="indent">
+      Örneğimizdeki veri koleksiyonu bu kriteryumu sağlayabildiğine 
+      göre, şimdi her elemanın iç yapılarını inceleyelim. Her 
+      eleman, iki iç elemandan oluşuyor. Elemanlardan birisi 
+      iki elemanlı bir topluluk, ki bu anahtar oluyor, diğeri 
+      de tek bir sayısal değer ki bu da değer oluyor. Buradan, 
+      sözlük oluşturacak veri yapısı için, olmazsa olmaz ikinci 
+      kuralı algılıyoruz:
+    </p>
+    <p class="indent red">
+      Dicitionary comprehensions yöntemi ile sözlük oluşturmaya 
+      yönelik bir koleksiyonda, koleksiyonun her elemanı, oluşturulacak 
+      sözlüğün anahtar:değer çiftini tanımlayacak bilgiye sahip 
+      olmalıdır.
+    </p>
+    <p class="indent">
+      Bu bilgi, yukarıdaki uygulamadaki veri yapısında olduğu 
+      gibi, veri yapısının içinde olabilir. Veya biraz sonra 
+      görülecek bir literatür uygulaması gibi, değer, anahtarın 
+      argümanı olduğu bir fonksiyonun geri dönüş değeri olabilir 
+      ama, her koşulda, veri yapısının her elemanının oluşacak 
+      sözlüğün bir anahtar : değer çiftini tanımlayacak bilgiyi 
+      içermesi gerekli olacaktır. Şimdi bu kriteryumu sağlayan, 
+      yukarıdaki veri yapısı ile bir dictionary comprehension 
+      organize edelim:
+    </p>
+    <pre class="pl-25 navy">
+doluluk = (((2014, 'Ocak'), 35), ((2014, 'Temmuz'), 12), ((2015, 'Ocak'),56))
+rapor = {(eleman[0][0] , eleman[0][1]) : eleman[1] for eleman in doluluk}
+print(rapor)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{(2015, 'Ocak'): 56, (2014, 'Ocak'): 35, (2014, 'Temmuz'): 12}</span></pre>
+    <p class="indent">
+      Örneklerde de görülebildiği gibi herşey veri yapısına 
+      bağlıdır. Şimdi farklı bir veri yapısı ile aynı sözlüğü 
+      oluşturmaya çalışalım :
+    </p>
+    <pre class="pl-25 navy">
+doluluk = ((2014, 'Ocak', 35), (2014, 'Temmuz', 12), (2015, 'Ocak',56))
+rapor = {(x,y) : z for x, y , z in doluluk}
+print(rapor)  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{(2015, 'Ocak'): 56, (2014, 'Ocak'): 35, (2014, 'Temmuz'): 12}</span></pre>
+    <p class="indent">
+      Veri yapısı farklı olmasına karşın, bilinçli bir veri 
+      kullanımı ile kolaylıkla aynı sözlüğü oluşturabiliyoruz. 
+      Veri yapısı faklı olmasına karşın, tekdüze (monoton) ve 
+      veri yapısının her elementinin, bir sözlüğün anahtar: 
+      değer çiftlerinin tanımlanması için yeterli olduğu görülüyor.
+    </p>
+    <p class="indent">
+      Aşağıdaki literatür uygulamasında, veri yapısının her 
+      elementi, sözlüğün anahtar : değer çiftinin değer kısmının 
+      tanımı için, anahtar değerinin argüman olarak kullanıldığı 
+      bir fonksiyonun geri dönüş değerinden yararlanıyor.
+    </p>
+    <pre class="pl-25 navy">
+import os
+file_sizes = {name: os.path.getsize(name) for name in os.listdir(".")}
+print(file_sizes)
+  
+<span class="pl-25 maroon-left">Program Sonucu:</span>
+
+<span class="maroon-left">{'Ders 21.ipynb': 7304, 'deneme.ipynb': 3541, 'ders 20.ipynb': 11636, 'Ders19.ipynb': 37753, '.ipynb_checkpoints': 4096}</span>
+</pre>
+    <p class="indent">
+      Aşağıdaki program, koşullu bir dictionary comprehension 
+      uygulamasıdır. Bu program, bir klasördeki de bit sayısı 
+      10000 nin altında olan dosyaların adlarını ve bit sayılarını 
+      bir sözlükte toplamaktadır.
+    </p>
+    <pre class="pl-25 navy">
+import os
+file_sizes1 = {name: os.path.getsize(name) for name in os.listdir(".") if os.path.getsize(name)&lt;10000}
+print(file_sizes1)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'Ders 21.ipynb': 6221, 'deneme.ipynb': 3541, '.ipynb_checkpoints': 4096}</span>
+</pre>
+    <p class="indent">
+      Bu program, bir klasördeki bit sayısı 10000 den az olan 
+      dosyaların adlarını ve bit sayılarını bir sözlükte toplar. 
+      (Programming in Python 3 sec.Ed. Mark Summerfield)
+    </p>
+    <p class="indent">
+      Bu yöntemler, tek boyutlu sözlüklerde daha kolaylıkla 
+      uygulanabilir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+f1=[3,4,6]
+f2 = [25, 30, 45]
+d1 = {item for item in zip(f1,f2)}
+print(d1)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{(3, 25), (4, 30), (6, 45)}</span></pre>
+    <p class="indent">
+      Bir koşul olması durumunda,
+    </p>
+    <pre class="pl-25 navy">
+f1=[3,4,6]
+f2 = [25, 30, 45]
+d1 ={item for item in zip(f1,f2) if item[0] &lt; 4}
+print(d1)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{(3, 25)}</span></pre>
+    <p id="dict-access" class="subheading">
+      3.3.2 - Sözlük Tipi Verilerin Elemanlarına Erişim
+    </p>
+    <p class="indent">
+      Sözlükler belirli bir sıra düzeni ile oluşturulmadıklarından 
+      ve indis tanımı olmadığından, elemanlarına sadece anahtar 
+      değerleri ile erişim sağlanabilir.
+    </p>
+    <p class="indent">
+      Anahtar değerleri tek ise,
+    </p>
+    <pre class="pl-25 navy">
+data = {0.25 : 16, 0.50 : 20,  0.75 :  40}
+print(data[0.25])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">16</span></pre>
+    <p class="indent">
+      Anahtar değerleri birden çok ise,
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+print(q)
+print("\n",q['Istanbul' , 4])  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Adalar</span></pre>
+    <p class="indent">
+      Sözlüklerin elemanlarına daha çok iteratif yolla erişilebilir. 
+      Bunları, sözlüklere uygulanan öntanımlı metotlar konusunda 
+      daha yakından inceleyeceğiz.
+    </p>
+    <p id="dict-apps" class="subheading">
+      3.3.2 - Sözlük Tipi Verilere Uygulanabilen Metotlar
+    </p>
+    <p class="indent">
+      Sözlükler, belirli anahtar:değer topluluklarından, sıralanma 
+      olmadan oluşturulmuş koleksiyonlardır. Bu koleksiyonların 
+      anahtar değerleri, indis görevini yapar. Sözlüklerde, 
+      değer anahtarları veya başka türlü bir söylem ile değer 
+      indisleri, sözlük içinde gelişigüzel dağılmışlardır. Bir 
+      kez listelenen bir sözlüğün anahtar:değer çiftleri, bir 
+      kez daha bir daha listelendiğinde aynı sırada olmayabilir.</p>
+    <p class="indent">
+      Sözlüklerin değer içeriklerine en basit olarak anahtarları 
+      aracılığı ile erişilir. Bu erişim, bir topluluk elemanlarına 
+      indisleri ile erişmek ile aynıdır. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+ispanyolca = {}
+ispanyolca['Merhaba'] = 'Hola'
+ispanyolca['Mavi'] = 'Azul'
+ispanyolca['Evet'] = 'Si'
+ispanyolca['Bay'] = 'Senõr'
+ispanyolca['Bayan'] = 'señora'
+ispanyolca['Bayan'] = 'señora'
+ispanyolca['Kadın'] = 'Muher'
+ispanyolca['Erkek'] = 'Hombre'
+ispanyolca['Bir Amerikalı'] = 'Un Gringo'
+print(ispanyolca['Bir Amerikalı'] + " " + ispanyolca['Kadın'])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">Un Gringo Muher</span></pre>
+    <p class="indent">
+      Görüldüğü gibi, sözlük elemanlarına aynı JavaScript ilişkisel 
+      dizileri gibi, anahtar değerleri ile erişim sağlanıyor. 
+      Tümsözlük içeriğini görüntülemek için, print( &lt;sözlük 
+      adı&gt;) yazılması yeterlidir. Örnek
+    </p>
+    <pre class="pl-25 navy">
+print(ispanyolca)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">{'Bay': 'Senõr', 'Mavi': 'Azul', 'Evet': 'Si', 'Merhaba': 'Hola', 'Bayan': 'señora', 'Kadın': 'Muher', 'Erkek': 'Hombre', 'Bir Amerikalı': 'Un Gringo'}</span></pre>
+    <p class="indent">
+      Görüntülenen sözlük içeriğinin, anahtarlarına göre belirli 
+      bir sıra düzeni gözetilmediğine dikkat edelim.
+    </p>
+    <p class="indent">
+      Sözlük anahtarları sayısal olursa, elemanlarına erişim, 
+      herhangibir koleksiyonun elemanlarına erişimden farksız 
+      olur. Örnek :
+    </p>
+    <pre class="pl-25 navy">
+okuma = {34: 56, 48: 67, 70: 88}
+print(okuma[48])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">67</span></pre>
+    <p id="encoding" class="subheading">
+      3.3.3 - Sözlük Tipi Verilere Uygulanabilen Metotlar</p>
+    <p class="indent">
+      Sözlükler, öntanımlı <span class="keyw">len</span><span 
+      class="op">()</span> metodunu destekler. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+<span class="comm"># ispanyolca adlı sözlük yukarıda oluşturulmuştu
+</span>
+print (len(ispanyolca))  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">8</span></pre>
+    <p class="indent">
+      Sözlük tipi metotlara uygulanan <span class="keyw">item</span>
+      <span class="op">()</span> metodu, sözlüğün tüm elemanlarını 
+      bir topluluk içinde toplar ve bu topluluğu görüntüler. 
+      Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+print(q.items())
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_items([(('Istanbul', 1), 'Beşiktaş'), (('Istanbul', 4), 'Adalar'), (('Istanbul', 2), 'Kadıköy'), (('Istanbul', 3), 'Bakırköy')])</span></pre>
+    <pre class="pl-25 navy">
+data = {0.25 : 16, 0.50 : 20,  0.75 :  40}
+print(data.items())
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">dict_items([(0.25, 16), (0.5, 20), (0.75, 40)])</span></pre>
+    <p class="indent">
+      Sözlüklere uygulanan <span class="keyw">items</span><span 
+      class="op">()</span> metodu, anahtar değeri tekli olsun, 
+      çoklu olsun, sözlükteki tüm elemanları bir topluluk içinde 
+      bir liste olarak geri döndürüyor. Bu topluluğun tek elemanı, 
+      sözlüğün tüm anahtar: değer verilerini eleman olarak içeren 
+      bir listedir. Bu listenin elemanlarına erişim olanağı 
+      yoktur. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qt = q.items() # qt tek elemanlı bir topluluktur.
+
+qtl= qt[1] # qtl tüm sözlük elemanlarını içeren bir listedir.
+
+print(qtl)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class="maroon-left">
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-34-6275969c9f7a&gt; in &lt;module&gt;()
+      3 qt = q.items() # qt tek elemanlı bir topluluktur.
+      4 
+----&gt; 5 qtl= qt[1] # qtl tüm sözlük elemanlarını içeren bir listedir.
+      6 
+      7 print(qtl)
+
+TypeError: 'dict_items' object does not support indexing</span></pre>
+    <p class="indent">
+      Sözlüklere uygulanan <span class="keyw">items</span><span 
+      class="op">()</span> metodunun geri döndürdüğü koleksiyonun 
+      elemanlarına indisleri ile erişim sağlanamasının nedeni, bu koleksiyonun,"görüntü 
+      (view)" olarak adlandırılan bir tipte olmasıdır. Görüntü 
+      tipleri sadece sonucun görüntülenmesi için oluşturulurlar. 
+      Bu tipi kolaeksiyonlar küme (set) tipindedir ve kümelere 
+      uyulanan metotlar ugulanarak elemanlarına erişilebilirler. 
+      BU yöntemler belirli değerlerin belirli bir sözlükte olup 
+      olmadığı sorgulanabilir. Bu metotları, kümeleri incelediğimizde, 
+      görüntü kümelerine de uygulayarak sonuçları alabileceğiz.</p>
+    <p class="indent">
+      Buna rağmen,&nbsp; <span class="keyw">items</span><span 
+      class="op">()</span> metodunun geri döndürdüğü 
+      koleksiyon<span class="keyw">for</span>
+      <span class="op">in</span> döngüleri ile iterasyon yapılmasına
+      uygundur ve bu yöntemle sözlük elemanlarına erişilebilir. Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+for item in q.items():
+    print(item[0],item[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">('Istanbul', 3) Bakırköy
+('Istanbul', 4) Adalar
+('Istanbul', 1) Beşiktaş
+('Istanbul', 2) Kadıköy</span></pre>
+    <pre class="pl-25 navy">
+for item in q.items():
+    print(item[0][0],item[0][1],item[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">Istanbul 3 Bakırköy
+Istanbul 4 Adalar
+Istanbul 1 Beşiktaş
+Istanbul 2 Kadıköy</span></pre>
+
+
+    <p class ="indent">
+      Sözlük anahtarlarının görüntülenmesi için <span
+      class="keyw">keys</span><span class="op">()</span>
+      metodu uygulanabilir. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qkeys = q.keys() # qt sözlüğünün anahtar değerlerinin görüntü kümesi
+
+print(qkeys  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">dict_keys([('Istanbul', 1), ('Istanbul', 4), ('Istanbul', 2), ('Istanbul', 3)])</span></pre>
+    <p class ="indent">
+      Sonuç, sözlüğün tüm anahtarlarının görüntüsünü içeren 
+      bir görüntü kümesidir. Bu kümenin erişim metotlarını, 
+      kümeler ile birlikte inceleyeceğiz. Buna rağmen bu 
+      koleksiyon<span class="keyw">for</span>
+      <span class="op">in</span> döngüleri ile taranmaya uygundur. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+q = {('Istanbul', 1) :'Beşiktaş', ('Istanbul', 2): 'Kadıköy', ('Istanbul', 3): 'Bakırköy', ('Istanbul', 4): 'Adalar'}
+
+qkeys = q.keys() # qt sözlüğünün anahtar değerlerinin görüntü kümesi
+
+for anahtar in q.keys():
+    if anahtar[1]&lt;4:
+        print(anahtar[0], anahtar[1])
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">Istanbul 3
+Istanbul 1
+Istanbul 2</span></pre>
+    <p class ="indent">
+      Öntanımlı <span class="keyw">del</span>
+      metodu, bellekteki bir veriyi bellekten kaldırır. Örnekler:
+    </p>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+del(sx)
+print(sx)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">NameError                                 Traceback (most recent call last)
+&lt;ipython-input-33-b48448a69a43&gt; in &lt;module&gt;()
+      1 sx = {'ocak': 16, 'şubat': 18}
+      2 del sx
+----&gt; 3 print(sx)
+
+NameError: name 'sx' is not defined</span></pre>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+
+del sx['ocak']
+
+print(sx)
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left">{'şubat': 18}</span></pre>
+    <p class ="indent">
+      Sözlüklere uygulanan <span class="keyw">len</span>
+      <span class="op">()</span> metodu, sözcük uzunluğunu döndürür.
+      Örnek:
+    </p>
+    <pre class="pl-25 navy">
+sx = {'ocak': 16, 'şubat': 18}
+n = len(sx)
+print('sx sözlüğünün uzunluğu : {0}'.format(n))
+  
+<span class="pl-25 maroon-left">Program Sonucu :</span>
+
+<span class= "maroon-left"></span>2</pre>
+    <p class ="indent">
+      Öntanımlı <span class="keyw">fromkeys</span><span class="op">()</span>
+      metodu, hash edilebilen bir koleksiyondan yani float, frozenset, int, str, and hash edilebilen toplulukların
+      elemanlarını anahtar olarak kullanarak, 
+      
+      sözlükler oluşturan, son derece yararlı bir metottur. 
+      Kullanılışı,</p>
+    <pre class="pl-25">
+sözlük<span class="op">.</span><span class="keyw">fromkeys</span><span
+class="op">(</span>s ,v<span class="op">)</span>
+    </pre>
+    <p class ="nonindent">
+      şeklindedir. Burada,
+    </p>
+    <ul class="listNoMarker">
+      <li>sözlük : Daha önce tanıtılmış bir sözlük verisidir. Bunun boş bir sözlük
+      olatak tanıtılmış olması durumundaibu sözlüğün elemanları yeni
+      elemanlar olarak oluşturulur. Eğer sözlük elemanmları daha öneden tanıtılmışlarsa, 
+      eski elamanlar silinerek, belitilen değerlerle yeniden yaratılır.</li>
+      <li>s : hash edilebilen bir koleksiyondur.</li>
+      <li>v : Koleksiyon elemanlarından oluşacak anahtarlara karşı gelecek  bir değer.</li>
+    </ul>
+
+
+
+
+
+
+
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a>
+      </li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders20.html"><em>« Önceki Sayfa</em></a>
+      </li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders22.html"><em>Sonraki Sayfa 
+      »</em></a> </li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index.html"><em>Site İndeksi 
+      »</em></a> </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../Library/bdelib.js" 
+    type="text/javascript"></script>
+    <script src="../Library/lastmodified.js" 
+    type="text/javascript"></script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5</a></span>
+    </p>
+  </body>
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

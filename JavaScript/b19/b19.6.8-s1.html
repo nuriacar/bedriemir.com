@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.8-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:03 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.8-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>19.6.8.1 - Text Arabiriminin SplitText() Metodu</title>
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title></title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.7-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="../b20/b20.1-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a></p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19</p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.8 Sayfa 1 </p>
+		<p class="subheading" id="text">19.6.8- Text Arabirimi</p>
+		<p class="sayfaortala">
+			<img src="../images/b19.6.8-img-1.png" alt="Text Arabiriminin IDL Yazılımı" 
+			width="914" height="182" />		</p>
+		<p class="sayfaortala">
+			Şekil 19.6.8- 1 - DOM Düzey 2 de Text Arabiriminin  IDL Yazılımı
+		</p>
+		<p class ="indent">
+			<span class="keyw">Text</span> arabirimi, <span class="keyw">Node</span>
+			ve <span class="keyw">CharacterData</span> arabirimlerinin özelliklerini
+			kalıtımla elde eder. Özellikler, <span class="keyw">CharacterData</span> arabiriminin
+			özelliklerinin <span class="keyw">Text</span> arabirimin içerğine uygulanması 
+			önemlidir. <span class="keyw">Text</span> arabiriminin kendine özgü tek özelliği,
+			sadece <span class="keyw">splitText</span><span class="op">()</span> metodudur.
+		</p>
+		<p class="navy" id = "splittext"><strong>19.6.8.1 - Text Arabiriminin SplitText() Metodu</strong></p>
+		<p class ="indent">
+			Sözel veri içerikli <span class="keyw">Text</span> arabiriminin kendine özgü 
+			tek özelliği olan <span class="keyw">splitText</span><span class="op">()</span> 
+			metodu, bir <span class="keyw">Text</span> düğümünü, offset değerine kadar ilk kısım, 
+			offset değerinden sonrası ikinci kısım  olmak üzere,  ikiye ayırır ve eğer bir ebeveyn düğüm varsa 
+			yeni düğümleri birbiri ardına eşdüzey (sibling) olarak yerleştirir. Bu metot, metin uzunluğuna 
+			eşit bir offset değeri ile çağrılırsa, ikinci düğümüm içeriğinin uzunluğu sıfır olur. Eğer 
+			negatif veya metin uzunluğundan fazla bir offset değeri ile çağrılırsa bir hata oluşturur.
+			Bu metodun kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">sözelDüğümSınıfÖrneği</span> <span class="op">=</span> <span 
+			class="keyw">splitText</span><span class="op">(</span> tamsayı tipte <span 
+			class="keyw">offset</span><span class="op">)</span>
+		</pre>
+		<p class="nonindent">
+		şeklindedir.
+		</p>
+		<p class="indent" id="b19.6.8.1-uyg-1">
+			<span class="keyw">Text</span> arabiriminin <span class="keyw">splitText</span>
+			<span class="op">()</span> metodu, içerik alan bir elementin içeriğinde iki ardışık 
+			sözel düğüm oluşturduğundan, elementin yapısal bütünlüğünün yeniden yapılandırılması
+			için, <span class="keyw">Element</span> arabiriminin <span class="keyw">normalize</span>
+			<span class="op">()</span> metodunun uygulanması uygun bir çalışma şekli olmaktadır. 
+			Bu yöntem, aşağıda kodları görülen <a href="../uygulamalar/b19.6.8.1-uyg-1-js.html">programda</a>
+			uygulanmaktadır. Program sonuçları, bağlantılı olan
+			<a href="../uygulamalar/b19.6.8.1-uyg-1.html">sayfada</a> görüntülenmektedir. 
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b19.6.7-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="../b20/b20.1-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.8-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:03 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

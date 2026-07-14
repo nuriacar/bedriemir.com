@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:14 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b3/b3-s2.html">
+    <meta charset="utf-8" />
+    <title>Bölüm 3 Sayfa 2</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.gif" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="b3-s1.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b3-s3.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 3
+		</p>
+		<p class="chapter">
+			Standard Pakette Tanımlanan Öntanımlı Veri Tipleri
+		</p>
+		<p class="pagenum">
+			Bölüm 3 Sayfa 2
+</p>
+		<p class="subheading" id="bool-ops">3.1.2 - Boolean Veri Tipi İçin Tanımlı İşlemciler</p>
+		<p class="indent">
+			Ada programlama dilinde, veri tiplerine uygulanabilecek tüm işlemcilerin, tip tanımı ile birlikte
+			belirtilmesi gerekmektedir. Temel (progenitor) veri tipleri Standard pakette belirtilmiştir. Kullanıcı
+			tipi alt veri tiplerinde, temel veri tiplerinin işlemcileri, kalıtımsal yolla alt veri tiplerine de geçer.
+			Aslında, sayılabilir bir veri tipi olmasına rağmen Standart pakette tanımlanmış olduğu için,
+			temel bir bir veri sayılan Boolean veri tipi için tanımlanmış geçerli işlemciler aşağıda yeniden
+			verilmiştir. Bu bölümde Boolean veri tipine uygulanabilecek işlemcilerin uygulama yöntemleri
+			incelenecektir.
+</p>
+
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Boolean&nbsp;<b>is</b>&nbsp;(False,&nbsp;True);
+		</div>
+
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;predefined&nbsp;relational
+			&nbsp;operators&nbsp;for&nbsp;this&nbsp;type&nbsp;are&nbsp;as&nbsp;follows:</em>
+		</div>
+
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;=&quot;&nbsp;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;/=&quot;&nbsp;&nbsp;(Left,&nbsp;Right&nbsp;:&nbsp;
+			Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;&quot;&nbsp;&nbsp;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&lt;=&quot;&nbsp;&nbsp;(Left,&nbsp;
+			Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;&quot;&nbsp;&nbsp;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;&gt;=&quot;&nbsp;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean;
+		</div>
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;The&nbsp;predefined&nbsp;logical&nbsp;
+			operators&nbsp;and&nbsp;the&nbsp;predefined&nbsp;logical</em><br />
+			&nbsp;&nbsp;&nbsp;--<em>&nbsp;negation&nbsp;operator&nbsp;are&nbsp;as&nbsp;
+			follows:</em>
+		</div>
+	<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>and</b>&quot;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>or</b>&quot;&nbsp;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean'Base;<br />
+			&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>xor</b>&quot;&nbsp;
+			(Left,&nbsp;Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean'Base;
+	</div>
+
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;--&nbsp;<b>function</b>&nbsp;&quot;<b>not</b>
+			&quot;&nbsp;(Right&nbsp;:&nbsp;Boolean'Base)&nbsp;<b>return</b>&nbsp;Boolean'Base;
+		</div>
+		<p class="indent">
+			İlk olarak ilişkisel işlemcileri inceleyelim. İlişkisel işlemciler, verilerin birbirleri ile karşılaştırılması
+			amacı ile uygulanan işlemcilerdir. Tanımlardan görüldüğü gibi, Boolean veri tipi için tanımlı olan 
+			tüm ilişkisel işlemciler, iki işlenenli işlemcilerdir. İki işlenenli işlemciler,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">Sağ_İşlenen</span> <span class="maroon">İşlemci</span> Sol_İşlenen
+		</pre>
+		<p class="nonindent">
+			şeklinde uygulanırlar. İlk olarak = (eşitlik) işlemcisinin çalışmasını inceleyelim. Tanımdan görüldüğü
+			gibi, sağ ve sol işlenenler Boolean'Base tipinde olmalıdır. Unutmayalım, Boolean veri tipi için 
+			tanımlı olan işlemciler, sadece Boolean veri tiplerinin birbirleri ile ilişkilerinin sorgulanması
+			amacı ile kullanılabilirler. Yani Boolean veri tipinin işlemcilerinin uygulamalarında,
+			işlemcilerin tüm işlenenleri Boolean'Base tipinde olmalıdır. Boolean'Base tipi ise
+			False ve True elemanlarından oluşmaktadır. İlişkisel işlemciler mantıksal önermeler oluştururlar.
+			Mantıksal önermelerin sonucu mantıksal yani olumlu veya olumsuz  Mantıksal bir önermernin sonucu
+			olumlu ise dğeri Boolean true, yanlışşa değeri Boolean False olacaktır. Bunun ışığı altında,
+			eşitlik önermesinin sonucu mantıksal bir değer olmalıdır. Yani, iki büyüklük birbirine eşitse, 
+			olay gerçek (True), eşit değilse olay yanlış (False) olacaktır. Aşağıdaki 
+			<a href="../uygulamalar/b3_1_2_uyg_1.html">uygulamayı</a> izleyelim: 
+		</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"= İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True = False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">=</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_1<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                 = İşlemcisi</span>
+
+<span class="green">         True = False Önermesinin Sonucu : FALSE</span>
+
+olmaktadır ve önerme doğrulanmamaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki prosedürün sonucu, beklendiği gibi olmaktadır. Prosedürdeki önerme, 
+			yanlış = doğru şeklindedir ve doğal olarak sonucu yanlıştır. Çünkü yanlış doğruya 
+			eşit değildir.
+		</p>
+		<p class="indent">
+			Eşitlik önermesinin tam karşıtı, eşit değildir önermesidir. Ada programlama dilinde 
+			bu önerme /= işlemcisi kullanılarak uygulanır. Eğer işlenenler birbirlerine eşit değilse,
+			önerme doğrulanır, aksi halde önerme sonucu yanlış olarak gerçekleşir. Aşağıdaki
+			<a href="../uygulamalar/b3_1_2_uyg_2.html">programda</a> eşitsizilk önermesi 
+			uygulanmıştır.
+</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"/= İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True /= False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> /</span><span class="S4">=</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_2<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                / = İşlemcisi</span>
+
+<span class="green">         True /= False Önermesinin Sonucu : TRUE</span>
+
+olmaktadır ve önerme doğrulanmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki prosedürün sonucu da beklendiği gibi olmaktadır. Prosedürdeki önerme, 
+			yanlış /= doğru (yanlış eşit değildir doğru) şeklindedir ve doğal olarak sonucu 
+			doğru olarak gerçekleşmektedir. Çünkü yanlış doğruya eşit değildir.
+		</p>
+		<p class="indent">
+			Nesnelerin büyüklük karşılaştırmasında, nesnelerin veri tipleri önem taşır. Değişik 
+			veri tipleri için farklı kriteryumlar kullanılır. Sayılabilir veri tiplerinin nesneleri için, 
+			büyüklük, tanım sırasına bağlıdır. Tanım sırası sonra olan daha büyük olarak kabul
+			edilir. Boolean veri tipi de sayılabilir bir veri tipi olduğundan, elemanlarının büyüklüğü
+			tanım sırasına göre kararlaştırılır. İlk önce tanımlanan False elamanı en küçük, en son
+			tanımlanan True elamanı ise en büyük olarak kabul edilir. Bunun tamamen bir kabul 
+			olduğu ve gerçek yaşamla ilgisi olmadığını tekrar edelim. Yine de doğru bir hareketin, 
+			yanlış bir harektten daha değerli olduğu tartışılmaz. Aslında, gerçek yaşamda doğru 
+			yanıt önemlidir. Bu yanıt doğru veya yanlış olabilir, önemli olan doğru yanıt olmasıdır.
+</p>
+		<p class="indent">
+			Aşağıdaki <a href="../uygulamalar/b3_1_2_uyg_3.html">programda</a>, Boolean 
+			veri tipinde iki nesnenin (zaten sadece iki tane eleman bulunmaktadır) birbiri ile
+			karşılıklı (mutual) büyüklüklerinin karşılaştırılması yapılmaktadır. Önerme, False > True
+			şeklindedir ve doğal olarak doğrulanmayacaktır. Çünkü, True Elemanı, False elemanından
+			daha sonra tanımlanmıştır ve bu nedenle False elemanından daha büyük olarak kabul edilir.
+</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"&gt; İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"False &gt; True Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span><span class="S0"></span><span class="S4"></span><span class="S0"></span>False<span class="S4"> &gt; True));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_3<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                &gt; İşlemcisi</span>
+
+<span class="green">         False &gt; True Önermesinin Sonucu : False</span>
+
+olmaktadır ve önerme doğrulanmamaktadır.
+		</pre>
+		<p class="indent">
+			Büyüktür veya eşittir işlemcisi &gt;= iki işlenenli, gerçekleşebilecek iki olasılılklı bir işlemcidir.
+			Olasılıkların herhangibirisinin gerçekleşmesi durumunda önerme sonucu gerçek olur. İlk olasılık 
+			her iki işlenenin birbirine eşit olmasıdır. Bu durumda önerme sonucu gerçek olur. Eğer her iki 
+			işlenen birbirlerine eşit değillerse, sağ işlenenin sol işlenene göre büyük olup olmadığı kontrol 
+			edilir. Eğer bu olasılık gerçekleşirse, önerme sonucu yine gerçek olur. Önermenin gerçekleşemeyeceği
+			tek durum, sol işlenenin sağ işlenenden daha büyük olmasıdır. Aşağıdaki 
+			<a href="../uygulamalar/b3_1_2_uyg_4.html">programda</a> bu işlemcinin uygulanması
+			yapılmıştır.
+	</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"&gt;= İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True &gt;= False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">&gt;=</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_4<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                 &gt;= İşlemcisi</span>
+
+<span class="green">         True &gt;= False Önermesinin Sonucu : TRUE</span>
+
+olmaktadır ve önerme doğal olarak doğrulanmaktadır.
+		</pre>
+		<p class="indent">
+			Küçüktür veya eşttit önermesinin yapılabildiği &lt;= işlemcisi de iki işlenleri bir işlemcidir. 
+			Örnerme gerçekleşirse iki olasılık gerçekleşmiş olabilir. Birinci olasılık, işlenenler birbirleri
+			ile eşittir. İkinci olasılık sol işlenene sağ işlenenden küçüktür. Eğer önerme gerçkleşmezse,
+			sadece bir tek olasılık vardır ve o da, sağ işlenenin sol işlenenden kesinlikle büyük olmasıdır.
+			Bu işlemcinin uygulanması, aşağıdaki <a href="../uygulamalar/b3_1_2_uyg_5.html">programda</a> 
+			yapılmıştır.
+	</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_5<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"&lt;= İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True &lt;= False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">&lt;=</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_5<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                &lt;= İşlemcisi</span>
+
+<span class="green">         True &lt;= False Önermesinin Sonucu : FALSE</span>
+
+olmaktadır ve önerme doğrulanmamaktadır.
+		</pre>
+		<p class="indent">
+			Bundan sonra, mantıksal işlemciler incelenecektir. Mantıksal işlemciler, mantıksal sonuçların
+			daha ileri düzeyde sorgulanması için gerekli araçalrı sağlamaktadır. İlk olarak and işlemcisini
+			inceleyeceğiz. Bu işlemci, 
+		</p>
+		<p class="sayfaortala"><span class="maroon">(Sol İşlenen)</span> <span 
+				class="keyw">and</span> <span class="maroon">(Sağ İşlenen)</span></p>
+		<p class="nonindent">
+			şeklinde uygulanır. Burada sağ veya sol işlenenler, sonucu Boolean olan tek değer veya ifadeler
+			olabilir. İlişkisel işlemcilerle çalışırken olduğu gibi, ifadeler çok içiçe mantıksal ifadelerden
+			oluşursa, sonucun insanlar tarafından sağlıklı bir şekilde öngörülebilmesi olasığı ortadan kalkar
+			ve program sadece derleyicinin inisyatifine bağlı kalır. En doğrusu basit, sonucu öngörülebilir
+			ifadeler kullanmaktır. Büyük ve karmaşık sorgulama ifadeleri, küçük parçalara bölünerek sonuçları
+			incelenebilir.
+		</p>
+		<p class="indent">
+			Mantıksal <span class="keyw">and</span> işlemcisinin her iki işleneninin de sonucu True 
+			olduğunda önerme doğrulanabilir.  Aşağıda görülen 
+			<a href="../uygulamalar/b3_1_2_uyg_6.html">prosedürde</a>, bu işlemci uygulanmaktadır.
+</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_6<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Mantıksal and İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True and False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">and</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_6<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                Mantıksal and İşlemcisi</span>
+
+<span class="green">         True and False Önermesinin Sonucu : FALSE</span>
+
+olmaktadır ve önerme doğrulanmamaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_1_2_uyg_6.html">prosedürde</a>, önerme 
+			sonucunun doğrulanmamasının nedeni, sadece bir tek işlenenin sonucunun True
+			olmasından dolayıdır. Mantıksal <span class="keyw">and</span> işlemcisi içeren
+			önermelerde, önerme sonucunun doğrulanması için, işlenenenlerin sadece bir tanesi 
+			değil, her ikisinin de True olması gerekir. Oysa, mantıksal <span class="keyw">or</span>
+			işlemcisi kullanılan önermelerde, işlenenlerden sadece bir tanesinin sonucunun True 
+			olması yeterlidir.  Aşağıda görülen <a href="../uygulamalar/b3_1_2_uyg_7.html">prosedürde</a>, 
+			mantıksal mantıksal <span class="keyw">or</span> işlemcisi uygulanmaktadır.
+		</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_7<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">50</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Mantıksal or İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True or False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">or</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_7<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                Mantıksal or İşlemcisi</span>
+
+<span class="green">         True or False Önermesinin Sonucu : TRUE</span>
+
+olmaktadır ve önerme doğrulanmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_1_2_uyg_7.html">prosedürden</a> de
+			görüldüğü gibi, mantıksal or işlemcisinin sonucunun gerçek olması için sadece bir
+			tek işlenin sonucunun gerçek olması yeterlidir. Bu nedenle, derleyiciler, mantıksal
+			or işlemcisinin öenermelerinde, eğer ilk işlenenin sonucu doğrulanırsa, ikincisini
+			incelemezler, çünkü önerme doğrulanmıştır ve ikincisinin sonucu ne olursa olsun, 
+			önerme sonucu bundan etkilenmeyecektir. 
+		</p>
+		<p class="indent">
+			Mantıksal <span class="keyw">xor</span> işlemcisinin sonucu, sadece ve sadece
+			bir tek işlenenin sonucu True olursa doğrulanabilir. Aşağıdaki tabloda, xor önermelerinin
+			gerçekleşmesi için, işlenenlerin gereken değerlerini vermektedir.
+		</p>
+		<div class="sayfaortala">
+			<table width="262" summary="xor gerçek tablosu">
+				<tr valign="top">
+					<th width="32%">İşlenen 1</th>
+					<th width="40%">İşlenen 2</th>
+					<th width="28%">Sonuç</th>
+				</tr><tr valign="top">
+					<td width="32%" class="maroon"><b>True</b></td>
+					<td width="40%" class="maroon"><b>True</b></td>
+					<td width="28%"class="blue"><b>False</b></td>
+				</tr>
+				<tr valign="top">
+					<td width="32%" class="maroon"><b>True</b></td>
+					<td width="40%"class="blue"><b>False</b></td>
+					<td width="28%" class="red"><b>True</b></td>
+				</tr>
+				<tr valign="top">
+					<td width="32%" class="blue"><b>False</b></td>
+					<td width="40%" class="maroon"><b>True</b></td>
+					<td width="28%" class="red"><b>True</b></td>
+				</tr>
+				<tr valign="top">
+					<td width="32%"class="blue"><b>False</b></td>
+					<td width="40%"class="blue"><b>False</b></td>
+					<td width="28%"class="blue"><b>False</b></td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			 Aşağıda görülen <a href="../uygulamalar/b3_1_2_uyg_8.html">prosedürde</a>, 
+			xor mantıksal işlemcisi uygulanmıştır.
+		</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_8<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Mantıksal xor İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"True xor False Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>True<span class="S0"> </span><span class="S4">xor</span><span class="S0"> </span>False<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_8<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                 Mantıksal xor İşlemcisi</span>
+
+<span class="green">         True xor False Önermesinin Sonucu : TRUE</span>
+
+olmaktadır ve önerme doğrulanmaktadır.
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b3_1_2_uyg_8.html">prosedürün</a>
+			sonucunun geçerliliği, xor gerçekleşme tablosuna bakılarak kontrol edilebilir.
+		</p>
+	<p class="indent">
+			En son incelenecek mantıksal işlemci, <span class="keyw">not</span> mantıksal
+			işlemcisidir. Bu tek işlenenli bir işlemcidir ve önüne geldiği işlenenin sonucu 
+			doğruysa yanlışa, yanlışsa doğruya dönüştürür. Aşağıda görülen 
+			<a href="../uygulamalar/b3_1_2_uyg_9.html">prosedürde</a>, mantıksal 
+			<span class="keyw">not </span>işlemcisi uygulanmaktadır.
+	</p>
+		<pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b3_1_2_uyg_9<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">40</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"BÖl&uuml;m 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">70</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span><span class="S7">"Mantıksal not İşlemcisi"</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Set_Col<span class="S4">(</span>To<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">10</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"not(True xor False) Önermesinin Sonucu : "</span><span class="S4">);</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put_Line<span class="S4">(</span>Boolean<span class="S4">'</span>Image<span class="S4">(</span>not(True<span class="S0"> </span><span class="S4">xor</span><span class="S0"> </span>False)<span class="S4">));</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b3_1_2_uyg_9<span class="S4">;</span></span>
+
+
+<span class="pl-25">Bu programın sonucu,</span> 
+
+<span class="green">                   Bölüm 3.1.2 - Boolean Veri Tipindeki Nesnelerin İşlemleri</span>
+
+<span class="green">                                                 Mantıksal not İşlemcisi</span>
+
+<span class="green">         not (True xor False) Önermesinin Sonucu : FALSE</span>
+
+olmaktadır ve önerme doğrulanmamaktadır.
+		</pre>
+		<p class="indent">
+			Boolean veri tiinin işlemcilerinin de incelenmesi burada tanmamlanmış olmaktadır. Bu şekilde,
+			öntanımlı Boolean tipinin incelemeleri tamamlanmış olmaktadır. Bu veri tipini
+			artık uygulamalarımızda kullanabiliriz.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+		<a href="b3-s1.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b3-s3.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		 <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml11"
+        alt="Valid XHTML 1.1" height="31" width="88" /></a>  </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b3/b3-s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:14 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

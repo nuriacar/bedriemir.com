@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:11 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b8s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b7/b7s2.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b8s2.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 1	
+		</p>
+		<p class="title-left" id="ArrayConstructor">8.1 - Array (Dizi) Nesne Sınıfı Örnekleri Yapılandırıcısı</p>
+		<p class="indent">
+			Öntanımlı dizi nesne sınıfı örnekleri yapılandırıcısının kullanımı
+		</p>
+		<pre>
+<span class="str-50"><em>diziSınıfıNesneÖrneği</em></span><span 
+			class="op">=</span><span 
+			class="keyw">new Array</span><span 
+			class="op">([</span>birim1<span 
+			class="op">[,</span> birim2<span 
+			class="op">[,</span> ...<span 
+			class="op">]]]);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Eğer dizi sınıfı nesne örnekleri yapılandırıcısı sıfır argümanla
+				uygulanırsa, örnek olarak,
+		</p>
+		<pre>
+<span class="pl-50">ağaçlar</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir uygulama, ağaçlar adında boş bir dizi sınıfı nesne örneği yaratır. Buna kısaca dizi denilir. 
+			<a href="../b2/b2s12.html#arrayLiterals">Bölüm 2.10.3.1</a> de açıklandığı gibi, boş bir dizi sınıfı nesne örneği yani bir dizi,
+			aynı zamanda bir dizi başlatıcısı ile de yaratılabilir: Örnek:
+		</p>
+		<pre>
+<span class="pl-50">ağaçlar</span> <span 
+			class="op">=</span> <span 
+			class="op">[];</span>
+		</pre>
+		<p class="nonindent">
+			Burada, ağaçlar dizisi başlangıçta boş olduğu için, <span class="keyw">length</span> özelliği de başlangıçta
+			0 dır. Boş bir diziye istendiğinde yeni elemanlar eklenebilir. Örnek,
+		</p>
+		<pre>
+<span class="pl-50">ağaçlar</span><span 
+			class="op">[</span>0<span class="op">] = </span><span 
+			class="str">'akçaağaç'</span><span 
+			class="op">;</span> 
+		</pre>
+		<p class="indent">
+			JavaScript programlama dilinde, dizi indisleri 0 dan başlar. Diziler en
+				büyük indis 2<sup>32</sup>-1 den küçük olmak üzere, istendiği kadar eleman
+				alabilir. 
+		</p>
+		<p class="indent">
+			JavaScript programlama dilinde, diziler gerçek diziler değildir. Bir tür bağlantılı liste (linked list)
+			yapılanmasıdır. Dizi elemanları birbirini izleyen (contigious) olmak zorunda değildir. Örnek olarak, 
+		</p>
+		<pre>
+<span class="pl-50">ağaçlar</span><span 
+			class="op">[</span>20<span class="op">] = </span><span 
+			class="str">'Çam'</span><span 
+			class="op">;</span> 
+<span class="pl-50">ağaçlar</span><span 
+			class="op">[</span>40<span class="op">] = </span><span 
+			class="str">'Ladin'</span><span 
+			class="op">;</span> 
+		</pre>
+		<p class="nonindent">
+			şeklinde atamalar yapılabilir. JavaScript yorumlayıcısı aradaki elemanlara 
+			<span class="keyw">undefined</span> değerini verecektir.
+		</p>
+		<p class="indent">JavaScript dizileri dağıtık (sparse) karakterde dizilerdir.
+			Bir dizi istenildiği sayıda eleman alacak kadar açılabilir, fakat sadece veri
+			içeren gerçek elemanlara bellekte yer ayrılır. Bu şeklide, JavaScript yorumlayıcısı
+			dizi çalışmalarında bellek kullanımını en aza indirir. Yukarıdaki örnekte en yüksek
+			eleman indisi 40 olmasına rağmen gerçekte sadece iki eleman tanımlıdır.
+		</p>
+		<p class="indent">
+			Eleman indisleri sadece tamsayılar olarak belirtilmelidir. Aksi halde hata oluşur.
+		</p>
+		<p class="indent">
+			JavaScript dizilerinde elemanların aynı tipte olmaları zorunluğu yoktur.
+			Fakat, dizilerde elemanların aynı tipten olmayışı, dizi elemanlarının birbirini
+			izlememesi bir düzensizliğin işaretidir. Dizi işemleri düzen gerektirir.
+			Düzensiz dizilerin otomasyon  sistemleri ile işlenmesi olanağı azalır.
+		</p>
+		<p class="indent">
+			JavaScript dizileri sadece tek boyutlu (skaler) diziler olarak açılabilir.
+			Çok boyutlu (vektörel) diziler dolaylı olarak oluşturulabilir. Günümüzde,
+			nesne teknolojisi, iki boyuttan (matris) daha fazla boyutlu dizilerin
+			kullanımına gerek bırakmamamıştır. Çok boyutlu diziler ileride incelenecektir.
+		</p>
+		<p class="indent">
+			Dizilere en kolay olarak elemanlarının indislerinden yararlanılarak dizi[0]
+			vb. şeklinde erişilir. Diziler aynı zamanda bir özel nesne sınıfı örnekleri
+			olduklarından, nesne örnekleri gibi, köşeli parantez notasyonu ile dizi<span 
+			class="op">[</span><span class="str">'0'</span><span class="op">]</span> şeklinde
+			de erişilebilir. Fakat bu biraz sıradışı bir erişim yöntemidir. Dizi
+			elemanlarına dizi.0 gibi nokta noktasyonu ile erişilemez. Bu konuda, daha
+			önce,
+			<a href="../b2/b2s12.html#access">Bölüm 2.10.3.3</a> de bilgi verilmiştir.
+		</p>
+		<p class="indent">
+			Öntanımlı dizi nesne sınıfı örnekleri yapılandırıcısının tek argümanla kullanımında 
+			iki olasılık vardır. Eğer argüman bir tamsayı ise, JavaScript yorumlayıcısı bunu dizinin 
+			olası eleman sayısı olarak algılar. Bu iyi bir pratiktir ve JavaScript yorumlayıcısına dizi için 
+			bir hazırlık yapılması olanağını sağlar. Eğer argüman aşağıdaki gibi bir tamsayı değilse, 
+		</p>
+		<pre>
+<span class="pl-50">malzeme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'vida m4'</span><span 
+			class="op">);</span> <span 
+			class="pl-25">veya eşdeğer olarak</span><span 
+			class="pl-25">malzeme</span> <span 
+			class="op">= [</span><span 
+			class="str">'vida m4'</span><span 
+			class="op">];</span>
+		</pre>
+		<p class="nonindent">
+			JavaScript yorumlayıcısı bunu malzeme dizisinin ilk elemanı yani malzeme<span 
+			class="op">[</span>0<span class="op">]</span> olarak kabul eder ve yeni
+			dizi nesnesi örneğinin <span class="keyw">length</span> özelliği, dizi tek
+			eleman  içerdiğinden 1 olur.
+		</p>
+		<p class="indent">
+			Öntanımlı dizi nesne sınıfı örnekleri yapılandırıcısı birden çok argümanla
+				 kullanılması, argümanların sıra ile dizi elemanı olarak atanmaları ile 
+			sonuçlanır. Örnek olarak,
+		</p>
+		<pre>
+<span class="pl-50">çiçekler</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Glayöl'</span><span 
+			class="op">,</span> <span 
+			class="str">'Karanfil'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir tanıtıma, yoğun diziler adı verilir. Yoğun diziler bir dizi başlatıcısı ile 
+			de yaratılabilir. Örnek:
+		</p>
+		<pre>
+<span class="pl-50">çiçekler</span> <span 
+			class="op">= [</span><span 
+			class="str">'Papatya'</span><span 
+			class="op">,</span> <span 
+			class="str">'Glayöl'</span><span 
+			class="op">,</span> <span 
+			class="str">'Karanfil'</span><span 
+			class="op">];</span>
+		</pre>
+		<p class="nonindent">
+			Yoğun diziler olarak tanıtım, sadece küçük diziler için veya büyük bir dizinin ilk 
+			elemanlarının atanması için uygun olabilir.
+		</p>
+		<p class="indent" id="b8.1-uyg-1">
+			Dizi nesne örneklerinin görüntülenmesi bir problem olarak ortaya çıkar. Dizi elemanlarının
+			görüntülenmesi için tablolar yapılması veya dizi elemanlarının bir ayraç karakteri ile 
+			ayrılıp sıra ile görüntülenmesi yapılmalıdır. JavaScript yorumlayıcısı öntanımlı olarak 
+			diziyi elemanlarının arasına öntanımlı olarak bir virgül koyar ve tüm elemanları sıra ile
+			görüntüler. Bunu kısa olarak dizinin öntanımlı görüntülenmesi olarak tanımlayabiliriz. 
+			Dizinin öntanımlı görüntülenmesi, dizi üzerinde bir değişikliğe neden olmaz. Diziler 
+			sadece görüntülenir ve orijinal veriler değişmeden kalır. Dizilerin öntanımlı 
+			görüntülenmesi, detaylı program çıktıları için yeterli sayılmaz. Bu görüntüler daha
+			çok program geliştirmelerinde ara kademe sonuçlarının görüntülenmesi için 
+			yararlı olur. Dizilerin öntanımlı görüntülenmesi için örnek bir 
+			<a href="../uygulamalar/b8.1-uyg-1-js.html">JavaScript programı</a> ve ilişikli
+			olduğu <a href="../uygulamalar/b8.1-uyg-1.html">sayfada</a> verdiği sonuç 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> örnekDizi <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span>21<span 
+			class="op">,</span> 45<span 
+			class="op">,</span> 76<span 
+			class="op">,</span> 88<span 
+			class="op">,</span> 105<span 
+			class="op">);</span> 
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="op"><span 
+			class="str">'örnekDizi = '</span>,</span> örnekDizi<span 
+			class="op">,</span> <span 
+			class="str">'b8.1-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+			<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p id="b8.1-uyg-1-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Program sonucundan, dizilerin öntanımlı görüntülenmesinin fazla kullanışlı
+				olmadığı, fakat dizi elemanlarını yeterli bir şekilde görüntülenebildiği
+				ve görüntülenme ile dizinin tip ve değer değiştirmediği görülmektedir.
+			
+		</p>
+		<p class="indent">
+			Öntanımlı dizi nesne sınıfı örnekleri yapılandırıcısı 
+			<span class="keyw">Array</span><span class="op">()</span> fonksiyonunun, 
+			tüm fonksiyonlar gibi <span class="keyw">prototype</span> özelliği vardır. 
+			Bu özelliğin değeri, öntanımlı dizi sınıfı prototip nesnesidir.
+		</p>
+		<p class="title-left" id="proto">8.2 - Array (Dizi) Nesne Sınıfı Prototip Nesnesinin Özellikleri</p>
+		<p class="indent">
+			Öntanımlı dizi sınıfı prototip nesnesinin içsel [[Prototype]] özelliği, 
+			<span class="keyw">Object</span> sınıfı prototip nesnesidir. Bu dizi (Array) sınıfını
+			<span class="keyw">Object</span> sınıfının bir alt sınıfı yapmaktadır.
+		</p>
+		<p class="indent">
+			Öntanımlı dizi sınıfı prototip nesnesinin içsel [[Class]] özelliği, &quot;Array&quot; olarak
+			belirtilmiştir. Bu durumda bu yeni bir sınıftır ve prototipinde <span class="keyw">Object</span>
+			sınıfı prototipine göre değişiklik yapılmıştır. Bu yeni prototipin özellikleri, spesifikasyon 
+			incelenerek anlaşılabilecektir.
+		</p>
+		<p class="indent">
+			Öntanımlı dizi sınıfı prototip nesnesinin kendisi de bir dizi sınıfı nesne
+			örneği, yanı bir dizidir. Bu dizi, öntanımlı dizi sınıfına ait tüm özellikleri
+			ve metotları içerir. Bu metotların tanımındaki 
+			<span class="keyw">this</span> değerleri metodu çağıran dizi nesnesi sınıf
+			örneğini belirtir.  Bu  metotları dizi sınıfından olmayan nesne örneklerinin
+			de çağırabileceği belirtilmişse de bu  tip çağrılar çok sıradışı olacaktır.
+		</p>
+		<p class="indent">
+			Dizi sınıfı, generik nesne sınıfının (Object sınıfı) bir alt sınıfı olması nedeni 
+			ile, generik nesne sınıfının tüm özellikleri (buna metotlar da dahildir) dizi sınıfına
+			kalıtımla aktarılırlar. Bu özellik ve metotlar fazla yararlı değillerdir. Bunlar arasında
+			<span class="keyw">valueOf</span><span class="op">()</span> metodu üzerine
+			biraz daha önemle durulmalıdır. Dizi sınıfı için bu metodun fazla bir yararı yoktur. 
+			Dizi sınıfı nesne örnekleri, karmaşık yapıda nesnelerdir ve doğrudan bir değere
+			eşitlenemezler. Bu nedenle, dizi sınıfı nesne örnekleri için, 
+			<span class="keyw">valueOf</span><span class="op">()</span> metodunun uygulanması,
+			geriye aynı diziyi döndürecektir.
+		</p>
+		<p class="indent">
+			Dizi (<span class="keyw">Array</span>) nesnesi gibi, öntanımlı sınıf nesnelerinin
+			prototip nesnelerinin özellikleri, sayılamaz, silinemez, salt okunur 
+			{DontEnum, DontDelete, ReadOnly} niteliktedir. Bu niteliklerden dolayı bunlar, 
+			listelenemez, silinemez, değiştirilemez, fakat değerleri okunabilir. Öntanımlı sınıf 
+			veya sınıf örneği nesnelerinin öntanımlı özellikleri sayılamaz nitelikte olduğundan, 
+			öntanımlı sınıfların örnek nesnelerinin öntanımlı özellik  değerleri 
+			<span class="keyw">, for..in </span>döngüleri ile görüntülenemezler.
+		</p>
+		<p class="indent">
+			Kullanıcılar öntanımlı dizi prototip nesnesine yeni özellikler ekleyebilirler ve 
+			bu özellikler tüm eskiden üretilmiş ve yeni üretilecek dizilerde geçerli olur. 
+			Bu işlem, nesne prototipine yeni özelliğin,
+		</p>
+		<pre>
+<span class="pl-25">SınıfNesnesi</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span>yeniÖzellik <span 
+			class="op">=</span> değer<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde tanıtılması ile  gerçekleştirilir. Sınıf nesnesi değişkenin büyük
+			harfle başladığını not ediniz. Konvansiyon olarak her sınıf nesnesi tanımlayıcısı
+			(identifier) büyük harfle başlar.
+		</p>
+		<p class="indent">
+			Özellik eklemeleri tek bir sınıf nesnesi örneği düzeyinde aşağıda görüldüğü 
+			şekilde gerçekleştirililebilir:
+		</p>
+		<pre>
+<span class="pl-25">nesneSınıfÖrneği</span><span 
+			class="op">.</span> yeniÖzellik <span 
+			class="op">=</span> değer<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Bu durumda, yeniÖzellik sadece eklemenin yapıldığı tek nesne örneği için 
+			geçerli olur.
+		</p>
+		<p class="indent"  id="b8.2-uyg-1">
+			<a href="../uygulamalar/b8.2-uyg-1-js.html">JavaScript kodları</a> aşağıda
+			görülmekte olan <a href="../uygulamalar/b8.2-uyg-1.html">uygulamada</a>,
+			dizi sınıfı prototipine ek bir özellik eklenmiş ve bu eklenen yeni özellik
+			bir sınıf örneği prototipi eklentisi olduğu için, yeni oluşturulan bir
+			dizi nesne sınıfı  örneğinin özelliklerine eklenmiştir. Aynı uygulamada, bir
+			nesne sınıf örneğine yapılan  yeni özellik eklentisi ise, salt eklentinin
+			yapıldığı nesne örneği için geçerli olacaktır.
+		</p>
+		<pre>
+<span class="keyw-25">Array</span><span 
+			class="op">.</span><span class="keyw">prototype</span><span 
+			class="op">.</span>sorumlu <span 
+			class="op">=</span> <span 
+			class="str">'Bedri Doğan Emir'</span><span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> harcama<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> gider <span 
+			class="op">= [],</span> giderDöviz <span 
+			class="op">= [];</span> 
+
+<span class="pl-50">gider</span><span 
+			class="op">[</span>0<span 
+			class="op">] =</span> 25<span 
+			class="op">;</span>
+<span class="pl-50">gider</span><span 
+			class="op">[</span>1<span 
+			class="op">] =</span> 35<span 
+			class="op">;</span>
+<span class="pl-50">gider</span><span 
+			class="op">[</span>2<span 
+			class="op">] =</span> 15<span 
+			class="op">;</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span>anahtar <span 
+			class="keyw">in</span> gider<span 
+			class="op">) {</span>
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'gider['</span> <span 
+			class="op">+</span> anahtar <span 
+			class="op">+</span> <span 
+			class="str">'] ='</span> <span 
+			class="op">+</span> gider[anahtar] <span 
+			class="op">+</span> <span 
+			class="str">'   '</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">gider[0] = '</span> <span 
+			class="op">+</span> gider[0]<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-2'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">&quot;gider['0'] = &quot;</span> <span 
+			class="op">+</span> gider['0']<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-3'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">&quot;gider['sorumlu'] =&quot;</span> <span 
+			class="op">+</span> gider['sorumlu']<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-4'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">&quot;gider.sorumlu = &quot;</span> <span 
+			class="op">+ </span>gider<span 
+			class="op">.</span>sorumlu<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-5'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">&quot;gider.length = &quot;</span> <span 
+			class="op">+ </span>gider<span 
+			class="op">.</span>length<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-6'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="pl-50">giderDöviz</span><span 
+			class="op">[</span>0<span 
+			class="op">] =</span> 16<span 
+			class="op">;</span>
+<span class="pl-50">giderDöviz</span><span 
+			class="op">[</span>1<span 
+			class="op">] =</span> 58<span 
+			class="op">;</span>
+<span class="pl-50">giderDöviz</span><span 
+			class="op">.</span>sorumlu<span 
+			class="op"> =</span> <span 
+			class="str">'Bedri Doğan Emir (US$)'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">diziTabloTekBoyut</span>(<span 
+			class="str">'b8.2-uyg-1-sonuç-7'</span><span 
+			class="op">,</span> <span 
+			class="str">'giderDöviz Dizisi Elemanları'</span><span 
+			class="op">,</span> <span 
+			class="str">'giderDöviz', </span>giderDöviz)<span 
+			class="op">;</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">&quot;Döviz Giderleri Sorumlusu = &quot;</span> <span 
+			class="op">+ </span>giderDöviz<span 
+			class="op">.</span>sorumlu<span 
+			class="op">,</span> <span 
+			class="str">'b8.2-uyg-1-sonuç-8'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-25">}</span></pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-1">
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-2">
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-3">
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-4">
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-5">
+		</p>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-6">
+		</p>
+		<table id="b8.2-uyg-1-sonuç-7" summary="Dizi Elemanları">
+			<caption></caption>
+			<tbody>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="indent"  id="b8.2-uyg-1-sonuç-8">
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2-uyg-1.html">uygulama</a>, çok
+			önemli ve her zaman dikkate alınması gerekli olan sonuçlar vermektedir.
+			İlk olarak, JavaScript programlama dilinde her dizi, bir dizi nesnesi sınıfı
+			örneği nesnesidir. Dizideki her eleman, dizi nesnesi sınıf örneğinin bir
+			özelliği olarak algılanmaktadır. Bu yüzden, bir nesnenin tüm sayılabilir
+			özelliklerini tarayan <span class="keyw">for..in</span>
+			döngüleri, dizinin elemanlarını dizi nesnesi örneğinin birer özelliği olarak
+			algılamakta ve  listelemektedir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2-uyg-1.html">uygulamada</a>, 
+			<span class="keyw-25">Array</span><span class="op">.</span><span class="keyw">prototype</span>
+			<span class="op">.</span>sorumlu  <span 	class="op">=</span> <span class="str">'Bedri
+			Doğan Emir'</span> 
+			bildirimi, dizi sınıfına yeni bir özellik eklemiştir. Bu yeni özellik,
+			bir dizi sınıfı özelliği olduğundan, her sınıf özelliği gibi, yeni oluşturulacak
+			sınıf örnekleri bu özelliğe sahip olarak oluşacaklardır. Ayrıca, nesne
+			sınıfına bu yeni özellik eklenmeden önce oluşturulmuş olan tüm eski sınıf
+			örneklerine bu yeni özellik katılmış olacaktır. Eskiden oluşturulmuş sınıf
+			örneklerinde bu yeni eklenmiş olan özellik değeri atanmamış olduğundan,
+			eskiden oluşturulmuş tüm nesne sınıfı örneklerinde bu yeni özelliğin değeri 
+			<span class="keyw">undefined</span> olacaktır.
+			Bu nedenle, sınıf  özelliklerine bir katkı yapıldığında, bu sınıfla ait
+			tüm eskiden oluşturulmuş ve yeni oluşturulacak örneklere, bu yeni özelliğin
+			değerinin atamasının yapılması düşünülmelidir.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2-uyg-1.html">uygulamada</a> olduğu
+			gibi, dizi indislerinin  sayısal olduğu gerçek dizi sınıfı nesne örneklerinde,
+			sınıf örneği elemanlarına, en alışılmış şekliyle, gider<span class="op">[</span>0<span 
+			class="op">]</span> şeklinde, ve çok sıradışı olarak,  gider<span class="op">[</span><span 
+			class="str">'0'</span><span class="op">]</span> şeklinde erişilebildiği görülmektedir.
+			Bu  eleman (özellik) lere, asla gider.0 şeklinde nokta notasyonu ile erişilemez.
+			Daha sonra inceleyeceğimiz, kullanıcı 	tanımlı  nesne örnekleri olan sözel indisli 
+			nesnelere ise, ileride görüleceği gibi, 
+			CD4<span class="op">[</span><span class="str">'Orkestra'</span><span class="op">]</span>
+			veya CD4<span class="op">.</span>Orkestra şeklinde erişilebilir. Fakat
+			asla CD4<span class="op">[</span>0<span 	class="op">]</span> şeklinde sayısal indis kullanımı
+			ile erişilemez.
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2-uyg-1.html">uygulamada</a>, bir
+			sınıf nesnesine, kullanıcı tanımlı özellik  olan sorumlu değerine, sadece, gider
+			<span class="op">[</span><span class="str">'sorumlu'</span><span class="op">]</span>
+			veya nokta notasyonu kullanımı ile gider<span class="op">.</span>sorumlu şeklinde
+			erişilebilir. Bu yeni özelliğe gider<span class="op">[</span>sorumlu<span class="op">]</span> 
+			notasyonu ile erişilemez. Çünkü sorumlu sözcüğü programda değişken olarak tanımlı
+			değildir.
+		</p>
+		<p class="indent" id="dizikopya">
+			Diziler nesne tipi verilerdir ve referansla aktarılırlar. Bu durumda , bir a dizisini, 
+			bir b değişkenine kopyalamak için, 
+		</p>
+		<pre>
+<span class="pl-50">b <span 
+			class="op">=</span> a<span 
+			class="op">;</span></span>
+		</pre>
+		<p class="nonindent">
+			bildirimi işe yaramaz. Bu işlem sadece a daki bellek referansı değeri( pointer) 'i b ye 
+			kopyalamakla sonuçlanır ve hem a hem de b değişkenleri aynı diziyi değiştirrebilir
+			duruma gelir. b Değişkenine a dizisinin bağımsız bir kopyasını yerleştirmek için, 
+			a dizisinin tüm elemanlarını ve yukarıdaki uygulamada bir örneği görüldüğü 
+			gibi, a dizisine kullanıcı eliyle yapılmış olan tüm özellik değerlerinin b değişkenine 
+			yeniden atanması gerekir. Bu atama için, 
+			<span class="keyw">for</span>, <span class="keyw">while</span>,
+			<span class="keyw">do..while</span> gibi döngüler kullanılarak yapılırsa sadece
+			elemanların güncel değerleri kopyalanmış olur. Kopyalamanın tam olması
+			için, kullanıcı tanımlı nesne örneği özellklerinin de yeni değişkene elle
+			tanıtılması gerekir. Bu da otomatizayon değildir. Bunun yerine kopyalama 
+			<span class="keyw">for..in</span>
+			döngüleri ile gerçekleştirilirse, hiç elle müdahaleye gerek kalmadan tüm
+			kopyalama  gerçekleşmiş olur. Çünkü <span class="keyw">for..in</span> döngüleri,
+			hemdizilerin elemanlarını hem de dizilerin sayılabilir (enumerable) olan kullanıcı tanımlı özelliklerini tararlar.
+			Dizilerin kopyalanması için sorunsuz olarak
+			kullanılabilecek bir alt program <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program
+			 kitaplığına eklenmiştir. Bu alt programın kullanılışı,
+		</p>
+		<pre>
+<span class="pl-25">diziKopyala</span><span class="op">(</span>orijinalDizi<span 
+			class="op">,</span> kopyaDizi<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.  Bu fonksiyonun yazılımı, 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> diziKopyala<span 
+			class="op">(</span>orijinalDizi<span 
+			class="op">,</span> kopyaDizi<span 
+			class="op">) {</span>
+<span class="keyw-50">for</span><span 
+			class="op">(</span>indis <span 
+			class="keyw">in</span> orijinalDizi<span 
+			class="op">) {</span>
+<span class="pl-75"></span>kopyaDizi<span 
+			class="op">[</span>indis<span 
+			class="op">] = </span> orijinalDizi<span 
+			class="op">[</span>indis<span 
+			class="op">];</span> 
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			Her zaman belirtildiği gibi, öntanımlı nesnelerin prototiplerinde özel eklemeler yapmak, 
+			geliştirilen programların başka sayfalarda kullanılması olanağını ortadan kaldırabilir. 
+			Ayrıca bu gizli global değişken kullanma anlamına gelir ve her bakımdan sakıncalıdır. 
+			Bir başka konu da eğer bu yeni kullanıcı tanımlı özelliğe bir varsayılan değer
+			verilmezse ve eski üretilmiş dizilere bu özellik değeri girilmezse, JavaScript yorumlayıcısı
+			eski üretlmiş dizilerde bu yeni özelliğin değerini <span class="keyw">undefined</span>
+			olarak belirleyecektir. Yineleyelim, çok gerekmedikçe öntanımlı nesnelerin prototiplerinde
+			değişiklik yapılmamalıdır.
+		</p>
+		<p class="indent">
+			Bu uygulamada kullanılan diziTabloTekBoyut<span class="op">()</span> fonksiyonu,
+			ileride bölüm <a href="../b20/b20.5-s1.html#diziTabloTekBoyut">20.5.1</a> de detaylı 
+			olarak açıklanmıştır.
+		</p>
+		<p class="subheading" id="proto-cons">8.2.1 - Array (Dizi) Nesne Sınıfı Prototipinin
+			constructor Özelliği</p>
+		<p class="indent">
+			Dizi nesne sınıfının prototipinin <span class="keyw">constructor</span> özelliğinin
+			değeri yani  bu prototipe uyan nesne örneklerinin yaratıcısı olan yapılandıran
+			fonksiyon, öntanımlı
+			<span class="keyw">Array</span><span class="op">()</span> fonksiyonudur. Bu
+			bu fonksiyon JavaScript yorumlayıcısının bir iç yazılımı olduğundan yazılımı
+			kullanıcıya kapalıdır ve dolayısı ile yazılımına erişme şansımız yoktur. 
+		</p>
+		<p class="subheading" id="proto-toString">8.2.2 - Array (Dizi) Nesne Sınıfı
+			Prototipinin toString() Metodu</p>
+		<p class="indent">
+			JavaScript dizi sınıfı prototipinin <span class="keyw">toString</span><span class="op">()</span> 
+			metodunun ismi generik nesne sınıfının prototipinden kaynaklanır, fakat içeriği dizi nesne 
+			sınıfının prototipine daha uygun olması için bindirilmiştir. Bu metodun sonucu, ilkel 
+			karakter dizgisi tipinde bir karakter dizigisi verisidir. Bu metodun geri döndürdüğü 
+			karakter dizigisi değişkeninin biçimi (formatı) bir dizinin öntanımlı görüntüsü ile aynıdır. 
+		</p>
+		<p class="indent" id="b8.2.2-uyg-1">
+			JavaScript dizi sınıfı prototipi, generik nesne sınıfı prototipinin 
+			<span class="keyw">valueOf</span><span class="op">()</span> metodunu kalıtım yolu ile 
+			elde eder. Bu metodun yazlımı, dizi sınıfı prototipi düzeyinde bindirilmemiştir ve generik 
+			nesne sınıf prototipindeki yazılım ile aynıdır. Bu metodun geri döndüreceği ilkel karakter 
+			dizigisi tipinde bir karakter dizigisi verisi, dizi elemanlarının arasına virgül (comma) konularak
+			düzenlenmiş öntanımlı bir karakter dizigisidir. Bu metodun uygulanma sonuçları ile 
+			ilgili bir <a href="../uygulamalar/b8.2.2-uyg-1-js.html">JavaScript programı</a> ve ilişikli
+			olduğu <a href="../uygulamalar/b8.2.2-uyg-1.html">sayfada</a> verdiği sonuç 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var </span>örnekDizi<span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span>21<span 
+			class="op">,</span> 45<span 
+			class="op">,</span> 76<span 
+			class="op">,</span> 88<span 
+			class="op">,</span> 105<span 
+			class="op">);</span> 
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="op"><span 
+			class="str">'örnekDizi.toString() = '</span>,</span> örnekDizi<span 
+			class="op">.</span><span 
+			class="keyw">toString</span><span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p id="b8.2.2-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Program sonucunda elde edilen karakter dizgisi verisinin görüntüsü, 
+			dizinin öntanımlı görüntüsü ile yanı gibi görülmektedir. Ne var ki, bu
+			benzerlik salt görüntüdedir. Dizilerin öntanımlı görüntülenmesi dizinin veri tipi ve
+			değerini değiştirmez. Bunu 
+		</p>
+		<p class="indent">
+			JavaScript dizi sınıfı prototipinin biraz sonra incelenecek,
+			<span class="keyw">toLocaleString</span><span class="op">()</span> metodu, 
+			pratik olarak <span class="keyw">toLocaleString</span><span class="op">()</span> metodu ile
+			aynı öntanımlı karakter dizigisi tipinde veriyi geri döndürmektedir. Bunu yukarıdaki 
+			<a href="../uygulamalar/b8.1-uyg-1.html">uygulama 8.1</a> in sonuç tipinden anlayabiliriz.
+			Oysaki <span class="keyw">toString</span><span class="op">()</span> metodu geriye 
+			orijinal diziyi değil, orijinal dizinin elemanlarının aralarına virgül konularak oluşturulmuş
+			bir ilkel karakter dizgisi veriyi döndürmektedir. Yukarıdaki son 
+			<a href="../uygulamalar/b8.1-uyg-1.html">uygulama 8.2.2</a> nin sonucundan geri döndürülen
+			veri tipinin tek bir karakter dizigisi ve (string) tipinde olduğu belirtilmektedir.
+		</p>
+		<p class="indent">
+			Dizi verilerinin <span class="keyw">toString</span><span class="op">()</span> metodu ile
+			geri döndürülen karakter dizigisi verisi, bilgisayar programları açısından değeri büyüktür.
+			Bu veri virgüllerle ayrılmış veri (Comma Separated Variables) ( kısaca CSV) olarak adlandırılır.
+			Bu veriler ileride göreceğimiz gibi bir disk metin dosyasına yerleştirilirse, bu dosyanın
+			standart formatını birçok hazır program, örnek olarak bilimsel grafik programları,
+			MS Excel ve benzeri tablolama programları, Access ve MySQL gibi veri temeli programları
+			çok kolaylıkla okuyup kullanabilir.
+		</p>
+		<p class="indent">
+			Dizi sınıfı nesne örneklerinde, 
+			<span class="keyw">toString</span><span class="op">()</span> metodunun 
+			döndürdüğü değer ile biraz ileride incelenecek olan,argümansız olarak kullanılacak, 
+			<span class="keyw">join</span><span class="op">()</span> metodunun geri 
+			döndüreceği değer aynıdır. Kullanıcılar iki metottan istedikleri birisini özgürce 
+			seçebilirler.
+		</p>
+		<p class="subheading" id="proto-toLocaleString">8.2.3 - Array (Dizi) Nesne
+			Sınıfı Prototipinin toLocaleString() Metodu</p>
+		<p class="indent" id="b8.2.3-uyg-1">
+			ECMA-262 sürüm 3 spesifikasyonunda, sadece sayı, dizi ve tarih nesnelerinin 
+			<span class="keyw">toString</span><span class="op">()</span> metodu ile 
+			<span class="keyw">toLocaleString</span><span class="op">()</span> metodunun
+			döndüreceği ilkel karakter dizgisi verisinin öntanımlı biçimleri farklıdır. Dizi nesnesinde
+			bu biçim farkı, dizi içeriğinin yerel gösterime daha uygun olması amacı ile farklı şekilde
+			düzenlenmiştir. Bu konuda bir 
+			<a href="../uygulamalar/b8.2.3-uyg-1-js.html">JavaScript programı</a> ve bağlantılı
+			olduğu <a href="../uygulamalar/b8.2.3-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var </span>örnekDizi<span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span>21<span 
+			class="op">,</span> 45<span 
+			class="op">,</span> 76<span 
+			class="op">,</span> 88<span 
+			class="op">,</span> 105<span 
+			class="op">);</span> 
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="op"><span 
+			class="str">'örnekDizi.toLocaleString() = '</span>,</span> örnekDizi<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleString</span><span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.3-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p id="b8.2.3-uyg-1-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Dizi nesne sınıfı örneklerine uygulanan 
+			<span class="keyw">toLocaleString</span><span class="op">()</span> metodu, 
+			henüz sadece Internet Explorer sürüm 8 de 
+			<span class="keyw">toString</span><span class="op">()</span> metodundan farklı bir biçimde olan
+			bir ilkel karakter dizigisi verisi geri döndürmektedir. Internet Explorer sürüm 8 de, sayısal dizi 
+			elemanları, eski OrtaAvrupa notasyonuna uygun bir şekilde, ondalıklar virgül ile, dizi 
+			elemanları da birbirlerinden noktalı virgül (semikolon) (;) ile ayrılmış olarak düzenlenmektedir. 
+			Doğal olarak, bu notasyon SI birimlerinin uygulandığı mühendislik çalışmalarında uygun olmayacaktır.
+		</p>
+		<p class="subheading" id="proto-concat">8.2.4 - Array (Dizi) Nesne Sınıfı Prototipinin
+			concat()  Metodu</p>
+		<p class="indent">
+			Dizi nesne sınıfı prototipinin <span class="keyw">concat()</span>
+		Metodu , iki veya daha çok dizinin birleştirilmesi ile oluşan 
+		yeni bir diziyi döndürür. Sözdizimi,
+	</p>
+		<p class="indent">
+			<span class="str"><em>dizi1</em></span><span 
+			class="op">.</span><span class="keyw">concat</span><span 
+			class="op">([</span><span class="comm"><em>birim1</em></span><span 
+			class="op">[,</span><span class="comm">birim<em>2</em></span><span 
+			class="op">[, . . .[,</span> <span class="comm">birim<em>N</em></span><span 
+			class="op">]]]])</span>
+		</p>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent" id="b8.2.4-uyg-1">
+			Burada,
+			<span class="comm">birim1</span>,
+			<span class="comm">birim2</span>
+			<span class="str">dizi1</span> dizisine
+			soldan sağa doğru, eklenecek dizilerdir. Eğer
+			eklenecek birim diziden başka bir tipte ise, dizinin
+			sonuna yeni bir eleman olarak eklenir. Elemanları 
+			nesnelerden oluşan iki dizi
+			birbirine eklenirse, orijinal ve eklenmiş dizlerin
+			aynı nesneye referans vermeleri nedeni ile birinde
+			olabilecek değişiklik diğerine de yansır. Sayısal ve
+			karakter dizgisi verileri sadece değer olarak
+			kopyalandıklarından, elemanları sayısal veya 
+			karakter dizgisi olan diziler birbirlerine eklenirse,
+			oluşan dizinin elemanlarından birinin değerinin
+			değişmesi durumunda, değişiklik orijinal dizilerin
+			elemanlarının değerlerini etkilemez. 
+			<a href="../uygulamalar/b8.2.4-uyg-1-js.html">JavaScript kodları</a> aşağıda
+			görülen bir <a href="../uygulamalar/b8.2.4-uyg-1.html">örnekte</a><span 
+			class="keyw">, concat</span><span class="op">()</span> metodu uygulanmıştır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="keyw-25">function</span> ekle <span 
+			class="op">()</span> <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> g <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Serkan'</span ><span 
+			class="op">,</span><span 
+			class="str"> 'Seçkin'</span> <span 
+			class="op">,</span> <span 
+			class="str">'Başar</span>'<span 
+			class="op">,</span> <span 
+			class="str">'Hazar'</span> <span 
+			class="op">, </span><span 
+			class="str">'Gülser</span>'<span 
+			class="op">),</span>
+<span class="pl-50">h</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span> <span 
+			class="op">(</span><span 
+			class="str">'Ayla'</span><span 
+			class="op">,</span> <span 
+			class="str">'Çiğdem'</span><span 
+			class="op">),</span>
+<span class="pl-50">m</span> <span 
+			class="op">=</span><span 
+			class="keyw">new Array</span> <span 
+			class="op">(),</span>
+<span class="pl-50">m</span> <span 
+			class="op">=</span> g<span 
+			class="op">.</span><span 
+			class="keyw">concat(</span>h<span 
+			class="op">);</span>
+			
+<span class="pl-50">diziElemanlarıYatayYazımı</span><span 
+			class="op">(</span><span 
+			class="str">'(m Dizisi)'</span><span 
+			class="op">,</span> m<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziElemanlarıYatayYazımı</span>(<span 
+			class="str">'(h Dizisi)'<span 
+			class="op">,</span></span> h<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str"> 'b8.2.4-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">diziElemanlarıYatayYazımı</span><span 
+			class="op">(</span><span class="str">'(g Dizisi)'</span><span 
+			class="op">,</span> g<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.4-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">m</span><span 
+			class="op">[</span>4<span 
+			class="op">] =</span> <span 
+			class="str">'Walther'</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'m[4] = '</span><span 
+			class="op">,</span>  m<span 
+			class="op">[</span>4<span 
+			class="op">], </span><span 
+			class="str">'b8.2.4-uyg-1-sonuç-4'</span>)<span 
+			class="op">;</span>
+			
+<span class="pl-50">diziElemanlarıYatayYazımı</span><span 
+			class="op">(</span><span class="str">'(m Dizisi)'</span><span 
+			class="op">,</span> m<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.4-uyg-1-sonuç-5'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">diziElemanlarıYatayYazımı</span><span 
+			class="op">(</span><span class="str">'(h Dizisi)'</span><span 
+			class="op">, </span>h<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.4-uyg-1-sonuç-6'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">diziElemanlarıYatayYazımı</span><span 
+			class="op">(</span><span class="str">'(g Dizisi)'</span><span 
+			class="op">,</span> g<span 
+			class="op">,</span> <span 
+			class="str">'|'</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.4-uyg-1-sonuç-7'</span><span 
+			class="op">);</span>
+			
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>ekle<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span> 
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="indent" id="b8.2.4-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b8.2.4-uyg-1-sonuç-2">
+		</p>
+		<p class="indent">
+			Burada kullanılan diziElemanlarıYatayYazımı<span 
+			class="op">()</span> alt programı, dizi elemanlarının yatay yazımları için 
+			geliştirip kullandığımız bir fonksiyondur. Bu program,
+			çıktıları, belirtilen bir elemanın içeriği olarak değil, bu elemanı takip
+			eden yeni oluşturulan bir paragraf elementinin içeriği olarak yazdırmaktadır. Dizinin
+			tüm elemanları, birbiri ardınca, lineer olarak görüntülendirilmektedir. Bir satıra 
+			yazdırılacak eleman sayısı 8 ile sınırlandırılmıştır. İstenirse bu sayı fonksiyon içinden 
+			değiştirilebilir.  Bu fonksiyonda, elemanların biribirlerinden ayrılması için kullanılan ayraç
+			karakter dizigisi değişkeni, fonksiyonun bir parametresi olarak tanımlanabilmektedir.Bu fonksiyon 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> fonksiyon kitaplığına alınmıştır.
+			Fonksiyonun yazılımı aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> diziElemanlarıYatayYazımı<span 
+			class="op">(</span>mesaj<span 
+			class="op">,</span> dizi<span 
+			class="op">,</span> ayraç<span 
+			class="op">,</span> öncekiElementId<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> yeniParagraf<span 
+			class="op">= {},</span> span <span 
+			class="op">= {};</span> 
+			
+<span class="pl-50">yeniParagraf</span> <span 
+			class="op">=</span> <span 
+			class="keyw"> document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span></span><span 
+			class="str">'p'</span><span 
+			class="op">);</span>
+			
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">setAtribute</span><span 
+			class="op">(</span><span 
+			class="str">'class' </span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span></span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAtribute</span><span 
+			class="op">(</span><span 
+			class="str">'class' </span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-green'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span>yeniParagraf<span 
+			class="op">,</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Dizi Elemanları'</span><span 
+			class="op"> + </span>mesaj<span 
+			class="op"> + </span><span 
+			class="str">' : '</span><span 
+			class="op">));</span>
+
+<span class="pl-50">yeniParagraf</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span<span 
+			class="op">);</span>
+
+<span class="pl-50">ardınaEkle</span><span 
+			class="op">(</span>yeniParagraf<span 
+			class="op">,</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span>öncekiElementId<span 
+			class="op">));</span>
+
+<span class="keyw-50">for</span><span 
+			class="op">(</span>i<span 
+			class="op">=</span>0<span 
+			class="op">; </span>i<span 
+			class="op"> &lt; </span>dizi<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++) {</span>
+
+<span class="keyw-75">if</span><span 
+				class="op">(</span>dizi<span 
+				class="op">[</span>i<span 
+				class="op">]</span><span 
+			class="op">===</span><span 
+			class="keyw">undefined<span 
+			class="op">) {</span>
+
+</span><span class="pl-100"> ekle</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'undefined'</span><span 
+			class="op">));</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+
+ </span><span class="pl-100">ekle</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>dizi<span 
+			class="op">[</span>i<span 
+			class="op">]));</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i<span 
+			class="op"> &lt;</span> dizi<span 
+			class="op">.</span><span 
+			class="keyw">length </span><span 
+			class="op">-</span> 1<span 
+			class="op">) {</span>
+
+<span class="pl-100">ekle</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">' '</span><span 
+			class="op"> + </span>ayraç<span 
+			class="op"> +</span> <span 
+			class="str">' '</span><span 
+			class="op">);</span>
+<span class="op-75">}</span>
+
+<span class="keyw-75">if</span><span 
+			class="op">(</span>i <span 
+			class="op">===</span> 8<span 
+			class="op">) {</span>
+<span class="pl-100">a</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'br'</span><span 
+			class="op">));</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			Bu kodlar <a href="../b19/b19s1.html">W3C-DOM yöntemleri incelendiğinde</a> 
+			açıklığa kavuşacaktır. Bu noktada sadece fonksiyonları kullanmakla yetineceğiz.
+		</p>
+		<p class="indent">
+			Sonuçlardan görülebileceği gibi, bir g dizisinin 
+			sonuna, bir h dizisinin elemanları eklenerek yeni bir m
+			dizisi oluşmaktadır. Oluşan m dizisinin bir elemanının 
+			değeri değişirse, eski dizideki değeri etkilenmemektedir. 
+			Birbirlerine eklenen iki dizinin elemanları nesne tipinde
+			olsalardı, oluşan dizideki elemanların değerininin
+			değişmesi durumunda, eski dizideki değerleri de
+			değişecekti. İki nesne dizisinin, orijinal dizilerden 
+			bağımsız olarak birbirlerine eklenmeleri için, önce ilk iki dizinin kopyalanması
+			ve kopyalarının birbirlerine eklenmesi gerekmektedir. Bu konuda bir önceki
+			paragrafta dizilerin kopyalanması konusu yeniden incelenmelidir. 
+		</p>
+		<p class="indent">
+			Tüm dizi elemaları yatay olarak, tek değişkenler için kullanılagelen
+			bilgiYaz<span class="op">()</span> fonksiyonundan yararlanılarak da
+			yazdırılabilir. Bu fonksiyon bdelib.js kitaplığında tanıtılmış olduğundan
+			acil durumlarda, dizi elemanlarının yazdırılması için, hiçbir özel çıktı 
+			fonksiyonunun yazılmasına gerek kalmadan, doğrudan 
+			bilgiYaz<span class="op">(</span>dizi<span 	class="op">,</span> yazılacakYer<span 
+			class="op">);</span> fonksiyonu kullanılarak dizi elemanları yazdırılabilir. Bu durumda, 
+			JavaScript yorumlayıcısı, dizi elemanları arasına bir virgül eklemektedir. 
+		</p>
+		<p class="subheading" id="proto-join">8.2.5 - Array (Dizi) Nesne Sınıfı Prototipinin
+			join()  Metodu</p>
+		<p class="indent">
+			<span class="keyw">Dizi sınıfı prototipinin join()</span>
+			Metodu, bir dizinin tüm elemanlarının belirtilen
+			ayırma karakterleri ile ayrılacak şekilde
+			birleştirilmesi ile oluşan <strong 
+			class="red">bir karakter dizgisi
+			(string) döndürür</strong>. Sözdizimi,
+		</p>
+		<p class="indent">
+			<span 
+			class="str"><em>dizi</em></span><span 
+			class="op">.</span><span 
+			class="keyw">join<em>(</em></span><span 
+			class="comm"><em>&quot;ayraç&quot;</em></span><em><span 
+			class="keyw">)</span></em>
+		</p>
+		<p class="indent">
+			şeklindedir. Burada,
+			<em class="str">dizi</em> dizi sınıfından bir nesne örneği yani bir dizi dir.
+			Bağlanntı elemanı olan <span class="comm"><em>ayraç</em></span>
+			ise bir ayırma (separatör) karakteridir. Tüm karakter 
+			dizgisi (string) literallerde olduğu gibi, ayraç argümanının da
+			tırnak içerisinde kullanılması, veya daha önceden, bir karakter dizgisi tipinde 
+			değişkene atanıp, <span class="keyw">join</span><span class="op">()</span> 
+			fonksiyonunun argümanı olarak kullanılması gerekir.
+		</p>
+		<p class="indent">
+			Dizi elemanın değeri <span class="keyw">null</span> veya
+			<span class="keyw">undefined</span> ise, 	boş bir karakter dizgisi olarak kabul edilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">join</span><span class="op">()</span> 
+			Metodu, dizi elemanlarının görüntülenmesi için, çok yararlıdır. 
+			<span class="keyw">join</span> <span class="op">()</span> 
+			Metodu, bir g dizisi ile,
+		</p>
+		<pre><span class="pl-25">k</span><span 
+			class="op">=</span>g<span 
+			class="op">.</span><span 
+			class="keyw">join(</span><span 
+			class="str">&quot; | &quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span></pre>
+		<p class="nonindent">
+			şeklinde uygulanırsa, g dizisi değişmeden kalır ve tüm dizi elemanlarını, belirtilen 
+			ayraç karakterleri ile ayrılmış olarak içeren, bir k karakter dizigisi 
+			değişkeni oluşur. Fakat, <span class="keyw">join(</span><span class="op">()</span> 
+			Metodu, aşağıda görüldüğü gibi bir tahrip edici atama şeklinde gerçekleştirilirse, 
+		</p>
+		<pre><span class="pl-25">g</span><span 
+			class="op">=</span>g<span 
+			class="op">.</span><span 
+			class="keyw">join(</span><span 
+			class="str">&quot; | &quot;</span><span 
+			class="keyw">)</span><span 
+			class="op">;</span></pre>
+		<p class="nonindent" id="b8.2.5-uyg-1">
+			g değişkeni, artık orijinal diziyi değil, yeni oluşan karakter dizgisini
+				içerir ve g dizisi  kaybolur. Geri döndürülen değerin, tek bir karakter
+				dizgisi olması ve ayraç karakterleri içermesi, bir sorun yaratmaz ve
+			 <span class="keyw">join</span><span class="op">()</span>  İşlemi 
+			sonunda oluşan karakter dizgisinden,
+			orijinal dizi elemanları, çeşitli algoritmalardan yararlanılarak
+			yeniden oluşturulabilirler. Yine de, orijinal diziler programın 
+			ilerideki işlemlerinde kullanılacaklarsa, bunlar değişmemiş
+			olarak saklanarak, aşağıdaki uygulamada yapıldığı 
+			gibi, işlemlerin yeni diziler üzerinden yapılması uygun olacaktır.
+			<span class="keyw">join</span><span class="op">()</span> Metodunun bir 
+			<a href="../uygulamalar/b8.2.5-uyg-1.html">uygulamasının</a>,
+			<a href="../uygulamalar/b8.2.5-uyg-1-js.html">JavaScript</a> kodları ve
+			sonuçları aşağıda görülmektedir:		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="keyw-25">function</span> birleştir <span 
+			class="op">()</span> <span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> g <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Serkan'</span ><span 
+			class="op">,</span><span 
+			class="str"> 'Seçkin'</span> <span 
+			class="op">,</span> <span 
+			class="str">'Başar</span>'<span 
+			class="op">,</span> <span 
+			class="str">'Hazar'</span> <span 
+			class="op">, </span><span 
+			class="str">'Gülser</span>'<span 
+			class="op">),</span> h <span 
+			class="op">=</span><span 
+			class="str"> '</span><span 
+			class="str">'</span><span 
+			class="op">;</span>
+
+<span class="pl-50">h</span> <span 
+			class="op">=</span> g<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(<span 
+			class="str">' @ '</span>);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span class="str">'(g Dizisi)'<span 
+			class="op">,</span></span> h<span 
+			class="op">,</span> <span 
+			class="str">'b8.2.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>birleştir<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span> 
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p class="cursive-green" id="b8.2.5-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Bu uygulamanın sonuçlarından görülebileceği gibi,
+			<span class="keyw">join</span><span 
+			class="op">()</span> metodunun
+			uygulanması, orijinal dizinin elemanlarını
+			değiştirmemekte, sadece elemanlar arasında
+			ayraç işaretleri eklenmiş, yeni bir karakter dizgisi 
+			yaratmaktadır. Bu karakter dizigisi, dizilerin
+		sunumunda büyük kolaylık sağlamaktadır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="../b7/b7s2.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b8s2.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>	
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.1-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.4-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:11 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

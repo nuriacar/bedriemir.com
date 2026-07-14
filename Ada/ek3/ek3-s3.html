@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:35 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/ek3/ek3-s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACAdas.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/Ada" />
+		<meta name="Title" content="WEBTECH Ada Turkish Tutorial" />
+ <!-- Turkish Ada Tutorial -->
+		<meta name="Subject" content="Ada Turkish Tutorial" />
+		<meta name="Description" 
+					content="Ada Tutorial in Turkish Language " />
+		<meta name="Keywords" content="Ada Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="Ada Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/Adastyle.css" />
+		<title>Ek 3 Sayfa 1</title>
+	</head>
+	<body>
+		<p>
+			<img class="banner" alt="Banner" src="../resimler/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="../b2/b2-s2.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Ek3
+		</p>
+		<p class="chapter">Gerçek Sayı Tipleri İçin Öntanımlı Giriş/Çıkış Prosedürleri</p>
+		<p class="chapter">(Standart Giriş/Çıkış Ortamı Uygulamaları)</p>
+		<p class="pagenum">
+			Ek-3  Sayfa 2
+	</p>
+<p class="title-left" id="intro">Ada.Text_IO Öntanımlı Paketinde Gerçek Sayıların Giriş/Çıkış Prosedürlerinin Tanıtımı</p>
+		<p class ="indent">
+			Ada öntanımlı program paketi Ada.Text_IO gerçek sayı tipleri için, stanaart ve dosya 
+			ortamlarından veri giriş/çıkışkarına yardımcı olacak prosedürleri içerir. Burada sadece 
+			standart (klaye/ekran) giriş çıkış prosedürleri üzerinde duracağız. Ada programlama 
+			dilinde gerçek sayı tipleri, Float_IO, Fixed_IO ve Decimal_IO tipleridir. Ada Standard paketinde 
+			tanımlanmış  olan bu progenitor tiplerin her birisi için, Ada.Text_IO paketinde özel alt paketler tanımlanmıştır. 
+			Burada örnek olarak Ada_Text_IO paketinin generik Float_IO alt paketini inceleyeceğiz. Ada.Text_IO_Float_IO 
+			generik alt paketinde yapılamış olan tanımlamalar diğer progenitor gerçek sayı tiplerinin generik paketlerinde 
+			aynen tekrarlanmıştır.
+</p>
+		<p class="indent">
+			Ada.Text_IO paketinde Float_IO alt paketinin başlangıcında aşağıdaki tanım yapılmıştır.
+		</p>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;<b>generic</b><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;Num&nbsp;<b>is</b>
+			&nbsp;<b>digits</b>&nbsp;&lt;&gt;;<br />
+			&nbsp;&nbsp;&nbsp;<b>package</b>&nbsp;Float_IO&nbsp;<b>is</b>
+		</div>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Fore&nbsp;:&nbsp; Field&nbsp;:=&nbsp;2;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Aft&nbsp;&nbsp;:&nbsp;
+			Field&nbsp;:=&nbsp;Num'Digits-1;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Exp&nbsp;&nbsp;:&nbsp;
+			Field&nbsp;:=&nbsp;3;
+		</div>
+		<p class="indent">
+			Burada Num bir generik tip olarak tanımlanmıştır ve bunu yerine Float, Fixed ve Decimal temel tipleri ve alt tipleri
+			geçebilecektir. Gerçek sayı tipleri ondalıklı sayı literalleri olarak, aşağıdaki biçimlerde görüntülenirler:
+		</p>
+		<p class="indent">
+			Tamsayı_Kısmı . Ondalıklı_Kısım
+		</p>
+		<p class="nonindent">
+			veya
+		</p>
+		<p class="indent">
+			Tamsayı_Kısmı . Ondalıklı_Kısım E Üstel_Kısım
+		</p>
+		<p class="nonindent">
+			Bu alanlar arasında hiç boşluk bırakılmaz. Tamsayı kısmı ön boşluklar ve eksi işareti içerebilir. Ondalıklı kısım,
+			sadece ondalık sayılarını ve belki de bunları izleyen sıfırları içerebilir. Üstel kısım, artı veya eksi işaretini ve 
+			sayıları belki de izleyen sıfırları içerebilir.
+		</p>
+		<p class="indent">
+			Float veri tipi için varsayılan olarak yukarıdaki değerler tanımlanmıştır. Diğer gerçek sayı tiplerinin alt paketlerinde de
+			uygun varsayılan değerler tanımlanmıştır. 
+		</p>
+		<p class="indent">
+			Ada.Text_IO.Float_IO generik bir pakettir ve bu paketin Float veri tipi spesifik güncel bir örneğinin yaratılarak
+			programlarda kullanılır hale getirilmesi gerekir. Öntanımlı Float tipi için, Ada_Text_IO paketinde, 
+		</p>
+		<p class="indent">
+		Ada.Float_Text_IO <span class="keyw">renames</span> Ada_Text_IO.Float_IO(Float)
+		</p>
+		<p class="nonindent">
+			tanımı yapılarak, Ada.Float.Text_IO paketi Float öntanımlı veri tipi için kullanıcılara açılmştır. Kullanıcılar,
+			Float tipi için kendileri spesifik generik paket örneklemesi yapmak zorunda değildir. Doğrudan, 
+			<span class="keyw">with</span> Ada.Float.Text_IO; bildirimi ile öntanımlı veri Float veri tipi için 
+			öntanımlı olacak şekilde örneklenmiş spesifik paketi kullanabilirler. Fakat, öntanımlı Float veri tipinin,
+			kullanıcı tarafından tanımlanmış alt tipleri için bu geçerli değildir. Kullanıcılar, kendi tanımladıkları
+			alt veri tipleri için öntanımlı generik paketlerin spesifik güncel örneklerini programlarının tanıtım 
+			kısmında yaratmaları gerekmektedir.
+		</p> 
+		<p class="title-left" id="float_io">Ada.Float_Text_IO Öntanımlı Spesifik Paketinde Standart Ortamdan Giriş/ Çıkış Prosedürleri</p>
+		<p class="indent">
+			Aşağıdaki prosedürler tanımlanmıştır:
+		</p>
+		<div class="Examples-Maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;
+			Get(Item&nbsp;&nbsp;:&nbsp;<b>out</b>&nbsp;Num;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width&nbsp;:&nbsp;<b>in</b>&nbsp;&nbsp;Field&nbsp;:=&nbsp;0);
+	</div>
+			<p class="indent">
+			Bu prosedür generik Num değişkenin yerini alacak tüm progenitor gerçek sayı tipleri ile çalışır. 
+			Burada Width parametresinin Field tipinden varsayılan değeri olan 0 değeri, tüm baştaki
+			boşluk karakterlerini, sayfa ve satır sonlandırıcılarını atlar ve veriyi okunabilir en uzun şekli
+			ile okuyarak geri döndürür. En uzun okunabilir biçim, aşağıdaki gibi olabilir :
+		</p>
+		<ul class="list">
+			<li>[+ | - ] sayısal_literal</li>
+			<li>[+ | - ] sayısal.[üs]</li>
+			<li>[+ | - ].sayısal[üs]</li>
+			<li>[+ | - ]sayı_temeli#sayı_temelinde_sayısal_literal.#[üs]</li>
+			<li>[+ | - ]sayı_temeli#.sayı_temelinde_sayısal_literal#[üs]</li>
+		</ul>
+		<p class="indent">
+			Eğer Width parametresine 0 dan başka bir değer verilirse, baştaki boşluk karakterleri dahil tam
+			verilen değer kadar karakter okumaya çalışır. Veri içinde pek bulunmasının olasılığı olmamasına
+			rağmen, yine de bir satır sonlandırıcısı bulunursa, satır sonlandırıcısının okunması gereken
+			bir karakterden önce gelmesi durumunda okumaya son verilir.
+		</p>
+		<p class="indent">
+			Get prosedürü, num yerine geçen öntanımlı gerçek sayı tipini giriş aşamasındaki okumaya göre
+			geri döndürür.  ve eğer Num bir gerçek sayı tipi ise 
+			ve Num'Signed_Zeros  true ise, 0 değeri için verinin orijinal işareti korunur veya işareti yoksa 0 ın
+			işareti pozitif olarak kabul edilir.
+		</p>
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Put(Item&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;Fore&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Fore;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;Aft&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Aft;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;Exp&nbsp;&nbsp;:&nbsp;<b>in</b>&nbsp;Field&nbsp;:=&nbsp;Default_Exp);
+	</div>
+		<p class="indent">
+			Bu prosedür, Item parametresini bir ondalıklı literal (10 temelli Sayı) (desimal) olarak, Fore, Aft ve Exp 
+			parametrelerinin tanımlandığı biçimlendirme ile döndürür. Eğer değer negatif ise veya Num generik veri 
+			tipininyerine geçen gerçek sayı veri tipinde Num'Signed_Zeros True ve değer işaretli sıfır ise, tamsayı
+			kısmına - işareti eklenir. Eğer Exp formal parametresinin değeri 0 ise, geri döndürülecek eğer Item formal 
+			parametresinin tamsayı kısmı, bu kısmı belirtecek kadar yeterli karakterden oluşur veya tamsayı kısmı yoksa, 
+			0 değeri konulur.
+		</p>
+		<p class="indent">
+			Eğer Exp formal parametresi sıfırdan büyük bir sayı ise, tammsayı kısmı tek bir karakterden oluşur, 
+			Eğer Item formal parametresinin değeri 0 ise, 0.0 döndürülür.
+		</p>
+		<p class="indent">
+			Her iki durumda da, eğer tamsayı kısmı eksi işareti dahil, Fore formal parametresinin değerinden daha 
+			az karakter içeriyorsa, başa gerektiği kadar boşluk eklenerek eksiklik tamamlanır. Ondalık kısmının 
+			karakter sayısı, Aft formal parametresinin değeri ile belirlenir. Eğer Aft değeri 0 ise, ondalık 
+			kısmı tek bir karakterden oluşur. Geri döndürülen değer yuvarlatılmıştır. Son rakkam, eğer yarım ise 
+			sıfırdan uzağa yuvarlatılmıştır.
+		</p>
+		<p class="indent">
+			Eğer Exp formal parametresi sıfır ise, üstel kısım yoktur. Eğer Item formal parametresinin değeri 0.0 ise 
+			üstel kısım değeri sıfırdır. Eğer Exp formal parametresi sıfırdan büyük bir değer ise, üstel kısım, 
+			değeri belirtmek için gerektiği kadar karakter içerir. Bu durumda tamsayı kısmı tek bir karakterden ve
+			gerekirse + veya - işasretinden oluşur. Eğer değerin üstel karakter sayısı değerin işareti dahil, Exp formal 
+			parametresi değerinden az ise, aradaki farkın kapatılması için gerektiği kadar boşluk karakteri üstel kısmın
+			başına eklenir.
+		</p>
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;
+			Get(From&nbsp;:&nbsp;<b>in</b>&nbsp;String;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<b>out</b>&nbsp;Num;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;:&nbsp;<b>out</b>&nbsp;Positive);
+		</div>
+		<p class="indent">
+			Bu prosedür, verilen karakter dizisinin başından itibaren verileri karakter karakter okur. Okuma şekli aynen
+			biir Get prosedürünün bir dosyadan okuduğu gibidir, sadece karakter dizisinin sonu satır sonlandırıcısı
+			gibi etki eder. Okunan Num değerini Item formal parametresinin değeri olarak döndürür. Last formal 
+			parametresinin değeri, okunan karakter dizisinin son karakterinin From(Last) şeklinde indeks değeridir. 
+</p>
+		<p class="indent">
+			Eğer giriş akımı istenilen sözdizimini sağlamaz veya elde edilen değer Num tipinin bir alt tipi değilse, 
+			Exception_Data_Error hatası yayınlanır.
+		</p>
+		<div class="Examples-Maroon">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>procedure</b>&nbsp;Put(To&nbsp;&nbsp;&nbsp;:
+			<b>out</b>&nbsp;String;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<b>in</b>&nbsp;Num;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aft&nbsp;&nbsp;:&nbsp;<b>in</b>
+			&nbsp;Field&nbsp;:=&nbsp;Default_Aft;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exp&nbsp;&nbsp;:&nbsp;<b>in</b>
+			&nbsp;Field&nbsp;:=&nbsp;Default_Exp);
+		</div>
+		<p class="indent">
+			Item parametresinin değerini verilmiş olan karakter dizisine aktarır. İşlem aynı bir dosyaya çıkış gibidir. 
+			Fore parametresinin değeri baştaki boşluklar dahil tüm karakterleri verilen karakter dizisine 
+			yerleştirmek için yeterli olmalıdır.
+		</p>
+	<p class="indent">
+			Basit bir <a href="../uygulamalar/e3_s3_uyg_1.adb">uygulama</a> ile prosedürlerin çalışmasını izleyelim :
+	</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+<span class="keyw-25">with</span> Ada.Float_Text_IO;
+<span class="keyw-25">procedure</span> e3_s3_uyg_1 <span class="keyw">is</span>
+<span class="pl-50">Bölünen</span> , Bölen, Sonuç : Float;
+<span class="keyw-25">begin</span>
+<span class="pl-50">Bölünen := 2.0</span>;
+<span class="pl-50">Bölen := 7.0</span>;
+<span class="pl-50">Sonuç := Bölünen / Bölen</span>;
+<span class="pl-50">Ada.Float_Text_IO.Put(Item =&gt; Sonuç);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 16 , Exp =&gt; 0);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 18 , Exp =&gt; 0);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 50 , Exp =&gt; 0);</span>
+<span class="keyw-25">end</span> e3_s3_uyg_1;
+		</pre>
+		<p class="green pl-50" >
+			Bu Uygulamanın Sonuçları
+		</p>
+		<p class="green pl-50">
+			  2.85714285714286E-01
+</p>
+		<p class="green pl-50">
+			0.2857142857142857
+</p>
+		<p class="green pl-50">
+			0.285714285714285698
+		</p>
+		<p class="green">
+			0.28571428571428569800000000000000000000000000000000
+		</p>
+		<p class="indent">
+			Problemin verisi olan 2/7 nin sonucu rasyonel siklik bir sayıdır ve 0.285 den sonra 714285 grubunun 
+			sonsuz sayıda tekrarı yapılmaktadır. Mathematica 7.01 bu bölmenin sonucunu 50 haneye kadar 
+			hesaplamış ve aşağıdaki sonucu bulmuştur. 
+		</p>
+		<p class="indent">
+			0.28571428571428571428571428571428571428571428571429
+		</p>
+		<p class="indent">
+			Sonuçlardan görüldüğü gibi, görüntülenen değerlerin son sayıları yuvarlatılmış sayılardır. 
+			Float varsayılan veri tipinin varsayılan ondalık sayısı (requested precision) 6 ondalık
+			olarak öntanımlanmıştır. 32 bitlik sistemler için tasarlanmış olan Long_Float öntanımlı veri tipi ise 11 ondalık 
+			duyarlıkta tanımlanmıştır. Günümüzde, hemen hemen tüm sistemler, 32 bitlik sistemlerdir ve hatta 64 bitlik 
+			Windows 7 sürümleri geniş ölçüde kullanılmaktadır. Bu nedenle, 16 bitlik sistemler için tasarlanmış olan 
+			Float veri tipinin, gerek 6 olan öntanımlı duyarlığı, gerekse çalışılan sisteme bağlı olarak, -3.40282E+38..3.40282E+38
+			arasındaki güvenli kapsam aralığı günümüz sistemleri için kesinlikle kapasite altı bir tanım
+			olmak niteliğindedir. Buna rağmen bu mütevazi değerlerin bir dezavantaj değil, bir avantaj olarak
+			düşünülmesi daha doğrudur. Çünkü, bu değerler günümüzde neredyse tüm sistemler tarafından desteklenmekte ve
+			Float veri tipinin kullanıldığı tüm programların taşınabilirlik özelliğini arttırmaktadır. 
+		</p>
+		<p class="indent">
+			Öntanımlı Float veri tipininn öntanımlı duyarlığı 6 dır ve bu duyarlığa kadar tüm verileri doğrulukla (Accuracy) 
+			değerlendirebilmektedir. Bu nedenle verilerin giriş/ çıkış işlemlerinde, Float veri tipi için 6 dan fazla duyarlıkta çıktılar
+			istenmemelidir. Float veri tipinin 6 dan fazla ondalık sayının vereceği ek duyarlığın yanıltıcı olacağı, 6 
+			ondalıktan sonraki ondalıkların güvenli olmayacağı her zaman gözönüne alınmalıdır. Yukarıdaki uygulamada 15 ondalığa
+			kadar doğru değerler elde edildiği görülmesine rağmen bu konuda öntanımlı duyarlık değeri olan 6 ondalık aşılmamalıdır.
+		</p>
+		<p class="indent">
+			Long_Float veri itipi, 32 bit işletim sistemlerinin destekleyebileceği, öntanımlı 11 ondalık duyarlıkta 
+			tanımlanmıştır. Güveli kapsam aralığı da Float veri tipine kıyasla çok daha geniştir. Fakat,
+			Long_Float veri tipi, geçmişten gelen bir tanımdır ve günümüzde sadece geçmişe uyum adına
+			desteklenmektedir. İleride bu tanımın spesifikasyondan çıkarılacağı kesindir. Daha fazla duyarlık 
+			ve kapsam aralığı gerektiren hesaplar için, Long_Float yerine, duyarlık ve kapsam aralıkları 
+			gereksinmelere göre düzenlenmiş  alt gerçek sayı tiplerinin özgün olarak tanıtılarak kullanılması
+			daha doğrudur. Ayrıca, programların taşınabilirliği açısından özgün tiplerin kullanımları sağlık verilmektedir.
+		</p>
+		<p class="indent">
+			Long_Float veri tipinin bir <a href="../uygulamalar/e3_s3_uyg_2.adb">uygulaması</a>
+			aşağıda görülmektedir:
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> Ada.Text_IO;
+<span class="keyw-25">with</span> Ada.Long_Float_Text_IO;
+<span class="keyw-25">procedure</span> e3_s3_uyg_2 <span class="keyw">is</span>
+<span class="pl-50">Bölünen</span> , Bölen, Sonuç : Long_Float;
+<span class="keyw-25">begin</span>
+<span class="pl-50">Bölünen := 2.0</span>;
+<span class="pl-50">Bölen := 7.0</span>;
+<span class="pl-50">Sonuç := Bölünen / Bölen</span>;
+<span class="pl-50">Ada.Long_Float_Text_IO.Put(Item =&gt; Sonuç);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Long_Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 16 , Exp =&gt; 0);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Long_Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 18 , Exp =&gt; 0);</span>
+<span class="pl-50">Ada.Text_IO.New_Lİne;</span>
+<span class="pl-50">Ada.Long_Float_Text_IO.Put(Item =&gt; Sonuç , Fore =&gt; 1 , Aft =&gt; 50 , Exp =&gt; 0);</span>
+<span class="keyw-25">end</span> e3_s3_uyg_2;
+		</pre>
+		<p class="green pl-50" >
+			Bu Uygulamanın Sonuçları
+		</p>
+		<p class="green pl-50"> 2.85714285714286E-01		</p>
+		<p class="green pl-50">0.2857142857142857		</p>
+		<p class="green pl-50">
+			0.285714285714285698
+	</p>
+		<p class="green pl-50">
+			0.28571428571428569800000000000000000000000000000000
+	</p>
+		<p class="indent">
+			Bu sonuçlardan 32 bit lik sistemler için Float ve Long_Float arasında bir fark kalmamış olduğu 
+			gibi bir sonuç çıkarılabilir. Yine de Long_Float  veri tipinin öntanımlı duyarlığının 11 ondalık 
+			olduğu ve bu duyarlık sınırına kadar verilerin doğru okunacağı gözönüne alınmalıdır. Buna rağmen, 
+			eski bir teknoloji olan Long_Float tipi yerine, özgün olarak tasarımı yapılmış alt tiplerin 
+			tanımlanarak uygulanması hem programların gelecekte desteklenmesi, hem de taşınabilirlikleri
+			açısından daha doğru olacaktır.
+		</p>
+		<ul id="navbottom">
+		<li id="index"><a href="../index.html"><em> &laquo;İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="kodlama">
+				<a href="ek3-s3.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		 <p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+			src="http://www.w3.org/Icons/valid-xhtml11"
+			alt="Valid XHTML 1.1" height="31" width="88" /></a>
+	</p>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/ek3/ek3-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:35 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

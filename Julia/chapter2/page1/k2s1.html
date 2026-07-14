@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html >
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page1/k2s1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:46 GMT -->
+<head>
+    <meta name="description" content="Julia Programlama Dili">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Julia/chapter2/page1/k2s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Julia Konu 2 Sayfa 1</title>
+    <meta content="Julia Programming Language Tutorial, in Turkish" name="description" />
+    <meta content="Julia Tutorial, in Turkish" name="keywords" />
+    <meta content="Prof. Dr. Bedri Doğan Emir" name="author" />
+    <meta content="INDEX,FOLLOW" name="Robots" />
+    <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+    <link href="../../css/juliastyle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <p class="chapter">
+      Julia Programlama Dili
+    </p>
+    <p class="chapter">
+      Bölüm 2
+    </p>
+    <p class="chapter">
+    Veri Tipleri Sistematiği
+  </p>
+		<p class="pagenum">Sayfa 1</p>
+    <p class="indent">
+      Julia programlama dilinde program yazılabilmesi için, çok gelişkin ve özel 
+      bir düzenleme olan Julia tip sistemi üzerinde bilgi sahibi olunması yararlı 
+      olur. Julia programlama dilinin öğrenimine tam buradan başlanması doğru olacaktır.
+    </p>
+    <p class="indent">
+      Julia çok gelişkin ve özgün bir tip hiyerarşisine sahiptir. Julia güçlü tip 
+      sistemli (Strogly Typed) bir programlama dilidir. Bunun anlamı her verinin 
+      bir tipi olması ve her işlemde tip uygunluğunun gözetilmesidir. İlginç ve 
+      önemli bir olgu, bu detaylı ve güçlü veri sisteminin uygulayıcıya hiç yük 
+      getirmemesidir. Julia programlama dilinde programcıların değişkenlere atadıları 
+      verilerin veri tiplerini belirtme zorunlukları yoktur. Fakat istediklerinde 
+      bu olanağa sahiptirler. Kullanıcı tarafından belirtilsin veya belirtilmesin, 
+      tüm verilerinin tiplerini algılama ve bu verilerin tiplerine uygun işlemlerin 
+      belirlenmesini Julia yorumlayıcısı üstlenir. Kullanıcılar, işlem yaptıkları 
+      verilerin tipilerini bilmek ve işlemlerini bu veri tiplerine uygun olarak 
+      tanımlamakla yükümlüdür.
+    </p>
+    <p class="indent">
+      İyi bir Julia programlayısı değişkenlerinin veri tiplerini tüm program boyunca 
+      izler ve ve her tanımladığı yöntemin uygulayacak verilerin tiplerine uygun 
+      olmasını gözetir. Aksi takdirde program uygunsuzluğun göründüğü anda çalışmasını 
+      durdurur yani çakılmış olur. Aslında, her programlama dilinde programlama 
+      yapılmasında da aynı duyarlıkların gözetilmesi gerekir.
+    </p>
+    <p class="indent">
+      Julia programlama dilinin, muazzam veri sistemi, başlı başına ancak tam bir
+      <a href="../../JuliaTypeSystem.html">web sayfasına</a> sığabilmektedir. Bu 
+      sayfa incelendiğinde, Julia veri sistemin hem çok geniş, hem de alışkın olmayanlar 
+      için ilk bakışta kolay anlaşılabilir bir şema olmayabileceği görülebilir.
+    </p>
+    <p class="indent">
+      Bu kadar büyük bir tip sisteminde tanımlanan veri tiplerin tümünün normal 
+      programlarda uygulanması söz konusu değildir. Normal kullanıcılar sadece bu 
+      şemada bulunan veri siteminde tanımlanmış olan veri tiplerinden bazılarını 
+      uygulamalarında kullanmaktadırlar. Bu nedenle, aşağıda görüldüğü gibi sınırlı 
+      bir veri tipi sistemi incelemesinden başlanarak, gerek görüldükçe, genel sisteme 
+      dönülmesi daha uygun olabilir. Bu çalışmalar sırasında, genel şemanın açık 
+      kalması, genel şemaya yatkınlık sağlanması açısından yararlı olacaktır.
+    </p>
+    <p class="indent">
+      <img alt="Julia Type System" src="../../JuliaTypeSystemJuliaExpress.png">
+    </p>
+    <p class="pagecenter">
+      Julia Sayısal Tip Sisteminin Açıklaması Ref:<a href="http://bogumilkaminski.pl/files/julia_express.pdf">Julia 
+      Express</a>
+    </p>
+    <p class="indent">
+      Bogomil Kaminski (Polonya) tarafından yayınlanmış olan Julia Express el kitabı, 
+      tüm Julia programcılarının elinin altında olması gereken bir başvuru kitabı 
+      niteliğindedir. Bu kitapta yayınlanmış olan sayısal verilerin Julia tip sistemi 
+      yukarıda görülmektedir.
+    </p>
+    <p class="indent">
+      Julia tip sisteminin incelenmesinde, bazı tiplerin alt tipleri olduğuna, bazılarının 
+      da bir alt tipi olmadığını görebiliriz. Alt tipi olan veri tipleri &quot;Soyut 
+      (Abstract) Tip&quot; olarak adlandırılır. Soyut tipler örneklenemez, yani, 
+      bir gerçek verinin veri tipi olamazlar. Soyut sınıflar, tip sınıfı yani üst 
+      sınıf niteliğindedir ve programlarda bazı değişkenlere sadece belirli sınıfların 
+      alt sınıflarından olan değerlerin atanabilmelerini sağlamak amacı ile kullanılırlar. 
+      Sanal tiplerin en son alt tiplerinin, hiçbir alt tipi olamaz. Bu veri tipleri, &quot;Gerçek 
+      Tipler &quot; veya &quot;Temel Tipler&quot; olarak adlandırılır. Gerçek tipler 
+      örneklenebilir ve gerçek programlarda kullanılan veri tiplerini oluştururlar.
+    </p>
+    <p class="indent">
+      Genel şemaya bakılınca, tüm sınıfların atasının Any olarak adlandırılmış bir 
+      veri tipi olduğu görülür. Any, en üst ata, soyut tiptir. Julia programlarında, 
+      gerek kullanıcılar, gerekse Julia yorumlayıcısı, Any veri tipini sık sık kullanır. 
+      Örnek olarak, fonksiyon argümanlarının tipleri belirtilmezse, Julia yorumlayıcısı 
+      bunlara Any veri tipini atar. Any veri tipi, tüm verilerin atası olduğundan, 
+      tüm alt veriler bu veri tipinden sayılır. Böylece, sayısal argüman alması 
+      gereken bir fonksiyon, sözel veri tipinde bir değer ile de çağrılabilir. Doğal 
+      olarak bu durumda bir dışlama (hata) (exception) oluşabilir ve program yorumlayıcı 
+      tarafından sonlandırılabilir.
+    </p>
+    <p class="indent">
+      Julia programlama dilinin genel tip şeması, bu çalışma için tarafımızdan basitleştirilerek 
+      aşağıda sunulmuştur.
+    </p>
+    <p class="indent">
+      <img alt="Julia Sayısal Veri Tipleri" src="images1/JuliaNumericTYpes.png" />
+    </p>
+    <p class="indent">
+      Sayısal verilerin tipleri, bu özet özet şemada daha net izlenebilmektedir.
+    </p>
+    <p class="indent">
+      Sayısal veri tipleri, &lt;any&lt;Number soyut sınıflarının alt sınıflarıdır. 
+      Bu alt sınıflar arasında en üst soyut sınıflar, Complex ve Real soyut sınflarıdır.</p>
+    <p class="indent">
+      Complex soyut sınıfının, Complex64 ve Complex128 olarak iki alt örneklenebilir 
+      (gerçek) sınıfı bulunmaktadır.</p>
+    <p class="indent">
+      Real soyut sınıfının, FloatingPoint ve Rational ve Integer olarak üç alt soyut 
+      sınıfı bulunmaktadır. Bu sınıflardan Rational sınıfının alt sınıfı bulunmadığından, 
+      aynı zamanda somut (öneklenebilir) (son) (terminal) sınıf olarak hareket etmektedir.</p>
+    <p class="indent">
+      FloatingPoint soyut sınıfının, Float16, Float32, Float64, Float128 ve BigFloat 
+      somut (örneklenebilir) (uygulanabilir) sınıfları bulunmaktadır.</p>
+    <p class="indent">
+      Integer soyut sınıfının, Char, Signed, Unsigned, Bool soyut alt sınıfları 
+      bulunmaktadır.</p>
+    <p class="indent">
+      Char ve Bool BigInt veri tiplerinin alt tipleri olmadığından, kendileri aynı 
+      zamanda somut sınıf olarak örneklenebilir niteliktedirler.</p>
+    <p class="indent">
+      Integer soyut sınıfının Signed soyut sınıfının, Int8, Int16, Int32, Int64 
+      (=Int), Int128 olarak, somut (örneklenebilir) (uygulanabilir) sınıfları bulunmaktadır.</p>
+    <p class="indent">
+      Integer soyut sınıfının Unsigned soyut sınıfının, Uint8, Uint16, Uint32, Uint64, 
+      Uint128 olarak somut (örneklenebilir) (uygulanabilir) sınıfları bulunmaktadır.</p>
+    <p class="indent">
+      Sözel verilerin ata sınıfı &quot;AbstractString&quot;sınıfıdır. Bunun örneklenebilir 
+      alt sınıfı ise, &quot;String&quot; sınıfıdır.
+      <a href="../../JuliaTypeSystem.html">Genel tip şemasına</a> bakınız.</p>
+    <p class="indent">
+      Sayısal veriler kullanan tipler sadece, Number sınıfının alt sınıfları değildir. 
+      Julia Programlama dilinin&nbsp; <a href="../../JuliaTypeSystem.html">Genel 
+      tip şemasına</a> bakıldığında, diziler (Arrays), topluluklar (Tuples), kümeler 
+      (Sets) gibi koleksiyon tiplerinin de sayısal veriler kullandığı görülür.</p>
+    <p class="indent">
+      Bu çok geniş veri sisteminin veri sınıfları, ileriki sayfalarda incelenerek, 
+      Julia programlarında uygulanmaları üzerinde bilgi edinmeye çalışacağız.</p>
+    <p class="indent">
+      Julia programlama dilinde, kullanıcıların çalıştıkları verilerin veri tiplerini 
+      bilmeleri gereklidir. Bir verinin sınıfı <span class="keyw">typeof</span><span class="op">(</span>değişken<span class="op">)</span> 
+      öntanımlı fonksiyonu ile sorgulanabilir. Belirli bir değişkenin, belirli bir 
+      veri tipinden olup olmadığı ise, <span class="keyw">isa</span><span class="op">(</span>değişken, 
+      veri tipi<span class="op">)</span> öntanımlı fonksiyonu yardımı ile belirlenebilir.
+    </p>
+    <p class="indent">
+      <img alt="typeof() fonksiyonu" src="images1/p3REPL1.png">
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, programcıların verilerinin tiplerini, sanal veya 
+      gerçek, geçerli veri tipleri ile belirleme olanakları vardır. Julia yorumlayıcısı, 
+      belirtilen veri tiplerini analiz eder ve önerilen veri tipini, programdaki 
+      durumuna ve çalışılan makinenin yeteneklerine göre, geçerli bir gerçek veri 
+      tipine uyarlar. Bu işlemlerin az veya çok sıradışı olduğu, verilerin değişkenlere 
+      atanmalarında, programcıların veri tiplerini genellikle belirtmediklerini 
+      yineleyelim. Bu kolaylık, Julia programlama dilinin kullanım kolaylığının 
+      en önemli bir göstergesidir. Fakat bu sadece bir kullanım kolaylığıdır. Aslında, 
+      Julia yorumlayıcısı, güçlü tip değerlendirme yeteneğinin gereği olarak, her 
+      atanan değerin veri tipini atama sırasında belirler ve tanımlanan her işlemin 
+      bu veri tipinin yeteneklerine uygun olup olmadığını denetler. İşleme girecek 
+      verilerin tiplerinin desteklemediği işlemler önerilirse, Julia yorumlayıcısı 
+      işlemi reddeder ve programın çalışmasını durdurur. Bunun engellenebilmesi 
+      için, Julia programcılarının (aslında her program dilinde olduğu gibi) çalıştıkları 
+      verilerin tiplerini izlemeleri ve bu veri tipleri le uygulanamayacak işlemleri 
+      önermemeleri gerekir.
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, veri tipi atama istemleri veri tipi belirtilmesinden 
+      sonra verinin parantez içinde belirtilmesi ile yapılır. Aşağıda, bu yöntem 
+      görülmektedir:</p>
+    <p class="indent">
+      <img alt="Veri tipi belirterek atama" src="images1/p3REPL2.png">
+    </p>
+    <p class="indent">
+      Yukarıdaki işlemlere baklınca, atama sırasında tip zorlamasının ne kadar saçma 
+      bir olay olduğu görülür. Belki, çok küçük sayılar atanacağı bilinen veriler 
+      için, Int16 seçimi, programın kullanacağı stack bellek açısından ekonomi sağlayabilecektir. 
+      Ama, bu kazanç olsa olsa programın sarfettiği bellek yanında pek az bir değer 
+      taşıyacaktır. Julia programlama dilinde, atamalarda değer gözetmek hiç gerekli 
+      değildir. En son işlemde hiçbir veri tipi belirtilmemiş, Julia yorumlayıcısı, 
+      atanan değere Int64 tipini vermiştir. En doğru yol budur. Hiçbir şeyi fazla 
+      kurcalamamak gerekir. Özellikle başlangıçta işler biraz Julia yorumlayıcısına 
+      bırakılmalıdır.
+    </p>
+    <p class="indent">
+      Veri tipi belirtmenin en gerekli olabileceği işlemler, fonksiyon argümanlarının 
+      alabileceği tiplerin sınırlanmasıdır. Bunu fonksiyonları incelerken göreceğiz.
+    </p>
+    <p class="indent">
+      Julia programlama dilinde, veri tipi belirtilmesi, çift kolon işlemcisi (<span class="op">::</span>) 
+      ile yapılır. Aşağıda programcının bir değişkene atanmış bir verinin, veri 
+      tipinin belirli bir veri tipi olduğunu ileri sürmesi ve bu savın, Julia yorumlayıcısı 
+      tarafından nasıl değerlendirildiği görülmektedir.
+    </p>
+    <p class="indent">
+      <img alt="tip belirleme" src="images1/p3REPL3.png">
+    </p>
+    <p class="indent">
+      Julia yorumlayıcısı, ileri sürülen veri tipi savının yanlış olduğunu, beklentinin 
+      Int32 veri tipi olmasına karşın gerçekleşen veri tipinin Int64 olduğunu belirtmiştir.
+    </p>
+    <p class="indent">
+      Bu sonuçtan, Julia yorumlayıcısının atamalarda, atanacak veriyi incelediği, 
+      bu veriye uygulanabilecek veri tipini, makinenin mimarisine göre belirlediği 
+      görülmektedir. Buradan 64 bitlik işletim sistemi kullanan makinelerde, uygulanabilecek 
+      en düşük tamsayı veri tipinin, julia yorumlayıcısı tarafından, Int64 olarak 
+      uygulanacağı anlaşılmaktadır. Bu tür seçimlerde, julia yorumlayıcısını özgür 
+      bırakmak gerekir.</p>
+    <p class="indent">
+      Bu bilgiler gözönüne alındığında, bir programcının, atadığı değerlerin veri 
+      tiplerini program boyunca izlemesi ve veri tiplerine uygun olmayan işlemler 
+      önermemesi gerektiği görülebilir. Her zaman, &quot;Ben makine olsaydım ne 
+      yapardım ?&quot; diye sorulması gerekir. Fakat bu, aşağı yukarı her programlama 
+      dilinde uygulanması gereken bir yöntemdir.
+    </p>
+    <p class="indent">
+      Veri tiplerinin kullanımına, örnek programlar ile çalışmaya devam ettikçe 
+      daha fazla yakınlık sağlayacağız.
+    </p>
+    <p class="indent">
+      Başlangıç olarak en çok uygulanan veri tiplerini tanıtmaya çalışacağız.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="../../../index-2.html"><em>« Site Ana Sayfa</em></a></li>
+      <li id="denge"></li>
+      <li id="sayfa"><a href="../../index.html"><em>« Julia Ana Sayfa</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama1"><a href="../../chapter1/page2/k1s2.html"><em>« Önceki Sayfa</em></a></li>
+
+      <li id="denge2"></li>
+      <li id="kodlama2"><a href="../../chapter1/page2/k1s2.html"><em>Sonraki Sayfa»</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script src="../../../Library/lastmodified.js" type="text/javascript">
+      </script>
+        <p style="font-family: Helvetica; color: red; font-size: 14px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+      Created With Microsoft Expression Web 4
+    </p>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+      <img alt="Geçerli html5" src="../../images/html5-small-1.gif" /></a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Julia/chapter2/page1/k2s1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:19:00 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

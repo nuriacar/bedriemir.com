@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders20.html">
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 20</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+    <style type="text/css">
+table {
+position: relative;
+left: 300px;
+margin-top: 25px;
+margin-bottom: 25px;
+}
+table, th, td {
+border: 1px solid blue;
+border-collapse: collapse;
+border-width: 2px;
+text-align: left;
+}
+th, td {
+padding-left: 15px;
+padding-right: 15px;
+}
+</style>
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 3 </h2>
+    <h3 class="chapter">Veri Tipleri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders19.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders21.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 20
+      </p>
+    </div>
+    <p id="apps" class="subheading">
+      3.2.3 - Topluluk (Tuple) Tipi Verilere Uygulanabilen Metotlar</p>
+    <p class="indent">
+      Topluluk tipi değerler, bir kez atandıktan sonra kısmen 
+      değiştirilemez (immutable) nitelikte değerlerdir. Bu nitelikte 
+      değerlere, liste tipi atandıktan sonra kısmen değişebilir 
+      (mutable) nitelikte değerlere uygulanabilen,
+      <span class="keyw">append</span><span class="op">()</span> 
+      gibi kısmi değişim metotları uygulanamaz. Bu nedenle, 
+      topluluk ve frozenset tipindeki verilere uygulanabilen 
+      çok az sayıda, öntanımlı metot ve fonksiyon bulunmaktadır.
+    </p>
+    <p class="indent">
+      İki koleksiyon tipi verinin birbirine denk gelen elemanlarını 
+      tek bir koleksiyonun elemanları olarak birleştiren
+      <span class="keyw">zip</span><span class="op">()</span> 
+      fonksiyonu, uygulamalarda çok kullanışlı olan bir fonksiyondur. 
+      Bu fonksiyonun geri döndürdüğü koleksiyonun veri tipi 
+      ve geri döndürdüğü veri yığının elemanlarına erişim, aşağıdaki 
+      örneklerde görülebilir.
+    </p>
+    <pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+print(type(zip(x,y)))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+&lt;class 'zip'&gt;</span></pre><pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+print (zip(x,y)[0])
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-3-04728e4c5907&gt; in &lt;module&gt;()
+      3 y = (16, 44, 88)
+      4 
+----&gt; 5 print (zip(x,y)[0])
+
+TypeError: 'zip' object is not subscriptable
+</span></pre><pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+for i in zip(x,y):
+    print (i, type(i))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(25, 16) &lt;class 'tuple'&gt;
+(56, 44) &lt;class 'tuple'&gt;
+(88, 88) &lt;class 'tuple'&gt;</span></pre>
+    <p class="indent">
+      Yukarıdaki örneklerden görüldüğü gibi, öntanımlı
+      <span class="keyw">zip</span><span class="op">()</span> 
+      fonksiyonu, her tipten koleksiyon verilerini birleştirerek, 
+      bir iterasyon yapılabilecek veri agregatı (yığın) oluşturmaktadır. 
+      Python programlama dilinde, iterasyon yapılabilecek veri 
+      yığınlarına iteratör denilir ve her iteratörün mutlaka 
+      bir veri tipi olması gerekmez. Öntanımlı
+      <span class="keyw">zip</span><span class="op">()</span> 
+      fonksiyonu tarafından geri döndürülen veri yığını, tanımlı 
+      hiçbir veri tipinde değil, özel zip tipinde bir veri yığınıdır.
+    </p>
+    <p class="indent">
+      İkinci programdan, özel zip tipi verilerin, indislenemediğini 
+      görüyoruz. Bu durumda bu verilerin elemanlarına
+      <span class="keyw">while</span> döngüleri ile sıralı erişim 
+      sağlanmasının olanağı bulunmamaktadır. Bu elemanların 
+      indis değerleri tanımlı olmadığından, tek tek elemanlarına 
+      erişim olası değildir.
+    </p>
+    <p class="indent">
+      Sonuncu programda, zip tipi verileri bir iteratör olduğu 
+      ve elemanlarının, her iki orijinal iteratörün denk gelen 
+      elemanları ile oluşmuş, iki elemanlı topluluklar olduğu, 
+      ve bu zip topluluklarının elemanlarına,
+      <span class="keyw">for</span> <span class="op">in</span> 
+      döngülerinden yararlanılarak sıralı erişim sağlanabileceği 
+      anlaşılmaktadır.
+    </p>
+    <p class="indent">
+      Zip topluluklarının iç elemantlarına, iki döngü değişkenli
+      <span class="keyw">for</span> <span class="op">in</span> 
+      döngülerinden yararlanılarak erişim sağlanabilir. Örnek,
+    </p>
+    <pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+for i,j in zip(x,y):
+    print (i, j)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+25 16
+56 44
+88 88</span></pre>
+    <p class="indent">
+      Veya, daha sistematik olarak,
+    </p>
+    <pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+for i in zip(x,y):
+    for j in i:
+        print (j, '\t', end = '')  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+25 	16 	56 	44 	88 	88 </span></pre>
+    <p class="indent">
+      Zip verilerinin indislenemez olması, bir dezavantaj gibi 
+      görülürse bu fonksiyonu <span class="keyw">enumerate</span>
+      <span class="op">()</span> fonksiyonu ile akuple ederek, 
+      indis görüntülü bir veri agregatı oluşturma olanağı bulunmaktadır. 
+      Bu tip bir veri yığının yapısı, aşağıdaki fonksiyonda 
+      görülmektedir.
+    </p>
+    <pre class="pl-25 navy">
+x = (25, 56, 88)
+
+y = (16, 44, 88)
+
+for i in enumerate(zip(x, y)):
+    print(i)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(0, (25, 16))
+(1, (56, 44))
+(2, (88, 88))</span></pre>
+    <p class="indent">
+      Bu sonuçtan, oluşan iteratörün artık iki boyutlu olduğu, 
+      her elemanın bir dış topluktan oluştuğu, bu dış topluluğun 
+      ilk elemanının, <span class="keyw">enumerate</span>
+      <span class="op">()</span> fonksiyonunun geri döndürdüğü 
+      sanal indis sayısı olduğu, ikinci elemanın bir iç topluluk 
+      olduğu ve bu iç topluluğun elemanlarının ziplenmiş orijinal 
+      iteratörlerin birbirlerine denk konumdaki elemanlarından 
+      oluştuğu görülmektedir. Bu veri yapısında, erişim sağlanan 
+      değerin konumunun görülmesi için, aşağıdaki programdan 
+      yararlanılabilir.
+    </p>
+    <pre class="pl-25 navy">
+for i, j in enumerate(zip(x, y)): 
+    m = 0
+    for k in j:
+        while not m &gt; (len(j)-1):
+            print('[{0},{1},{2}] = {3}'.format(i,  1 , m, j[m]))
+            m = m + 1
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+[0,1,0] = 25
+[0,1,1] = 16
+[1,1,0] = 56
+[1,1,1] = 44
+[2,1,0] = 88
+[2,1,1] = 88</span></pre>
+    <p class="indent">
+      Tüm bu görüntülenen indis değerlerinin ve değerlerin sanal 
+      olduğu, bu sanal indis değerleri ile , ziplenmiş sanal 
+      değerlere erişim olanağı olmadığı iyi özümsenmelidir. 
+      Ziplenmiş değerlere sadece <span class="keyw">for</span>
+      <span class="op">in</span> döngüleri ile sıralı erişim 
+      sağlanabilir.
+    </p>
+    <p class="indent">
+      Topluluklar üzerine, <span class="keyw">count</span><span 
+      class="op">()</span> metodu uygulanabilir. Bu metot bir 
+      topluluk ve x de bu topluluğun bir elemanı olmak üzere, 
+      t<span class="op">.</span><span class="keyw">count</span><span 
+      class="op">(</span>x<span class="op">)</span> şeklinde 
+      uygulanarak, bu elemanın toplulukta bulunan sayısını döndürür. 
+      Örnek:
+    </p>
+    <pre class="pl-25 navy">
+t = (22,33,44,55, 55, 55)  
+print(t.count(55))3
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+</span></pre>
+    <p class="indent">
+      Topluluklar üzerine, <span class="keyw">index</span><span 
+      class="op">()</span> metodu uygulanabilir. Bu metott bir 
+      topluluk ve x de bu topluluğun bir elemanı olmak üzere, 
+      t<span class="op">.</span><span class="keyw">index</span><span 
+      class="op">(</span>x<span class="op">)</span> şeklinde 
+      uygulanarak, bu elemanın toplulukta soldan başlayarak, 
+      ilk rastlandığı konumun indisini döndürür. Örnek:
+    </p>
+    <pre class="pl-25 navy">
+t = (22,33,44,55, 55, 55)  
+print(t.index(55))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+3</span></pre>
+    <p class="indent">
+      Topluluklara uygulanan <span class="keyw">len</span><span 
+      class="op">(</span>t<span class="op">)</span> fonksiyonu, 
+      topluluktaki eleman sayısını döndürür.Bu konuda, daha 
+      önce örnekler verilmiştir.
+    </p>
+    <p class="indent">
+      Bir t iteratörü içinde içindeki tüm veriler 0 veya False 
+      ise <span class="keyw">all</span><span class="op">(</span>t
+      <span class="op">)</span>, fonksiyonu geriye
+      <span class="keyw">True</span>, yoksa
+      <span class="keyw">False</span> döndürür. Bunu anyone 
+      is true? ve all of them is true? olarak düşününüz. Aşağıdaki 
+      tabloya bakınız,
+    </p>
+    <table class="pagecenter">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Any</th>
+          <th>All</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>All Truthy values</td>
+        <td>True</td>
+        <td><True/td>
+        True</td>
+      </tr>
+      <tr>
+        <td>All Falsy Values</td>
+        <td>False</td>
+        <td>False</td>
+      </tr>
+      <tr>
+        <td>At Least One Truthy </td>
+        <td>True</td>
+        <td>False</td>
+      </tr>
+      <tr>
+        <td>At Least One Falsy</td>
+        <td>False</td>
+        <td>False</td>
+      </tr>
+    </table>
+    <pre class="pl-25 navy">
+t =(8 , 9, 6, 7)
+print(all(t))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+True</span></pre>
+    <p class="indent">
+      Bu sonucu yukarıdaki doğruluk tablosu ile karşılaştıralım. 
+      Tüm1 ve daha büyük tamsayı değerleri &quot;Doğru (True)&quot; 
+      anlamındadır. İncelenen t topluluk verisinde, tüm elemanlar &quot;Doğru 
+      (True)&quot; değerindedir. Bu nedenle all(t) sonucu doğru 
+      olarak gerçekleşmiştir.
+    </p>
+    <pre class="pl-25 navy">
+t1 = (0 ,5 ,6 ,7)
+print(all(t1))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+False</span></pre>
+    <p class="indent">
+      Burada ise, t1 topluluğunda, elemanlardan birisi 0 değerindedir. 
+      Sıfır değeri Yanlış (False) anlamınadır. Bu nedenle tüm 
+      koleksiyon elemanlarının doğru olup olmadığını sorgulayan 
+      a(t1) sorgusunun yanıtı, yanlış olarak gerçekleşmiştir.
+    </p>
+    <pre class="pl-25 navy">
+t =(8 , 9, 6, 7)
+print(any(t))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+True</span></pre>
+    <p class="indent">
+      Tüm koleksiyon elemanları içinde doğru bir eleman olup 
+      olmadığını sorgulayan any(t) sorgusunun yanıtı incelenen 
+      t koleksiyonunun elemanlarının hepsi doğru olduğu için, 
+      doğru olarak gerçekleşmiştir. Tüm elemanlar içinde sadece 
+      bir tane doğru diğerlerinin tümü yanlış da olsa, yanıt 
+      yine doğru olacaktı.
+    </p>
+    <p class="indent">
+      Bir koleksiyona uygulanan <span class="keyw">min</span><span 
+      class="op">()</span> fonksiyonu, en küçük,
+      <span class="keyw">max</span><span class="op">()</span> 
+      fonksiyonu ise en büyük, değeri geri döndürür.
+      <span class="keyw">sum</span><span class="op">()</span> 
+      elementlerin toplamını verir. Yalnız, bu fonksiyonlar 
+      sadece homojen, tek boyutlu koleksiyonlar ile sonuç verebilir. 
+      Örnek,
+    </p>
+    <pre class="pl-25 navy">
+print(max(3,4,9))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+9</span></pre><pre class="pl-25 navy">
+w = (6,7,(8,9))
+print(max(w))
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-3-7920a90a6dfd&gt; in &lt;module&gt;()
+
+      1 w = (6,7,(8,9))
+----&gt; 2 print(max(w))
+
+TypeError: unorderable types: tuple() &gt; int()</span></pre>
+    <p class="indent">
+      Topluluklar değişmez veriler oldukklarından, bir kez atandıktan 
+      sonrai listeler gibi <span class="keyw">sort</span><span 
+      class="op">()</span> metodu ile sıralanamazlar. Fakat 
+      atanmış bir topluluk, topluluklara uygulanabilen
+      <span class="keyw">sorted</span><span class="op">()</span> 
+      metodunun uygulanması ile, sıralanmış olarak başka bir 
+      değişkene değer olarak aktarılabilirler. Öntanımlı
+      <span class="keyw">sorted</span><span class="op">()</span> 
+      metodunun reverse ve key parameterleri vardır. Sıralama 
+      yöntemi üzerine bir yöntem , bir fonksiyonda tanımlanırsa, 
+      key parametresi ile bu fonksiyonun adı verilebilir. Reverse 
+      = True olunca büyükten küçüğe doğru sıralama yapılır. 
+      Örnek:</p>
+    <pre class="pl-25 navy">
+Ödeme_listesi = (('Sevgi Hasol', 8, 345), ('Ahmet Kahraman', 12, 430), ('Celal Azal', 18, 255) )
+print(Ödeme_listesi)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+(('Sevgi Hasol', 8, 345), ('Ahmet Kahraman', 12, 430), ('Celal Azal', 18, 255))</span></pre>
+    <pre class="pl-25 navy">
+Ödeme_listesi_isim = sorted(Ödeme_listesi)
+print(Ödeme_listesi_isim)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+[('Sevgi Hasol', 8, 345), ('Celal Azal', 18, 255), ('Ahmet Kahraman', 12, 430)]</span></pre>
+    <pre class="pl-25 navy">
+Ödeme_listesi_isim = sorted(Ödeme_listesi , reverse=True)
+print(Ödeme_listesi_isim)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+[('Sevgi Hasol', 8, 345), ('Celal Azal', 18, 255), ('Ahmet Kahraman', 12, 430)]</span></pre>
+    <p class="indent">
+      Koleksiyon tipi verilerin sığ ve derin kopyalanmalarını 
+      incelemiştik. Topluluklar için pg.copy() şeklinde, sığ 
+      kopyalama yöntemi uygulanamaz.
+    </p>
+    <p id="compare" class="subheading">
+      3.2.4 - Topluluk (Tuple) Tipi Verilerin Birbirleri ile 
+      Karşılaştırılmaları
+    </p>
+    <p class="indent">
+      İki topluluk verisini, eleman eleman karşılaştırırmak 
+      karşılaştırma işemcileri kullanılır. Bu g,b grup karşılaştırmalarının 
+      uygulama alanı çok azdır. Bu konuda bir uygulama örneği 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25 navy">
+tmp1 = (56, 99, 106)
+tmp2 = (56, 45, 181)
+print (tmp1&gt;tmp2)
+  
+<span class="pl-25">&nbsp;</span><span class="maroon">Program Sonucu :
+False</span></pre>
+    <p class="indent">
+      Karşılştırma önce ilk elemanlar üzerine yapılır. Eğer 
+      eşitlik varsa, ikinci elemenlar denenir. Bu uygulamada 
+      da ilk elemanlar eşit oldukları için, karşılaştırma ikinci 
+      elemanlar arasında yapılmıştır. toplulukların incelenmesini 
+      burada tamamlıyor ve sözlük tipi verilere geçiyoruz.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders19.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders21.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" 
+    src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:18:38 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

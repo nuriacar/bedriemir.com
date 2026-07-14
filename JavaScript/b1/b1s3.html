@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml"
+			xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b1/b1s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:40 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b1/b1s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Made with AC Meta Tag Generator ver. 1.5 	at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				 content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b1s3</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız
+				veya JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız. (örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+<img class="banner" alt="Banner"
+							src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img src="../images/index.gif"
+																					alt="index" class="navpad" /></a>
+				<a href="b1s2.html"><img src="../images/previous.gif"
+																								alt="previous" class="navpad" /></a>
+				<a href="b1s4.html"><img src="../images/next.gif"
+																						alt="next" class="navpad" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 1
+		</p>
+		<p class="chapter">
+			Başlangıç Bilgileri
+		</p>
+		<p class="pagenum">
+			Bölüm 1 Sayfa 3
+		</p>
+		<p class="title-left" id="embedding">
+			1.3 - JavaScript Programlarının Web Sayfalarında Konuk Edilmesi
+		</p>
+		<p class="indent">
+			JavaScript programlama dili, ancak bir belge 
+			çözümleyicisi içinde konuk edilirse, kullanıcının
+			kullanımına açılabilir. JavaScript programlama dilinin, 
+			giriş/çıkış ortamı, web sayfasının kendisidir.  
+		</p>
+		<p class="indent">
+			JavaScript bir web sayfasına,</p>
+	<ul class="list">
+		<li>
+				<span class="keyw">&lt;</span><span 
+					class="elm">script</span><span 
+					class="keyw">&gt;</span> Elementi kullanılarak
+		</li>
+			<li>
+				Sayfadaki bazı (X)HTML elementlerinin olay 
+				yöneticilerinin değeri olarak
+			</li>
+			<li>
+				JavaScript pseudoprotokolu yardımı ile
+			</li>
+	</ul>
+		<p class="nonindent">
+			konuk edilebilir. Bu yöntemleri ayrıntılı 
+			olarak inceleyeceğiz.
+		</p>
+		<p class="subheading" id="script">
+			1.3.1 - JavaScript Programlarının Web Sayfalarında&lt;script&gt; Elementinin İçeriği Olarak İlişkilendirilmesi</p>
+		<p class="indent">
+			16 Şubat 2007 de yayınlanmış, DTD si tamamlanmış 
+			en son XHTML standardı olan, <a 
+			href="http://www.w3.org/TR/xhtml11/">XHTML 1.1 (İkinci Baskı)</a>
+			standardının, <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> elementi 
+			tanımı aşağıda görülmektedir.
+		</p>
+		<div class="pl-50">
+			<table class="tablo1" width="90%" border="1" id="dtd-excerpt">
+				<caption class="captionred">
+					XHTML 1.1 Standardında &lt;script&gt; Elementi Tanımı
+				</caption>
+				<colgroup>
+					<col class="st1" width="20%" />
+					<col class="st1" width="60%" />
+					<col class="st1" width="20%" />
+				</colgroup>
+				<tbody class="nonindent">
+					<tr class="highline st1 color3">
+						<th>Element</th>
+						<th>Nitelikler</th>
+						<th>İçerik</th>
+					</tr>
+					<tr class="st1">
+						<td>script</td>
+						<td><span class="att">charset</span>(Charset), <span 
+											class="att">defer</span>(&quot;defer&quot;), <span 
+											class="att">src</span>(URI), <span 
+											class="att">type</span>* (ContentType)</td>
+						<td>PCDATA</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="indent">
+			<a href="http://www.w3.org/TR/xhtml11/">XHTML 1.1 (İkinci Baskı)</a> 
+			standardına göre, <span 
+			class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin nitelikleri,
+			<span class="att">charset</span> (Charset), <span 
+			class="att">defer</span> (&quot;defer&quot;), <span 
+			class="att">src</span> (URI), <span 
+			class="att">type</span>* (ContentType) olarak
+			açıklanmıştır. Eski <span class="att">language</span> niteliği 
+			artık kullanımdan kalkmıştır ve kod yazanların artık bu 
+			niteliği kullanmamaları sağlık verilmektedir.
+		</p>
+		<p class="indent">
+			<span class="att">charset</span> niteliği, W3C ye 
+			IETF den kalan bir gelenek olan RFC (Request For Comments) 
+			(Yorum İçin İstek) notları olarak yazılan teknik açıklama
+			<a href="http://www.rfc-editor.org/rfc/rfc4329.txt">RFC4329</a>
+			da, bu değerin <a href="http://www.iana.org/">IANA</a> da 
+			tescil edilmiş, <a 
+			href="http://www.iana.org/assignments/character-sets">karakter setleri</a> 
+			olacağını belirtmektedir. Bu değerler, koçük/büyük harf  yazılımına 
+			duyarlı değildir. Bu kaynakta Türkçe (utf-8 gurubu) 
+			karakter setleri aşağıda görüldüğü gibi tanımlanmaktadır:
+		</p>
+		<pre>
+<span class="pl-50">Name: ISO_8859-9:1989</span><span 
+			style="padding-left:300px;">RFC1345,KXS2</span>
+<span class="pl-50">MIBenum: 12</span>
+<span class="pl-50">Source: ECMA registry</span>
+<span class="pl-50">Alias: iso-ir-148</span>
+<span class="pl-50">Alias: ISO_8859-9</span>
+<span class="pl-50">Alias: ISO-8859-9 (preferred MIME name)</span>
+<span class="pl-50">Alias: utf-8</span>
+<span class="pl-50">Alias: l5</span>
+<span class="pl-50">Alias: csISOLatin5</span>
+
+
+<span class="pl-50">ve Windows İşletim Sistemi için tescil edilmiş olan,</span>
+
+
+<span class="pl-50">Name: utf-8</span>
+<span class="pl-50">MIBenum: 2254</span>
+<span class="pl-50">Source: Microsoft (http://www.iana.org/assignments/charset-reg/utf-8) [Lazhintseva]</span>
+<span class="pl-50">Alias: None</span>
+		</pre>
+		<p class="indent">
+			Tipik değerler, Türkçe'nin de  bulunduğu utf-8 gurubu için <span 
+			class="att">charset</span><span 
+			class="op">=</span>&quot;utf-8&quot;, 
+			<span class="att">charset</span><span 
+			class="op">=</span>&quot;ISO-8859-9&quot;, 
+			UTF (Unicode) gurubu için, UTF-8, UTF-16LE, UTF-16BE,
+			 UTF-32LE, UTF-32BE değerleri kullanılabilir. 
+			(LE=Little Endian) (BE=Big Endian) Bu nitelik değerinin
+			kullanılması, pratikte gereksizdir, çünkü bu durumda belge 
+			çözümleyicisi bu niteliği <span class="att">charset</span><span 
+			class="op">=</span>&quot;UTF-8&quot; olarak 
+			algılayacak ve her türlü Türkçe değişken ve fonksiyon ismi 
+			otomatik olarak kullanılabilecektir. <span 
+			class="att">charset</span> Niteliğini FireFox 2.0 henüz 
+			desteklememektedir. Şu an için, bu niteliğin 
+			kullanılmaması gerekmektedir.
+		</p>
+		<p class="indent">
+			<span class="att">defer</span> Niteliği, <span 
+			class="att">defer</span><span 
+			class="op">=</span><span 
+			class="str">&quot;defer&quot;</span> olarak 
+			kullanılır Amacı script programlarının yorumlanması fakat
+			çalıştırılmamasıdır. Açılan <span 
+			class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin içeriğinde 
+			sayfa elementlerine bir erişim yoksa, yani sadece program 
+			adımlarının çalıştırılması öngörülüyorsa, (X)HTML çözümleyicisine 
+			(parser), bir sonraki <span 
+			class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> elementine kadar, 
+			belge çözümlenmesine güvenle devam 
+			edilebileceğini bildirir. Belge çözümleyiciler bu niteliği 
+			desteklemediğinden pratikte kullanılmaz.
+		</p>
+		<p class="indent">
+			<span class="att">src</span> (Source=Kaynak) Niteliği, 
+			bir dış JavaScript program dosyasının
+			kullanılacağını  belirtir. JavaScript programlarının
+			bir dış dosyada  tutulup, XHTML işaretleme
+			kodlarından ayrı tutulması,  en güncel olarak
+			uygulanması sağlık verilen ilişkilendirme
+			 yöntemidir. Bunu ayrıca inceleyeceğiz. Dış JavaScript dosyası, bir
+			metin (text)  dosyasıdır ve program_adı.js
+			şeklinde saklanır.  Kısa olarak buna, &quot;dış
+			js dosyası&quot; adı verilir. 
+			Dış js dosyasında sadece program adımları
+			ve yorumlar  bulunabilir. Bir dış js dosyasının
+			belirtildiği durumlarda, <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span> 
+			elementinin içeriği boş kalmalıdır. 
+		</p>
+		<p class="indent">
+			<span class="att">type</span> Niteliğinin belirtilmesi 
+			zorunludur. Bu niteliğin değeri, içerik (MIME) tipidir. 
+			<a href="http://www.iana.org/">IANA</a> da tescil edilmiş içerik tipleri, 
+			<a href="http://www.rfc-editor.org/rfc/rfc4329.txt">[RFC 4329]</a> da 
+			belirtilmiştir. Bu belgede aşağıdaki içerik (MIME) tipleri 
+			tescil edilmemiş fakat kullanılmakta oldukları belirtilmiştir:	
+		</p>
+		<div class="pl-300">
+			<table width="50%" border="1" id="content-types" class="tablo1">
+				<caption class="captionred ">
+						IANA 'da Tescil Edilmememiş Fakat Kullanılan <br />İçerik (MIME) Tipleri
+				</caption>
+				<colgroup>
+					<col class="st1"  width="50%" />
+					<col class="st1"  width="50%" />
+				</colgroup>
+				<tbody>
+					<tr class="highline color4 st1">
+						<th>text/javascript</th>
+						<th>text/ecmascript</th>
+					</tr>
+					<tr class="st1">
+						<td>text/javascript1.0</td>
+						<td>text/javascript1.1</td>
+					</tr>
+					<tr class="st1">
+						<td>text/javascript1.3</td>
+						<td>text/javascript1.3</td>
+					</tr>
+					<tr class="st1">
+						<td>text/javascript1.4</td>
+						<td>text/javascript1.5</td>
+					</tr>
+					<tr class="st1">
+						<td>text/jscript</td>
+						<td>text/livescript</td>
+					</tr>
+					<tr class="st1">
+						<td>text/x-javascript</td>
+						<td>text/x-ecmascript</td>
+					</tr>
+					<tr class="st1">
+						<td>application/x-javascript</td>
+						<td>application/x-ecmascript</td>
+					</tr>
+					<tr class="st1">
+						<td>application/javascript</td>
+						<td>application/ecmascript</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<p class="nonindent">
+			Bu tabloda görülen, içerik tiplerinden ,<span 
+			class="str">&quot;text/javascript&quot;</span> ve
+			<span class="str">&quot;text/ecmascript&quot;</span>
+			tanınmış fakat çağdışı (obsolete) olarak kabul edilmiştir. 
+			Kullanılması sağlık verilen içerik tipleri, <span 
+			class="str">&quot;application/javascript&quot;</span> ve <span 
+			class="str">&quot;application/ecmacript&quot;</span>
+			olarak belirtilmiştir. Günümüzde desteklenebilen içerik tipi, sadece 
+			,<span class="str">&quot;text/javascript&quot;</span> tipi olduğundan
+			içerik tipi olarak belirtilebilecek tek seçenek budur. <span 
+			class="att">type</span> Niteliği sadece sunucular tarafından belirlenmekte 
+			ve istemcinin öngördüğü MIME tipi gözardı edilmektedir. Buna 
+			rağmen, bu niteliğin belirtilmesi zorunludur. Aksi halde <a 
+			href="http://validator.w3.org/">W3C kod değerlendicisi</a> sayfayı, 
+			hatalı sayfa olarak değerlendirecektir. 
+		</p>
+		<p class="indent">
+			<span class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> Elementinin 
+			içeriğinin salt PCDATA kapsamında olması gerektiği 
+			belirtilmiştir. SGML temeline dayalı dillerde, 
+			element içerikleri olabilecek 
+			metin parçalarında, &lt; , &amp; karakterleri ve ]] &gt;
+			karakter dizesi bulunamaz, çünkü SGML çözümleyicileri (parser) 
+			bunları element işaretleri olarak kabul ederek 
+			yanılabilirler. Bu karakterleri içermeyen sakıncasız
+			metin parçaları, çözümlenmiş metin verisi (Parsed Character 
+			Data) veya kısaca (PCDATA) olarak adlandırılır. Bu sakıncasız 
+			metin parçacıkları (PCDATA), metin içerebilen her türlü 
+			elementin içeriği olarak kullanılabilir ve sorunsuz olarak
+			çözümlenip görüntülenebilir. Program adımları gibi bazı 
+			özel metin parçacıkları ise bazen bu sakıncalı karakterleri 
+			içermek zorundadır. Bu tür kodları içeren sayfaların, kod 
+			değerlendiricileri tarafından geçersiz sayılmamaları 
+			için bir yöntem bulunması gerekmiştir. Bulunması gereken 
+			yöntem, bu gibi sakıncalı karakterleri içeren, 
+			<span class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> ve <span 
+			class="keyw">&lt;</span><span 
+			class="elm">style</span><span 
+			class="keyw">&gt;</span> elementlerinin 
+			içeriğinin, çözümlenmemesini ve 
+			görüntülenmemesini fakat yorumlanmasını 
+			sağlayabilmelidir. Sakıncalı karakterleri
+			içeren metinler, çözümlenmemiş karakter verileri 
+			(Character Data) veya kısaca (CDATA) olarak adlandırılır. Bu 
+			kodlar, XML sayfalarında, 
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span> <span 
+			class="att">type</span><span 
+			class="str">&quot;text/javascript&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="comm-50">&lt;![CDATA[</span>
+<span class="pl-50">program adımları ...</span>
+<span class="comm-50">]]&gt;</span>
+<span class="keyw-25">&lt;</span><span class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			işaretleri arasına alınarak çözümleyici tarafından gözardı 
+			edilmesi sağlanır ve oldukları gibi görüntülenebilir. Bu 
+			tür bir gözardı etmenin yorum olayı ile bir ilgisi yoktur 
+			çünkü yorum satırları, çözümleyici tarafından hem gözardı 
+			edilir hem de görüntülenmez.
+		</p>
+		<p class="indent">
+			XHTML sayfalarında ise durum, kullanılan belge çözümleyiciye 
+			bağlıdır. MSIE 7.0 ve FireFox 2.0, XHTML belelerini 
+			desteklemektedirller. Bu en yeni sürüm belge çözümleyiciler, 
+			XHTML belgelerindeki <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span>
+			elementinin içeriğini tanımakta ve çözümlememektedir. XHTML belgelerinde, 
+			yukarıda görüldüğü gibi, XML tipi bir CDATA gizlemesi, hataya 
+			neden olur ve sayfa görüntülenmez. XHTML sayfalarında CDATA 
+			kod gizlemesi yapılmamalıdır. XHTML sayfalarında 
+			DTD de belirtilen yazılım, 
+			aşağıda görüldüğü gibi, aynen uygulanabilir:
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span> <span 
+			class="att">type</span><span 
+			class="str">&quot;text/javascript&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="pl-50">program adımları ...(PCDATA Kapsamında)</span>
+<span class="keyw-25">&lt;</span><span class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			Program adımları, PCDATA kapsamında kaldıkça, bu kodlar, 
+			yeni sürüm belge çözümleyicilerde hiçbir sorun çıkarmayacak ve 
+			<a href="http://validator.w3.org/">W3C kod değerlendiricisi</a>
+			tarafından, başka bir kodlama hatası olmadıkça geçerli sayfa 
+			olarak tanımlanacaktır.
+		</p>
+			<p class="indent">
+			Bazı durumlarda, JavaScript program adımları, PCDATA kısıtı 
+			içinde kalmayıp CDATA kapsamında olan karakterleri de 
+			içerebilirler. Bu durumdaki sayfalarda kod gizlemesi olmasa 
+			bile, en son sürüm belge çözümleyiciler hiçbir hata vermez ve 
+			programı çalıştırırlar. Fakat bu durumda, 
+			<a href="http://validator.w3.org/">W3C kod değerlendiricisi</a>
+			sayfayı geçersiz olarak nitelendirecektir. 
+		</p>
+			<p class="indent">
+			Bu durumun önlenmesi ve kodların eski sürüm belge 
+			çözümleyicilerde de sorunsuz çalışabilmesini sağlayabilecek 
+			kod gizleme sistemi,
+			 <a href="http://www.about.com/"> about.com</a> dan Steve 
+			 Chapman tarafından önerilmiştir. Bu sistemde, aşağıda 
+			 görüldüğü gibi, çok satırlı yorum işaretleri, CDATA kod 
+			 gizlemesi ile birlikte kullanılmaktadır.
+		</p>
+			<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span> <span 
+			class="att">type</span><span 
+			class="str">&quot;text/javascript&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="comm-50">/* &lt;![CDATA[ */</span>
+<span class="pl-50">program adımları (aralarında CDATA içeriği olabilir) ...</span>
+<span class="comm-50">/* ]]&gt; */ </span>
+<span class="keyw-25">&lt;</span><span class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">
+			Yukardıdaki yöntemle saklanmış olan 
+			JavaScript kodlarını içeren sayfalar, 
+			eski ve yeni sürüm belge çözümleyicileri ile 
+			sorunsuz olarak çalıştırılabilmekte ve 
+			<a href="http://validator.w3.org/">W3C kod değerlendiricisi</a>
+			sayfayı geçerli olarak nitelendirmektedir. Bu kod gizlemesi, 
+			sadece bağlantılı (embeded) yani script kodları sayfa içinde 
+			olan kodlar için değil, aynı zamanda bir dış *.js dosyası 
+			içinde olan kodlar için de kullanılabilmektedir.
+		</p>
+		<p class="indent">
+			HTML sayfalarında ise, CSS ve JavaScript kodlarının, 
+			 &lt;!-- yorum --&gt; şeklinde (X)HTML yorumu satırları 
+			arasına alınmasından artık kesinlikle vazgeçmek 
+			gerekir. Yeni sürüm belge çözüleyiciler ve kod 
+			değerlendiricileri, <span 
+			class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> ve <span 
+			class="keyw">&lt;</span><span 
+			class="elm">style</span><span 
+			class="keyw">&gt;</span> elementlerini sorunsuz 
+			tanımakta ve sayfayı gereği gibi görüntülemektedirler,  
+			&lt;!--yorum--&gt; şeklinde (X)HTML yorumu satırları 
+			arasına gizlenmiş kodların artık çalışmaması olasılığı 
+			belirmiştir. Ayrıca,<span class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> ve <span 
+			class="keyw">&lt;</span><span 
+			class="elm">style</span><span 
+			class="keyw">&gt;</span> elementlerini tanımayan 
+			çok eski sürüm belge çözümleyicileri de artık kullanımdan 
+			tamamen kalkmıştır. Dolayısı ile, HTML sayfalarında stil ve 
+			script kodlarının gizlenmesine hiç bir neden kalmamıştır. 
+		</p>
+		<p class="subheading" id="event">
+			1.3.2 - JavaScript Programlarının Web Sayfalarına Olay Yöneticilerinin Değeri Olarak Yerleştirilmesi</p>
+		<p class="indent">
+			Olay yöneticileri, <a 
+			href="http://www.w3.org/TR/xhtml11/">XHTML1.1</a>
+			standardında tanımlandığı gibi, belirli bir olayın gerçekleşmesini 
+			gözleyen niteliklerdir. Bu niteliklerin değerleri doğrudan üst düzey 
+			programlama alanına açılır ve buradan kuramsal olarak, her türlü 
+			program aktivitesini gerçekleştirme olanağı elde edilir. (X)HTML 
+			elementlerinin büyük çoğunluğunda, olay yöneticisi nitelikleri 
+			bulunmasına karşın, uygulamada en çok çapa ve düğme elemenlerinin <span 
+			class="keyw">onclick</span> olay yöneticilerine, JavaScript 
+			program adımları, atanmaktadır.
+		</p>
+		<p class="indent">
+			Düğme elementinin amacı bir programı çalıştırmak olduğu için, 
+			olay yöneticisine Javascript program adımlarının atanması, 
+			kuramsal olarak sakıncalı olmayabilir. Çapa elementi ise, 
+			prensip olarak, sadece sayfaların birbirlerine bağlanmaları 
+			amacı ile oluşturulmuştur. Olay yöneticisine Javascript program 
+			adımlarının atanarak, çapa elemanın bağlantı sağlamak yerine 
+			Javascript programlarının çalıştırılması için kullanılması, çapa 
+			elementinin amacı dışında kullanılması anlamına geldiğinden, 
+			genel olarak uygun görülmez. Buna rağmen uygulamada yaygın
+			olarak kulanılmaktadır. 
+		</p>
+		<p class="indent">
+			Çapa  elementinin <span class="keyw">onclick</span> olay 
+			yöneticisine bir JavaScript programı atanmışsa, kullanıcı bağlantıyı 
+			tıkladığında, belge çözümleyicisi ilk olarak JavaScript yorumlayıcısının 
+			çalışıp çalışmadığına bakacak, eğer sayfada JavaScript yorumlayıcısı 
+			çalışıyorsa belirtilen programı çalıştıracak ve ondan sonra bağlantıyı 
+			çalıştırarak sayfayı kapatarak bağlantıda belirtilen sayfayı açacaktır. Eğer 
+			çalıştırılacak JavaScript programının sonuna <span class="keyw">return false;</span>
+			ifadesi konulursa, kontrol çapa elementine dönmeyerek bir sonraki elemente 
+			geçecektir. Bu şekilde bağlantı tıklandığında, sadece JavaScript programı 
+			çalışmış olacak ve sayfa yönlendirme bağlantısı çalışmayacaktır. Örnek,
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;http://w3c.org&quot;</span>  <span 
+			class="att">onclick</span><span 
+			class="op">=</span><span 
+			class="str">&quot;veriOku();return false;&quot;</span> <span 
+			class="keyw">&gt;</span>Verileri Okut !<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="indent">(X)HTML olay yöneticilerinin değeri olarak, 
+			JavaScript program adımları atanacaksa, 
+			<a href="http://www.w3.org/TR/html4/interact/scripts.html#h-18.2.2.1">HTML</a> 
+			spesifikasyonu, sayfanın <span 
+			class="keyw">&lt;</span><span 
+			class="elm">head</span><span 
+			class="keyw">&gt;</span> kısmında, 
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">meta</span> <span 
+			class="att">http-equiv</span><span 
+			class="op">=</span><span 
+			class="str">&quot;Content-Script-Type&quot;</span> <span 
+			class="att">Content</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text/javascript&quot;</span> <span 
+			class="op">/</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+    <p class="nonindent"> bildirimi yapılmasını öngörmektedir. </p>
+    <p class="indent">
+			Çapa elementinin bu şekilde amacı dışında kullanımı genel olarak uygun 
+			görülmemektedir. Bundan başka, (X)HTML elementlerinin olay yöneticilerine, 
+			JavaScript kodlarının atanması (Hard Coding), JavaScript kodlarının,
+			(X)HTML kodlarınında karmaşa yaratmaması (Obtrusion) prensibine de
+			aykırıdır. Bu nedenle, (X)HTML elementlerinin olay yöneticilerine
+			JavaScript kodlarının atanması (Hard Coding) yerine, sayfadaki
+			(X)HTML elementlerine, JavaScript olay yöneticilerinin ilişkilendirilmesi
+			daha uygundur. Bu şekilde, en azından sayfanın (X)HTML elementlerinin
+			kod homojenitesi sağlanmış olur. Bu konuda bir örnek olarak, 
+			<a href="../uygulamalar/merhabaDunya.html">Merhaba Dünya</a> programının 
+			<a href="../uygulamalar/merhabaDunya-js.html">JavaScript kodları</a> 
+			incelenebilir. 
+		</p>
+		<p class="indent">
+			Güncel tasarım prensipleri, sayfanın (X)HTML kodları ile, CSS ve JavaScript 
+			kodlarının birbirine karıştırılmaması (Non Obstrusion) yönelimindedir. Bu 
+			nedenle, sayfanın (X)HTML kaynak kodlarının 
+			ayrı bir kaynak kodu sayfasında, sayfanın CSS kaynak kodlarının 
+			ayrı bir kaynak kodu sayfasında, sayfanın JavaScript kaynak kodlarının 
+			yine ayrı bir kaynak kodu sayfasında, düzenlenerek saklanması öngörülmektedir.
+			Sayfanın (X)HTML kaynak kodları sayfasında sadece (X)HTML kaynak kodları 
+			bulunmalıdır. (X)HTML kaynak kodlarında, herhangibir elementin olay yöneticisi 
+			niteliğine bir programlama dilininin kodları atanmamalıdır. 
+		</p>
+		<p class="subheading" id="pseudo">
+			1.3.3  - JavaScript Programlarının Web Sayfalarında JavaScript Pseudoprotokolunun 
+				Kullanımı ile Çalıştırılması</p>
+		<p class="indent">
+			JavaScript pseudoprotokolu, bir bir çapa elementinin <span 
+			class="att">href</span> değerine, bir JavaScript programı yerleştirilmesidir.
+			Kullanımı,
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;javascript: alert('Merhaba Dünya !');&quot;</span><span 
+			class="keyw">&gt;</span>Mesaj<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			Bu programı <a href="javascript:alert('Merhaba Dünya !');">çalıştırınız !</a> 
+			Bu yöntemde, bağlantının URI noktası yerine, JavaScript programının 
+			çalışmasının nedeni, <span class="keyw">alert()</span> fonksiyonun 
+			geriye <span class="keyw">null</span> değerinin döndürmesinden 
+			kaynaklanır. Geriye  değer döndürecek bir işlem yapılırsa,  
+			link tıklandığında, çapa elementi yeni bir pencere açacak ve işlem 
+			sonucunu bu penceye yazdıracaktır. Örnek :		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;javascript: n=9;&quot;</span><span 
+			class="keyw">&gt;</span>Sonuç<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			Bu programı <a href="javascript:n=9;">çalıştırınız !</a> Bu işlem, 
+			<a href="../ekler/ek3/ek3s1.html">ek-3 de</a> özetlenmiş olan W3C-DOM öncesi 
+			metotlardan <span class="keyw">document</span><span 
+			class="op">.</span><span class="keyw">writeln</span><span class="op">()</span> 
+			metoduna benzemektedir. 
+		</p>
+			<p class="indent">
+			Eğer salt hesap yapılıp, açık pencerede 
+			bir değişiklik olması istenmiyorsa, değer döndürülmesini önleyecek 
+			<span class="keyw">void</span><span 
+			class="op">(</span>0<span 
+			class="op">)</span>  ifadesi işlem sonuna eklenmelidir. 
+			Örnek:
+		</p>
+			<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">a</span> <span 
+			class="att">href</span><span 
+			class="op">=</span><span 
+			class="str">&quot;javascript: n=9;void (0)&quot;</span><span 
+			class="keyw">&gt;</span>Sonuç<span 
+			class="keyw">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">a</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			Bu programı <a href="javascript%20_%20n%3d9%3b%20void(0)_.html">çalıştırınız !</a> 
+			Bu durumda, hesaplar yapılmakta fakat sonuç görüntülenmemektedir. 
+		</p>
+		<p class="indent">
+			Modern yazılım yöntemleri gözönüne alındığında, JavaScript 
+			pseudoprotokolu, JavaScript programlarının yazılımı için kesinlikle uygun bir 
+			yöntem sayılmaz. Herşeyden önce, bu yöntem, biraz ileride göreceğimiz 
+			JavaScript kodlarının (X)HTML kodlarında 
+			karşıklık yaratmaması prensibine aykırıdır. Yeni düşünceye göre, (X)HTML 
+			kodları ayrı bir dosyada, JavaScript kodları ayrı bir sayfada tutulmalıdır. Yani, 
+			JavaScript kodları, (X)HTML kod sayfasında karışıklık yaratmamalıdır. JavaScript 
+			pseudoprotokolu ise, bu prensibe kesinlikle aykırıdır. İkinci bir sakınca da 
+			JavaScript pseudoprotokolunun web sayfasının erişilebilirliğini tartışılabilir 
+			hale getirmesidir. İleride göreceğimiz gibi, JavaScript kodları, 
+			sayfanın vermesi gereken bilginin bir kısmının bile verilmesine engel olmamalıdır. 
+			Oysaki tüm belge çözümleyiciler JavaScript programlarını desteklemedikleri 
+			gibi, tüm kullanıcılar da belge çözümleyicilerinin JavaScript desteğini aktif 
+			hale getirmemiş olabilirler. Bunun sonucunda, sayfaya JavaScript ile 
+			bir içerik sağlanması isteniyorsa, JavaScript desteği olmayan belge 
+			çözümleyicileri kullanan kullanıcıların bu içerikten yararlanamayacakları 
+			anlamına gelir ve kesinlikle kabul edilemez. Ayrıca, güncel düşünceye göre, 
+			(X)HTMl linkleri sayfaları birbirine bağlamaktan başka bir 
+			amaç için kullanılmamalıdır. JavaScript pseudoprotokolu linkleri 
+			program yazılım alanı haline getirmeye çalışmakla bu prensibi de 
+			çiğnemiş olmaktadır. Bundan başka, JavaScript pseudoprotokolunun 
+			yazılım olanakları çok kısıtlıdır ve dar alana ancak az sayıda 
+			program adımı yazılabilir. Bütün bu sakıncaları düşünüldüğünde,
+			JavaScript programlarının sayfaya uygulanması için, JavaScript 
+			pseudoprotokolunun kullanılmaması gerektiği ortaya çıkar. 
+			JavaScript pseudoprotokolu yerine yukarıda örnekleri verildiği 
+			gibi, çapa elementinin <span class="keyw">onclick</span> 
+			olay yöneticisi kullanılabilir. Günümüzde bu yöntem de 
+			uygun görülmemekte bunun yerine, JavaScript programından, 
+			çapa elementine  <span class="att">id</span> niteliği ile 
+			erişilerek, olay yönteminin JavaScript <span 
+			class="keyw">onclick</span> olay yöneticisi kullanılarak 
+			 gerçekleştirilmesi öngörülmektedir. Bu konuda bir 
+			<a href="../uygulamalar/b2.2.5-uyg-2.html">uygulama</a>,
+			ve bu uygulamanın 
+			<a href="../uygulamalar/b2.2.5-uyg-2-js.html">JavaScript kodları</a>
+			incelenebilir.
+		</p>
+		<p class="subheading" id="external">1.3.4 - Bir Dış Dosyada Tutulan JavaScript Programlarının, 
+			Bir Web Sayfası ile İlişkilendirilerek Çalıştırılması </p>
+		<p class="indent">
+			JavaScript programlarının sayfa ile ilişkili bir dış dosyada tutulabilmesi
+			için, <span class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> Elementinin <span class="att">src</span> 
+			(src=source) (kaynak) niteliğinden yararlanılır. 
+			Bu nitelik, bize biş JavaScript dosyasının sayfaya bağlanması olanağını 
+			sağlar. Sayfaya bağlanacak dış JavaScript sayfası, sadece JavaScript 
+			program adımlarını ve yorumları içerebilir. Bu dosya, Unicode karakterleri 
+			içeren basit bir metin dosyasıdır. Dış JavaScript program dosyası, 
+			programAdı.js şeklinde belirli bir URI lokasyonuna (yerleşimine) 
+			yerleştirilmiş ve sayfanın erişimine açık olmalıdır.		</p>
+		<p class="indent"> Bir dış JavaScript sayfası tanıtılan bir <span 
+			class="keyw">&lt;</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span> elementi, başka hiçbir içerik taşımaz. Tanıtım 
+			aşağıdaki örnekte görüldüğü gibi yapılabilir : </p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">script</span> <span 
+			class="att">type</span><span 
+			class="op">=</span><span 
+			class="str">&quot;text/javascript&quot;</span> <span 
+			class="att">src</span><span 
+			class="op">=</span><span 
+			class="str">&quot;../js/bdelib.js&quot;</span><span 
+			class="keyw">&gt;</span>
+<span class="keyw-25">&lt;</span><span 
+			class="op">/</span><span 
+			class="elm">script</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent">
+			Bu şekilde istenildiği kadar dış JavaScript 
+			sayfası, sayfa ile ilişkilendirilebilir. Sayfa ile ilişkili tüm dış  JavaScript 
+			sayfaları eşit ağırlıktadır ve tümü, sayfadaki diğer JavaScript kod 
+			kaynakları ile birlikte aynı üst düzey programlama alanına 
+			açılırak aynı program sayfasını paylaşırlar. Bu şekilde, değişik 
+			program kaynaklarından gelen bilgiler aynı program sayfasından 
+			kaynaklanmış gibi etki yaparlar.
+		</p>
+		<p class="indent">
+			Biraz ileride göreceğimiz, &quot;Karışıklık 
+			Yaratmayan JavaScript&quot; prensibine göre , JavaScript 
+			kodları, sayfanın yapılanma kodlarında karışıklığa neden 
+			olmamalıdır. Web sayfa kodlarında, sadece sayfa içeriğinin 
+			yapılanması kodları olan (X)HTML kodları kullanılmalı, bunun dılındaki 
+			tüm kodlar, kedilerine ait dış dosyalarda saklanarak sayfa ile 
+			ilişkilendirilmelidir. Bu prensibe göre, sayfa içinde, <span 
+			class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementlerinin içeriğinin olmaması ve 
+			bu elementlerinin sadece dış script dosyalarının sayfaya bağlanması 
+			için kullanılması gerekir. Sayfa ile ilişkili JavaScript kodlarının, 
+			ayrı bir program dosyasında saklanmasının ayrıca aşağıdaki yararları 
+			da bulunmaktadır: 
+		</p>
+		<ul class="list">
+			<li>
+				Program kodlarını başka bir kaynak dosyaya aktararak sayfanın 
+				(X)HTML kodlarında hafifleme sağlar.Kodları azalmış 
+				ve homojen hale gelmiş dosyalar daha hızlı yüklenir.
+			</li>
+			<li>
+				Program kodlarının ayrı bir sayfada olması, bu kodların daraltılmasını, 
+				karıştırılmasını kolaylaştırır ve sıkıştırılmasını olanaklı hale getirir. Aslında bu 
+				üç işlem de bazen uygulanmasına karşın uygun işlemler olarak kabul edilmez. 
+				Script kodları kamuya açık olarak tutulmalı ve herkesin ortak olarak 
+				kullanabileceği bir uygarlık varlığı olarak kabul edilmelidir. 
+			</li>
+			<li>
+				Önceden yazılmış olan fonksiyonlar, bir program kitaplığı 
+				şeklinde toplanarak değişik sayfalara ilişkilendirilebilir. Böylece 
+				her defasında aynı fonksiyonların yazılması gereği ortadan kalkar. 
+			</li>
+			<li>
+				Kaynak dosyası, web üzerinde erişilebilir herhangibir sunucu üzerindeki
+				program öğelerine erişebildiğinden, Internet üzerinde 
+				erişim hakkı veren geniş kaynak kitaplıklarından yararlanılabilir.
+			</li>
+		</ul>
+		<p class="indent">
+			Tüm bu nedenlerden dolayı, günümüzde, bir web sayfasının kaynak 
+			kodları ile CSS ve JavaScript kodları kesinlikle ayrı dosyalarda saklanır. 
+			Bu şekilde, sayfanın yapılanma, görüntü düzenleme ve programlama 
+			kodları birbirinden ayrılarak kod karışıklığı yaratılmaz.
+		</p>
+		<p class="subheading" id="yer">1.3.5 - &lt;script&gt; Elementinin Sayfa Kodlarındaki Yeri</p>
+		<p class="indent">
+			Bir web sitesinin kodlarına, <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span> elementinin 
+			konulması gereken yer, sayfanın yazılım yöntemi ve <span 
+			class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin içeriğine göre 
+			dramatik olarak değişebilmektedir. Bir web sitesi, içeriğin 
+			yapılandırılmasını, görüntünün düzenlenmesini, interaktivite sağlanmasını 
+			gerçekleştiren kod türlerinden oluşmaktadır. Sayfanın son görüntüsü, 
+			bu kodların hem kendilerinin hem de birbirleri ile ilişkilerinin 
+			sonucudur ve bu sonucun alınması için çok sayıda ve birbirinden 
+			farklı yöntemler kullanılabilmektedir. 
+		</p>
+		<p class="indent">
+			Sayfa içeriğinin temel yapılandırılması (X)HTML kodları ile 
+			gerçekleştirilmektedir. Günümüzde, yeni geliştirilen sayfalar, büyük 
+			olasılıkla XHTML kodlamasına göre gerçekleştirlmektedir. Fakat 
+			bu konuda bir zorlayıcı kural yoktur ve belge çözümleyiciler, eski 
+			HTML kodlarını da çözümlemektedirler.
+		</p>
+		<p class="indent">
+			Sayfanın görüntüsünün düzenlenmesi için çok değişik olanaklar 
+			bulunmaktadır. Spesifikasyonlarda, giderek daha 
+			azaltılmakla birlikle, görüntü sağlayacak element nitelikleri bulunmakta, 
+			bundan başka, hem <span class="keyw">&lt;</span><span 
+			class="elm">style</span><span class="keyw">&gt;</span> elementinin 
+			içeriği, hem de elemetlerin <span class="att">style</span> niteliklerinin 
+			değeri olarak CSS görüntü stili oluşturma kodları kullanılabilmektedir.
+		</p>
+		<p class="indent">
+			Bu kadar değişik program dillerinin aynı sayfada uygulanmaya çalışılması,
+				 geçmişte sayfa kodlarının yazılmasını ve izlenmesini çok zor bir hale getirdiği
+				 görülmüş, durumun daha da kötüleşeceği düşünülerek, bu konuda önlemler 
+			alınmasına çalışılmıştır. Düzenli bir kod sayfası oluşturabilmek için 
+			her programın kendi konusu ile sınırlı kalması ve kodlarının diğerlerinden
+				 ayrılması düşüncesi temel hedef olarak benimsenmiştir. Doğal olarak 
+			hedefe ulaşabilmek kolay olmamaktadır. Bu konuda 
+			<a href="http://w3c.com/">W3C</a> üstüne düşen görevleri yapmaya 
+			çalışmış, bir yandan CSS stil belirleme dilini geliştirirken, diğer taraftan
+			 görüntü oluşturmaya yönelik element ve nitelikleri yeni geliştirilen 
+			spesifikasyonlardan çıkarmaya özen göstermiştir. Kullanıcılar da, 
+			kendi aralarında çalışma gurupları oluşturarak düzgün kodlama 
+			prensipleri geliştirmeye ve bir toplumsal baskı kurarak bu kurallara 
+			geniş kütlenin uymasını sağlamaya çalışmaktadırlar. Kullanıcıların 
+			kod karmaşasını önlemek için geliştiridiği prensipler genel olarak 
+			aşağıdaki gibidir. 
+		</p>
+		<ul class="list">
+			<li>
+				Kod yazarları en yeni spesifikasyonları kullanarak sayfa içeriği 
+				yapılandırma kodlarını yazacaklardır. En yeni spesifikasyonlardan, 
+				görüntü düzenlemesine yönelik elemanlar çıkarıldığı için, böylelikle 
+				kodlarda bir düzen sağlanmış olacaktır. Bu konuda kod yazarlarına sadece 
+				XHTML 1.0 strict ve en yeni olarak kabul edilmiş olan <a 
+				href="http://www.w3.org/TR/xhtml11/">XHTML 1.1 (İkinci Baskı)</a>
+				standardının uygulanması sağlık verilir. Bu standartlar hem MS Internet Explorer 7 
+				hem de FireFox 2 tarafından desteklenmektedir. Kullanıcılar, kamuya açık 
+				sunucularda yayınlayacakları belgelerde sadece 
+				<a href="http://w3c.com/">W3C</a> standartlarını desteklemeli ve 
+				belge çözümleyicilerin özel kodlarını kullanmaktan kesinlikle kaçınmalıdır. 
+				Kullanıcılar sadece kendi Intranetlerinde yayınladıkları belgelerde standart 
+				dışı kodlar kullanabilirler. Sayfa içeriğinin yapılandırıldığı (X)HTML kodlarında, 
+				görüntü düzenlemeye yönelik <span class="att">style</span> niteliği ve diğer 
+				nitelikler kesinlikle kullanılmayacaktır. 
+			</li>
+			<li>
+				Sayfanın görüntü düzenlenmesi sadece CSS kodları ile gerçekleştirilecek, bu 
+				konuda ne (X)HTML ne de JavaScript kodlarının bir girişimi olmayacaktır. 
+			</li>
+			<li>
+				Sayfanın JavaScript kodları, sadece programlama amacına yönelik olacak
+					 ve sayfanın yerleşik (X)HTML elemanlarının görüntülerinin düzenlenmesinde,
+				kesinlikle JavaScript kullanılmayacaktır. 
+			</li>
+			<li>
+				Kesin zorunluluk olmadıkça, JavaScript kodları ile (X)HTML içeriği 
+				yaratılmasından kaçınılacaktır. Zorunlu durumlarda, yaratılacak 
+				yapılandırma içeriğinde, görüntü düzenleme kodları bulunabilir. Bu 
+				konuda da tutucu davranılmalı ve yaratılacak kodlarda, JavaScript 
+				görüntü düzenleyici kodları yerine, mevcut CSS sınıflarının kullanılması
+				tercih edilmelidir. 
+			</li>
+			<li>
+				Sayfanın (X)HTML, CSS ve JavaScript kodları ayrı dosyalarda tutulmalı 
+				ve sadece bir noktadan sayfa ile ilişkilendirilmelidir. Aynı noktadan, 
+				birden fazla dış CSS ve script dosyaları sayfa ile ilişkilendirilebilir.
+			</li>
+			<li>
+				Sayfanın XHTML kodlarında, olay yönetici nitelikler kullanılmamalı, 
+				olay yönetimi, JavaScript kodları ile gerçekleştirilmelidir. 
+			</li>
+		</ul>
+		<p class="indent">
+			Yukarıda belirtilen prensipler, eskiden çok toleranslı bir ortamda 
+			çalışmaya alışmış, düzenli kod yazma alışkanlığı olmayan geliştiriciler 
+			için, son  derece sıkntılı olacağı gerçektir. Diğer taraftan bir başka 
+			gerçek de, artık kimsenin bu düzensizliğe, karışıklığa ve kuralsızlığa 
+			katlanmak istemediğidir. Yukarıdaki kuralların çok sıkıcı oldukları 
+			doğrudur. Bu kuralları uygulayabilmek için gerekli her araç elimizde 
+			kullanıma hazır olarak bulunmaktadır. Yapılacak tek şey, eski kötü 
+			alışkanlıkları bırakarak, yeni projeleri bu zor, fakat sonucu iyi olacak 
+			yönteme göre gerçekleştirmektir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki prensiplere uygun olan kodlamalarda, <span 
+			class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin sayfadaki en uygun yeri, 
+			<span class="keyw">&lt;</span><span class="elm">body</span><span 
+			class="keyw">&gt;</span> elementinin en altı olacaktır. Bir web sayfasının 
+			sunucudan indirilip bir istemci bilgisayarında görüntülenmesi süreci 
+			incelendiğinde bunun nedeni anlaşılacaktır. Bir web sayfasının sunucudan 
+			istemci bilgisayarına yüklenmesi sırasında, ilk olarak sayfanın <span 
+			class="keyw">&lt;</span><span class="elm">head</span><span 
+			class="keyw">&gt;</span> kısmı yüklenir. Bu kısımda, sayfanın kendisi 
+			görüntülenmeyen fakat sayfa hakkındaki bilgilerin, istemci ile sunucu 
+			arasında aktarımını sağlayacak elementler bulunur. Sayfa hakkında 
+			istemci ile sunucu arasında bilgilendirme süreci tamamlandığında, sunucunun 
+			gönderdiği kodlar çözümlenerek sayfanın görüntü oluşturacak 
+			elementlerinin bulunduğu <span class="keyw">&lt;</span><span 
+			class="elm">body</span><span class="keyw">&gt;</span> kısmındaki 
+			elementlerin bir yandan indirilmesi, bir yandan da sunucudan gelen bilgiler 
+			yardımı ile sunucu belge çözümleyicisinde çözümlenerek, görüntüleneceklerdir. 
+			Bilgilerin sunucudan indirilmesi, çözümlenmesi ve görüntülenmesi asenkrondur. 
+			Hızlı indirilebilen elementler önce indirilip çözümlenip görüntülenir. Ardından da 
+			yükleme hızı yavaş olan resimler gibi öğeler yüklenerek sayfanın görüntülenmesi 
+			tamamlanır. Sayfanın sunucudan indirilmesi, çözümlenmesi ve görüntülendirilme 
+			aşaması, istemci bilgisayarının en yoğun çalıştığı anlardır. Bu yoğun çalışma 
+			arasında istemci bilgisayarının yüküne bir de JavaScript kodlarının yorumlanması 
+			yükü eklenmemelidir. Sayfanın sonuna doğru, istemci bilgisayarının yükü hafiflemiş 
+			olacağından, JavaScript kodlarının yorumlanması daha uygun koşullarda 
+			gerçekleşecektir. Bu yüzden sayfa kodlarında <span 
+			class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin en uygun yeri <span 
+			class="keyw">&lt;</span><span class="elm">body</span><span 
+			class="keyw">&gt;</span> elementinin en altı olacaktır. Yine de, 
+			JavaScript kodlarının yorumlanması tamamlandığında, sayfanın yüklenmesi 
+			tamamlanamamış olabilir. 
+		</p>
+		<p class="indent">
+			Bir web sayfasının kaynak kodlarında, <span 
+			class="keyw">&lt;</span><span class="elm">script</span><span 
+			class="keyw">&gt;</span> elementinin sayfadaki en uygun yerinin, <span 
+			class="keyw">&lt;</span><span class="elm">body</span><span 
+			class="keyw">&gt;</span> elementinin en altı olması, sadece yazılım 
+			yönteminin yukarıdaki prensiplere uygun olması koşulu ile geçerlidir. 
+			Aksi halde, yani sayfa yazılımında, kodlama düzenine uyulmadığı 
+			durumlarda, örnek olarak JavaScript kodları ile sayfanın yerleşik 
+			yapılanma elemanlarının görüntülerinin düzenlenmesine çalışıldığı, 
+			durumlarda, <span class="keyw">&lt;</span><span 
+			class="elm">script</span><span class="keyw">&gt;</span>
+			elementini, <span class="keyw">&lt;</span><span 
+			class="elm">body</span><span class="keyw">&gt;</span> 
+			kısmının alt altına yerleştirmek, çok kötü bir sonuca neden olabilir. 
+			Çünkü, önce sayfanın başlangıç görüntüsü yüklenmiş olacak, sonra devreye
+			JavaScript girince sayfanın değişimi başlayacak, bu değişim, kullanıcıyı
+			tedirgin  edecek, hatta sayfanın &quot;hack&quot; edildiği şeklinde yorumlayacak
+			olan  kullanıcı belki de acele olarak sayfayı terkedecektir. Bunun olmasının
+			ise programcının  isteyebileceği en son şey olacağı açıktır. Bu gibi düzensizliklerin
+			önlenmesi için,  son derece dikkatli ve yazılım kurallarına uygun çalışılmalıdır. </p>
+		<p class="subheading" id="sonra">
+			1.3.6 - JavaScript Programlarının Sayfa Yüklendikten Sonra Çalıştırılması
+		</p>
+		<!-- http://www.webreference.com/programming/javascript/onloads/ -->
+		<p class="indent"> 
+			JavaScript programları, giriş/çıkış işlemleri için veya dinamik görüntüler 
+			oluşturmak için, mutlaka sayfa elemanlarına erişim sağlamak isteyebilir. 
+			Ulaşılmak istenen sayfa öğesi yüklenmeden erişim isteği gerçekleşirse, 
+			bir çalışma süreci (runtime) hatası oluşur ve sayfanın görüntülenmesi bir 
+			hata mesajı ile kesilir. Bunun önlenmesi için, sayfanın önce yüklenmesi, 
+			ardından yüklenmiş elemanlara erişim isteminin gerçekleşmesinin 
+			sağlanması gerekir. 
+		</p>
+		<p class="indent"> 
+			Alınabilecek en iyi önlem ilk olarak, sayfa elemanları ile ilişkili hiçbir 
+			program adımını, yazılan tüm program adımlarını anında çalıştıran global 
+			program alanı içine yazmamak ve bu bildirimleri, kodları sadece 
+			öağrıldığında çalışacak fonksionlar içinde tutmaktır. Bundan sonra, 
+			yapılacak şey, fonksiyonun sayfanın yüklenmesinden sonra çağrılmasının 
+			sağlanmasıdır. Bunu sağlayabilecek bir olay yöntecisi, JavaScript <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> olay yöneticisidir. Bu olay yöneticisi, 
+			sayfa yüklenmesi olayını dinler ve sayfa yüklenmesinin tamamlanması 
+			ile belirtilen fonksiyonu çalıştırır. Örnek olarak sayfanın yüklenmesinden 
+			sonra çalıştırılacak fonksiyon ilkAdım() ise, 
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span><span 
+			class="op">=</span>ilkAdım<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent"> şeklinde bu fonksiyon çalıştırılır. Sayfanın 
+			yüklenmesi tamamlandıktan sonra çalıştırılması istenen fonksiyon 
+			sayısı birden fazla ise, bu bir sorun oluşturur. Çünkü, <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">onload</span> olay yöneticisi, sadece bir tek olayı yönetebilir.
+		</p>
+		<p class="indent"> Sayfanın yüklenmesi tamamlandıktan 
+			sonra çalıştırılması istenen fonksiyon sayısı birden fazla ise, alınabilecek 
+			bir önlem bir ana fonksiyon yazarak çalışacak fonksiyonları buradan 
+			çağırmak olabilir. Örnek : 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> anaProgram () <span 
+			class="op">{</span>
+<span class="pl-50">ilkAdım()</span><span 
+			class="op">;</span>
+<span class="pl-50">ikinciAdım</span><span 
+			class="op">();</span>
+<span class="op-25">}</span>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span><span 
+			class="op">=</span>anaProgram<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent"> 
+			şeklinde bir düzenleme yapılabilir.
+			Bu yöntemin bir sakıncası olmamasına karşın, 
+			JavaScript için gereksiz bir ana program 
+			zorunluluğu yaratabilir. Aşağıdaki yöntem daha 
+			iyi bir başlangıç sağlamaktadır.
+		</p>
+		<p class="indent">
+			Bir başka yöntem, sayfa içinden, 
+		</p>
+		<pre>
+<span class="keyw-25">&lt;</span><span 
+			class="elm">body</span>&nbsp;<span 
+			class="keyw">onload</span><span 
+			class="op">=</span><span 
+			class="str">&quot;ilkAdım()&quot;</span><span 
+			class="op">,</span><span 
+			class="str">&quot;ikinciAdım();&quot;</span><span 
+			class="keyw">&gt;</span>
+		</pre>
+		<p class="nonindent"> 
+			şeklinde bir satıriçi yükleme sırası oluşturmaktır. Bu yöntem geçerli 
+			olmasına karşın, satıriçi yazılım özellikle çok sayfalı web çalışmalarında
+			bezdirici olabilir. Ayrıca, iyi programcılık prensibi ile artık (X)HTML
+			elementlerinin olay yöneticilerinin kullanılmaması ve tüm olay yönetiminin
+			sayfa ilişkilendirilmiş dış JavaScript kodlarından düzenlenmesi öngörülmüştür. 
+			Yani sayfanın tüm elementlerinin yüklenmiş olmasını gözleyip, kod çalıştırmasının 
+			sayfa yüklendikten sonra başlatacak, JavaScript dış program sayfasından çalışabilecek 
+			bir yöntem geliştirilmelidir.
+		</p>
+		<p class="indent">
+			Dış program sayfasında çalışabilecek ve sayfa yüklendikten sonra, 
+			çalışması gereken fonksiyonları sıra ile çalıştıracak bir fonksiyon, <a 
+			href="http://simonwillison.net/">Simon Willison</a> tarafından yazılmış ve 
+			başarı ile uygulanmıştır. Bu fonksiyon, sayfa yüklendikten sonra çalışacak 
+			fonksiyonlar için, bir çalıştırma kuyruğu oluşturmakta ve sayfanın 
+			yüklenmesinden sonra, bu fonksiyonları sıra ile çalıştırmaktadır. Bu 
+			fonksiyonun yazılımı aşağıda verilmiştir. 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> sayfaYüklendiktenSonraÇalıştır(çalıştırılacakFonksiyon) <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> öncekiFonksiyon <span 
+			class="op">=</span> <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">onload</span><span class="op">;</span>
+<span class="keyw-50">if(typeof window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload </span><span class="op">!= </span><span
+			class="str">'function'</span><span 
+			class="keyw">)</span> <span class="op">{</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> <span class="op">=</span> çalıştırılacakFonksiyon;
+<span class="op-50">}</span>
+<span class="keyw-50">else</span> <span class="op">{</span>
+<span class="keyw-75">window</span><span 
+			class="op">.</span><span class="keyw">onload</span> <span 
+			class="op">=</span> <span class="keyw">function() </span><span 
+			class="op">{</span>
+<span class="pl-100">öncekiFonksiyon()</span><span class="op">;</span>
+<span class="pl-100">çalıştırılacakFonksiyon()</span><span class="op">;</span>
+<span class="op-75">}</span><span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent"> Bu fonksiyon yazıldıktan sonra, sayfanın yüklenmesi 
+			tamamlandıktan sonra çalıştırılacak fonksiyonlar için 
+			çalıştırma kuyruğu, </p>
+		<pre>
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır(ilkAdım)</span><span 
+			class="op">;</span>
+<span class="pl-50">sayfaYüklendiktenSonraÇalıştır(ikinciAdım)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent"> 
+			şeklinde oluşturulur. 
+		</p>
+		<p class="indent"> 
+			sayfaYüklendiktenSonraÇalıştır(çalıştırılacakFonksiyon) birçok sorunun 
+			oluşmasına engel olan çok yararlı bir fonksiyondur. Bu fonksiyonun 
+			yazılımını ancak, <a href="../b2/b2s5.html#willison">ileride</a> 
+			konularda iyice ilerledikten sonra anlamış olacağız. 
+			Bu fonksiyonu şimdilik sadece kullanmakla yetineceğiz.		</p>
+		<p class="indent">
+			Sayfa önyüklemesini sağlayan çok daha kapsamlı bir fonksiyon, 
+			<a href="http://www.scottandrew.com/weblog">Scott Andrew</a> 
+			tarafından geliştrilmiş ve <a 
+			href="http://www.dustindiaz.com/top-ten-javascript/">Dustin Diaz</a> 
+			tarafından yenilenmiştir. Bu fonksiyon çok daha karmaşık ve kapsamlıdır. 
+			Prensip olarak aynı işlevi yaptığı için, çalışmalarımızda genel olarak 
+			yapıldığı gibi, Simon Willison tarafından geliştirilmiş olan yukarıda kodları
+			verilen fonksiyonu kullanacağız. Fakat,  ikinci yöntem 
+			de uygulanabilir.		</p>
+		<p class="indent">
+			Bir başka yöntem de, <a href="http://www.netlobo.com/">Justin Barlow</a> 
+			tarafından geliştirilmiş olan WOM (Window Onload Manager) adlı çok basit 
+			bir kitaplıktır. Bu yöntem de ilk ikisi ile aynı işlevi yapmaktadır. İstendiğinde bu 
+			yöntem de kullanılabilir.
+		</p>
+		<p class="indent">
+			En son olarak, 
+			<a href="http://www.sitepoint.com/blogs/2004/05/26/closures-and-executing-javascript-on-page-load/">sitepoint</a> 
+			de yayınlanan, basit fakat etkili bir metot da denenebilir:
+		</p>
+		<pre>
+<span class="keyw-25">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">{</span>
+<span class="pl-50">fonksiyon1()</span><span 
+			class="op">;</span>
+<span class="pl-50">fonksiyon2()</span><span 
+			class="op">;</span>
+<span class="pl-50">fonksiyon3()</span><span 
+			class="op">;</span>
+<span class="keyw-50">...</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			Bu son metot, sadece küçük ve fonksiyon sayısı 
+			kontrollü sayfalar için geçerlidir. Örnek olarak 
+			bir sayfaya bu çalışmada olduğu gibi, birden fazla 
+			dış *.js sayfası bağlanırsa, ve her sayfada da bir 
+			veya daha çok 
+		 <span 
+			class="keyw">window</span><span class="op">.</span><span 
+			class="keyw">onload</span> olay yönetcisine bağlı 
+			fonksiyon varsa, bu metot çalışmaz. Bu durumda, her sayfadaki
+			çalışacak fonksiyonu tek sayfada göstermek gerekebilir. Bunun 
+			yerine, her duruma uygun olan 
+			sayfaYüklendiktenSonraÇalıştır() programının kullanılması daha
+			kolaydır. Bu nedenle çalışmalarımızda da 
+			sayfaYüklendiktenSonraÇalıştır() programı kullanılmaktadır. 
+		</p>
+		<p class="indent" id="edwards">
+			Sayfa önyüklemesi problemi, düşünüldüğünden çok daha ayrıntılıdır. 
+			<a href="http://dean.edwards.name/weblog/2006/06/again/">Dean Edwards</a>,
+			bir sayfada çok sayıda resim bulunduğunda, scriptlerin çalışmasının 
+			bu resimlerin tümünün yüklenmesini beklemesinin olumsuz olabileceğini 
+			belirtmiştir. Kullanıcı indirilen resimlerde öngörülen JavaScript
+			etkilerini çalıştıramayınca, durumu anlamakta zorluk çekebilir. 
+			Burada yüklemesi beklenecek olay aslında tüm sayfa değil, 
+			sadece DOM elementleridir. Bu konuda FireFox ve Opera 9 
+			<span class="keyw">DOMContentLoaded</span> metodunu
+			desteklemekte, fakat Internet Explorer de bu metot bulunmamaktadır.
+			Bu konuda IE, FireFox ve Opera da çalışabilen, son derece karmaşık 
+			bir çözüm geliştirilmiştir. bu çözüm çalışmamızda js klasöründe 
+			edwards.js adı ile dosyalanmıştır. Bu dosya, sayfaya ilk dosya olarak 
+			bağlanmalı ve DOM elementleri yüklendikten sonra çalışacak 
+			fonksiyonlar, init() fonksiyonu içeriğinden çağrılmalıdır. Bir deneme 
+			<a href="../uygulamalar/edwards.html">sayfası</a> yapılarak çalıştığı 
+			saptanmıştır. Bu deneme sayfasında, edwards.js dosyasında init() 
+			içinden çağrılan fonksiyon bu deneme sayfasına özgüdür. Her uygulama, 
+			bu fonksiyonu, kendisininkilerle değiştirmelidir.
+	</p><p class="indent">
+			Bu çalışmada sayfalarımızda, fazla resim olmadığından, sayfanın 
+			tümünün yüklenmesi ile DOM elementlerinin yüklenmesi arasında 
+			algılanacak bir faz farkı olmamaktadır. Bu nedenle daha pratik olan,
+			<a href="http://simonwillison.net/">Simon Willison</a> tarafından 
+			geliştirilmiş olan <span 
+			class="keyw">window</span><span 
+			class="op">.</span><span 
+			class="keyw">onload</span> olayını dinleyen 
+			sayfaYüklendiktenSonraÇalıştır() programını
+			uygulayacağız. Fakat profesyonel uygulamalarda Dean Edwards 
+			yöntemi daha uygun olabilir. Gerçek gereksinme, sayfa içeriğine 
+			bağlıdır ve denemelerle saptanmalıdır.
+		</p>
+		<p class="subheading" id="noscript">
+			1.3.7 - &lt;noscript&gt; Elementinin Kullanımı
+		</p>
+		<p class="indent">
+			<span class="keyw">&lt;</span><span 
+			class="elm">noscript</span><span 
+			class="keyw">&gt;</span> Elementi 
+			JavaScript yorumlayıcısı kapalı olan veya hiç desteklemeyen 
+			belge çözümleyicilerde görüntülenip, JavaScript programını
+			destekleyen belge çözümleyicilerde görüntülenmeyen bir 
+			içerikle kullanıcıların uyarılması amacı ile konulmuştur. 
+			Ne yazık ki, JavaScript programlamasını çok az destekleyen 
+			belge çözümleyicileri de mesajları görüntülemediğinden 
+			bu elementin kullanımı çok azalmıştır. Aslında, çok kullanılan 
+			belge çözümleyiciler, MSIE 7 ve FireFox 2 bu elementi, tam 
+			olarak desteklemektedirler. Bu durumda, kullanımında hiçbir 
+			sakınca kalmamış sayılabilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>&laquo; Indeks</em></a>
+			</li>
+			<li id="denge">
+			</li>
+			<li id="sayfa">
+				<a href="b1s2.html"><em>&laquo; Önceki</em></a>
+			</li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<a href="b1s4.html"><em> Sonraki &raquo; </em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p>
+			<a href="http://validator.w3.org/#validate_by_upload"><img
+				src="../images/valid-xhtml11.png"
+				alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b1/b1s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:40 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

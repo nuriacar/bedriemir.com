@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:12 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b8/b8s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b8s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b8s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b8s3.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+		</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 8
+		</p>
+		<p class="chapter">
+			Array (Dizi) Nesne Sınıfı
+		</p>
+		<p class="pagenum">
+			Bölüm 8 Sayfa 2
+		</p>
+		<p class="subheading" id="proto-pop">8.2.6 - Array (Dizi) Nesne Sınıfı Prototipinin
+			pop()  Metodu</p>
+		<p class="indent">
+			<span class="keyw">pop</span>
+			Dizi nesne sınıfı prototipinin <span class="keyw">pop</span><span class="op">()</span> 
+			metodu, bir dizinin son elemanını diziden çıkarır ve bu elemanın değerini döndürür. Kullanımı,
+		</p>
+		<p class="indent">
+			<span class="str"><em>dizi</em></span><span 
+			class="op">.</span><span 
+			class="keyw">pop</span><span 
+			class="op">()</span>
+		</p>
+		<p class="nonindent" id="b8.2.6-uyg-1">
+			şeklindedir. Eğer dizi nesnesi boş bir diziyi işaret
+			ediyorsa, <span class="keyw">undefined</span>
+			değeri döndürülür. Aşağıda <span 
+			class="keyw">pop</span><span 
+			class="op">()</span> metodu için bir uygulama 
+			<a href="../uygulamalar/b8.2.6-uyg-1.html">örneğinin</a> sonuçları ve 
+			<a href="../uygulamalar/b8.2.6-uyg-1-js.html">JavaScript programı</a>
+			görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+
+
+<span class="keyw-25">function</span> sonElemanıKes<span class="op">() {</span>
+
+<span class="keyw-50">var</span> dizi<span 
+			class="op">=</span><span class="op">[</span>12<span class="op">,</span> 34<span 
+			class="op">,</span> 56<span class="op">,</span> 77<span class="op">,</span> 46<span 
+			class="op">,</span> 9<span class="op">],</span>  yedekDizi <span class="op">= [],</span> k <span class="op">= <span 
+			class="str">''</span>;</span> 
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span class="str">'Orijinal Dizi : '</span><span 
+			class="op"> , </span>dizi<span class="op">.</span><span class="keyw">join</span><span 
+			class="op">(</span><span class="str">' | '</span><span class="op">),</span> <span 
+			class="str"> 'b8.2.6-uyg-1-sonuç-1'</span><span class="op">);</span>
+
+<span class="pl-50">diziKopyala</span><span 
+			class="op">(</span>dizi<span 
+			class="op">,</span> yedekDizi<span 
+			class="op">);</span>
+
+<span class="pl-50">k</span> <span 
+			class="op">=</span>yedekDizi<span 
+			class="op">.</span><span 
+			class="keyw">pop</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Kesilen Eleman = '</span><span class="op">,</span> k<span 
+			class="op">,</span> <span 
+			class="str">'b8.2.6-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Kalan Dizi : '</span><span class="op">,</span> yedekDizi<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' | '</span><span 
+			class="op">),</span> <span 
+			class="str">'b8.2.6-uyg-1-sonuç-3'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(sonElemanıKes)</span><span 
+			class="op">;</span>
+			
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın uygulanması ile alınan sonuç:
+	</p>
+		<p id="b8.2.6-uyg-1-sonuç-1">
+		</p>
+		<p id="b8.2.6-uyg-1-sonuç-2">
+		</p>
+		<p id="b8.2.6-uyg-1-sonuç-3">
+		</p>
+		<p class="nonindent">
+			şeklindedir. Bu <a href="../uygulamalar/b8.2.6-uyg-1.html">uygulamada</a>, <span 
+			class="keyw">pop</span><span class="op">()</span>
+			metodunun uygulanması ile dizinin en son elemanının kesilerek 
+			değerinin döndürüldüğü, geri kalan elemanların orijinal dizide
+			kaldığı görülmektedir.
+		</p>
+		<p class="subheading" id="proto-push">8.2.7 - push() Metodu</p>
+		<p class="indent">
+			Öntanımlı dizi sınıfı prototipinin 
+			<span class="keyw">push</span><span class="op">()</span> Metodu, 
+			bir 	dizinin sonuna, argümanlarını belirtildiği sıra ile ekler ve dizinin
+			yeni uzunluğunu  döndürür. Bu metodun kullanımı, 
+		</p>
+		<pre>
+<span class="str-25"><em>dizi</em></span><span 
+			class="op">.</span><span class="keyw">push</span><span class="op">(</span><span 
+			class="comm">[<em>birim1</em> [<em>birim2</em> [	[<em>birimN</em>	]]]]</span><span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent" id="b8.2.7-uyg-1">
+			şeklindedir. Bu metodun uygulandığı bir 
+			<a href="../uygulamalar/b8.2.7-uyg-1.html">Örneğin</a>
+			uygulama sonuçları ve uygulamanın 
+			<a href="../uygulamalar/b8.2.7-uyg-1-js.html">JavaScript kodları</a>
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> elemanEkle<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> üyeler <span 
+			class="op">=</span> <span 
+			class="op">[</span><span 
+			class="str">'Demir Taşca'</span><span 
+			class="op">,</span> <span 
+			class="str">'Galip Yertutan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Yakup Ulutürk'</span><span 
+			class="op">],</span> yedekDizi <span 
+			class="op">= [];</span>
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Başlangıçtaki Üyeler : '</span><span 
+			class="op">,</span> üyeler<span class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span class="str">' * '</span><span 
+			class="op">),</span> <span 
+			class="str"> 'b8.2.7-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">üyeler</span><span 	class="op">.</span><span 
+			class="keyw">push</span><span class="op">(</span><span 
+			class="str">'Ayla Özel'</span><span class="op">,</span> <span 
+			class="str">'Serap Sungur'</span>)<span class="op">;</span>
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Güncellenmiş Üye Listesi : '</span><span 
+			class="op">,</span> üyeler<span class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span class="str">' * '</span><span 
+			class="op">),</span> <span 
+			class="str"> 'b8.2.7-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(elemanEkle)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p id="b8.2.7-uyg-1-sonuç-1">
+		</p>
+		<p id="b8.2.7-uyg-1-sonuç-2">
+		</p>
+		<p class="nonindent">
+			Bu sonuçtan yeni genişletilmiş dizinin genel,
+			bitişik-sürekli bir dizi olduğu ve yeni eleman
+			sayısının 5 olarak saptandığı görülmektedir. Bu
+			beklenen bir sonuçtur ve <span 
+			class="keyw">push</span><span class="op">()</span>
+			metodunun tanımlı bir diziye yeni bir eleman eklenmesi için 
+			çok kullanışlı olduğu görülmektedir.
+		</p>
+		<p class="indent" id="b8.2.7-uyg-2">
+			Diziye <span class="keyw">push</span><span class="op">()</span> metodu ile 
+			eklenmesi istenen yeni eleman, bir dizi ise durum 
+			değişmektedir. Burada <span 
+			class="keyw">push</span><span class="op">()</span>
+			metodunun uygulanması ile eklenecek tüm dizi, sanki tek 
+			bir elemanmış gibi dizi sonuna eklenir. 
+			<a href="../uygulamalar/b8.2.7-uyg-2.html">Örnek</a> :
+	</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır<span 
+			class="op">(</span>diziEkle</span><span 
+			class="op">);</span>
+
+<span class="keyw-25">function</span> diziEkle<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> Ekip1 <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span> <span 
+			class="op">(</span><span 
+			class="str">'Demir Taşca'</span><span 
+			class="op">,</span> <span 
+			class="str">'Galip Yertutan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Yakup Ulutürk'</span><span class="op">);</span>
+<span class="keyw-50">var</span> Ekip2 <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span> <span 
+			class="op">(</span><span 
+			class="str">'Hasan Uncu'</span><span 
+			class="op">,</span> <span 
+			class="str">'Filiz Güvener'</span><span 
+			class="op">,</span> <span 
+			class="str">'Jale Aydınlı'</span><span 
+			class="op">);</span>
+<span class="keyw-50">var</span> uzatılmışDizi <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' @ '</span><span 
+			class="op">), </span><span 
+			class="str">'b8.2.7-uyg-2-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz(</span>Ekip2<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' @ '</span><span 
+			class="op">), </span><span 
+			class="str">'b8.2.7-uyg-2-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">uzatılmışDizi</span> <span 
+			class="op">=</span> Ekip1<span 
+			class="op">.</span><span 
+			class="keyw">push</span><span 
+			class="op">(</span>Ekip2<span 
+			class="op">);</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' @ '</span><span 
+			class="op">), </span><span 
+			class="str">'b8.2.7-uyg-2-sonuç-3'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>uzatılmışDizi<span 
+			class="op">,</span><span 
+			class="str"> 'b8.2.7-uyg-2-sonuç-4'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">[</span>uzatılmışDizi <span 
+			class="op">-</span> 1<span 
+			class="op">].</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' * '</span><span 
+			class="op">), </span><span 
+			class="str">'b8.2.7-uyg-2-sonuç-5'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz(</span>Ekip1<span 
+			class="op">[</span>uzatılmışDizi <span 
+			class="op">-</span> 1<span 
+			class="op">][</span>0<span 
+			class="op">],</span> <span 
+			class="str">'b8.2.7-uyg-2-sonuç-6'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">[</span>uzatılmışDizi <span 
+			class="op">-</span> 1<span 
+			class="op">]</span><span 
+			class="op">[</span>1<span 
+			class="op">],</span> <span 
+			class="str">'b8.2.7-uyg-2-sonuç-7'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>Ekip1<span 
+			class="op">[</span>uzatılmışDizi <span 
+			class="op">-</span> 1<span 
+			class="op">]</span><span 
+			class="op">[</span>2<span 
+			class="op">],</span> <span 
+			class="str">'b8.2.7-uyg-2-sonuç-8'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+
+		<p class="cursive-green">
+			(İlk Dizi) Ekip1 :<span class="cursive-red" id="b8.2.7-uyg-2-sonuç-1"></span>
+		</p>
+		<p class="cursive-green">
+			(İkinci Dizi) Ekip2 :<span class="cursive-red" id="b8.2.7-uyg-2-sonuç-2"></span>
+		</p>
+		<p class="cursive-blue">
+			(push() Işlemi) : uzatılmışDizi=Ekip1.push(Ekip2);
+		</p>
+		<p class="cursive-green">
+			(Güncellenmiş Dizi) Ekip1 : <span class="cursive-red" id="b8.2.7-uyg-2-sonuç-3"></span>
+		</p>
+		<p class="cursive-green">
+			(Güncellenmiş Ekip1 Dizisinin Eleman Sayısı) yeniuzatılmışDizi = <span class="cursive-red"  id="b8.2.7-uyg-2-sonuç-4"></span>
+			&nbsp;&nbsp;(3 eleman + 1 dizi)
+		</p>
+		<p class="cursive-green">
+			Güncellenmis Ekip1 Dizisinin Son Elemanı : Ekip1[3] =<span class="cursive-red" id="b8.2.7-uyg-2-sonuç-5"></span>
+			&nbsp;&nbsp;(Güncellenmiş Ekip1 dizisinin son elemanı Ekip2 dizisidir !)
+		</p>
+		<p class="cursive-green">
+			Güncellenmiş Ekip1 Dizisinin Son Elemanının İlk Elemanı : Ekip1[3,0] = <span class="cursive-red"  id="b8.2.7-uyg-2-sonuç-6"></span>
+		</p>
+		<p class="cursive-green">
+			Güncellenmiş Dizinin Son Elemanının İkinci Elemanı :  Ekip1[3,1] = <span class="cursive-red"  id="b8.2.7-uyg-2-sonuç-7"></span>
+		</p>
+		<p class="cursive-green">
+			Güncellenmiş Dizinin Son Elemanının Üçüncü Elemanı :  Ekip1[3,2] = <span class="cursive-red"  id="b8.2.7-uyg-2-sonuç-8"></span>
+		</p>
+		<p class="cursive-maroon">
+			push() Metodu ile Eklenecek Eleman Bir Dizi ise, 
+		</p>
+		<p class="cursive-maroon">
+			Dizinin Sonuna, Sonuncu Eleman Olarak Yeni Dizinin Tümü Eklenir.
+		</p>
+		<p class="cursive-maroon">
+			Bu Son Elemanın İç Elemanlarına, Ancak İki Boyutlu Dizi Notasyonu Kullanılarak Erişilebilir !
+		</p>
+		<p class="indent">
+			Yukarıdaki Sonuçlardan,
+			<span class="keyw">push</span><span class="op">()</span> metodunun 
+			çalışması üzerine açıklayıcı bilgiler elde edebiliriz. Ekip1
+			dizinin orijinal uzunluğu (eleman sayısı) 3 iken, 
+			üç elemanlı Ekip 2 dizisinin eklemesinden sonra, Ekip1 dizisinin uzunluğu
+			(eleman sayısı) tek bir eleman eklenmiş gibi sadece bir
+			artarak 4 e yükselmiştir. Ekip2 dizisi,
+			Ekip1 dizisinin sonuna, Ekip1<span class="op">[</span>3<span class="op">]</span> elemanı olarak
+			eklenmiştir. Eklenmiş olan Ekip1<span class="op">[</span>3<span class="op">]</span> elemanı,
+			<span class="keyw">join</span><span class="op">()</span> metodu 
+			ile gösterilmek istendiğinde,içerdiği tüm elemanlar toplu halde 
+			görülebilmektedir. Ekip1 dizisine, Ekip1<span class="op">[</span>3<span class="op">]</span>  olarak
+			Eklenmiş olan eski Ekip2 dizisinin içerdiği elemanlara, ancak
+			iki boyutlu dizi notasyonu ile erişilebilmektedir.
+		</p>
+		<p class="indent">
+			İki boyutlu dizilerde ilk koordinat yatay, ikinci koordinat düşey ekseni
+				belirtir. Çok boyutlu  diziler, biraz ileride incelenecektir. 
+				eleman<span class="op">[ -  </span>1<span 	class="op">]</span>, 
+				dizi uzunluğu  <span class="op">-</span> 1 yani sonuncu
+				yatay eleman anlamına gelmektedir. 
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b8.2.7-uyg-2.html"> örnekte</a> olduğu gibi
+			iki  skaler dizininin <span class="keyw">push</span><span class="op">()</span> metodu
+			ile  birbirlerine eklenmeleri sonunda boyutu tutarsız bir dizi ortaya çıkar.
+			Bu dizinin bir kısmı skaler,  bir kısmı ise, vektörel (matris) boyutundadır.
+			Boyut tutarsızlığı, aynı içerik tutarsızlığı gibi,  dizilerin otomasyon
+			metotları ile işlenmelerini engeller. Skaler diziler, 
+			<span class="keyw">concat</span> <span class="op">()</span> metodu ile birbirlerine
+			eklenirlerse, yine boyut açısından tutarlı bir skaler dizi oluşur. Bu açıdan
+			aynı boyuttan dizilerin  birbirlerine eklenmeleri için, 
+			<span class="keyw">concat</span> <span class="op">()</span> metodu
+			 daha uygun olabilir.
+		</p>
+		<p class="subheading" id="proto-reverse">8.2.8- reverse() Metodu
+		</p>
+		<p class="indent">
+			<span class="keyw">reverse</span><span class="op">()</span>
+		Metodu, bir dizinin elemanlarının yerleşim sırasını tersine çevirir. Sözdizimi,
+	</p>
+		<pre>
+<span class="pl-25">dizi</span><span 
+			class="op">.</span><span 
+			class="keyw">reverse</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent" id="b8.2.8-uyg-1">
+			şeklindedir. Dizi sürekli, bitişik bir dizi değilse, dizinin simetriği
+				 geri döndürülür. Bu metod, dizinin elemanlarının sırasını değiştirdiği
+			gibi, sırası değişmiş diziyi de geri döndürür. İstenirse, sırası değişmiş
+				dizi  başka bir diziye atanabilir. Aşağıda 
+			<a href="../uygulamalar/b8.2.8-uyg-1-js.html">JavaScript kodları</a>
+			görülmekte olan bir 
+			<a href="../uygulamalar/b8.2.8-uyg-1.html">uygulamada</a>, 
+			bir dizinin eleman sırasının tersine çevrilmesi görülmektedir:		</p>
+		<pre>
+		<span class="keyw">...</span>
+<span class="keyw-50">k</span> <span 
+			class="op">= [</span> 23<span 
+			class="op">,</span> 56<span 
+			class="op">,</span> 83<span class="op">];</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Orijinal Dizi : '</span><span 
+			class="op">,</span> k<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' * '</span><span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.8-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">k</span><span 
+			class="op">.</span><span 
+			class="keyw">reverse</span><span 
+			class="op">();</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Tersine Çevrilmiş Dizi : '</span><span 
+			class="op">,</span> k<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span 
+			class="op">(</span><span 
+			class="str">' * '</span><span 
+			class="op">)</span><span 
+			class="op">,</span> <span 
+			class="str">'b8.2.8-uyg-1-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="keyw">...</span>
+		</pre>
+		<p class="cursive-green">Program Sonucu :
+		</p>
+		<p id="b8.2.8-uyg-1-sonuç-1">
+		</p>
+		<p id="b8.2.8-uyg-1-sonuç-2">
+		</p>
+		<p class="indent">
+			Bu metot yeni bir dizi yaratmaz ve eski dizinin yerleşimi tersine çevirir.
+				Bu nedenle, 
+				<span class="keyw">reverse</span><span class="op">()</span> metodu dizilerin
+				kopyalanması için de kullanılamaz.</p>
+		<pre>
+<span class="pl-50">b <span 
+			class="op">=</span> a</span><span 
+			class="op">.</span><span 
+			class="keyw">reverse</span><span 
+			class="op">(</span>a<span 
+			class="op">.</span><span 
+			class="keyw">reverse</span><span 
+			class="op">());</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi, 
+		</p>
+		<pre>
+<span class="pl-50">b <span 
+			class="op">=</span> a<span 
+			class="op">;</span></span>
+		</pre>
+<p class="nonindent">
+			bildirimi ile eşdeğerdir ve sadece dizinin referansını kopyalar. Dizilerin
+				kopyalanması  konusu <a href="b8s1.html#proto">8.2</a> de incelenmiştir.
+		</p>
+		<p class="subheading" id="proto-shift">8.2.9 - shift() Metodu</p>
+		<p class="indent">
+			<span class="keyw">shift</span><span class="op">()</span> Metodu,
+			bir dizinin ilk elemanını siler ve değerini döndürür. Sözdizimi,
+		</p>
+		<pre>
+<span class="pl-25">dizi</span><span class="op">.</span><span 
+			class="keyw">shift</span><span class="op">();</span>
+		</pre>
+		<p class="nonindent" id="b8.2.9-uyg-1">
+			şeklindedir. Bu metodun bir 
+			<a href="../uygulamalar/b8.2.9-uyg-1.html">uygulama örneğinin</a> sonuçları
+			ve
+			<a href="../uygulamalar/b8.2.9-uyg-1-js.html">JavaScript kodları</a>
+			aşağıda görülmektedir:		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[ */</span>
+
+<span class="comm">// Bu Program bdelib.js Kitaplık Programından Yararlanmaktadır.</span>
+
+<span class="keyw-25">function</span> ilkElemanıKes()<span 
+			class="op">{</span>
+<span class="keyw-50">var</span> meyveler <span 
+			class="op">= </span><span 
+			class="keyw">new Array</span><span class="op">(</span><span 
+			class="str">'Mango'</span><span 
+			class="op">, </span><span 
+			class="str">'Muz'</span><span 
+			class="op">, </span><span 
+			class="str">'Papaya'</span><span class="op">),</span><span 
+			class="op"> </span>ilkEleman <span 
+			class="op">=</span> <span 
+			class="str">''</span><span 
+			class="op">, </span>kopyaDizi <span 
+			class="op">= [];</span> 
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Orijinal Dizi :'</span><span 
+			class="op"> , </span>meyveler<span 
+			class="op">.</span><span class="keyw">join</span><span class="op">(</span><span 
+			class="str">' | '</span><span 
+			class="op">), </span><span 
+			class="str">'b8.2.9-uyg-1-sonuç-1'</span><span class="op">);</span>
+
+<span class="pl-50">diziKopyala</span><span 
+			class="op">(</span>meyveler<span 
+			class="op">,</span> kopyaDizi<span 
+			class="op">);</span>
+
+<span class="pl-50">ilkEleman </span><span 
+			class="op">=</span> kopyaDizi<span 
+			class="op">.</span><span 
+			class="keyw">shift</span><span class="op">();
+
+</span><span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Dizinin İlk Elemanı :  '</span><span 
+			class="op"> ,</span> ilkEleman<span 
+			class="op">,</span><span 
+			class="str"> 'b8.2.9-uyg-1-sonuç-2'</span><span class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span class="op">(</span><span 
+			class="str">'Dizinin Geri Kalan Elemanları : '</span><span 
+			class="op"> ,</span> kopyaDizi<span 
+			class="op">.</span><span 
+			class="keyw">join</span><span class="op">(</span><span 
+			class="str">' | '</span><span class="op">),</span> <span 
+			class="str">'b8.2.9-uyg-1-sonuç-3'</span><span class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(ilkElemanıKes)</span><span 
+			class="op">;</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+		<p class="indent green">
+			Sonuç :
+		</p>
+		<p id="b8.2.9-uyg-1-sonuç-1"></p>
+		<p id="b8.2.9-uyg-1-sonuç-2"></p>
+		<p id="b8.2.9-uyg-1-sonuç-3"></p>
+		<p class="indent">
+			Bu uygulamadan da görüldüğü gibi, <span 
+			class="keyw">shift()</span> metodunun 
+			uygulanması ile, meyveler dizisinin 
+			ilk elementi kesilerek değeri döndürülmektedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b8s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b8s3.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.6-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.7-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.7-uyg-2.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.8-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b8.2.9-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b8/b8s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:12 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/uygulamalar/b8.5.1-uyg-2-js.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:01:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/uygulamalar/b8.5.1-uyg-2-js.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Dogan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>8.5.1-uyg-2-js</title>
+	</head>
+	<body>
+		<table id="layout-top" summary="Layout-top">
+			<tr>
+				<td><img src="../images/banner.png" alt="banner" class="banner" /></td>
+				<td class="top1text">JavaScript Temelleri - Uygulamalar -</td>
+				<td class="top1previous"><a href="../b8/b8s5.html#b8.5.1-uyg-2"><img 
+							src="../images/previous.gif" alt="önceki" /></a></td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td class="top2text">8.5.1-uyg-2-js.htm (b8.5.1-uyg-2.htm sayfasının
+					JavaScript Program Kodları)</td>
+				<td class="top2previous">8.5.1 Konu Sayfasına Dönüş</td>
+			</tr>
+		</table>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="comm-25">/* Bu Program bdelib.js Kitaplık Programını Kullanmaktadır */</span>
+<span class="comm-25">/* Proje Üyeler */</span>
+<span class="comm-25">/* Veri Yapısı */</span>
+<span class="comm-50">/* nr (Tamsayı) (Benzersiz)*/</span>
+<span class="comm-50">/* ad (Sözel) */</span>
+<span class="comm-50">/* soyad (Sözel) */</span>
+<span class="comm-50">/* spor (Sözel) */</span>
+
+<span class="comm-25">/* Yapılandırıcı Fonksiyon*/</span>
+
+<span class="keyw-25">function</span> Üyeler<span 
+			class="op">(</span>num<span 
+			class="op">,</span> isim<span 
+			class="op">,</span> soyisim<span 
+			class="op">,</span> etkinlik<span 
+			class="op">) {</span> 
+
+<span class="keyw-50">this</span><span 
+			class="op">.</span>nr <span 
+			class="op">=</span> num <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>ad <span 
+			class="op">=</span> isim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>soyad <span 
+			class="op">=</span> soyisim <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>spor <span 
+			class="op">=</span> etkinlik <span 
+			class="op">||</span> <span 
+			class="str">'Henüz Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">/* Veri Dizisi */</span>
+
+<span class="pl-25">üye</span><span 
+			class="op">= [];</span> 
+
+<span class="comm-25">/* Girilmiş Veriler */</span>
+
+<span class="pl-25">üye</span><span 
+			class="op">[</span>0<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>45<span 
+			class="op">,</span> <span 
+			class="str">'Selim'</span><span 
+			class="op">,</span> <span 
+			class="str">'Özkent'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tenis'</span><span 
+			class="op">);</span>
+<span class="pl-25">üye</span><span 
+			class="op">[</span>1<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>14<span 
+			class="op">,</span> <span 
+			class="str">'Gülcan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Hazer'</span><span 
+			class="op">,</span> <span 
+			class="str">'Tenis'</span><span 
+			class="op">);</span>
+<span class="pl-25">üye</span><span 
+			class="op">[</span>2<span 
+			class="op">]</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Üyeler<span 
+			class="op">(</span>13<span 
+			class="op">,</span> <span 
+			class="str">'Elif'</span><span 
+			class="op">,</span> <span 
+			class="str">'Elver'</span><span 
+			class="op">,</span> <span 
+			class="str">'Yüzme'</span><span 
+			class="op">);</span>
+			
+<span class="comm-25">/* Verilerin Üye Kayıt Numarasına Göre Sıralanması */</span>
+		
+<span class="keyw-25">function</span> nesneSıralama<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+<span class="keyw-50">return</span> a<span 
+			class="op">.</span>nr <span 
+			class="op">-</span> b<span 
+			class="op">.</span>nr<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">üye</span> <span 
+			class="op">=</span> üye<span 
+			class="op">.</span><span 
+			class="keyw">sort</span><span 
+			class="op">(</span>nesneSıralama<span 
+			class="op">);</span>
+
+
+<span class="comm-25">/* Sıralanmış Verilerin Listelenmesi */</span>
+
+<span class="keyw-25">function</span> üyeListesi<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> bilgiTablosu <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'Tablo1'</span><span 
+			class="op">),</span> başlık <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> tabloGövdesi <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> 
+<span class="pl-75">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'caption'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üyelerin Listesi'</span><span 
+			class="op">);</span>
+<span class="pl-50">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+
+<span class="pl-50">başlık</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'thead'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Numarası'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Adı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Soyadı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-50">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'th'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span><span 
+			class="str">'Üye Spor Dalı'</span><span 
+			class="op">);</span>
+<span class="pl-50">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span 
+			class="op">
+</span><span class="pl-50">başlık</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+<span class="pl-50">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>başlık<span 
+			class="op">);</span>
+
+
+<span class="pl-50">tabloGövdesi</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tbody'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i<span 
+			class="op">&lt;</span>üye<span 
+			class="op">.</span><span 
+			class="keyw">length</span><span 
+			class="op">;</span> i<span 
+			class="op">++ ) {</span>
+
+<span class="pl-75">yeniSatır</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'tr'</span><span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>nr<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>ad<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>soyad<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'td'</span><span 
+			class="op">);</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">className</span> <span 
+			class="op">=</span> <span 
+			class="str">'tbl'</span><span 
+			class="op">;</span>
+<span class="pl-75">yeniSütun</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>üye<span 
+			class="op">[</span>i<span 
+			class="op">].</span>spor<span 
+			class="op">));</span>
+<span class="pl-75">yeniSatır</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSütun<span 
+			class="op">);</span>
+<span 
+			class="op">
+</span><span class="pl-75">tabloGövdesi</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>yeniSatır<span 
+			class="op">);</span>
+<span class="pl-75">bilgiTablosu</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>tabloGövdesi<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class ="pl-25">sayfaYüklendiktenSonraÇalıştır</span><span 
+			class="op">(</span>üyeListesi<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt; */</span>
+		</pre>
+
+			
+
+		<ul id="navbottom">
+			<li id="index">
+				<a href="bdelib-src.html"><em>&laquo; bdelib Kitaplığı</em></a>
+			</li>
+			<li id="denge">
+			</li>
+			<li id="sayfa">
+				<a href="b8.5.1-uyg-2.html"><em> &laquo; Uygulama Sayfasına Dönüş</em></a>
+			</li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<a href="b8.5.1-uyg-2-src.html"><em>Uygulama Sayfasının XHTML Kodları &raquo; </em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+		<!--Script Yükleme Alanı Başlangıcı -->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<!--Script Yükleme Alanı Sonu -->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/uygulamalar/b8.5.1-uyg-2-js.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:01:35 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,1087 @@
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:10 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b2/b2-s1.html"> 
+    <meta charset="utf-8" />
+    <title>Bölüm 2 Sayfa 1</title> 
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" /> 
+    <link href="../css/Adastyle.css" rel="stylesheet" /> 
+	</head>
+	<body>
+	<p><img class="banner" alt="Banner" src="../resimler/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../resimler/index.gif" /></a>
+				<a href="../b1/b1-s2.html"><img class="navbutton"
+				alt="previous" src="../resimler/previous.gif" /></a>
+				<a href="b2-s2.html"><img class="navbutton"
+				alt="next" src="../resimler/next.gif" /></a></p>
+		</div>
+		<p class="chapter">
+			Ada Programlama Dili Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Başlangıç Bilgileri
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 1
+		</p>
+		<p class="title-left" id="struc">2.1 - Ada Programlarının Yapısı</p>
+		<p class="indent">
+			Ada programlama dili, sıkı yazılım denetiminin uygulandığı  bir program dilidir. Bunun anlamı,
+			kullanılacak her bilginin önceden tanımlanmış olması, değişkenlerin önceden tanıtılmış  ve
+			veri tiplerinin belirlenmiş olması gerektiğidir. Program yapısı da güçlü veri denetimi
+			doktrinine uygun olarak düzenlenmiştir. Ada programları,
+			</p>
+		<ul class="listNoMarker">
+		<li>Birliktelik Bölümü</li>
+		<li>Bildirimler Bölümü</li>
+		<li>Uygulama Bölümü</li>
+		</ul>
+		<p class="nonindent">
+			olarak üç bölümden oluşur. Ada programları veya daha özel adları ile 
+			Ada prosedürleri (Ada procedures),
+</p>
+			<pre class="app-25">
+<span class="comm-25">-- Birliktelik (Context) Bölümü (Prosedürün Çalışmasında Yararlanılacak Dış  Paketler)</span>
+<span class="keyw">procedure</span> Prosedür_Adı <span class="keyw">is</span>
+<span class="comm-25">-- Bildirimler Bölümü (Declarations) (Specifications) (Prosedürde Kullanılacak Sabit ve Değişkenlerin Tip ve Adlarının Belirtilmesi ile Diğer Tüm Gerekli Bilgilerin Açıklanması)</span> --
+<span class="keyw">begin</span>
+<span class="comm-25">-- Çalışabilir Program Adımları (Body)</span> -- 
+<span class="keyw">end</span> Prosedür_Adı;<span class="comm-25">-- (Prosedür Adının Prosedür Sonunda Belirtilmesi İsteğe Bağlıdır, Fakat Belirtilmesi İyi Bir Programlama Stilidir)</span> --
+		</pre>
+		<p class="indent">
+			Ada programlarında yukarıdaki kısımlardan gerekli olmayanlar kullanılmayabilir. Örnek olarak, eğer
+			programda başka bir paketin içeriğinden yararlanılmayacaksa, programın birliktelik kısmında 
+			paket ismi bulunmayabilir. Aynı şekilde, eğer programda bir değişken kullanılmayacaksa, tanım
+			kısmının da olmayacağı açıktır. Ada programlarında tanım ve içerik kısımları birbirinden bağımsız olarak
+			derlenebilir. Salt tanımlardan oluşan dosyalara (*.ads) Ada spesifikasyon dosyaları adı verilir. Salt çalışan kısımlardan 
+			oluşan dosyalara da (*.adb) Ada gövde (body) dosyaları adı verilir.
+</p>
+		<p class="indent">
+			Programın birliktelik kısmında, varsa programın çalışması sırasında yararlanılacak program paketlerin
+			adı veya adları bildirilir. Ada program ( prosedür) grupları paketler (packages) olarak toplanabilir ve 
+			başka programlarda da bunlardan yararlanılabilir. 
+		</p>
+		<p class="indent">
+			Programın tanım kısmında, programın çalıştırabilir kısmında kullanılacak değişenler, veri tipleri, 
+			prosedür ve fonksiyonlar tanımlanır. Ada programlarında çalışacak kısımda kulanılacak her program öğesi,
+			önceden tanımlanmalıdır. 
+		</p>
+		<p class="indent">
+			Ada prosedürlerinin yazılımında, büyük/küçük harf kullanılması farketmez. Bu nedenle, begin, 
+			Begin, BEGIN, AHmet, ahmet, AHMET hep aynı sözcükler olarak kabul edilir. Fakat dikkat 
+			edilmesi gereken nokta, tanımlayıcılarda Türkçe alfabenin kötü altılı adı verilen ve Latin-1 spesifikasyonu
+			dışında kalan, ı,İ ,ş ,Ş ,ğ ,Ğ karakterleri arasındaki ı , I, i, İ karakterlerinin kullanılması durumunda, derleyici 
+			i nin büyük harfini I olarak, ı nın büyük harfini ise İ olarak değerlendirmektedir. Bu durumda, tanımlayıcılarda
+			ı ve i karakterleri bulunduğunda, bu tanımlayıcıların kesinlikle tanımlandıkları karakterle çağrılmaları gereklidir. 
+			Örnek olarak, Bahçe_Havuzu ile BAHÇE_HAVUZU, Şerbet ve şerbet aynı tanımlayıcı olmasına karşın, 
+			Mülk_Değeri ile Mülk_Değerİ, Ev_Fiyatı ile Ev_FiyatI asla aynı tanımlayıcı değillerdir. Bu durumda, istanbul yerine 
+			Istanbul yazılabilir fakat ısı olarak tanımlanan bir değişken her zaman küçük harfle ısı olarak çağrılmalıdır. Çünkü,
+			derleyici bu tanımlayıcıyı ısı veya İSİ olarak algılamaktadır.
+</p>
+		<p class="indent">
+			Ada çekirdek programlama dili, biraz ileride açıklanacak saklı sözcükleri içerir. Yararlı olabilecek 
+			programların oluşturulabilmesi için çekirdek program öğelerinden daha fazlasına gereksinim duyulur.
+</p>
+		<p class="indent">
+			Ada çekirdek programlama dili bilgilerin değerlendirilmesi ile ilgillidir. Bilgiler programcı tarafından 
+			sağlanmalıdır. Örnek olarak Ada çekirdek programlama dili bir veri sistemi tanımlamaz. Veri sistemi 
+			programcı tarafından oluşturulmalı ve programa tanıtılmalıdır. Bu da genel bir programcı için kolay 
+			üstesinden gelinecek bir işlem değildir.
+</p>
+		<p class="indent">
+			Diğer bir başka güçlük de, Ada çekirdek programlama dilinin aynı Java C<sup>++</sup> gibi modern 
+			bilgisayar dillerinde olduğu gibi bir giriş çıkış/ortamı tanımlamamış olmasıdır. Bilgiler bir standart giriş 
+			ortamından alınıp bir standart çıkış ortamına aktarılabilir. Fakat bu işlem tamamen programcı tarafından 
+			düzenlenmelidir. Bu da genel bir programcı için yine başarılması kolay bir yöntem değildir. 
+</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/12rm/html/RM-TTL.html">Ada 2012 spesifikasyonu</a>, 
+			bu engellerin aşılabilmesi için, gerekli yazılımların derleyici tarafından paketler halinde sağlanmasını 
+			gerekli kılmıştır. Bu şekilde ekran çıkışları (komut satırı üzerine) ve klavye girişleri (komut satırı üzerinden) ,
+			dosyalara veri giriş/çıkışları, tüm veri sistemi, derleyiciye ilişikli ek paketler halinde düzenlenmiş ve 
+			kullanıcıların bu paketlerden yararlanarak programlarını yazabilmeleri sağlanmıştır. 
+</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/12rm/html/RM-TTL.html">Ada 2012 spesifikasyonu</a>
+			ile derleyicilerin kullanıcılara sağlaması gereken paketler açıkça belirtilmiştir. Bu paketler, standart içinde
+			tanımlandığından standardın bir parçasıdırlar fakat Ada çekirdek dili öğelerinin dışındadırlar. Bu nedenle, 
+			Ada çekirdek dilinde tanımlanan standart sözcüklere saklı sözcük (reserved word) adı verilirken, standart 
+			paketlerde  tanımlanan terimlere öntanımlı (predefined) adı verilir. Örnek olarak INTEGER sözcüğü, standart 
+			pakette bir veri tipi adı olarak tanımlandığından öntanımlı bir sözcüktür. 
+</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/12rm/html/RM-TTL.html">Ada 2012 spesifikasyonu</a>
+			tarafından derleyicilerin kullanıcılara sağlaması zorunlu olarak belirtilen standart paketler,
+			ayrı programlar halinde değil, derleyici programı içinde yerleştirilmiş olarak bulunurlar. Bu nedenle 
+			bu paketlerin yazılımı, açık olan kaynak kodlarının incelenmesi ile görülebilir. Genel kullanıcıların kaynak 
+			kodlarına gereksinmeleri yoktur. Kullanıcıların sadece standart paketlerin kullanımını standartta 
+			belirtilen şekilde doğru olarak kullanmaları yeterli olacaktır. Standard paketlerin kullanımı, spesifikasyonda
+			detaylı olarak açıklanmaktadır. Bu şekilde kullanıcılar standart paketlerden kolaylıkla yararlanabilmektedirler.
+</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/12rm/html/RM-TTL.html">Ada 2012 spesifikasyonu</a> 
+			standart giriş ortamı (&lt;stin&gt;) olarak klavyeyi, standart çıkış ortamı (&lt;stout&gt;) olarak ekranı 
+			tanımlar. Varsayılan standart hata bildirim ortamı da ekran olarak tanımlanmıştır. Bu varsayılan ortam 
+			tanımları, istendiğinde kullanıcılar tarafından değiştirilebilir.
+</p>
+		<p class="indent">
+			Standard paketlerin içeriği kullancılar tarafından yeniden tanımlanabilir. Ada özelleştirmeye son derece yatkındır. 
+			Her türlü öntanımlı paket adı yeniden adlandırılabilir, her türlü öntanımlı değişken yeniden yapılandırılabilir. bu
+			olanakların aşırı gereksinme olmadıkça hiç kullanılmamasında yarar bulunmaktadır. Genel olarak anlamı
+			belirli büyüklüklerin kendimize göre yeniden tanımlanması okunması ve izlenmesi son derece güç programlara
+			yol açar. Olanaklar ölçüsünde bundan kaçınmak ve genel kabul görmüş sınırlar içinde kalınması sağlık verilir. 
+			Standard paketlerdeki değerleri yeniden tenımlamak yerine kendi gereksinmelerimize uygun yeni veri tiplerini
+			ve yeni program paketlerini tanımlamak daha doğrudur. Ada bu konuda programcılara geniş olanaklar sağlamaktadır.
+</p>
+		<p class="indent">
+			Ada standart paketleri, kullanıcılara geniş bir veri tipi repertuvarı sağlamaktadır. Bu veri tiplerinin giriş/çıkışlarının
+			sağlandığı standart paketler, nesne ailesi olarak tanımlanmıştır. Kullanıcılar öntanımlı veri tiplerine dayalı kendi alt
+			tiplerini yaratabilir ve bu alt tiplerin giriş çıkışlarını standart paketlerin yeni örneklerini yaratarak kolaylıkla
+			sağlayabilirler. Ada bu bakımdan da çok esnek ve yeteneklidir.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/12rm/html/RM-TTL.html">Ada 2012 spesifikasyonu</a>
+			ile, derleyicilerin beraberinde gelen standart paketlerden birisi Ada.Text_IO program paketidir. Bu paket, 
+			Sözel verilerin standart giriş ortamından (klavyeden) okunması ile sonuçları standart çıkış ortamına (ekran) 
+			yönlendirilmesini sağlar. Aynı şekilde hataların da standart çıkış ortamından açıklanmasını gerçekleştirir. Ayrıca 
+			bu paket, standart pakette tanımlanan temel veri tiplerinin ve bu tiplere dayalı olarak kullanıcının yaratacağı 
+			alt tiplerinin de giriş/çıkış yöntemlerinin oluşturulmasını sağlar. Bu paketi ileride daha yakından inceleyeceğiz. 
+			Bu aşamada sadece aşağıdaki ilk örnekte olduğu gibi sadece kullanmakla yetineceğiz.
+</p>
+		<p class ="indent">
+			İlk uygulamamız, tüm bilgisayar dillerinde yeni öğrenmeye başlayanları kutlamak
+			için yazılan ilk program olan <a href="../uygulamalar/merhaba_dunya.html">Merhaba_Dunya.adb</a> 
+			programı olacaktır. Bu programın program listesi aşağıdaki gibidir. 
+	</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+<span class="keyw">procedure</span> Merhaba_Dunya <span class="keyw">is</span>
+<span class="keyw">begin</span>
+<span class="pl-25">Ada.Text_IO.Put_Line(Item =&gt; </span><span class="str">&quot;Merhaba Dünya!&quot;</span>);
+<span class="keyw">end</span> Merhaba_Dunya;
+		</pre>
+		<p class="nonindent">
+		 Program derlenip çalıştırılırsa, konsola Merhaba Dünya yazacaktır. 
+		</p>
+		<p class="indent">
+			Sonuçta oluşan merhaba_Dunya.exe dosyası, Windows ortamında, her yerde ve her makinede 
+			çalışabilecektir. Tekrar edelim, bu pogramcılar için büyük bir avantaj olarak kabul edilir.</p>
+		<p class="indent">
+			Program geliştirme aşamasında, exe dosyasının yerini değiştirmemekte yarar bulunmaktadır. 
+			Geliştirme aşamalarında kaynak dosyası yenilendikçe her derleyişte exe dosyası da yenilenmektedir. 
+			Bu nedenle her zaman güncel, yeni derlenmiş bir exe dosyası ile çalışmak için, gelişme sırasında 
+			GPS gibi geliştirme ortamlarının güncellediği yerde bulunan son sürüm exe dosyası ile çalışmanın 
+			garantili olması için geliştirme sırasında oluşan exe dosyalarının yeri değiştirilmemelidir. Geliştirme 
+			bitince, exe dosyası istenilen yere taşınabilir.
+		</p>
+		<p class="title-left" id="package">2.2 Ada Programlarında Paket Kullanımı, with ve use Bildirimleri</p>
+		<p class="indent">
+			Tüm Ada programları en az bir olmak üzere çeşitli program paketlerinden yararlanır. Ada derleyicisinin
+			kullanıcılara kolaylık sağlamak için Ada Standardı gereği olarak birçok öntanımlı paketi sağlaması gereği
+			daha önceden görülmüştü. Bu paketlerin içinde en önemlisi Standard paket adı verilen bir öntanımlı 
+			pakettir. Standard paket, Ada sisteminin karakter kodlarını ve veri yapısını drleyiciye tanıtır. Tüm Ada 
+			programları, hiçbir tanıtıma gerek olmadan otomatik olarak Standart Paketin tüm öğelerine erişebilir. 
+			Başka bir deyişle, Standard paket tüm Ada programları için tam olarak görünür durumdadır. 
+			Ada derleyicisi, Ada paketinin alt paketleri olarak çok sayıda yardımcı paket içerir. Yukarıdaki 
+			ilk örneklerimizde kullanmış olduğumuz sözel verilerin standar giriş/çıkış ortamlarına yönlendirilmesini 
+			sağlayan Ada.Text_IO paketi de bu yardımcı paketlerden biridir. Paketin yazılışı, bu paketin ana 
+			paketinin Ada paketi olduğu ve Text_IO paketin de Ada paketinin bir alt paketi olduğu 
+			Ada.&lt;paket_adı&gt; şeklinde yazılmasından anlaşılır. Burada Ana paket Ada, alt paket de 
+			Text_IO paketidir ve Ada.Text_IO olarak çağrılır.
+		</p>
+		<p class="indent">
+			Standard paket dışında hiçbir paket Ada Programları için görünür değildir ve programın yararlanacağı 
+			paketler, programın birliktelik bölümünde açıkça belirtilmelidir. Bir Ada prosedürünün yararlanacağı paketler,
+		</p>
+		<pre class="app-25">
+<span class="keyw-25">with</span> paket_adı [,paket_adı]
+		</pre>
+		<p class="nonindent">
+			şeklinde belirtilir. Bunun uygulanması, ilk örnekte de açık olarak görülmektedir. Programın birliktelik kısmında 
+			<span class="keyw">with</span> Ada.Text_IO bildiriminin yapılması ile Ada.Text_IO paketinin içeriği, program 
+			için erişilebilir konuma gelmektedir. Programda sözel mesajın ekrana gönderilmesini sağlayan prosedür,
+		</p>
+		<pre class="app-25">
+<span class="pl-25">Ada.Text_IO.Put_Line(</span><span class="str">&quot;Merhaba Dünya!&quot;</span>);
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu yazılım şeklinden, Put_Line prosedürünün, Ada paketinin bir alt paketi olan Text_IO paketinin bir
+			prosedürü olduğu görülmektedir. Belirli bir paket içeriği olan prosedür veya fonksiyona metot adı da verilmektdir.  
+			Bu tür, en ilk ata dan  başlanarak soyağacının tümünün yapısının belirtildiği isimlere tam nitelikli isimler 
+			(fully qualified names) adı verilir. Tüm soyağacını belirten tam nitelikli isimlere örnek olarak, ilk programımız olan
+			<a href="../uygulamalar/merhaba_dunya.html">Merhaba_Dunya</a> programının, yukarıda görülen
+			program listesinde Put_Line metodunu çağrılmasıdır. Burada Put_Line metodunun derleyici tarafından 
+			tanınması için, ilk atasından başlanarak tüm soyağacı bilgileri belirtilmiştir. Bu şekilde Put_Line metodunun 
+			Ada paketinde tanımlı Text_IO alt paketinin bir metodu olduğu anlaşılabilmektedir. Ada hiyerarşik yapılanmanın
+			belirtilmesi için Java gibi nokta (dot) notasyonu kullanmaktadır.
+</p>
+		<p class="indent">
+			Tam nitelikli isimler, programın okunurluğunu arttırken, program yazılımına da azımsanmayacak 
+			bir yük getirir. Program yazılımının hafifletilebilmesi için bir kolaylık olarak ikinci birliktelik bildirimi 
+			olan <span class="keyw">use </span>bildirimi kullanılabilir. Bu bildirimin kullanılışı, 
+	</p>
+<pre class="app-25">
+<span class="keyw-25">use</span> paket_adı [,paket_adı]
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Ada prosedürlerinde <span class="keyw">use</span> bildirimi yapıldığında, 
+			prosedür <span class="keyw">use</span> ile belirtilen paketin içinde olarak betimlenir ve 
+			belirtilen paketin metotları doğrudan çağrılabilir.  Bu şekilde tam nitelikli isimlerin yani tüm
+			hiyerarşik yapılanmanın belirtilmesine gerek kalmaz ve program yazılımı hissedilir şekilde
+			hafifler. Sorun birden fazla paket kullanıldığında ve kullanılan paketlerin aynı adla metotlar 
+			içermesi durumunda ortaya çıkar. Derleyiciler kullanma şekline göre, metotların kaynaklandığı paketleri
+			genellikle algılayabilir, ama insanlar için kullanılan metotların kaynağını saptamak zor olabilir.
+			Ayrıca <span class="keyw">use</span> bildirimleri isim uzayı kirlenmelerine neden olur ve
+			aşırı kullanılmaması gerekir. 	Yine de bazı durumlarda <span class="keyw">use</span> bildirimi
+			kaçınılmaz olabilir. Bu nedenle, gerektiğinde kullanmaktan çekinmemek gerekir. Bu iki bildirim
+			paketler konusu ile birlikte daha ayrıntılı olarak açıklanacaktır.
+			Yukarıda görülen ilk örnek olan <a href="../uygulamalar/merhaba_dunya.html">Merhaba_Dunya.adb</a> 
+			programında <span class="keyw">use</span> bildirimi yapıldığında program listesinin 
+			önemli ölçüde kısaldığı görülür. Bu yöntem, aşağıda program listesi görülen, 
+			<a href="../uygulamalar/yeniden_merhaba_dunya.html">Yeniden_Merhaba_Dunya</a> 
+			programında uygulanmıştır.
+		</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO; <span class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">procedure</span> Yeniden_Merhaba_Dunya <span class="keyw">is</span>
+<span class="keyw">begin</span>
+<span class="pl-25">Put_Line(</span><span class="str">&quot;Yeniden Merhaba Dünya!&quot;</span>);
+<span class="keyw">end</span> Yeniden_Merhaba_Dunya;
+		</pre>
+		<p class="nonindent">
+			Program derlenip çalıştırılırsa, konsola Yeniden Merhaba Dünya yazacaktır. Burada Put metodunun
+			daha kısa olarak çağrılabilmesinin <span class="keyw">use</span> bildirimi ile ilgisi yoktur.
+			Put metodu burada argüman sırasına göre çağrıldığından daha kısa olarak çağrılabilmektedir. 
+			Yine de, ilk programda olduğu gibi argüman ismi belirtilerek çağırma daha açıklayıcı olduğundan 
+			genellikle programcılar tarafından daha üstün tutulan ve uygulanan yöntemdir.
+		</p>
+		<p class="indent">
+			Bir prosedürde <span class="keyw">use</span> bildiriminin yapılmış olması, çağrılan metotların 
+			hiyerarşik yapılanmalarının belirtilmesine engel değildir. Metot çağırmalarında istendiğinde
+			yine tam nitelikli isimler kullanılabilir. Bu yöntem, program listesi aşağıda görülen,
+			<a href="../uygulamalar/bir_kez_daha_merhaba_dunya.html">Bir_Kez_Daha_Merhaba_Dunya</a> 
+			programında uygulanmıştır.
+	</p>
+		<pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;<span 
+			class="keyw">use</span> Ada.Text_IO;
+<span class="keyw">procedure</span> Bir_Kez_Daha_Merhaba_Dunya <span 
+			class="keyw">is</span>
+<span class="keyw">begin</span>
+<span class="pl-25">Ada.Text_IO.Put_Line</span>(Item =&gt; <span 
+			class="str">&quot;Bir Kez Daha Merhaba Dünya !&quot;</span>);
+<span class="keyw">end</span> Bir_Kez_Daha_Merhaba_Dunya;
+		</pre>
+		<p class="nonindent">
+		 Program derlenip çalıştırılırsa, konsola Bir Kez Daha Merhaba Dünya! yazacaktır. 
+		</p>
+		<p class="indent">
+			Bu küçük başlangıç programları, bizlere önemli bilgiler sağlamaktadır Tüm Ada programları,
+			bu örneklerde görülen program yapısını uygulamaktadır. Ada sözyazımı (sentaks) ve sözdizimi 
+			(semantik) açısından son derece basit, tutarlı ve mantıklı bir program dilidir. Bu nedenle, Ada 
+			programlarının yazımı programcılara diğer programlama dillerinde olmayan bir rahatlık duygusu
+			verir. Ada programlama dilinin mantıklı yapısı, diğer programlama dilleri ile karşılaştırıldığında 
+			öğrenimini de oldukça kolaylaştırmaktadır.
+		</p>
+		<p class="title-left" id="charset">2.3 - Ada Programlarında Kullanılabilecek Karakterler</p>
+		<p class="indent">
+			Ada programlama dili program listelerinde 
+			ISO/IEC 10646:2003 (Universal Multiple-Octet Coded Character Set) de 
+			tanımlanan tüm karakter uzayı kullanılabilir. Bu uzay düzlemler halinde düzenlenmiştir.
+			Her düzlem 65536 karakter içermektedir.
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a> karakter 
+			olarak adlandırılan birim, ISO/IEC 10646:2003 de belirlenmiş olan bir hücredir. Bu hücre için, I
+			SO/IEC 10646:2003 de belirli bir karakter tanımlanmış olması gerekmez. 
+		</p>
+		<p class="indent">
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a>, Ada 
+			programlarının çeşitli kısımlarında kullanılabilecek karakterler belirtilmiştir. 
+		</p>
+		<p class="indent">
+			Tanım düzeyinde göreli kod noktası 16#FFFE# veya 16#FFFF# olan karakterler, Ada program
+			listelerinde kullanılamazlar. Yorum satırları dışında, programlarda kullanılabilecek karakterler,
+			sadece other_format, format_effector, ve graphic_character olarak sınıflandırılmış karakterlerdir.
+		</p>
+		<p class="indent">
+			Burada other_format sınıfı karakterler, ISO/IEC 10646:2003 de belirlenmiş olan other_format 
+			genel kategorisi altında sınıflandırılmış karakterlerdir. 
+		</p>
+		<p class="indent">
+			Burada format_effector sınıfı karakterler, ISO/IEC 10646:2003 de belirlenmiş olan 
+			kod pozisyonları 16#09# (CHARACTER TABULATION), 16#0A#
+			(LINE FEED), 16#0B# (LINE TABULATION), 16#0C# (FORM FEED), 16#0D#
+			(CARRIAGE RETURN), 16#85# (NEXT LINE) ve separator_line ile separator_paragraph genel kategorisi
+			altında sınıflandırılmış karakterlerdir.
+		</p>
+		<p class="indent">
+			Burada graphic_character sınıfı karakterler, ISO/IEC 10646:2003 de belirlenmiş olan 
+			other_control, other_private_use, other_surrogate, format_effector ve 
+			göreli kod noktaları 16#FFFE# veya 16#FFFF# dışında olan karakterlerlerdir.
+		</p>
+		<p class="indent">
+			Ada programlarında, other_control, other_private_use ve other_surrogate
+			kategorisinde tenımlanmış karakterler sadece yorum satırlarında kullanılabilir.
+		</p>
+		<p class="indent">
+			ISO/IEC 10646:2003 standardı temelde Unicode 4 ile karşılaştırılabilir.
+			ISO/IEC 10646:2003 ile Unicode ilişkileri çok karmaşık ve özeldir. Unicode tanımları, karakter 
+			kodlarında, ISO ya kıyasla ek kısıtlar belirler. Bu nedenle, Unicode spesifikasyonuna uygun 
+			karakter kodları ISO standartlarını karşılayabilirken bunun tersi her zaman doğru olmayabilir. 
+			Buna rağmen, ISO ve Unicode kod noktaları Özellikle Latin alfabesi ile ilgili karakter 
+			kodlarında birbirleri ile uyumludur. Bunun sonucunda Türkçe karakterlerde de program 
+			öğelerinin adlandırılmasında kullanılabilmaktedir. Fakat burada 
+			son derece dikkat edilmesi gereken bir ayrıntı bulunmaktadır. Ada derleyicisi, büyük/küçük karakter
+			ayrımı yapmaz ve tüm isimlari büyük harflere çevirerek değerlendirir. Türkçe afabede i harfinin
+			büyük harfi İ olmasına karşın, Unicode standartlarında bu gerçek değildir. Bu nedenle, programın bir 
+			yerinde ikinci_durum adında bir isim kullanılmışsa, bunu daha sonra İkinci_durum olarak çağırmamak
+			gerekir, Türkçe tanımlar, daima tanımlandıkları karakterlerle çağrılmalıdır.
+		</p>
+		<p class="indent">
+			Gerek Ada gerekse Java gibi program dillerinde bağımsız program/prosedür isimleri aynı zamanda 
+			dosya isimleri olmak zorundadır. Türkçe açısından en büyük zorluk burada yaşanmaktadır, çünkü
+			işletim sistemleri Türkçe karakterler içeren dosya adlarını desteklememektedir. Windows 7 ve daha
+			önceki sürümler, Tüm Unix/Linux türevi işletim sistemlerinde bu sorunla karşı karşıya kalınır. Bu konuda
+			uygulanabilecek en gerçekçi yöntem aynı zamanda dosya adı olacak tüm program öğelerinin adlandırılmasında
+			sadece İngiliz alfabesinde bulunan karakterlerin kullanılması ile sınırlı kalınması olacaktır. Bir başka sorun da
+			prosedür isimlerinin Deneme_Sistemi olarak tanıtılıp Deneme_Sistemi.adb olarak saklanması sırasında
+			karşılaşılır. Windows sistemi bu dosyaları gereği gibi dosyalar ve sorunsuz derler. Linux sistemi ise,
+			dosya adı ile derlenecek birim adının farklı olduğunu ve deneme_sistemi.adb olması gerektiği şeklinde bir uyarı
+			mesajı verir, fakat derlemeyi sorunsuzca gerçekleştirir. Eğer farklı içerikli prosedürler, Deneme_Sistemi.adb ve 
+			deneme_sistemi.adb gibi karakterin büyük ve küçük harflerle yazılmasından başka farkı olmayan adeta aynı
+			dosya adları ile ile derlenmek istenirse, derleyiciler bu programları gereği gibi farklı olarak derler ve çalışabilir
+			dosyalar oluşturur. Fakat işletim sistemlerinin algılama olanaklarının zorlanmaması için her farklı programın
+			farklı isimle adlandırılarak derlenmesi uygun olacaktır. Dosya sistemi ile ilgili olmayan sabitler ve değişken 
+			adları gibi program öğelerinde Türkçe karakterler serbestçe kullanılabilir. Yine de, Linux sistemi Türkçeye 
+			özgü karakterleri kabul etmemektedir. Bu nedenle, Türkçe konuşan öğrencilerin kolay izleyebilmesi için 
+			uygulamalarda Türkçe tanımlayıcılar kulanıldığından tüm uygulamalar, sadece Windows ortamında 
+			derlenerek çalıştırılmışlardır. Bu uygulamaların Linux ortamında çalışmalarının sağlanması için tanımlayıcı
+			adlarının Latin-1 standardını karşılayan karakterlerle yeniden tanımlanması gerekecektir.
+	</p>
+<p class="title-left" id="reserved">2.4 Ada Programlama Dilinde Saklı Sözcükler</p>
+		<p class="indent">
+			Ada programlama dilinde saklı sözcükler aşağıda verilmiştir. , 
+			ADA 2005 spesifikasyonunda yeni eklenen üç saklı sözcük, asteristik (*) ile işaret edilmiştir.
+			Bu saklı sözcükler, küçük veya büyük karakterlerlerle yazılmış olarak program öğesi olarak kullanılamaz.
+			Konvansiyonel olarak, Ada programlarında saklı sözcükler, küçük harfle yazılmış şekilleri
+			ile kullanılır.
+		</p>
+		<div class="pl-200">
+			<table width="70%">
+				<tr>
+					<td align="left"><b>abort</b></td>
+					<td align="left"><b>else</b></td>
+					<td align="left"><b>new</b></td>
+					<td align="left"><b>return</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>abs</b></td>
+					<td align="left"><b>elsif</b></td>
+					<td align="left"><b>not</b></td>
+					<td align="left"><b>reverse</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>abstract</b></td>
+					<td align="left"><b>end</b></td>
+					<td align="left"><b>null</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>accept</b></td>
+					<td align="left"><b>entry</b></td>
+					<td align="left"></td>
+					<td align="left"><b>select</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>access</b></td>
+					<td align="left"><b>exception</b></td>
+					<td align="left"><b>of</b></td>
+					<td align="left"><b>separate</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>aliased</b></td>
+					<td align="left"><b>exit</b></td>
+					<td align="left"><b>or</b></td>
+					<td align="left"><b>subtype</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>all</b></td>
+					<td align="left"></td>
+					<td align="left"><b>others</b></td>
+					<td align="left"><b>synchronized*</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>and</b></td>
+					<td align="left"><b>for</b></td>
+					<td align="left"><b>out</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>array</b></td>
+					<td align="left"><b>function</b></td>
+					<td align="left"><b>overriding*</b></td>
+					<td align="left"><b>tagged</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>at</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+					<td align="left"><b>task</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"></td>
+					<td align="left"><b>generic</b></td>
+					<td align="left"><b>package</b></td>
+					<td align="left"><b>terminate</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>begin</b></td>
+					<td align="left"><b>goto</b></td>
+					<td align="left"><b>pragma</b></td>
+					<td align="left"><b>then</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>body</b></td>
+					<td align="left"></td>
+					<td align="left"><b>private</b></td>
+					<td align="left"><b>type</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"></td>
+					<td align="left"><b>if</b></td>
+					<td align="left"><b>procedure</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>case</b></td>
+					<td align="left"><b>in</b></td>
+					<td align="left"><b>protected</b></td>
+					<td align="left"><b>until</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>constant</b></td>
+					<td align="left"><b>interface*</b></td>
+					<td align="left"></td>
+					<td align="left"><b>use</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"></td>
+					<td align="left"><b>is</b></td>
+					<td align="left"><b>raise</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>declare</b></td>
+					<td align="left"></td>
+					<td align="left"><b>range</b></td>
+					<td align="left"><b>when</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>delay</b></td>
+					<td align="left"><b>limited</b></td>
+					<td align="left"><b>record</b></td>
+					<td align="left"><b>while</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>delta</b></td>
+					<td align="left"><b>loop</b></td>
+					<td align="left"><b>rem</b></td>
+					<td align="left"><b>with</b></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>digits</b></td>
+					<td align="left"></td>
+					<td align="left"><b>renames</b></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td align="left"><b>do</b></td>
+					<td align="left"><b>mod</b></td>
+					<td align="left"><b>requeue</b></td>
+					<td align="left"><b>xor</b></td>
+					<td align="left"></td>
+				</tr>
+			</table>
+		</div>
+		<p class="title-left" id="delimiter">2.5 - Ada Programlama Dilinin Sözcük Sınırlayıcıları (Delimiter)</p>
+		<p class="indent">
+			&amp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;)
+			&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;
+			&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;
+			/&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&lt;
+			&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;|
+		</p>
+		<p class="indent">
+			veya bileşik sınırlayıclar (arada boşluk bırakılmaksızın ardarda yazılan sınırlayıcılar)
+		</p>
+		<p class="indent">
+			=&gt;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;**	
+			&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;&nbsp;&nbsp;&nbsp;/=
+			&nbsp;&nbsp;&nbsp;&nbsp;&gt;=&nbsp;&nbsp;&nbsp;&nbsp;&lt;=
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;
+		</p>
+			<p class="indent">
+			Aşağıdaki sınırlayıcıların adlandırılması
+		</p>
+		<div class="pl-200">
+			<table frame="void" rules="none" border="0" cellpadding="2">
+				<tr>
+					<th align="left">sınırlayıcı (delimiter)</th><th align="left">isim</th>
+				</tr>
+				<tr>
+					<td align="left">&amp;</td>
+					<td align="left">ampersand</td>
+				</tr>
+				<tr>
+					<td align="left">'</td>
+					<td align="left">tek tırnak </td>
+				</tr>
+				<tr>
+					<td align="left">(</td>
+					<td align="left">sol parantez </td>
+				</tr>
+				<tr>
+					<td align="left">)</td>
+					<td align="left">sağ parantez </td>
+				</tr>
+				<tr>
+					<td align="left">*</td>
+					<td align="left">yıldız (çarpı) </td>
+				</tr>
+				<tr>
+					<td align="left">+</td>
+					<td align="left">artı</td>
+				</tr>
+				<tr>
+					<td align="left">-</td>
+					<td align="left">eksi</td>
+				</tr>
+				<tr>
+					<td align="left">,</td>
+					<td align="left">virgül </td>
+				</tr>
+				<tr>
+					<td align="left">.</td>
+					<td align="left">nokta</td>
+				</tr>
+				<tr>
+					<td align="left">:</td>
+					<td align="left">iki nokta üstüste (kolon) </td>
+				</tr>
+				<tr>
+					<td align="left">;</td>
+					<td align="left">noktalı virgül (semikolon) </td>
+				</tr>
+				<tr>
+					<td align="left">&lt;</td>
+					<td align="left">küçüktür</td>
+				</tr>
+				<tr>
+					<td align="left">=</td>
+					<td align="left">eşittir</td>
+				</tr>
+				<tr>
+					<td align="left">&gt;</td>
+					<td align="left">büyüktür</td>
+				</tr>
+				<tr>
+					<td align="left">|</td>
+					<td align="left">veya</td>
+				</tr>
+				<tr>
+					<td align="left">#</td>
+					<td align="left">kare</td>
+				</tr>
+			</table>
+		</div>
+		<p class="indent">
+			Aşağıdaki bileşik sınırlayıcıların adlandırılması
+		</p>
+		<div class="pl-200">
+			<table frame="void" rules="none" border="0" cellpadding="2">
+				<tr>
+					<th align="left">sınırlayıcı (delimiter)</th><th align="left">isim</th>
+				</tr>
+				<tr>
+					<td align="left">=&gt;</td><td align="left">ok</td>
+				</tr>
+				<tr>
+					<td align="left">..</td><td align="left">çift nokta</td>
+				</tr>
+				<tr>
+					<td align="left">**</td><td align="left">çift yıldız, eksponent</td>
+				</tr>
+				<tr>
+					<td align="left">:=</td>
+					<td align="left">atama (sözel olarak : &amp;ldquo;atanır&amp;rdquo;)</td>
+				</tr>
+				<tr>
+					<td align="left">/=</td>
+					<td align="left">eşitsizlik (sözel olarak : &amp;ldquo;eşit değil &amp;rdquo;)</td>
+				</tr>
+				<tr>
+					<td align="left">&gt;=</td>
+					<td align="left">büyük veya eşit</td>
+				</tr>
+				<tr>
+					<td align="left">&lt;=</td>
+					<td align="left">küçük veya eşit </td>
+				</tr>
+				<tr>
+					<td align="left">&lt;&lt;</td>
+					<td align="left">sol etiket işareti </td>
+				</tr>
+				<tr>
+					<td align="left">&gt;&gt;</td>
+					<td align="left">sağ etiket işareti </td>
+				</tr>
+				<tr>
+					<td align="left">&lt;&gt;</td>
+					<td align="left">kutu</td>
+				</tr>
+			</table>
+		</div>
+		<p class="title-left" id="operator">2.6 - Ada Programlama Dilinde İşlemciler</p>
+		<div class="pl-200">
+			<p class="indent">
+				Ada İşlemcileri (Derleyen Jim Rogers, &quot;<a href="http://adaic.org/whyada/intro3.html">Introducing Ada</a>&quot;)
+			</p>
+			<table border="1" cellpadding="5">
+				<tbody> 
+					<tr>
+							<th>Operator</th>
+							<th><b>Java</b></th>
+							<th>C/C++</th>
+							<th>Ada</th>
+					</tr>
+					<tr>
+							<td>Atama</td>
+							<td valign="top"><code>=</code></td>
+							<td><code>=</code></td>
+							<td><code>:=</code></td>
+					</tr>
+					<tr>
+							<td>Eşitlik</td>
+							<td valign="top"><code>==</code></td>
+							<td><code>==</code></td>
+							<td><code>=</code></td>
+					</tr>
+					<tr>
+							<td>Eşitsizlik</td>
+							<td valign="top"><code>!=</code></td>
+							<td><code>!=</code></td>
+							<td><code>/=</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Büyükyür</td>
+							<td valign="top"><code>&gt;</code></td>
+							<td valign="top"><code>&gt;</code></td>
+							<td valign="top"><code>&gt;</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Küçüktür</td>
+							<td valign="top"><code>&lt;</code></td>
+							<td valign="top"><code>&lt;</code></td>
+							<td valign="top"><code>&lt;</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Büyük veya Eşit </td>
+							<td valign="top"><code>&gt;=</code></td>
+							<td valign="top"><code>&gt;=</code></td>
+							<td valign="top"><code>&gt;=</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Küçük veya Eşit</td>
+							<td valign="top"><code>&lt;=</code></td>
+							<td valign="top"><code>&lt;=</code></td>
+							<td valign="top"><code>&lt;=</code></td>
+					</tr>
+					<tr>
+							<td>Artı Eşit</td>
+							<td valign="top"><code>+=</code></td>
+							<td><code>+=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>Eksi Eşit</td>
+							<td valign="top"><code>-=</code></td>
+							<td><code>-=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>Çarrpı Eşit</td>
+							<td valign="top"><code>*=</code></td>
+							<td><code>*=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>Bölü Eşit</td>
+							<td valign="top"><code>/=</code></td>
+							<td><code>/=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>veya Eşit </td>
+							<td valign="top"><code>|=</code></td>
+							<td><code>|=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>ve Eşit </td>
+							<td valign="top"><code>&amp;=</code></td>
+							<td><code>&amp;=</code></td>
+							<td valign="top">&nbsp;</td>
+					</tr>
+					<tr>
+							<td>Modulus</td>
+							<td valign="top"><code>%</code></td>
+							<td><code>%</code></td>
+							<td><code class="keyw">mod</code></td>
+					</tr>
+					<tr>
+							<td>Artık (Remainder)</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td><code class="keyw">rem</code></td>
+					</tr>
+					<tr>
+							<td>Mutlak Değer</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td><code class="keyw">abs</code></td>
+					</tr>
+					<tr>
+							<td>Üsse Kaldırma </td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td><code>**</code></td>
+					</tr>
+					<tr>
+							<td>Aralık</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td><code>..</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Üyelik</td>
+							<td valign="top"><code>instanceof</code></td>
+							<td valign="top">&nbsp;</td>
+							<td valign="top"><code class="keyw">in</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Mantıksal And</td>
+							<td valign="top"><code>&amp;&amp;</code></td>
+							<td valign="top"><code>&amp;&amp;</code></td>
+							<td valign="top"><code class="keyw">and</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Mantıksal Or</td>
+							<td valign="top"><code>||</code></td>
+							<td valign="top"><code>||</code></td>
+							<td valign="top"><code class="keyw">or</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Mantıksal Not</td>
+							<td valign="top"><code>!</code></td>
+							<td valign="top"><code>!</code></td>
+							<td valign="top"><code class="keyw">not</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Bit İşlem And</td>
+							<td valign="top"><code>&amp;</code></td>
+							<td valign="top"><code>&amp;</code></td>
+							<td valign="top"><code class="keyw">and</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Bit İşlem Or</td>
+							<td valign="top"><code>|</code></td>
+							<td valign="top"><code>|</code></td>
+							<td valign="top"><code class="keyw">or</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Bit İşlem Dışlayıcı (Exclusive) Or</td>
+							<td valign="top"><code>^</code></td>
+							<td valign="top"><code>^</code></td>
+							<td valign="top"><code class="keyw">xor</code></td>
+					</tr>
+					<tr>
+							<td valign="top">Bit İşlem Not</td>
+							<td valign="top"><code>~</code></td>
+							<td valign="top"><code>~</code></td>
+							<td valign="top"><code class="keyw">not</code></td>
+					</tr>
+					<tr>
+							<td valign="top">String Ekleme</td>
+							<td valign="top"><code>+</code></td>
+							<td valign="top">&nbsp;</td>
+							<td valign="top"><code>&amp;</code></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="title-left" id="code">2.7 - Ada Programlama Dilinin Program Yazım Konvansiyonu</p>
+		<p class="indent">
+			Ada çok geniş ve çok programlama öğesi içeren bir programlama dilidir. Günümüzde Steelman 
+			standardına uyabilen tek programlama dili oluşu bu enginliği açıklamaktadır. Bu nedenle, Ada
+			programlarında okunurluğun evrenselleştirebilmesi ve sürdürülebilir olması için belirli bir yazım 
+			konvansiyonuna kesinlikle uyulması gerekir. 
+		</p>
+		<p class="indent">
+			Ada kod yazımı konvansiyonları, ortak olarak oluşturulmuş ve 
+			<a href="http://www.adaic.com/docs/95style/html/cover.html">Ada Information Clearingshouse</a>
+			sitesinde yayınlanmaktadır. Bu konvansiyon kısa bir kural listesi değil, geniş içerikli bir kurallar kitabıdır.
+			Bu kuralların sadece başlangıçta uygulanacak küçük bir kısmı aşağıda belirtilebilmiştir. 
+		</p>
+		<p class="indent">
+			Bu konuda sağlık verilecek yöntem, özellikle başlangıçta, yazmı yöntemine alışıncaya kadar,
+			bu yazım kurallarını daima açık tutmak ve sürekli olarak kod yazımlarını genel konvansiyona
+			uygun olarak oluşturmaktır. Özel kodlama stili geliştirmekten kesinlikle kaçınılmalıdır. Özel
+			kodlama sistemi, okunabilirliği, yani ileride program bakımını, hata bulunmasını, başka 
+			programlarda ilişkiyi mahveder. Ada programlarında gözün alıştığı bir yapı vardır. Bu yapının dışına
+			çıkıldığında, program izlenebilirliğini yitirir. Programlar başından sonuna kadar, belirlenmiş
+			düzen korunarak yazılmalıdır.
+		</p>
+		<p class="indent">
+			Ada kod yazımı konvansiyonuna göre,
+		</p>
+		<ul class="listNoMarker">
+			<li>Saklı sözcükler küçük harfle yazılır.</li>
+			<li>Değişkenler ilk harfi büyük sonrakiler küçük, ikinci sözcüğe gerek varsa, alt bağlaç ile birleştirilmiş ve 
+			her bağlaçtan sonra ilk harfi büyük diğer harfleri küçük olarak yazılır.</li>
+			<li>Fonksiyon, paket, prosedür ve kitaplık isimleri aynı değişkenler gibi yazılır.</li>
+			<li>Girintilenen satırlar genel olarak 3 nokta içerlek olarak yazılır. Tab karakteri
+				kulanılmamalıdır. Çünkü tab girintileri standartlaştırılamamıştır ve her programda
+				farklı uzunlukta olabilir.</li>
+			<li>Devam eden satırlar 2 nokta içerlek olarak yazılır</li>
+			<li>Aritmetik , atama, karşılaştırma gibi işlemcilerin önünde ve ardında bir boşluk bırakılır</li>
+			<li>Satır uzunluğu 70 karakter civarında olmalıdır.</li>
+			<li>Her satıra tek bir komut yazılmalıdır.</li>
+		</ul>
+		<p class="nonindent">
+			Diğer kurallar için, mutlaka kurallar kitabına bakılmalıdır.
+		</p>
+		<p class="indent">
+			Ada kod yazım konvansiyonları için, 
+			<a href="http://software.gsfc.nasa.gov/assetsApproved/PA2.4.1.1.1.pdf">Flight Software Branch Ada Coding Standard</a> , 
+			<a href="http://archive.adaic.com/docs/style-guide/83style/html/">Ada '83 Quality and Style:</a> ve
+			<a href="http://www.iste.uni-stuttgart.de/ps/ada-doc/style_guide/contents.html">Ada 95 Quality and Style Guide Guidelines for Professional Programmers</a> 
+			yayınlarının okunması çok yararlı olacaktır.
+		</p>
+		<p class="title-left" id="identifiers">2.8 - Ada Programlama Dilinde Tanımlayıcılar</p>
+		<p class="indent">
+			Tanımlayıcılar program öğelerinin adlandırılmasında kullanılan sözcüklerdir. Yeni sürüm Ada derleyicileri 
+			Unicode desteklidir ve Unicode tanımlı tüm karakterler, aşağıdaki kısıtlar içinde tanımlayıcı olarak kullanılabilirler. 
+		</p>
+		<p class="indent">
+		Tanımlayıcı tanımı için Backus-Naur formu :
+		</p>
+		<div class="Examples-Maroon">
+			<span class="swiss">identifier</span><span class="swiss">&nbsp;::=&nbsp;</span><br />
+			&nbsp;&nbsp;&nbsp;<span class="swiss">identifier_start</span>
+			&nbsp;{&lt;<span class="swiss">identifier_start</span>
+			&nbsp;|&nbsp;<span class="swiss">identifier_extend</span>}
+		</div>
+		<div  class="Examples-Maroon">
+			<span class="swiss">identifier_start</span><span class="swiss">&nbsp;::=&nbsp;</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="swiss">letter_uppercase</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">letter_lowercase</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">letter_titlecase</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">letter_modifier</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">letter_other</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">number_letter</span>
+		</div>
+		<div class="Examples-Maroon">
+			<span class="swiss">identifier_extend</span><span class="swiss">&nbsp;::=&nbsp;</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="swiss">mark_non_spacing</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">mark_spacing_combining</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">number_decimal</span><br />
+			&nbsp;&nbsp;&nbsp;|&nbsp;<span class="swiss">punctuation_connector</span>
+		</div>
+		<p class="indent">
+			Bu tanımlar Unicode tanımlarıdır ve anlaşılmaları ilk bakışta kolay olmayabilir. Bu konuda daha kolaylaştırılmış
+			bir BNF aşağıda görülmektedir.
+		</p>
+		<p class="indent">
+			<span class="pl-50">tanımlayıcı </span>::= alfabetik_karakter{ [ &quot;_&quot; ] alfabetik_veya_sayısal _karakter }
+		</p>
+		<p class="indent">
+			<span class="pl-50">alfabetik_veya_sayısal _karakter</span> ::= sözel_karakter | sayısal_karakter
+		</p>
+		<p class="indent">
+			Bu tanımda, her dildeki klavyede olan tüm karakterler kullanılabilir. Buna rağmen yeniden
+			hatırlayalım Linux sistemi Türkçeya özgü karakterleri kabul etmemekte ve bu karakterleri içeren programları
+			derlememektedir. Eğer programlar salt Windows ortamında çalıştırılacaksa Türkçe karakterler
+			rahatlıkla kullanılabilir.
+		</p>
+		<p class="indent">
+			BNF tanımlarının okunmalarını yeniden hatırlayalım :
+		</p>
+		<p class="nonindent">
+			:: tanım		</p>
+		<p class="nonindent">
+			| veya, alternatif olarak
+		</p>
+		<p class="nonindent">
+			[ ] 0 veya 1 kez (isteğe bağlı)
+		</p>
+		<p class="nonindent">
+			{ } 0, 1 veya birden çok kez tekrarlanabilir.
+		</p>
+		<p class="nonindent">
+			( ) terimlerin yeniden gruplanması (anlamda açıklık sağlanması için kullanılır).
+		</p>
+		<p class="indent">
+			Tanımlayıcılar için BNF diyagramının açılımı aşağıdaki gibidir:
+		</p>
+		<p class="nonindent">
+			tanımlayıcı alfabetik bir karakterle başlayacak, bundan sonra, istendiği kadar , isteğe bağlı bir alt bağlacı içeren sayısal
+			veya alfabetik bir  karakterle devam edebilecektir. Sayısal karakterler 1..9 arası sayılar, alfabetik karakterler , özel 
+			karakterlerin dışında, Unicode tanımlı tüm alfabetik karakterlerdir. Bu tanım, tanımlayıcılarda iki tane birbirini takip 
+			eden alt bağlaç kullanılamayacağı, tanımlayıcıların özel karakterlerle başlayamayacağı anlamına gelir.
+		</p>
+		<p class="indent">
+			Tanımlayıcılar için BNF diyagramları :
+		</p>
+		<p class="nonindent">
+			<img src="../resimler/identifier.gif" alt="Tanımlayıcı" />
+		</p>
+		<p class="nonindent">
+			<img src="../resimler/identifier_letter.gif" alt="Harfler" />
+		</p>
+		<p class="nonindent">
+			<img src="../resimler/upper_case_letter.gif" alt="Büyük Harfler" />
+		</p>
+		<p class="nonindent">
+			<img src="../resimler/lower_case_letter.gif" alt="Küçük Harfler" />
+		</p>
+		<p class="nonindent">
+			<img src="../resimler/digit.gif" alt="Sayı" />
+		</p>
+		<p class="indent">
+			Ada programlama dili küçük/ büyük harflere duyarlı değildir. Karakter dizgisi (string) değerler 
+			dışında tüm program öğelerinin isimleri önce büyük harflere çevrilir, sonra çağrılır. Tanımlayıcılar, 
+			büyük harflere çevrildikten sonra, biraz ileride listesi verilen Ada Programlama Dili Saklı 
+			Sözcükleri (Reserved Words) ile aynı olamazlar.
+		</p>
+		<p class="indent">
+			Tanımlayıcının karakter sayısı sınırlandırılmamıştır. Fakat, pratikte aşırı uzun tanımlayıcılarla 
+			çalışmak zor olabilir. Tanımlayıcılar derleyicinin belirttiği satır uzunluğundan daha uzun olamaz. 
+			Bu uzunluk 200 karakterden az değildir.
+		</p>
+		<p class="indent">
+			Ada programlama dilinin küçük/büyük harflere duyarlı olmaması, tanımlayıcıların 
+			küçük veya büyük harflerle yazılımın biribirinin aynı olması sonucunu doğrurur. Yani 
+			ALMA ve alma ve bu arada ALma aynı tanımlayıcıyı
+			belirtir. İngilizce harfler için bir sorun yoktur fakat bazı Türkçe karakterlerde sorun çıkar. 
+			Bu konuda 
+			<a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+			sayfa 54 de Türkçe karakterlerle,
+		</p>
+		<p class="nonindent">
+			diyarbakır
+		</p>
+		<p class="nonindent">
+			olarak tanımlanmış bir tanımlayıcının, büyük harflere çevrilmesi sırasında yaşanabilecek sorunları 
+			belirtmektedir. Burada i harfinin büyük harfi I harfidir. Oysaki bu harf Türk Alfabesinde İ harfidir. 
+			Aynı şekilde, ı harfinin Ada büyük harf karşılığı klavyede olmayan bir karakterdir. Oysaki 
+			Türk Alfabesinde bu harf, I harfidir. Benzer idiosenkrazilerin Litvanya dili ve Azeri lehçesinde de 
+			gözlenmiş olduğu belirtilmektedir. 
+	</p>
+		<p class="indent">
+			Bu konuda eğer dikkatli ve tutarlı olunursa hiçbir sorun çıkmaz. Aslında bir değişkeni mine olarak
+			tanımlayıp daha sonra MINE olarak çağırmak tutarsız ve anlamsız bir davranıştır. Eğer bir 
+			tanımlayıcı Mine olarak belirlenmişse, programın sonuna kadar Mine olarak çağrılmalı ve 
+			başka yazılış şekilleri ile çağrı yapılmamalıdır. Buna uyulursa hiçbir sorun yaşanmaz.
+		</p>
+		<p class="indent">
+			Ada programlama dilinin küçük/büyük harflere duyarlı olmaması, saklı sözcüklerin de 
+			istenildiği gibi kullanılmasına olanak verir. Bu şekilde Begin, begin veya BEGIN
+			aynı şekilde değerlendirilir. Bu konuda da tutarlı olmak ve program listelerinde 
+			yazım konvansiyonlarından (herkes tarafından kabul gören fakat resmi olmayan kurallar) 
+			ayrılmamak gerekir. Bu konvansiyon kurallarından biri, Ada saklı sözcüklerinin
+			küçük harfke yazılmasıdır.
+		</p>
+		<p class="indent">
+			Ada tanımlayıcıları eğer birden fazla sözcük içerirlerse, geleneksel olarak sözcükler 
+			alt bağlaç ile birleştirilerek yazılır. Örnek olarak, Toplam_Metre_Tul klasik bir Ada tanımlayıcısıdır.
+		</p>
+		<p class="indent">
+			Tanımlayıcılar konuları ile uyumlu ve açıklayıcı olarak seçilirlerse, izlenmeleri de daha kolay olur.
+			Örnek olarak bir boyanın türünün belirtilmesi için, 
+		</p>
+		<p class="nonindent">
+			Plastik_Boya veya Akrilik_Boya gerçek yaşamda değişkenin anlamını iyi bir şekilde açıklayan tanımlayıcılardır.
+		</p>
+		<p class="indent">
+			İlginç bir uyarı olarak, Ada programlarının yazımının sadece programcıları hedeflediğini belirtelim.
+			Programcının yazdığı kodlar, derleyici tarafından yeniden yorumlanır, son derece alçak düzeyde 
+			yeniden düzenlenir, optimize edilir ve derlenir. Yani derlenen programının programcının yazmış 
+			olduğu program ile ilgisi yoktur. Yazılmış olan program, derleyici için bir istek listesinden 
+			öteye bir anlam taşımaz. Esas hedef insandır. Program, insanların iyi anlayacağı 
+			(doğal olarak derleyicinin de iyi anlayacağı), açık, iyi okunabilen, yazım konvansiyonlarına iyi 
+			uyulmuş olarak düzenlenmelidir. Makine her türlü programı okur, okumakta zorlanırsa derlemez. 
+			Fakat insanlar karışık yazılmış programları, aradan süre geçerse, kendileri bile izleyemez 
+			hale gelebilirler.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="../b1/b1-s2.html"><em> &laquo;Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2-s2.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		 <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml11"
+        alt="Valid XHTML 1.1" height="31" width="88" /></a>
+  </p>
+
+</a></body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b2/b2-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:10 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

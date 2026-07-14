@@ -1,0 +1,1287 @@
+﻿<!doctype html>
+<html lang="tr" lang ="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:23 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Ada/b4/b4-s1.html">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Bölüm 4 Sayfa 1</title>
+    <meta name="Subject" content="Ada Turkish Tutorial" />
+    <meta name="Description" content="Ada Tutorial in Turkish Language " />
+    <meta name="Keywords" content="Ada Tutorial Turkish" />
+    <meta name="Abstract" content="Ada Turkish Tutorial" />
+    <meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+    <meta name="Distribution" content="Local" />
+    <meta name="Robots" content="Index" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <!-- !CSS -->
+    <link href="../css/Adastyle.css" rel="stylesheet" />
+</head>
+  <body>
+     <p>
+      <img class="banner" alt="Banner" src="../resimler/banner.gif" />
+    </p>
+    <div class="navtop">
+      <p>
+        <a href="../index.html"><img class="navbutton"
+          alt="index" src="../resimler/index.gif" /></a>
+        <a href="../b3/b3-s11.html"><img class="navbutton"
+          alt="previous" src="../resimler/previous.gif" /></a>
+        <a href="b4-s2.html"><img class="navbutton"
+          alt="next" src="../resimler/next.gif" /></a></p>
+    </div>
+    <p class="chapter">
+      Ada Programlama Dili Temelleri
+    </p>
+    <p class="chapter">
+      Bölüm 4
+    </p>
+    <p class="chapter">
+      Kullanıcı Tanımlı Veri Tipleri
+    </p>
+    <p class="pagenum">
+      Bölüm 4 Sayfa 1
+    </p>
+    <p class="title-left" id="type-def">4.1 Özgün Tiplerin Tanıtımı</p>
+    <p class="indent">
+      Ada programlama dili, alışılagelmiş birçok programlama diilinin kapasitesini ve düşünce
+      yeteniğini kat kat aşar. Ada, birçok programlama dilinin düşüncesinde olmayan,
+      kullanıcı tipi verilerin yani kullanıcıların kendi gereksinmelerine göre tasarımını
+      yaptıkları verilerin tanıtımına olanak sağlar.
+    </p>
+    <p class="indent">
+      Ada programlama dili, aslında Standard paketle temel (progenitor) tipleri kullanıma açar.
+      Bu temel tipler, sadece ilk gereksinmeleri karşılamak ve temel tanımların yapılması
+      amacını taşımaktadır. Programların taşınma yeteneğinin arttırılması ve verilerin
+      amaca uygunluğu açısından kullanıcıların kendi tip ve alt tiplerini tanıtıp uygulamaları
+      sağlık verilmektedir.
+    </p>
+    <p class="indent">
+      Örnek olarak karpuz sayımını gerçekleştirmek amacı ile yapılacak bir programda,
+      karpuzların ayrık ve sayılabilir nitelikte olmaları, bunların bir tamsayı tipi ile sayılmaları
+      gerektiğini gösterir. Karpuzlar negatif olamazlar, program, en çok 10000 karpuz sayımını
+      hedeflerse, Karpuz veri tipinin 0 ile 10000 arası kısıtlı bir tamsayı alt tipi olması gerektiğini açıklar.
+    </p>
+    <p class="indent">
+      Standard pakette, sayılablir tipler, Boolean ve Character tipleri ile sınırlıdır. Oysaki
+      kullanıcılar daha başka sayılabilir veri tiplerine, örnek olarak haftanın günleri veya yılın ayları
+      gibi verileri toplayan sayılabilir verilere gereksinme duyabilirler. Yine Standard pakette yer almayan
+      yeni veri tiplerinin tanıtımına gereksinme duyulabilir. Bunun için kullanıcıların kendi
+      veri tiplerini tanıtıp kullanmaları gerekecektir.
+    </p>
+    <ul class="listNoMarker">
+      <li>Her tip, bir değerler kümesinden ve bir işlemler kümesinden oluşur. Çalışma sırasında (runtime)
+      bu tipe ait değeri taşıyan bir nesne oluşur.</li>
+      <li>Tipler Elementer, ayrık (discrete), gibi kategorilere ayrılır. Aynı kategorideki
+      veri tipleri bazen sınıflar halinde sıralanabilir. Öntanımlı sınıflar, elementary, scalar, discrete,
+      enumeration, character, boolean, integer, signed integer, modular, real,
+      floating point, fixed point, ordinary fixed point, decimal fixed point, numeric, access,
+      access-to-object, access-to-subprogram, composite, array, string, (untagged) record, tagged,
+      task, protected, nonlimited şeklinde tanımlanır.
+      </li>
+      <li>Elemanter tipler lojik olarak bölünemez tiplerdir. Bunlar skaler (ayrık -discrete- ve
+        gerçek sayı -real-) tipleri ile, access (bellek adresleri) tipleridir. Ayrık (discrete) tipler ya
+        tamsayı (ınteger) tiplerdir veya sayılabilir değerlerin tanıtılması ile oluşturulan sayılabilir
+        (Enumeration) tipleridir.</li>
+      <li>Bileşik (Composite) tipler, kayıt (record) , kayıt uzantısı (record extension), dizi
+        (array), arayüzey (interface), görev (task) ve korumalı (protected) tiplerdir.</li>
+      <li>Bazı tiplerin ayraç (diskriminant) adı verilen özellikleri bulunur. Bu değerler,
+        tipin kısıtlarını, başlangıç değerlerini ve diğer başka özelliklerini etkilerler. Ayraçlar
+        bir tür parametre olarak düşünülebilir.</li>
+      <li>Bir tipin bir nesnesinin alabileceği değerler kısıt (constraint) adı ile belirtilen
+        değerler aralığı ile belirlenebilir. Boş kısıt (null constraint) kısıtsız (unconstrained)
+        bir tipe işaret eder. Access tipleri null değerinden başka tüm olası değerleri alabilir.</li>
+      <li>Bir alt tip (subtype) bir tipin belirli kısıtlarını, belirli niteliklerini içeren bir kombinayonudur.
+        Temel tip, alt tipin tipi olarak adlandırılır. Bir alt tip null değeri dışında, tüm kendi
+        kısıtlarını karşılayan değerleri alablir. Bir alt tip, eğer temel tip kısıtsız (unconstrained) ise
+        veya temel tipin kısıtlı olmasına karşın alt tipin kısıtsız olması durumunda kısıtsız, aksi
+        durumda ise kısıtlı bir alt tip olarak adlandırılır.</li>
+      <li>Her tip tanımının ilk alt tipi kendisidir.</li>
+    </ul>
+  <p class="indent">
+      Veri kategorileri <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a> unda
+      tanımlandığı şekilde aşağıda görülmektedir.
+  </p>
+<div class="Examples-Maroon">
+      all&nbsp;types<br />
+      &nbsp;&nbsp;&nbsp;elementary<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scalar<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;discrete<br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;enumeration<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;character<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;boolean<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;other&nbsp;enumeration<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;integer<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;signed&nbsp;integer<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;modular&nbsp;integer<br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;floating&nbsp;point<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;fixed&nbsp;point<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;ordinary&nbsp;fixed&nbsp;point<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;decimal&nbsp;fixed&nbsp;point<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access<br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access-to-object<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access-to-subprogram<br />
+      &nbsp;&nbsp;&nbsp;composite<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;untagged<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;string<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;other&nbsp;array<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;record<br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;task<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tagged&nbsp;(including&nbsp;interfaces)<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonlimited
+      &nbsp;tagged&nbsp;record<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      limited&nbsp;tagged<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;limited&nbsp;tagged&nbsp;record<br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;synchronized&nbsp;tagged<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;tagged&nbsp;task<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;tagged&nbsp;protected
+  </div>
+    <p class="indent">
+      Kullanıcı tipi verilerin tanıtımı için sözdizimi,
+    </p>
+    <div class="Examples-Maroon">
+      type_declaration&nbsp;::=&nbsp;&nbsp;full_type_declaration<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;incomplete_type_declaration<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;private_type_declaration<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;private_extension_declaration
+    </div>
+    <p class="indent">&nbsp;</p>
+    <div class="Examples-Maroon">
+      full_type_declaration&nbsp;::=&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>type</b>&nbsp;defining_identifier&nbsp;
+      [known_discriminant_part]&nbsp;<b>is</b>&nbsp;type_definition;<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;task_type_declaration<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;protected_type_declaration
+    </div>
+    <p class="indent">&nbsp;</p>
+    <div class="Examples-Maroon">
+      type_definition&nbsp;::=&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enumeration_type_definition
+      &nbsp;|&nbsp;integer_type_definition<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;real_type_definition&nbsp;|&nbsp;array_type_definition<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;record_type_definition&nbsp;|&nbsp;access_type_definition<br />
+      &nbsp;&nbsp;&nbsp;|&nbsp;derived_type_definition&nbsp;|&nbsp;interface_type_definition
+    </div>
+    <p class="indent">&nbsp;</p>
+  <div class="Examples-Maroon">
+      integer_type_definition ::= signed_integer_type_definition | modular_type_definition<br />
+      signed_integer_type_definition ::= range static_simple_expression .. static_simple_expression<br />
+      modular_type_definition ::= mod static_expression
+    </div>
+    <p class="indent">&nbsp;</p>
+    <div class="Examples-Maroon">
+      real_type_definition ::=<br />
+      floating_point_definition | fixed_point_definition<br />
+      floating_point_definition&nbsp;::=&nbsp;<br />
+      &nbsp;&nbsp;<strong>digits</strong>&nbsp;<em>static_</em>expression&nbsp;
+  [real_range_specification]
+
+    </div>
+    <p class="indent">
+      Bu tanımlar, kullanıcı tanımlı veri tiplerinin yaratılması için uyulması gereken
+      sözdizim kurallarıdır.
+    </p>
+    <p class="indent">
+      Ada programlama dili, verileri, veri sınıfları olarak sınıflandırır. Veri sınıfları,
+      verilerin temel yapılarını belirler ve bu yapıya uygun veri tipleri, aynı veri sınıfının
+      üyeleri olarak nitelendirir. Bazı veri sınıflarının temel tipleri de tanımlanmıştır.
+      Temel tipler, derleyicinin tanımlayabildiği ve donanımın destekleyebildiği en geniş
+      yeteneklere sahip tipler olarak düşünülür. Her veri sınfının öntanımlı işlemcileri ve
+      uygulanılanabilir nitelikleri tanımlanmıştır.
+    </p>
+    <p class="indent">
+      Ada programlama dili,
+      <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a>
+      İşaretli Tamsayılar, İşaretsiz (Çevrimsel) (Modüler) Tamsayılar, Gerçek sayılar, Adi Sabit
+      Ondalıklı Gerçek Sayılar, Desimal Sabit Ondalıklı Gerçek Sayılar, Sayılabilir Veriler,
+      Diziler, Kayıt Tipi Veriler, Bellek Adresleri (Access) ve Görev (Task) tipi Veriler olmak
+      üzere temel 12 tane veri sınıfını kullanıma açar. Kullanıcılar,
+      <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+      içinde tamımlı olan ve bir kısmı yukarıda görülen sözdizimi kuralları içerisinde
+      bu veri sınıfları içinde kendi veri tiplerini tanıtıp kullanabilirler.
+    </p>
+    <p class="indent">
+      Bazı veri sınıfları, daha fazla ayrıştırılamayan Tamsayılar, Gerçek Sayılar, Sayılabilir
+      Veriler, Bellek Referans Tipleri gibi basit (bölünemeyen) veri tipi sınıflarıdır. Dizi ve Kayıt
+      Tipi veriler ise çeşitli sınıftan basit tiplerin biraraya getirilmesi ile oluşturulmuş bileşik
+      veri sınıflarıdır.
+    </p>
+    <p class="indent">
+      Ada veri sınıfları hiyerarşik bir yapı oluşturur. Temel veri tipi öntanımlı ise en tepede
+      öntanımlı temel veri tipi bulunur. Her yaratılan kullanıcı veri tipi bu temel tipin alt
+      tipi sayılır ve her alt tipi istendiği kadar alt tipi tanımlanabilir. Her alt tip, üst tipinin
+      tanımlı işlemcilerini kalıtım yolu ile elde eder. Öntanımlı temel tiplerin bulunmadığı
+      veri sınıflarında, her kullanıcı tanımlı veri tipi temel tipin ilk alt tipi olarak düşünülebilir
+      ve alt tipleri oluşturulabilir.
+    </p>
+    <p class="indent">
+      Ada veri sınıflarının temel tipleri, isimsiz ve soyut tanımlardır. Her isimsi veri tipi,
+      temel tipin ilk alt tipi olarak kabul edilir ve istendiği kadar alt tipleri yaratılabilir.
+    </p>
+    <p class="indent">
+      <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonunda</a>
+      Ada temel veri sınıfları ve bu sınıflara ait alt veri tiplerinin oluşturma yöntemleri
+      belirlidir. Kullanıcılar hiçbir başka yardımcı paket içinde tanımlı metotlardan yararlanmaya
+      gerek duymadan kendi alt veri tiplerini yaratabilir ve kullanabilirler. Bu açıdan Standard Pakette
+      tanımlanmış veri tiplerine hiçbir gereksinme yoktur. Standard Paket kullanıcılara
+      yardım amacı ile hazırlanmıştır. Kullanıcılar Standard Paketteki tanımları örnek alarak,
+      kendi özgün veri tiplerini yaratıp kullanabilirler.
+    </p>
+    <p class="indent">
+      Bu bölüme kadar yaptığımız çalışmalarda, Tamsayı ve Gerçek SAyı sınıfı veri
+      tiplerinin sadece Standard Pakette tanımlanmış olan öntanımlı tiplerini
+      kullandık. Bu bölümde, Tamsayı ve Gerçek Sayı sınıfından kendi özgün tiplerimizi
+      yaratıp kullanacağız.
+    </p>
+    <p class="indent">
+      Yukarıdaki listede görülen bazı veri tipleri henüz incelenmemiş veri tipleridir.
+      Bunları da zamanla konular ilerledikçe, inceleyip uygulayacağız.
+    </p>
+    <p class="indent">
+      Her yeni bir birimin (entity) tanımı, bir ismi bu birimin görüntüsü (view) ile ilişkilendirir.
+      Bir birimin görüntüsü, bu birimin tanınması ive kullanımı çin gerekli isim ve diğer ayraç
+      ( discriminants) ve kısıtlar gibi tanımlamaları da içerir. Bir tipin görüntüsü (view of a type
+      yerine) tip (<span class="keyw">type</span>, ve <span class="keyw">subtype</span>)
+      terimleri kullanılır.
+    </p>
+    <p class="indent">
+      Bir programın derlenmesi sırasında bir tipin tanımı, o tipi tanımlar. Programın çalışma sürecinde
+      (run-time) o tipin geliştirilmesi (elaboration) işlemi sonunda tanımlanmış olan tip yaratılmış olur.
+    </p>
+    <p class="indent">
+      Bir tip, temel kullanım sematiğini belirleyen değerler kümesi ve temel işlemlerini belirleyen
+      işlemler kümesi ile karakterize edilir. Belirli bir tipin nesnesi (object), bu tipin değerini
+      içeren bir çalışma süreci birimi (entity) dir.
+    </p>
+    <p class="indent">
+      Belirli bir tipin nesnelerinin alabilecekleri değerler, çeşitli kısıtlar (constraint) ile sınırlandırılabilir.
+      Bu kısıtlar, kapsam kısıtları, indis (index) kısıtları, ayraç (diskriminant) kısıtları olabilir.
+      Hiçbir kısıtın belirtilmediği durum boş kısıt (null constraint) olarak adlandırlır.
+    </p>
+    <p class="indent">
+      Yeni tanımlanan tipler, türetilmiş oldukları veri sınıfının tüm tanımlı işlemlerini de kalıtım
+      yolu ile kazanırlar.
+    </p>
+    <p class="indent">
+      Ada programlama dilinde kullanıcıya özgü, özgün ve yeni tam ( full type) bir veri tipi
+    </p>
+    <pre class="app-25">
+<span class="keyw-25">type</span> Veri_Tipi <span class="keyw">is</span> ... (tipin tanımı)
+    </pre>
+    <p class="nonindent">
+      şeklinde tanımlanır. Bu tanım, tanımlanan veri tipinin yapısında kuramsal anonim İsimsiz) bir
+      veri tipi kavramı oluşturur ve bu kavramın (konsept), Veri_Tipi isimli ilk alt tipini yaratır.
+    </p>
+    <p class="indent">
+      İlk olarak, tamsayılar sınıfından verilerin yataılmasını inceleyeceğiz. Tamsayılar sınıfı
+      verilerin öntanımlı root_integer adlı bir temel bir tipi bulunmaktadır. Bu temel tipten sonra,
+      universal_integer adlı tamsayı tipi tanımlanmıştır. Bunun alt tipi spesifikasyonda
+      belirtilmememiştir. Kullanıcılar universal_integer den sonraki alt tamsayı sınıfı veri tipini
+      oluşturmakta özgürdür. Standart Paket Integer adında bir tamsayı veri tipi tanımlamaktadır.
+      Yine Standart Pakette, Integer veri tipinin Natural ve Positive alt tipleri tanıtılmaktadır.
+      Standart Paket kullanıcı paketine eşdeğer bir pakettir. Kullanıcılar, yeni ve universal_integer
+      veri tipi altında olacak tamsayılar sınfından yeni bir veri tipi yaratabilirler. Bu yeni veri tipi,
+      öntanımlı Integer ve alt tiplerinden farklı olacaktır. Tüm <span class="keyw">type</span>
+      saklı sözcüğü ile tanıtılan yeni tipler başkaları ile aynı sınıftan olabilirler fakat farklı tip
+      olarak kabul edilirler.
+    </p>
+    <p class="indent">
+      Tamsayılar sınıfından bu yeni veri tipi Ada sisteminin kökenlerini içeren Pascal sözdiziminde
+      bir tanım şekli olan aşağıdaki tanımdır.
+    </p>
+    <pre class="app-25">
+<span class="keyw-25">type</span> Tamsayı <span
+      class="keyw">is range</span> -1E-18 .. 1E18 (tipin tanımı)
+    </pre>
+    <p class="indent">
+      Her yeni temel tip, mutlaka <span class="keyw">type</span> saklı sözcüğü
+      kullanılarak ve sadece bir isim ve bir kapsam aralığı isteği belirtilerek yaratılır. Tanım sunumu
+      <span class="keyw">type</span> sözcüğü kullanılarak yapıldığından, Ada derleyicisi
+      bu isteğin temel bir tip yaratılması amacı ile yapıldığını anlar. Yaratılacak yeni temel tipin
+      veri tipini analiz eder, basit veya bileşik bir veri tipi olduğunu saptar, istenilen kapsam
+      aralığını belirler. Kapsam aralığı statik yanı değeri derleme öncesi belirli olan değerler veya
+      uygun durumlarda değerleri derleme sonucunda belirlenecek dinamik ifadelerle belirtilebilir.
+      Bu kapsam aralığının donanımda desteklenip desteklenmediğini inceler ve herşeyin
+      gerektiği gibi olduğunu belirlerlerse bu tipe ait temel bir tip kavramı oluşturur ve
+      <span class="keyw">type</span> tanımımında belirtilen isimle, bu tipin ilk alt tipini
+      yaratır. Bu sürece geliştirme (elaboration) adı verilir.
+    </p>
+    <p class="indent">
+      Tanımında <span class="keyw">type</span> saklı sözcüğü belirtilerek yaratılmış olan
+      yeni veri tipi, kuramsal olarak, kuramsal bir veri tipinin kapsam alanı sınırlı ilk alt tipi olarak
+      kabul edilir. <a href="http://www.ada-auth.org/standards/ada12.html">Ada 2012 spesifikasyonu</a>
+      bunu yeni ve farklı bir tip olarak kabul eder ve <em>T</em> olarak tanımlar. Uygulama
+      açısından ise, bu yeni tanımlanan veri tipi, yeni ve alt tipleri tanımlanabilir bir veri tipi olarak
+      hareket eder. Bu yeni veri tipi kendi sınfının özelliklerini, aynı sınıftan diğer tipler ile
+      paylaşır. Fakt aynı sınıftan olmasına karşın, aynı sınıftaki diğer veri tiplerinden faklıdır.
+      Aynı sınıftaki diğer veri tipleri ile aynı ifadelerde bulunamaz, aynı sınıfta bile olsalar,
+      diğer veri tipleri için tanımlanmış giriş/çıkış prosedürlerinden yararlanamaz. Sadece aynı
+      sınıftaki, veya benzer yapıdaki snıflardakiveri tipleri ile açık olarak birbirlerine dönüştürülebilir.
+      Bu veri tipininin nesnelerinin alabileceği değerler, tanımındaki kısıtlar ile belirlenir.
+    </p>
+    <p class="indent">
+      Bir alt tipin, kapsam kısıtlaması olmayan (null constraint) kuramsal üst tipine T'Base
+      niteliği ile erişilir. T'Base niteliği, yaratılmış olan yeni tipin üst tipi niteliğinde olan
+      kuramsal kısıtsız bir tipin niteliklerine erişim sağlar. Örnek olarak, Tamsayı'Base'First
+      niteliğinin değeri, Tamsayılar sınıfında, bir verinin donanımda desteklenebilen en
+      geniş kapsam aralığının ilk değerini, döndürür. Bu değer, tamsayılar kümesinin
+      donanımda desteklenebilien ilk elemanının değeridir. Tamsayı'Base'Last niteliğinin
+      değeri ise, Tamsayı yapısında bir verinin donanımda desteklenebilen en geniş kapsam
+      aralığının son değerini, döndürür. Bu değer, tamsayılar kümesinin donanımda
+      desteklenebilen son elemanının değeridir. Bu değerlere göre, donanımın desteleyebildiği
+      değerler saptanarak, yeni özgün veri tipleri daha bilinçli, donanımın destekleyeceği
+      kapsam aralığında ve derleyicinin onay vereceği şekilde tanımlanabilir.
+    </p>
+    <p class="indent">
+      Kuramsal olarak alt veri tipi olarak tanımlansa de, her <span class="keyw-25">type</span>
+      olarak tanımlanan veri tipi, özgün ve alt tipleri türetilebilir bir yeni veri tipl
+      olarak hareket eder. Yeni veri tipleri belirli bir veri sınıfından olurlar ve önceden tanıtılmış
+      hiçbir isimli tipten türeyecek şekilde tanımlanmazlar. Yeni veri tipleri sadece bir isim ve ve bir
+      kapsam aralığı şeklinde <span class="keyw-25">type</span> saklı sözcüğü ile tanıtılırlar.
+      Yeni veri tipinin veri sınıfını derleyici saptar.
+    </p>
+    <p class="indent">
+      Birçok programlama dilinde sadece statik yani değeri derleme öncesinde belirli olacak şekilde
+      tanımlanabilen tip kapsamları, Ada tanımlarında dinamik, yanı değeri derleme sırasında
+      program adımlarına göre belirlenen değerler olabilir. Bazı durumlarda ise sadece statik
+      değerler kullanılabilir. Kapsamları dinamik olarak tanımlanan veri tiplerinin tanımlarında,
+      dinamik ifadelerin sonucu,  o tipin tanımı için geçerli olan değerleri sağlamalıdır.
+    </p>
+    <p class="indent">
+      Tamsayı veri tipi gibi özgün bir veri tipin tanımı derleyici tarafından kabul edilirse,
+      bu veri tipinin programlarda kullanılması için uygulama nesnelerinin yani, değişken ve
+      sabitlerinin yaratılması gerekir.
+    </p>
+    <p class="indent">
+      Yeni tanımlanan veri tipleri, temel yapıları aynı bile olsa ayrı veri tipi olarak kabul edilir.
+      Bu veri tipinden nesneler birbirlerine atanamaz ve ifadelerde karıştırılamazlar. Örnek
+      olarak, Tamsayı ve Integer tamsayılar sınıfından birer veri tipidir fakat aynı tip değildir.
+      Nesneleri birbirlerine atanamaz. Fakat gerek Tamsayı, gerekse Integer tamsayılar sınıfından
+      birer veri tipi olduklarından tüm sayısal sınıftan veri tipleri gibi birbirlerine uyumludur ve
+      açık (explicit) tip dönüştürümü ile birbirlerine atanabilirler. Yani,
+    </p>
+    <pre class="app-25">
+<span class="pl-25">A</span> : Tamsayı := 7;
+<span class="pl-25">B</span> : Integer := 26;
+<span class="pl-25">C</span> : Integer;
+...
+
+<span class="pl-25">C</span> := Integer(A);
+    </pre>
+    <p class="nonindent">
+      ataması geçerlidir. fakat, Tamsayı veri tipinin kapsam aralığı Integer tipinin
+      kapsam aralığından fazladır. Açık tip dönüşümleri, kapsam sınırı kontrollü tip
+      dönüşümleridir. Tamsayı veri tipinin nesnelerinin değeri, Integer
+      veri tipinin nesnelerinin kapsam sınırını aşacak kadar yüksekse, açık tip
+      dönüşümü sırasında kapsam aşımı hatası oluşur.
+    </p>
+    <p class="indent">
+      Tamsayı veri tipinin tamsayı kapsamı olağanüstü geniştir ve çalıştığımız sistemde
+      desteklenebilmektedir. Çalıştığımız sistemde, desteklenebilecek en yüksek tamsayı
+      kapsam aralığı aşağıda görülen <a href="../uygulamalar/b4_1_uyg_1.html">prosedürde</a>
+      görüldüğü gibi, saptanabilmektedir.
+    </p>
+    <pre class="app-25"><span class="S0"></span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span
+      class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_1_uyg_1<span
+      class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span
+      class="S0"> </span><span class="S11">Görüntü</span><span class="S0"> </span><span
+      class="S1">renames</span><span class="S0"> </span>Ada<span
+      class="S4">.</span>Text_IO<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span
+      class="S0"> </span><span class="S11">Tamsayı</span><span class="S0"> </span><span
+      class="S1">is</span><span class="S0"> </span><span class="S1">range</span><span
+      class="S0"> </span><span class="S4">-</span><span class="S3">9E18</span><span
+      class="S4"> .. </span><span class="S3">9E18</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Görüntü</span><span
+      class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span
+      class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı</span><span
+      class="S4">'</span>Image<span class="S4">((</span><span class="S11">Tamsayı</span><span
+      class="S4">'</span>Base<span class="S4">'</span>First<span class="S4">))</span><span
+      class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span
+      class="S7">" &nbsp;.. &nbsp;"</span><span class="S0"> </span><span
+      class="S4">&amp;</span><span class="S0"> &nbsp;</span><span
+      class="S11">Tamsayı</span><span class="S4">'</span>Image<span
+      class="S4">((</span><span class="S11">Tamsayı</span><span class="S4">'</span>Base<span
+      class="S4">'</span>Last<span class="S4">)));</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_1_uyg_1<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">-9223372036854775808  ..   9223372036854775807</span>
+
+<span class="nonindent">olmaktadır.</span>
+
+    </pre>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_1_uyg_1.html">prosedürde</a>,
+      görüldüğü gibi bu yeni tipin sağladığı tamsayı kapsam aralığı desteği
+      inanılmaz genişliktedir. Dunya nufusununyaklaşık 10<sup>10</sup>
+      kişi olduğu düşünülürse, bu veri tipi ile tüm dünya insanlarına bir kimlik
+      numarası verilebilir ve geride daha kullanılabilecek büyük sayıda kapasite
+      kalır.
+    </p>
+    <p class="indent">
+      Yeni oluşturulan Tamsayı veri tipi yeni bir veri tipidir ve Integer veri tipi
+      ile her iki veri tipinin nesnelerinin tamsayı değerleri olacağından başka
+      bir ilgisi yoktur. Bu nedenle, öntanımlı Ada.Integer_Text_IO giriş/çıkış
+      kolaylığı, Tamsayı veri tipi için kullanılamaz. Tamsayı veri tipinin
+      görüntülenebilmesi için ya yukarıdaki
+      <a href="../uygulamalar/b4_1_uyg_1.html">prosedürde</a>,
+      yapılmış gibi, Tamsayı nesnelerinin sözel imajının alınmasını veya
+      aşağıdaki <a href="../uygulamalar/b4_1_uyg_2.html">prosedürde</a>,
+      görüldüğü gibi Tamsayı veri tipindeki nesnelerin standart ortamda
+      giriş/çıkışlarını sağlayacak yeni bir paketin oluşturulması gerekir.
+    </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span
+      class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_1_uyg_2<span
+      class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span
+      class="S0"> </span><span class="S11">Tamsayı</span><span
+      class="S0"> </span><span class="S1">is</span><span
+      class="S0"> </span><span class="S1">range</span><span
+      class="S0"> </span><span class="S4">-</span><span
+      class="S3">9223372036854775808</span><span
+      class="S0"> </span><span class="S4">..</span><span
+      class="S0"> </span><span class="S3">9223372036854775807</span><span
+      class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span
+      class="S0"> </span><span class="S11">Tamsayı_IO</span><span
+      class="S0"> </span><span class="S1">is</span><span
+      class="S0"> </span><span class="S1">new</span><span
+      class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span
+      class="S4">.</span>Integer_IO<span class="S4">(</span>num<span c
+      lass="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span
+      class="S11">Tamsayı</span><span class="S4">);</span><span class="S0"></span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Tamsayı_IO</span><span
+      class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span
+      class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı</span><span
+      class="S4">'</span>First<span class="S0"> </span><span class="S4">,</span><span
+      class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span
+      class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span
+      class="S4">);</span><span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_Io<span
+      class="S4">.</span>Put<span class="S4">(</span><span class="S0"> </span>Item<span
+      class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span
+      class="S7">" &nbsp;.. &nbsp;"</span><span class="S0"> </span><span class="S4">);</span>
+  <span class="S0"></span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Tamsayı_IO</span><span
+      class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span
+      class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Tamsayı</span><span
+      class="S4">'</span>Last<span class="S0"> </span><span class="S4">,</span><span
+      class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span
+      class="S0"> </span><span class="S3">20</span><span class="S0"> </span><span
+      class="S4">);</span>
+<span class="S0"></span><span class="S0"></span>
+<span class="S1">end</span><span class="S0"> </span>b4_1_uyg_2<span
+  class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">-9223372036854775808  ..   9223372036854775807</span>
+
+<span class="nonindent">olmaktadır.</span>  </pre>
+
+    <p class="indent">
+      Bu şekilde, donanımın kapasitesinden tam olarak yararlanabilecek yeni veri tipleri
+      yaratabilir ve uygulamalarımızda kullanabiliriz.
+    </p>
+    <p class="indent">
+      Yeni veri tipleri yaratabileceğimiz bir başka veri sinıfı da, Gerçek Sayılar veri sınfıdır.
+      Bu sınıfın en ilk veri tipi, root_real, sonraki universal_real veri tipidir. Bu ndan sonra gelen
+      veri Standard Pakette tanımlanmış olan Flaot ver tipidir, fakat bu nokta kendimiz
+      yeni bir veri tipi yaratabiliriz. Yeni yaratılacak gerçek sayı veri tipi, gerçek sayılar sınfından
+      olacak, ve universal_real den bir sonraki alt tip olacak fakat Float ile hiyerarşik ilişkisi
+      (alt/üst) ilişkisi bulunmayacak, Flaot veri tipi ile farklı bir gerçeksayı veri tipi olacaktır.
+      Float ile tek ilgisi, her ikisinin de gerçek sayılar sınıfından veri olmaları ve bu yüzden
+      birbirleri ile uyumlu olduları ve birbirlerine açık dönüştürme ile dönüştürülebilir olmalarıdır.
+    </p>
+    <p class="indent">
+      Yeni gerçek sayı sınıfı veri tiplerinin yaratılması için yukarıdaki tanımda belirtilen
+      sözdizimi kuralları uygulanır.
+    </p>
+    <p class="indent">
+      Burada, <span class="keyw">digits</span> saklı sözcüğünü izleyen
+      <em>static expression</em>, bir tamsayı değeri veya sonucu bir tamsayı olan
+      herhangibir ifadedir.
+    </p>
+    <p class="indent">
+      Özgün bir gerçek sayı veri tipinin  tanımında, gerçek sayı kapsam aralığının belirtilmesi,
+      tanımdan da görülebileceği gibi isteğe bağlıdır. Eğer bir kapsam aralığı tanımlanacaksa,
+      <span class="keyw">digits</span> saklı sözcüğünü; izleyen <em>static simple expression</em>,
+       .. <em>static simple expression</em> gerçek bir sayı değeri veya sonucu bir gerçek sayı değeri
+       olan bir ifadededir. Her iki ifadenin de aynı gerçek sayı veri tipinde olması gerekli değildir.
+    </p>
+    <p class="indent">
+      Burada dikkat edilmesi gereken birçok nokta bulunmaktadır. Herşeyden önce öngörülen
+      ondalık sayısının pozitif bir tamsayı olması ve System.Max_Base_Digits değerinden yüksek
+      olmaması gerekir.  Aynı şekilde, kapsam sınırının da desteklenebilen değerler arasında
+      olması gerekir. Eğer ondalık sayısı ve kapsam aralığı tanımı bu koşullları sağlayamazsa,
+      derleyici tanımı geçersiz sayar.
+    </p>
+    <p class="indent">
+      Eğer bir  kapsam aralığı tanımı yapılmamamışsa, tanımlanan yeni veri tipi için güvenli
+      kapsam aralığı, D tanımlanan ondalık sayısı olmak üzere,  yaklaşık olarak,
+      10.0**(4*D) .. +10.0**(4*D) olarak belirtilmiştir. Geçerli güvenli işlem
+      sınırları, Safe'First ve Safe'Last nitelik değerli ile belirlenir.
+    </p>
+    <p class="indent">
+      Eğer
+      geçerli bir kapsam sınırı tanımlanmışsa, bu yeni tip kısıtlı (constrained), aksi halde kısıtsız
+      (unconstrained) bir tip olarak tanımlanır. Kısıtsız veri tipleri için sadece taşma
+      (overflow) kontrolleri yapılır ve hiçbir zaman sınır aşımı kontrolü yapılmaz. Doğal olarak
+      sistemin olanak verdiğinden daha yüksek değerler verildiğinde, kapsam aşımı
+      hatasının oluşumu kaçınılmaz olur.
+    </p>
+    <p class="indent">
+      Özgün gerçek sayı tiplerinin yaratılması için geçerli örnekler:
+    </p>
+    <p class="indent">
+      <span class="keyw">type</span> Değer <span class="keyw">digits</span> 18;
+    </p>
+    <p class="nonindent">
+      Burada, Değer adında duyarlığı 18 ondalık olan kısıtsız bir özgün gerçek sayı veri tipi yaratılıyor.
+      Bu tanımla, Değer veri tipi, Gerçek Sayılar veri sınıfından bir veri tipi olarak tanımlanmış olmaktadır.
+      Değer veri tipinin duyarlığı Long_Long_Float veri tipi ile aynıdır ve programlarda aynı
+      görevi yapar.
+    </p>
+    <p class="indent">
+      İlginç ve çok yararlı bir örnek,
+      <a href="http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations">http://en.wikibooks.org/wiki/Ada_Programming/Mathematical_calculations</a> sayfasındaki
+      iki gerçek sayının toplanması <a href="../programlar/Numeric_1.adb">programında</a>
+      tanımlanmıştır. Bu örneği inceleyelim :
+    </p>
+    <pre class="app-25">
+<span class="keyw">with</span> Ada.Text_IO;
+
+<span class="keyw">procedure</span> Numeric1 <span class="keyw">is</span>
+
+<span class="keyw-25">type</span> Value_Type <span class="keyw">is digits</span> 12 <span
+    class="keyw">range</span> -999_999_999_999.0e999 .. 999_999_999_999.0e999;
+
+<span class="keyw-25">package</span> T_IO <span class="keyw">renames</span> Ada.Text_IO;
+
+<span class="keyw-25">package</span> F_IO <span class="keyw">is new</span> Ada.Text_IO.Float_IO(Value_Type);
+
+<span class ="pl-25">Value_1 : Value_Type;</span>
+
+<span class ="pl-25">Value_2 : Value_Type;</span>
+
+<span class="keyw">begin</span>
+
+<span class ="pl-25">T_IO.Put (</span><span class="str">&quot;First Value : &quot;</span>);
+
+<span class ="pl-25">F_IO.Get (Value_1);</span>
+
+<span class ="pl-25">T_IO.Put (</span><span class="str">&quot;Second Value : &quot;</span>);
+
+<span class ="pl-25">F_IO.Get (Value_2);
+</span>
+<span class ="pl-25">F_IO.Put (Value_1);</span>
+
+<span class ="pl-25">T_IO.Put (</span><span class="str">&quot; + &quot;</span><span class ="pl-25">);</span>
+
+<span class ="pl-25">F_IO.Put (Value_2);</span>
+
+<span class ="pl-25">T_IO.Put (</span><span class="str">&quot; = &quot;</span><span class ="pl-25">);</span>
+
+<span class ="pl-25">F_IO.Put (Value_1 + Value_2);</span>
+
+<span class="keyw">end</span> Numeric_1;
+    </pre>
+    <p class="nonindent">
+      Bu programın sonucu :
+    </p>
+    <p class="green">
+      <span class="pl-50">First Value : 23.4567788</span>
+    </p>
+    <p class="green">
+      <span class="pl-50">Second Value : -88.348561893</span>
+    </p>
+    <p class="green">
+      <span class="pl-50">2.34567788000E+01 + -8.83485618930E+01 = -6.48917830930E+01</span>
+    </p>
+    <p class="nonindent">
+      olmaktadır.
+    </p>
+    <p class="indent">
+      Aynı çalışmaları, 18 duyarlıklı olarak tanımlamak istediğimiz. Değer isimli gerçek sayı veri
+      tipini, (Kuramsal olarak Gerçek Sayılar sınfından yeni bir veri tipi sınıfının ilk alt tipi)
+      kullanarak yapmaya çalışalım. İlk yapmamız gereken şey, bu veri tipi ile çalışabileceğimiz
+      gerçek kapsam aralığının saptanmasıdır. Bu bilgiyi, aşağıdaki
+      <a href="../uygulamalar/b4_1_uyg_3.html">prosedür</a> ile alabiliyoruz.
+    </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_1_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Değer</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">digits</span><span class="S0"> </span><span class="S3">18</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer</span><span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Değer</span><span class="S4">'</span>First<span class="S4">)</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" .. "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> &nbsp;</span><span class="S11">Değer</span><span class="S4">'</span>Image<span class="S4">(</span><span class="S11">Değer</span><span class="S4">'</span>Last<span class="S4">));</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_1_uyg_3<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">-1.18973149535723177E+4932 ..  1.18973149535723177E+4932</span>
+
+<span class="nonindent">olmaktadır.</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_1_uyg_3.html">prosedür</a> ile aldığımız
+      Değer adlı, 18 duyarlık ondalıklı, gerçek sayı sınıfı veri tipinin kapsam
+      alanı bilgisi yukarıdaki daha önce gördüğümüz 15 duyarlık ondalıklı veri tipinin
+      yaklaşık yarısı kadar olabiliyor. Fakat, yine de çok etkileyici bir duyarlık sayısı için,
+      çok etkileyici bir kapsam alanı genişliği elde edebiliyoruz. Bu kapsam alanını kullanarak,
+      değer veri tipinin genişletilmiş ondalık sayısı ile Numeric_1 prosedürünün yeni bir
+      <a href="../uygulamalar/b4_1_uyg_4.html">çalışmasını</a> yapalım.
+    </p>
+    <pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_1_uyg_4<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Değer</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">digits</span><span class="S0"> </span><span class="S3">18</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">1.0E+4900</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1.0E+4900</span><span class="S4">;</span>
+<span class="S0">&nbsp; &nbsp;&nbsp; &nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>T_IO<span class="S0"> </span><span class="S1">renames</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span>F_IO<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Float_IO<span class="S4">(</span>Num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Değer_1</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Değer</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Değer_2</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Değer</span><span class="S4">;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>T_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"İlk Değer : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_IO<span class="S4">.</span>Get<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer_1</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>T_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"İkinci Değer : "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_IO<span class="S4">.</span>Get<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer_2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer_1</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>T_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" + "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer_2</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>T_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">" = "</span><span class="S4">);</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>F_IO<span class="S4">.</span>Put<span class="S0"> </span><span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Değer_1</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">Değer_2</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_1_uyg_4<span class="S4">;</span></span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green"> 4.40000000000000000E-54 +  4.45000000000000000E-55 =  4.84500000000000000E-54</span>
+
+<span class="nonindent">olmaktadır.</span>
+    </pre>
+     <p class="indent">
+      Gerçekten etkileyici bir programlama dili. Başka programlama dillerinde hep hazır veri
+      tipleri seçilmek zorunda kalınır ve çoğunlukla bu hazır veri tiplerinin duyarlığı
+      üzerinde kullanıcının ne bilgisi ne de bir kontrolü olabilir. Ada için durum farklı,
+      kullanıcılar, gereksinmelerine göre istedikleri duyarlıkta veri tiplerini kendileri oluşturup
+      kullanabiliyorlar. Kullanıcıları sadece desteklenen kapsam aralığı sınırlandırabiliyor.
+      Bu olanak gerçekten sıra dışı ve kullanıcıya büyük avantaj sağlayan bir programlama
+      dili özelliğidir. Ada'nın bu olanakları ile FORTRAN'a fark attığı
+      yukarıdaki çalışmalarda belirtiliyor. Sonuçlara dikkat edilirse, girilen verideki ondalık sayısı
+      tanımlanandan az ise, geri kalan ondalık değerlerine sıfır ekleniyor yani, ilgisiz
+      değerler konulmuyor. Toplama sonucu da, aynı verilen ondalık değerleri ile
+      gerçekleştiriliyor. Ayrıca makinenin algılayabildiği epsilon sayısı
+      güvenli epsilon olarak belirtilen 10<sup>-D</sup> (en son programda 10<sup>-18</sup>)
+      dan çok yukarıda ve veriler 10<sup>-50</sup> civarındaki değerleri toplama ve çıkarmada
+      algılayabiliyor. Gerçekten Ada ile sayısal işlem yapmak bir zevk haline geliyor.
+    </p>
+    <p class="indent">
+      Bu kısımda, daha önce incelemeiş olduğumuz veri sınıflarına ait yeni veri tiplerinin
+      yaratılması ve uygulanması yapılmıştır. İleride daha fazla veri tipierini inceleyecek ve
+      uygulayabileceğiz. Ada veri tipleri üzerindeki bilgilerimiz, Ada programlama dili
+      üzerindeki bilgilerimiz geliştikçe artacaktır. Bu derslerin en sonunda Ada veri sistemini
+      yeniden gözden geçirecek ve bu sistematiği daha bilgili olarak yeniden değerlendirme
+      olanağını bulacağız.
+    </p>
+    <p class="title-left" id="derived-types">4.2 Türetilmiş Tipler</p>
+    <p class="indent">
+      Türetilmiş tipler (derived types) bir veri tipi sınfı kavramına uygun olarak oluşturulmuş
+      aynı sınıf ailesinden yeni tipler anlamına gelir. Yukarıda yaratılmış olan Tamsayı
+      tipi yeni bir tip veya kuramsal açıdan yeni bir tipin ilk alt tipi niteliğindedir. Tamsayı
+      verisi bir tamsayı verisi olduğundan root_integer sınıfından gelme bir veri
+      olarak kabul edilecek ve bu şekilde tamsayılar için tanımlı tüm nitelik ve işlemciler,
+      tamsayı veri tipi için de geçerli olacaktır.
+    </p>
+    <p class="indent">
+      Veri tiplerinin sınıfları çok önemlidir. Veri tipleri temel tip en tepede olmak üzere
+      hiyerarşik bir yapılanma oluşturur. Temel tipin işlemcileri tüm alt tipler tarafından
+      paylaşılır. İstendiğinde her alt tip düzeyinde tanımlar yenilenebilir. Buna bindirme adı
+      verilir. Örnek olarak Tamsayı veri tipi ailesinin en üst veri tipi root_integer
+      veri tipi olduğu kabul edilir. bu ailede sırası ile universal_integer, Integer ve
+      kenimizin tanımladığı Tamsayı veri tipi bulunur. Burada Tamsayı veri tipinden
+      türetilmiş yeni bir veri tipi yine root_integer kısaca tamsayılar sınıfından yeni bir
+      veri tipi olacaktır.
+    </p>
+    <p class="indent">
+      Aynı sınfına ait alt sınıflar birbirleri ile aynı veri yapısındadırlar. Bu nedenle birbirleri
+      ile uyumludurlar ve birbirlerine dönüştürülebilirler. Hepsi aynı temel veri tipinden
+      türetildiğinden, ana veri tipi için tanımlı işlemcileri kalıtımla elde ederler. Fakat bunlar
+      farklı veri tipleri olarak kabul edilir ve ifadelerde birlikte kullanılamazlar.
+    </p>
+    <p class="indent">
+      Tamsayı veri tipinin donanımca desteklenebilen en geniş kapsam aralığına sahip
+      olabilecek tamsayı veri tipi olarak tanımlandığı hatırlanmalıdır. Bazı uygulamalar,
+      bu kadar geniş bir kapsam aralığına gereksinme duymayabilrler. Örnek olarak başka hiçbir
+      öntanımlı tamsayı veri tipi ile erişilemeyecek 18<sup>8</sup> .. 10<sup>9</sup>
+      kapsam aralığında tamsayıların bulunduğu bir kapsam alanında tamsayı değerlerinin
+      tanımlanabildiği bir veri tipine gereksinme duyulursa, bu veri tipinin Tamsayı veri
+      tipi yerine, her şeyi ile Tamsayı veri tipi olan, sadece kapsam aralığı daha dar olan
+      yeni bir tamsayı veri tipi ile tanımlamak istenebilir. Bu durumda, Tamsayı veri tipi
+      ailesinden yeni bir alt tip tanımlanabilir.
+    </p>
+    <p class="indent">
+      Bir tipten (aslında bir tipin ilk alt tipinden) yeni bir alt tip yaratmak için iki yöntem
+      uygulanabilir.  Bunlardan birisi, biran sonra göreceğimiz alt tip yaratılması, diğeri
+      de burada inceleyeceğimiz bir türev tip yaratılmasıdır. Her ikisi de ana tipten farklı
+      yeni bir alt tip yaratan bu iki yöntem sonunda, ana tipin ilk alt tipinden farklı ve
+      ana tipin ikinci alt tipi olan yeni bir tip yaratılır. Yaratılan bu ikinci alt tip, ilk alt tipten
+      farklı, ifadelerde birlikte kullanılmayan fakat ilk alt tiple uyumlu ve açık tip
+      dönüşümü ile ilk alt tipe dönüştürülebilen, ilk alt tipin tanımlı tüm işlemcilerini
+      kalıtımla elde eden bir yeni bir tip kabul edilir. Doğal olarak kalıtımla elde edilen
+      işlemciler yeniden tanımlanarak salt yeni alt tip için geçerli işlemci tanımları da
+      gerçekleştirilebilir. Yeni ikinci alt tipin standart ortamda giriş çıkışı, aynı ilk alt
+      tipte olduğu gibi kendisinin sözel imajı alınarak, Ada.Text_IO öntanımlı paketinden
+      yararlanılarak veya kendine özgü yeni bir giriş/çıkış paketi oluşturularak gerçekleştirilebilr.
+    </p>
+    <p class="indent">
+      Bir tipin ilk alt tipinden yeni bir alt tip türetimi aşağıdaki yöntemle oluşturulabilir:
+    </p>
+    <p class=" Examples-Maroon">
+      derived_type_definition ::=<br />
+    [abstract] [limited] new parent_subtype_indication [[and interface_list] record_extension_part]
+    </p>
+    <p class="indent">
+      Bu ana kadar olan bilgilerimiz türetilmiş bir alt tipin oluşturulması için
+    </p>
+    <pre class="app-25">
+<span class="pl-25"><span class="keyw-25">type</span> Türetilmiş_Tip_Tanımlayıcısı</span>  <span
+      class="keyw">is new</span> Türetilen_Tip_Tanımlayıcısı [<span
+      class="keyw">range</span> Kapsam_Alt_Değeri .. Kapsam_Üst_Değeri]
+    </pre>
+    <p class="nonindent">
+      şeklinde tanımlar yapabilmemize olanak vermektedir. Örnek olarak,
+    </p>
+    <pre class="app-25">
+<span class="pl-25"><span class="keyw-25">type</span> Bölge_Tanım_Numaraları</span> <span
+      class="keyw">is new</span> Tamsayı <span
+      class="keyw">range</span> 1E8 .. 1E9;
+    </pre>
+    <p class="nonindent">
+      şeklinde bir tanım, isimsiz bir tamsayı tipinin ilk alt tipi olan Tamsayı tipinden
+      Bölge_Tanım_Numaraları adında yeni bir tipi türetmektedir. Türetilmiş olan
+      Bölge_Tanım_Numaraları tipi, ana tipi olan Tamsayı tipi için tanımlı işlemcileri
+      kalıtımla elde eder.
+    </p>
+    <p class="indent">
+      Yukarıdaki tanımda, kuramsal açıdan isimsiz bir tamsayı tipinin ilk alt tipi
+      olan Tamsayı tipinden ikinci alt tip Bölge_Tanım_Numaraları tipi türetilmiş
+      olarak belirtiliyorsa da, operasyonel, yani, uygulama açısından Tamsayı
+      temel tip, Bölge_Tanım_Numaraları ilk türetilmiş alt tip olarak düşünülebilir.
+      İster kuramsal, ister uygulama açısından düşünülmüş olsun, veri tipleri,
+      türetilmiş veya alt tip olarak tanıtılmış tiplerin uygulaması değişmez.
+    </p>
+    <p class="indent">
+      Türetilmiş bir alt tip, türetidiği ana tipten daha dar veya ona eşit bir kapsam
+      aralığına sahip olmalıdır. Bunun aksinde bir durum, alt tipten ana tipe
+      dönüştürme durumunda, kapsam hatasına neden olur.
+    </p>
+    <p class="indent">
+      Aşağıda görülen <a href="../uygulamalar/b4_2_uyg_1.html">prosedürde</a>,
+    özgün bir tipten, türetilmiş bir tipin tanıtımı ve uygulanması görülmektedir.
+    </p>
+    <pre class="app-25">
+<span><span class="S0"></span>
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_2_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Tamsayı</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">9223372036854775808</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">9223372036854775807</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span><span class="S11">Tamsayı</span><span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">1E8</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1E9</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Sektör_1_a_Dosya_18</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">1E8</span><span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S3">1</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları_IO</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Integer_IO<span class="S4">(</span>num<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Bölge_Tanım_Numaraları</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Dosya Numarası : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Bölge_Tanım_Numaraları_IO</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sektör_1_a_Dosya_18</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">20</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_2_uyg_1<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span></span>
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">Dosya Numarası :            100000001</span>
+
+<span class="nonindent">olmaktadır.</span>  </pre>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_2_uyg_1.html">prosedürde</a>, Bölge_Tanım_Numaraları
+      veri tipinin Tamsayı veri tipinde türetilmiş bir tip olmasına karşın, ne Integer, ne de
+      türetildiği Tamsayı veri tipi ile aynı olmadığı görülmektedir. Bu nedenle, Bölge_Tanım_Numaraları
+      veri tipinin nesnelerinin görüntülenmesi için, yeni bir griş/çıkış paketinin oluşturulması
+      gerekmiştir. Integer, Tamsayı ve ondan türetilen Bölge_Tanım_Numaraları veri tipleri
+      aynı olmamakla birlikte birbirleri ile uyumludur ve nesneleri  açık dönüşüm
+      yöntemi ile birbirlerine dönüştürülebilirler.
+    </p>
+    <p class="indent">
+      Bir veri tipinden kapsam aralığı bile aynı olabilen farklı isimli yeni veri tiplerinin niçin
+      yaratma gereği olabileceği ilk bakışta düşündürücü gelebilir. Fakat, türetilmiş veri
+      tipleri aynı veri sınfından bile olsalar farklı veri tipleri olarak kabul edilirler ve ifadelrde
+      birbirleri ile karıştırılamazlar. Bu nedenle, örnek olarak Elmalar ve Armutlar gibi ayrık
+      ve tamsayılarla toplanabilen veriler, işlemlerde yanlışlıkla karıştırılmamaları için, değişik
+      isimli tamsayı veri tipleri ile tanımlanmaları istenebilir.
+    </p>
+    <p class="title-left" id="subtype">4.3 - Alt Tipler</p>
+    <p class="indent">
+      Bir ana veri tipine dayalı olarak alt veri tipi oluşturmak için uygulanabilecek yöntemlerden
+      birisi biraz önce incelemiş olduğumuz türetilmiş (derived) sınıfların oluşturulması, diğeri
+      ise, burada inceleyeceğimiz alt tiplerin (subtype) yaratılmasıdır. İlk yöntem, ana sınıfın yapısında,
+      ana sınıf ile uyumlu fakat ana sınıftan tamamen farklı bir veri tipi yaratmasına karşın,
+      alt tip (subtype) yaratılması, yapısı yine ana tip ile aynı, belki ana tipe göre bazı
+      ek kısıtlamaları olabilen, fakat ana tip ile aynı olarak kabul edilen bir veri tipi oluşturur.
+    </p>
+    <p class="indent">
+      Bir veri tipi sınfının alt tipi, veri tipinin bazı değerlerinin, kısıtlarının ve alt tip için
+      uygulanabilir bazı niteliklerinin belirlendiği bir veri tipidir. Temel tip, alt tipin tipi
+      olarak adlandırılır. Alt tipin tanımı sırasında belirtilmiş olan kısıtlar, alt tipin kısıtları
+      olarak belirtilir. Alt tipin değerleri, kendi kısıtlarını sağlayabilen değerlerdir.
+</p>
+    <p class="indent">
+      Bir alt tip, kendine özgü kısıtlar (constraints) belirtilerek tanımlanabilir. Bu durumda kısıtsız
+      bir alt tip (unconstrained subtype) oluşur. Bir tip bazı kısıtlar içerebilir fakat, bu tipin alt
+      tipi hiç kısıtsız tanımlanabilir. Bu durumda kısıtsız (unconstrained) bir alt tip oluşur.
+    </p>
+    <p class="indent">
+      Alt tipler, yeni ve farklı bir veri tipi olarak değil,
+      tanımlanmış olan veri tipinin aynı ve devamı olarak kabul edilirler. Alt tipler, ifadelerde birlikte
+      kullanılabilirler. Doğal olarak, temel tip için tanımlı olan işlemciler, alt tipler için de tanımlı kabul edilir.
+      Alt tipler, ana tiplerinden farklı olarak kabul edilmezler ve bu şekilde, ana tip için tanımlı olan
+      giriş/çıkış prosedürlerinden alt tipler de yararlanabilirler.
+    </p>
+    <p class="indent">
+      Alt tiplerin tanımı,
+    </p>
+    <div class="Examples-Maroon">
+      subtype_declaration ::= subtype defining_identifier <strong>is</strong> subtype_indication; <br />
+      subtype_indication ::= [null_exclusion] subtype_mark [constraint] <br />
+      subtype_mark ::= subtype_name <br />
+      constraint ::= scalar_constraint | composite_constraint <br />
+      scalar_constraint ::= range_constraint | digits_constraint | delta_constraint<br />
+      composite_constraint ::= index_constraint | discriminant_constraint
+    </div>
+    <p class="nonindent">
+      olarak tanımlanır. kısıtlar içeren bir alt tip tanımı, kısıtlı bir alt tip, aksi halde kısıtsız (unconstrained)
+      bir alt tip yaratır.
+    </p>
+     <p class="indent">
+      Örnek olarak,
+    </p>
+    <pre class="app-25">
+<span class="keyw-25">Subtype</span> Aday_Sayısı <span class="keyw">is</span> Integer <span
+      class="keyw">range</span> 0 .. 100;
+    </pre>
+    <p class="nonindent">
+      kısıtlı bir tamsayı alt tipi yaratır. Aşağıdaki tanım ise,
+    </p>
+    <pre class="app-25">
+<span class="keyw-25">Subtype</span> Toplam_Sayı <span class="keyw">is</span> Integer;
+    </pre>
+    <p class="nonindent">
+      kısıtsız bir tamsayı alt tipi yaratır. Her iki alt tip ise temel tipleri olan öntanımlı Integer
+      veri tipi ile aynı olarak kabul edilir.
+    </p>
+    <p class="indent">
+      Aşağıda görülen <a href="../uygulamalar/b4_3_uyg_1.html">prosedürde</a>,
+      kullanıcı tipi bir gerçek sayı veri tipinden bir gerçek sayı alt tipi yaratılmakta ve
+      bir ifadede kullanılarak, ifade sonucu görüntülenmektedir.
+    </p>
+    <pre class="app-25">
+<span><span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_3_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp; &nbsp;&nbsp;</span><span class="S1">subtype</span><span class="S0"> </span><span class="S11">İlk_Değer</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">1.0E-30</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1.0E30</span><span class="S4">;</span>
+
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span><span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">1.0E-30</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1.0E10</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">4.6E-5</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span><span class="S1">package</span><span class="S0"> </span><span class="S11">LFGÇ</span><span class="S0"> </span><span class="S1">renames</span><span class="S0"> </span>Ada<span class="S4">.</span>Long_Long_Float_Text_IO<span class="S4">;</span>
+
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span>a<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">İlk_Değer</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.6E-8</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span>b <span class="S4">,</span> c<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">İlk_Değer</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp; &nbsp;</span><span class="S11">Sonuç</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> &nbsp;</span>Long_Long_Float<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">4.62E-6</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">4.622E-6</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+
+<span class="S1">begin</span>
+
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span>b<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.89</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span>c<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">28.78</span><span class="S4">;</span>
+
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span><span class="S11">sonuç</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>a<span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>b<span class="S0"> </span><span class="S4">/</span><span class="S0"> </span>c<span class="S0"> </span><span class="S4">+</span><span class="S0"> </span><span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">*</span><span class="S0"> </span>b<span class="S0"> </span><span class="S4">/</span><span class="S0"> </span>c<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;</span>
+<span class="S0">&nbsp; &nbsp;&nbsp;</span><span class="S11">LFGÇ</span><span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Sonuç</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Fore<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Aft<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">18</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>Exp<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">2</span><span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_3_uyg_1<span class="S4">;</span></span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">4.621790826963168870E-6</span>
+
+<span class="nonindent">olmaktadır.</span>  </pre>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_3_uyg_1.html">prosedürde</a>, üzerinde durulması
+      gereken çok önemli noktalar bulunmaktadır. İlk olarak, İlk_değer adında bir Long_Long_Float
+      alt tipi yaratılmıştır. Bu alat tipin ana tipten tek farkı kapsam alanının daha dar olmasıdır. Bazı
+      durumlarda bir tipin duyarlığı gerekebilir fakat gereksinme duyulan kapsam alanı daha dar olabilir.
+      Bu durum da böyle bir kısıtlı kapsam alanına gereksinme duyulan bir değişkenine gereksinme
+      duyulan bir prosedürü belirtmektedir. Burada kapsam alanının gereksinme olduğu kadarı ile
+      sınırlı tutulması, bu alt tipten nesnelere uygun olmayan verilerin girilmesi durumunda, derhal
+      kapsam aşımı hatasının ortaya çıkması amacını taşımaktadır.
+    </p>
+    <p class="indent">
+      Üzerinde durulması gereken ikinci konu,
+    </p>
+  <pre class="app-25">
+<span class="S0"> &nbsp;&nbsp;&nbsp;</span><span class="S11">İkinci_Değer</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Long_Long_Float<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S4">-</span><span class="S3">1.0E-30</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">1.0E10</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">4.6E-5</span><span class="S4">;</span>
+    </pre>
+    <p class="nonindent">
+      şeklinde yapılmış olan ve <span class="keyw">subtype</span> tanımı yapılmadan
+      bir alt tip olarak tanıtılmış olan İkinci_değer, sadece tek değerlik bir alt tip olarak değerlendirilir
+      ve alabileceği tek değeri de başlangıçta almış olduğundan program içinde sadece değeri
+      değiştirilebilir. İkinci_Değer, bir alt tip sınıfı olarak değerlendirilmez ve alt tipleri ile başka
+      nesneleri tanımlanamaz. Bu durumdai İkinci_Değer, tek değerlik bir alt tip nesnesi olarak
+      düşünülebilir. Eğer program içinde değeri değiştirilmeyecekse, yani sadece ilk değeri ile
+      program içinde bir tür sabit gibi kullanılacaksa, İkinci_Değer , Long_Long_Float tipinden
+      bir sabit veya başlangıç değeri tanımlı bir değişken olarak da tanıtılabilirdir ve bu belki daha
+      doğru olurdu, çünkü bu tür tür tek değerlik bir alt tip tanıtımının tek amacı Sonuç değişkeninde
+      olduğu gibi, program içinde bu tek nesnelik alt tipin teke nesnesinin alabileceği değerin,
+      kapsam sınırı dışında kalması durumunda, kapsam aşımı hatasının derhal alınmasıdır.
+      Sonuç değişkeninin bu kadar dar kapsam aralığında tanımlanması sadece veri güvenliğinin
+      sağlanması amacına yöneliktir.
+    </p>
+    <p class="indent">
+      Yine yukarıdaki <a href="../uygulamalar/b4_3_uyg_1.html">prosedürden</a> görüldüğü
+      gibi tüm alt tipler ayrı bir tip olarak değil hep aynı Long_Long_Float veri tipi
+      olarak kabul edilmektedir ve Long_Long_Float veri tipi için tanımlı işlemci ve giriş/çıkış
+      paketlerini paylaşmaktadır. Tüm ana ve <span class="keyw">subtype</span>
+      olarak tanıtılmış alt veri tipleri ana tiple birlikte ifadelerde kullanılabilmektedir.
+    </p>
+    <p class="indent">
+      İlginç bir alt tip oluşturma yöntemi de isimsiz (anonim , sanskrit kökenli) alt tipin
+      tanımlanmasıdır. İsimsiz bir alt tipin ana sınıfı ve kısıtları belirli fakat alt tip
+      ismi yoktur. İsimsiz alt tipler, değişken veya sabitlerin (kısaca nesnelerin) tanımlan
+      sırasında oluşturulurlar. . Aşağıda görülen
+      <a href="../uygulamalar/b4_3_uyg_2.html">prosedürde</a>, isimsiz alt tiplerin
+      tanımı yapılmıştır.
+    </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_3_uyg_2<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">İsim</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>String<span class="S0"> </span><span class="S4">(</span><span class="S3">1</span><span class="S4">..</span><span class="S3">5</span><span class="S4">)</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S7">"Hasan"</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Güvenlik_Kodu</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">10_000</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">1_4_23</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S7">"Çalışanın Adı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S11">İsim</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;, &nbsp;Güvenlik Kodu &nbsp;: &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Güvenlik_Kodu</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Bilgilendirme Tamam."</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Erişim Sonu."</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_3_uyg_2<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">Çalışanın Adı : Hasan  ,  Güvenlik Kodu  :  1423</span>
+
+<span class="pl-25 green">Bilgilendirme Tamam.</span>
+
+<span class="pl-25 green">Erişim Sonu.</span>
+
+<span class="nonindent">olmaktadır.</span>
+    </pre>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_3_uyg_2.html">prosedürde</a>, iki tane
+      isimsiz alt tip tanımı yapılmaktadır. Bunlardan biri bir isimsiz dizi (karakter dizisi) olan İsim
+      nesnesinin ait olduğu adı verilmemiş, 5 karakterden oluşan bir karakter dizisidir.
+      Ada programlama dilinde String tipi veriler, olmalaraı gerektiği gibi karakter dizisi
+      (character array) olarak değerlendirilir. İsimsiz veri tipinin sahip olabileceği tek
+      nesne olan İsim nesnesine öntanım olarak &quot;Hasan&quot; değeri atanmıştır.
+      Bu değer, program içinde değiştirilmeden kullanılmaktadır.
+    </p>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_3_uyg_2.html">prosedürde</a>, tanımı
+      yapılmış olan ikinci isimsiz alt veri tipi, Güvenlik_Kodu olarak tanımlanmış nesnenin
+      veri tipi olan,  öntanımlı Integer veri tipinin alt tipi olan isimsiz bir veri tipidir. Bu
+      isimsiz veri tipinin de sahip olabileceği tek nesne olan İsim değişkenine, ön değer
+      olarak 1_4_23 değeri atanmış ve bu değer program içinde değiştirilmememiştir.
+    </p>
+    <p class="indent">
+      Yukarıdaki <a href="../uygulamalar/b4_3_uyg_2.html">prosedürde</a> görüldüğü
+      gibi, isimsiz alt veri tipleriin nesnleri oluşturulamamakta ve bunlar tanımlandıkları tek
+      nesne ile sınırlı kalmaktadırlar. Bu durumda isimsiz (anonim) alt tipler gerçek alt tip
+      veri sınıfı olarak nitelendirilemezler. Bu veri tiplerinden neneler oluşturulamaz ve
+      bunların alt tipleri tanımlanamaz çünkü çağrılabilecekleri bir tip isimleri yoktur. Bu nedenle
+      de, Ada Kalite ve Stil yönergesi kullanıclara isimsiz alt tiplerin kullanılmamasıni sağlık
+      vermektedir. Aslında isimsiz alt veri tiplerinin tanımlanmasına gerek de bulunmamaktadır.
+      En doğru yöntem, önce alt tipin tanımlanması sonra da bu alt tipin nesnelerinin
+      oluşturulması olacaktır. Örnek olarak, yukarıdaki
+      <a href="../uygulamalar/b4_3_uyg_2.html">prosedürde</a>, Güvenilk_Kodu nesnesi,
+      isimsiz bir veri tipinin nesnesi olarak tanımlanacağına,
+    </p>
+    <pre class="app-25">
+<span class="keyw-25">subtype</span> Kod <span class="keyw">is</span> Integer <span
+      class="keyw">range</span> 1 .. 10_000;
+<span class="pl-25">Güvenlik_Kodu</span> : Kod := 1_4_23;
+    </pre>
+    <p class="nonindent">
+      şeklinde önce isimli alt tipin, sonra da bu alt tipin nesnesinin tanımının çok daha uygun
+      bir kodlama stili olacağı, Ada Kalite ve Stil yönergesi tarafından sağlık verilmektedir.
+      Aşağıda görülen <a href="../uygulamalar/b4_3_uyg_3.html">prosedürde</a>, isimsiz
+      olarak tanımlanan alt veri tipleri, isimli tam alt tipler olarak tanımlandıktan sonra, bu alt
+      tiplerin gereken nesneleri yaratılarak program tamamlanmıştır.
+    </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_3_uyg_3<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">subtype</span><span class="S0"> </span><span class="S11">Çalışan_İsmi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span>String<span class="S4">(</span><span class="S0"> </span><span class="S3">1</span><span class="S4">..</span><span class="S3">5</span><span class="S4">);</span><span class="S0"> </span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">İsim</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span><span class="S11">Çalışan_İsmi</span><span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S7">"Hasan"</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">subtype</span><span class="S0"> </span>Kod<span class="S0"> </span><span class="S1">is</span><span class="S0"> </span>Integer<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">10_000</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S11">Güvenlik_Kodu</span><span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Kod<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">1_4_23</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S7">"Çalışanın Adı : "</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S11">İsim</span><span class="S0"> </span><span class="S4">&amp;</span><span class="S0"> </span><span class="S7">" &nbsp;, &nbsp;Güvenlik Kodu &nbsp;: &nbsp;"</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S11">Güvenlik_Kodu</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span>width<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S3">4</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Bilgilendirme Tamam."</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>New_Line<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span><span class="S7">"Erişim Sonu."</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">end</span><span class="S0"> </span>b4_3_uyg_3<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">Çalışanın Adı : Hasan  ,  Güvenlik Kodu  :  1423</span>
+
+<span class="pl-25 green">Bilgilendirme Tamam.</span>
+
+<span class="pl-25 green">Erişim Sonu.</span>
+
+<span class="nonindent">olmaktadır.</span>
+    </pre>
+    <p class="title-left" id="conversion">4.4 - Tiplerin Birbirlerine Dönüştürülmesi</p>
+    <p class="indent">
+      İfadelerde veri tekdüzeliğinin sağlanabilmesi için bazı durumlarda, açık (explicit) tip
+      dönüştürülmesine gerek duyulur. Tip dönüştürme işlemi aşağıdaki gibi yürütülür:
+     </p>
+    <div class="Examples-Maroon">
+      type_conversion ::= subtype_mark(expression) | subtype_mark(name)
+    </div>
+    <p class="indent">
+      Bu tanımda subtype_mark olarak belirtilen terim, tip dönüşümünde hedefi belirten
+      terimdir. Parantez içindeki ifade veya isim kısmı, işlenen kısmıdır, bu kısmın veri tipine
+      işlenen veri tipi adı verilir. Tip dönüşümünün gerçekleşmesi için hedef ve işlenen
+      tiplerinin birbirlerine dönüştürülebilir olmaları gerekir.
+    </p>
+    <p class="indent">
+      Eğer tip dönüştürme işleminin işleneni isim ise, bu işleme görüntü dönüştürümü
+      (view conversion) adı verilir. Bu tip bir işlem az uygulanır ve sadece işlenen etiketli
+      bir kayıt (record) tipi ise veya bir prosedürünün <span class="keyw">in</span> veya<span
+      class="keyw"> in out</span> argümanı ise gerçekleşir. Diğer tüm tip tip dönüşümleri
+      değer dönüşümleridir.
+    </p>
+    <p class="indent">
+      Etiketsiz bir tipin dönüştürümünde dönüştürülecek tipin aynen geriye dönüştürülebilir
+      olması gerekir.
+    </p>
+    <p class="indent">
+      Değer dönüşümü şeklinde yürütülen bir tip dönüşümünde, işlenenin değeri, eğer
+      varsa hedef veri tipi türünde bir değere dönüştürülür. Eğer böyle bir değer yoksa
+      kapsam aşımı hatası oluşur. bu da sadece modüler bir tipin kapsamı dışında kalan
+      bir değer oluşumunda gerçekleşir.
+    </p>
+    <p class="indent">
+      Eğer hedef ve işlenen veri tipleri tamsayılar sınıfında ise , aynı tamsayı değeri, tipler
+      arasında iletilir.
+    </p>
+    <p class="indent">
+      Eğer hedef ve işlenen veri tipleri desimal sabit ondalıklı veriler sınıfında ise,
+      işlenenin değeri, hedef tipin small değerinin katları arasında değilse,
+      0 a doğru kesilir.
+    </p>
+    <p class="indent">
+      Eğer hedef ve işlenen veri tipleri farklı gerçek sayı veri tiplerinde ise, sonuç
+      hedef tipin duyarlığı düzeyindedir.
+    </p>
+    <p class="indent">
+      Eğer işlenen veri tipi bir gerçek sayı, hedef bir tamsayı veri tipi ise, sonuç
+      en yakın tamsayıya indirgenir. Eğer sonuç iki tamsayının tam ortasında ise,
+      sonuç sıfıra en uzak olan değere yuvarlanır.
+    </p>
+    <p class="indent">
+      Eğer hedef ve işlenen veri tipleri sayılabilir veri tipinde iseler, sonuç işlenen ile
+      aynı konum sayısında olan hedef veri tipinde elemanın değeri olur.
+    </p>
+    <p class="indent">
+      Diğer veri tipleri incelenirken veri bu veri tiplerinin kendi aralarında ve başka
+      veri tiplerine doğru değer dönüştürüm kuralları üzerinde de ayrıca durulacaktır.
+    </p>
+    <p class="indent">
+      Aşağıda görülen <a href="../uygulamalar/b4_4_uyg_1.html">prosedürde</a>
+      Bir gerçek sayı veri tipindeki değer, bir tamsayı tipine dönüştürülmektedir.
+    </p>
+    <pre class="app-25">
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Text_IO<span class="S4">;</span>
+
+<span class="S1">with</span><span class="S0"> </span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">;</span>
+
+<span class="S1">procedure</span><span class="S0"> </span>b4_4_uyg_1<span class="S0"> </span><span class="S1">is</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S1">type</span><span class="S0"> </span><span class="S11">Gerçek_Sayı_Verisi</span><span class="S0"> </span><span class="S1">is</span><span class="S0"> </span><span class="S1">new</span><span class="S0"> </span>Float<span class="S0"> </span><span class="S1">range</span><span class="S0"> </span><span class="S3">1.0</span><span class="S0"> </span><span class="S4">..</span><span class="S0"> </span><span class="S3">20.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>a<span class="S0"> </span><span class="S4">, </span>b<span class="S0"> &nbsp;</span><span class="S4">:</span><span class="S0"> </span><span class="S11">Gerçek_Sayı_Verisi</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>c<span class="S0"> </span><span class="S4">:</span><span class="S0"> </span>Integer<span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S1">begin</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>a<span class="S4">:=</span><span class="S0"> </span><span class="S3">19.0</span><span class="S4">;</span>
+
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>b<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span><span class="S3">2.0</span><span class="S4">;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>c<span class="S0"> </span><span class="S4">:=</span><span class="S0"> </span>Integer<span class="S4">(</span>a<span class="S4">/</span>b<span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span><span class="S7">"Sonuç : "</span><span class="S4">);</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>
+<span class="S0">&nbsp;&nbsp;&nbsp;</span>Ada<span class="S4">.</span>Integer_Text_IO<span class="S4">.</span>Put<span class="S4">(</span>Item<span class="S0"> </span><span class="S4">=&gt;</span><span class="S0"> </span>c<span class="S4">);</span>
+
+<span class="S1">end</span><span class="S0"> </span>b4_4_uyg_1<span class="S4">;</span>
+
+<span class="nonindent">Bu prosedürün sonucu :  </span>
+
+<span class="pl-25 green">Sonuç :          10</span>
+
+<span class="nonindent">olmaktadır.</span>
+    </pre>
+    <p class="indent">
+      Sonucun sıfırdan uzağa yuvarlatıllmış olduğuna dikkat edilmelidir.
+    </p>
+    <p class="indent">
+      Genel olarak programcılara açık ve açık olmayan tip dönüşümlerinden olanaklar ölçüsünde
+      kaçınmaları sağlık verilmektedir. Bunun nedenleri arasında, en basit veri dönüştürmelerinde bile
+      veri kayıpları yaşanabileceği ve bu kayıpların gözden kaçabileceği, ayarıca veri tipleri karmaşıklaştıkça
+      açık dönüştürüm kurallarının da içinden çıkılamayacak kadar karmaşık hale gelmesi gösterilmektedir. 
+      Genel olarak, açık dönüştürmenin sadece gerektiğinde ve sadece sayısal veri sınıfları arasında
+      gerçekleştirilmesi sağlık verilmektedir. Yine de karar vermek programcıya bağlıdır. Programın yürüyüşünde
+      istenmeyen bir yan etki gözlenmediği durumlarda, açık tip veri dönüştürmeleri, 
+      programı kısaltıcı ve okunmasını kolaylaştırıcı bir yöntem olabilir.
+    </p>
+    <ul id="navbottom">
+      <li id="index">
+        <a href="../index.html"><em>« İndeks</em></a>
+      </li>
+      <li id="denge"></li>
+      <li id="sayfa">
+        <a href="../b3/b3-s11.html"><em> &laquo;Önceki</em></a>
+      </li>
+      <li id="denge1"></li>
+      <li id="kodlama">
+        <a href="b4-s2.html"><em> Sonraki &raquo;</em></a>
+      </li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Ada/b4/b4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:23 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

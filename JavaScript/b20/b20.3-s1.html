@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:09 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b20/b20.3-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b20.3</title>
+	</head>
+	<body>
+		<p>
+		<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b20.2-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b20.3-s2.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 20
+		</p>
+		<p class="chapter">
+			Uygulamalar
+		</p>
+		<p class="pagenum">
+			Bölüm 20 Sayfa 3		</p>
+		<p class="title-left" id="dhtml">20.3 -Sayfa İçeriğine Yeni Metin Düğümleri Eklenmesi</p>
+		<p class ="indent">
+			W3C- DOM CORE yönergelerinin izlenerek, JavaScript program adımları yardımı ile
+			çözümlenmiş bir belge yapısına yeni düğümlerin eklenmesi, karmaşık olmayan bir 
+			yöntemdir.</p>
+		<p class ="indent"> Çözümlenmiş belge yapısı, W3C-DOM doktrinine göre, hiyerarşik bir düğüm sisteminden oluşur. 
+			Bu düğüm sistemini, birbirleri ile ilişkili olan (X)HTML, CSS ve JavaScript kodlarının  etkilleşimi
+			sonucunda gerçekleşir. Çözümlenmiş belgenin düğüm yapısında, JavaScript program adımlarından
+			yararlanılarak her türlü değişiklik, ekleme ve çıkarma işlemi gerçekleştirilebilir</p>
+		<p class ="indent">
+			Çözümlenmiş bir belgenin yapısına JavaScript programları ile erişim sağlanabilmesi için
+			bu yapıda bulunan düğüm noktalarından birisinin giriş veya bağlantı noktası olarak
+			kullanılması gerekir. Bağlantı noktalarında tam hedefe ulaşılması için en garantili
+			yöntem, düğüm noktalarının en ayırdedici özelliği olan <span class="att">id</span>
+			nitelik değerinden yararlanarak hedefi bulan <span 
+			class="keyw">getElementById</span><span class="op">()</span>  metodunundan
+			yararlanılır. Bunun yanında, çapa elementlerinin <span class="att">rel</span>
+			özellikleri gibi ayırdedici özelliklerden de yararlanılabiir. Giriş noktaları seçilirken,
+			olanaklar ölçüsünde sayfanın değişme olasılığı az düğüm noktalarından yararlanılması,
+			değişme olasılığı yüksek düğüm noktalarının bağlantı noktası olarak seçiminden 
+			kaçınılması, uygun olacaktır.
+		</p>
+		<p class ="indent">
+						Belge yapısında bulunan bir element içeriğine yeni bilgiler eklenmesi için, öncelikle 
+			bu içerik eklenebilecek element düğümünün bellek referansına erişilmesi gerekir. Bunu
+			en uygun yönteminin daha önceden de açıklandığı gibi, 
+			<span class="keyw">getElementById</span><span class="op">()</span> yöntemi olabilir.
+			Bellek referansına erişilmiş olan düğümün stil niteliği JavaScript programlaması ile
+			yeni bir <span class="att">class</span> nitelik değeri atanarak tam olarak değiştiririlebilir.
+			Bu durumda elementin (X)HTMl kodlamasında belirtilen (veya kalıtımla elde ettiği) 
+			<span class="att">class</span> nitelik değeri JavaScript programı ile atanmış olan
+			<span class="att">class</span> nitelik değeri tarafından yenilenir. Doğal olarak,
+			JavaScript programı ile atanacak sınıf selektörünün daha önceden hazırlanmış ve
+			sayfanın CSS dosyasında saklı olması gerekir.
+		</p>
+		<p class ="indent">
+			Erişilmiş olan düğümün stil niteliğine sadece katkı yapılması için,
+			JavaScript programlaması ile yeni bir 
+			<span class="att">style</span> nitelik değeri oluşturulabilir. Bu durumda, bu tanım, 
+			bir satıriçi stil tanımı anlamına gelir ve sadece yeni değerler, eski değerlere göre
+			öncelik alır. 
+		</p>
+		<p class ="indent">
+			JavaScript programı ile erişilen bağlantı noktasının stil niteliği
+			değiştirilmezse, bağlantı noktasının sayfa kodları ile belirlemiş olan kendi stili geçerli kalır.
+		</p>
+		<p class ="indent">
+			Sayfa içeriğine yeni metin bilgileri eklenmesini öngören birçok örnek,
+			hesaplama sonuçlarının sayfaya yazdırılması amacı ile bu çalışmada geliştirilerek,
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> kitaplığına eklenmiş olan 
+			fonksiyonlardır. Burada bu fonksiyonların çalışma yöntemleri daha yakından incelenerek, 
+			yazılımları üzerinde açıklayıcı bilgiler verilecektir.
+		</p>
+		<p class="subheading" id="bilgiyaz">20.3.1 - bilgiYaz() Fonksiyonu </p>
+		<p class ="indent">
+			Bölüm 1.4 de tanımlanmış olan bilgiYaz<span class="op">()</span>
+			fonksiyonunda içeriğin yazılması için, bağlantı noktasının stil niteliğinde 
+			sadece padding niteliği yeniden tanımlanmaktadır. Bunun  anlamı,
+			kullanıcının bağlantı noktasına atamış olduğu color, font ve benzeri 
+			önemli stil niteliklerinin olduğu gibi kalmasıdır. Bu şekilde büyük bir 
+			esneklik elde edilmiş olmakta ve istenildiği stil niteliği (X)HTML kodlarında 
+			belirlenmiş olan her içerik alabilecek element bağlantı noktasına içerik eklenebilmekte ve 
+			elementin orijinal stili padding dışında değişmemektedir. 
+		</p>
+		<p class ="indent" id="b20.3.1-uyg-1">
+			Burada incelenen bilgiYaz<span class="op">()</span> fonksiyonu, bu çalışmanın 
+			uygulamalarının çoğunda, sonuçların görüntülenmesi amacı ile kullanılmıştır. 
+			Bu fonksiyonun uygulanması ilişikli olduğu 
+			<a href="../uygulamalar/b20.3.1-uyg-1.html">uygulama sayfasında</a> çalışmakta 
+			olan, aşağıdaki <a href="../uygulamalar/b20.3.1-uyg-1-js.html">programda</a> yeniden 
+			hatırlatılmıştır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> bilgiYaz<span
+			class="op">(</span>sonuç, yazımYeri<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantıNoktası <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeri<span
+			class="op">);</span>
+
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'style'</span><span
+			class="op">,</span ><span
+			class="str">'padding : 0 0 20px 20px;'</span><span
+			class="op">);</span>
+		
+<span class="comm-50">// üst sağ alt sol (saat yönünde) (alt ve sol 20px)</span>	
+
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sonuç<span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function başla</span><span 
+			class="op">() {</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sin(90)  veya Sin(&pi;/2) = '</span><span 
+			class="op">,</span> <span 
+			class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">sin</span><span 
+			class="op">(</span>90* &pi;/180<span 
+			class="op">) + </span> <span 
+			class="str">'(90 derece = &pi;/2 radyan)'</span><span 
+			class="op">,</span> <span 
+			class="str">'bağlantı</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başla<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.3.1-uyg-1-js.html">programda</a>, 
+			çözümlenmiş belge kodlarında, bağlantı noktası olarak seçilen bir düğümün
+			stil niteliğine yeni bir tanım yapılmakta ve bu düğüme bir metin düğümü,
+			alt düğüm olarak eklenmektedir. 
+		</p>
+		<p class ="indent">
+			Yukarıdaki <a href="../uygulamalar/b20.3.1-uyg-1-js.html">programda</a>,
+			önemli olan nokta, düğümün CSS <span class="att">class</span> niteliğinin
+			değişmeden kalması, bunu yanında, yeni tanımlanan <span class="att">style</span>
+			niteliğinde tanımlanan yeni CSS kurallarının ek bir tanım olarak çalışmasıdır. 
+			bilgiYaz<span class="op">()</span> fonksiyonu genel amaçlı bir fonksiyon
+			olduğundan ve sınıf niteliği çok değişik olabilecek sayfa elementleri
+			tarafından kullanılabileceğinden bu tür bir yazılım, genel amaçlı bu 
+			fonksiyona çok büyük esneklik sağlamaktadır. Bu yüzden 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığında,
+			bilgiYaz<span class="op">()</span> fonksiyonunun bu yazılımı alınmıştır.
+		</p>
+		<p class ="indent">
+			Stil nitelikleri Javascript kodları arasında tanımlanmış bu fonksiyonun
+			bu şekilde kullanılmasının tek nedeni, fonksiyonun genel amaçlı olmasıdır.
+			Oysa stil niteliklerinin tanımlanması için, CSS programlama
+			dili çok daha uygundur. Sezarın hakkı sezara verilmeli düşüncesi ile, 
+			kuramsal olarak, programlama işlevi Javascript ile, stil tanımlama işlemi 
+			CSS ile, sayfa kodlaması (X)HTML ile yapılmalıdır.
+		</p>
+		<p class ="indent">
+			Aşırı genel kullanım kaygısının olmadığı durumlarda, normal olarak stil kuralları 
+			CSS kodları ile çözümlenmeli ve JavaScript programları, hazır CSS sınıflarına atıfta
+			bulunmalıdır. 
+		</p>
+		<p class ="indent">
+			Bu düşünce ile, sayfa ile ilişkili CSS program dosyasına önce aşağıdaki stil tanımı 
+			eklenmiştir:
+		</p>
+		<pre>
+<span class="op-25">.</span>bilgiyaz <span 
+			class="op">{</span>
+<span class="keyw-50">font-family</span><span 
+			class="op">:</span> Verdana, Geneva, Arial, Helvetica, sans-serif<span 
+			class="op">;</span>
+<span class="keyw-50">font-size</span> <span class="op">:</span>   18px<span 
+			class="op">;</span>
+<span class="keyw-50">font-syle</span> <span class="op">:</span> <span 
+			class="keyw">justify</span><span 
+			class="op">;</span>
+<span class="keyw-50">padding</span> <span 
+			class="op">:</span> 0 0 20<span 
+			class="keyw">px</span> 20<span 
+			class="keyw">px</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class ="indent" id="b20.3.1-uyg-2">
+			Bundan sonra, yazılım geliştirilerek, yeni bir bilgiYaz2<span 
+			class="op">()</span> fonksiyonu bu yeni stil selektörüne
+			atıf yapacak şekilde değiştirilmişitir. Bu yeni 
+			<a href="../uygulamalar/b20.3.1-uyg-2-js.html">programın</a> kodları 
+			aşağıda görülmekte ve ilişikli olduğu 
+			<a href="../uygulamalar/b20.3.1-uyg-2.html">uygulama sayfasında</a> 
+			çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> bilgiYaz2<span
+			class="op">(</span>sonuç, yazımYeri<span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> bağlantıNoktası <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span>yazımYeri<span
+			class="op">);</span>
+
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span
+			class="str">'class'</span><span
+			class="op">,</span ><span
+			class="str">'bilgiyaz'</span><span
+			class="op">);</span>
+
+<span class="pl-50">bağlantıNoktası</span><span
+			class="op">.</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sonuç<span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function başla</span><span 
+			class="op">() {</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Sin(90)  veya Sin(&pi;/2) = '</span><span 
+			class="op">,</span> <span 
+			class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">sin</span><span 
+			class="op">(</span>90* &pi;/180<span 
+			class="op">) + </span> <span 
+			class="str">'(90 derece = &pi;/2 radyan)'</span><span 
+			class="op">,</span> <span 
+			class="str">'bağlantı</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başla<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class ="indent">
+			Bu son <a href="../uygulamalar/b20.3.1-uyg-2.html">uygulamanın</a> ilkinden farkı, 
+			son uygulamadaki sayfa bağlantısında, herhangibir satıriçi stil niteliği tanımlanması 
+			gereği bulunmamasıdır. Bu programda, bağlantı noktasının stil tanımları, önceden tanımlanmış 
+			CSS sınıf selektörü tarafından karşılanmaktadır. 
+		</p>
+		<p class ="indent">
+			Hangi yaklaşımın daha doğru olduğuna gelince ikinci uygulamadaki yaklaşımın doğru
+			olduğuna bir kuşku yoktur. Birinci uygulamadaki yaklaşım, taktik açıdan doğrudur, çünkü
+			genel amaçlıdır ve hızla kullanıma alınma yeteneği büyüktür. Fakat bu yaklaşım stratejik
+			açıdan uygun değildir çünkü, tüm programlar en uygun oldukları programlama ortamnda
+			geliştirilmemişlerdir. İkinci uygulamadaki yaklaşım ise, taktik açıdan avantajlı değildir, 
+			çünkü kolayca uygulamaya alma yeteneği zayıftır. Fakat, stratejilk açıdan doğrudur çünkü,
+			tüm programlar ait oldukları ortamlarda geliştirilmişledir. 
+		</p>
+		<p class ="indent">
+			Bu düşünce ile, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> gibi
+			ortak kitaplıklardan az yararlanılabileceği söylenebilir. Ortak kitaplıklar sadece
+			gerçekten ortak olarak kullanılabilecek genel amaçlı fonksiyonlar için çok uygundur. 
+			Fakat, bilgiYaz<span class="op">()</span> gibi bir miktar özelleştirme gerektiren 
+			yazılımların her programda kendine özgü olarak geliştirlmesinde yarar bulunmaktadır. 
+			Programın ilk geliştirme aşamalarında, teknik ön planda olduğu için, acil çözümlerden
+			yararlanılabilir ve özelleştirmeler programın ilerideki geliştirme aşamalarında ele 
+			alınabilir. Fakat bu çalışmalar mutlaka yapılarak, programın kendi özel koşullarında 
+			daha güzel görümlü çıktılar vermesi ve daha performanslı çalışması için gereken 
+			önlemler alınmalıdır.
+		</p>
+		<p class ="indent">
+			Buradan çıkarılacak sonuç, , <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> 
+			kitaplığının sadece başlangıç aşamasında, fazla JavaScript yazılım bilgisine sahip
+			olmadan yapılan programlarda yararlı olabileceğidir. Artık, yeterli biligimiz var ve 
+			bazı kalıplara bağlı kalmak zorunda değiliz. Her çalışmaya uygun programlama
+			ortamımızı düzenleme ve geliştirme yeteneğini kazanmış durumdayız. Yeneklerimizi
+			kullanmak zamanı geldi ve bunu her uygulama için özel giriş/çıkış ve görüntüleme
+			fonksiyonları gibi fonksiyonları geliştirerek başlatabiliriz.
+		</p>
+		<p class="subheading" id="sonucyaz">20.3.2 - SonuçYaz() Fonksiyonu </p>
+		<p class ="indent">
+			Sonuçların bir mesajla birlikte sayfadaki yerleşik bir elementin içeriği olarak
+			yazdırılması için geliştirilen sonuçYaz<span class="op">()</span> fonksiyonu,
+			bölüm 2.4.5 de tanıtılmış ve <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> 
+			program kitaplığına alınmıştı. Birçok uygulamada kullanılmış olan sonuçYaz<span class="op">()</span> 
+			fonksiyonun amacı hesap sonuçlarının bir açıklaması olan mesajın ayrı,
+			mesajla aynı sıraya yazdırılacak sonucun ayrı bir stil ile yazdırılmasıdır.
+			Bunun için <span class="keyw">&lt;</span><span class="elm">div</span><span 
+			class="keyw">&gt;</span> veya <span class="keyw">&lt;</span><span 
+			class="elm">p</span><span class="keyw">&gt;</span> gibi  konteyner
+			görevi yapan bir blokdüzey elementin içeriğine, iki tane yeni <span 
+			class="keyw">&lt;</span><span class="elm">span</span><span 
+			class="keyw">&gt;</span> elementi yaratılarak eklenir. Bu iki yeni 
+			elementin ilkinin içeriğine mesaj metni, diğerine de metin şekline 
+			dönüştürülen hesap sonucu yerleştirilir. Bu iki yeni düğümün stil 
+			nitelikleri farklı değerler içeriyorsa, hesap sonucu ve bunu açıklayan mesaj
+			ayrı stillerde görüntülenecektir. 
+		</p>
+		<p class ="indent">
+			Yeni oluşturulacak <span class="keyw">&lt;</span><span class="elm">span</span><span 
+			class="keyw">&gt;</span> elementlerinin stiline, konteyner element
+			kalıtım yolu ile etki edebilir. Fakat eğer, bu elementlerin kendi stil kuralları
+			belirlenirse, bu kurallar daha önceki etkilere göre öncelik alırlar. 
+			Yeni oluşturulacak <span class="keyw">&lt;</span><span 
+			class="elm">span</span><span class="keyw">&gt;</span> elementleri JavaScript 
+			programı ile yaratıldıklarından, stil niteliklerinin de aynı JavaScript programı ile 
+			belirlenmesi gerekir. 
+		</p>
+		<p class ="indent">
+			Yeni oluşturulacak <span class="keyw">&lt;</span><span class="elm">span</span><span 
+			class="keyw">&gt;</span> elementlerinin JavaScript programı belirlenmesinde iki seçenek
+			bulunmaktadır. Bunlardan ilki bu stilin daha önce yaratılmış bir CSS kuralına 
+			dayanarak belirlenmesidir ki bu en uygun olan yöntemdir. Çünkü stil kurallarının
+			olanaklar ölçüsünde, JavaScript ile değil, CSS programları ile belirtilmesi esastır. 
+		</p>
+		<p class ="indent">
+			Yeni oluşturulacak <span class="keyw">&lt;</span><span 
+			class="elm">span</span><span class="keyw">&gt;</span> elementlerinin JavaScript 
+			programı belirlenmesinde ikinci seçenek, stil niteliklerinin JavaScript programı ile satıriçi 
+			(inline) olarak on-the-fly (kodu program içinde hazırlanarak) tanımlanmasıdır. Bu seçeneğe, 
+			program geliştirme aşamasında geçici olarak başvurulmalı ve program geliştikçe, elementin 
+			CSS kuralı hazırlanıp programda bu kural çağrılarak stil niteliği belirlenmelidir. 
+		</p>
+		<p class="indent" id="b20.3.2-uyg-1">
+			İlk incelenecek seçenek, stil niteliklerinin program içinde satırıçi olarak tanımlanmasıdır. Bu 
+			<a href="../uygulamalar/b20.3.2-uyg-1-js.html">programın kodları</a> aşağıda
+			görülmekte ve bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.3.2-uyg-1.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> sonuçYaz<span 
+			class="op">(</span>bilgi<span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> yazımYeri<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> bağlantıNoktası <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yazımYeri'</span><span 
+			class="op">),</span>
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'padding-left : 25px; padding-bottom : 5px; font : italic 1.2em Arial,Helvetica,sans-serif; color : green'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>bilgi<span 
+			class="op">));</span>
+<span class="pl-50">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span<span 
+			class="op">);</span>
+
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'style'</span><span 
+			class="op">,</span> <span 
+			class="str">'padding-left : 25px; padding-bottom : 5px; font : italic 1.2em Arial,Helvetica,sans-serif; color : red'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">));</span>
+<span class="pl-50">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+
+<span class="keyw-25">function</span> başlat <span 
+			class="op">() {</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Deneme'</span><span 
+			class="op">,</span> 999<span 
+			class="op">,</span> <span 
+			class="str">'yazım'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+			
+		<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent" id="b20.3.2-uyg-2"> 
+			İkinci incelenecek seçenek, stil niteliklerinin daha önce bir CSS sayfasında,
+			CSS kuralı olarak tanımlanmış olduğu ve JavaScript programının, yeni oluşturulan
+			elementin stilini bu kurala dayanark tanımlamasıdır. Bu 
+			<a href="../uygulamalar/b20.3.2-uyg-2-js.html">programın kodları</a> aşağıda
+			görülmekte ve bu program, bağlantılı olduğu 
+			<a href="../uygulamalar/b20.3.2-uyg-2.html">uygulama sayfasında</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> sonuçYaz<span 
+			class="op">(</span>bilgi<span 
+			class="op">,</span> sonuç<span 
+			class="op">,</span> yazımYeri<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> bağlantıNoktası <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'yazımYeri'</span><span 
+			class="op">),</span>
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-green'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>bilgi<span 
+			class="op">));</span>
+<span class="pl-50">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span<span 
+			class="op">);</span>
+
+<span class="pl-50">span</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'span'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'class'</span><span 
+			class="op">,</span> <span 
+			class="str">'cursive-red'</span><span 
+			class="op">);</span>
+<span class="pl-50">span</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sonuç<span 
+			class="op">));</span>
+<span class="pl-50">bağlantıNoktası</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>span<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> başlat <span 
+			class="op">() {</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Deneme'</span><span 
+			class="op">,</span> 999<span 
+			class="op">,</span> <span 
+			class="str">'yazım'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span 
+			class="op">);</span>
+			
+		<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Her iki program da aynı sonucu vermesine karşın, ikinci seçenek 
+			programlama kuramı açısından daha uygundur ve bu nedenle, bu seçeneğin
+			kodları, <a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına eklenmiştir. 
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b20.2-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b20.3-s2.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.3-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:13:09 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

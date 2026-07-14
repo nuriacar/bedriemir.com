@@ -1,0 +1,2898 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+    <meta name="description" content="Lists and List Manipulation in Mathematica">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/math/Lists.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+
+ <title>
+ Lists and Grids in Mathematica
+ </title>
+	    <meta content="Mathematica Tutorial For Lists and Grids" name="description" />
+        <meta content="Mathematica Tutorial For Lists and Grids" name="keywords" />
+        <meta content="Prof. Dr. Bedri Doğan Emir" name="author" />
+        <meta content="INDEX,FOLLOW" name="Robots" />
+        <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+ <!--<link href="HTMLFiles/ScatterPlot.css" rel="stylesheet" type="text/css" />-->
+	<link href="css/mathstyle.css" rel="stylesheet" type="text/css" />
+     <style>	
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<p class="Chapter">
+ Lists and List Manipulation in Mathematica
+</p>
+
+
+
+<p class="Text">
+ Lists are the main data collection element in Mathematica. They can be used as simple collections of data, as tuples or sets.
+</p>
+
+
+
+<p class="Text">
+ In Mathematica, list elements are unordered and can be of any types of data. These data can be numeric and string, image, function, plot or any kind of expression.
+</p>
+
+
+
+<p class="Text">
+ In some lists, list elements are not related to each other and they&nbsp;&nbsp;are simple collections or sets if they do not include any same element only once.
+</p>
+
+
+
+<p class="Text">
+ Lists when used as sets, may be generated after some set builder algorithm. In this case the elements of the list are related to each other since they have build according to the same set builder algorithm.
+</p>
+
+
+
+<p class="Text">
+ One dimensional lists are called ``vectors&rdquo;. 
+</p>
+
+
+
+<p class="Text">
+ Vectors can be made, by simply hand addition. Examples :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_1.png" alt="Lists_1.png" width="497" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_2.png" alt="Lists_2.png" width="381" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The variable data1 is a Mathematica list, but it may also be considered as set, since it does not include any same element more then once.
+</p>
+
+
+
+<p class="Text">
+ In Mathematica, there is also different prebuilt functions that can be used for generating sets (which are considered as lists by Mathematica).
+</p>
+
+
+
+<p class="Text">
+ One of the very simple set builders is is a function finding the divisors of any integer :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_3.png" alt="Lists_3.png" width="134" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_4.png" alt="Lists_4.png" width="191" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_5.png" alt="Lists_5.png" width="280" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_6.png" alt="Lists_6.png" width="191" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ An ordered set is build and stored as variable named ``data2&rdquo;.
+</p>
+
+
+
+<p class="Text">
+ Range [ ] function construct a list according,
+</p>
+
+
+
+<p class="Text">
+ <span style='color: #0000FF;'>Range </span><span style='color: #0000FF;'><span><img src="HTMLFiles/Lists_7.png" alt="Lists_7.png" width="36" height="28" style="vertical-align:middle" /></span></span><span style='color: #0000FF;'>] </span>&nbsp;&nbsp;generates the list <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_8.png" alt="Lists_8.png" width="112" height="25" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Text">
+ <span style='color: #0000FF;'>Range[</span><span style='font-family: Source Sans Pro;color: #0000FF;'><span><img src="HTMLFiles/Lists_9.png" alt="Lists_9.png" width="73" height="25" style="vertical-align:middle" /></span></span> generates the list <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_10.png" alt="Lists_10.png" width="110" height="25" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Text">
+ <span style='color: #0000FF;'>Range</span><span style='font-family: Source Sans Pro;color: #0000FF;'><span><img src="HTMLFiles/Lists_11.png" alt="Lists_11.png" width="99" height="25" style="vertical-align:middle" /></span></span><span style='color: #0000FF;'>]</span>&nbsp;&nbsp;&nbsp;generates the list <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_12.png" alt="Lists_12.png" width="110" height="25" style="vertical-align:middle" /></span></span> with steps <span style='font-style: italic;'>di</span>.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_13.png" alt="Lists_13.png" width="248" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_14.png" alt="Lists_14.png" width="322" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ RandomInteger[ ] and RandomReal [ ] can also construct sets (lists). Uasge of these prebuild functions for making a set with pseudorandom elements :
+</p>
+
+
+
+<p class="Text">
+ <img src="HTMLFiles/Lists_15.png" alt="Lists_15.png" width="980" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_16.png" alt="Lists_16.png" width="371" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_17.png" alt="Lists_17.png" width="351" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Table [ ] predefined function is an effective means to devise a set :
+</p>
+
+
+
+<p class="Text">
+ <span style='color: #0000FF;'>Table[expression, n]&nbsp;&nbsp;</span> Produce a set including n copies of the given expression.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_18.png" alt="Lists_18.png" width="204" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_19.png" alt="Lists_19.png" width="529" height="44" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <span style='color: #0000FF;'>Table[expression with an iterator (let us call </span><span style='font-style: italic;color: #0000FF;'>i</span><span style='color: #0000FF;'>), {</span><span style='font-style: italic;color: #0000FF;'>i</span><span style='color: #0000FF;'> </span><span style='color: #0000FF;'><span><img src="HTMLFiles/Lists_20.png" alt="Lists_20.png" width="41" height="28" style="vertical-align:middle" /></span></span><span style='color: #0000FF;'>}] </span> generates a list of the values of <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><span class="TIInline">expr</span></span></span> when <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><span class="TIInline">i</span></span></span> runs from 1 to <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_21.png" alt="Lists_21.png" width="30" height="25" style="vertical-align:middle" /></span></span>. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_22.png" alt="Lists_22.png" width="249" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_23.png" alt="Lists_23.png" width="373" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <img src="HTMLFiles/Lists_24.png" alt="Lists_24.png" width="664" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_25.png" alt="Lists_25.png" width="221" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_26.png" alt="Lists_26.png" width="201" height="28" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_27.png" alt="Lists_27.png" width="283" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_28.png" alt="Lists_28.png" width="481" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ or,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_29.png" alt="Lists_29.png" width="261" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_30.png" alt="Lists_30.png" width="481" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <img src="HTMLFiles/Lists_31.png" alt="Lists_31.png" width="821" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_32.png" alt="Lists_32.png" width="290" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_33.png" alt="Lists_33.png" width="291" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <span style='color: #0000FF;'>Table[</span><span style='font-family: Source Sans Pro;color: #0000FF;'><span><img src="HTMLFiles/Lists_34.png" alt="Lists_34.png" width="159" height="25" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;uses the successive values <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_35.png" alt="Lists_35.png" width="14" height="25" style="vertical-align:middle" /></span></span>, <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span><img src="HTMLFiles/Lists_36.png" alt="Lists_36.png" width="14" height="25" style="vertical-align:middle" /></span></span>, <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span>&hellip;</span></span>.
+</p>
+
+
+
+<p class="Text">
+ Table[
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_37.png" alt="Lists_37.png" width="299" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_38.png" alt="Lists_38.png" width="144" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Prime numbers can be listed
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_39.png" alt="Lists_39.png" width="929" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_40.png" alt="Lists_40.png" width="291" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_41.png" alt="Lists_41.png" width="846" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/Lists_42.png" alt="Lists_42.png" width="715" height="53" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_43.png" alt="Lists_43.png" width="320" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_44.png" alt="Lists_44.png" width="446" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ An advanced way is using user defined functions. One example is given in ``Mathematica Navigator&rdquo;.
+</p>
+
+
+
+<p class="Text">
+ A posxitve integer is a pefect number if it is equal to the sum of its proper divisors. A proper divisor is divisor that is not the number itself. One example of perfect numbers is number 6.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_45.png" alt="Lists_45.png" width="123" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_46.png" alt="Lists_46.png" width="122" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Since the prebuild Divisors [n] function includes the number equal the number itself, if the sum of the divisors (not proper) is equal to 2 n.
+</p>
+
+
+
+<p class="Text">
+ Now, the program&nbsp;&nbsp;given is,
+</p>
+
+
+
+<p class="Text">
+ 1 stage : testing whether the number is perfect :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_47.png" alt="Lists_47.png" width="443" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_48.png" alt="Lists_48.png" width="124" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_49.png" alt="Lists_49.png" width="44" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_50.png" alt="Lists_50.png" width="556" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This means, screen the numbers from 1 to n, select the numbers which make the defined perfectQ[n_] function true. the symbol # is a placeholder signaled by &amp;. Every tried n takes replaces # and be evaluated. Let us find what are the perfect numbers existing in the range 1 to 100.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_51.png" alt="Lists_51.png" width="178" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_52.png" alt="Lists_52.png" width="75" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ in the rnge [0 ,10000]
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_53.png" alt="Lists_53.png" width="203" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_54.png" alt="Lists_54.png" width="188" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We could also use DivisorSigma [ ] function
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_55.png" alt="Lists_55.png" width="521" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_56.png" alt="Lists_56.png" width="188" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Nested lists
+</p>
+
+
+
+<p class="Text">
+ Nested lists (list inside a list) may be generated by simple hand input or by using the Table [ ] function. We will limit ourselves by constructing two elements lists within a list.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_57.png" alt="Lists_57.png" width="254" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_58.png" alt="Lists_58.png" width="170" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_59.png" alt="Lists_59.png" width="438" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_60.png" alt="Lists_60.png" width="881" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Another Tact,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_61.png" alt="Lists_61.png" width="149" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_62.png" alt="Lists_62.png" width="149" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_63.png" alt="Lists_63.png" width="554" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_64.png" alt="Lists_64.png" width="11" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_65.png" alt="Lists_65.png" width="555" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_66.png" alt="Lists_66.png" width="252" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_67.png" alt="Lists_67.png" width="167" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_68.gif" alt="Lists_68.gif" width="360" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The last way is more flexible and allow to generate a set containing any element pairs at any length.
+</p>
+
+
+
+<p class="Subsubsection">
+ List Arithmetic
+</p>
+
+
+
+<p class="Text">
+ Lists can be added, subtracted, multiplied or divided.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_69.png" alt="Lists_69.png" width="91" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_70.png" alt="Lists_70.png" width="252" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_71.png" alt="Lists_71.png" width="216" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_72.png" alt="Lists_72.png" width="104" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_73.png" alt="Lists_73.png" width="216" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_74.png" alt="Lists_74.png" width="132" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_75.png" alt="Lists_75.png" width="196" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_76.png" alt="Lists_76.png" width="115" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_77.png" alt="Lists_77.png" width="214" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_78.png" alt="Lists_78.png" width="113" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_79.png" alt="Lists_79.png" width="105" height="25" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_80.png" alt="Lists_80.png" width="648" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Tabulating Lists
+</p>
+
+
+
+<p class="Subsubsection">
+ TableForm
+</p>
+
+
+
+<p class="Text">
+ <span style='color: #0000FF;'>TableForm[list]&nbsp;&nbsp;&nbsp;:</span><span style='color: #000000;'> Makes a table form a list.</span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_81.png" alt="Lists_81.png" width="178" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>5</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ Table Directions
+</p>
+
+
+
+<p class="Text">
+ TableDirections rule is an option for <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span>RefLink[<span>TableForm</span>,paclet:ref/TableForm]</span></span> and <span class='InlineFormulaInline' style='font-family: Source Sans Pro;'><span>RefLink[<span>MatrixForm</span>,paclet:ref/MatrixForm]</span></span> which specifies whether successive dimensions should be arranged as rows or columns.
+</p>
+
+
+
+<p class="Text">
+ TableDirections&rarr;Column is the default choice and indicates that the first dimension will be the first element of the columns of the formed table.
+</p>
+
+
+
+<p class="Text">
+ We can notice from the new table formed from the list data7 that the first column of the rows of the new formed table are the first elements of the elements of data7. We can change this by adding TableDirections&rarr;Column option to the Row and the first row of the new formed table will consist from the first elements of the elements of the data7.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_82.png" alt="Lists_82.png" width="430" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>4</span></td>
+  <td style='text-align: left;'><span>5</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ This is the transpose of the data7 table.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_83.png" alt="Lists_83.png" width="301" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>4</span></td>
+  <td style='text-align: left;'><span>5</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ Table Spacings
+</p>
+
+
+
+<p class="Text">
+ Sets the distance between table elements. Examples from Wolfram Docs TableSpacing :
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/Lists_84.png" alt="Lists_84.png" width="570" height="23" style="vertical-align:middle" /></span></span><br />Here, <span><span><img src="HTMLFiles/Lists_85.png" alt="Lists_85.png" width="29" height="23" style="vertical-align:middle" /></span></span> is the place holder of table elements &amp; indicates this and {3,2} specifies 3 rows, 2 columns. Let us see his action :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_86.png" alt="Lists_86.png" width="572" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_87.png" alt="Lists_87.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_88.png" alt="Lists_88.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_89.png" alt="Lists_89.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_90.png" alt="Lists_90.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_91.png" alt="Lists_91.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_92.png" alt="Lists_92.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_93.png" alt="Lists_93.png" width="572" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_94.png" alt="Lists_94.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_95.png" alt="Lists_95.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_96.png" alt="Lists_96.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_97.png" alt="Lists_97.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_98.png" alt="Lists_98.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/Lists_99.png" alt="Lists_99.png" width="36" height="25" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_100.png" alt="Lists_100.png" width="423" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>5</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ TableAlignments
+</p>
+
+
+
+<p class="Text">
+ <img src="HTMLFiles/Lists_101.png" alt="Lists_101.png" width="789" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ For dimensions that are given as columns, possible alignments are Left, Center and Right, For dimensions that are given as rows, possible alignments are Bottom, Center and Top.
+</p>
+
+
+
+<p class="Text">
+ The default is Automatic which is Bottom for rows and Left for columns.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_102.png" alt="Lists_102.png" width="1024" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_103.png" alt="Lists_103.png" width="890" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_104.png" alt="Lists_104.png" width="428" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Item</span></td>
+  <td style='text-align: left;'><span>Supplier</span></td>
+  <td style='text-align: left;'><span>Number</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Pencil</span></td>
+  <td style='text-align: left;'><span>China</span></td>
+  <td style='text-align: left;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Pen</span></td>
+  <td style='text-align: left;'><span>US</span></td>
+  <td style='text-align: left;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Eraser</span></td>
+  <td style='text-align: left;'><span>Turkey</span></td>
+  <td style='text-align: left;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_105.png" alt="Lists_105.png" width="713" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>Item</span></td>
+  <td style='text-align: center;'><span>Supplier</span></td>
+  <td style='text-align: center;'><span>Number</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>Pencil</span></td>
+  <td style='text-align: center;'><span>China</span></td>
+  <td style='text-align: center;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>Pen</span></td>
+  <td style='text-align: center;'><span>US</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>Eraser</span></td>
+  <td style='text-align: center;'><span>Turkey</span></td>
+  <td style='text-align: center;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ {Vertical,Horizontal} alignments :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_106.png" alt="Lists_106.png" width="766" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Item</span></td>
+  <td style='text-align: left;'><span>Supplier</span></td>
+  <td style='text-align: left;'><span>Number</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Pencil</span></td>
+  <td style='text-align: left;'><span>China</span></td>
+  <td style='text-align: left;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Pen</span></td>
+  <td style='text-align: left;'><span>US</span></td>
+  <td style='text-align: left;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Eraser</span></td>
+  <td style='text-align: left;'><span>Turkey</span></td>
+  <td style='text-align: left;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ Table Headings
+</p>
+
+
+
+<p class="Text">
+ Arrange labels to be printed for entries in each dimension of a table or matrix. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_107.png" alt="Lists_107.png" width="743" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_108.png" alt="Lists_108.png" width="614" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_109.png" alt="Lists_109.png" width="777" height="53" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span><span></span></span></td>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>Pencil</span></td>
+  <td style='text-align: left;'><span>China</span></td>
+  <td style='text-align: left;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>Pen</span></td>
+  <td style='text-align: left;'><span>US</span></td>
+  <td style='text-align: left;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>Eraser</span></td>
+  <td style='text-align: left;'><span>Turkey</span></td>
+  <td style='text-align: left;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_110.png" alt="Lists_110.png" width="777" height="53" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span><span></span></span></td>
+  <td style='text-align: left;'><span>Item</span></td>
+  <td style='text-align: left;'><span>Country of Origin</span></td>
+  <td style='text-align: left;'><span>Number</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>1</span></td>
+  <td style='text-align: left;'><span>Pencil</span></td>
+  <td style='text-align: left;'><span>China</span></td>
+  <td style='text-align: left;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>2</span></td>
+  <td style='text-align: left;'><span>Pen</span></td>
+  <td style='text-align: left;'><span>US</span></td>
+  <td style='text-align: left;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>3</span></td>
+  <td style='text-align: left;'><span>Eraser</span></td>
+  <td style='text-align: left;'><span>Turkey</span></td>
+  <td style='text-align: left;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_111.png" alt="Lists_111.png" width="777" height="53" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Item</span></td>
+  <td style='text-align: left;'><span>Country of Origin</span></td>
+  <td style='text-align: left;'><span>Number</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Pencil</span></td>
+  <td style='text-align: left;'><span>China</span></td>
+  <td style='text-align: left;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Pen</span></td>
+  <td style='text-align: left;'><span>US</span></td>
+  <td style='text-align: left;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: left;'><span>Eraser</span></td>
+  <td style='text-align: left;'><span>Turkey</span></td>
+  <td style='text-align: left;'><span>35</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ Column and Row
+</p>
+
+
+
+<p class="Text">
+ Column has the same options as Grid, with the following exceptions. <br />For Grid, the default value of Alignment is {Center, Baseline}, but for Column the default value is {Left, Baseline}.Thus, the elements in the column are, by default, aligned left. In addition, Column also has the special option ColumnAlignments, with default value Left. However, usually we do not need either Alignment or ColumnAlignments because we can simply add to the command a second argument that indicates the alignment. The alignment can be Left, Center, Right, and &quot;c&quot; (where c is a character).
+</p>
+
+
+
+<p class="Text">
+ Column[given list] makes a column from a given list
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_112.png" alt="Lists_112.png" width="145" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Item,Supplier,Number}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Pencil,China,30}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Pen,US,12}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Eraser,Turkey,35}</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_113.png" alt="Lists_113.png" width="268" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Item,Supplier,Number}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Pencil,China,30}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Pen,US,12}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>{Eraser,Turkey,35}</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_114.png" alt="Lists_114.png" width="4" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Grid
+</p>
+
+
+
+<p class="Text">
+ Tabular representation of data has proved to be an efficient way to transmit information. Mathematica has good tools for preparing tables.TableForm is familiar from earlier versions of Mathematica, whereas Grid, Column, and Row are new in version 6. Grid is versatile and powerful for even complex tables, giving the possibility of detailed formatting.
+</p>
+
+
+
+<p class="Text">
+ Grid [ ] function, is another way to generate tables from a data list. Usage :
+</p>
+
+
+
+<p class="Text">
+ <img src="HTMLFiles/Lists_115.png" alt="Lists_115.png" width="512" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_116.png" alt="Lists_116.png" width="329" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+  <td style='text-align: center;'><span>13</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_117.png" alt="Lists_117.png" width="414" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_118.png" alt="Lists_118.png" width="94" height="50" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_119.png" alt="Lists_119.png" width="203" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_120.png" alt="Lists_120.png" width="229" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Grid Options 
+</p>
+
+
+
+<p class="Text">
+ General forms of declaring Grid options, 
+</p>
+
+
+
+<p class="Text">
+ value this option will be applied to all columns.
+</p>
+
+
+
+<p class="Text">
+ valueAll
+</p>
+
+
+
+<p class="Text">
+ {valuecol}&nbsp;&nbsp;&nbsp;only for colums
+</p>
+
+
+
+<p class="Text">
+ {valuecol&nbsp;&nbsp;,&nbsp;&nbsp;valuerow} apply valuecol for column and valuerow for rows
+</p>
+
+
+
+<p class="Text">
+ Values valuecol and valuerow can be a single value or a list of values of the following general form : <br /><br />{ <span><span><img src="HTMLFiles/Lists_121.png" alt="Lists_121.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_122.png" alt="Lists_122.png" width="20" height="23" style="vertical-align:middle" /></span></span>, { <span><span><img src="HTMLFiles/Lists_123.png" alt="Lists_123.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_124.png" alt="Lists_124.png" width="20" height="23" style="vertical-align:middle" /></span></span> }, <span><span><img src="HTMLFiles/Lists_125.png" alt="Lists_125.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_126.png" alt="Lists_126.png" width="20" height="23" style="vertical-align:middle" /></span></span> } Apply <span><span><img src="HTMLFiles/Lists_127.png" alt="Lists_127.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_128.png" alt="Lists_128.png" width="20" height="23" style="vertical-align:middle" /></span></span> at the beginning, <span><span><img src="HTMLFiles/Lists_129.png" alt="Lists_129.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_130.png" alt="Lists_130.png" width="20" height="23" style="vertical-align:middle" /></span></span> at the end, and cyclically the sequence <span><span><img src="HTMLFiles/Lists_131.png" alt="Lists_131.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_132.png" alt="Lists_132.png" width="20" height="23" style="vertical-align:middle" /></span></span> in between<br /><br />&bull; Some typical special cases are as follows :<br />{<span><span><img src="HTMLFiles/Lists_133.png" alt="Lists_133.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_134.png" alt="Lists_134.png" width="20" height="23" style="vertical-align:middle" /></span></span>, { }, <span><span><img src="HTMLFiles/Lists_135.png" alt="Lists_135.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_136.png" alt="Lists_136.png" width="20" height="23" style="vertical-align:middle" /></span></span> } Apply the default value in between<br />{<span><span><img src="HTMLFiles/Lists_137.png" alt="Lists_137.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_138.png" alt="Lists_138.png" width="20" height="23" style="vertical-align:middle" /></span></span>, { <span><span><img src="HTMLFiles/Lists_139.png" alt="Lists_139.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_140.png" alt="Lists_140.png" width="20" height="23" style="vertical-align:middle" /></span></span> }} Apply cyclically <span><span><img src="HTMLFiles/Lists_141.png" alt="Lists_141.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_142.png" alt="Lists_142.png" width="20" height="23" style="vertical-align:middle" /></span></span> through the end<br />{<span><span><img src="HTMLFiles/Lists_143.png" alt="Lists_143.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_144.png" alt="Lists_144.png" width="20" height="23" style="vertical-align:middle" /></span></span>} Apply <span><span><img src="HTMLFiles/Lists_145.png" alt="Lists_145.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_146.png" alt="Lists_146.png" width="20" height="23" style="vertical-align:middle" /></span></span> at the beginning and then the default value<br />{<span><span><img src="HTMLFiles/Lists_147.png" alt="Lists_147.png" width="20" height="23" style="vertical-align:middle" /></span></span>} Apply <span><span><img src="HTMLFiles/Lists_148.png" alt="Lists_148.png" width="20" height="23" style="vertical-align:middle" /></span></span> at the beginning and then the default value<br />{{ <span><span><img src="HTMLFiles/Lists_149.png" alt="Lists_149.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_150.png" alt="Lists_150.png" width="20" height="23" style="vertical-align:middle" /></span></span>}} Apply cyclically <span><span><img src="HTMLFiles/Lists_151.png" alt="Lists_151.png" width="20" height="23" style="vertical-align:middle" /></span></span>, &hellip;, <span><span><img src="HTMLFiles/Lists_152.png" alt="Lists_152.png" width="20" height="23" style="vertical-align:middle" /></span></span><br />{{<span><span><img src="HTMLFiles/Lists_153.png" alt="Lists_153.png" width="20" height="23" style="vertical-align:middle" /></span></span>, <span><span><img src="HTMLFiles/Lists_154.png" alt="Lists_154.png" width="20" height="23" style="vertical-align:middle" /></span></span>}} Apply cyclically <span><span><img src="HTMLFiles/Lists_155.png" alt="Lists_155.png" width="20" height="23" style="vertical-align:middle" /></span></span> and <span><span><img src="HTMLFiles/Lists_156.png" alt="Lists_156.png" width="20" height="23" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;-that is, alternate between <span><span><img src="HTMLFiles/Lists_157.png" alt="Lists_157.png" width="20" height="23" style="vertical-align:middle" /></span></span> and <span><span><img src="HTMLFiles/Lists_158.png" alt="Lists_158.png" width="20" height="23" style="vertical-align:middle" /></span></span> {{<span><span><img src="HTMLFiles/Lists_159.png" alt="Lists_159.png" width="20" height="23" style="vertical-align:middle" /></span></span>}} or <span><span><img src="HTMLFiles/Lists_160.png" alt="Lists_160.png" width="20" height="23" style="vertical-align:middle" /></span></span> Apply repeatedly <span><span><img src="HTMLFiles/Lists_161.png" alt="Lists_161.png" width="20" height="23" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_162.png" alt="Lists_162.png" width="345" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_163.png" alt="Lists_163.png" width="563" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Alignment
+</p>
+
+
+
+<p class="Text">
+ Horizontal and vertical alignment of items. Default for Rows {Baseline}, for columns {Centered). Other options, {Left}, {Right},{.} (Columns are aligned at the decimal point). In horizontal (columnar) arrangement Left, Right, Centar and &ldquo;c&rdquo; (where c is any character) , Vertical (Row weise) alignment Bottom, Center, Baseline and Top.
+</p>
+
+
+
+<p class="Text">
+ <br />Alignment&rarr; {Left, Baseline} is a {valuecol&nbsp;&nbsp;,&nbsp;&nbsp;valuerow}&nbsp;&nbsp;type input. Column will be aligned to the left and rows will be aligned to the baseline.<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_164.png" alt="Lists_164.png" width="530" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_165.png" alt="Lists_165.png" width="229" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Dividers 
+</p>
+
+
+
+<p class="Text">
+ Drawing lines between rows and columns. Default None. <br />
+</p>
+
+
+
+<p class="Text">
+ Dividers&rarr;{None,All} is a {valuecol&nbsp;&nbsp;,&nbsp;&nbsp;valuerow}&nbsp;&nbsp;type input. All rows will have dividers columns will not. This&nbsp;&nbsp;will result as :<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_166.png" alt="Lists_166.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_167.png" alt="Lists_167.png" width="229" height="118" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Dividers&rarr;{All,None} is a {valuecol&nbsp;&nbsp;,&nbsp;&nbsp;valuerow}&nbsp;&nbsp;type input. All columns will have dividers rows not.<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_168.png" alt="Lists_168.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_169.png" alt="Lists_169.png" width="248" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Alignment&rarr; {Left, Baseline} is a {valuecol&nbsp;&nbsp;,&nbsp;&nbsp;valuerow}&nbsp;&nbsp;type input. All columns and rows will have dividers.<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_170.png" alt="Lists_170.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_171.png" alt="Lists_171.png" width="248" height="118" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Dividers&rarr;All is a valueAll type of input. All columns and rows will have <br />dividers.<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_172.png" alt="Lists_172.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_173.png" alt="Lists_173.png" width="248" height="118" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Dividers&rarr;{2&rarr; True} is a {valuecol} type of input. That will only affect columns and trace a divider after 2nd. column :<br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_174.png" alt="Lists_174.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_175.png" alt="Lists_175.png" width="230" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Dividers&rarr;{None,2&rarr; True} is a {valuecol, valuerow} type of input. Columns won&rsquo;t have dividers but one divider will be drawn after 2nd. row. <br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_176.png" alt="Lists_176.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_177.png" alt="Lists_177.png" width="229" height="105" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <br />Dividers&rarr;{2&rarr; True , 2&rarr; True} is a {valuecol, valuerow} type of input. One divider will be drawn after 2nd. column, the other at 2nd. row. <br />
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_178.png" alt="Lists_178.png" width="351" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_179.png" alt="Lists_179.png" width="230" height="105" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Spacings
+</p>
+
+
+
+<p class="Text">
+ Spacings is distance in units of current font size, between rows and columns. Automatic , usually means {0.7, 0.4}
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_180.png" alt="Lists_180.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_181.png" alt="Lists_181.png" width="229" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_182.png" alt="Lists_182.png" width="350" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_183.png" alt="Lists_183.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can see the effect of spacing rule.
+</p>
+
+
+
+<p class="Subsubsection">
+ ItemStyle
+</p>
+
+
+
+<p class="Text">
+ One of the exciting options. ItemStyle arrange the embellishments of the row and columns. Examples illustrates the usage of this option.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_184.png" alt="Lists_184.png" width="350" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_185.png" alt="Lists_185.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_186.png" alt="Lists_186.png" width="350" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_187.png" alt="Lists_187.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_188.png" alt="Lists_188.png" width="454" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_189.png" alt="Lists_189.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_190.png" alt="Lists_190.png" width="350" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_191.png" alt="Lists_191.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_192.png" alt="Lists_192.png" width="427" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_193.png" alt="Lists_193.png" width="177" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_194.png" alt="Lists_194.png" width="736" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_195.png" alt="Lists_195.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_196.png" alt="Lists_196.png" width="380" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_197.png" alt="Lists_197.png" width="258" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_198.png" alt="Lists_198.png" width="362" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_199.png" alt="Lists_199.png" width="261" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_200.png" alt="Lists_200.png" width="362" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_201.png" alt="Lists_201.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Background
+</p>
+
+
+
+<p class="Text">
+ Colors of the background.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_202.png" alt="Lists_202.png" width="398" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_203.png" alt="Lists_203.png" width="248" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ GrayLevel[0.7, 0.3] means, gray at level 0.7 with opacity 0.3.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_204.png" alt="Lists_204.png" width="409" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_205.png" alt="Lists_205.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Rows with alternating background :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_206.png" alt="Lists_206.png" width="664" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_207.png" alt="Lists_207.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_208.png" alt="Lists_208.png" width="809" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_209.png" alt="Lists_209.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_210.png" alt="Lists_210.png" width="367" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_211.png" alt="Lists_211.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_212.png" alt="Lists_212.png" width="629" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_213.png" alt="Lists_213.png" width="245" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Frame
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_214.png" alt="Lists_214.png" width="493" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_215.png" alt="Lists_215.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_216.png" alt="Lists_216.png" width="493" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_217.png" alt="Lists_217.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_218.png" alt="Lists_218.png" width="493" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_219.png" alt="Lists_219.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_220.png" alt="Lists_220.png" width="493" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_221.png" alt="Lists_221.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ FrameStyle
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_222.png" alt="Lists_222.png" width="493" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_223.png" alt="Lists_223.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_224.png" alt="Lists_224.png" width="551" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_225.png" alt="Lists_225.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ ItemSize
+</p>
+
+
+
+<p class="Text">
+ Width and height of each item; examples of values: Automatic (separately size items to fit within the total formatting width; long items may take several lines), All (make all items the same width and height), Full (allow each item its full width and height; long items are not divided into several lines), w (give all items width w, measured in ems), {w, h} (give all items width w and height h, with h measured in line heights)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_226.png" alt="Lists_226.png" width="569" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_227.png" alt="Lists_227.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_228.png" alt="Lists_228.png" width="569" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_229.png" alt="Lists_229.png" width="284" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_230.png" alt="Lists_230.png" width="569" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_231.png" alt="Lists_231.png" width="269" height="170" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_232.png" alt="Lists_232.png" width="569" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_233.png" alt="Lists_233.png" width="965" height="382" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_234.png" alt="Lists_234.png" width="569" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_235.png" alt="Lists_235.png" width="578" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ BaseLine
+</p>
+
+
+
+<p class="Text">
+ Base style specifications for the grid; examples of values : {}, Blue (all items are blue), Directive[Red, Bold, Italic] (all items are red, bold, and italic)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_236.png" alt="Lists_236.png" width="569" height="256" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_237.png" alt="Lists_237.png" width="578" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_238.png" alt="Lists_238.png" width="569" height="256" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_239.png" alt="Lists_239.png" width="578" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_240.png" alt="Lists_240.png" width="569" height="256" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_241.png" alt="Lists_241.png" width="608" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ BaselinePosition
+</p>
+
+
+
+<p class="Text">
+ How the grid should be positioned inside text; examples of values: Automatic (means Axis), <br />Axis (axis of the middle row in the grid), <br />Baseline (baseline of the middle row in the grid), <br />Bottom (bottom of the whole grid), <br />Center (halfway from top to bottom), <br />Top (top of thewhole grid).
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_242.png" alt="Lists_242.png" width="569" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_243.png" alt="Lists_243.png" width="608" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_244.png" alt="Lists_244.png" width="569" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_245.png" alt="Lists_245.png" width="608" height="264" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_246.png" alt="Lists_246.png" width="569" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_247.png" alt="Lists_247.png" width="608" height="249" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_248.png" alt="Lists_248.png" width="569" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_249.png" alt="Lists_249.png" width="608" height="246" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Examples
+</p>
+
+
+
+<p class="Subsubsection">
+ Example 1
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_250.png" alt="Lists_250.png" width="494" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_251.png" alt="Lists_251.png" width="689" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_252.png" alt="Lists_252.png" width="629" height="85" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_253.png" alt="Lists_253.png" width="307" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='cols'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ No need to complicate things :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_254.png" alt="Lists_254.png" width="360" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_255.png" alt="Lists_255.png" width="221" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<table class='Text' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Now for rows :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_256.png" alt="Lists_256.png" width="303" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_257.png" alt="Lists_257.png" width="365" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_258.png" alt="Lists_258.png" width="307" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='rows'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Subsubsection">
+ Exceptional Values
+</p>
+
+
+
+<p class="Text">
+ If we have some exceptional formatting for some columns, rows, or items, we can add definitions for these cases as rules.
+</p>
+
+
+
+<p class="Text">
+ Exceptional values can be given as rules (a single rule or a list of rules) : <br />{rulesj} Apply rulesj for specific columns<br />{rulesj, rulesi} Apply rulesj for specific columns and rulesi for specific rows<br />{valc, rulesj} Apply valc for columns but rulesj to specific columns<br />{{valc, rulesj}, {valr, rulesi}} Apply valc for columns and valr for rows but rulesj to<br />specific columns and rulesi to specific rows<br />{valc, valr, rulesij} Apply valc and valr for columns and rows but rulesij for specific items<br />(not applicable for Dividers and Spacings)
+</p>
+
+
+
+<p class="Text">
+ Here, rulesj may be, for example, 4 &rarr; True, meaning that the value True is used for the fourth column. <br />Similarly, rulesi may be, for example, 3&nbsp;&nbsp;&rarr; Green, meaning that the value Green is used for the third row.Also, rulesij may be, for example, {2, 5}&nbsp;&nbsp;&rarr; Red, meaning that the value Red is used for the item at position (2, 5).<br />In addition, rulesij may define a range of items. An example is {{2, 4}, {1, 3}}&nbsp;&nbsp;&rarr; Red, meaning that the value Red is used for items with row index in {2, 4 } and column index in {1, 3 } .
+</p>
+
+
+
+<p class="Text">
+ More for frames,
+</p>
+
+
+
+<p class="Text">
+ Targeting only one framed column :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_259.png" alt="Lists_259.png" width="389" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting two framed columns : (Always be specific !)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_260.png" alt="Lists_260.png" width="498" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting a column and a row :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_261.png" alt="Lists_261.png" width="460" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting two columns and one row :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_262.png" alt="Lists_262.png" width="574" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting a single one cell :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_263.png" alt="Lists_263.png" width="480" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='void'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting two cells :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_264.png" alt="Lists_264.png" width="656" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='void'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Targeting a {{column cell},{row cell}} region : {valcol, valrow, rulesij}
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_265.png" alt="Lists_265.png" width="586" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='void'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>5</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>9</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Row indices 2 to 3 , column indices 2 to 4. 
+</p>
+
+
+
+<p class="Text">
+ The grid may also contain text and graphics :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_266.gif" alt="Lists_266.gif" width="929" height="369" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_267.gif" alt="Lists_267.gif" width="1034" height="298" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Options of the Grid
+</p>
+
+
+
+<p class="Subsubsection">
+ Row and Column Sums
+</p>
+
+
+
+<p class="Text">
+ A new matrix,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_268.png" alt="Lists_268.png" width="879" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_269.png" alt="Lists_269.png" width="201" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_270.png" alt="Lists_270.png" width="342" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_271.png" alt="Lists_271.png" width="199" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_272.png" alt="Lists_272.png" width="269" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_273.png" alt="Lists_273.png" width="256" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_274.png" alt="Lists_274.png" width="66" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Then the table :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_275.png" alt="Lists_275.png" width="690" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_276.png" alt="Lists_276.png" width="446" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_277.png" alt="Lists_277.png" width="686" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_278.png" alt="Lists_278.png" width="930" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_279.png" alt="Lists_279.png" width="486" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_280.png" alt="Lists_280.png" width="512" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_281.png" alt="Lists_281.png" width="392" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_282.png" alt="Lists_282.png" width="974" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_283.png" alt="Lists_283.png" width="79" height="23" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Rows</span></td>
+  <td style='text-align: center;'><span>Col 1</span></td>
+  <td style='text-align: center;'><span>Col 2</span></td>
+  <td style='text-align: center;'><span>Col 3</span></td>
+  <td style='text-align: center;'><span>Col 4</span></td>
+  <td style='text-align: center;'><span>Sums</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Row 1</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+  <td style='text-align: center;'><span>21.2</span></td>
+  <td style='text-align: center;'><span>3.05</span></td>
+  <td style='text-align: center;'><span>64.2</span></td>
+  <td style='text-align: center;'><span>94.45</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Row 2</span></td>
+  <td style='text-align: center;'><span>34</span></td>
+  <td style='text-align: center;'><span>9.582</span></td>
+  <td style='text-align: center;'><span>143.17</span></td>
+  <td style='text-align: center;'><span>8.702</span></td>
+  <td style='text-align: center;'><span>195.454</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Row 3</span></td>
+  <td style='text-align: center;'><span>985</span></td>
+  <td style='text-align: center;'><span>0.6914</span></td>
+  <td style='text-align: center;'><span>70.4</span></td>
+  <td style='text-align: center;'><span>126.6</span></td>
+  <td style='text-align: center;'><span>1182.69</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Sums</span></td>
+  <td style='text-align: center;'><span>1025</span></td>
+  <td style='text-align: center;'><span>31.4734</span></td>
+  <td style='text-align: center;'><span>216.62</span></td>
+  <td style='text-align: center;'><span>199.502</span></td>
+  <td style='text-align: center;'><span>1472.6</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Here the transpose may be written as Esc + tr + Esc
+</p>
+
+
+
+<p class="Subsection">
+ Enhancing the Grid
+</p>
+
+
+
+<p class="Subsubsection">
+ Alignment
+</p>
+
+
+
+<p class="Text">
+ ** Alignment&nbsp;&nbsp;&nbsp;Horizontal and vertical alignment of items; examples of values: {Center, Baseline}<br />(columns are centered, rows are at baseline), Left (columns are aligned left), Right (columns are<br />aligned right), &ldquo;.&rdquo; (columns are aligned at the decimal point). In horizontal (or column) alignment,<br />we can use Left, Center, Right, and &ldquo;c&rdquo; (where c is a character). In vertical (or row) alignment,<br />we can use Bottom, Center, Baseline, and Top.
+</p>
+
+
+
+<p class="Text">
+ As an example, we consider the table t we formed previously. First, we align the columns at the right:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_284.png" alt="Lists_284.png" width="372" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_285.png" alt="Lists_285.png" width="450" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ 
+</p>
+
+
+
+<p class="Text">
+ Right alignment is good for integers. Then we align the columns at the decimal point :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_286.png" alt="Lists_286.png" width="355" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_287.png" alt="Lists_287.png" width="516" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Columns with integers are seemingly untouched, but column with a decimal point are aligned with the decimal point. In the reality integers are considered as having a decimal zero and aligned with it. Note that the column headers are aligned such that they end at the position of the decimal point, and this causes the headers to be too far to the left. For the row headers, the right alignment is not good.
+</p>
+
+
+
+<p class="Text">
+ Now we align the first column left, the second column right, and the rest of the columns at the<br />decimal point:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_288.png" alt="Lists_288.png" width="562" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_289.png" alt="Lists_289.png" width="516" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Note that here the value of the option is of the form {valcol} mentioned previously in a box. This form of the option means that valcol is applied for columns. Here, valcol is {Left, Right, {&ldquo;.&rdquo;}} and this is of<br />the general form {a1, a2, {b1}} mentioned before. This form of the option means that a1<br />is applied for the first column, a2 for the second column, and b1 for the rest of the columns.
+</p>
+
+
+
+<p class="Text">
+ The previous table is quite good. However, the column headers should be aligned better. We define<br />these exceptional alignments as rules:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_290.png" alt="Lists_290.png" width="904" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_291.png" alt="Lists_291.png" width="516" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here, the value of the option is of the form {valcol, valrow, rulesij} mentioned previously in a box. This<br />form of the option means that valcol is applied for columns, valrow for rows, and rulesij for special<br />items. Actually, valrow or Baseline is the default for rows but we have to define something for the rows<br />so that we can define rules for single items. The rule {{1, 1}, {2, 6}} &rarr; Center defines that the column<br />alignment should be Center for items with row indices in the range {1, 1} and column indices in the<br />range {2, 6}.
+</p>
+
+
+
+<p class="Subsubsection">
+ Dividers
+</p>
+
+
+
+<p class="Text">
+ Dividers Where to draw lines; examples of values : None, All (all items become boxed), Center<br />(all interior dividers), {None, All} (no column lines, all row lines, lines also before the first row and after the last row), {2 &rarr;&nbsp;&nbsp;True} (a line after the first column), {None, 2&rarr; True} (a line below the first row), {2 &rarr;&nbsp;&nbsp;True, 2 &rarr;&nbsp;&nbsp;True} (a line after the first column and below the first row)
+</p>
+
+
+
+<p class="Text">
+ Note that if we give Dividers a list of values, the first value corresponds with the divider before the first column or above the first row. The last value that can be given concerns the divider after the last column or below the last row. 
+</p>
+
+
+
+<p class="Text">
+ First, we draw all dividers:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_292.png" alt="Lists_292.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_293.png" alt="Lists_293.png" width="538" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Then we draw all interior dividers:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_294.png" alt="Lists_294.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_295.png" alt="Lists_295.png" width="521" height="135" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we ask for no column dividers and all row dividers:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_296.png" alt="Lists_296.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_297.png" alt="Lists_297.png" width="516" height="146" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we ask for no row dividers and all column dividers:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_298.png" alt="Lists_298.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_299.png" alt="Lists_299.png" width="538" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we add, for both the columns and the rows, the second divider:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_300.png" alt="Lists_300.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_301.png" alt="Lists_301.png" width="517" height="132" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now we add, for columns, the second divider and the next-to-last divider:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_302.png" alt="Lists_302.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_303.png" alt="Lists_303.png" width="518" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Spacings
+</p>
+
+
+
+<p class="Text">
+ Spacings Space between columns and rows (in units of the current font size); examples of values : Automatic (usually means {0.7, 0.4} : the space between columns is 0.7 and that between rows is 0.4), 1.2 (the space between columns is 1.2 and the space between rows is the default 0.4)
+</p>
+
+
+
+<p class="Text">
+ Note that if we give Spacings a list of values, the first value corresponds with the space before the first column or above the first row, and the last value that can be given concerns the space after the last column or below the last row. However, the first or last value does not have any effect unless there is a frame line or divider line before the first column or row or after the last column or row.
+</p>
+
+
+
+<p class="Text">
+ We make the space between columns 2 (the space between rows is the default 0.4):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_304.png" alt="Lists_304.png" width="886" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_305.png" alt="Lists_305.png" width="646" height="131" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now make the space between columns 2 and the space between rows 0.1:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_306.png" alt="Lists_306.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_307.png" alt="Lists_307.png" width="646" height="107" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we fine|tune the spacings:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_308.png" alt="Lists_308.png" width="886" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_309.png" alt="Lists_309.png" width="596" height="159" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here, the space between columns is 1.5. The space below the first row and above the last row is 1; for the rows in between, we use the space of 0.5.
+</p>
+
+
+
+<p class="Text">
+ Note that Mathematica assumes that the spacings begin above the first row and extend below the last row. Thus, to get the space 1 after the first row and above the last row, we have to define a space also above the first row and below the last row. We used the value 0 for these spaces, but in this example these values do not have any effect.
+</p>
+
+
+
+<p class="Text">
+ Note that Mathematica assumes that the spacings begin above the first row and extend below the last row. Thus, to get the space 1 after the first row and above the last row, we have to define a space also above the first row and below the last row. We used the value 0 for these spaces, but in this example these values do not have any effect.
+</p>
+
+
+
+<p class="Text">
+ If we have a frame or dividers above the first row and below the last row, then the first and last values of Spacings do have an effect because these spacings define how much space should be around the first and last divider. Here, we use the value 1 for these spacings:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_310.png" alt="Lists_310.png" width="803" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_311.png" alt="Lists_311.png" width="596" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ ItemStyle
+</p>
+
+
+
+<p class="Text">
+ ItemStyle Styles of columns and rows; examples of values: None, Blue (all items are blue), {1 &rarr; Red} (the first column is red), {Automatic, 1 &rarr;&nbsp;&nbsp;Bold} (the first row is bold), {1 &rarr;&nbsp;&nbsp;Directive[Red, Bold, 14]} (the first column is red, bold, and size 14), {1 &rarr;&nbsp;&nbsp;Bold, 1 &rarr;&nbsp;&nbsp;Bold} (the first column and the first row are bold)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_312.png" alt="Lists_312.png" width="803" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_313.png" alt="Lists_313.png" width="608" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Then we use the bold style for both the first column and the first row :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_314.png" alt="Lists_314.png" width="803" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_315.png" alt="Lists_315.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now the first and last column and row are bold :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_316.png" alt="Lists_316.png" width="803" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_317.png" alt="Lists_317.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we use both the bold style and a color:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_318.png" alt="Lists_318.png" width="891" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_319.png" alt="Lists_319.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ <span class="SubsubsectionInline">Background</span>
+</p>
+
+
+
+<p class="Text">
+ Background Colors of the background; examples of values: None, GrayLevel[0.9] (all items are gray), {Automatic, {{ White, LightGray}}} (columns are default, rows alternate between white
+</p>
+
+
+
+<p class="Text">
+ Define a gray background for the table:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_320.png" alt="Lists_320.png" width="770" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_321.png" alt="Lists_321.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we define a gray background for the first row (GrayLevel 0.9, Opacity 0.5 :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_322.png" alt="Lists_322.png" width="803" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_323.png" alt="Lists_323.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now we define an alternating background for the rows :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_324.png" alt="Lists_324.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_325.png" alt="Lists_325.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Define then the first and last rows to be light red :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_326.png" alt="Lists_326.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_327.png" alt="Lists_327.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we define the background for a range of items or for a singe item :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_328.png" alt="Lists_328.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_329.png" alt="Lists_329.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ { Automatic, Automatic, {{{5, 5}, {2, 5}} &rarr; Darker[Yellow, 0.1], {{2, 4}, {6, 6 }} &rarr; Darker[Yellow, 0.1], {5, 6} &rarr; Red}}
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_330.png" alt="Lists_330.png" width="893" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_331.png" alt="Lists_331.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_332.png" alt="Lists_332.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_333.png" alt="Lists_333.png" width="610" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Frame
+</p>
+
+
+
+<p class="Text">
+ Where to draw frames; examples of values: None, True (frame around the whole grid), All (all items become boxed), {All} (frame around each column), {None, All} (frame around each row)
+</p>
+
+
+
+<p class="Text">
+ Add frame for all the table
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_334.png" alt="Lists_334.png" width="983" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_335.png" alt="Lists_335.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Add a frame for all items (this can also be obtained with Dividers &rarr; All) :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_336.png" alt="Lists_336.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_337.png" alt="Lists_337.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_338.png" alt="Lists_338.png" width="807" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_339.png" alt="Lists_339.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next, we use both dividers and a frame:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_340.png" alt="Lists_340.png" width="807" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_341.png" alt="Lists_341.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Frame for a single Item :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_342.png" alt="Lists_342.png" width="807" height="256" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_343.png" alt="Lists_343.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ FrameStyle
+</p>
+
+
+
+<p class="Text">
+ Style of frames and dividers; examples of values: Automatic, Red, Directive[Gray,Thickness[2]]
+</p>
+
+
+
+<p class="Text">
+ We define some styles for frames :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_344.png" alt="Lists_344.png" width="807" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_345.png" alt="Lists_345.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Colored Dividers :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_346.png" alt="Lists_346.png" width="1040" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_347.png" alt="Lists_347.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can get rid of the dashing and get straight line dividers.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_348.png" alt="Lists_348.png" width="994" height="198" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_349.png" alt="Lists_349.png" width="642" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ ItemSize
+</p>
+
+
+
+<p class="Text">
+ Width and height of each item; examples of values: Automatic (separately size items to fit within the total formatting width; long items may take several lines), All (make all items the same width and height), Full (allow each item its full width and height; long items are not divided into several lines), w (give all items width w, measured in ems), {w, h} (give all items width w and height h, with h measured in line heights; the default value of h is 1)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_350.png" alt="Lists_350.png" width="994" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_351.png" alt="Lists_351.png" width="692" height="181" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Lastly we can add a label,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Lists_352.png" alt="Lists_352.png" width="1006" height="285" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Lists_353.png" alt="Lists_353.png" width="692" height="270" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Tables in Mathematica may be somehow difficult to master. The aim of these examples is to provide some working media which may suit to somebody&rsquo;s needs and use it without hassles of the Mathematica language.
+</p>
+
+
+
+<p class="Text">
+ These material is largely based on Mathematica Navigator version 3.1 targeting Mathematica Releases 7 and up. Most material is revised and reshaped for to be more comprehensive. Mathematica Navigator is perhaps largest and well organised textbook with countless examples, very advisable for learning Mathematica.
+</p>
+
+
+
+<p class="Text">
+ I hope that this manuscript will be useful for whom searching a shortest ways to present Mathematica materials.
+</p>
+
+        <ul id="navbottom">
+            <li id="index"><a href="../index.html"><em>« Site Main Page</em></a></li>
+            <li id="denge"></li>
+            <li id="sayfa"><a href="Lists.pdf"><em>pdf version »</em></a></li>
+            <li id="denge1"></li>
+            <li id="kodlama1"><a href="Lists.nb"><em>Mathematica Notebook »</em></a></li>
+            <li id="denge2"></li>
+            <li id="kodlama2"><a href="Lists.cdf"><em>cdf version »</em></a></li>
+            <li id="denge3"></li>
+	<li id="kodlama3"><a href="2DPlots.rtf"><em>rtf version » </em></a></li>
+            <li id="navbottom-sonlama"></li>
+        </ul>
+<script src="../Library/lastmodified-eng.js">
+        </script>
+<script src=../js/bdelib.js">           
+        </script>
+<script src=../js/bootstrap.js">
+    </script>
+<script src"../js/jquery-1.11.3.min.js">
+    </script>
+<div style="font-family: Helvetica; font-size: 11px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+            <a href="http://www.wolfram.com/language/" style="color: red; text-decoration: none;">
+            <span style="color: #555555">Created with the Wolfram Language</span>
+            </a>
+</div>
+        <p class=" indent verticalTab-25">
+            <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+            <img alt="Geçerli html5" src="../algebra/images/html5-small-1.gif" /></a></span>
+        </p>
+</body>
+</html>
+
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:58 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.4-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b19.6.4-s1</title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.3-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="b19.6.5-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a>			</p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19 </p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.4 Sayfa 1 </p>
+		<p class="subheading" id="NodeList">19.6.4 - NamedNodeMap Arabirimi</p>
+		<p class="indent">
+			<span class="keyw">NamedNodeMap</span> arabirimi, dinamik bir koleksiyon nesnesidir. 
+			Bu koleksiyonun elemanlarının yerleşiminin belirli bir sıralama yöntemi yoktur. Bu topluluğun 
+			elemanlarına istenirse sırası birbirini izleyen tamsayı ordinal indislerle erişlebildiği gibi,
+			ismleri kullanılarak, <span class="keyw">getNamedItem()</span><span class="op">()</span>
+			<span class="keyw">setNamedItem()</span><span class="op">()</span>, 
+			<span class="keyw">removeNamedItem()</span><span class="op">()</span>
+			metotları ile de erişilebilir. 
+		</p>
+		<p class="indent">
+			<span class="keyw">NamedNodeMap</span> koleksiyonları, sayfa yapısı yenilendiğinde 
+			güncellenir ve <span class="keyw">length</span> özelliğinin değeri, güncel içeriğini
+			yansıtacak şekilde yenilenir.
+		</p>
+		<p class="indent">
+		<span class="keyw">NamedNodeMap</span> arabiriminin özellik ve metotları, hem 
+			koleksiyon listesinde bulunan elemanlara erişim, hem de koleksiyon listesindeki elemanların niteliklerini
+			değiştirme, hem de koleksiyon listesine yeni elemanlar eklenmesi için kullanılabilirler.  Bu arabirimin
+			<a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1780488922">W3C-DOM Level-2 CORE spesifikasyonundaki</a> tanımı aşağıda görülmektedir:
+		</p>
+		<p class="sayfaortala">
+			<img src="../images/b19.6.4-img-1.png" alt="node NamedNodeMap" width="1348" height="554" />
+		</p>
+		
+		<p class="sayfaortala"> Şekil 19.6.4 - 1 - DOM Düzey 2 de NamedNodeMap Arabiriminin  IDL Yazılımı </p>
+		<p class ="indent"> 
+			<span class="keyw">NamedNodeMap</span> arayüzü ile tanımlanan yapıya uygun yapıdaki bir 
+			nesne sınıfı, <span class="keyw">Array</span> (dizi) nesne sınıfı yapısına benzer bir yapısı olan 
+			bir nesne sınıfıdır. Bu nesne sınıfının dizi nesne sınıfı gibi toplam eleman sayısını veren bir 
+			<span class="keyw">length</span> özelliği bulunmaktadır. 
+		</p>
+		<p class="indent">
+			Dizi nesne sınıfına benzerlikleri nedeni ile, <span class="keyw">NamedNodeMap</span> 
+			toplulukları, <a href="../uygulamalar/b19.6.3.1-uyg-1-js.html">örneğinde</a> olduğu gibi, 
+			dizi nesne örnekleri gibi çalışılabilir. Fakat, bu çalışma yöntemi, spesifikasyonda öngörülmemiştir.
+			<span class="keyw">NamedNodeMap</span> topluluk örnekleri, dizi değildir ve 
+			nesne yapıları dizilerdeki metotlardan yoksundur. Bu topluluk örnekleri,
+			diziler gibi değil, kendi özellik ve metotlarından yararlanılarak çalışılmalıdır. Spesifikasyonda
+			öngörülen ve gelecekte de desteklenecek olan yöntemler bu yöndedir.		</p>
+		<p class="indent">
+			<span class="keyw">NamedNodeMap</span> topluluklarından sadece, bir element 
+			düğümünün niteliklerine erişim için yaralanılmaktadır. Fakat, ileride görülecek olan <span 
+			class="keyw">Element</span> tipi düğüm arabiriminde tanımlanan <span 
+			class="keyw">getAttribute</span><span class="op">()</span> ve <span 
+			class="keyw">setAttribute</span><span class="op">()</span> metotları daha kullanışlı
+			oldukları için, bir <span class="keyw">Element</span> tipi düğümlerin niteliklerine
+			erişim ve güncelleme için pratikte hemen hemen sadece <span 
+			class="keyw">getAttribute</span><span class="op">()</span> ve <span 
+			class="keyw">setAttribute</span><span class="op">() </span>metotları kullanılmaktadır. 
+		</p>
+		<p class="navy" id="getnameditem"><strong>19.6.4.1 - NamedNodeMap Arabiriminin getNamedItem() Metodu</strong></p>
+		<p class="indent">
+			Bu metot geriye bir <span class="keyw">Node</span>(Düğüm) sınıfı nesne örneği döndürür. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">NamedNodeMapNesneSınıfıÖrneği</span><span 
+			class="op">.</span><span class="keyw">getNamedItem</span><span 
+			class="op">(</span>DOMString tipinde düğüm ismi)
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Düğüm ismi, düğümün <span class="att">id</span> değeridir.
+		</p>
+		<p class="indent" id="19.6.4.1-uyg-1">
+			Bu konudaki bir <a href="../uygulamalar/b19.6.4.1-uyg-1-js.html">program</a> aşağıda 
+			görülmekte ve bağlantılı olduğu <a href="../uygulamalar/b19.6.4.1-uyg-1.html">sayfada</a> 
+			çalışmaktadır.
+		</p>
+		
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span> <span 
+			class="op">+</span> ' ; ' </span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'title nitelik değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">getNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'title'</span><span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.4.1-uyg-1-js.html">program</a>,
+			tam olarak çalışmasına karşın, aynı işlev,
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'title nitelik değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">getAttribute</span><span 
+			class="op">('</span><span 
+			class="str">title'</span><span 
+			class="op">), </span><span 
+			class="str">'sonuç'</span><span 
+			class="op">);</span>
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			bildirimi ile gerçekleştirilebildiğinden, <span class="keyw">NamedNodeMap</span> koleksiyonlarının
+			pratikte uygulanma şansları hiç yok gibidir.
+		</p>
+		<p class="navy" id="setnameditem"><strong>19.6.4.2 - NamedNodeMap Arabiriminin setNamedItem() Metodu</strong></p>
+		<p class="indent">
+			Bu metot tüm belge ağacında geçerli olacak yeni bir eleman ismi bildirimi yapmaktadır. Uygulamada, 
+			bu işlemin anlamı, eleman düğümüne yeni bir nitelik (eleman düğümünün (X)HTML spesifikasyonunda
+			belirtilen niteliklerine ek olarak yeni bir nitelik ismi) bildirimi yapmak anlamına gelmektedir. (X)HTML 
+			sayfalarında ise, sayfa elemanlarının türüne göre, geçerli olabilecek tüm nitelik isimleri zaten 
+			W3C (X)HTML spesifikasyonlarında ve belge çözümleyiciye özgü özel nitelikler listesinde belirtilmiş 
+			olduğundan, yeni bir nitelik spesifikasyonlarda belirtilmemiş olacağından işlevsel olmayacaktır. 
+			Spesifikasyonlarad bulunan nitelik isminin de <span class="keyw">setNamedItem</span><span 
+			class="op">()</span> metodu ile yeniden tanımlanması da anlamsızdır. Bu nedenle, 
+			<span class="keyw">NamedNodeMap</span> arabiriminin <span class="keyw">setNamedItem</span><span 
+			class="op">()</span> metodunun, (X)HTML sayfalarında tek faydalı işlevi, spesifikasyonda 
+			bulunan bir nitelik isminin değeri ile birlikte yeniden tanımlanması durumunda, belirtilen 
+			element düğümünün eski niteliğinin yeni değere sahip olacağıdır. 
+		</p>
+		<p class="indent" id="b19.6.4.2-uyg-1">
+			Bu konudaki bir <a href="../uygulamalar/b19.6.4.2-uyg-1-js.html">program</a> aşağıda görülmekte 
+			ve bağlantılı olduğu <a href="../uygulamalar/b19.6.4.2-uyg-1.html">sayfada</a> çalışmaktadır.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">yeniNitelik</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createAttribute</span><span 
+			class="op">(</span><span 
+			class="str">'title'</span><span
+			class="op">);</span>
+
+<span class="pl-50">yeniNitelik</span><span 
+			class="op">.</span><span
+			class="keyw">nodeValue</span> <span 
+			class="op">=</span> <span 
+			class="str">'Bu Sayfa Bedri Doğan Emir Tarafından Yazılmıştır !'</span><span
+			class="op">;
+
+</span><span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span></span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span> <span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Adı : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="keyw-75">document<span 
+			class="op">.</span>getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç2'</span><span 
+			class="op">).</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-50">}
+</span>
+<span class="pl-50">refDüğüm</span><span 
+			class="op">.</span><span
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">setNamedItem</span><span 
+			class="op">(</span>yeniNitelik<span 
+			class="op">);</span><span
+			class="op">
+
+</span><span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span></span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç3'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt; refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span> <span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Adı : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç4'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç4'</span><span 
+			class="op">);</span>
+<span class="keyw-75">document<span 
+			class="op">.</span>getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç4'</span><span 
+			class="op">).</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.4.2-uyg-1-js.html">program</a>,
+			tam olarak çalışmasına karşın, aynı işlev,
+		</p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="pl-50">refDüğüm</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span 
+			class="op">('</span><span 
+			class="str">title'</span><span 
+			class="op">) =</span> <span 
+			class="str">'yeni değer ...'</span><span 
+			class="op">;</span>
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			bildirimi ile gerçekleştirilebildiğinden, <span class="keyw">NamedNodeMap</span> koleksiyonlarının
+			pratikte uygulanma şansları hiç yok gibidir.
+		</p>
+		<p class="nonindent"></p>
+		<p class="navy" id="removenameditem"><strong>19.6.4.3 - NamedNodeMap Arabiriminin removeNamedItem() Metodu</strong></p>
+		<p class="indent">
+			İsminden de anlaşılabileceği gibi, bu metot, belirli bir <span class="keyw">NamedNodeMap</span>
+			koleksiyonundan belirli düğümleri kaldırır. Bu işlem bir element düğümünün belirli niteliklerinin kaldırılması ile
+			eş anlamlıdır. Kullanımı, 
+		</p>
+		<pre>
+<span class="pl-25">NamedNodeMapNesneSınıfıÖrneği</span><span 
+			class="op">.</span><span class="keyw">getNamedItem</span><span 
+			class="op">(</span>DOMString tipinde düğüm ismi)
+		</pre>
+		<p class="indent">
+			Bu metot geriye kaldırılan elemanın ismini (<span class="keyw">nodeName</span>)
+			döndürür. Eğer kaldırılmak istenen elemanın değeri tanımlı değilse <span class="keyw">null</span>
+			değeri döndürülür. Eğer kaldırılmak istenen eleman bu 
+		</p>
+		<p class="nonindent">
+			- Eğer, kaldırılan nitelik, spesifikasyonda öndeğer verilerek tanımlanmış bir nitelik ise, değeri
+			öndeğeri ile güncellenerek yeniden aktive olur. Eğer bir <span class="keyw">NamedNodeMap</span>
+			koleksiyonundan kaldırılmak istenen eleman bu koleksiyonda tanımlı değilse hata oluşur.
+		</p>
+		<p class="indent" id="b19.6.4.3-uyg-1">
+			Bu konudaki bir <a href="../uygulamalar/b19.6.4.3-uyg-1-js.html">program</a> aşağıda görülmekte 
+			ve bağlantılı olduğu <a href="../uygulamalar/b19.6.4.3-uyg-1.html">sayfada</a> çalışmaktadır.		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> refDüğüm <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span><span
+			class="op">
+
+</span><span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span></span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç1'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt; refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span> <span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Adı : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç2'</span><span 
+			class="op">);</span>
+<span class="keyw-75">document<span 
+			class="op">.</span>getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç2'</span><span 
+			class="op">).</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-50">}</span>
+
+
+<span class="pl-50">refDüğüm</span><span 
+			class="op">.</span><span
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">removeNamedItem</span><span 
+			class="op">(</span><span 
+			class="str">'title'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'title Niteliği Kaldırıldı ! : '</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç3'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Koleksiyon Uzunluğu : '</span><span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span></span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç4'</span><span 
+			class="op">);</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt;refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span> <span 
+			class="op">.</span><span 
+			class="keyw">length</span>  <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Adı : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeName</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç5'</span><span 
+			class="op">);</span>
+<span class="pl-75">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Nitelik Değeri : '</span> <span 
+			class="op">,</span> refDüğüm<span 
+			class="op">.</span><span 
+			class="keyw">attributes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span> <span 
+			class="str">'sonuç5'</span><span 
+			class="op">);</span>
+<span class="keyw-75">document<span 
+			class="op">.</span>getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'sonuç5'</span><span 
+			class="op">).</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'BR'</span><span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent"> 
+			Yukarıdaki <a href="../uygulamalar/b19.6.4.3-uyg-1-js.html">program</a>,
+			tam olarak çalışmasına karşın, aynı işlev, </p>
+		<pre>
+<span class="keyw-25">...</span>
+<span class="pl-50">refDüğüm</span><span 
+			class="op">.</span><span 
+			class="keyw">removeAttribute</span><span 
+			class="op">('</span><span 
+			class="str">title'</span><span 
+			class="op">);</span>
+<span class="keyw-25">...</span> 
+		</pre>
+		<p class="nonindent">
+			bildirimi ile gerçekleştirilebildiğinden, <span class="keyw">NamedNodeMap</span> koleksiyonlarının
+			pratikte uygulanma şansları hiç yok gibidir. 
+		</p>
+		<p class="navy" id="item"><strong>19.6.4.4 - NamedNodeMap Arabiriminin item() Metodu</strong></p>
+		<p class="indent">
+			Bu metot <span class="keyw">NamedNodeMap</span> koleksiyonunda erişilen 
+			<span class="keyw">item</span> (birim) i döndürür. Eğer erişim için uygulanmak
+			istenen indis koleksiyonda bulunan birim sayısından yüksekse, geriye <span 
+			class="keyw">null</span> değeri döndürülür. 
+		</p>
+		<p class="indent">
+			Bir <span class="keyw">NamedNodeMap</span> koleksiyonunda, elemanlar 
+			<span class="keyw">item</span> (birim) ler halinde yerleştirilmiştir. Toplam 
+			biri sayısını koleksiyonun <span class="keyw">length</span> özelliği 
+			döndürmektedir. Koleksiyonun içeriği sayfadaki değişikleri izleyerek güncellenir ve 
+			her zaman en güncel koleksiyon uzunluğu ve içeriği ile çalışılır.
+		</p>
+		<p class="indent">
+			Koleksiyon içindeki birimler bitişik sürekli fakat belirli bir sıraya bağlı olmadan dizilmişlerdir.
+			Diziliş sırası JavaScript yorumlayıcısına göre farklılık gösterir. Koleksiyon içindeki birimlere,
+			sıfırdan başlayan tamsayı ordinal indislerle erişilebilir. Bu konuda,
+			gerek <span class="keyw">NodeList</span> koleksiyonlarında, gerekse <span 
+			class="keyw">NamedNodeMap</span> koleksiyonlarında çok sayıda örnek verilmiştir.
+		</p>
+		<p class="navy" id="length"><strong>19.6.4.4 - NamedNodeMap Arabiriminin length Özelliği</strong></p>
+		<p class="indent">
+			Bu özellik geriye koleksiyondaki birimlerin sayısı olan bir tamsayı değerini döndürür. Aynı özellik,
+			dizilerde sık sık kullanılan özellik ile aynı işlevi yapmaktadır. Koleksiyonda, birimlere 
+			erişim için geçerli indislerin aralığı, 0 dan (<span class="keyw">length</span> <span class="op">-</span> 1) 
+			(dahil) değerleri arasındadır. Yani, 0 &lt; geçerliİndis &lt; (<span class="keyw">length</span> <span 
+			class="op">-</span> 1) dir.
+		</p>
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b19.6.3-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="b19.6.5-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.4-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:58 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

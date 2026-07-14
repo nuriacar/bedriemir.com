@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+		<head>
+    <meta name="robots" content="noindex, follow">
+				<meta http-equiv="Content-Language" content="tr">
+				<meta name="description"
+  content="HTML learning,Document Organisation and Coding">
+				<meta name="keywords" content="HTML, Generic Coding in Turkish Language">
+				<meta name="s-Id" content="Bölüm 6 Sayfa 2">
+				<meta name="Author" content="Prof. Dr. Bedri Doğan Emir">
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+				<meta http-equiv="Content-Style-Type" content="text/css">
+				<link rel="stylesheet" type="text/css" href="../CSS/newstyle.css"
+  media="all">
+				<title>Tabloların Düzenlenmesi Sayfa 2</title>
+		</head>
+		<body> 
+				<table class="navtabletop" summary="layout"> 
+						<colgroup> 
+						<col width="80%"> 
+						<col width="20%"> 
+						</colgroup> 
+						<tbody> 
+								<tr> 
+										<td valign="middle"><img src="../images/reservedimages/b6s2resim1-map.png"
+        alt="Navigational Pane" width="456" height="140" usemap="#Map2"
+        class="x"> 
+												<map name="Map2"> 
+														<area shape="circle" coords="355,34,10" href="b6s6.htm" alt="b6s6"> 
+														<area shape="circle" coords="438,15,9" href="b6s5.htm" alt="b6s5"> 
+														<area shape="circle" coords="415,15,9" href="b6s4.htm" alt="b6s4"> 
+														<area shape="circle" coords="257,73,9" href="../ek1/ek1s1.htm"
+          alt="Ek1"> 
+														<area shape="circle" coords="256,13,9" href="../b1/b1s1.htm"
+          alt="b1s1"> 
+														<area shape="circle" coords="296,12,9" href="../b3/b3s1.htm"
+          alt="b3s1"> 
+														<area shape="circle" coords="296,73,9" href="../ek3/ek3s1.htm"
+          alt="Ek3"> 
+														<area shape="circle" coords="396,15,9" href="b6s3.htm" alt="b6s3"> 
+														<area shape="circle" coords="334,12,9" href="../b5/b5s1.htm"
+          alt="b5s1.htm"> 
+														<area shape="circle" coords="277,93,9" href="../ek7/catalogue.htm"
+          alt=" Ek7 Catalogue"> 
+														<area shape="circle" coords="316,73,9" href="../ek4/ek4s1.htm"
+          alt="Ek4"> 
+														<area shape="circle" coords="277,72,9" href="../ek2/ek2s1.htm"
+          alt="Ek2"> 
+														<area shape="circle" coords="276,12,9" href="../b2/b2s1.htm"
+          alt="b2s1"> 
+														<area shape="circle" coords="334,72,9" href="../ek5/ek5s1.htm"
+          alt="Ek5"> 
+														<area shape="circle" coords="315,12,9" href="../b4/b4s1.htm"
+          alt="b4s1"> 
+														<area shape="circle" coords="257,93,9" href="../ek6/ek6s1.htm"
+          alt="Ek 6"> 
+														<area shape="circle" coords="277,37,9" href="../b7/b7s1.htm"
+          alt="b7s1"> 
+														<area shape="rect" coords="327,114,374,125"
+          href="../ek7/attributes.htm" alt=" Ek7 Nitelikler"> 
+														<area shape="rect" coords="252,115,307,125"
+          href="../ek7/elements.htm" alt="Ek7 Elementler"> 
+														<area shape="circle" coords="357,13,9" href="b6s1.htm" alt=""> 
+												</map></td> 
+										<td class="align-right" valign="middle"><img src="../images/SharedImages/nav3buttons.png"
+					alt="Navigation 3 Buttons" width="127" height="40"   usemap="#Map"
+					class="x"> 
+												<map name="Map"> 
+														<area shape="rect" coords="2,3,38,38" href="../index.htm" alt="Index"> 
+														<area shape="rect" coords="44,1,81,39" href="../b6/b6s1.htm" alt="Previous"> 
+														<area shape="rect" coords="89,2,123,34" href="../b6/b6s3.htm" alt="Next"> 
+												</map></td> 
+								</tr> 
+						</tbody> 
+				</table> 
+				<p class="chapter"> 
+						Bölüm 6 
+				</p> 
+				<p class="chapter-title"> 
+						Tabloların Düzenlenmesi 
+				</p> 
+				<p class="pagenum"> 
+						Sayfa 2 / 6 
+				</p> 
+				<hr> 
+				<p class="title"> 
+						Tabloların Düzenlenmesi 
+				</p> 
+				<p>&nbsp; </p> 
+				<p class="title-left" id="table"> 
+&lt;table&gt; (tablo) Elementi : 
+				</p> 
+				<p>&nbsp; </p> 
+				<p class="indent"> 
+&lt;table&gt; (tablo) Elementi, belge çözümleyiciye bir tablonun oluşturulacağını
+bildiren ve oluşturulacak tablonun temel özelliklerini içeriğinde tutan ana tablo
+elementidir.
+						<a href="../html401/sgml/dtd.html">DTD</a> 
+						deki tüm tablo öğelerinin tanımları: 
+				</p> 
+				<div class="dtd-fragment"> 
+						<pre class="navy">
+
+&lt;!--======================= Tables =======================================--&gt;
+
+&lt;!-- IETF HTML table standard, see <a rel="biblioentry" href= 
+"../html401/references.html#ref-RFC1942">[RFC1942]</a> --&gt;
+
+&lt;!--
+ The BORDER attribute sets the thickness of the frame around the
+ table. The default units are screen pixels.
+
+ The FRAME attribute specifies which parts of the frame around
+ the table should be rendered. The values are not the same as
+ CALS to avoid a name clash with the VALIGN attribute.
+
+ The value &quot;border&quot; is included for backwards compatibility with
+ &lt;TABLE BORDER&gt; which yields frame=border and border=implied
+ For &lt;TABLE BORDER=1&gt; you get border=1 and frame=implied. In this
+ case, it is appropriate to treat this as frame=border for backwards
+ compatibility with deployed browsers.
+--&gt;
+&lt;!ENTITY % <a name=
+"TFrame">TFrame</a> &quot;(void|above|below|hsides|lhs|rhs|vsides|box|border)&quot;&gt;
+
+&lt;!--
+ The RULES attribute defines which rules to draw between cells:
+
+ If RULES is absent then assume:
+     &quot;none&quot; if BORDER is absent or BORDER=0 otherwise &quot;all&quot;
+--&gt;
+
+&lt;!ENTITY % <a name=
+"TRules">TRules</a> &quot;(none | groups | rows | cols | all)&quot;&gt;
+  
+&lt;!-- horizontal placement of table relative to document --&gt;
+&lt;!ENTITY % <a name="TAlign">TAlign</a> &quot;(left|center|right)&quot;&gt;
+
+&lt;!-- horizontal alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="cellhalign">cellhalign</a>
+  "<a href="../html401/struct/tables.html#adef-align-TD">align</a>      (left|center|right|justify|char) #IMPLIED
+   <a href="../html401/struct/tables.html#adef-char">char</a>       <a href=
+"../html401/sgml/dtd.html#Character">%Character;</a>    #IMPLIED  -- alignment char, e.g. char=':' --
+   <a href="../html401/struct/tables.html#adef-charoff">charoff</a>    <a href=
+"../html401/sgml/dtd.html#Length">%Length;</a>       #IMPLIED  -- offset for alignment char --&quot;
+  &gt;
+
+&lt;!-- vertical alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="cellvalign">cellvalign</a>
+  &quot;<a href="../html401/struct/tables.html#adef-valign">valign</a>     (top|middle|bottom|baseline) #IMPLIED&quot;
+  &gt;
+
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-TABLE">TABLE</a> - -
+     (CAPTION?, (COL*|COLGROUP*), THEAD?, TFOOT?, TBODY+)&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-CAPTION">CAPTION</a>  - - (<a href=
+"../html401/sgml/dtd.html#inline">%inline;</a>)*     -- table caption --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-THEAD">THEAD</a>    - O (TR)+           -- table header --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-TFOOT">TFOOT</a>    - O (TR)+           -- table footer --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-TBODY">TBODY</a>    O O (TR)+           -- table body --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-COLGROUP">COLGROUP</a> - O (COL)*          -- table column group --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-COL">COL</a>      - O EMPTY           -- table column --&gt;
+&lt;!ELEMENT <a href="../html401/struct/tables.html#edef-TR">TR</a>       - O (TH|TD)+        -- table row --&gt;
+&lt;!ELEMENT (<a href="../html401/struct/tables.html#edef-TH">TH</a>|<a href="../html401/struct/tables.html#edef-TD" class= 
+"noxref">TD</a>)  - O (<a href=
+"../html401/sgml/dtd.html#flow">%flow;</a>)*       -- table header cell, table data cell--&gt;
+
+&lt;!ATTLIST TABLE                        -- table element --
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/struct/tables.html#adef-summary">summary</a>     <a href=
+"../html401/sgml/dtd.html#Text">%Text;</a>         #IMPLIED  -- purpose/structure for speech output--
+  <a href="../html401/struct/tables.html#adef-width-TABLE">width</a>       <a href=
+"../html401/sgml/dtd.html#Length">%Length;</a>       #IMPLIED  -- table width --
+  <a href="../html401/struct/tables.html#adef-border-TABLE">border</a>      <a href=
+"../html401/sgml/dtd.html#Pixels">%Pixels;</a>       #IMPLIED  -- controls frame width around table --
+  <a href="../html401/struct/tables.html#adef-frame">frame</a>       <a href=
+"../html401/sgml/dtd.html#TFrame">%TFrame;</a>       #IMPLIED  -- which parts of frame to render --
+  <a href="../html401/struct/tables.html#adef-rules">rules</a>       <a href=
+"../html401/sgml/dtd.html#TRules">%TRules;</a>       #IMPLIED  -- rulings between rows and cols --
+  <a href="../html401/struct/tables.html#adef-cellspacing">cellspacing </a><a href=
+"../html401/sgml/dtd.html#Length">%Length;</a>       #IMPLIED  -- spacing between cells --
+  <a href="../html401/struct/tables.html#adef-cellpadding">cellpadding</a><a href=
+"../html401/sgml/dtd.html#Length"> %Length;</a>       #IMPLIED  -- spacing within cells --
+  <a href=
+"../html401/sgml/dtd.html#reserved">%reserved;</a>                           -- reserved for possible future use --
+  datapagesize <a href=
+"../html401/types.html#type-cdata">CDATA</a>         #IMPLIED  -- reserved for possible future use --
+  &gt;
+
+&lt;!--
+    Use THEAD to duplicate headers when breaking table
+    acrosss boundaries, or for static headers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use TFOOT to duplicate footers when breaking table
+    across s boundaries, or for static footers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use multiple TBODY sections when rules are needed
+    between groups of table rows.
+	</pre> 
+				</div> 
+				<p>&nbsp; </p> 
+				<p class="indent"> 
+						Bu tanımlara göre, &lt;table&gt; elementinin başlangıç ve bitiş imlerinin
+						kullanımları zorunludur. &lt;table&gt; Elementinin sözdizimi : 
+				</p> 
+				<p class="nonindent"> 
+						<span class="elements">&lt;table</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç
+						imi :</span> gerekli ) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes"> 
+						<a href="../b2/b2s3.htm#common">Ortak Temel Nitelikler</a> 
+						( 
+						<a href="../b2/b2s3.htm#core">Çekirdek Nitelikler</a> 
+						,
+						<a href="../b2/b2s3.htm#int">Uluslararasılaştırma Nitelikleri</a> 
+						,
+						<a href="../b2/b2s3.htm#scriptable">Script Yazılabilecek Olaylar</a> 
+						)</span> 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes" id="summary">summary</span>=&quot;Metin&quot; [ 
+						<a href="../ek3/ek3s1.htm#yd">YD</a> 
+						] (tablonun açıklaması) (görüntü vermeyen belge çözümleyicileri
+						için) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes">width</span>=&quot;Uzunluk&quot; [ 
+						<a href="../ek3/ek3s1.htm#yd">YD</a> 
+						] (tablonun genişliği) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes">border</span>=&quot;Piksel&quot; (tablonun dış
+						kenar çizgisinin kalınlığı) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes">frame</span>=&quot;[ void | above | below | hsides
+						| lhs | rhs | vsides | box | border ]&quot; (dış kenar çizgisi ile ilgili) <br> 
+						<span class="attributes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rules</span>=&quot; none
+						| groups | rows | cols | all ]&quot; (iç kenar çizgisi ile ilgili) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes">cellspacing</span>=&quot;Uzunluk&quot; [ 
+						<a href="../ek3/ek3s1.htm#yd">YD</a> 
+						] (hücreler arası aralık) 
+				</p> 
+				<p class="indent"> 
+						<span class="attributes">cellpadding</span>=&quot;Uzunluk&quot; [ 
+						<a href="../ek3/ek3s1.htm#yd">YD</a> 
+						] (hücrenin kenarı ve içeriği arası aralık) 
+				</p> 
+				<p class="indent"> 
+						<span class="elements">&gt;</span> 
+				</p> 
+				<p class="indent"> 
+						<span class="levels">İçerebileceği elementler :</span>Sıfır veya ençok
+						bir tane &lt;caption&gt;, &lt;thead&gt;, &lt;tfoot&gt; elementleri, sıfır
+						veya istendiği kadar &lt;col&gt; veya &lt;colgroup&gt; elementi, en az
+						bir olmak üzere istendiği kadar &lt;tbody&gt; elementi DTD de görülen sıraya
+						göre kullanılabilir. 
+				</p> 
+				<p class="nonindent"> 
+						<span class="elements">&lt;/table&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (<span class="cover-tags">Sonuç
+						imi:</span>zorunlu ) 
+				</p> 
+				<p class="nonindent"> 
+						<span class="levels">İçerebilecek elementler :</span> &lt; 
+						<a href="../b3/b3s3.htm#applet">applet</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s7.htm#blockquote">blockquote</a> 
+&gt;,&nbsp;&lt; 
+						<a href="../b3/b3s5.htm#body">body</a> 
+&gt;, &lt; 
+						<a href="../b7/b7s4.htm">button</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s8.htm#del">del</a> 
+&gt;, &lt; 
+						<a href="../b5/b5s3.htm#dd">dd</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s7.htm#div">div</a> 
+&gt;, &lt;fieldset&gt;, &lt; 
+						<a href="../b7/b7s2.htm#form">form</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s8.htm#ins">ins</a> 
+&gt;, &lt; 
+						<a href="../b5/b5s1.htm#li">li</a> 
+&gt;, &lt; 
+						<a href="../b4/b4s5.htm#map">map</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s8.htm#noscript">noscript</a> 
+&gt;, &lt; 
+						<a href="../b3/b3s3.htm#object">object</a> 
+&gt;, &lt; 
+						<a href="../b6/b6s4.htm#td">td</a> 
+&gt;, &lt; 
+						<a href="../b6/b6s4.htm#th">th</a> 
+&gt; Elementleridir. 
+				</p> 
+				<p class="subheading" id="tbl-attrs"> 
+&lt;table&gt; Elementinin Nitelikleri : 
+				</p> 
+				<p class="nonindent"> 
+						<span class="attributes">summary </span>Niteliği : Görme engelliler için
+						kullanılan görüntü vermeyen belge çözümleyicilerde değerlendirilir.
+						Bu nedenle kullanımı gerekli sayılabilir. Belge geçerlik denetimi yapan
+						programlar, bu niteliği belirtmeyen kodlamaları açık olarak uyarırlar.
+						Bu niteliği belge çözümleyiciler görüntülemez. Görüntü sağlayan belge çözümleyicileri
+						için, bu bilgilerin belirtilmesi &lt;caption&gt; elementinden yararlanılarak
+						yapılabilir. Bu konuda bir örnek
+						<a href="b6s3uygulama1.htm">b6s3uygulama1</a> 
+						de görülebeilir. 
+				</p> 
+				<p class="nonindent"> 
+						<span class="attributes">width</span> Niteliği : Bu nitelik tüm tablonun
+						genişliğini belirtir. Piksel biriminden kaçınılması sağlık verilmektedir.
+						Mutlak piksel değerleri, değişik görüntü çözününürlükleri ve değişik monitor
+						büyüklüklerinde iyi ölçeklenmezler. Özellikle 500 pikselden fazla uzunluk
+						değerleri, düşey kaydırmaya neden olacağından, kullanılmaması gerekmektedir.
+						Genişlik bildirimi için yüzde değerleri tercih edilmelidir. Yüzde birimi
+						kullanıldığında, bu birimin, belge çözümleyicisinin boş genişliğinin yüzdesi
+						olarak belirtildiği hatırda tutulmalıdır. Hiç bir değer verilmemişse, tablo
+						genişliği, belge çözümleyicisi tarafından belirlenecektir ve bu tablonun
+						aşamalı olarak görüntülenebilmesini engelleyecektir. Çünkü, belge çözümleyici,
+						ancak tüm tablo verileri indirildikten sonra, tablo genişliğini hesaplayabilecektir. 
+				</p> 
+				<p class="nonindent"> 
+						<span class="attributes">frame</span> Niteliği : Tablonun çerçeve çizgilerinden
+						hangilerinin görüntüleneceğini belirler. Verilebilecek değerler : 
+				</p> 
+				<ul class="list"> 
+						<li><b><i>void</i></b> : Hiç bir kenar görüntülenmez. Bu varsayılan değerdir.</li> 
+						<li><b><i>above</i></b> : Sadece üst kenar.</li> 
+						<li><b><i>below</i></b> : Sadece alt kenar.</li> 
+						<li><b><i>hsides</i></b> : Sadece üst ve alt kenarlar. (Horizontal sides)</li> 
+						<li><b><i>vsides</i></b> : Sadece sol ve sağ kenarlar. (Vertical sides)</li> 
+						<li><b><i>lhs</i></b> : Sadece sol kenar. (Left side)</li> 
+						<li><b><i>rhs</i></b> : Sadece sağ kenar. (Right side)</li> 
+						<li><b><i>box</i></b> : Her dört taraf birden.</li> 
+						<li><b><i>border</i></b>: Her dört taraf birden.</li> 
+				</ul> 
+				<p class="nonindent"> 
+						Bu niteliğin varsayılan değeri, <span class="attributes">border</span> nitelik
+						değeri ile, pozitif bir çerçeve kalınlığı belirtilmediği
+						sürece <i><b>void</b></i> olarak,
+						belirtildiğinde ise, <span class="attributes">frame</span> = &quot;<i><b>border</b></i>&quot; olarak
+						kabul edilir. 
+				</p> 
+				<p class="nonindent"> 
+						<span class="attributes">rules</span> Niteliği : Bu nitelik, tablonun hücreleri
+						arasında hangi çizgilerin görüntüleneceğini belirtir. Verilebilecek değerler
+						: 
+				</p> 
+				<ul class="list"> 
+						<li><b><i>none</i></b> : Hiç bir çizgi görüntülenmez. Bu varsayılan değerdir.</li> 
+						<li><b><i>groups</i></b> : Çizgiler sadece satır ve sütun grupları arasında
+								çizilir.</li> 
+						<li><b><i>rows</i></b> : Çizgiler sadece satır aralarında çizilir.</li> 
+						<li><b><i>cols</i></b> : Çizgiler sadece sütun aralarında çizilir.</li> 
+						<li><b><i>all</i></b> : Çizgiler tüm satır ve sütun aralarında çizilir.</li> 
+				</ul> 
+				<p class="nonindent"> 
+						<span class="attributes" id="border">border</span> Niteliği : Bu nitelik, piksel olarak
+						tablonun etrafındaki kenarlık çizgisinin kalınlığını belirtir. Bu nitelik
+						değeri için sadece piksel birimi kullanılabilir. Eğer, 
+				</p> 
+				<ul class="list"> 
+						<li><span class="attributes">border</span>=&quot;0&quot; olarak verilmişse, <span class="attributes">frame</span>=&quot;void&quot; ve
+								eğer başka bir açık bildirim yoksa <span class="attributes">rules</span>=&quot;void&quot; olarak
+								kabul edilir.</li> 
+						<li><span class="attributes">border</span> değeri olarak başka bir değer
+								verilmişse, <span class="attributes">frame</span>=&quot;border&quot; ve
+								eğer başka bir açık bildirim yoksa <span class="attributes">rules</span>=&quot;all&quot; olarak
+								kabul edilir.</li> 
+						<li>&lt;table border&gt; ifadesi, &lt;table <span class="attributes">frame</span>=&quot;border&quot; <span class="attributes">rules</span>=&quot;all&quot; <span class="attributes">border</span>=&quot;sıfırdan
+								farklı herhangibir varsayılan değer&quot;&gt; olarak kabul edilir.</li> 
+				</ul> 
+				<p class="nonindent" id="cellspacing"> 
+						<span class="attributes" id="cellpadding">cellspacing</span> ve <span class="attributes">cellpadding</span> Nitelikleri
+						: <span class="attributes">cellspacing</span> Niteliği, Tablo kenarı ve
+						tablo hücreleri arasındaki aralığı belirtir. <span class="attributes">cellpadding</span> Niteliği
+						hücre kenarı ve hücre içeriği arasındaki aralığı belirtir (Bakınız Şekil
+						6-1). Bu niteliklerin değeri % veya piksel olarak verilebilir, fakat belge
+						çözümleyiciler bu değerleri piksel olarak kabul ederler (cellpadding=&quot;%20&quot; değeri,
+						cellpadding=&quot;20&quot; olarak kabul edilir). Bu nedenle verilen değerlerin
+						çözümlenmesi dikkatle denenmelidir. 
+            </p>
+				<p class="nonindent"> 
+						<img src="../images/reservedimages/b6s1resim2.gif"  alt="resim1"width="548" height="189"> 
+				</p> 
+				<p class="nonindent">&nbsp; </p> 
+				<p class="nonindent"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şekil
+6-1 : Bir Tablonun Düzenlenmesi 
+				</p> 
+				<p class="subheading" id="tbl-apps"> 
+&lt;table&gt; Elementinin Uygulanması : 
+				</p> 
+				<p class="indent"> 
+&lt;table&gt; Elementinin içeriği sadece belirli elementlerden yararlanarak oluşturulabilmektedir.
+Bu nedenle, ilk tablo örnekleri, tablo içeriğini oluşturan elementlerin incelenmesi
+ile birlikte görülebilecektir. 
+				</p> 
+				<p>&nbsp; </p> 
+				<table class="navtablebottom" summary="layout"> 
+						<tbody> 
+								<tr> 
+										<td valign="top"><a href="../index.htm"><img class="x" src="../images/sharedimages/indeksbelgesi.png" alt="index"></a></td> 
+										<td valign="top"><a href="../b6/b6s1.htm"><img src="../images/sharedimages/oncekibelge.png" alt="prev"      class="x"></a></td> 
+										<td valign="top"><a href="../b6/b6s3.htm"><img src="../images/sharedimages/sonrakibelge.png" alt="next"       class="x"></a></td> 
+								</tr> 
+						</tbody> 
+				</table> 
+			
+            <!-- #BeginLibraryItem "/Library/Date.lbi" -->
+        <p style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:red;">                     
+            <!-- #BeginDate format:fcAm1m -->Saturday, July 15, 2006  19:12<!-- #EndDate -->        
+         </p><!-- #EndLibraryItem --><p><a href="http://validator.w3.org/file-upload.html">validate in W3C !<img src="http://www.w3.org/Icons/valid-html401"   alt="Valid HTML 4.01!" height="31" width="88"></a> 
+                     </p>
+		</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1252385958" alt="setstats" border="0" width="1" height="1"></noscript>

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="tr">
+
+<!-- Mirrored from www.bedriemir.com/HTMLandCSS/b7/b7s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:14:36 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/HTMLandCSS/b7/b7s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Language" content="tr">
+<meta name="description"
+  content="HTML learning,Document Organisation and Coding">
+<meta name="keywords" content="HTML, Generic Coding in Turkish Language">
+<meta name="s-Id" content="Bölüm 7 Sayfa 2">
+<meta name="Author" content="Prof. Dr. Bedri Doğan Emir">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="../CSS/newstyle.html"
+  media="all">
+<title>&lt;form&gt;Elementi</title>
+</head>
+<body>
+<table class="navtabletop" summary="layout">
+   <colgroup>
+   <col width="80%">
+   <col width="20%">
+   </colgroup>
+   <tbody>
+      <tr>
+         <td valign="middle"><img src="../images/reservedimages/b7s2resim1-map.png"
+        alt="Navigational Pane" width="456" height="140" usemap="#Map2"
+        class="x">
+            <map name="Map2">
+               <area shape="circle" coords="437,14,10" href="b7s5.html" alt="b7s5">
+               <area shape="circle" coords="416,14,9" href="b7s4.html" alt="b7s4">
+               <area shape="circle" coords="397,13,9" href="b7s3.html" alt="b7s3">
+               <area shape="circle" coords="257,73,9" href="../ek1/ek1s1.html"
+          alt="Ek1">
+               <area shape="circle" coords="256,13,9" href="../b1/b1s1.html"
+          alt="b1s1">
+               <area shape="circle" coords="296,12,9" href="../b3/b3s1.html"
+          alt="b3s1">
+               <area shape="circle" coords="296,73,9" href="../ek3/ek3s1.html"
+          alt="Ek3">
+               <area shape="circle" coords="356,14,9" href="b7s1.html" alt="b7s1">
+               <area shape="circle" coords="334,12,9" href="../b5/b5s1.html"
+          alt="b5s1.htm">
+               <area shape="circle" coords="277,93,9" href="../ek7/catalogue.html"
+          alt=" Ek7 Catalogue">
+               <area shape="circle" coords="316,73,9" href="../ek4/ek4s1.html"
+          alt="Ek4">
+               <area shape="circle" coords="277,72,9" href="../ek2/ek2s1.html"
+          alt="Ek2">
+               <area shape="circle" coords="276,12,9" href="../b2/b2s1.html"
+          alt="b2s1">
+               <area shape="circle" coords="334,72,9" href="../ek5/ek5s1.html"
+          alt="Ek5">
+               <area shape="circle" coords="315,12,9" href="../b4/b4s1.html"
+          alt="b4s1">
+               <area shape="circle" coords="257,93,9" href="../ek6/ek6s1.html"
+          alt="Ek 6">
+               <area shape="circle" coords="256,35,9" href="../b6/b6s1.html"
+          alt="b6s6">
+               <area shape="rect" coords="327,114,374,125"
+          href="../ek7/attributes.html" alt=" Ek7 Nitelikler">
+               <area shape="rect" coords="252,115,307,125"
+          href="../ek7/elements.html" alt="Ek7 Elementler">
+            </map></td>
+         <td class="align-right" valign="middle"><img src="../images/SharedImages/nav3buttons.html"
+					alt="Navigation 3 Buttons" width="127" height="40"   usemap="#Map"
+					class="x">
+            <map name="Map">
+               <area shape="rect" coords="2,3,38,38" href="../index.html" alt="Index">
+               <area shape="rect" coords="44,1,81,39" href="b7s1.html" alt="Previous">
+               <area shape="rect" coords="89,2,123,34" href="b7s3.html" alt="Next">
+            </map></td>
+      </tr>
+   </tbody>
+</table>
+<p class="chapter"> Bölüm 7 </p>
+<p class="chapter-title"> Formların Düzenlenmesi </p>
+<p class="pagenum"> Sayfa 2 </p>
+<hr>
+<p class="title"> &lt;form&gt; Elementi </p>
+<p class="title-left" id="form"> &lt;form&gt; Elementi </p>
+<p class="indent"> &lt;form&gt; Elementinin <a href="../html401/sgml/dtd.html">DTD</a> deki
+   tanımı : </p>
+<p>&nbsp; </p>
+<div class="dtd-fragment">
+   <pre class="navy">
+&lt;!--================ Forms ===============================================--&gt;
+&lt;!ELEMENT <a href="../html401/interact/forms.html#edef-FORM">FORM</a> - - (<a href=
+"../html401/sgml/dtd.html#block">%block;</a>|SCRIPT)+ -(FORM) -- interactive form --&gt;
+&lt;!ATTLIST FORM
+  <a href="../html401/sgml/dtd.html#attrs">%attrs;</a>                              -- <a href= 
+"../html401/sgml/dtd.html#coreattrs">%coreattrs</a>, <a href="../html401/sgml/dtd.html#i18n">%i18n</a>, <a href=
+"../html401/sgml/dtd.html#events">%events</a> --
+  <a href="../html401/interact/forms.html#adef-action">action</a>      <a href=
+"../html401/sgml/dtd.html#URI">%URI;</a>          #REQUIRED -- server-side form handler --
+  <a href="../html401/interact/forms.html#adef-method">method</a>      (GET|POST)     GET       -- HTTP method used to submit the form--
+  <a href="../html401/interact/forms.html#adef-enctype">enctype</a>     <a href=
+"../html401/sgml/dtd.html#ContentType">%ContentType;</a>  application/x-www-form-urlencoded
+  <a href="../html401/interact/forms.html#adef-accept">accept</a>      <a href=
+"../html401/sgml/dtd.html#ContentTypes">%ContentTypes;</a> #IMPLIED  -- list of MIME types for file upload --
+  <a href="../html401/interact/forms.html#adef-name-FORM">name</a>        <a href=
+"../html401/types.html#type-cdata">CDATA</a>          #IMPLIED  -- name of form for scripting --
+  <a href="../html401/interact/scripts.html#adef-onsubmit">onsubmit</a>    <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the form was submitted --
+  <a href="../html401/interact/scripts.html#adef-onreset">onreset</a>     <a href=
+"../html401/sgml/dtd.html#Script">%Script;</a>       #IMPLIED  -- the form was reset --
+  <a href="../html401/interact/forms.html#adef-accept-charset">accept-charset</a><a href=
+"../html401/sgml/dtd.html#Charsets">%Charsets;</a>  #IMPLIED  -- list of supported charsets --
+  &gt;
+
+</pre>
+</div>
+<p>&nbsp; </p>
+<p class="nonindent"> şeklindedir. Bu bildirimden, &lt;form&gt; elementinin başlangıç
+   ve bitiş imlerinin kullanımın zorunlu olduğu, içeriğinin en az bir blokdüzey veya &lt;<a href="../b3/b3s3.html#script">script</a>&gt; elementi
+   olmak üzere, bunlardan istendiği kadar kullanılabileceği fakat, içerilen blokdüzey
+   elementler arasında &lt;form&gt; elementi olmayacağı anlaşılmaktadır. Yani formlar
+   iç içe yuvalandırılamazlar. </p>
+<p class="indent"> Nitelik listesine bakıldığında, bir formun daima <span class="attributes">action</span> niteliğinin
+   beltilmesinin zorunlu olduğu görülüyor. <span class="attributes">action</span> Niteliği,
+   &lt;form&gt; elementi için belirtilmesi zorunlu tek niteliktir. Bu da son derece
+   mantıklıdır, çünkü sunulan her formun bilgilerini bir sunucu programı değerlendirir
+   ve sunucunun gönderilen formu değerlendirecek programın adını ve yerini bilmesi
+   gerekir. </p>
+<p class="indent"> Bir formun sunucuya sunulma metodunu belirten method niteliğinin
+   belirtilmesi zorunlu kılınmamıştır. Bu nitelik sadece POST methodu kullanılacaksa
+   belirtilmesi zorunludur. Aksi hallde varsayılan değeri olan GET metodu kullanılacaktır. </p>
+<p class="nonindent"> Bu bilgilerden yararlanılarak, &lt;form&gt; elementinin sözdizimi
+   aşağıda belirtilmiştir: </p>
+<p class="nonindent"> <span class="elements">&lt;form</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Başlangıç
+      imi :</span> gerekli ) </p>
+<p class="indent"> <span class="attributes"> <a href="../b2/b2s3.html#common">Ortak
+         Temel Nitelikler</a> ( <a href="../b2/b2s3.html#core">Çekirdek Nitelikler</a> , <a href="../b2/b2s3.html#int">Uluslararasılaştırma
+         Nitelikleri</a> , <a href="../b2/b2s3.html#scriptable">Script Yazılabilecek
+         Olaylar</a> )</span> </p>
+<p class="indent"> <span class="attributes">action</span>=&quot; <a href="../ek1/ek1s1.html#uri">URI</a> &quot; &nbsp;<a href="../ek3/ek3s1.html#tb">[TB]</a>&nbsp; </p>
+<p class="indent"> <span class="attributes">method</span>=&quot;get|post&quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;</p>
+<p class="indent"> <span class="attributes">enctype</span>=&quot; <a href="../ek3/ek3s1.html#content-types">İçerik
+      tipi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;</p>
+<p class="indent"> <span class="attributes">accept-charset</span>=&quot; <a href="../ek3/ek3s2.html#charset">karakter
+      setleri listesi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;</p>
+<p class="indent"> <span class="attributes">accept</span>=&quot; <a href="../ek3/ek3s1.html#content-types">İçerik
+      Tipi Listesi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;</p>
+<p class="indent"> <span class="attributes">name</span>=&quot; <a href="../ek3/ek3s1.html#number">cdata</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;</p>
+<p class="indent"> <span class="elements">&gt;</span> </p>
+<p class="indent"> <span class="levels">İçerebileceği elementler :</span>&lt;form&gt; elementi
+   dışında, en az bir tane olmak üzere, istendiği kadar <a href="../b2/b2s4.html#block">blokdüzey</a> elementleri
+   veya &lt; <a href="../b3/b3s3.html#script">script</a> &gt; elementi </p>
+<p class="nonindent"> <span class="elements">&lt;/form&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="cover-tags">Sonuç
+      imi:</span> gerekli) </p>
+<p class="nonindent"> şeklindedir. </p>
+<p class="nonindent"> <span class="levels">Form elementini içerebilecek elementler
+      :</span> &lt;<a 
+   href="../b3/b3s7.html">blockquote</a>&gt;, &lt;<a 
+   href="../b3/b3s5.html#body">body</a>&gt;, &lt;<a href="../b5/b5s3.html#dd">dd</a>&gt;, &lt;<a 
+   href="../b3/b3s8.html#del">del</a>&gt;, &lt;<a href="../b3/b3s7.html#div">div</a>&gt;, &lt;<a href="b7s5.html#fieldset">fieldset</a>&gt;, &lt;<a href="../b3/b3s8.html#ins">ins</a>&gt;, &lt;<a href="../b5/b5s1.html#li">li</a>&gt;, &lt;<a href="../b4/b4s5.html#map">map</a>&gt;, &lt;<a href="../b3/b3s8.html#noscript">noscript</a>&gt;, &lt;<a href="../b3/b3s3.html#object">object</a>&gt;, &lt;<a href="../b6/b6s4.html#td">td</a>&gt;, &lt;<a href="../b6/b6s4.html#th">th</a>&gt; Elementleridir. </p>
+<p>&nbsp;</p>
+<p class="subheading" id="form-attrs"> &lt;form&gt; Elementinin Nitelikleri </p>
+<p>&nbsp;</p>
+<p class="nonindent"> <span class="attributes" id="action">action</span>=&quot;<a href="../ek1/ek1s1.html#uri">URI</a>&quot;&nbsp; <a href="../ek3/ek3s1.html#tb">[TB]</a>&nbsp; 
+   Bu niteliğin değeri, sunulan formu değerlendiren programın kaynağı olan <a href="../ek1/ek1s1.html#uri">URI</a> dir.
+   Yukarıda belirtildiği gibi DTD deki bilgilerden, bu niteliğin,
+   &lt;form&gt; elementinin tek belirtilmesi zorunlu niteliğidir. Birçok webmaster
+   form çözümleme programlarını, geleneksel olarak, cgi-bin olarak adlandırılan bir
+   dizinde tutar. Örnek: </p>
+<pre class="navy">&lt;form action=&quot;http://explorer.com/cgi-bin/formhandler&quot;&gt;</pre>
+<p class="nonindent"> Bu niteliğin değeri olarak bir HTTP URI kullanılır. Bir mailto
+   URI de kullanılabilir fakat form sunulduktan sonra kullanıcıya bilgi dönüşü sorunlu
+   olduğundan kullanılması teşvik edilmemektedir. </p>
+<p class="nonindent"> <span class="attributes">method</span>=&quot;get|post&quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a> &nbsp;
+   Sunulan form bilgilerinin sunucuya ulaştırılması için &quot;get&quot; veya &quot;post&quot; olarak
+   iki metot kullanılabilir. Get metodu seçildiğinde, formun sunulduğu sunucu ile
+   iletişim sağlanır ve tüm form bilgileri tek defada, tek bir iletişim adımında,
+   formun action URI sine eklenmiş olarak gönderilir. Bu metot ile Türkçe karakterler
+   gibi, ASCII olmayan karakterler gönderilemez ve gönderilen bilgilerin uzunluğu,
+   bir URI değerine eklenebilecek kadar, tipik olarak 100 karakteri geçmeyecek bir
+   uzunlukta olabilir. Get metodu varsayılan değer olduğundan açıkça (explicit olarak)
+   belirtilmesi gerkli değildir. </p>
+<p class="indent"> İkinci alternatif, form bilgilerinin iletimi için &quot;post&quot; metodunun
+   kullanımıdır. Bu metot bilgileri sunucuya iki aşamada gönderir. İlk aşamada sunucu
+   ile temas sağlanır, ikinci aşamada bilgiler gönderilir. Bu metot ile yapılacak
+   iletişimde gönderilecek bilgi uzunluğu ile ilgili bir kısıt yoktur. 
+   &lt;form&gt; Elementinin <a href="../html401/sgml/dtd.html">DTD</a> deki tanımı ile, iletişimde &quot;post&quot; metodu
+   kullanılacaksa, bunun açıkça beliritilmesi zorunlu kılınmıştır. </p>
+<p class="nonindent"> <span class="attributes">enctype</span>=&quot; <a href="../ek3/ek3s1.html#content-types">İçerik
+      tipi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a> &nbsp;
+   Bu nitelik, iletim, formun sunucuya sunulması için kullanılacak içerik metodunu
+   belirtir ve sadece iletim metodunun&quot;post&quot; olduğu durumlarda belirtilmesi
+   gerekir. Varsayılan değeri, 
+   &quot;application/x-www-form-urlencoded&quot; dir. Veri iletim metodu &quot;get&quot; ise
+   bu niteliğin belirtilmesi gerekli değildir. </p>
+<p class="indent"> Eğer form içerisinde, <a href="b7s3.html#input">&lt;input&gt;</a> elementinin
+   type=<span class="attributes">&quot;file&quot; </span>şekli kullanılyorsa, ve
+   iletim metodu &quot;post&quot; ise, <span class="attributes">enctype</span> niteliğinin
+   değeri &quot;multipart/form-data&quot; olarak bildirilmelidir. </p>
+<p class="indent"> Bu <span class="attributes">encytpe</span> (kriptolama, kodlama)
+   tipi, verilerin çok parçalı mesajlar halinde kodlanarak gönderileceğini ve her
+   kod parçasının, başarılı bir kontrola karşı geleceğini belirtir. Kod parçaları
+   kontrolun tab sırasına göre gönderilir. </p>
+<p class="nonindent"> <span class="attributes" id="accept-charset">accept-charset</span>=&quot; <a href="../ek3/ek3s2.html#charset">karakter
+      setleri listesi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a> &nbsp;Bu
+      nitelik, sunucunun sunulan form bilgilerini doğru değerlendirmesi için gerekli
+      karakter kodlaması değerlerinin virgülle veya boşlukla ayrılmış listesidir.
+      Varsayılan değeri &quot;bilinmiyor&quot; değeridir. Bu nitelik için herhangibir
+      değer verilmemişse, sunucu formun gönderildiği sayfanın karakter kodlamasını
+      varsayılan karakter kodlaması olarak kabul eder. </p>
+<p class="nonindent"> <span class="attributes" id="accept">accept</span>=&quot; <a href="../ek3/ek3s1.html#content-types">İçerik
+      Tipi Listesi</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp; 
+   Bu niteliğin değeri, virgülle ayrılmış içerik tipi listesidir. Bu bildirime sadece
+   sunucuya dosya transferi yapılırken gereksinme duyulur ( &lt;input type=&quot;file&quot; ...
+   şeklinde bir bildirim ile) </p>
+<p class="nonindent"> <span class="attributes">name</span>=&quot; <a href="../ek3/ek3s1.html#number">CDATA</a> &quot;&nbsp;<a href="../ek3/ek3s1.html#yz">[YZ]</a>&nbsp;
+   Bu değer sadece eski sürümlerle uyum sağlanması için konulmuştur. Artık elementlerin
+      her türlü isimlendirilmesinin <span class="attributes">id</span> niteliği ile
+      yapılması alışkanlığının kazanılması gerekmektedir. </p>
+<p>&nbsp;</p>
+<p class="subheading" id="form-examples">Form Örnekleri</p>
+<p>&nbsp;</p>
+<p class="indent"> İlk örnek minimal bir form bildirimidir: </p>
+<pre class="navy">&lt;form name=&quot;kimlik1&quot; method=&quot;post&quot;  enctype=&quot;multipart/form-data&quot;&gt;<br>     &lt;label style=&quot;position:relative;left:20%;font:Verdana, Arial, Helvetica, sans-serif;font-size:17px;color:red;&quot;&gt;<br>	 Form Bilgilerinin Sunucuya Gönderilmesi&lt;/label&gt;<br>     &lt;label&gt;<br>	 &lt;div style=&quot;font:Verdana, Arial, Helvetica, sans-serif;font-size:17px;&quot;&gt;<br>	 &lt;p style=&quot;position:relative;left:5%;&quot;&gt;<br>	 Bu düğme tıklandığında, eğer sunucu ile iletişim olanağı sağlanmışsa,&lt;/p&gt;<br>     &lt;p style=&quot;position:relative;left:0%&quot;&gt;<br>	 bu sayfadaki kimlik1 isimli formun taşığı bilgiler, sunucuya iletilir.&lt;/p&gt;<br>	 &lt;/div&gt;<br>	 &lt;/label&gt;<br>	 &lt;label&gt;<br>	 &lt;div style=&quot;position:relative;left:5%;font:Verdana, Arial, Helvetica, sans-serif;font-size:17px;&quot;&gt;<br>	 &lt;p&gt;(iletim yöntemi &amp;quot;post&amp;quot;)&lt;/p&gt;<br>	 &lt;/div&gt;<br>	 &lt;/label&gt;<br>	 &lt;input type=&quot;submit&quot; name=&quot;gonder&quot; value=&quot;gonder&quot; style=&quot;position:relative;left:30%;&quot;&gt; <br>&lt;/form&gt;<br>
+</pre>
+<p class="nonindent"> Bu form herhangibir çalışabilir script içermediğinden sunucuya
+   sadece düğmenin basıldığı bilgisi iletilecektir. Bu formun çalışmasını görmek
+   için, yeni bir sayfaya örnek olarak iletim.htm dosyasına, yukarıdaki kodları yazınız
+   ve dosyayı, sunucunun iletişim kurabileceği bir dizine yerleştiriniz. Eğer uzak
+   bir sunucu ile çalışıyorsanız, yani bir Web siteniz varsa, bu dosyayı FTP ile
+   sunucunun iletişim kurabileceği uygun bir dizine yerleştiriniz ve çalıştırınız.
+   Eğer yerel bir sunucu ile çalışıyorsanız, dosyanın yerleştirilmesi gereken dizin,
+   kök dizin adı verilen ve bilgisayarınızdaki yerel sunucunun iletişim kurabileceği
+   özel bir dizindir. Her yerel sunucun kendi özel kök dizini vardır ve bu dizinin
+   yeri, yerel sunucunun kullanım kurallarında açıklanmıştır. Eğer Microsoft Internet
+   Information Server (IIS), kullanılıyorsa, IIS kök dizini, c:\inetpub\wwwroot dizinidir.
+   Bu dizine, iletim.htm dosyasını yerleştiriniz. Bundan sonra, bir belge çözümleyici,
+   örnek olarak Internet Explorer'i çalıştırınız ve adres çubuğuna <a href="b7s2uygulama1.html">http://localhost/iletim.htm</a> yazınız.
+   IE dosyayı çözümleyecek ve submit düğmesini görüntüleyecektir. Düğme tıklandığında
+   IE, IIS ile iletim kuracak ve form elementinin taşıdığı tüm bilgileri IIS yerel
+   sunucusuna gönderecektir. </p>
+<p class="indent"> Eğer iletim.htm dosyası yerel sunucunun iletişim kurabileceği
+   bir dizinden başka bir dizine yerleştirilirse, belge çözümleyici dosyayı sedece
+   çözümleyebilir (parsing) fakat, submit düğmesi tıklandığında yerel sunucuya bilgi
+   gönderemez. </p>
+<p class="indent"> Yerel sunucu ile yerel ağ (LAN=Local Area Network) altında olabilen
+   bir dosya, sunucuya bilgi gönderebilir. Yerel sunucu-yerel ağ konfigürasyonu,
+   aynı uzaktaki sunucu ile geniş ağ (WAN=Wide Area Network) ilişkisi içinde olan
+   bir istemci ilişkisi gibidir. İstemci sunucuya bir istek gönderirse, sunucu bu
+   isteği olağaüstü geniş olanaklarını kullanarak yerine getirebilir ve sonucu basit
+   bir yanıt biligi akımı ile istemcinin bilgisine sunabilir. Sunucu, örnek olarak
+   kendi üzerinde çalışan bir script programı ile istemcinin vergilerini hesaplayabilir.
+   Sunucu kendi üzerine kurulu geniş veri temellerinden yararlanarak istediğiniz
+   yayınının detaylarını bulabilir. Kanun metinleri ve son yapılan değişiklikler,
+   sunuculara basit istekler gönderilerek elde edilebilir. Banka hesaplarına Internet
+   kullanılarak erişim sağlandığından, banka şubalerine müşteri akışı eskiye göre
+   çok azalmıştır. Son yıllardaki genel eğilim (trend) Şİşman Sunucu-Zayıf Istemci
+   (Fat Server- Thin Client) yöntemidir. Bu yöntemde sunucular olabildiğince program
+   ile yüklü, istemciler sadece istek yapabilecek ve hızlı iletişim yapabilecek nitelikler
+   ile donatılmaları yeterli olacaktır. Network Computing ( tüm programların sunucu
+   üzerinden çalıştırılması) gibi bir ütopya ise belki de ancak güvenlik sorunları
+   çözümlendikten sonra düşündüğümüzden de çabuk gerçekleşebilir. Bunun öncülüğünü
+   Google yapacak gibi görünmektedir. </p>
+<p class="indent"> Bütün bu yüksek teknoloji harikalarının çalışabilmesi için, ağ
+   güvenliğinin son derece gelişmiş olması gerekir. Günümüzde, bu güvenlik sorunları
+   henüz problem olmaya devam etmektedir ve güvenlikle ilgili çalışmalar çok
+   önem kazanmıştır. Bu çalışmalar sonunda, kesinlikle bugünkünden  daha
+   güvenli bir Internet ağı oluşacaktır. </p>
+<p class="indent"> Gelecekte, sunucu tarafı programların yoğun olarak kullanılması
+   beklendiğinden, programcıların sunucu tarafı script programlanması, çok kullanıcılı
+   veri temellerinin programlanması, iletişim ağları yönetimi, bilgi yönetimi gibi
+   konularla daha yoğun olarak ilgilenecekleri düşünülmektedir.</p>
+<p>&nbsp; </p>
+<table class="navtablebottom" summary="layout">
+   <tbody>
+      <tr>
+         <td valign="top"><a href="../index.html"><img class="x" src="../images/sharedimages/indeksbelgesi.png" alt="index"></a></td>
+         <td valign="top"><a href="b7s1.html"><img src="../images/sharedimages/oncekibelge.png" alt="prev"      class="x" border="0"></a></td>
+         <td valign="top"><a href="b7s3.html"><img src="../images/sharedimages/sonrakibelge.png" alt="next"       class="x" border="0"></a></td>
+      </tr>
+   </tbody>
+</table>
+<!-- #BeginLibraryItem "/Library/Date.lbi" -->
+        <p style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:red;">                     
+            <!-- #BeginDate format:fcAm1m -->Wednesday, October 5, 2005  17:48<!-- #EndDate -->        
+         </p><!-- #EndLibraryItem --><p>&nbsp; </p>
+<p> <a href="http://validator.w3.org/file-upload.html">validate in W3C !<img src="http://www.w3.org/Icons/valid-html401"   alt="Valid HTML 4.01!" height="31" width="88"></a> </p>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/HTMLandCSS/b7/b7s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:14:36 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

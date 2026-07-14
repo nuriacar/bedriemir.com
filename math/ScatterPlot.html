@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/math/ScatterPlot.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+
+ <title>
+  ScatterPlot
+ </title>
+	    <meta content="Mathematica Tutorial For Scatter Plots" name="description" />
+        <meta content="Mathematica Tutorial For Scatter Plots" name="keywords" />
+        <meta content="Prof. Dr. Bedri Doğan Emir" name="author" />
+        <meta content="INDEX,FOLLOW" name="Robots" />
+        <meta content="width=device-width; initial-scale=1.0" name="viewport" />
+ <!--<link href="HTMLFiles/ScatterPlot.css" rel="stylesheet" type="text/css" />-->
+	<link href="css/mathstyle.css" rel="stylesheet" type="text/css" />
+     <style>	
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<p class="Chapter">
+ Plot Examples-1
+</p>
+<p class="Chapter">
+Scatter Graphs
+	</p>
+
+
+<p class="Text">
+ Scatter graphs are data collected pointwise. They can be collected by direct observations or from mathematical relations including randomly generated data.
+</p>
+
+
+
+<p class="Text">
+ We will begin by sequential data. These data come one by one, that is one point after a previous one. Suppose you measure the viscosity of a mixture every after rise of two degrees beginning from an inital of 18 &deg;C . The observed viscosity value is measured after the exact temperature equilibrium of the mixture and heating medium and it is known that the viscosity is stable infinitesimally at a given constant temperature. The collected data will be as,
+</p>
+
+
+<p class="Text">
+</p><table class="Text" style="text-align: center;" frame="box" rules="all">
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>Temperature (&deg;C)</span></td>
+  <td style="text-align: center;"><span>Nr. of Observation (n)</span></td>
+  <td style="text-align: center;"><span>Observed value of the viscosity.</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>15 (initial)</span></td>
+  <td style="text-align: center;"><span>1</span></td>
+  <td style="text-align: center;"><span>2.16</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>17</span></td>
+  <td style="text-align: center;"><span>2</span></td>
+  <td style="text-align: center;"><span>3.86</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>19</span></td>
+  <td style="text-align: center;"><span>3</span></td>
+  <td style="text-align: center;"><span>5.23</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>21</span></td>
+  <td style="text-align: center;"><span>4</span></td>
+  <td style="text-align: center;"><span>6.11</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>23</span></td>
+  <td style="text-align: center;"><span>5</span></td>
+  <td style="text-align: center;"><span>7.82</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>25</span></td>
+  <td style="text-align: center;"><span>6</span></td>
+  <td style="text-align: center;"><span>9.28</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>27</span></td>
+  <td style="text-align: center;"><span>7</span></td>
+  <td style="text-align: center;"><span>13.88</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>29</span></td>
+  <td style="text-align: center;"><span>8</span></td>
+  <td style="text-align: center;"><span>23.77</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>31</span></td>
+  <td style="text-align: center;"><span>9</span></td>
+  <td style="text-align: center;"><span>28.18</span></td>
+ </tr>
+</table>
+<p>
+
+
+
+</p><p class="Text">
+ Since, number of observation is a direct informant of the equilibrium temperature, we can satisfy with only two values,
+</p>
+
+
+
+<p class="Item">
+ Number of observation,
+</p>
+
+
+
+<p class="Item">
+ Observed value of the viscosity.
+</p>
+
+
+
+<table class="Text" style="text-align: center;" frame="box" rules="all">
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span><span style="color: #000000;">Nr. of Observation</span></span></td>
+  <td style="text-align: center;"><span>Observed value of the viscosity.</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>1</span></td>
+  <td style="text-align: center;"><span>2.16</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>2</span></td>
+  <td style="text-align: center;"><span>3.86</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>3</span></td>
+  <td style="text-align: center;"><span>5.23</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>4</span></td>
+  <td style="text-align: center;"><span>6.11</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>5</span></td>
+  <td style="text-align: center;"><span>7.82</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>6</span></td>
+  <td style="text-align: center;"><span>9.28</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>7</span></td>
+  <td style="text-align: center;"><span>13.88</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>8</span></td>
+  <td style="text-align: center;"><span>23.77</span></td>
+ </tr>
+ <tr style="vertical-align: baseline;">
+  <td style="text-align: center;"><span>9</span></td>
+  <td style="text-align: center;"><span>28.18</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ If we wish to plot Nr of Observation versus observed value, we do not need to provide a {temperature, observed value of the viscosity} data doublet. A data doublet {nr. of observation , observed value of the viscosity}&nbsp;&nbsp;may suffice.&nbsp;&nbsp;Number of observation will be the abcissa of the point (x) and the observed value of the viscosity will be the ordinate value.(y).
+</p>
+
+
+
+<p class="Text">
+ We ought to provide only a one dimensional sequential data list (a simple Mathematica list), the number of observation will be automatically generated by Mathematica as the ordinal numbers of the entered data. In computer science it is called the &ldquo;index&rdquo; of the the elements of a given list. In Mathematica list indexes are beginning by 1 and increasing by 1 up to the end of the entered data. One may access the the elements of a defined list referring the index value of a given element.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_1.png" alt="ScatterPlot_1.png" width="686" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This list, Now we can plot this sequential data,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_2.png" alt="ScatterPlot_2.png" width="202" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_3.gif" alt="ScatterPlot_3.gif" width="360" height="230" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ In obtained plot, abcissa values were assigned in situ, according to the order of the entered data in the list named (data). The first of these values (elements of the list) which may also be interpreted as a vector ( the computer name for the one dimensional sequential data) or a set is the observed value of the viscosities at the experiment
+</p>
+
+
+
+<p class="Text">
+ The observed value of the viscosity in the initial temperature is,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_4.png" alt="ScatterPlot_4.png" width="103" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_5.png" alt="ScatterPlot_5.png" width="44" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The 9 th. observation is,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_6.png" alt="ScatterPlot_6.png" width="103" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_7.png" alt="ScatterPlot_7.png" width="55" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We have regular increase in temperature during the experiment, that means we can develop a relation calculating the temperatures for each entry of viscosity data to experiment list.
+</p>
+
+
+
+<p class="Text">
+ The first entry is the viscosity at the initial temperature 15 (&deg;C)
+</p>
+
+
+
+<p class="Text">
+ Let us assign n for the index of the viscosity value.
+</p>
+
+
+
+<p class="Text">
+ For the first entry point n = 1 and t = 15 (&deg;C) = 15 + n-1 = 15 (&deg;C)&nbsp;&nbsp;or 15 + 2 (n-1) = 15 + 1 (1-1) = 15 + 0 = 15 (&deg;C)
+</p>
+
+
+
+<p class="Text">
+ For the second entry point n = 2 and t = 15 + 2 (&deg;C) = 15 + 2 (n-1) = 15 + 2 (2-1) = 15 + 2 = 17 (&deg;C)
+</p>
+
+
+
+<p class="Text">
+ .....
+</p>
+
+
+
+<p class="Text">
+ For the ninth entry point n = 9 and t = 15 + 2 (n-1) = 15 + 2 (9-1) = 15 + 2&times;8 = 15 + 16 = 31 (&deg;C)
+</p>
+
+
+
+<p class="Text">
+ Since the initial temperature and the temrature step are constants, we can define a more general relation valid for either different initial temperatues and the temperature increase steps. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_8.png" alt="ScatterPlot_8.png" width="338" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can devise a user defined function for this entry point / temperature relation. The variable n will be defined as the index (ordinal number) of the data set.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_9.png" alt="ScatterPlot_9.png" width="402" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_10.png" alt="ScatterPlot_10.png" width="137" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can determine the temperatures for each determined value of viscosity in our experiment.
+</p>
+
+
+
+<p class="Text">
+ list = Table[iteratedValue , {iterator, initial value of the iterator , end value of the iterator , (increase / decrease) value of the iterator}]
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_11.png" alt="ScatterPlot_11.png" width="730" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_12.png" alt="ScatterPlot_12.png" width="366" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now, we are in position to be able to plot the temperature of each entry point :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_13.png" alt="ScatterPlot_13.png" width="279" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_14.gif" alt="ScatterPlot_14.gif" width="360" height="230" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Temperaature is changing step by step from the initial to the final stage of the experiment. We call this &ldquo;The Viscosity Chart of a Given Substance by Discrete Steps of Temperature&rdquo;.
+</p>
+
+
+
+<p class="Text">
+ Observed viscosity values are stored in the list &ldquo;data&rdquo; and plotted above as p1. The temperature values of these experiment is stored in the list &ldquo;temperature&rdquo; and plotted above as p2. We can plot them side by side or in one single plot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_15.png" alt="ScatterPlot_15.png" width="429" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_16.gif" alt="ScatterPlot_16.gif" width="576" height="189" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_17.png" alt="ScatterPlot_17.png" width="130" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_18.gif" alt="ScatterPlot_18.gif" width="360" height="230" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Surely a more conveniant plot may be a (temperature / viscosity) plot. This can be obtained by providing dual data coordinates for each point&nbsp;&nbsp;(x , y) . The first of these values will be the abcissa value (x) and the second will be the ordinate value (y).
+</p>
+
+
+
+<p class="Text">
+ Before going any farther, we should discuss about the constitution of the list &ldquo;temperature&rdquo;. The elements of temperature list are calculated using the special deterministic user defined relation of the temperature values for each experiment step. This is more or less an unusual case. Most usual cases is recording viscosity values at different, unpredictable but constant experimental temperature values.
+</p>
+
+
+
+<p class="Text">
+ For each experiment, there is two possibilities of providing records for the evalution with Mathematica. The first of the possibilities is to devise two lists &ldquo;temperature&rdquo; and &ldquo;viscosity&rdquo; for each experiment. The other way is entering each data doublet as sublists in each experiment. Both ways are possible and feasible in Mathematica.&nbsp;&nbsp;&nbsp;
+</p>
+
+
+
+<p class="Text">
+ We will begin by providing two different lists for each experiment. The first list will be list named &ldquo;temperature&rdquo; and bear the experiment temperatures for each experiment set. The other list may be named as &ldquo;data&rdquo; and and his elements will be observed viscosity values for a given temperature. The list may or may not have any special ordering and may be entered freely one after another. The only requirement is to enter corresponding experimental data in the same order in two lists. That is, entry one should be some temperature of the experiment step in one list and the observed viscosity value at same temperature in the other list. Same should be the entry two and its successors. The number of the elements (Size) of the two sets will be same, since there is only one entry of temperature, corresponding a distinct reading of viscosity. This is the system which we have applied in entering the elements of ``temperature&rdquo; and ``data&rdquo; lists in our example.
+</p>
+
+
+
+<p class="Text">
+ When we have two lists for any experiment set, as &ldquo;temperature&rdquo; and &ldquo;data&rdquo;, in our example, we have two ways for assembling these two lists into one single list for a given experiment set in Mathematica.&nbsp;&nbsp;
+</p>
+
+
+
+<p class="Text">
+ We can make data doublets with Mathematica, by applying Matrix transposition :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_19.png" alt="ScatterPlot_19.png" width="303" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_20.png" alt="ScatterPlot_20.png" width="669" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The other way is using Mathematica&rsquo;s Table [ ] function. This may be achieved as :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_21.png" alt="ScatterPlot_21.png" width="727" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_22.png" alt="ScatterPlot_22.png" width="669" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ That is it! We have obtained a data set consisting temperature/ viscosity data ready to be plotted.
+</p>
+
+
+
+<p class="Text">
+  Generally the common way of providing a temperature / viscosity data,&nbsp;&nbsp;is to enter {temperatue, viscosity} data by hand as a sublists of the experience list :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_23.png" alt="ScatterPlot_23.png" width="845" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ According the explanations above, these three lists are the same and consist the unique &ldquo;experienceSet&rdquo; :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_24.png" alt="ScatterPlot_24.png" width="241" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_25.png" alt="ScatterPlot_25.png" width="44" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The combined list will be named as experienceSet for given experiment. The experience set will be unique, regardless of his elements are entered by hand, found by calculation or assembled from two independent sets. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_26.png" alt="ScatterPlot_26.png" width="238" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can plot either data1 , data2 , data3 or experienceSet, the result will be the same :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_27.png" alt="ScatterPlot_27.png" width="255" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_28.gif" alt="ScatterPlot_28.gif" width="360" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This is more informative as a graph of the experimentation of course, but also it is a very primitive plot that should be enhanced for attaining a publishable quality.
+</p>
+
+
+
+<p class="Text">
+ First we will enclose the graph in a frame. This is nearly compulsory for producing quality graphs with Mathematica.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_29.png" alt="ScatterPlot_29.png" width="178" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_30.gif" alt="ScatterPlot_30.gif" width="360" height="230" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Then we will decide for a size of plot. This can be achived with dragging from the edges with&nbsp;&nbsp;the mouse. But ImageSize option is also works fine.
+</p>
+
+
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_31.gif" alt="ScatterPlot_31.gif" width="581" height="366" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_32.png" alt="ScatterPlot_32.png" width="266" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_33.gif" alt="ScatterPlot_33.gif" width="600" height="378" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We will give a name for the plot with PlotLabel rule of Mathematica : 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_34.png" alt="ScatterPlot_34.png" width="710" height="140" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_35.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="413" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Open Mathematica Documents and search the options for the PlotLabel rule, That may be done by Style [ ] function of the Mathematica
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_36.gif" alt="ScatterPlot_36.gif" width="1149" height="169" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_37.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="451" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ About PointSize,<br />PointSize is an important option for setting a point size relevant to the size of the graph.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_38.png" alt="ScatterPlot_38.png" width="840" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_39.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="451" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We can change plot markers :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_40.gif" alt="ScatterPlot_40.gif" width="1149" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_41.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="451" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now we&rsquo;ll define the frame for our taste, (Frame blue at x and orange at y axis, no frame at right and top)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_42.png" alt="ScatterPlot_42.png" width="840" height="256" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_43.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="451" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Frame Labels &ldquo;Temperature&rdquo; , &ldquo;Viscosity&rdquo;
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_44.png" alt="ScatterPlot_44.png" width="995" height="343" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_45.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We may arrange the ticks of the axes, (for framed plots the the axes are the sides of the frame).
+</p>
+
+
+
+<p class="Text">
+ Frame tics are defined via FrameTicks rule. This rule is applied using lists. General definition is,
+</p>
+
+
+
+<p class="Text">
+ FrameTicks &rarr; <span style='color: #FF0000;'>{</span><span style='color: #009D00;'>{</span><span style='color: #000000;'>Left Side, Bottom</span><span style='color: #009D00;'>}</span><span style='color: #000000;'> , </span><span style='color: #009D00;'>{</span><span style='color: #000000;'>Right Side , Top</span><span style='color: #009D00;'>}</span><span style='color: #FF0000;'>}</span>
+</p>
+
+
+
+<p class="Text">
+ Generally we only need two lists one for left and right (if it exists), one for bottom and top (if it exists).
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_46.png" alt="ScatterPlot_46.png" width="359" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_47.png" alt="ScatterPlot_47.png" width="466" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_48.png" alt="ScatterPlot_48.png" width="143" height="23" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_49.png" alt="ScatterPlot_49.png" width="669" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_50.png" alt="ScatterPlot_50.png" width="995" height="401" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_51.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now grid lines,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_52.png" alt="ScatterPlot_52.png" width="995" height="459" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_53.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Also grid colors,
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_54.png" alt="ScatterPlot_54.png" width="995" height="575" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_55.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_56.png" alt="ScatterPlot_56.png" width="995" height="633" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_57.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ In&nbsp;&nbsp;Mathematica there is more than a one way to achieve things. But for even publication quality, these examples may suit some needs. All the graphs is customisable for any data and any choice. Mathematica has many other tweaks for plottting anything, these examples are the simplest show-up for scatter plots. 
+</p>
+
+
+
+<p class="Text">
+ If we want everything in black and white, the plot definition is lot simpler.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_58.png" alt="ScatterPlot_58.png" width="948" height="372" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_59.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="469" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ When frames are closed, we can have more presentable plots.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_60.png" alt="ScatterPlot_60.png" width="948" height="401" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_61.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="411" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_62.png" alt="ScatterPlot_62.png" width="995" height="662" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_63.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="657" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Grids may be defined with a simpler way, if all x grids and y grids have their own block colors and style.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_64.png" alt="ScatterPlot_64.png" width="995" height="952" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_65.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="657" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Adding some text with Epilog [ ].
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/ScatterPlot_66.png" alt="ScatterPlot_66.png" width="995" height="1358" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/ScatterPlot_67.gif" alt="Graphics:Viscosity/Temperature Chart of the Mixture K 234 " width="600" height="657" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Have good time when applying them...
+</p>
+<p class="Text">
+ N.B. : For the Mathematica notebook one should have desktop version of the latest version of Mathematica.
+</p>
+	<p class="Text">
+		For the cdf version (Mathematica Computable Document Format comparable to pdf's but more advantageous to copy
+		the including text) may be downloaded as a free cdf reader from the <a href="https://www.wolfram.com/player/">Wolfram web site</a>.
+	</p>
+	<p class="Text">
+ For copy/paste actions rtf version may be suitable at best. This version may be downloaded and read by write.exe which is a standard
+ and free rtf reader for windows. These documents may also read by Microsoft Word or equivalent free software.		
+</p>
+
+        <ul id="navbottom">
+            <li id="index"><a href="../index.html"><em>« Site Main Page</em></a></li>
+            <li id="denge"></li>
+            <li id="sayfa"><a href="ScatterPlot.pdf"><em>pdf version »</em></a></li>
+            <li id="denge1"></li>
+            <li id="kodlama1"><a href="ScatterPlot.nb"><em>Mathematica Notebook »</em></a></li>
+            <li id="denge2"></li>
+            <li id="kodlama2"><a href="ScatterPlot.cdf"><em>cdf version »</em></a></li>
+            <li id="denge3"></li>
+	<li id="kodlama3"><a href="ScatterPlot.rtf"><em>rtf version » </em></a></li>
+            <li id="navbottom-sonlama"></li>
+        </ul>
+        <script src="../Library/lastmodified-eng.js">
+        </script>
+        <script src=../js/bdelib.js">           
+        </script>
+        <script src=../js/bootstrap.js">
+    </script>
+        <script src"../js/jquery-1.11.3.min.js">
+    </script>
+        <div style="font-family: Helvetica; font-size: 11px; width: 100%; border: 1px none #999999; border-top-style: solid; padding-top: 2px; margin-top: 20px;">
+            <a href="http://www.wolfram.com/language/" style="color: red; text-decoration: none;">
+            <span style="color: #555555">Created with the Wolfram Language</span>
+            </a>
+        </div>
+        <p class=" indent verticalTab-25">
+            <span class="pl-50"><a href="https://validator.w3.org/nu/#file">
+            <img alt="Geçerli html5" src="../algebra/images/html5-small-1.gif" /></a></span>
+        </p>
+    </body>
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

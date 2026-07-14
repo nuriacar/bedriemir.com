@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s15.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:57 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b2/b2s15.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta 	content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5	at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b2s15</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1"/></a>
+				<a href="b2s14.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b2s16.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 2
+		</p>
+		<p class="chapter">
+			Temel Bilgiler
+		</p>
+		<p class="title">
+			2.13 - Döngüler
+		</p>
+		<p class="pagenum">
+			Bölüm 2 Sayfa 15
+		</p>
+		<p class="subheading" id="intro">2.13.1 - Döngülerin Tanıtımı
+	</p>
+		<p class="indent">
+			Döngüler,işlemlerin sürekli olarak tekrar edilidiği işlem bloklarıdır.
+			Bilgisayar programları, döngü bloklarının içindeki işlemleri sıra ile
+			çalıştırırlar ve yeniden döngü başına dönerek aynı işlemleri tekrar ederler.
+			Bu nedenle döngülere, tekrarlı işlemler adı da verilir. Bir döngü bloğuna
+			giren program kontrolünün, döngü bloğundan çıkabilmesi için bir yöntem
+			bulunması gerekir. Aksi halde, program kontrolü sonsuza kadar döngü bloğundan
+			çıkamaz. Bu duruma sonsuz döngü adı verilir. Program kontrolünün döngü bloğundan
+			çıkabilmesi için, belirli bir mantıksal kontrolün döngü bloğuna yerleştirilmesi
+			gerekir. Bu mantıksal ifadenin sonucu gerçek olduğunda, program kontrolü
+			döngü bloğundan çıkar. 
+		</p>
+		<p class="indent">
+			Bir döngü bloğunun tüm işlemlerinin tamamlanarak yeniden başa dönülmesine bir iterasyon adı verilir.
+			İteratif işlemlerden çıkılabilmesi için, döngü sayacı olarak adlandırılan bir tamsayı değişkeninin her iterasyonda
+			bir tamsayı artımı sağlanır. Bu sayaçtan yararlanılarak belirli bir iterasyon sayısından sonra iteratif işlem sona 
+			erdirilebilir. Programın niteliğine göre döngüyü sonlandırabilecek başka mantıksal kontroller de tasarlanabilir.
+		</p>
+		<p class="indent">
+		  Döngü işlemleri, bilgisayarların en güçlü işlevlerinden biridir. İnsanlar
+		  için sıkıcı ve belirli bir sayıdan sonra olanaksız sayılabilecek sayıda
+		  işlemi sorunsuzca yerine getirebilirler. Sadece iyi programları gerekir.
+		  Bu konuda, henüz bilgisayarlar kullanılmadan, İkinci Dünya Savaşı sırasında,
+		  Alman Ordusu, V2A füzelerinin atış cetvellerini, Peenemünde 'de bir salona
+		  yerleştirilen çok sayıda üniversite öğrencisine Facit makineler kullanarak
+		  yaptırmıştır. Aynı işlemi, günümüzde  bir ev bilgisayarı kısa sürede
+		  tamamlayabilir.
+		</p>
+		<p class="indent">
+			JavaScript programlama dili, modern bilgisayar dillerinde olan döngü sistemlerinin çoğunu içermektedir. Bu bakımdan,
+			çağının ilerisinde bir programlama dilidir. Fakat, ironik olarak, bu olanaklardan pek azı gerçek hayatta kullanılır. 
+			Karşılaşılan problemlerin çoğu, biraz sonra inceleyeceğimiz <span class="keyw">for...</span> döngüleri ile 
+			çözülebilir. Bu nedenle, diğer döngü sistemlerine pek az gereksinme duyulur. Buna rağmen, döngü problemleri her türlü 
+			döngü sistemi ile çözülebilir. Hangi sistemin kullanılacağı, programcının kişisel zevkine bağlıdır. 
+		</p>
+		<p class="indent">
+			Döngü sayaçları, eski bir Fortran geleneğinde kayanklanan bir alışkanlıka,
+			i,j,k,l,n,m,o karakterleri ile i den başlanarak kullanılır. JavaScript programlama dili için bu gereksinme olmamamsına karşın,
+			programcılar döngü sayaç karakterlerini genellikle bu geleneğe uygun olacak şekilde seçerler çünkü programcıların bu karakterlere
+			alışkın olduları için yazılımlarda bu karakterleri ararlar ve alışkın oldukları yazılım şeklini gördüklerinde yazılanları kısa sürede
+			ve doğru olarak algılarlar.
+		</p>
+		<p class="indent">
+			Döngüler en iyi dizilerle çalışır. Henüz dizileri incelemediğimiz için, döngülerin güçlü yönlerini farkedemeyebiliriz. Ama gerçekten 
+			güçlü araçlardır. Dizilerin incelenmesinde, döngü araçlarını kullanacak ve nekadar yararlı ve işlevsel olduklarını görebileceğiz. Bu
+			bölümde sadece döngü mekanizmalarını inceleyeceğiz. 
+		</p>
+		<p class="subheading" id="for">2.13.2 - for Döngüleri
+	</p>
+		<p class="indent">
+			İlk inceleyeceğimiz döngü tipi olan <span class="keyw">for</span> döngüleri, önceden belirtilen sayıda iterasyon 
+			yapılan en basit fakat en çok kullanılan bir döngü türüdür. Yazılımı temel olarak,
+		</p>
+		<pre>
+<span class="keyw-25">for</span><span class="op">(</span>Başlık Bilgileri<span 
+			class="op">)</span> Çalıştırılacak Bildirim
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			Döngülerde çalıştırılacak bildirimler daima birden çoktur. Bu yüzden bildirimler bir blok içine alınır. Yazılım bu durumda,
+			genel olarak, 
+		</p>
+		<pre>
+<span class="keyw-25">for</span><span class="op">(</span>Başlık Bilgileri<span class="op">) {</span>
+<span class="pl-50">Bildirim 1</span><span 
+			class="op">;</span>
+<span class="pl-50">Bildirim 2</span><span 
+			class="op">;</span>
+<span class="pl-50">...</span>
+<span class="pl-50">Bildirim n</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde uygulanır.
+		</p>
+		<p class="indent">
+			Başlık Bilgileri, hepsine kuramsal olarak isteğe bağlı, pratik olarak da uygulamalarda daima
+			hepsi kullanılan, üç bildirim veya ifadeden oluşur. Bunlar 
+		</p>
+		<pre>
+<span class="op-50">(</span>[Döngü Sayacı (veya Sayaçlarının) Başlangıç Değerlerine Getirilmesi]<span 
+			class="op">;</span>[Döngü Sayacının Maksimum Değeri<span 
+			class="op">;</span>][Döngü Sayacının (veya Sayaçlarının) Arttırım (veya Eksiltme) Değeri (Değerleri)<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			şekllindedir. Çoğunlukla rastlanmayacağına rağmen, salt bilgi için, iki
+			  sayaçlı bir <span class="keyw">for</span>
+			döngüsünün başlık kısmı aşağıda olduğu gibi uygulanabilir,
+		</p>
+				<pre>
+<span class="keyw-25">for</span> <span 
+			class="op">(</span>i <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> j <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> iMax<span 
+			class="op">;</span> i<span 
+			class="op">++</span><span 
+			class="op">,</span> j<span 
+			class="op">++ )</span>
+		</pre>
+		<p class="indent">
+			Burada dikkat edilecek noktalar, her terimde değişkenlerin arasının birer noktalı virgül 
+			ile ayrıldığı, ilk iki terimin birer ifade sonlandırıcısı ile tamamlanmasına karşın, son terimin
+			doğrudan doğruya parantezin kapanması ile sonlandığıdır. Ayrıca döngünün iki sayacı (i ve j) 
+			olmasına karşın, maksimum döngü sayısı tek olabileceği için, sadece döngü sayçalrından birisinin
+			maksimumu ile belirlenebileceğine de dikkat edilmelidir. Pratikte birden çok sayaçlı döngüler
+			hemen hemen hiç yok gibidir. Genel olarak döngü sayacı sadece bir tanedir ve pratikte bir <span 
+			class="keyw">for</span> döngüsünün başlığı  aşağıda olduğu gibi düzenlenir :
+		</p>
+		<pre>
+<span class="keyw-25">for</span> <span 
+			class="op">(</span>i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> iMAX<span 
+			class="op">;</span> i<span 
+			class="op">++</span>)
+		</pre>
+		<p class="indent">
+			Döngülerde, döngü sayacının sadece döngü sayacı amacı ile kullanılması gereğini gözönüne alan 
+			JavaScript yorumlayıcısı, programcılara, döngü sayacının döngü başlığında tanıtılması ile birlikte
+			başlangıç değerinin belirtilmesi olanağını sağlamıştır. Bu olanağın da kullanılması ile döngü başlığı,
+		</p>
+		<pre>
+		<span class="keyw-25">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> iMAX<span 
+			class="op">;</span> i<span 
+			class="op">++</span>)
+		</pre>
+		<p class="nonindent" id="b2.13.2-uyg-1">
+			şekline ulaşır. Bu düzenleme, uygulamalarda yeğ tutulan bir yazılımdır. Klasik bir <span 
+			class="keyw">for</span> dongüsü, JavaScript <a href="../uygulamalar/b2.13.2-uyg-1-js.html">kodları</a> 
+			aşağıda görülen bir <a href="../uygulamalar/b2.13.2-uyg-1.html">uygulamada</a> verilmiştir:
+		</p>
+				<pre>
+<span class="keyw-25">function</span> forDöngüsü <span 
+			class="op">{</span>
+<span class="keyw-50">var</span> s <span 
+			class="op">=</span> 0<span 
+			class="op">;</span>
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">;</span> i <span 
+			class="op">&lt;</span> 5<span 
+			class="op">;</span> i<span 
+			class="op">++) {</span>
+<span class="pl-75">s</span> <span 
+			class="op">=</span> s <span 
+			class="op">+</span> i<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span>s <span 
+			class="op">,</span> <span 
+			class="str">'b2.13.2-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın sonucu:
+		</p>
+		<p class="indent">
+			<span class="cursive-blue"> s </span><span class="cursive-maroon"> = </span><span 
+			class="cursive-red" id="b2.13.2-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			olacaktır.
+		</p>
+		<p class="indent">
+			Yukarıdaki örnekte de görüldüğü gibi, <span class="keyw">for</span> döngülerinde, döngü 
+			kontrolü döngü başında yapılmaktadır. İterasyon sayısı önceden bellidir ve belirsiz bir olay 
+			yoktur. Döngü sayacı maksimum değere erişince, program kontrolü döngü gövdesine girmeyerek
+			bir sonraki bildirime geçer. Bu döngü yapılanması, uygulamalarda duyulan döngü gereksinmesinin büyük bir 
+			kısmını karşılamaktadır. 
+		</p>
+		<p class="subheading" id="while">2.13.3 - while Döngüleri
+	</p>
+		<p class="indent">
+			İkinci incelenecek JavaScript döngü yapılanması, <span 
+			class="keyw">while</span> döngüleridir. Bu tür döngülerde döngü sayacının
+			değeri, döngüün başında kontrol edilir. Kontrol ifadesinin sonucu <span 
+			class="keyw">true</span> ise kontrol döngü gövdesine girer, bloktaki tüm bildirimleri
+			çalıştırır ve yeniden blok başına dönerek kontrol ifadesini yeniden değerlendirir.
+			Bu değer yeniden <span class="keyw">true</span> ise yeniden döngü gövdesine girer. Aksi halde bir
+			sonraki bildirime geçer. Döngü sayacının değerinin değişmesi için gerekli
+			ifadenin, döngü gövdesinde belirtilmesi  gerekir. Yazılımı, 
+		</p>
+		<pre>
+<span class="keyw-25">while</span> <span 
+			class="op">(</span>Kontrol İfadesi<span 
+			class="op">) {</span>
+<span class="pl-50">Bildirim 1</span><span 
+			class="op">;</span>
+<span class="pl-50">Bildirim 2</span><span 
+			class="op">;</span>
+<span class="pl-50">...</span>
+<span class="pl-50">Bildirim n</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir.
+		</p>
+		<p class="indent">
+			Yazılımı basit olmasına karşın, <span class="keyw">while</span> döngüleri uygulamada çok karmaşık 
+			döngü yapılanmaları oluşturabilirler. Döngü gövdesindeki bildirimlerin birinin, döngü sayacının değerinin
+			değiştirilmesini ve bu şekilde, sonlu bir iterasyon sayısı sonunda kontrol ifadesinin değerinin <span 
+			class="keyw">false</span> olmasını sağlaması gerekir. 
+		</p>
+		<p class="indent" id="b2.13.3-uyg-1">
+			Kontrol fadesinin, döngü sayacının sayısı ile değerlendiği bir <span class="keyw">while</span> döngüsünde 
+			döngü sonunun öngörülmesi göreli olarak kolaydır. Aşağıda JavaScript <a href="../uygulamalar/b2.13.3-uyg-1-js.html">kodları</a> 
+			görülen bir <a href="../uygulamalar/b2.13.3-uyg-1.html">uygulamada</a>, klasik bir <span 
+			class="keyw">while</span> döngüsü görülmektedir.
+		</p>
+				<pre>
+<span class="keyw-25">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> s <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> iMAX <span 
+			class="op">=</span> 5<span 
+			class="op">;</span>
+			
+<span class="keyw-25">while</span> <span 
+			class="op">(</span>i <span 
+			class="keyw"><span 
+			class="op">&lt;</span></span> iMAX<span 
+			class="op">) {</span>
+<span class="pl-50">s</span> <span 
+			class="op">+= </span> i<span 
+			class="op">;</span>
+<span class="pl-50">i</span><span 
+			class="op">++;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">bilgiYaz</span><span 
+			class="op">(</span>s <span 
+			class="op">,</span><span 
+			class="str">'b2.13.3-uyg-1-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+		</pre>
+		    <p class="cursive-green">
+			Bu programın sonucu:
+		</p>
+		<p class="indent">
+			<span class="cursive-blue"> s </span><span class="cursive-maroon"> = </span><span 
+			class="cursive-red" id="b2.13.3-uyg-1-sonuç-1"></span>
+		</p>
+		<p class="nonindent">
+			olmaktadır. 
+		</p>
+		<p class="indent" id="b2.13.3-uyg-2">
+			Yukarıdaki <a href="../uygulamalar/b2.13.3-uyg-1.html">örnekten</a> de görülebileceği
+			gibi, <span class="keyw">while</span> döngülerinde, döngü çıkış mekanizması, döngü sayısına
+			bağlı olduğunda,  döngü çıkışıının öngörülmesi, <span class="keyw">for</span> döngüleri
+			ile kıyaslanacak kadar basittir.  Fakat, bazı durumlarda döngü çıkış ifadesinin
+			değerlendirilmesi karmaşık bir yapıda olabilie ve bu durumda döngü çıkışının
+			gerçekleşip gerçekleşmeyeceğinin öngörülmesi kolay olmayabilir. Bu durumda,
+			bir güvenlik  önlemi olarak, gereçekleşen iterasyon sayını kontrol eden
+			ikinci bir döngü sayacının kullanılarak bu sayacın maksimum döngü sayını
+			ayrıca sınırlaması sağlamalıdır. Bu şekilde, sonsuz döngüye girilmesi olasılığı
+			 elimine edilmiş olacaktır. Aşağıda <a href="../uygulamalar/b2.13.3-uyg-2-js.html">JavaScript
+			kodları</a> verilmiş olan <a href="../uygulamalar/b2.13.3-uyg-2.html">uygulama</a>, 
+			bu durumu açıklamaktadır:
+		</p>
+				<pre>
+<span class="keyw-25">function</span> f<span 
+			class="op">(</span>x<span 
+			class="op">)</span> <span 
+			class="op">{</span>
+<span class="keyw-50">return</span> <span 
+			class="op">(</span>x <span class="op">*</span> x <span 
+			class="op">*</span> x <span class="op">+</span> 5 <span 
+			class="op">*</span> x <span class="op">*</span> x <span 
+			class="op">+</span> 7 <span class="op">*</span> x)<span 
+			class="op">/</span> (5 <span class="op">*</span> x <span 
+			class="op">*</span> x <span class="op">-</span> 21 <span 
+			class="op">*</span> x <span class="op">+</span> 44<span 
+			class="op">);</span>
+<span class="op-25">}</span> 
+
+<span class="keyw-25">function</span> inceleme<span 
+			class="op">(</span><span 
+			class="op">)</span> <span 
+			class="op">{
+</span>
+<span class="keyw-50">var</span> i <span 
+			class="op">=</span> 0<span 
+			class="op">,</span> a <span 
+			class="op">=</span> 10<span 
+			class="op">,</span> iMAX <span 
+			class="op">=</span> 50<span 
+			class="op">;</span>
+			
+<span class="keyw-50">while</span> <span 
+			class="op">(</span>f<span 
+			class="op">(</span>a<span 
+			class="op">)</span><span 
+			class="op"> &lt;</span> 0 <span 
+			class="op">&amp;&amp; </span>i <span 
+			class="op">&lt;</span> iMAX<span 
+			class="op">) {</span>
+<span class="pl-75">a</span> <span 
+			class="op">/= </span> 2<span 
+			class="op">;</span>
+<span class="pl-75">i</span><span 
+			class="op">++;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'f(x) = '</span>  <span 
+			class="op">+</span> a <span 
+			class="op">, </span><span 
+			class="str">'b2.13.3-uyg-2-sonuç-1'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+		
+<span class="keyw-50">if</span> <span 
+			class="op">(</span>i <span 
+			class="op">&lt;</span> iMAX<span 
+			class="op">) {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Gerçekleşen Iterasyon Sayısı ='</span><span 
+			class="op">  + i, </span><span 
+			class="str">'b2.13.2-uyg-2-sonuç-2'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+
+<span class="keyw-50">else</span><span 
+			class="op"> {</span>
+
+<span class="pl-75">bilgiYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Maksimum Iterasyon Sayısı Aşıldı !'</span><span 
+			class="op">,</span><span 
+			class="str"> 'b2.13.2-uyg-2-sonuç-3'</span><span 
+			class="op">)</span><span 
+			class="op">;</span>
+
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		    <p class="cursive-green">
+			Bu programın sonucu:
+		</p>
+		<p class="cursive-maroon" id="b2.13.3-uyg-2-sonuç-1">
+		</p>
+		<p class="cursive-green" id="b2.13.3-uyg-2-sonuç-2">
+		</p>
+			<p class="cursive-red" id="b2.13.3-uyg-2-sonuç-3">
+		</p>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b2.13.3-uyg-1.html">uygulama</a>, bir fonksiyonun
+			köklerinin  araştırılması için bir ön sondaj çalışmasıdır. Buradaki <span class="keyw">while</span> 
+			döngüsünün kontrol ifadesi iki mantıksal ifadenin birleştirilmesinden oluşmaktadır.
+			Daha önce <a 
+			href="b2s11.html#AND">2.9.1 bölümünde</a> <span 	class="op">&amp;&amp;</span> (AND)
+			mantıksal  işlemcisinin işleyişi incelenirken, bu işlemcinin iki işleneni
+			olduğu ve ifadenin <span 
+			class="keyw">true</span> olması için, her iki işlenenin de <span class="keyw">true</span> olması
+			gerektiği belirtilmişti. Sol işlenen, fonksiyonun aldığı değerin negatif
+			olması ile <span class="keyw">false</span>
+			olacaktır. Fonksiyonun alacağı değerlerin başlangıçta (&agrave; priori) saptanması
+			olanağı yoktur. Eğer döngü, salt bu işlenin sonucu ile kontrol edilseydi,
+			kontrolün hiçbir zaman <span class="keyw">false</span> olmaması,
+			dolayısı ile sonsuz döngüye girilmesinin her an olası olduğu bir durumla
+			karşı karşıya kalınabilirdi. Bunun önlenmesi için, döngü sayısını daha
+			öngörülebilir bir şekilde kontrol edebilen başka bir döngü sayacının kullanılması
+			gerekmiştir. Bu döngü sayacı, klasik bir arttırımlı (incremental) sayaçtır.
+			Belirli bir sayıya ulaştığında döngü kesilmekte, böylece, alacağı değer
+			önceden kestirilemeyen fonksiyon değeri kontrolüne ek olarak, daha kontrollü
+			bir döngü sonlandırıcısı eklenerek, sonsuz döngüye girme olasılığı
+			tamamen ortadan kaldırılmış olmaktadır.
+		</p>
+		<p class="indent">
+			<span class="keyw">while</span> Döngülerinde, döngü kontrolü, döngü başında yapıldığı için, 
+			program kontrolü, döngüye hiç girmeyebilir. Bu da mantıksal program akışı kontrolünde 
+			büyük avantaj sağlar. Bu nedenle, <span class="keyw">while</span> döngüleri, 
+			<span class="keyw">for</span> döngülerinden sonra, kullanıcıların en çok tercih ettikleri ikinci 
+			döngü yapılanmasıdır. 
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« Indeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b2s14.html"><em>« Önceki</em></a>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b2s16.html"><em>Sonraki »</em></a>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="pl-50">
+		<a href="http://validator.w3.org/#validate_by_upload"><img 
+				src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1"
+				height="31" width="88" /></a>
+		</p>
+
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/b2.13.2-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.13.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b2.13.3-uyg-2.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b2/b2s15.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:11:58 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

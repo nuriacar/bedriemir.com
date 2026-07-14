@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b6/b6s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:08 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b6/b6s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<style type="text/css">
+			caption{ background-color:#FF9122;}
+			table.veriTablosu {
+				font:18px Verdana, Arial, Helvetica, sans-serif;
+				position:relative;
+				left :200px;
+				text-align:center;
+				border-color:#000099;
+			}
+			tr.tablobilgi{
+	background-color: #CCCCFF;
+			}
+		</style>
+		<title>b6s1</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="../b5/b5s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b7/b7s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 6
+		</p>
+		<p class="chapter">
+			Number  Nesne Sınıfı		</p>
+		<p class="pagenum">
+			Bölüm 6 Sayfa 1	
+		</p>
+		<p class="title-left" id="number">6.1 - Number Nesne Sınfının Tanıtımı</p>
+		<p class="indent">
+			Öntanımlı <span class="keyw">Number</span> sınıf nesnesi, <span class="keyw">Object</span> nesne
+			sınıfının 			bir
+			alt sınıfıdır. <span class="keyw">Number</span> nesne sınıfı, sayısal değerleri
+			ilgilendirmektedir ve sayılarla çalışmak için gerekli olanakların sağlanması
+			amacı ile oluşturulmuştur.		</p>
+		<p class="title-left" id="NumberConstructor">6.2 - Number Nesne Sınıfı Örnekleri
+		Yapılandırıcısı</p>
+		<p class="indent">
+			<span class="keyw">Number</span> nesne sınıfının yapılandırıcı fonksiyonu,
+			<span class="keyw">Number</span><span class="op">()</span> fonksiyonudur.
+			Bu fonksiyon yeni <span class="keyw">Number</span> nesne sınıfı örneklerinin
+			yapılandırılmasında kullanılır. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-50">değişken</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>[değer]<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada
+		</p>
+		<p class="nonindent">
+			değişken = yeni <span class="keyw">Number</span> sınıfı nesne örneğinin atandığı
+			değişken adıdır. <span class="keyw">Number</span><span 
+			class="op">()</span> sayısal nesne yapılandırıcısının yapılandırdığı
+			yeni <span class="keyw">Number</span> sınıfı örneğinin
+			başlangıç özellikleri, <span class="keyw">Number</span><span 
+			class="op">()</span> nesne yapılandırıcısına aktarılan argümanın değerine
+			bağlıdır.
+		</p>
+		<p class="indent">
+			Yeni oluşturulan Number sınıfı nesne örneğinin içsel [[Prototype]] özelliği, <span 
+			class="keyw">Number</span> sınıfı prototip nesnesine bağlanır. Bu prototip, 
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">prototype</span> 
+			nesnesinin başlangıç değeridir. Bu durumda, her <span class="keyw">Number</span> sınıfı
+			nesne örneğinin, 
+			<span class="keyw">Number</span> nesne prototipinin belirttiği güncel özelliklere
+			sahip olacağı açıktır.
+		</p>
+		<p class="indent">
+			Yeni oluşturulan <span class="keyw">Number</span> sınıf nesne örneğinin veri
+			tipi <span 
+			class="keyw">object</span> olarak belirlenir. Bu ayrıntı önemlidir, sayısal
+			ilkel değerlerin  veri tipi number iken, sayısal nesne sınıfı örneklerinin
+			veri tipi object olmaktadır. <span class="keyw">Number</span> nesne sınıfı
+			örneklerinin  içsel [[Class]] özelliğinin, aynı bölüm <a href="../b3/b3s3.html">3.4</a> de
+			 uygulanmış olan yöntemle sorgulanması ile bu sonuç görülebilir.
+		</p>
+		<p class="indent">
+			Yeni oluşturulan <span class="keyw">Number</span> sınıfı nesne örneğinin 
+			içsel [[Value]] özelliği, <span class="keyw">Number</span><span 
+			class="op">()</span> nesne yapılandırıcısına aktarılan argümanın değerine
+			bağlı olarak aşağıdaki tabloya göre belirlenir:
+		</p>
+		<table width="60%" id="tablo" summary="Tablo Yapım" border="2"
+		cellspacing ="2" cellpadding="2" class="veriTablosu">
+			<col class="st1"  width="25%"/>
+			<col class="st1"  width="75%"/>
+			<caption>
+				Tablo 6.2-1 toNumber Operatörü
+			</caption>
+			<thead>
+				<tr class="tablobilgi">
+					<th>Veri Tipi </th>
+					<th>Sonuç</th>
+				</tr>
+			</thead>
+			<tbody id="alan">
+				<tr>
+					<td><span class="keyw">undefined</span></td>
+					<td><span class="keyw">NaN</span></td>
+				</tr>
+				<tr>
+					<td><span class="keyw">null</span></td>
+					<td>+0</td>
+				</tr>
+				<tr>
+					<td>sayısal</td>
+					<td>Eğer veri <span 
+			class="keyw">true</span> ise +1 <span 
+			class="keyw">false</span> ise +0 </td>
+				</tr>
+				<tr>
+					<td>Sayısal</td>
+					<td>Sayıya dönüştürebilirse sonuç yoksa <span class="keyw">NaN</span></td>
+				</tr>
+				<tr>
+					<td>Sözel</td>
+					<td>Boş bir karakter dizgisi için <span class="keyw">false</span> diğer
+						değerler için <span class="keyw">true</span></td>
+				</tr>
+				<tr>
+					<td>Nesne</td>
+					<td>Önce ilkel değere sonra sayısal değere çevrilir. </td>
+				</tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<p class="indent">
+			<span class="keyw">Number</span> nesnesinin örnekleri oluşturulur oluşturulmaz JavaScript yorumlayıcısının
+			bir mekanizması harekete geçer ve yeni oluşan <span class="keyw">Number</span> nesne örneğinin içsel 
+			[[Value]] değeri, yukarıdaki tablodan yararlanılarak hesaplanır. Artık nesne örneğinin her çağrılışında, 
+			örneğin bu [[Value]] özelliği kullanılır. Bu nedenle sayısal nesne örnekleri, kullanımda aynen 
+			ilkel sayısal değerler gibi hareket ederler. Fakat görünürdeki bu benzerlik yanıltıcıdır. Sayısal nesne örnekleri object
+			sayısal ilkel değerler, number veri tipine sahiptir. JavaScript programlama dilinde, veriler, çok az özel durum dışında 
+			her zaman ilkel değerler olarak kullanılır.  Sayısal bir değerin, çok az rastlanabilecek aşağıda açıklanan özel bir durum
+			 dışında, <span class="keyw">Number</span> nesne sınıfı örneği olarak tanımlanmasına hiç gerek yoktur.
+		</p>
+		<p class="indent">
+			<span class="keyw">Number</span> nesnesi çok kullanışlı özelliklere sahiptir.
+			Bir sayısal ilkel değerin, bu özelliklerden birini  çağırması halinde,
+			JavaScript yorumlayıcısı verinin tipini, sayısal nesneye dönüştürür, özelliği
+			uygular, sonucu döndürür ve veriyi tekrar ilkel sayısal değer haline geri
+			döndürür. Doğal olarak bu biraz zaman alır. Bu yüzden, iterasyon sayısı
+			yüksek döngülerde, bu durumla karşılaşılırsa, verinin doğrudan sayısal
+			nesne örneği olarak tanımlanmasında yarar olacaktır. Bu çok sık rastlanmayan
+			özel bir durumdur ve iterasyon sayısının on onbeş bin den aşağı olacağı durumlarda
+			kazanılan süre önemli olmayabilecektir. Bu yüzden, sayısal bir değerin,
+			sayısal nesne örneği olarak tanımlanmasına hiç gerek olmayabilir.
+		</p>
+		<p class="title-left" id="cons">6.3 - Number Nesne Sınıfı Örnekleri
+			Yapılandırıcısının Özellikleri</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">()</span> sayısal nesne 
+			sınıfı örnekleri yapılandırıcısı, her fonksiyon gibi, <span class="keyw">Function</span> nesne
+			sınıfının bir örneğidir.  Bu nesne sınıfı örneğinin öntanımlı olarak altı
+			tane özelliği vardır. Bu özellikler,  
+			<span class="keyw">prototype</span>, <span class="keyw">MAX_VALUE</span>, <span class="keyw">Mın_VALUE</span>,
+			<span class="keyw">NaN</span>, <span class="keyw">NEGATIVE_INFINITY</span>, <span class="keyw">POSİTİVE_INFINITY</span>
+			özellikleridir. Kullanıcılar isterlerse, her fonksiyon nesnesi örneği gibi,
+			<span class="keyw">Number</span> nesne yapılandırıcı fonksiyonuna da de istedikleri
+			kadar yeni özellik ekleyebilirler.
+		</p>
+		<p class="indent"><span class="keyw">Number</span><span class="op">()</span> sayısal
+			nesne örnekleri yapılandırıcı fonksiyonuna eklenmiş
+			olan özelliklerin, sayısal nesne sınıfının  özellikleri ile bir ilgisi
+			yoktur. Sayısal nesne sınıfının özelliklerinin envanteri, <span class="keyw">Number</span><span 
+			class="op">.</span><span class="keyw">prototype</span> nesnesinin içeriğinde
+			tutulur. <span 
+			class="keyw">Number</span><span class="op">()</span> sayısal nesne örnekleri
+			yapılandırıcısı, Global JavaScript Nesnesinin bir metodudur. Bu metoda
+			eklenen bir özellik Global JavaScript Nesnesine eklenmiş sayılır ve global
+			kapsam kazanır. Bu durumda,
+		<span class="keyw">Number<span 
+			class="op">()</span> </span> nesne yapılandırıcı fonksiyonuna eklenmiş
+		olan özellikler, öntanımlı global değişken olarak işlev  yaparlar ve bunlara,<span class="keyw"> Number</span><span class="op">.</span><span class="keyw">MAX_VALUE</span> vb
+		şeklinde ulaşılır.		</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">()</span> sayısal nesne 
+			örnekleri yapılandırıcısının içsel argüman uzunluğu ölçütü <span class="keyw">length </span> özelliğinin
+			değeri 1 olarak  verilmiştir. Bu durumda, yapılandırıcı argümansız veya
+			tek argümanla çalıştırılabilecektir. Argüman sayısı birden fazla olursa,
+			sadece ilk argüman kullanılacak, diğerleri gözardı edilecektir.
+		</p>
+		<p class="subheading" id="Numberproto">6.3.1 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının prototype Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">prototype</span> nesnesinin
+			değeri, öntanımlı sayısal nesne sınıfı prototip nesnesidir. Yani,
+		</p>
+		<pre>
+<span class="keyw-50">Number</span><span class="op">.</span><span 
+			class="keyw">prototype</span> <span 	class="op">= {</span>sayısal prototip nesnesi<span class="op">}</span>
+		</pre>
+		<p class="nonindent">
+		Sayısal nesne sınıfı prototip nesnesinin Sayısal nesne sınıfı prototip nesnesinin [[Class]] özelliği 
+		&quot;Number&quot; dir yani kendisi de bir sayısal nesne sınfı nesnesidir. Bu nesnenin
+		 içsel [[Value]] değeri+0 dır yani, 
+		</p>
+		<pre>
+<span class="pl-50">Ux</span> <span 
+			class="op">=</span> <span class="keyw">new Number</span> <span class="op">()</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde bir boş sayısal nesne örneği yaratılırsa, Ux değişkeninin başlangıç değeri +0 olacaktır. Sayısal nesne sınıfı 
+			prototip nesnesinin [[Prototype]] özelliğinin başlangıç değeri, &quot;Object&quot;, nesne sınıfı prototip nesnesidir.
+			Yani, <span class="keyw">Number</span> nesne sınıfı, <span class="keyw">Object</span> nesne sınıfının bir alt sınıfıdır.
+		</p>
+		<p class="subheading" id="Numbermax">6.3.2 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının MAX_VALUE Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">MAX_VALUE</span> değeri,
+			çalışılabilecek en yüksek pozitif değer olan 1.7976931348623157x10 <sup>308</sup> değerindedir. Bu konuda, 
+			<a href="../b2/b2s2.html">Sayılarla çalışmak</a> konusu yeniden incelenmelidir.
+		</p>
+		<p class="subheading" id="Numbermin">6.3.3 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının MIN_VALUE Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">MIN_VALUE</span> değeri,
+			çalışılabilecek en küçük pozitif değer olan yaklaşık 5 10 <sup>-324</sup> değerindedir. 
+		</p>
+		<p class="subheading" id="NumberNaN">6.3.4 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının NaN Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">NaN</span> özelliğinin değeri,
+			<span class="keyw">NaN</span> (Not a Number) değeridir. <span class="keyw">NaN</span> Değeri
+			literal olarak kullanılamaz sadece sayıya dönüştürülemeyn karakter dizgisi bir veri ile matematik işlem yapılmak istenmesi gibi
+			durumlarda, JavaScript yorumlayıcısı tarafından yanıt olarak 	oluşturulur.
+		</p>
+		<p class="subheading" id="Numberneg">6.3.5 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının NEGATIVE_INFINITY Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">NEGATIVE_INFINITY</span> değeri,
+		-infinity değeridir. Tüm bu değerler, <a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a>
+		programı ile kontrol edilebilir.
+		</p>
+		<p class="subheading" id="Numberpos">6.3.6 - Number Nesne Sınıfı Örnekleri Yapılandırıcısının POSITIVE_INFINITY Özelliği</p>
+		<p class="indent">
+			<span class="keyw">Number</span><span class="op">.</span><span class="keyw">POSITIVE_INFINITY</span> değeri,
+			+infinity değeridir.
+		</p>
+		<p class="title-left" id="proto">6.4 - Number Nesne Sınıfı Prototip Nesnesinin
+			Özellikleri</p>
+		<p class="indent">
+		Sayısal prototip nesnesinin yapısı, yine sayısal bir nesne örneğidir. sayısal
+			prototip nesnesinin yapısı, başlangıçta generik nesne prototipidir. Bu
+			durumda, sayısal nesne sınıfı, generik nesne sınıfının bir alt sınıfı olur
+			ve generik nesne sınıfının tüm özellikleri, alt sınıf olan sayısal nesne
+			sınıfının da başlangıç yapısı olarak geçerli olur. Doğal olarak bu yapıya, 
+			sayısal nesne sınıfında tanımlanan yeni özellikler eklenir. Generik nesne 
+			sınıfından kalıtımla aktarılan bazı özellikler gerekirse sayısal nesne sınıfına 
+			daha uygun olmaları için içerikleri yenilenir (bindirme) ve sayısal nesne
+			sınıfının prototipi oluşur. Bu bir öntanımlı nesne prototipi olduğundan, 
+			kullnıcı tarafından yeni özellikler eklenmesi veya var olan özelliklere yeni 
+			tanımlar yazılması sağlık verilmez. Sadece, 
+			<span class="keyw">toLocaleString</span><span class="op">()</span> özelliği
+			için uygun görülen içerikler yazılabilir. Zorunlu durumlarda, yeni özellikler de
+			eklenebilir.
+		</p>
+		<p class="indent">
+			Generik nesne prototipinin, birisi değer özelliği, diğer altısı metot olmak
+				üzere toplam yedi özelliği bulunmaktadır. Değer özelliği, <span class="keyw">constructor</span> özelliği,
+				metotlar ise, ise, <span class="keyw">toString</span><span 
+			class="op">()</span>, <span class="keyw">toLocaleString</span><span 
+			class="op">()</span>, <span class="keyw">valueOf</span><span 
+			class="op">()</span>, <span class="keyw">hasOwnProperty</span><span 
+			class="op">()</span>, <span class="keyw">isPrototypeOf</span><span 
+			class="op">()</span>, <span class="keyw">propertyIsEnumerable</span><span 
+			class="op">()</span> metotlarıdır. Bunların hepsi de başlangıçta orijinal
+				yazılımları ile  sayısal nesne sınıfı için de geçerlidir. 
+		</p>
+		<p class="indent">
+			Sayısal nesne prototipi
+				düzeyinde, dört özelliğe bindirilmiştir. Bunlar, 
+				<span class="keyw">constructor</span> özelliği ile, 
+			<span class="keyw">toString</span><span class="op">()</span>,
+			<span class="keyw">toLocaleString</span><span class="op">()</span> ve 
+			<span class="keyw">valueOf</span><span class="op">()</span> metotlarıdır.
+		</p>
+		<p class="indent">
+			Generik nesne sınıfı düzeyinden kalıtımla aktarılmış olan ve sayısal
+			nesne sınıfı düzeyinde bindirilmemiş olan özellikler, aynen generik nesne
+			sınıfındaki gibi işlev yapacaklarından, burada yeniden incelenmelerine
+			gerek yoktur. Burada sadece sayısal nesne sınıfı prototipinde yazılımları
+			yenilenmiş olan özelliklerin incelenmesi yeterli olacaktır.
+		</p>
+		<p class="indent">
+			Tüm orijinal ve yenilenmiş yazılımlar, JavaScript yorumlayıcısının kendi
+			iç yazılımları olduğundan kullanıcıya kapalıdır. Bunların sadece kullanım
+			yöntemleri kullanıcının erişimine açıktır.
+		</p>
+		<p class="subheading" id="proto-cons">6.4.1 - Number Nesne Sınıfı Prototipinin
+			constructor Özelliği</p>
+		<p class="indent">
+			Sayısal nesne prototipinin <span class="keyw">constructor</span> özelliğine,
+		</p>
+		<pre>
+<span class="keyw-50">Number</span><span class="op">.</span><span 
+			class="keyw">prototype</span><span class="op">.</span><span class="keyw">constructor</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilir. Bu özelliğin değeri, öntanımlı sayısal nesne örnekleri
+				yapılandırıcısı olan, 
+			<span class="keyw">Number</span><span class="op">()</span> fonksiyonudur.
+		</p>
+		<p class="subheading" id="proto-toString">6.4.2 - Number Nesne Sınıfı Prototipinin
+			toString() Metodu</p>
+		<p class="indent">
+			Sayısal nesne sınıfıprototipinin <span class="keyw">toString</span><span 
+			class="op">(</span><span class="op">)</span>metodu,
+		</p>
+		<pre>
+<span class="keyw-50">this</span><span 
+			class="op">.</span><span 
+			class="keyw">toString</span><span 
+			class="op">(</span>[Sayı Tabanı]<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde kullanılır. Eğer,
+		</p>
+		<ul class="list">
+			<li>
+				sayıTabanı 10 veya <span class="keyw">undefined</span> veya boş ise ise,
+				<span class="keyw">this</span> değerinin içsel ToString işlemcisi ile verdiği
+				 bir karakter dizgisi değeri dondürür.
+			</li>
+			<li>
+				sayıTabanı 2 ile 36 sayıları arasında ise, (10 dışında) geriye yine bir karakter dizgisi
+				döndürür fakat bunun değeri JavaScript yorumlayıcısının yazılımına bağlıdır.
+			</li>
+		</ul>
+		<p class="nonindent" id="b6.4.2-uyg-1">
+			Bu konuda bir <a href="../uygulamalar/b6.4.2-uyg-1-js.html">JavaScript programının</a>, bir 
+			<a href="../uygulamalar/b6.4.2-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> yoğunluk <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>13.6<span 
+			class="op">);</span> 
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="op"><span 
+			class="str">'yoğunluk.toString() = '</span>,</span> yoğunluk<span 
+			class="op">.</span><span 
+			class="keyw">toString</span><span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b6.4.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+			<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p id="b6.4.2-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Eğer <span class="keyw">this</span> nesnesinin içsel [[Class]] özelliğinin değeri &quot;Number&quot; değilse, 
+			JavaScript yorumlayıcısı, <span class="keyw">this</span> nesnesinin [[Class]] özelliğini algılayarak, 
+			veriye göre en uygun bindirilmiş, <span class="keyw">toString</span><span class="op">()</span> 
+			metodunu bulur ve işlemi bulduğu metodu uygulayarak sonuçlandırır. 
+		</p>
+		<p class="subheading" id="proto-val">6.4.3 - Number Nesne Sınıfı Prototipinin
+			valueOf() Metodu</p>
+		<p class="indent" id="b6.4.3-uyg-1">
+			Sayısal nesne saınıfı prototipinin <span class="keyw">valueOf</span><span 
+			class="op">()</span> metodu, <span class="keyw">this</span> sayısal nesne sınıfı örneğinin,
+			içsel [[Value]] değerini ilkel sayısal tip olarak döndürür.
+			Dönüştürme, Tablo 6.2 - 1 de belirtilen içsel ToNumber işlemcisinin uygulanması ile gerçekleştirilir.
+			Bu metodun kullanımı,	generik nesne sınıfının prototipindeki <span class="keyw">valueOf</span><span 
+			class="op">()</span> <a href="../b4/b4s1.html#valueof">metodunun</a> uygulanması ile aynıdır. Bu konuda bir
+			<a href="../uygulamalar/b6.4.3-uyg-1-js.html">JavaScript programının</a>, bağlı olduğu 
+			<a href="../uygulamalar/b6.4.3-uyg-1.html">uygulama</a> sayfasında verdiği sonuç, 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> yoğunluk <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>13.6<span 
+			class="op">);</span>
+ 
+<span class="pl-50">veriYaz</span><span 
+			class="op">(</span>yoğunluk<span 
+			class="op">.</span><span 
+			class="keyw">valueOf</span><span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b6.4.3-uyg-1-sonuç-1'</span><span 
+			class="op">,</span> <span 
+			class="str">'b6.4.3-uyg-1-sonuç-2'</span><span 
+			class="op">);</span> 
+			<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p>
+		<span class="cursive-maroon">yoğunluk.valueOf() : </span>
+			<span class="cursive-red" id="b6.4.3-uyg-1-sonuç-1"></span><span 
+			class="cursive-maroon">Veri Tipi :</span><span 
+			class="cursive-red" id="b6.4.3-uyg-1-sonuç-2"></span>
+		</p>
+		<p class="indent">
+			Eğer <span class="keyw">this</span> nesnesinin içsel [[Class]] özelliğinin
+			değeri, &quot;Number&quot; değilse, JavaScript yorumlayıcısı, <span class="keyw">this</span> 
+			nesnesinin [[Class]] özelliğini algılayarak, veriye göre en uygun bindirilmiş
+			<span class="keyw">valueOf</span><span class="op">()</span> metodunu bulur
+			ve işlemi sonuçlandırır. 
+		</p>
+		<p class="subheading" id="locale">6.4.4 - Number Nesne Sınıfı Prototipinin
+			toLocaleString() Metodu</p>
+			<p class="indent" id="b6.4.4-uyg-1">
+			Sayısal Nesne Sınıfı Prototipinin <span 
+			class="keyw">toLocaleString</span><span class="op">()</span>
+			metodu, sayıların yerel olarak kullanıldığı biçimlerde yazılması için konulmuş
+			bir mettotur. ECMAScript v3 de, dizi ve tarih nesne sınıfları yanında sayısal
+			nesne sınıfının da öntanımlı <span class="keyw">toLocaleString</span><span 
+			class="op">()</span> metotlarının <span class="keyw">toString</span><span 
+			class="op">()</span> metodundan farklı yazılımları bulunmaktadır. Aşağıda
+			verilmiş olan örnek, daha önce 6.4.2 bahsinde, <span 
+			class="keyw">toString</span><span class="op">()</span> metodu incelenirken 
+			verilen örneğin, <span class="keyw">toLocaleString</span><span class="op">()</span>
+			metodu ile verdiği sonucun kontrolü amacını taşımaktadır. Bu 
+			<a href="../uygulamalar/b6.4.4-uyg-1-js.html">JavaScript programı</a> nın ilişkili olduğu 
+			bir <a href="../uygulamalar/b6.4.4-uyg-1.html">uygulama</a> sayfasında verdiği sonuç
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> yoğunluk <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>13.6<span 
+			class="op">);</span> 
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="op"><span 
+			class="str">'yoğunluk.toLocaleString() = '</span>,</span> yoğunluk<span 
+			class="op">.</span><span 
+			class="keyw">toLocaleString</span><span 
+			class="op">()</span><span 
+			class="op">,</span> <span 
+			class="str">'b6.4.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span> 
+			<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Bu programın Sonucu :
+		</p>
+		<p id="b6.4.4-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Sonuçlar incelendiğinde, sECMA v.3 standırdının öntanımlı <span 
+			class="keyw">toLocaleString</span><span class="op">()</span> metodunun verileri 
+			ilkel sözel veri tipine dönüştürme formatının, eski Avrpa tipi virgüllü notasyon olduğu
+			görülmektedir. Oysa ki, ülkemizde, bilimsel ve mühendislik çalışmalarında S.I formatı
+			(6.4.2-uyg-1 de olduğu gibi) uygulanmaktadır. Bu açıdan uygun olmayacak sonuçların
+			kontrolu ve gerekirse yeniden yazılımında yarar bulunmaktadır.
+		</p>
+			<p class="subheading" id="tofixed">6.4.5 - Number Nesne Sınıfı Prototipinin toFixed() Metodu</p>
+			<p class="indent">
+				Bu metot, sayısal nesne örneklerinin değerini belirli sayıda ondalık ile sınırlanarak 
+				görüntülenmesini sağlar.Bu metodun kullanımı, 
+		</p>
+		<pre>
+<span class="str-50"><em>sayısalNesneÖrneği</em></span><span 
+			class="op">.</span><span class="keyw">toFixed</span><span 
+			class="op">(</span><span class="comm">[ondalık sayısı]</span><span 
+			class="op">);</span>
+		</pre>
+			<p class="nonindent" id="b6.4.5-uyg-1"> şeklindedir. Buradaki isteğe bağlı argüman,
+				sayının içereceği ondalık sayısıdır ve 1 ile 20 arasında değişebilir.. Bu metot geriye içeriği sayısal nesne sınıf örneğinin
+				içsel [[Value]] değerinin biçimlendirilmiş şekli olan, karakter dizgisi tipinde bir değer
+				döndürür. Sayısal nesne sınıf örneğinin değer ve tipi, biçimlendirme işleminden 
+				etkilenmez. Bu konuda bir <a href="../uygulamalar/b6.4.5-uyg-1.html">uygulama</a> sayfasına bağlı 
+			<a href="../uygulamalar/b6.4.5-uyg-1-js.html">JavaScript Programı</a> ve verdiği sonuçlar
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span>364.58359648<span 
+			class="op">;</span>
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Orijinal t = '</span> <span 
+			class="op">,</span> t<span 
+			class="op">,</span> <span 
+			class="str">'b6.4.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'t.toFixed(2) = '</span>, t<span 
+			class="op">.</span><span 
+			class="keyw">toFixed</span><span 
+			class="op">(</span>2<span 
+			class="op">),</span> <span 
+			class="str">'b6.4.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'İşlemden Sonra t = '</span><span 
+			class="op">,</span> t<span 
+			class="op">,</span> <span 
+			class="str">'b6.4.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b6.4.5-uyg-1-sonuç-1"></p>
+		<p id="b6.4.5-uyg-1-sonuç-2"></p>
+		<p id="b6.4.5-uyg-1-sonuç-3"></p>
+		<p class="indent">
+			Yukarıda görülen <a href="../uygulamalar/b6.4.5-uyg-1.html">uygulama</a> çok
+			önemli sonuçlar  vermektedir. Bunlardan ilki, <span class="keyw">toFixed</span><span class="op">()</span>
+			metodunun, sayısal nesne sınıfı örnekleri yanında, sayısal ilkel değerlere
+			de uygulanabilmesidir. Bu çok  önemli ve olgudur ve JavaScript yorumlayıcısının
+			olağanüstü uyarlama yeteneğini yansıtmaktadır.
+			<span class="keyw">toFixed</span><span class="op">()</span> Metodu,<span 
+			class="keyw"> this</span> değerinin veri tipi sayısal bir ilkel değer bile
+			olsa, bunu sayısal bir nesne  örneğine dönüştürür ve argümanın belirttiği
+			kadar bir ondalık sayısı ile bir karakter dizgisi verisi olarak  geri döndürür. 
+			<a href="../uygulamalar/b6.4.5-uyg-1.html">Uygulama</a> sonuçlarından
+			alınan ikinci önemli sonuç ise, orjinal verinin değer ve tipinin metodun
+			uygulanmasından etkilenmediğidir. Metodun uygulanması öncesi ve sonrasında,
+			t değişkeninin değeri ve veri tipi aynı kalmaktadır.
+		</p>
+		<p class="indent">
+			<span class="keyw">toFixed</span><span class="op">()</span>
+			Metodunun argümanı, önce bir tamsayıya dönüştürülmeye çalışılır. Eğer argüman 
+			tamsayıya dönüştürülemezse, veya <span class="keyw">undefined</span> değerinde 
+			ise, 0 olarak kabul edilir ve biçimlendilmemiş orijinal <span 
+			class="keyw">this</span> değeri, karakter dizgisi tipinde geri döndürülür. 
+		</p>
+		<p class="indent">
+			<span class="keyw">toFixed</span><span class="op">()</span> Metodunun 
+			<span class="keyw">this</span> değeri <span class="keyw">NaN</span> ise, metot 
+			geriye <span class="keyw">NaN</span> döndürür ve bir hata oluşur. Bu hata belge 
+			çözümleyicilerinin bazılarında programın durdurulmasına neden olur, bazı belge çözümleyiciler
+			ise bu hataları gözardı edebilirler. 
+		</p>
+		<p class="indent">
+			<span class="keyw">toFixed</span><span class="op">()</span> Metodunun argümanın
+			değeri,  0&lt;argüman&gt;20 aralığında olmalıdır. Aksi halde bir 
+			<span class="keyw">RangeError</span> istisnası fırlatılır, yakalanmazsa, bazı 
+			belge çözümleyicileri, argümanın kapsam dışı olduğu uyarısı ile programı durdurabilirler.
+		</p>
+		<p class="indent">
+			<span class="keyw">toFixed</span><span class="op">()</span> Metodunun argüman sayısı
+			sadece bir tane olmalıdır. Argüman sayısı birden fazla olursa, normal olarak sadece ilki kullanılacak,
+			diğerleri gözardı edilecektir.
+		</p>
+		<p class="indent">
+			Yukarıda görülen <a href="../uygulamalar/b6.4.5-uyg-1.html">uygulama</a> da olduğu gibi, 
+			bir nesne metodunun , ilkel bir veriye uygulanmak istenmesi, JavaScript yorumlayıcısı için, 
+			bir miktar zaman kaybettirici olacaktır. Bu zaman kaybı günümüzdeki çok hızlı işlemciler için, 
+			fazla önemli olmayabilir. Bu işlem çok yüksek iterasyon sayısı olan döngülerin içeriğinde 
+			gerçekleştirilmek isteniyorsa, o vakit biçimlendirilmek istenen verinin orijinal olarak, 
+			doğrudan bir sayısal nesne sınıfı örneği olarak,
+		</p>
+		<pre>
+<span class="pl-50">t</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>364.58359648<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde tanımlanması daha doğru olacaktır. Yine de, bu durum ancak çok
+				yüksek sayıda iterasyonun gerçekleştiği döngü sistemleri için bir anlamı
+				taşıyabilir. Genel olarak, JavaScript yorumlayıcısı bu gibi uyarlamaları
+				çok verimli olarak gerçekleştirir ve kullanıcının hissedebileceği bir
+				performans kaybı yaşanmaz. Gerçek uygulamalarda, denemeler yapılarak,
+				bir gecikme hissediliyorsa, gereken önlemler alınabilir. Normal olarak,
+				bu gibi uyarlama işlemlerinin hissedilebilir bir gecikme yaratmaması
+				gerekir.
+		</p>
+		<p class="subheading" id="toExponential">6.4.6 - Number Nesne Sınıfı Prototipinin toExponential() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı, içeriği sayıların üstel sayı görüntüsü şeklinde biçimlenmiş bir karakter dizigisi verisinin
+			döndürülmesidir. Metodun kullanılışı, 
+		</p>
+		<pre>
+		<span class="str-50"><em>this</em></span><span 
+			class="op">.</span><span class="keyw">toExponential</span><span 
+			class="op">(</span><span class="comm">[ondalık sayısı]</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="nonindent">
+			<em><span class="cursive-green">ondalık sayısı</span></em> isteğe bağlı bir
+			tamsayısı değerdir.  Eğer ondalık sayısı hiç belirtilmemiş veya <span class="keyw">undefined</span> ise,
+			bu durumda ondalık sayısı, <span class="keyw">this</span> değerinin uygun
+			bir şekilde  görüntülenebilmesi için gereken ondalık sayısına uyarlanır.
+			Eğer ondalık sayısı 0&lt;ondalık
+			sayısı&gt;20 sınırının dışında ise bir <span class="keyw">RangeError</span> istisnası
+			 fırlatılır. Birçok belge çözümleyiciler bu durumda programı bir uyarı
+			mesajı ile durdurabilirler.
+		</p>
+		<p class="indent">
+			<em><span class="keyw">this</span></em> Değeri, bir sayısal nesne örneğidir,
+			fakat bir sayısal ilkel değer de olabilir. Bu durumda yaşanabilecek performans
+			kaybı, bölüm <a href="b6s1.html#tofixed">6.4.5</a> de açıklanmıştır.
+		</p>
+		<p class="indent">
+			Eğer  <span class="keyw">this</span> değeri <span class="keyw">NaN</span> ise,
+			metot geriye, içeriği &quot;<span class="keyw">NaN</span>&quot; olan bir
+			karakter dizgisi verisi döndürür. Birçok belge çözümleyiciler bunu bir hata
+			olarak kabul ederek programı bir hata mesajı ile durdurabilirler.
+		</p>
+		<p class="indent">
+			<span class="keyw">toExponential</span><span class="op">()</span> Metodunun 
+			argüman sayısını belirten içsel <span class="keyw">length</span> değeri 1 dir. Bu durumda,
+			metot sadece bir argüman ile kullanılacak, varsa daha fazlası gözardı edilecektir.
+		</p>
+		<p class="indent" id="b6.4.6-uyg-1">
+			<span class="keyw">toExponential</span><span class="op">()</span> Metodu 
+			<span class="keyw">this</span> değerinin ondalık noktasından önce tek bir sayı ve 
+			belirtildiği kadar ondalık sayısı şeklinde, üstel bir sayı içeriği olan bir karakter dizgisi veri döndürür. 
+			Orijinal verinin değer ve tipi, metodun uygulanmasından etkilenmez. Bu konuda bir 
+			<a href="../uygulamalar/b6.4.6-uyg-1.html">uygulama</a> sayfasında çalışan
+			<a href="../uygulamalar/b6.4.6-uyg-1-js.html">JavaScript programı</a> ve 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> t <span 
+			class="op">=</span>75.4578468<span 
+			class="op">;</span>
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'t.toExponential(3) = '</span><span 
+			class="op">,</span> t<span 
+			class="op">.</span><span 
+			class="keyw">toExponential</span><span 
+			class="op">(</span>3<span 
+			class="op">),</span> <span 
+			class="str">'b6.4.6-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b6.4.6-uyg-1-sonuç-1"></p>
+		<p class="subheading" id="toPrecision">6.4.7 - Number Nesne Sınıfı Prototipinin toPrecision() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı, sayıların biçimlenmesi için JavaScript yorumlayıcısına daha fazla seçenek sağlamaktır. Kullanımı,
+		</p>
+		<pre>
+		<span class="str-50"><em>this</em></span><span 
+			class="op">.</span><span class="keyw">toPrecision</span><span 
+			class="op">(</span><span class="comm">[duyarlık]</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="nonindent">
+			<em><span class="cursive-green">duyarlık</span></em> isteğe bağlı bir
+			tamsayısı değerdir.  Eğer duyarlık hiç belirtilmemiş veya <span class="keyw">undefined</span> ise,
+			bu durumda  <span class="keyw">this</span> değeri doğrudan doğruya bir karakter dizigisi 
+			verisine dönüştürülerek geri döndürülür.
+			Eğer ondalık sayısı 1&lt;duyarlık&gt;21 sınırının dışında ise bir 
+			<span class="keyw">RangeError</span> istisnası fırlatılır. Birçok belge çözümleyiciler bu 
+			durumda, programı bir uyarı mesajı ile durdurabilirler.
+		</p>
+		<p class="indent">
+			<em><span class="keyw">this</span></em> Değeri, bir sayısal nesne örneğidir,
+			fakat bir sayısal ilkel değer de olabilir. Bu durumda yaşanabilecek performans
+			kaybı, bölüm <a href="b6s1.html#tofixed">6.4.5</a> de açıklanmıştır.
+		</p>
+		<p class="indent">
+			Eğer  <span class="keyw">this</span> değeri <span class="keyw">NaN</span> ise,
+			metot geriye, içeriği &quot;<span class="keyw">NaN</span>&quot; olan bir
+			karakter dizgisi verisi döndürür. Birçok belge çözümleyiciler bunu bir hata
+			olarak kabul ederek programı bir hata mesajı ile durdurabilirler.
+		</p>
+		<p class="indent">
+			<span class="keyw">toPrecision</span><span class="op">()</span> Metodunun 
+			argüman sayısını belirten içsel <span class="keyw">length</span> değeri 1 dir. Bu durumda,
+			metot sadece bir argüman ile kullanılacak, varsa daha fazlası gözardı edilecektir.
+		</p>
+		<p class="indent" id="b6.4.7-uyg-1">
+			<span class="keyw">toPrecision</span><span class="op">()</span> Metodu 
+			<span class="keyw">this</span> değerinin ondalık noktasından önce tek bir sayı ve 
+			duyarlık-1 kadar ondalık sayısı şeklinde, üstel bir sayı içeriği olan veya sabit notasyonda
+			duyarlık kadar sayı şeklinde içeriği olan bir karakter dizgisi veri döndürür. 
+			Orijinal verinin değer ve tipi, metodun uygulanmasından etkilenmez. Bu konuda bir 
+			<a href="../uygulamalar/b6.4.7-uyg-1.html">uygulama</a> sayfasında çalışan
+			<a href="../uygulamalar/b6.4.7-uyg-1-js.html">JavaScript programı</a> ve 
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50"> var t</span> <span 
+			class="op">=</span> 448.3567457854<span 
+			class="op">;</span>
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'t.toPrecision(4) = '</span><span 
+			class="op">,</span> t<span 
+			class="op">.</span><span 
+			class="keyw">toPrecision</span><span 
+			class="op">(</span>4<span 
+			class="op">),</span> <span 
+			class="str">'b6.4.7-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b6.4.7-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Yukarıda görülen <a href="../uygulamalar/b6.4.7-uyg-1.html">uygulama</a> sonuçlarından,
+			sayıların yuvarlatıldığı görülmektedir.
+		</p>
+		<p class="title-left" id="instances">6.5 - Number Nesne Sınıfı Örnekleri</p>
+		<p class="indent">
+			Bu konunun başlangıcındaki <a href="b6s1.html#NumberConstructor">6.2</a> de
+			açıklandığı gibi, sayısal sınıf nesne örneklerinin veri tipi object, içsel
+			[Class]] özellikleri &quot;Number&quot;, içsel [[Prototype]] özelliğinin değeri de 
+			yine &quot;Number&quot; sınıfı prototip nesnesinin güncel değeri olarak açıklanmıştır. 
+			Bu durumda, sayısal sınıf nesne örneklerinin yapısı, <span class="keyw">Number</span>
+			sınıfının güncel yapısıdır ve ek bir özellik içermemektedir.
+		</p>
+		<p class="indent">
+			sayısal sınıf nesne örneklerinin başlangıç içsel [[Value]]değeri, 
+			<span class="keyw">Number</span> <span class="op">()</span> yapılandırıcı
+			fonksiyonunun argümanına bağlı olan bir ilkel sayısal değer karşılığıdır.
+			Bu nedenle, sayısal nesne sınıfı örnekleri,  çağrıldıklarında, aynı ilkel
+			sayısal değerler gibi sayısal karşılıkları ile yanıt verirler ve sayısal
+			ilkel değerlerle aynı amaçlarla kullanılabilirler. Fakat genel olarak JavaScript
+			programlarında tüm ilkel veriler ilkel değerler halinde kullanılır ve aşırı
+			bir gereksinme olmazsa, ilkel verilerin karşılığı olan öntanımlı nesne
+			örnekleri olarak kullanılmaz.
+		</p>
+		<p class="title-left" id="numberFunc">6.6 - Number() Fonksiyonu</p>
+
+		<p class="indent"> 
+			Global JavaScript Nesnesinin <span class="keyw">Number</span><span 
+			class="op">()</span> metodu, tip dönüştürücü bir fonksiyon olarak da kullanılabilir.
+			Kullanımı, 
+		</p>
+		<pre>
+<span class="pl-50">Sonuç</span> <span 
+			class="op">=</span> <span 
+			class="keyw">Number</span><span 
+			class="op">(</span>Veri<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent"> şeklindedir. Bu fonksiyon geriye bir sayısal ilkel
+			değer (mantıksal nesne değil) döndürür. Geriye döndürülen değer, JavaScript
+			yorumlayıcısının kullanıcıya kapalı <span class="keyw">toNumber</span> işlemcisini
+			çağırarak gerçekleştirdiği veri dönüştürme işleminin sonucudur. Bu içsel
+			işlemcinin çeşitli veri tipleri ile vereceği sonuçlar, Tablo 6.6 -1 de
+			verilmiştir.
+		</p>
+		<table width="60%" id="tablo" summary="Tablo Yapım" border="2"
+		cellspacing ="2" cellpadding="2" class="veriTablosu">
+			<col class="st1"  width="25%"/>
+			<col class="st1"  width="75%"/>
+			<caption>
+				Tablo 6.6 -1 - toNumber Operatörü
+			</caption>
+			<thead>
+				<tr class="tablobilgi">
+					<th>Veri Tipi </th>
+					<th>Sonuç</th>
+				</tr>
+			</thead>
+			<tbody id="alan">
+				<tr>
+					<td><span class="keyw">undefined</span></td>
+					<td><span class="keyw">NaN</span></td>
+				</tr>
+				<tr>
+					<td><span class="keyw">null</span></td>
+					<td>+0</td>
+				</tr>
+				<tr>
+					<td>Mantıksal</td>
+					<td>Eğer veri <span 
+			class="keyw">true</span> ise +1 <span 
+			class="keyw">false</span> ise +0 </td>
+				</tr>
+				<tr>
+					<td>Sayısal</td>
+					<td>Sayıya dönüştürebilirse sonuç yoksa <span class="keyw">NaN</span></td>
+				</tr>
+				<tr>
+					<td>Sözel</td>
+					<td>Boş bir karakter dizgisi için <span class="keyw">false</span> diğer
+						değerler için <span class="keyw">true</span></td>
+				</tr>
+				<tr>
+					<td>Nesne</td>
+					<td>Önce ilkel değere sonra sayısal değere çevrilir. </td>
+				</tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<p class="indent" id="b6.6-uyg-1"> Bu konudaki bir <a href="../uygulamalar/b6.6-uyg-1.html">uygulama</a> sayfasına
+			bağlı <a href="../uygulamalar/b6.6-uyg-1-js.html">JavaScript Programı</a>,
+			aşağıda görülmektedir: 
+		</p>
+		
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var veri</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Number</span><span 
+			class="op">(</span>448.3567457854<span 
+			class="op">),</span> yeniVeri  <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+			
+<span class="pl-50">yeniVeri</span> <span 
+			class="op">=</span> <span 
+			class="keyw">Number</span><span 
+			class="op">(</span>veri<span 
+			class="op">);</span>
+			
+<span class="pl-50">sonuçVeTipYaz</span><span 
+			class="op">(</span><span 
+			class="str">'yeniVeri = '</span><span 
+			class="op">,</span> yeniVeri<span 
+			class="op">,</span> <span 
+			class="str">'b6.6-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+			
+<span class="keyw-50">...</span>
+		</pre>
+				<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p id="b6.6-uyg-1-sonuç-1"></p>
+		<p class="cursive-green">Program Sonucu : </p>
+		<p class="indent"> Tablo 6.6-1 deki dönüşüm sonuçlarının denenmesi için en
+			iyi yöntemlerden biri, <span class="keyw">eval</span><span class="op">()</span> makrolarını
+			çalıştırabilen <a href="../uygulamalar/JavaScriptDeneme.html">JavaScriptDeneme</a> programı
+			olabilir. Bu program kullanılarak 6.6-1 tablosundaki tüm dönüşüm sonuçları
+			denenebilir. 
+		</p>
+		<p class="indent">
+			Sayısal değere dönüştürülebilen sözel tipte verilerin veya sözel nesne sınıfı örneklerinin veya 
+			sayısal nesne sınıfı örneklerinin sayısal ilkel değerlere dönüştürülmesi için,
+			<span class="keyw">Number</span><span class="op">()</span> metodu çok sık kullanılan 
+			yararlı bir yöntemdir.
+		</p>
+	<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="../b5/b5s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b7/b7s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b6.4.2-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b6.4.3-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b6.4.4-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b6.4.5-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b6.4.6-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b6.4.7-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b6.6-uyg-1.js">
+		</script>
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b6/b6s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:08 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

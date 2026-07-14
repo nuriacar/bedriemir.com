@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:00 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders10.html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Python 3 Ders 10</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+    <h2 class="chapter">Bölüm 1 </h2>
+    <h3 class="chapter">Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders9.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders11.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 10
+      </p>
+    </div>
+    <p id="scoping" class="title-left verticalTab-10">
+      1.19 - Python Kapsam ve İsim Alanları</p>
+    <p class="indent">
+      Python programlama dilinde, üç türlü kapsam alanı gerçekleşebilir. 
+      Bunlar,
+    </p>
+    <ul class="listNoMarker">
+      <li>Builtins Kapsam Alanı (Varsayılan Kapsam Alanı)</li>
+      <li>Global Kapsam Alanı</li>
+      <li>Yerel (Lokal) Kapsam Alanı</li>
+    </ul>
+    <p class="nonindent">
+      olarak tanımlanırlar.
+    </p>
+    <p class="indent">
+      Her programda bu üç kapsam alanının oluşmuş olması zorunlu 
+      değildir. Program çalışınca ilk olarak global kapsam alanı 
+      oluşur ve bu global kapsam alanına builtins modülü otomatik 
+      olarak import edilir. Bunun sonucunda, global kapsam alanına 
+      kalıtımla önemli sayıda, gerekli program öğeleri yerleştirilmiş 
+      olur.
+    </p>
+    <p class="indent">
+      Eğer bir programda, fonksiyon tanımı yapılmamışsa, herhangibir 
+      yerel kapsam alanı oluşmaz, programda sadece global kapsam 
+      alanı geçerli olur.
+    </p>
+    <p class="indent">
+      Bir programda, yerel bir kapsam alanı açılmış olsun. Bir 
+      program öğesi yerel bir kapsam alanından çağrılmışsa, 
+      Python derleyicisi bu öğeyi önce çağrılmış olduğu yerel 
+      kapsam alanında arar. Bulamazsa, önce global kapsam alanında, 
+      sonra da builtins kapsam alanında arar. Bulamazsa bir 
+      NameError istisnası oluşur (hata), program durur ve NameError 
+      mesajı görüntülenir.
+    </p>
+    <p class="indent">
+      İsim alanları (namespaces), bir program öğesinin tanımlı 
+      olduğu nesneyi beliritir. Her modül bir nesnedir ve programa 
+      import edilen her modül, kendi özel isim alanına sahiptir. 
+      Bir modülde tanımlı bir program öğesine erişebilmek için, 
+      önce modülün erişebilir olması, yani ya varsayılan builtins 
+      (__builtins__) modülü olması veya programa import edilmiş 
+      olması gerekir.
+    </p>
+    <p class="indent">
+      Global isim alanı, builtins modülünün tüm öğelerine kalıtımla 
+      sahip olur. Bu program öğelerine yeni tanımlanmış her 
+      fonksiyon veya tek değer ile, global isim alanına bir 
+      özellik (değer veya metot olarak) eklenmiş olur.
+    </p>
+    <p class="indent">
+      Buitins modülü ile, global isim alanının kalıtımla sahip 
+      olduğu özellikler, aşağıdaki gibi saptanabilir.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>__builtins__.__dict__
+Out[28]: 
+{'ReferenceError': ReferenceError,
+ 'NotADirectoryError': NotADirectoryError,
+ 'NameError': NameError,
+ 'dict': dict,
+ 'IsADirectoryError': IsADirectoryError,
+ 'globals': <function globals>,
+ 'issubclass': <function issubclass>,
+ 'ord': <function ord>,
+ 'AttributeError': AttributeError,
+ '__IPYTHON__': True,
+ 'license': Type license() to see the full license text,
+ '__build_class__': <function __build_class__>,
+ 'TypeError': TypeError,
+ 'locals': <function locals>,
+ 'callable': <function callable>,
+ '__IPYTHON__active': 'Deprecated, check for __IPYTHON__',
+ 'type': type,
+ '__spec__': ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>),
+ 'any': <function any>,
+ 'enumerate': enumerate,
+ 'abs': <function abs>,
+ 'TabError': TabError,
+ 'iter': <function iter>,
+ 'all': <function all>,
+ 'IOError': OSError,
+ 'True': True,
+ 'DeprecationWarning': DeprecationWarning,
+ 'classmethod': classmethod,
+ '__name__': 'builtins',
+ 'hex': <function hex>,
+ 'divmod': <function divmod>,
+ 'range': range,
+ 'SystemError': SystemError,
+ 'exec': <function exec>,
+ 'len': <function len>,
+ 'UnicodeTranslateError': UnicodeTranslateError,
+ 'next': <function next>,
+ 'sum': <function sum>,
+ 'Exception': Exception,
+ '__debug__': True,
+ 'FloatingPointError': FloatingPointError,
+ 'staticmethod': staticmethod,
+ 'FutureWarning': FutureWarning,
+ 'BufferError': BufferError,
+ 'object': object,
+ 'ascii': <function ascii>,
+ 'sorted': <function sorted>,
+ 'UnicodeError': UnicodeError,
+ 'UnboundLocalError': UnboundLocalError,
+ 'ConnectionRefusedError': ConnectionRefusedError,
+ 'BytesWarning': BytesWarning,
+ 'bytes': bytes,
+ 'super': super,
+ 'None': None,
+ 'float': float,
+ 'SyntaxWarning': SyntaxWarning,
+ 'runfile': <function pydev_umd.runfile>,
+ 'UnicodeWarning': UnicodeWarning,
+ 'ValueError': ValueError,
+ 'credits':     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+     for supporting Python development.  See www.python.org for more information.,
+ 'Ellipsis': Ellipsis,
+ 'FileExistsError': FileExistsError,
+ 'BaseException': BaseException,
+ '__doc__': "Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices.",
+ 'UnicodeEncodeError': UnicodeEncodeError,
+ 'dreload': <function IPython.lib.deepreload.reload>,
+ 'StopIteration': StopIteration,
+ 'bin': <function bin>,
+ 'BrokenPipeError': BrokenPipeError,
+ 'zip': zip,
+ 'RuntimeError': RuntimeError,
+ 'hash': <function hash>,
+ 'False': False,
+ 'MemoryError': MemoryError,
+ 'KeyError': KeyError,
+ 'NotImplementedError': NotImplementedError,
+ 'max': <function max>,
+ 'ImportWarning': ImportWarning,
+ 'RuntimeWarning': RuntimeWarning,
+ 'set': set,
+ 'NotImplemented': NotImplemented,
+ 'WindowsError': OSError,
+ 'repr': <function repr>,
+ 'TimeoutError': TimeoutError,
+ 'IndexError': IndexError,
+ 'isinstance': <function isinstance>,
+ 'hasattr': <function hasattr>,
+ 'open': <function io.open>,
+ 'EOFError': EOFError,
+ 'copyright': Copyright (c) 2001-2014 Python Software Foundation.
+ All Rights Reserved.
+ 
+ Copyright (c) 2000 BeOpen.com.
+ All Rights Reserved.
+ 
+ Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+ All Rights Reserved.
+ 
+ Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+ All Rights Reserved.,
+ 'reversed': reversed,
+ 'dir': <function dir>,
+ 'ZeroDivisionError': ZeroDivisionError,
+ 'print': <function print>,
+ '__loader__': _frozen_importlib.BuiltinImporter,
+ 'OverflowError': OverflowError,
+ 'tuple': tuple,
+ 'min': <function min>,
+ 'map': map,
+ 'compile': <function compile>,
+ 'help': Type help() for interactive help, or help(object) for help about object.,
+ 'SystemExit': SystemExit,
+ 'FileNotFoundError': FileNotFoundError,
+ 'ChildProcessError': ChildProcessError,
+ 'ImportError': ImportError,
+ 'getattr': <function getattr>,
+ 'PermissionError': PermissionError,
+ 'input': <function sitecustomize.input>,
+ 'ArithmeticError': ArithmeticError,
+ 'complex': complex,
+ 'UserWarning': UserWarning,
+ 'setattr': <function setattr>,
+ 'ResourceWarning': ResourceWarning,
+ 'ProcessLookupError': ProcessLookupError,
+ 'OSError': OSError,
+ 'memoryview': memoryview,
+ 'Warning': Warning,
+ 'str': str,
+ 'bool': bool,
+ 'filter': filter,
+ 'LookupError': LookupError,
+ 'get_ipython': <bound method PyDevTerminalInteractiveShell.get_ipython of ><pydev_ipython_console_011.PyDevTerminalInteractiveShell object at 0x00000000035D2B38>&gt;,
+ 'frozenset': frozenset,
+ 'eval': <function eval>,
+ 'chr': <function chr>,
+ 'UnicodeDecodeError': UnicodeDecodeError,
+ 'EnvironmentError': OSError,
+ 'ConnectionError': ConnectionError,
+ 'AssertionError': AssertionError,
+ 'int': int,
+ 'bytearray': bytearray,
+ 'id': <function id>,
+ 'SyntaxError': SyntaxError,
+ 'format': <function format>,
+ 'BlockingIOError': BlockingIOError,
+ 'property': property,
+ '__import__': <function __import__>,
+ 'GeneratorExit': GeneratorExit,
+ 'PendingDeprecationWarning': PendingDeprecationWarning,
+ '__package__': '',
+ 'oct': <function oct>,
+ 'ConnectionResetError': ConnectionResetError,
+ 'vars': <function vars>,
+ 'pow': <function pow>,
+ 'round': <function round>,
+ 'slice': slice,
+ 'list': list,
+ 'execfile': <function _pydev_execfile.execfile>,
+ 'InterruptedError': InterruptedError,
+ 'ConnectionAbortedError': ConnectionAbortedError,
+ 'KeyboardInterrupt': KeyboardInterrupt,
+ 'delattr': <function delattr>,
+ 'IndentationError': IndentationError}    
+    </pre>
+    <p class="indent">
+      Bu kalıtımla intikal eden özellikler üzerinde daha detaylı 
+      bilgi almak istersek, chevron üzerinden,
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>__builtins__<span 
+    class="op">.</span>help<span class="op">(</span>pow<span 
+    class="op">);</span>
+    </pre>
+    <p class="nonindent">
+      yazılabilir. Fakat, builtins modülü global isim alanına 
+      tüm özelliklerine otomatik olarak eksport etmiştir. Bu 
+      özellikler artık global isim alanın da özellikleridir. 
+      Global isim alanında tanımlı özelliklere ise, herhangibir 
+      isim alanı adı verilerek erişilmez. Özelliğin adını vermek 
+      yeterli olur. Bu durumda, ek bilgiler,
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span>help<span class="op">(</span>pow<span 
+    class="op">);</span><img alt="enter" 
+    src="images/enter.fw.png">
+
+Help on built-in function pow in module builtins:
+
+pow(...)
+    pow(x, y[, z]) -&gt; number
+    
+    With two arguments, equivalent to x**y.  With three arguments,
+    equivalent to (x**y) % z, but may be more efficient (e.g. for ints).</pre>
+    <p class="nonindent">
+      bilgisi elde edilir.
+    </p>
+    <p class="indent">
+      Global isim alanından her özelliğe erişim olanağı yoktur. 
+      İsim alanı bir kapsam alanı değildir, sadece bir erişim 
+      kodudur. Eğer global isim alanı içinde yeni bir fonksiyon 
+      tanımlanmış ve bu fonksiyon içinde, bir tanıtıcıya bir 
+      değer bağlanmışsa, bu bir yerel program öğesidir ve global 
+      isim alanından buna hiçbir şekilde erişim olanağı yoktur. 
+      Sadece, eğer değer bağlanması sırasında bu tanıtıcının 
+      global olacağı açıkça belirtilmişse, bu tanıtıcı, global 
+      isim alanından çağrılabilir. Aynı şekilde, global isim 
+      alanında bir yeni nesne (object) tanımlanmışsa, global 
+      isim alanından erişilebilecek yeni bir isim alanı tanımlanmış 
+      demektir. Global isim alanından, bu yeni isim alanında 
+      tanımlı özelliklere erişim sağlayabilmek için, yeni isim 
+      alanını önek olarak belirtmek gerekir.
+    </p>
+    <p class="indent">
+      Bir programda builtins modülü otomatik olarak import edilyor. 
+      Bu modül tarafından, yukarıda görülen export edilen özellikler 
+      incelenerek, global isim alanında aynı özellikleri yeniden 
+      tanımlamamak gerekiyor. Eğer amaç bu değilse, eski tanım 
+      kaybolacak ve yeni tenım geçerli olacağından, bindirme 
+      (üstüne çıkma) (overriding) denilen bu gibi tanımlardan 
+      kaçınmak gerekir. Bu uyarı, import edilen her modülün 
+      export ettiği özellikler için de geçerlidir.
+    </p>
+    <p id="var" class="subheading">
+      1.19.1 - Değişkenler</p>
+    <p class="indent">
+      Bir tanıtıcının değeri, program boyunca değişebilirse 
+      bu tanıtıcıya bir değişken (variable) adı verilir. Değişkenler 
+      erişilebilirliklerine göre global veya yerel (lokal) değişkenler 
+      olabilir.
+    </p>
+    <p id="global" class="subsub">
+      1.19.1.1 - Global Değişkenler</p>
+    <p id="uyg1" class="indent">
+      Global değişkenler, global kapsam alanında tanımlı ve 
+      erişilebilen değişkenlerdir. Global değişkenler, global 
+      program alanında doğrudan tanımlanabilecekleri gibi, global 
+      alanda tanımlı bir fonksiyon içinden
+      <span class="keyw">global</span> a <span class="op">=</span> 
+      18; şeklinde de tanımlanabilirler. Global bir değişkene, 
+      global isim alanında tanımlı her fonksiyon veya her nesne 
+      içinden erişilebilir ve değeri değiştirilebilir. Bu nedenle 
+      global değişken kullanımı sakıncalıdır. En azından, çok 
+      dikkatli kullanılması gerekir. Çünkü, programın bir yerinde 
+      tanımlanan ve değeri belirlenen bir global değişkenin 
+      değeri, en kısa ve kolay izlenebilien programlarda bile, 
+      programcı farkında olmadan değişebilir ve programın ilerideki 
+      adımlarında çağrıldığında beklenenden çok farklı değerler 
+      döndürebilir. Aşağıdaki
+      <a href="uygulamalar/ders10/Ders10program1.html">program</a>, 
+      global bir değişenin kullanımı ve tanımının değişmesini 
+      açıklamaktadır.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders10program1.py</span>
+
+a <span class="op">=</span> <span class="op">[</span>12<span 
+    class="op">,</span> 14<span class="op">,</span> 16<span 
+    class="op">];</span> <span class="comm"># Global Değişken</span>
+
+<span class="keyw">def</span> ekle <span class="op">(</span>g<span 
+    class="op">):</span>
+    
+<span class="pl-25">g</span><span class="op">.</span>append<span 
+    class="op">(</span>89<span class="op">);</span>
+<span class="pl-25">print</span> (<span class="str">&quot;g = &quot;</span> <span 
+    class="op">,</span> g<span class="op">);</span>
+<span class="keyw-25">return</span> g<span class="op">;</span>
+
+ekle <span class="op">(</span>a<span class="op">);</span>
+
+print<span class="op">(</span><span class="str">'a = '</span> <span 
+    class="op">,</span> a<span class="op">);</span>
+<span class="maroon">
+
+---------Program----Sonucunun----Görüntülenmesi----------------------------
+
+g =  [12, 14, 16, 89]
+a =  [12, 14, 16, 89]</span></pre>
+    <p class="indent">
+      Yukarıdaki programda dikkat edilecek birçok konu bulunmaktadır.
+    </p>
+    <ul class="listNoMarker">
+      <li>İlk olarak, global a değişkenine atanmış olan değer, 
+      bir liste tipi veridir. Liste tipi veriler, güncellenebilen 
+      tipte verilerdir, yani, verinin bir kısmı değişmeden kalırken, 
+      başka kısımlarının değeri değişebilir veya bu veriye yeni 
+      değerler eklenebilir veya bu verinin bazı kısımları çıkartılabilir.</li>
+      <li>Bir değişkene güncellenebilien bir veri atandığında, 
+      bu veri bir bellek alanına yüklenir ve program sonuna 
+      kadar, yüklendiği alanda saklı kalır. Saklandığı alana 
+      erişim sağlayan erişim kodu (bir hex tamsayı) tanıtıcıya 
+      yüklenir. Bu durumda, a <span class="op">=</span>
+      <span class="op">[</span>12<span class="op">,</span> 14<span 
+      class="op">,</span> 16<span class="op">];</span> ataması 
+      sonuçta a <span class="op">=</span> birHexTamsayı olarak 
+      sonuçlanır.</li>
+      <li>Güncellenebilen bir veri taşıyan bir değişken, bir 
+      fonksiyona argüman olarak aktarıldığında, değişkenin değeri 
+      güncellenemeyen bir hex tamsayı (örnek olarak 0x00000000038E0588) 
+      olduğu için, bunun bir kopyası, argümana yüklenmiş olur. 
+      Bu şekilde hem global değişken, hem de fonksiyonun argümanı, 
+      verinin saklamış olduğu bellek alanına erişim sağlayabilen 
+      aynı hex tamsayı değerini taşır, yani program başından 
+      beri aynı bellek alanında saklı olan, aynı liste verisine 
+      erişim yapabilir duruma gelir.</li>
+      <li>Gerçekte sadece bir tek liste verisi olduğundan, fonksiyon 
+      içinde, argümanın erişim sağlayarak güncellediği ayni 
+      liste verisine, fonksiyon dışındaki, global değişken de 
+      erişim yapabilir. Bu durumda, fonksiyon içinde güncellenen 
+      bir verinin değeri, fonksiyon dışına da yansır. </li>
+      <li>Bu nedenle, fonksiyon içinde güncellenmiş olan listenin 
+      aynı güncel değerine, fonksiyon dışındaki global değişken 
+      de erişim yapıp görüntüleyebilmektedir. Program sonuçlarından 
+      bu yürüyüş şekli açıkça izlenebilmektedir.</li>
+    </ul>
+    <p class="indent">
+      Yukarıdaki programın sağlamış olduğu bilginin sonucu olarak, 
+      bir program dilinde ne global değişken tanımı, ne de global 
+      alanda program adımları uygulanması güvenli bir program 
+      stili değildir ve profesyonel olarak asla global alanda 
+      çalışma uygulanmaz. Bilgiler, özel fonksiyonlarda geliştirilir 
+      ve fonksiyonların birbirlerini çağırması ile aktarılır. 
+      Python programlama dilinde özel bir __name__ değişkeni, 
+      değeri <span class="str">&quot;main&quot;</span> olacak 
+      şekilde öntanımlı olarak sağlanmıştır. Tüm fonksiyonlar, 
+      bu ana fonksiyonun içinden çağrılır ve bilgi iletişimi 
+      sorunsuz olarak sağlanır. Bunu yerel değişkenleri inceleyeceğimiz 
+      bir sonraki konuda göreceğiz.
+    </p>
+    <p id="local" class="subsub">
+      1.19.1.2 - Yerel Değişkenler</p>
+    <p id="uyg2" class="indent">
+      Yerel değişkenler, fomksiyonların içinde tanımlanan ve 
+      global çalışma alanından erişilemeyen değişkenlerdir. Bu 
+      konudaki bir
+      <a href="uygulamalar/ders10/Ders10program2.html">uygulama</a>, 
+      aşağıda görülmektedir.
+    </p>
+    <pre class="pl-25">
+<span class="comm"># Program : Ders10program2.py</span>
+
+<span class="keyw">def</span> main<span class="op">():</span>
+
+<span class="pl-25">print</span><span class="op">(</span><span 
+    class="str">'Ilk Deger = '</span> <span class="op">,</span> defineList<span 
+    class="op">());</span>
+
+<span class="pl-25">print</span><span class="op">(</span><span 
+    class="str">'En Guncel Deger = '</span> <span 
+    class="op">,</span> updatedList<span class="op">(</span>appendList<span 
+    class="op">(</span>defineList<span class="op">(),</span>678<span 
+    class="op">));</span>
+
+<span class="keyw">def</span> defineList<span class="op">():</span>
+<span class="pl-25">__a</span> <span class="op">= [</span>23<span 
+    class="op">,</span>78<span class="op">,</span>99<span 
+    class="op">];</span>
+<span class="keyw-25">return</span> __a<span class="op">;</span>
+
+<span class="keyw">def</span> appendList<span class="op">(</span>q<span 
+    class="op">,</span> y<span class="op">):</span>
+<span class="pl-25">q</span>.append(y);
+<span class="keyw-25">return </span>q<span class="op">;</span>
+
+<span class="keyw">def</span> updatedList<span class="op">(</span>last<span 
+    class="op">):</span>
+<span class="pl-25">updatedState</span> <span class="op">=</span> last<span 
+    class="op">;</span>
+<span class="keyw-25">return </span>updatedState<span 
+    class="op">;</span>
+
+<span class="keyw">if</span> __name__ <span class="op">==</span> <span 
+    class="str">'__main__'</span><span class="op">:</span>
+<span class="pl-25">main</span><span class="op">();</span>
+
+<span class="maroon">
+---------Program----Sonucunun----Görüntülenmesi----------------------------
+
+Ilk Değer =  [23, 78, 99]
+En Güncel Değer =  [23, 78, 99, 678]</span></pre>
+    <p class="indent">
+      Yukarıdaki programın incelenmesini, ilk olarak tanımlanmış 
+      fonksiyonları inceleyerek başlayalım.
+    </p>
+    <p class="indent">
+      Burada defineList<span class="op">()</span> fonksiyonu, 
+      hiçbir argüman almıyor. Bu fonksiyonun içinde bir __a 
+      değişkeni tanımlanıyor ve bu yerel değişkene, bir liste 
+      literali atanıyor. Fonksiyon bu yerel değişkenin değerini 
+      döndürüyor. Bu fonksiyon içinde tanımlanmış olan __a değişkeni, 
+      yerel bir değişkendir. Bu değişkene sadece tanımlanmış 
+      olduğu fonksiyon içinden erişilebilir. Bu fonksiyon dışından 
+      hiçbir şekilde, bu fonksiyonun yerel değişkenlerine erişilemez. 
+      Bu nedenle, yerel __a değişkeni, değerinin değişmesine 
+      karşı tam olarak korunaklı bir değişkendir. Değeri ancak 
+      tanımlandığı fonksiyon içinden değiştirilebilir.
+    </p>
+    <p class="indent">
+      Program içinde tanımlanmış olan appendList<span 
+      class="op">(</span>q<span class="op">,</span> y<span 
+      class="op">)</span> fonksiyonu, q ve y olarak iki formal 
+      değişken alacak şekilde tanımlanmıştır. Formal değişkenlerden 
+      ilki bir liste tipi değerdir ikincisi ise, her değeri 
+      alabilir,çünkü bir listeye son eleman olarak eklenecektir. 
+      Bu fonksiyon içinde bir yerel değişken tanımlanmamıştır.
+    </p>
+    <p class="indent">
+      Bir diğer fonksiyon, updatedList<span class="op">(</span>last<span 
+      class="op">)</span> fonksiyonudur. Bu fonksiyonun formal 
+      parametresi last değişkeni, liste tipi bir değişkendir. 
+      Bu fonksiyon içinde tanımlanmış olan, updatedState değişkeni, 
+      bir yerel değişkendir. Fonksiyon bu yerel değişkenin değerini 
+      döndürmektedir.
+    </p>
+    <p class="indent">
+      Global alanda, çağrılmış olan __name__ değişkeni, global 
+      alana otomatik olarak import edilen builtins modülünde, 
+      değeri, <span class="str">'__main__'</span> olarak tanımlanmış 
+      bir modül düzeyi değişkenidir. Burada ismi, tanımlı değerine 
+      karşı sınanarak, eğer sonuç doğru ise, main<span 
+      class="op">()</span> ana fonksiyonun çağrılması bildirilmiştir. 
+      Aslında global alandan main<span class="op">()</span> 
+      fonksiyonu, doğrudan doğruya main<span class="op">()</span> 
+      olarak çağrılabilirdi, fakat burada amaç, herşeyin düzgün 
+      gittiğini, builtins maodülünün sorunsuzca indirilmiş olduğunun 
+      sınanmasıdır. Bunun için, bu dolaylı yola başvurulmuştur.
+    </p>
+    <p class="indent">
+      Programda ana fonksiyon olarak, tasarlanmış olan main<span 
+      class="op">()</span> fonksiyonu, prensip olarak, ne argüman 
+      gerektiren, ne de herhangibir değer döndürmeyen bir fonksiyondur. 
+      Bu fonksiyon içinde, yerel değişken tanımlanabilir. Fakat, 
+      aynı global değişkenlerde olduğu gibi programcı farkında 
+      olmadan değerinin değişmesi olasılığı bulunmaktadır, çünkü, 
+      ana fonksiyon, programdaki tüm fonksiyonların çağrıldığı 
+      ve birbirlerine değer aktardıkları, bir iletişim alanıdır. 
+      İletişim amacı ile yerel değişken yaratıldı ise, en doğru 
+      davranış, bu değişekene gereksinme kalmayınca, Python 
+      çöp toplayıcısı beklenmeden del(değişken) şeklinde yaratılmış 
+      yerel değişkeni ortadan kaldırmaktır.
+    </p>
+    <p class="indent">
+      Ana fonksiyon olan main<span class="op">()</span> fonksiyonu 
+      içinde çok kompakt bir kod bulunmaktadır. Bu kod, print<span 
+      class="op">()</span> fonsiyonu içinde fonksiyonların birbirlerini 
+      çağırmaları ile oluşmuştur. İlk olarak, en iç fonksiyonu 
+      inceleyelim. appendList<span class="op">(</span>defineList<span 
+      class="op">(),</span>678<span class="op">)</span> Bu ifade, 
+      appendList(x,y) fonksiyonun ilk argümanının, defineList<span 
+      class="op">()</span> fonksiyonun döndürdüğü değer olduğunu 
+      belirtiyor, ikinci argüman olarak bir tamsayı literali 
+      olan 678 belirtilmiş. Bu şekilde, appendList<span 
+      class="op">()</span> fonksiyonu çağrılmış oluyor ve döndürdüğü 
+      değer, updateList<span class="op">()</span> fonksiyonuna 
+      argüman olarak kullanılıp, bu fonksiyonun döndürdüğü değer 
+      print<span class="op">()</span> fonksiyonu ile görüntüleniyor. 
+      Bu kompakt kod, main<span class="op">()</span> içinde, 
+      yerel değişken tanımına gerek bırakmamak için uygulanmıştır.
+    </p>
+    <p class="indent">
+      Programda, global alanda hiçbir global değişkenin tanımlanmamış 
+      olduğuna, sadece fonksiyon tanımları yapıldığına dikkat 
+      edilmelidir.
+    </p>
+    <p id="const" class="subheading">
+      1.9.2 - Sabitler</p>
+    <p class="indent">
+      Sabit değerler, global düzeyde tanımlanırlar ve gerek 
+      global düzeyde, gerekse fonksiyon alt düzeylerinde değerlerine 
+      erişilebilir. Sabit değerler, konvansiyon olarak, büyük 
+      harflerle tanıtılmış tanıtıcılara atanarak uygulanırlar. 
+      Örnek : PI = 3.1416 .
+    </p>
+    <p class="subsubsub">
+      Python programlama dilinin genel bir incelenmesi ve program 
+      yapımı için gerekli temel bilgilerin verilmesi amacını 
+      taşıyan Bölüm 1 burada tamamlanmış olmaktadır. Bundan 
+      sonraki bölümde, Python programlarında kullanılan çeşitli 
+      genel yöntemleri inceleyeceğiz. Daha sonraki bölümlerde 
+      ise, veri tipleri üzerinde daha detaylı incelemeler yapacağız. 
+      En son olarak, çeşitli modülleri inceleyerek bu tanıtım 
+      çalışmamızı tamamlayacağız. İkinci Bölümün ilk konusu 
+      ile devam ediyoruz...
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders9.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders11.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:17:04 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

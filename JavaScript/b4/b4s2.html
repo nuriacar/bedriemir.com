@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b4/b4s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:06 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b4/b4s2.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b4s2</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b4s1.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="../b5/b5s1.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 4
+		</p>
+		<p class="chapter">
+			Object  Nesne Sınıfı (devam)		</p>
+		<p class="pagenum">
+			Bölüm 4 Sayfa 2	
+		</p>
+		<p class="subheading" id ="hasOwn">4.2.4- Object Nesne Sınıfı Prototipinin
+			hasOwnProperty() Metodu</p>
+		<p class="indent">
+			Generik Nesne Prototipinin <span class="keyw"></span><span 
+			class="op">()</span> metodunun kullanımı, 
+		</p>
+		<pre>
+<span class="str-50"><em>nesne</em></span><span 
+			class="op">.</span><span 
+			class="keyw">hasOwnProperty</span><span 
+			class="op">(</span><span 
+			class="str">'özellik'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Bu metot, sınandığı özellik, nesnenin kendi özellikleri 
+			arasında ise, <span class="keyw">true</span> aksi halde <span 
+			class="keyw">false</span> sonucunu döndürür. Bu metot, sadece
+			nesnenin düzeyindeki özellikleri gözönüne alır, Prototip zincirinin
+			üst halkalarındaki, üst sınıf özelliklerini dikkate almaz. Doğal olarak
+			bu nedenle kullanım alanı kısıtlıdır. 
+		</p>
+		<p class="indent" id="b4.2.5-uyg-1">
+			Aşağıda, görülen, <a href="../uygulamalar/b4.2.5-uyg-1-js.html">JavaScript programı</a>, 
+			<span class="keyw">constructor</span> özelliğinin, generik nesne prototipinin bir 
+			özelliği olup olmadığını sınamaktadır. Bu programın bağlı olduğu 
+			<a href="../uygulamalar/b4.2.5-uyg-1.html">uygulama sayfasında</a> görüntülenen
+			sonucu aşağıda görülmektedir.
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Object.prototype.hasOwnProperty(&quot;constructor&quot;)'</span><span 
+			class="op">,</span> <span 
+			class="keyw">Object</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">hasOwnProperty</span><span 
+			class="op">(</span><span 
+			class="str">&quot;constructor&quot;</span><span 
+			class="op">),</span> <span 
+			class="str">'b4.2.5-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b4.2.5-uyg-1-sonuç-1">
+		</p>
+		<p class="indent">
+			Bu metotla sorgulanan özellik bir metotsa, fonksiyon çağırma işlemcisi <span 
+			class="op">()</span> kullanılmadan, fonksiyon ismi, bir karakter dizgisi verisi
+			 halinde argüman olarak kullanılır. Örnek olarak,
+		</p>
+		<pre>
+<span class="str-50"><em>nesne</em></span><span 
+			class="op">.</span><span 
+			class="keyw">hasOwnProperty</span><span 
+			class="op">(</span><span 
+			class="str">'toString'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			nesnenin <span class="keyw">toString</span><span class="op">()</span>
+			metodu olup olmadığını kontrol eder. JavaScript programlama dili küçük/büyük
+			harf ayrımı yaptığından, sorgulanan özelliğin, yazılımın gerçek özellik
+			değerini yansıttığına emin olmak gerekir.
+		</p>
+		<p class="indent">
+			<span class="keyw">hasOwnProperty</span><span 
+			class="op">()</span> Metodu, sadece incelenen nesne sınıfında tanımlanmış
+			özellikleri kontrol eder. Sorgulanan özellik, nesnenin kalıtımla edindiği
+			özelliklerden biri ise, sorgulanan özellik gerçekte var olduğu halde <span 
+			class="keyw">false</span> yanıtı alınır yani bu sorgulama yanlış sonuç
+		verir.		</p>
+		<p class="subheading" id ="isProto">4.2.6- Object Nesne Sınıfı Prototipinin
+			isPrototype() Metodu</p>
+		<p class="indent">
+			Bu metodun amacı, nesnesnin gerçek prototipinin kontrol edilmesidir. Kullanımı, 
+		</p>
+		<pre>
+<span class="str-50"><em>NesneSınıfı</em></span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span><span 
+			class="keyw">isPrototypeOf</span><span 
+			class="op">(</span>nesne<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. Burada,
+		</p>
+		<p class="nonindent">
+			NesneSınıfı : çekirdek veya kullanıcı tanımlı veya konuk eden ortam kaynaklı bir 
+			nesne sınıfıdır. 
+		</p>
+		<p class="nonindent">
+			nesne : Prototipi sorgulanan herhangibir nesne örneğidir.
+		</p>
+		<p class="indent" id="b4.2.6-uyg-1">
+			Aşağıda, bu konudaki bir 
+			<a href="../uygulamalar/b4.2.6-uyg-1-js.html">JavaScript programının</a> 
+			bir <a href="../uygulamalar/b4.2.6-uyg-1.html">uygulama</a> sayfasında verdiği sonuç görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+
+<span class="keyw-50">var</span> a <span 
+			class="op">= {};</span> 
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Object.prototype.isPrototypeOf(a) = '</span><span 
+			class="op">,</span> <span 
+			class="keyw">Object</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span><span 
+			class="op">.</span>i<span 
+			class="keyw">sPrototypeOf</span><span 
+			class="op">(</span>a<span 
+			class="op">),</span> <span 
+			class="str">'b4.2.6-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b4.2.6-uyg-1-sonuç-1">
+		</p>
+		<p class="indent" id="b4.2.6-uyg-2">
+			Nesnelerin prototip kontrolü, generik nesne prototipinin 
+			<span class="keyw">constructor</span>
+			özelliğinden yararlanılarak da yapılabilir. Aşağıda, bu konudaki bir 
+			<a href="../uygulamalar/b4.2.6-uyg-2-js.html">JavaScript programının</a> 
+			bir <a href="../uygulamalar/b4.2.6-uyg-2.html">uygulama</a> sayfasında 
+			verdiği sonuçlar görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">= {};</span> 
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'a.constructor == Object = '</span><span 
+			class="op">,</span> a<span 
+			class="op">.</span><span class="keyw">constructor</span><span class="op">==</span> <span 
+			class="keyw">Object</span><span 
+			class="op">,</span> <span 
+			class="str">'b4.2.6-uyg-2-sonuç-1'</span><span 
+			class="op">);</span> 
+<span class="keyw-50">... </span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b4.2.6-uyg-2-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Görüldüğü gibi, her iki metot da, nesnenin prototipinin sınanması için uygundur.
+		</p>
+		<p class="subheading" id ="isEnum">4.2.7- Object Nesne Sınıfı Prototipinin
+			propertyIsEnumerable() Metodu</p>
+		<p class="indent">
+			Bu metot şanssız bir metottur, çünkü spesifikasyonda yapılan bir daktilo hatası sonucu, JavaScript yorumlayıcıları
+			bu metodun yetersiz bir versiyonu ile oluşturulmuştur.
+		</p>
+		<p class="indent">
+			Bu metodun tasarım nedeni, tüm öntanımlı nesne özelliklerinin sayılamaz
+			(not enumerable), kullanıcıların tanımladığı özelliklerin ise sayılabilir
+			(enumerable) karakterde olmalarıdır. Bu metot başlangıçta, bir nesnenin
+			tüm kullanıcı tanımlı özelliklerinin bir <span class="keyw">for..in</span> döngüsü
+			ile kolay yoldan dökümünü amaçlamış fakat bu metodun kalıtım ile edinilen
+			özellikleri kapsamayacağı yanlışlıkla spesifikasyona girince, işlevini büyük
+			ölçüde yitirmiş olarak JavaScript yorumlayıcılarına yerleştirilmiş, hata farkededildiğinde
+			de çok geç olduğu anlaşılmıştır. Bu konuda, 
+			<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=57048">bugzilla.mozilla.org (hata 57048)</a> 
+			kaynağından daha fazla bilgi edinilebilir.
+		</p>
+		<p class="indent">
+			<span class="keyw">propertyIsEnumerable</span><span class="op">()</span> Metodunun kullanım şekli 
+			aşağıdaki gibidir:
+		</p>
+		<pre>
+<span class="str-50"><em>nesneÖrneği</em></span><span 
+			class="op">.</span><span 
+			class="keyw">propertyIsEnumerable</span><span 
+			class="op">(</span><span 
+			class="str">''</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent" id="b4.2.7-uyg-1">
+			Metodun bugünkü yerleşim şekli nedeni ile, argüman olarak, sadece nesnenin
+				kendi  kullanıcı tanımlı özelliklerinden biri kullanıldığında metot doğru
+				yanıt verebilmektedir.  Eğer argüman olarak kulanılan özellik, sayılabilir
+				fakat kalıtımla edinilmiş ise, özellik olmasına karşın, yanıt hatalı olarak 
+				<span class="keyw">false</span> olacaktır.
+				Aşağıda, bu konudaki bir 
+			<a href="../uygulamalar/b4.2.7-uyg-1-js.html">JavaScript programının</a> 
+			bir <a href="../uygulamalar/b4.2.7-uyg-1.html">uygulama</a> sayfasında verdiği
+			sonuçlar görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> a <span 
+			class="op">=</span> <span 
+			class="op">{</span>x <span 
+			class="op">:</span> 1<span 
+			class="op">,</span> y <span 
+			class="op">:</span> 3<span 
+			class="op">};</span>
+
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'a.propertyIsEnumerable(x) = '</span><span 
+			class="op">,</span> a<span 
+			class="op">.</span><span 
+			class="keyw">propertyIsEnumerable</span><span 
+			class="op">(</span><span 
+			class="str">'x'</span><span 
+			class="op">),</span> <span 
+			class="str">'b4.7.2-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		
+
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b4.2.7-uyg-1-sonuç-1">
+		</p>
+		<p class="title-left" id="instances">4.3 - Object Nesne Sınıfı Örnekleri</p>
+		<p class="indent">
+			Generik nesne örnekleri veya <span class="keyw">Object</span> nesne sınıfı
+			örneklerinin nasıl yaratılacağı <a href="b4s1.html#objectConstructor">4.1</a> de
+			açıklanmıştı. Daha önce incelenmiş olan <a href="../b2/b2s6.html#nesneliteralleri">nesne
+			literalleri</a> de
+			birer generik nesne örneğidir.		</p>
+		<p class="indent">
+			Nesne örneklerinin kendilerine özgü bir <span class="keyw">prototype</span> özellikleri yoktur. Nesne örnekleri,
+			oluşturuldukları yapılandırıcı fonksiyonun prototipini paylaşırlar. <span class="keyw">Object</span> nesne sınıfı
+			örneklerinin prototipi <span class="keyw">Object</span><span class="op">.</span><span class="keyw">prototype</span>
+			nesnesidir.
+		</p>
+		<p class="indent">
+			Generik nesne sınıfı olan <span class="keyw">Object </span>sınıfı örnekleri, 
+			<span class="keyw">Object</span> sınıfının prototipini paylaştıkları için,
+			oluşmaları ile birlikte <span class="keyw">Object </span> sınıfının
+			tüm özelliklerine sahip olurlar. Bunlara ek olarak
+			başka bir özellikleri yoktur.
+		</p>
+		<p class="title-left" id="objectConverter">4.4 - Object() Fonksiyonun Tip Dönüştürücüsü
+			Olarak Kullanılması </p>
+		<p class="indent">
+			<span class="keyw">Object</span><span class="op">()</span> fonksiyonu, yapılandırıcı 
+			olarak kullanılmadığında, ilkel değerleri nesne literallerine dönüştürmek için kullanılır. Kullanımı,		</p>
+		<pre>
+<span class="keyw-50">Object</span><span 
+			class="op">(</span>ilkel değer<span 
+			class="op">)</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. fonksiyon geriye <span class="keyw">Object</span> 
+			sınıfından bir nesne örneği döndürür.
+		</p>
+		<p class="indent" id="b4.4-uyg-1">
+			İlkel değerleri, nesne literallerine dönüştürmenin tek avantajı, bu literallere
+			yeni özellikler eklenebilmesidir. Bu konuda bir
+			<a href="../uygulamalar/b4.4-uyg-1-js.html">JavaScript fonksiyonun</a>, bir 
+			<a href="../uygulamalar/b4.4-uyg-1.html">uygulama</a> sayfasında verdiği sonuç, 
+			aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-50">var</span> nokta <span 
+			class="op">=</span> <span 
+			class="keyw">null</span><span 
+			class="op">;</span>
+<span class="pl-50">nokta</span> <span 
+			class="op">=</span> 3.23<span 
+			class="op">;</span>
+<span class="pl-50">nokta</span> <span 
+			class="op">=</span> <span class="keyw">Object</span><span 
+			class="op">(</span>nokta<span 
+			class="op">);</span>
+<span class="pl-50">nokta</span><span 
+			class="op">.</span>y <span 
+			class="op">=</span> 4.22<span 
+			class="op">;</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'noktanın ordinatı = '</span><span 
+			class="op">,</span> nokta<span 
+			class="op">.</span>y<span 
+			class="op">,</span> <span 
+			class="str">'b4.4-uyg-1-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b4.4-uyg-1-sonuç-1">
+		</p>
+		<p class="nonindent">
+			Program sonucundan, nokta değişkeninin ilkel sayısal değerden,
+			bir generik nesne sınıfı örneğine dönüştüğü görülüyor. Dönüşümün
+			gerçekleştiği şüphesizdir. Çünkü aksi olsaydı, JavaScript yorumlayıcısı,
+			asla bir ilkel sayısal değere özellik eklenmesine olanak vermezdi.
+		</p>
+		<p class="indent">
+			<span class="keyw">Object</span> <span 
+			class="op">()</span> fonksiyonu bir argüman olmadan kullanılırsa,
+			yeni bir boş generik nesne örneği (boş literal,<span 
+			class="keyw"> Object</span> sınıfı nesne örneği) yaratır. Yani,		</p>
+		<pre>
+<span class="pl-50">malzeme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			ile, 
+		</p>
+		<pre>
+<span class="pl-50">malzeme</span> <span 
+			class="op">=</span> <span 
+			class="keyw">Object</span><span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			ve 
+		</p>
+		<pre>
+<span class="pl-50">malzeme</span> <span 
+			class="op">=</span><span 
+			class="op">{};</span>
+		</pre>
+		<p class="nonindent">
+			bildirimleri eşdeğerdir. Yine de, <span class="keyw">new</span> 
+			bildirimin kullanılmaması çok sıradışıdır ve programın ileride okunabilirliğini azaltır. 
+			En çok tercih edilmesi gereken sonuncu form olmalıdır.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b4s1.html"><em>« Önceki</em></a></p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="../b5/b5s1.html"><em>Sonraki »</em></a></p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b4.2.5-uyg-1.js">
+		</script>
+		<script type="text/javascript" src="../js/b4.2.6-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b4.2.6-uyg-2.js">
+		</script> 
+		<script type="text/javascript" src="../js/b4.2.7-uyg-1.js">
+		</script> 
+		<script type="text/javascript" src="../js/b4.4-uyg-1.js">
+		</script> 
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b4/b4s2.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:06 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

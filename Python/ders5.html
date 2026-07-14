@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from www.bedriemir.com/Python/ders5.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/ders5.html">
+    <meta http-equiv="content-type" 
+    content="text/html; charset=utf-8">
+    <title>Python 3 Ders 5</title>
+    <meta name="description" 
+    content="Python 3 Programming Language Tutorial, in Turkish">
+    <meta name="keywords" 
+    content="Python 3 Tutorial, in Turkish">
+    <meta name="author" 
+    content="Prof. Dr. Bedri Doğan Emir">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="viewport" 
+    content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" 
+    href="css/bdestyle.css">
+  </head>
+  <body>
+    <h1 class="chapter">Python Programlama Dili</h1>
+      <h2 class="chapter">
+      Bölüm 1 </h2>
+    <h3 class="chapter">
+      Başlangıç Bilgileri</h3>
+    <div class="pagenum">
+      <p>
+        <img src="images/topmove-fw.png" 
+        alt="Top Navigasyon" usemap="#Map" />
+        <map id="Map" name="Map">
+          <area alt="" title="" href="ders4.html" 
+          shape="rect" coords="0,0,75,18" />
+          <area alt="" title="" href="ders6.html" 
+          shape="rect" coords="85,0,170,18" />
+        </map>
+      </p>
+      <p>
+        Ders 5
+      </p>
+    </div>
+    <p id="objects" class="title-left verticalTab-10">
+      1.15 -
+      Python Nesne Tipinin Tanıtımı
+    </p>
+    <p class="indent">
+      Matematik ile ilgili programlar daha çok fonksiyonel programlardır. 
+      Nesne Yönelimli Programlama (Object Oriented Pogramming 
+      = OOP) ise, daha çok sosyal bilimlerde uygulama alanı 
+      bulan bir programlama yöntemidir. Buna rağmen, herhangibir 
+      kısıtlama yoktur ve Nesne Yönelimli Programlama yöntemleri 
+      her türlü matematik çalışmada da rahatlıkla uygulanabilir.
+    </p>
+    <p class="indent">
+      Programlama açısından nesneler bir bilgi agregasyonudur. 
+      Nesnelerin bazı özellikleri olabilir. Nesne özellikleri, 
+      ya bir sabit değer, ya da bir fonksiyon olabilir. Sabit 
+      değerli özelliklere öznitelikler (attributes) adı da verilmektedir. 
+      Nesnelere bağlı fonksiyonlara &quot;metot&quot; adı verilir. 
+      Metotların formal parametreleri, nesnenin sabit değerli 
+      öznitelikleridir (attributes).
+    </p>
+    <p class="indent">
+      Nesneler, önce bir sınıf (class) modeli olarak tanımlanırlar. 
+      Bu sınıf modelinin tanımlanması aynı fonksiyon modellerinin 
+      tanımlanması gibidir. Yani bir takım sanal öğelerle, gerçek 
+      nesne örneğinin ne şekilde oluşacağı, özelliklerinin neler 
+      olacağı, metotlarının nasıl çalışacağı tanımlanır. Buna 
+      sınıf düzeyinde (class level) tanımlama denilir
+    </p>
+    <p class="indent">
+      Sınıf düzeyinde tanımlama tamamlandığında, artık nesnenin 
+      modeli belirlenmiş olur. Bu modele uygun, gerçek argümanlar 
+      kullanılarak, binlerce örnek yaratılabilir. Her örneğin 
+      yapısı aynen sınıf örneğinde tanımlandığı gibidir. Her 
+      örneğin özellikleri sayı ve veri tipi olarak aynen nesne 
+      sınıfında tanımlanmış olduğu gibidir. Metotlar, yine aynen 
+      nesne sınıfında formal değişkenlerle tanımlanmış olan 
+      işlevlerini gerçek argümanlarda da tekrar ederler.
+    </p>
+    <p class="indent">
+      Bir nesne türünün örnekleri, yaratıldıktan sonra, yaratıldıkları 
+      nesne sınıfından bağımsızdır. Yaratılan nesne örneklerine 
+      yeni özellikler eklenebilir, fakat, bir nesne örneğinde 
+      tanımlanmış olan yeni özellikler, ek özelliklerin
+      tanımlanmış olduğu sınıf örneğinin yaratılmış olduğu 
+      nesne sınıfınının tanımına aksetmez. Nesne sınıfının yapısı ancak 
+      sınıf düzeyinde değiştirilebilir. Sınıf örneği düzeyinde 
+      tanımlanmış olan ek özellikler, sadece tanımlandıkları 
+      sınıf örneği kapsamında kalırlar ve ne ana nesne sınıfının
+      tanımına, ne de daha sonra yaratılacak olan nesne örneklerine
+      bu ek özellikler yansımaz. Bir nesne örneğinde yaratılan
+      ek özellikler, sadece yaratıldıkları nesne örneğinde geçerlidir.
+    </p>
+    <p class="indent">
+      Nesnelerle kalıtım özelliği vardır. Yani bir nesne sınıfı 
+      yaratıldıktan sonra, tanımlanmış olan bu sınıfın özellik 
+      ve metotlarına ek özellik ve metotlar gerektiren yeni 
+      bir nesne sınıfına gereksinme olabilir. Kod ekonomisinin 
+      sağlanması açısından, yeni sınıfı eski sınıfın bir alt 
+      sınıfı olarak tanımlanır. Böylece, bu yeni sınıf, üst 
+      sınıfın bütün özelliklerini edinmiş olur ve sadece yeni 
+      özelliklerin oluşturulmasına gerek kalır. Buna miras (inheritance) 
+      adı verilir. Python programlama dilinin avantajlı bir 
+      yönü olan, birden çok sınıftan miras alma (çoklu kalıtım) 
+      (multiple inheritance) olanağı da sağlanmıştır.
+    </p>
+    <p class="indent">
+      Bazı nesne metotları, benzer yapıdaki (homomorf) nesnelere 
+      uygulanabilir. Buna Polimorfi denilir. Polimorfi, kod 
+      ekonomisi sağlar, fakat uygulanması hassastır ve çok dikkat 
+      ister. Fazla bir uygulama alanı da yoktur.
+    </p>
+    <p class="indent">
+      Bir sözel veriden oluşan ve adı İnsanYaşı olan bir sınıf 
+      yapısı düşünelim (nesne sınıfları ilk karakteri büyük 
+      harf olan tanıtıcılarla tanıtılırlar). Bu nesnenin adı 
+      yaş olan bir tamsayısı verisi olan özelliği olsun (nesne 
+      özellikleri, ilk karakteri küçük harf olan tanıtıcılarla 
+      tanıtılırlar). Bu nesne sınıfının adı hasan olan bir örneğini 
+      yaratalım nesne sınıfı örnekleri ilk karakteri küçük harf 
+      olan tanıtıcılarla tanıtılırlar). İnsanYaşı nesne sınıfının 
+      bir örneği olan hasan verisi oluşturulurken, zorunlu olarak 
+      yaş özelliğine bir değer atanır. İnsanYaşı nesne sınıfının 
+      bir örneği olarak, hasan adlı nesne oluşturulduktan sonra 
+      yaş özelliğinin değerine erişmek için, hasan<span 
+      class="op">.</span>yaş şeklinde nokta notasyonu kullanılır. 
+      Hemen hemen, tüm program dillerinde, nesne özelliklerine 
+      nokta notasyonu ile erişilir.
+    </p>
+    <p class="indent">
+      Bazı durumlarda içiçe nesneler kullanılır. Yani bir nesnenin 
+      özelliği, bir başka nesne olabilir. İkinci nesnenin özelliklerinden 
+      birisi veya hepsi başka nesneler olabilir. Bu bir zincirleme 
+      tanım olayını tanımlar. Örnek olarak Istanbul nesnesinin 
+      bir özelliği Beşiktaş nesnesi olsun, bunun da bir özelliği 
+      Levent nesnesi olsun, bunun da bir özelliği FecriEbcioğlu 
+      özelliği olsun (Feri Ebcioğlu çok iyi bir müzik ve şarkı 
+      sözü yazarı idi. Çok zarif bir insan olan yazarın adı, 
+      rahmetli olmasından sonra, Levent semtinde oturduğu sokağa 
+      verilmiştir). Bu bir tamsayı verisi olsun ve sokaktaki 
+      bina sayısını belirtsin. Bu veriye erişim,
+    </p>
+    <p class="indent">
+      Istanbul.Beşiktaş.Levent.FecriEbcioğlu
+    </p>
+    <p class="nonindent">
+      şeklinde gerçekleşir. Böyle içiçe nesne özellikleri erişimi, &quot;tam 
+      kalifiye isim&quot; (&quot;fully qualified name&quot;) 
+      olarak adlandırılır. İçiçe nesnelerin özelliklerine tam 
+      kalifiye isimleri ile erişim, özellikle Python modüllerinde 
+      tanımlı bazı nesnelerin özelliklerine erişimde kullanılır. 
+      İçiçe nesne tanımlarının küçümsenmemesi gerekir. Örnek 
+      olarak, yukarıdaki örnekte, Istanbul şehrinin, tüm ilçelerinin, 
+      tüm semtlerindeki sokaklarda bulunan, ev sayılarının envanteri 
+      oluşturulabilir. Bu büyük bir olanaktır. Veri temelleri 
+      böyle oluşturulur.
+    </p>
+    <p id="namespaces" class="subheading">
+      1.15.1 -
+      Sınıf Örnekleri ve İsim Alanları
+    </p>
+    <p id="uyg1" class="indent">
+      Nesne yönelimli programlama, her programlama dili için 
+      farklı bir şekilde oluşturulur. Python için de bu yöntemleri 
+      tanımaya çalışalım. ilk olarak, sadece özelliğ olmayan 
+      bir nesne sınıfı tanımlayalım ve bu nesne sınıfından bir 
+      örnek oluşturup, bu örneğe yeni özellikler ekleyelim.
+    </p>
+    <pre>
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">class</span> Toplama <span 
+    class="op">:</span>
+...<span class="keyw-65">pass</span> <img alt="enter" 
+    src="images/enter.fw.png">
+... <img alt="enter" src="images/enter.fw.png">
+
+<span class="op">&gt;&gt;&gt;</span>topla <span class="op">=</span>Toplama<span 
+    class="op">()<img 
+    alt="enter" src="images/enter.fw.png"></span>
+
+<span class="op">&gt;&gt;&gt;</span>topla<span class="op">.</span>değer1<span 
+    class="op">=</span> 25<img 
+    alt="enter" src="images/enter.fw.png">
+<span class="op">&gt;&gt;&gt;</span>topla.değer1 <img 
+    alt="enter" src="images/enter.fw.png">
+25</pre>
+    <p class="indent">
+      Burada, ilginç bir olay ile karşı karşıyayız. Toplama 
+      adlı bir sınıf tanımlanmış, fakat bu sınıfın herhangibir 
+      özelliği tanımlanmamış. Yani, bu bir boş sınıf. Bu sınıf, 
+      tanımından sonra da pass geçilmiş. Bunun anlamı Python 
+      derleyicisine, şimdilik bu sınıf ile ilgili herhangibir 
+      işlemin yapılmayacağının belirtilmesidir. Sonra, bu sınıfa 
+      ait topla adlı bir örneğin yaratıldığı görülüyor. Ana 
+      sınıfa ait hiçbir özellik tanıtılmamış olduğundan, yaratılmış 
+      olan topla adlı sınıf örneğinde de başlangıçta hiçbir 
+      özellik yoktur.
+    </p>
+    <p class="indent">
+      Yeni oluşan toplam adlı boş bir sınıf örneğine, nokta 
+      notasyonu kullanarak yeni özellikler atayabiliriz. Örnekte 
+      bunun topla<span class="op">.</span>değer1<span 
+      class="op">=</span>25 şeklinde yapıldığını görüyoruz. 
+      Bu atamadan sonra, değer1 tanıtıcısı ile yeri işaretlenmiş 
+      bir bellek alanına 25 tamsayı değeri yerleştirilmiş oluyor. 
+      Buraya kadar çok iyi...
+    </p>
+    <p class="indent">
+      Burada değer1 tanıtıcısına dikkat edelim. Bu tanıtıcının 
+      işaret ettiği bellek alanı değerine ancak değer1 tanıtıcısının 
+      çağrılması ile erişilebilir. Fakat, değer1 tanıtıcısına 
+      her yerden erişim olanağı yok. Bu tanıtıcı, topla sınıf 
+      örneğinin bir özelliği olarak tanıtılmış ve ancak topla 
+      sınıf örneğinin bir özelliği olduğu, topla sınıf öneğine 
+      erişebilecek bir yerden belirtildikçe erişilebilir. Bu 
+      şekilde topla sınıf örneğinin bir alan olduğu görülüyor. 
+      Bu alanda özellikler yaratılabiliyor ve bu özellklere 
+      anacak topla sınıf örneğinin adı belirtilerek erişilebiliyor. 
+      Bu durumda topla ismi bir alan ismi olarak ortaya çıkıyor. 
+      Her bir sınıf örneği bir isim alanı oluşturuyor ve bu 
+      isim alanı altında bir özellik tanımlandığında, bu bir 
+      değişken tanımlamakla eşdeğer bir işlem oluyor. Yani değişkenler, 
+      aslında bir ism alanı altında tamımlanmış özelliklerdir. 
+      İsim alanları konusuna ileride döneceğiz fakat şimdiden 
+      konuyu özümsemekte yarar var.
+    </p>
+    <p class="indent">
+      Buradan kalifiye isimler hakkında da bir fikir alma olanğı 
+      bulunuyor. Kalifiye isimler, bir isim alanında tanımlanmış 
+      özellikleri belirtirler. Bir isim alanında tanımlanmış 
+      bir özelliğe, o isim alanı dışından erişim olanağı yok. 
+      Ayrıca, o isim alanına da ancak erişim hakkımız olduğunda 
+      erişebiliyoruz. Özetle, toplam<span class="op">.</span>değer1, 
+      toplam isim alanında tanımlanmış bir özelliği, veya başka 
+      bir deyişle toplam isim alanında tanımlanmış bir değişkeni 
+      belirten bir tanıtıcıdır. Herkes bu olayı nasıl algılamak 
+      isterse o şekilde algılayabilir.
+    </p>
+    <p id="structure" class="subheading">
+      1.15.2 -
+      Bir Nesne Sınıfının Yapılandırılması
+    </p>
+    <p class="indent">
+      Boş bir nesne sınıfı yaratmanın hiçbir avantajı yoktur. 
+      Yukarıdaki örnekte görüldüğü gibi, boş bir sınıfın örnekleri 
+      de boş bir yapı ile yaratılacaklardır. Bunlara en kolay 
+      olarak değer özellikleri tanımlanabilir. Bir sınıf örneğine 
+      özgü metotların tanımı zor ve kesinlikle gereksizdir. 
+      Ayrıca bu özellikler de, bu sınıfın başka örneklerinde 
+      geçerli olmazlar. Oysa gereksinme bunu tam aksi yönündedir. 
+      Bir sınıfın özellikleri, sınıf bazında tanımlanmalı ve 
+      gerekirse ön değerleri verilmelidir. Sınıf örnekleri de 
+      sınıf bazında belirlenmiş özelliklerle oluşmalı ve aynı 
+      sınıfa ait farklı özelliler sadece değer özelliklerinin 
+      değerleri ile birbirlerinden fark edilmelidirler.
+    </p>
+    <p class="indent">
+      Yukarıdaki örnekte, hem sınıf tanımı, hem de sınıf örneği 
+      tanımının nasıl yapılabileceğini gördük. Şimdi, yine çok 
+      kolay olan, sınıf yapısı düzeyinde özellikler belirlemeye 
+      çalışalım. Sınıf düzeyinde tanımlanan özellikler, her 
+      örneğe kalıtımla geçerler.
+    </p>
+    <p id="uyg2" class="indent">
+      İlk olarak öntanımlı __init__ metodunu tanıyalım. Bu metot, 
+      sınıf tanımından, sınıf örneklerinin yapısını belirlemek 
+      için kullanılan, hem yapılandırma (constructor), hem de 
+      ilk değer verme (initialise) işlevini yapan bir fonksiyon 
+      olarak düşünülebilir. Bu fonksiyonu, yukarıdaki örnekte 
+      boş bir sınıf olarak oluşturduğumuz, Toplama sınıfını 
+      yapılandırmak için aşağıdaki örnekte kullanalım:
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">class</span> Toplama <span 
+    class="op">:</span>  <img alt="enter" 
+    src="images/enter.fw.png">
+...<span class="keyw-65">def </span>__init__<span 
+    class="op">(</span>self<span class="op">) :</span> <img 
+    alt="enter" src="images/enter.fw.png">
+...<span class="pl-100">self</span><span class="op">.</span>değer1 <span 
+    class="op">=</span> 25 <img alt="enter" 
+    src="images/enter.fw.png">
+...<span class="pl-100">self</span><span class="op">.</span>değer2 <span 
+    class="op">=</span> 50 <img alt="enter" 
+    src="images/enter.fw.png">
+... <img alt="enter" src="images/enter.fw.png">
+<span class="op">&gt;&gt;&gt;</span>toplam <span class="op">=</span> Toplama<span 
+    class="op">() <img alt="enter" 
+    src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>toplam.değer1 <img 
+    alt="enter" src="images/enter.fw.png">
+25</pre>
+    <p class="indent">
+      Burada, sınıf tanımı ile birliklte, __init__<span 
+      class="op">()</span> metodunu da tanımlıyoruz. Bu metot, 
+      yapılandırılan nesnenin özelliklerini oluşturur ve bunlara 
+      ilk değerlerini verir. Programda, __init__
+      <span class="op">()</span> metodunun formal parametresi 
+      olarak öntanımlı self değeri belirtiliyor. Kullanılan 
+      self saklı sözcüğü, yapılandırılan nesneyi belirtir. Yani, 
+      self yerine Toplama olarak okuyabilirsiniz. Böylece __init__<span 
+      class="op">()</span> metodunun, self argümanı ile, self 
+      saklı sözcüğünün belirttiği, Toplama sınıf nesnesini işleyeceği 
+      belirtilmiş oluyor. Bundan sonra, __init__<span 
+      class="op">()</span> metodunun içinde, Toplama sınıfının 
+      özellikleri tanımlanıyor ve ilk değerleri veriliyor.
+    </p>
+    <p class="indent">
+      Program __init__<span class="op">()</span> metodunu terkettiğinde, 
+      artık Toplama sınıfı yapılandırılmıştır. Yani özellikleri 
+      belirlenmiş ve bu özelliklerine ilk değerler atanmıştır. 
+      yine de, bu sınıfa ait henüz bir isim alanı açılmamıştır. 
+      İsim alanları sınıf örnekleri yaratıldığında açılırlar 
+      ve her sınıf örneği için ayrı bir isim alanı açılır. Çünkü, 
+      her yeni sınıf örneğinin sınıf tanımından gelen ve diğer 
+      sınıf örnekleri ile aynı olan özelliklere sahip olması 
+      ve bu özelliklerinin her sınıf örneğine özgü farklı değerleri 
+      olabilecektir. Zaten değerler de aynı olsa, ayrı bir sınıf 
+      örneğinden bahsetmek olanağı olmazdı. Ayrıca her sınıf 
+      örneğinin kendine özgü tanımlanmış özellikleri de olabilir. 
+      Bunun için, her sınıf örneği farklı bir isim alanı oluşturur. 
+      Yukarıdaki örnekte, Toplama sınıfının örneği olarak toplam 
+      nesnesi yaratılmıştır. Tanıtılmış olan toplam nesnesi ile 
+      birlikte toplam isim alanı da açılmıştır.
+    </p>
+    <p class="indent">
+      Toplam isim alanında tanımlı iki özellik (veya değişken, 
+      aslında her ikisi de aynı şeydir) bulunmaktadır. Bu değişken 
+      değerlerine toplam isim alanından erişilebilir. Aynı şekilde, 
+      toplam isim alanına erişebilen bir isim alanından da bu 
+      değişken değerlerine erişilebilir. Bulunduğumuz isim alanında 
+      tanımlandığı için, toplam isim alanına erişimiz bulunmaktadır. 
+      Bulunduğumuz isim alanından değer1 değikenine, önce toplam 
+      isim alanına erişip bu isim alanımdan değişken1'i çağırarak 
+      erişebiliriz. Kalifiye isim olarak da adlandırılan bu 
+      erişim yöntemi, toplam<span class="op">.</span>değer1 
+      şeklinde, nokta notasyonu kullanılarak uygulanabilir. 
+      Yukarıdaki örnekte, toplam sınıf örneğinin özellik değerlerine 
+      (veya toplam isim alanının değer1 değişkeninin değerlerine) 
+      nokta notasyonu ile erişim yapıldığı ve döndürülen geçerli 
+      (güncel) değerin konsolda görüntülendiği görülüyor.
+    </p>
+    <p class="indent">
+      Bir sınıf yapılandırılmasında, __init__<span 
+      class="op">()</span> metodu ile yapılandırılan özellikler, 
+      sınıf örnekleri özellikleridir. Yani bu sınıfın yaratılacak 
+      tüm örneklerinde, __init__<span class="op">()</span> metodu 
+      ile yapılandırılmış olan özellikler, öntanımlı değerleri 
+      ile birlikte bulunacaktır.
+    </p>
+    <p class="indent">
+      Toplama sınıfının örneklerinde, bu tür bir yapılandırma 
+      ile değer1 ve değer2 olarak iki özellik bulunuyor ve bunların 
+      değerleri daima 25 ve 50 oluyor. Bu yapılandırma yöntemi 
+      ile bundan kaçış yok. Yani, bu sınıftan her yaratılan 
+      sınıf örneğinin özellik değerleri, önceden tanımlanmış 
+      sabit değerler ile yaratılıyor. Oysa, gereksinme tam bunun 
+      aksi yönündedir. Her sınıf örneği, tüm sınıfa ait ortak 
+      özellik değerleri ile değil, kendi özgül değerleri ile 
+      yaratılmak ister. Yukarıdaki programda, bunu sağlayacak 
+      değişikliler yapabilirsek, daha evrensel bir sınıf tasarımı 
+      yapmış oluruz ve bu sınıfın yaratılacak örnekleri daha 
+      özgün olurlar. Bu çalışmayı başlatalım.
+    </p>
+    <p id="uyg3" class="indent">
+      Programda yapılacak ilk değişiklik, _init__<span 
+      class="op">()</span> metodu ile yaratılan sınıf örneği 
+      özelliklerine sabit ön değerler verilmesinden vazgeçmek 
+      olmalıdır.
+    </p>
+    <pre class="pl-25">
+<span class="op">&gt;&gt;&gt;</span><span class="keyw">class</span> Toplama <span 
+    class="op">:</span>  <img alt="enter" 
+    src="images/enter.fw.png">
+...<span class="keyw-65">def </span>__init__<span 
+    class="op">(</span>self <span class="op">,</span> a <span 
+    class="op">,</span> b<span class="op">) :</span> <img 
+    alt="enter" src="images/enter.fw.png">
+...<span class="pl-100">self</span><span class="op">.</span>değer1 <span 
+    class="op">=</span> a <img alt="enter" 
+    src="images/enter.fw.png">
+...<span class="pl-100">self</span><span class="op">.</span>değer2 <span 
+    class="op">=</span> b <img alt="enter" 
+    src="images/enter.fw.png">
+    
+...<span class="keyw-65">def toplamaYap</span><span 
+    class="op">(</span>self<span class="op">) :</span> <img 
+    alt="enter" src="images/enter.fw.png">
+...<span class="keyw-65">return</span> self.değer1 <span 
+    class="op"> + </span>self.değer2
+... <img alt="enter" src="images/enter.fw.png">
+<span class="op">&gt;&gt;&gt;</span>toplam <span class="op">=</span> Toplama<span 
+    class="op">(5<span class="op">,</span>5) <img 
+    alt="enter" src="images/enter.fw.png"></span>
+<span class="op">&gt;&gt;&gt;</span>toplam.toplamaYap<span 
+    class="op">()</span> <img alt="enter" 
+    src="images/enter.fw.png">
+10</pre>
+    <p class="indent">
+      Yukarıdaki programda ilgi çeken ilk nokta, sınıf tanımı 
+      yapılırken, örnek özellikleri olan değer1 ve değer2 değerleri 
+      için, formal parametreler olan a ve b değerlerinin kullanılmış 
+      olmasıdır. Toplama sınıfının bir örneği olan topla nesnesi 
+      oluşturulurken, a ve formal parametrelerinin yerine 5,5 
+      olarak gerçek argümanlar verilmiştir. Bu şekilde, topla 
+      sınıf örneğinin deger1 ve değer2 özelliklerinin (veya 
+      topla isim alanının değer1 ve değer2 değişkenlerinin) 
+      değeri olarak 5 yerleştirilmiştir.
+    </p>
+    <p class="indent">
+      Toplama sınıfının bir örneği olan topla nesnesi oluşturulduktan 
+      sonra, sınıf tanımında tanımı yapılmış olan toplamaYap<span 
+      class="op">()</span> metodu çağrılarak, topla sınıf örneğinin, 
+      değer1 ve değer2 özellikleri toplanmış ve elde edilen 
+      sonuç geri döndürülerek konsolda görüntülenmiştir
+    </p>
+    <p class="indent">
+      Yukaarıdaki örnek çok uygulanan bir nesne sınıfı yaratma 
+      ve yaratılmış olan bu nesne sınıfına ait nesne örnekleri 
+      yaratma yöntemidir. Bu yöntemde her sınıf örneği, başlangıçta 
+      verilen özellik değerleri ile yaratılmakta ve yaratılan 
+      nesne örneklerine, sınıf tanımı sırasında tanımlanmış 
+      olan metotlar uygulanmaktadır. Bu konuda ileride başka 
+      uygulama örnekleri de yapacağız.
+    </p>
+    <ul id="navbottom">
+      <li id="index"><a href="index.html"><em>« Python İndeksi</em></a></li>
+      <li id="denge"><br></li>
+      <li id="sayfa"><a href="ders4.html"><em>« Önceki Sayfa</em></a></li>
+      <li id="denge1"><br></li>
+      <li id="kodlama1"><a href="ders6.html"><em>Sonraki Sayfa 
+      »</em></a></li>
+      <li id="denge3"><br></li>
+      <li id="kodlama3"><a href="../index-2.html"><em>Site İndeksi 
+      »</em></a></li>
+      <li id="navbottom-sonlama"></li>
+    </ul>
+    <script type="text/javascript" src="../Library/bdelib.js">
+    </script>
+    <script type="text/javascript" 
+    src="../Library/lastmodified.js">
+    </script>
+    <p class=" indent verticalTab-25">
+      <span class="pl-50">
+      <a href="http://validator.w3.org/#validate_by_upload" 
+      style="background-color: #F63; color: white;">Geçerli 
+      HTML5 </a></span>
+    </p>
+  </body>
+
+<!-- Mirrored from www.bedriemir.com/Python/ders5.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:16:34 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

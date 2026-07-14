@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:31 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b20/b20.4-s3.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+ <!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b20.4 Tarih Uygulamaları</title>
+	</head>
+	<body>
+		<p>
+		<img class="banner" alt="Banner"
+			src="../images/banner.png" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"
+				alt="index" src="../images/index.gif" /></a>
+				<a href="b20.4-s2.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a>
+				<a href="b20.5-s1.html"><img class="navbutton"
+				alt="next" src="../images/next.gif" /></a>		</p>
+		</div>
+		<p class="chapter">
+		JavaScript Temelleri	
+		</p>
+		<p class="chapter">
+			Bölüm 20
+		</p>
+		<p class="chapter">
+			Uygulamalar
+		</p>
+		<p class="pagenum">
+			Bölüm 20.4 Sayfa 3
+		</p>
+		<p class="title-left" id="tarih">20.4 - Tarih,Takvim,Saat Uygulamaları (Devam)</p>
+		<p class="subheading" id="kronometre">20.4.5 -Takvim Widgetleri</p>
+		<p class="indent">
+			Widgetler, sayfanın bir köşesinde asılı duran ve kullanıcının ilgisini çekeceği düşünülen
+			çeşitli bilgileri görsel olarak gözalıcı bir şekilde veren küçük programlardır. 
+			Widget programcılığı kolay değildir. Bunun nedeni, yerine göre çok derin
+			bilgi gerektiren bilginin verilmesi gerekebileceği, buna ek olarak sunumun göresellğinin
+			en ileri düzeyde olmasının sağlanmasının gerekmesidir. 
+		</p>
+		<p class="indent">
+			JavaScript kullanımı ile tarih widgetlerinin oluşturulması ise, widgetlerin genel 
+			oluşturma güçlüğünün kuvvetle hissedildiği özel programlama alanlarından biridir.
+			Literatürde tarih widgetlerinin çok ileri örnekleri bulunmaktadır. Bu örneklerden en
+		önemlileri, <a href="http://www.bigwebmaster.com/JavaScript/Scripts_and_Programs/Calendars/">http://www.bigwebmaster.com/JavaScript/Scripts_and_Programs/Calendars/</a> de, 
+			<a href="http://www.fortochka.com/">http://www.fortochka.com</a> verilmiştir.  Bunlar,
+			ciddi bilgi birikimi gerektiren üzerinde çok çalışılmış gelişkin projelerdir. Bu projelerin
+			genel olarak sunum teknikleri, W3C-DOM yöntemleri öncesine dayanmaktadır. Bu sunum
+			yöntemlerinin güncellenmesi ise, yine aynı derecede güçlük gösterir. Bunu nedeni,
+			genel olarak sistemin matematik modeli ile sunum tekniğinin içiçe olmasıdır. 
+			Bu projelerin güncellenmesi, genel olarak, herşeyin sıfırdan başlanarak yeniden 
+			düzenlenmesini gerektirir ve bu da büyük emek ve zaman isteyen bir proje halini alır.
+		</p>
+		<p class="indent" id="b20.4.5-uyg-1">
+			Biz bu konuda, çok basit ve temel bir tarih widgetinin güncellenmesi çalışmasını 
+			gerçekleştirmeye çalışacağız. Bu projenin orijinal çalışması, 
+			<a href="http://scriptasylum.com/bgaudiodr/">Brian Gossel</a>
+			tarafından başlatılmış, projenin matematik modeli 
+			<a href="http://www.dynamicdrive.com/">http://www.dynamicdrive.com/</a>
+			tarafından yeniden düzenlenmiş ve büyük ölçüde denenmiştir. Bu konuda, ilk 
+			olarak bu projenin matematik modelini tanımaya çalışacak ve verdiği sonuçları 
+			inceleyeceğiz. Bu <a href="../uygulamalar/%20b20.4.5-uyg-1-js.html">program</a> 
+			aşağıda görülmekte ve sonuçları, bağlı bulunduğu 
+			<a href="../uygulamalar/%20b20.4.5-uyg-1.html">sayfada</a> görüntülenmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function </span>takvimYap<span 
+			class="op">(</span>ay<span
+			class="op">,</span> yıl<span
+			class="op">) {</span>
+<span class="keyw-50">var</span> dim <span
+			class="op">= [</span>31<span
+			class="op">,</span> 0<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">],</span>
+<span class="pl-50">oD</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span>
+<span class="pl-50">güncelTarih</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">bugünüara</span> <span
+			class="op">= (</span>yıl <span
+			class="op">==</span> güncelTarih<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">()</span><span
+			class="op"> &amp;&amp;</span> ay <span
+			class="op">==</span> güncelTarih<span
+			class="op">.</span><span 
+			class="keyw"></span>getMonth<span 
+			class="op">()</span> <span
+			class="op">+</span> 1<span
+			class="op">) ? </span>güncelTarih<span
+			class="op">.</span><span 
+			class="keyw">getDate</span><span 
+			class="op">() :</span> 0<span
+			class="op">,</span>
+<span class="pl-50">x</span> <span
+			class="op">=</span> <span
+			class="op">[];</span>
+
+
+<span class="pl-50">oD</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>yıl<span
+			class="op">,</span> ay <span
+			class="op">-</span> 1<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">oD</span><span
+			class="op">.</span>od <span
+			class="op">=</span> oD<span
+			class="op">.</span><span 
+			class="keyw">getDay</span><span
+			class="op">()</span> <span
+			class="op">+</span> 1<span
+			class="op">;</span>
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">oD.getYear() = '</span><span
+			class="op">,</span> oD<span class="op">.</span>getYear()<span
+			class="op"> +</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'oD.getMonth() = '</span><span
+			class="op">,</span>  oD<span class="op">.</span>getMonth() <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'bugünüara = '</span><span
+			class="op">,</span> bugünüara <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="pl-50">dim</span><span
+			class="op">[</span>1<span
+			class="op">]= (((</span>oD<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">() % </span>100 <span
+			class="op">!=</span> 0<span
+			class="op">) &amp;&amp; (</span>oD<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">() %</span> 400 <span
+			class="op">==</span> 0<span
+			class="op">)) ?</span> 29 <span 
+			class="op">:</span> 28<span
+			class="op">;</span>
+
+<span class="keyw-50">for</span><span
+			class="op">(</span><span 
+			class="keyw">var</span> i <span
+			class="op">=</span> 0<span
+			class="op">;</span> i <span 
+			class="op">&amp;lt= </span>42<span
+			class="op">;</span> i <span
+			class="op">++</span><span 
+			class="op">);</span>
+<span class="pl-75">x</span><span
+			class="op">[</span>i<span
+			class="op">]= ((</span> i <span
+			class="op">-</span> oD<span
+			class="op">.</span>od <span
+			class="op">&gt;=</span> 0<span
+			class="op">) </span><span
+			class="op">&amp;&amp; (</span>i <span
+			class="op">-</span> Od<span
+			class="op">.</span>od <span
+			class="op">&lt;</span> dim<span
+			class="op">[</span>ay <span
+			class="op">-</span> 1<span
+			class="op">])) ?</span> i <span
+			class="op">-</span> Od<span
+			class="op">.</span>od <span
+			class="op">+</span> 1 <span 
+			class="op">:</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="pl-75">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'x['</span> <span
+			class="op">+ </span> i <span
+			class="op">+</span> <span 
+			class="str">'] = '</span><span
+			class="op">,</span> x[i] <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+
+<span class="op-50">}</span>
+
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function </span>başlagıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> gününTarihi <span 
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-50">güncelAy</span> <span
+			class="op">=</span> gününTarihi<span
+			class="op">.</span><span
+			class="keyw">getMonth</span><span
+			class="op">(),</span><span
+			class="comm-25">// geçerli ayı sapta (1-12)</span>
+<span class="pl-50">güncelYıl</span> <span
+			class="op">=</span> gününTarihi<span
+			class="op">.</span><span
+			class="keyw">getFullYear</span><span
+			class="op">();</span><span
+			class="comm-25">// geçerli yılı sapta</span>
+
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'güncelAy'</span><span
+			class="op">,</span> güncelAy <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'güncelYıl'</span><span
+			class="op">,</span> güncelYıl <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+<span class="pl-50">takvimYap</span><span
+			class="op">(</span>güncelAy<span
+			class="op">,</span> güncelYıl<span
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıda görülen<a href="../uygulamalar/b20.4.5-uyg-1-js.html"> programın</a>
+			izlenmesi zor değildir. Zor olan bu deneme yanılma yönteminin tasarlanmasıdır. 
+			Bu yöntem, güvenilir olduğu kesinlikle saptanana kadar denenmiş ve kesin
+			güvenilir sonuçlar ürettiği belirtilmiştir. Sonuçta, içine bulunduğumuz yıla ait geçerli ayın,
+			günlerinin tarihleri olarak 42 elemanlı bir dizi üretilmektedir. Bu dizi 7 X 6 lık bir matrise
+			yerleştirilebilecek, içinde bulunulan aya göre bu matrisin sadece 30 veya 31 elemanı 
+			0 - 31 arası bir tamsayısayı olacaktır. Matrisin en üstüne bir de haftanın günlerinin 
+			adlarını içeren bir açıklama satırı eklendiğinde, 7 X 7 lik bir kare
+			matrisin düzenlenmesi gerektiği ortaya çıkar. Doğal olarak bir web sayfasında
+			bir veri matrisi, bir tablo içine yerleştirilecektir.
+		</p>
+		<p class="indent" id ="b20.4.5-uyg-2">
+			Dikkatle planlandığında, sıralı dizi verilerinin bir tablo içine yerleştirilmesi 
+			fazla sorun yaratmayacaktır. Bu çalışmanın gerçekleştirildiği
+			<a href="../uygulamalar/b20.4.5-uyg-2-js.html">programın</a> kodları aşağıda görülmekte ve
+			bağlı olduğu <a href="../uygulamalar/b20.4.5-uyg-2.html">sayfada</a> çalışmaktadır.
+		</p>
+
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+
+<span class="keyw-25">function </span>takvimYap<span 
+			class="op">(</span>ay<span
+			class="op">,</span> yıl<span
+			class="op">,</span> cM<span
+			class="op">,</span> cH<span
+			class="op">,</span> cDW<span
+			class="op">,</span> cD<span
+			class="op">,</span> kenar<span
+			class="op">) {</span>
+<span class="keyw-50">var</span> dim <span
+			class="op">= [</span>31<span
+			class="op">,</span> 0<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">,</span> 30<span
+			class="op">,</span> 31<span
+			class="op">],</span>
+<span class="pl-50">aylar</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Ocak'</span><span 
+			class="op">,</span> <span 
+			class="str">'Şubat'</span><span 
+			class="op">,</span> <span 
+			class="str">'Mart'</span><span 
+			class="op">,</span> <span 
+			class="str">'Nisan'</span><span 
+			class="op">,</span> <span 
+			class="str">'Mayıs'</span><span 
+			class="op">,</span> <span 
+			class="str">'Haziran'</span><span 
+			class="op">,</span> <span 
+			class="str">'Temmuz'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ağustos'</span><span 
+			class="op">,</span> <span 
+			class="str">'Eylül'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ekim'</span><span 
+			class="op">,</span> <span 
+			class="str">'Kasım'</span><span 
+			class="op">,</span> <span 
+			class="str">'Aralık'</span><span 
+			class="op">),</span> 
+<span class="pl-50">günler</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new Array</span><span 
+			class="op">(</span><span 
+			class="str">'Paz'</span><span 
+			class="op">,</span> <span 
+			class="str">'Pztesi'</span><span 
+			class="op">,</span> <span 
+			class="str">'Salı'</span><span 
+			class="op">,</span> <span 
+			class="str">'Çarş'</span><span 
+			class="op">,</span> <span 
+			class="str">'Perş'</span><span 
+			class="op">,</span> <span 
+			class="str">'Cuma'</span><span 
+			class="op">,</span> <span 
+			class="str">'Ctesi'</span><span 
+			class="op">),</span>
+<span class="pl-50">oD</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span>
+<span class="pl-50">güncelTarih</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(),</span>
+<span class="pl-50">bugünüara</span> <span
+			class="op">= (</span>yıl <span
+			class="op">==</span> güncelTarih<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">()</span><span
+			class="op"> &amp;&amp;</span> ay <span
+			class="op">==</span> güncelTarih<span
+			class="op">.</span><span 
+			class="keyw"></span>getMonth<span 
+			class="op">()</span> <span
+			class="op">+</span> 1<span
+			class="op">) ? </span>güncelTarih<span
+			class="op">.</span><span 
+			class="keyw">getDate</span><span 
+			class="op">() :</span> 0<span
+			class="op">,</span>
+<span class="pl-50">x</span> <span
+			class="op">= [],</span>
+<span class="pl-50">tablo</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'TABLE'</span><span
+			class="op">),</span> 
+<span class="pl-50">bağlantı</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span
+			class="op">(</span><span 
+			class="str">'b204.5-uyg-2-sonuç-1'</span><span
+			class="op">),</span>
+<span class="pl-50">başlık</span> <span
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'CAPTION'</span><span
+			class="op">),</span> 
+<span class="pl-50">t</span> <span
+			class="op">= [],</span>
+<span class="pl-50">satır</span> <span
+			class="op">= [],</span>
+<span class="pl-50">s</span> <span
+			class="op">=</span> 1<span
+			class="op">,</span>
+<span class="pl-50">k</span> <span
+			class="op">=</span> 0<span
+			class="op">;</span>
+
+<span class="pl-50">oD</span> <span
+			class="op">=</span> <span 
+			class="keyw">new Date</span><span 
+			class="op">(</span>yıl<span
+			class="op">,</span> ay <span
+			class="op">-</span> 1<span
+			class="op">,</span> 1<span 
+			class="op">);</span>
+<span class="pl-50">oD</span><span
+			class="op">.</span>od <span
+			class="op">=</span> oD<span
+			class="op">.</span><span 
+			class="keyw">getDay</span><span
+			class="op">()</span> <span
+			class="op">+</span> 1<span
+			class="op">;</span>
+<span class="pl-50">dim</span><span
+			class="op">[</span>1<span
+			class="op">]= (((</span>oD<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">() % </span>100 <span
+			class="op">!=</span> 0<span
+			class="op">) &amp;&amp; (</span>oD<span
+			class="op">.</span><span 
+			class="keyw">getFullYear</span><span 
+			class="op">() %</span> 400 <span
+			class="op">==</span> 0<span
+			class="op">)) ?</span> 29 <span 
+			class="op">:</span> 28<span
+			class="op">;</span>
+
+<span class="keyw-50">for</span><span
+			class="op">(</span><span 
+			class="keyw">var</span> i <span
+			class="op">=</span> 0<span
+			class="op">;</span> i <span 
+			class="op">&lt;= </span>42<span
+			class="op">;</span> i <span
+			class="op">++</span><span 
+			class="op">);</span>
+<span class="pl-75">x</span><span
+			class="op">[</span>i<span
+			class="op">]= ((</span> i <span
+			class="op">-</span> oD<span
+			class="op">.</span>od <span
+			class="op">&gt;=</span> 0<span
+			class="op">) </span><span
+			class="op">&amp;&amp; (</span>i <span
+			class="op">-</span> Od<span
+			class="op">.</span>od <span
+			class="op">&lt;</span> dim<span
+			class="op">[</span>ay <span
+			class="op">-</span> 1<span
+			class="op">])) ?</span> i <span
+			class="op">-</span> Od<span
+			class="op">.</span>od <span
+			class="op">+</span> 1 <span 
+			class="op">:</span> <span 
+			class="str">''</span><span
+			class="op">;</span>
+<span class="op-50">}</span>
+
+<span class="pl-50">tablo</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">,</span> cM<span 
+			class="op">);</span>
+<span class="pl-50">tablo</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'border'</span><span
+			class="op">,</span> kenar<span 
+			class="op">);</span>
+<span class="pl-50">ardınaEkle</span><span
+			class="op">(</span>tablo<span
+			class="op">,</span> bağlantı<span 
+			class="op">);</span>
+<span class="pl-50">başlık</span><span
+			class="op">.</span><span 
+			class="keyw">appenChild</span><span
+			class="op">(</span><span 
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span
+			class="op">(</span>yıl <span
+			class="op">+</span> <span 
+			class="str">'  -  '</span> <span 
+			class="op">+</span> aylar<span
+			class="op">[</span>ay <span
+			class="op">-</span> 1<span
+			class="op">]));</span>
+<span class="pl-50">başlık</span><span
+			class="op">.</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">,</span> cH<span 
+			class="op">);</span>
+<span class="pl-50">tablo</span><span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span>başlık<span
+			class="op">);</span>
+
+<span class="keyw-50">for</span><span
+			class="op">(</span>i <span
+			class="op">=</span> 0<span
+			class="op">;</span> i <span 
+			class="op">&lt;= </span>7<span
+			class="op">;</span> i <span
+			class="op">++</span><span 
+			class="op">);</span>
+<span class="pl-75">satır</span><span
+			class="op">[</span>i<span
+			class="op">] =</span> tablo<span
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'TR'</span><span
+			class="op">));</span>
+<span class="keyw-75">if</span><span
+			class="op">(</span>i <span
+			class="op">===</span> 0<span 
+			class="op">) {</span>
+<span class="keyw-100">for</span><span
+			class="op">(</span><span 
+			class="keyw">var</span> j <span
+			class="op">=</span> 0<span
+			class="op">;</span> j &lt; 7<span
+			class="op">;</span> j <span
+			class="op">++ ) {</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">]=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'TH'</span><span 
+			class="op">);</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">].</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">,</span> cDW<span 
+			class="op">);</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span
+			class="op">(</span>günler<span
+			class="op">[</span>j<span
+			class="op">]));</span>
+<span class="pl-125">satır</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>t<span
+			class="op">[</span>j<span
+			class="op">]);
+</span><span class="op-75">}</span>
+<span class="keyw-75">else</span><span 
+			class="op"> {</span>
+<span class="keyw-100">for</span><span
+			class="op">(</span>j <span
+			class="op">=</span> 0<span
+			class="op">;</span> j &lt; 7<span
+			class="op">;</span> j <span
+			class="op">++ ) {</span>
+<span class="pl-125">k</span> <span
+			class="op">=</span> s <span
+			class="op">+</span> j<span
+			class="op">;</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">]=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createElement</span><span
+			class="op">(</span><span 
+			class="str">'TD'</span><span 
+			class="op">);</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">].</span><span
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">,</span> cD<span 
+			class="op">);</span>
+<span class="pl-125">t</span><span
+			class="op">[</span>j<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span><span
+			class="keyw">document</span><span
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span
+			class="op">(</span>x<span
+			class="op">[</span>k<span
+			class="op">]));</span>
+<span class="keyw-125">if</span><span
+			class="op">(</span>x<span
+			class="op">[</span>k<span
+			class="op">] ===</span> bugünüara<span
+			class="op">) {</span>
+<span class="pl-150">t</span><span
+			class="op">[</span>j<span
+			class="op">].</span><span 
+			class="keyw">setAttribute</span><span
+			class="op">(</span><span 
+			class="str">'class'</span><span
+			class="op">,</span> <span 
+			class="str">'bugün'</span><span 
+			class="op">);</span>
+<span class="op-125">}</span>
+<span class="pl-125">satır</span><span
+			class="op">[</span>i<span
+			class="op">].</span><span
+			class="keyw">appendChild</span><span
+			class="op">(</span>t<span
+			class="op">[</span>j<span
+			class="op">]);</span>
+<span class="op-100">}</span>
+<span class="pl-100">s</span> <span
+			class="op">=</span> k <span
+			class="op">+</span> 1<span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+<span class="keyw-25">function </span>başlangıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> gününTarihi <span 
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-50">güncelAy</span> <span
+			class="op">=</span> gününTarihi<span
+			class="op">.</span><span
+			class="keyw">getMonth</span><span
+			class="op">(),</span><span
+			class="comm-25">// geçerli ayı sapta (1-12)</span>
+<span class="pl-50">güncelYıl</span> <span
+			class="op">=</span> gününTarihi<span
+			class="op">.</span><span
+			class="keyw">getFullYear</span><span
+			class="op">();</span><span
+			class="comm-25">// geçerli yılı sapta</span>
+
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'güncelAy'</span><span
+			class="op">,</span> güncelAy <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-2-sonuç-1'</span><span
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'güncelYıl'</span><span
+			class="op">,</span> güncelYıl <span
+			class="op">+</span> <span 
+			class="str">'    '</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.5-uyg-2-sonuç-1'</span><span
+			class="op">);</span>
+<span class="pl-50">takvimYap</span><span
+			class="op">(</span>güncelAy<span
+			class="op">,</span> güncelYıl<span
+			class="op">,</span> <span 
+			class="str">'takvimtablosu'</span><span
+			class="op">,</span> <span 
+			class="str">'ayismi'</span><span
+			class="op">,</span> <span 
+			class="str">'günlerinİsmi'</span><span
+			class="op">,</span> <span 
+			class="str">'gün'</span><span
+			class="op">,</span> 1<span
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Bu en basit takvim widget'inin oluşturulması bile, belirli bir geliştirme süreci gerektirdi. 
+			Daha gelişkin projeler için daha fazla çalışma süreleri gerekecektir. Gerekli her türlü 
+			kuramsal bilgi bu çalışma sırasında toplanmış olduğu için yeni projelerin geliştirilmesi
+			için, okuyucular teşvik edilmektedir.
+		</p>
+		<p class ="subheading" id="loadtime">20.4.6 - Bir Web Sayfasının Yüklenme Süresi</p>
+		<p class="indent" id="b20.4.6-uyg-1">
+			Bir web sayfasının yüklenme süresinin saptanması için, uygulanabilecek yöntem, 
+			sayfanın başlangıçta ve yükenmeden sonra ölçülen zaman değerlerinin birbirlerinen çıkarılarak,
+			saniye olarak belirtilmesidir.  Bu yöntemin uygulanması ile bir web ssayfasının yüklenme
+			süresini ölçen bir 
+			<a href="../uygulamalar/b20.4.6-uyg-1-js.html">programın</a> kodları aşağıda görülmekte ve
+			bağlı olduğu <a href="../uygulamalar/b20.4.6-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">var</span> çıkış <span
+			class="op">=</span> <span 
+			class="keyw">vew Date</span><span
+			class="op">;</span>
+<span class="pl-25">çıkışZamanı</span> <span
+			class="op">=</span> çıkış<span
+			class="op">.</span><span 
+			class="keyw">getTime</span><span 
+			class="op">();</span>
+
+<span class="keyw-25">function </span>başlangıç<span 
+			class="op">() {</span>
+<span class="keyw-50">var</span> varış <span 
+			class="op">=</span> <span
+			class="keyw">new Date</span><span
+			class="op">(),</span>
+<span class="pl-50">varışZamanı</span> <span
+			class="op">=</span> varış<span
+			class="op">.</span><span
+			class="keyw">getTime</span><span
+			class="op">(),</span>
+<span class="pl-50">yüklenmeSüresi</span> <span
+			class="op">= (</span>varışZamanı <span
+			class="op">-</span> çıkışZamanı<span 
+			class="op">) / </span>1000<span
+			class="op">;</span>
+
+<span class="pl-50">sonuçYaz</span><span
+			class="op">(</span><span 
+			class="str">'Sayfanın Yüklenme Süresi = '</span><span
+			class="op">,</span> yüklenmeSüresi <span
+			class="op">+</span> <span 
+			class="str">' ( saniye)'</span><span
+			class="op">,</span> <span 
+			class="str">'b20.4.6-uyg-1-sonuç-1'</span><span
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlangıç<span 
+			class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<ul id="navbottom">
+			<li id="index">
+				<a href="../index.html"><em>« İndeks</em></a>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<a href="b20.4-s2.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<a href="b20.5-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b20/b20.4-s3.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 02:20:38 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

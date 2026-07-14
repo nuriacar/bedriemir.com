@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.5-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:59 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b19/b19.6.5-s1.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>19.6.5.1 - CharacterData Arabiriminin data Özelliği</title>
+<!-- Made with AC Meta Tag Generator ver. 1.5 
+ at: Http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type"
+				content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+			<!-- WEBTECH Turkish JavaScript Tutorial -->
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" 
+					content="JavaScript Tutorial in Turkish Language " />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title></title>
+	</head>
+	<body>
+	<p>
+			<img class="banner" alt="Banner" src="../images/banner.png" />
+	</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navbutton"alt="index" 
+				src="../images/index.gif" /></a> <a href="b19.6.4-s1.html"><img class="navbutton"
+				alt="previous" src="../images/previous.gif" /></a> <a href="b19.6.6-s1.html"><img 
+				class="navbutton"alt="next" src="../images/next.gif" /></a></p>
+		</div>
+		<p class="chapter"> JavaScript Temelleri </p>
+		<p class="chapter"> Bölüm 19</p>
+		<p class="chapter"> W3C Belge  Nesne Modeli (W3C Document Object Model) (W3C-DOM)</p>
+		<p class="pagenum"> Bölüm 19.6.5 Sayfa 1 </p>
+<p class="subheading" id = "karakter">19.6.5 - CharacterData Arabirimi</p>
+	<p class="indent">
+			Bu arabrimin özelliği, hiçbir fiziksel düğümün bu arabirim yapısında olmamasıdır. Bu
+			arabirim, özelliklerini kalıtım yolu ile kendisinden özellik kazan arabirimlere, özellikle
+			kısa sonra inceleyeceğimiz <span class="keyw">Text</span> (Sözel Veri) arabirimine
+			aktararak uygulanma yeteneği kazandırır. Bu arabirimin <span 
+			class="keyw">data</span> ve <span class="keyw">length</span> özellikleri yanında, 
+			<span class="keyw">substringData</span><span class="op">()</span>,
+			<span class="keyw">appendData</span><span class="op">()</span>,
+			<span class="keyw">insertData</span><span class="op">()</span>,
+			<span class="keyw">deleteData</span><span class="op">()</span>,
+			<span class="keyw">replaceData</span><span class="op">()</span>,
+			metotları tanımlanmıştır.
+	</p>
+			<p class="sayfaortala">
+				<img  src="../images/b19.6.5-img-1.png" width="907" height="477" 
+				alt="Element Arabirimi" />		</p>
+		<p class="sayfaortala">
+			Şekil 19.6.5 - 1 - DOM Düzey 2 de characterData Arabiriminin  IDL Yazılımı
+		</p>
+		<p class="indent">
+			Bu arabirimin hiç kullanılmaması olanağı vardır. Çünkü sayfaya yerleşik ve
+			sözel veri içeriği olan bir elementin sözel veri düğümüne düğümüm tipi
+			kontrol edilerek bellek referansı elde edildiğinde, sözel veriye, istenirse
+			düğüm değerine erişm için, ister düğüm değeri özelliğinden yararlanılarak,
+		</p>
+		<pre>
+<span class="pl-25">sözelVeriİçeriği = sözelVeriDüğümü</span><span 
+			class="op">.</span><span class="keyw">nodeValue</span><span
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			veya, CharacterData arabiriminin <span class="keyw">data</span>
+			özelliğinden yararlanılarak,
+		</p>
+		<pre>
+<span class="pl-25">sözelVeriİçeriği = sözelVeriDüğümü</span><span 
+			class="op">.</span><span class="keyw">data</span><span
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde erişilebilir.
+		</p>
+		<p class="indent">
+			Erişilen sözel veri istenirse, JavaScript öntanımlı <span class="keyw">String</span>
+			nesneinin metotlarından, istenirse bu kısımda incelenmekte olan, 
+			<span class="keyw">characterData</span> arabiriminin ilgili
+			metotları yardımı ile işlenebilir. Genellikle çekirdek JavaScript
+			<span class="keyw">String</span> nesnesi metotları gibi detaylı
+			olmamasına karşın, küçük işlemler için 
+			<span class="keyw">CharacterData</span> arabiriminin ilgili
+			metotları uygulanabilir. Tüm belge çözümleyicilerinin güncel
+			sürümleri, bu arabirimin yöntemlerini desteklerler.
+		</p>
+<p class="navy" id = "data"><strong>19.6.5.1 - CharacterData Arabiriminin data Özelliği</strong></p>
+		<p class="indent">
+			Bu özellik geriye DOMString tipinde bir karakter dizigisi verisi döndürür.
+			Bu verinin uzunluğu için aslında bir sınır konulmamış iken, belge
+			çözümleyicileri, bu verinin uzunluğunu sınırlamış olabilirler. Bu nedenle,
+			tek bir DOMString içine sığdırılamayan veriler, 
+			<span class="keyw">substringData</span><span class="op">()</span>
+			metodu kullanılarak parçalanabilirler. 
+		</p>
+		<p class="indent" id="b19.6.5.1-uyg-1">
+			<span class="keyw">CharacterData</span> arabiriminin, <span 
+			class="keyw">data</span> özelliğinin kullanımını açıklayan ve bu metodun,
+			generik <span class="keyw">Node</span> arabiriminin <span 
+			class="keyw">nodeValue</span> özelliğinin değeri ile eşdeğer olduğunu belirten bir 
+			<a href="../uygulamalar/b19.6.5.1-uyg-1-js.html">programın</a> kodları aşağıda 
+			görülmektedir. Bu program bağlantılı olduğu
+			<a href="../uygulamalar/b19.6.5.1-uyg-1.html">sayfada</a> calışmaktadır.		</p>
+		<pre >
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> sözelDüğüm<span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">) {</span>
+
+
+<span class="keyw-50">for</span> <span 
+			class="op">(</span><span 
+			class="keyw">var</span> i <span 
+			class="op">=</span> 0<span
+			class="op">;</span> i &lt; elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">length</span> <span
+			class="op">;</span> i <span 
+			class="op">++) {</span>
+<span class="keyw-75">if</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">).</span><span 
+			class="keyw">nodeType</span> <span
+			class="op">===</span> 3<span 
+			class="op">) {</span>
+<span class="keyw-100">break</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">return</span> elementDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">childNodes</span><span 
+			class="op">.</span><span 
+			class="keyw">item</span><span 
+			class="op">(</span>i<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span>
+<span
+			class="op">
+</span><span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">)</span><span 
+			class="op">,</span>
+
+<span class="pl-50">sözelVeriİçeriği</span> <span 
+			class="op">=</span> sözelVeriDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">data</span><span 
+			class="op">,</span>
+
+<span class="pl-50">yazılacakYer</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'class'<span 
+			class="op">,</span> 'cursive-red'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sözelVeriİçeriği<span 
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span>(sözelVeriDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">elementDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yazılacakYer<span 
+			class="op">,</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span
+			class="op">));</span>
+
+
+
+<span class="pl-50">sözelVeri</span>İçeriği <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">).</span><span 
+			class="keyw">nodeValue</span><span 
+			class="op">,</span>
+
+<span class="pl-50">yazılacakYer</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'class'<span 
+			class="op">,</span> 'cursive-red'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sözelVeriİçeriği<span 
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span>(sözelVeriDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">elementDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">parentNode</span><span 
+			class="op">.</span><span 
+			class="keyw">insertBefore</span><span 
+			class="op">(</span>yazılacakYer<span 
+			class="op">,</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span
+			class="op">));
+
+</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki <a href="../uygulamalar/b19.6.5.1-uyg-1-js.html">programın</a>
+			sonuçlarından her iki yöntemin de eşdeğer oldukları anlaşılıyor. Programcılar,
+			her ikisi arasından istediklerini özgürce seçebilirler.
+		</p>
+		<p class="indent">
+			Bu <a href="../uygulamalar/b19.6.5.1-uyg-1-js.html">programdaki</a> sözelDüğümReferansı<span class="op">()</span> fonksiyonu,
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına 
+			alınarak, bu kitaplıktaki fonksiyonlar ile birlikte kullanımına olanak sağlanmıştır.		</p>
+<p class="navy" id = "uzunluk"><strong>19.6.5.2 - CharacterData Arabiriminin length Özelliği</strong></p>
+		<p class="indent" id="b19.6.5.2-uyg-1">
+			Bu özellik geriye sözel verinin içerdiği karakter sayısını döndürür. Bu özelliğin kullanıldığı bir
+			<a href="../uygulamalar/b19.6.5.2-uyg-1.html">programın</a> kodları aşağıda görülmekte ve 
+			sonuçları bağlı bulundğu <a href="../uygulamalar/b19.6.5.2-uyg-1.html">sayfada</a> 
+			görüntülenmektedir.
+		</p>
+		<pre >
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">);</span><span
+			class="op">
+
+</span><span class="pl-50">sözelVeri</span> <span 
+			class="op">=</span> <span 
+			class="str">'Sözel Verinin Uzunluğu : '</span> <span 
+			class="op">+</span> sözelDüğüm<span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">).</span><span 
+			class="keyw">length</span> <span 
+			class="op">+</span> <span 
+			class="str">' karakter (boşluklar dahil).'</span><span 
+			class="op">,</span>
+
+<span class="pl-50">yazılacakYer</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'class'<span 
+			class="op">,</span> 'cursive-red'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span>(<span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sözelVeri<span
+			class="op">));</span>
+
+<span class="pl-50">önüneEkle</span><span 
+			class="op">(</span>yazılacakYer<span 
+			class="op">,</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span
+			class="op">));</span><span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent"></p>
+		<p class="navy" id = "substring"><strong>19.6.5.3 - CharacterData Arabiriminin substringData() Metodu</strong></p>
+		<p class="indent">
+			Bu metodun amacı, bir sözel veri düğümünün karakterlerinin bir başkangıç karakterinden 
+			başlayarak, belirli bir karakter sayısını içeren bir alt karakter dizigisi oluşturmaktır. 
+			Karakterler daima 0 dan başlanarak sayılırlar.Metod, bir
+			<span class="keyw">Text</span> düğümü nesne örneğine uygulanabilir ve geriye bir 
+			<span class="keyw">Text</span> düğümü nesne örneği değil, karakter dizigisi tipinde
+			bir veri döndürür. Geri döndürülen verinin yeniden bir <span class="keyw">Text</span> 
+			düğümü nesne örneğine dönüştürülmelidir. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">TextTipiDüğümNesnesiÖrneği</span><span 
+			class="op">.</span><span 
+			class="keyw">substringData</span><span 
+			class="op">(</span>BaşlangıçKarakterSayısı, AlınacakKarakterSayısı<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent" id="b19.6.5.3-uyg-1">
+			 Bu konudaki 
+			bir <a href="../uygulamalar/b19.6.5.3-uyg-1-js.html">program</a> aşağıda görülmekte ve bağlantılı 
+			olduğu <a href="../uygulamalar/b19.6.5.3-uyg-1.html">sayfada</a> çalışmaktadır.
+		</p>
+		<pre >
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">),</span>
+
+<span class="pl-50">sözelVeri</span> <span 
+			class="op">=</span>sözelVeriDüğümü<span 
+			class="op">.</span><span 
+			class="keyw">substringData</span><span 
+			class="op">(</span>8<span 
+			class="op">,</span> 12<span 
+			class="op">),</span>
+
+<span class="pl-50">yazılacakYer</span> <span 
+			class="op">=</span> <span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">createElement</span><span 
+			class="op">(</span><span 
+			class="str">'P'</span><span 
+			class="op">);</span>
+
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">setAttribute</span>(<span 
+			class="str">'class'<span 
+			class="op">,</span> 'cursive-red'</span><span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">createTextNode</span><span 
+			class="op">(</span>sözelVeri<span
+			class="op">);</span>
+
+<span class="pl-50">yazılacakYer</span><span 
+			class="op">.</span><span 
+			class="keyw">appendChild</span><span 
+			class="op">(</span>sözelVeriDüğümü<span
+			class="op">);</span>
+
+<span class="pl-50">önüneEkle</span><span 
+			class="op">(</span>yazılacakYer<span 
+			class="op">,</span> <span
+			class="keyw">document</span><span
+			class="op">.</span><span
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'navbottom'</span><span
+			class="op">));</span>
+<span class="op-25">}</span>
+
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="navy" id = "append"><strong>19.6.5.4 - CharacterData Arabiriminin appendData() Metodu</strong></p>
+		<p class="indent">
+			Bu metodun amacı, sayfaya yerleşik bir sözel veri düğümünün içeriğine ekleme yapılmasıdır. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">appendData</span><span 
+			class="op">(</span><span 
+			class="str">'Eklenecek Yeni Sözel Veri'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">appendData</span><span class="op">()</span> metodu
+			geriye <span class="keyw">void</span> döndürür. Yani, uygulandığı 
+			sözel veri düğümünün yapısını etkilemez.
+		</p>
+		<p class="indent" id="b19.6.5.4-uyg-1">
+			 <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">appendData</span><span class="op">()</span> metodunun
+			uygulanması ile, bir sözel veri düğümünün içeriğine yeni 
+			sözel veri eklenmesi yapılan bir 
+			<a href="../uygulamalar/b19.6.5.4-uyg-1.html">programın</a>
+			kodları aşağıda görülmekte ve sonuçları ilişikli olduğu 
+			<a href="../uygulamalar/b19.6.5.4-uyg-1.html">sayfada</a>
+			görüntülenmektedir. 
+		</p>
+				<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> sözelVeriEkle<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">,</span> eklenecekSözcükler<span 
+			class="op">) {</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">appendData</span><span 
+			class="op">(</span>eklenecekSözcükler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">sözelVeri</span> <span 
+			class="op">=</span> <span 
+			class="str">'  (Bu kısım JavaSript CharacterData düğümünün appendData() metodu ile Yazılmıştır).'</span><span
+			class="op">;</span>
+<span class="pl-50">sözelVeriEkle</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">,</span> sözelVeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Burada geliştirilmiş olan, sözelVeriEkle<span class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına 
+			eklenerek genel kullanıma açılmıştır.
+		</p>
+		<p class="navy" id ="insert"><strong>19.6.5.5 - CharacterData Arabiriminin insertData() Metodu</strong></p>
+		<p class="indent"> Bu metodun amacı, bir sözel veri düğümünün sözel veri içeriğinin belirli bir
+			başlangıç noktasından sonra, araya yeni bir sözcük dizgisi eklenmesidir. Kullanımı, </p>
+		<pre>
+<span class="pl-25">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">insertData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span> <span 
+			class="str">'Araya Girecek Yeni Sözel Veri'</span><span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent"> şeklindedir. . <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">appendData</span><span class="op">()</span> metodu
+			geriye <span class="keyw">void</span> döndürür. Yani, uygulandığı 
+			sözel veri düğümünün yapısını etkilemez. </p>
+		<p class="indent" id="b19.6.5.5-uyg-1"> <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">insertData</span><span class="op">()</span> metodunun uygulanması ile, bir sözel veri düğümünün içeriğinin 
+			belirli yerinden başlanarak, yeni sözel veri eklenmesi yapılan bir <a href="../uygulamalar/b19.6.5.5-uyg-1-js.html">programın</a> kodları aşağıda görülmekte ve sonuçları ilişkli olduğu <a href="../uygulamalar/b19.6.5.5-uyg-1.html">sayfada</a> görüntülenmektedir. </p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> arayaSözelVeriEkle<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">,</span> başlangıçKarakteri<span 
+			class="op">,</span>eklenecekSözcükler<span 
+			class="op">) {</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">insertData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span> eklenecekSözcükler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+<span class="pl-50">sözelVeri</span> <span 
+			class="op">=</span> <span 
+			class="str">' (Bu kısım JavaSript CharacterData düğümünün insertData() metodu ile Araya Eklenmiştir)'</span><span
+			class="op">;</span>
+<span class="pl-50">arayaSözelVeriEkle</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">,</span> 8<span 
+			class="op">,</span> sözelVeri<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Burada geliştirilmiş olan, arayaSözelVeriEkle<span class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına 
+			eklenerek genel kullanıma açılmıştır. 
+		</p>
+		<p class="navy" id ="delete"><strong>19.6.5.6 - CharacterData Arabiriminin deleteData() Metodu</strong></p>
+		<p class="indent">
+			Bu metodun amacı, bir sözel veri düğümünün sözel veri içeriğinin belirli bir
+			başlangıç noktasından sonra, belirli sayıda karakterin silinmesidir. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">deleteData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span> silinecekKarakterSayısı<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. . <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">deleteData</span><span class="op">()</span> metodu
+			geriye <span class="keyw">void</span> döndürür. Yani, uygulandığı 
+			sözel veri düğümünün yapısını etkilemez.
+		</p>
+		<p class="indent" id="b19.6.5.6-uyg-1">
+			 <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">deleteData</span><span class="op">()</span> 
+			metodunun uygulanması ile, bir sözel veri düğümünün içeriğinin 
+			belirli yerinden başlanarak, yeni sözel veri eklenmesi yapılan bir 
+			<a href="../uygulamalar/b19.6.5.6-uyg-1-js.html">programın</a>
+			kodları aşağıda görülmekte ve sonuçları ilişikli olduğu 
+			<a href="../uygulamalar/b19.6.5.6-uyg-1.html">sayfada</a>
+			görüntülenmektedir.		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> karakterSil<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">,</span> başlangıçKarakteri<span 
+			class="op">,</span> silinecekKarakterSayısı<span 
+			class="op">) {</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">deleteData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span>silinecekKarakterSayısı<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+
+<span class="pl-50">karakterSil</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">,</span> 8<span 
+			class="op">,</span> 4<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Burada geliştirilmiş olan, karakterSil<span class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına 
+			eklenerek genel kullanıma açılmıştır.
+		</p>
+		<p class="navy" id ="replace"><strong>19.6.5.7 - CharacterData Arabiriminin replaceData() Metodu</strong></p>
+		<p class="indent">
+			Bu metodun amacı, bir sözel veri düğümünün sözel veri içeriğinin belirli bir
+			başlangıç noktasından sonra, belirli sayıda karakterinyerine yenilerinin konulmasıdır. Kullanımı,
+		</p>
+		<pre>
+<span class="pl-25">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span> yenilenecekKarakterSayısı<span 
+			class="op">);</span>
+		</pre>
+		<p class="nonindent">
+			şeklindedir. <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">replaceData</span><span class="op">()</span> metodu
+			geriye <span class="keyw">void</span> döndürür. Yani, uygulandığı 
+			sözel veri düğümünün yapısını etkilemez.
+		</p>
+		<p class="indent">
+			Eğer başlangıçKarakteri + yenilenecekKarakterSayısı verinin <span 
+			class="keyw">length</span> değerini aşarsa (aynı <span 
+			class="keyw">deleteData</span><span class="op">()</span> metodunun 
+			ardından bir <span class="keyw">append</span><span class="op">()</span>
+			metodunun çağrılması gibi) verinin sonuna kadar tüm karakterler değiştirilir.
+		</p>
+		<p class="indent" id="b19.6.5.7-uyg-1">
+			 <span class="keyw">CharacterData</span> arabiriminin <span 
+			class="keyw">deleteData</span><span class="op">()</span> 
+			metodunun uygulanması ile, bir sözel veri düğümünün içeriğinin 
+			belirli yerinden başlanarak, eski karakterlerin silinerek yerlerine, 
+			yeni karakterlerin konulan bir 
+			<a href="../uygulamalar/b19.6.5.7-uyg-1-js.html">programın</a>
+			kodları aşağıda görülmekte ve sonuçları ilişikli olduğu 
+			<a href="../uygulamalar/b19.6.5.7-uyg-1.html">sayfada</a>
+			görüntülenmektedir.
+		</p>
+		<pre>
+<span class="comm-25">/* &lt;![CDATA[  */</span>
+
+<span class="keyw-25">function</span> karakterDeğiştir<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">,</span> başlangıçKarakteri<span 
+			class="op">,</span> değiştirilecekKarakterSayısı<span 
+			class="op">,</span> yerleştirilecekSözcükler<span 
+			class="op">) {</span>
+
+<span class="pl-50">sözelVeriDüğümü</span> <span 
+			class="op">=</span> sözelDüğüm<span 
+			class="op">(</span>yerleşimYeri<span 
+			class="op">);</span>
+
+<span class="pl-50">sözelVeriDüğümü</span><span 
+			class="op">.</span><span 
+			class="keyw">replaceData</span><span 
+			class="op">(</span>başlangıçKarakteri<span 
+			class="op">,</span>değiştirilecekKarakterSayısı<span 
+			class="op">,</span> yerleştirilecekSözcükler<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> başlat<span 
+			class="op">(</span><span 
+			class="op">) {</span>
+
+<span class="keyw-50">var</span> elementDüğümü <span 
+			class="op">= </span><span 
+			class="keyw">document</span><span 
+			class="op">.</span><span 
+			class="keyw">getElementById</span><span 
+			class="op">(</span><span 
+			class="str">'hedef'</span><span 
+			class="op">),</span>
+
+<span class="pl-50">karakterDeğiştir</span><span 
+			class="op">(</span>elementDüğümü<span 
+			class="op">,</span> 8<span 
+			class="op">,</span> 4<span 
+			class="op">, <span 
+			class="str">'xyxw'</span>);</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklenmesiTamamlandıktanSonraÇalıştır</span><span 
+			class="op">(</span>başlat<span class="op">);</span>
+
+
+<span class="comm-25">/* ]]&gt;  */</span>
+		</pre>
+		<p class="indent">
+			Burada geliştirilmiş olan, karakterDeğiştir<span class="op">()</span> fonksiyonu, 
+			<a href="../uygulamalar/bdelib-src.html">bdelib.js</a> program kitaplığına 
+			eklenerek genel kullanıma açılmıştır.		</p>
+
+		<ul id="navbottom">
+			<li id="index"><a href="../index.html"><em>« İndeks</em></a></li>
+			<li id="denge"></li>
+			<li id="sayfa"><a href="b19.6.4-s1.html"><em> &laquo; Önceki</em></a></li>
+			<li id="denge1"></li>
+			<li id="kodlama"><a href="b19.6.6-s1.html"><em> Sonraki &raquo;</em></a></li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b19/b19.6.5-s1.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:59 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

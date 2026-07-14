@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+											"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:35 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b15/b15s6.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+			content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org"
+			name="generator" />
+					<!-- Made with AC Meta Tag Generator ver. 1.5
+							at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b15s6</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html"><img class="navpad"
+																				alt="index" src="../images/index.gif" id="img1" /></a>
+				<a href="b15s5.html"><img class="navpad"
+																				alt="previous" src="../images/previous.gif" id="img2" /></a>
+				<a href="b15s7.html"><img class="navpad"
+																						alt="next" src="../images/next.gif" id="img3" /></a>
+				</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 15
+		</p>
+		<p class="chapter">
+			Kullanıcı Tanımlı Nesneler
+		</p>
+		<p class="pagenum">
+			Bölüm 15 Sayfa 6
+	</p>
+		<p class="title-left" id="members">15.5 - Genel, Özel ve Ayrıcalıklı Üyeler</p>
+		<p class="indent">
+			Bir nesne sınıfının özellilerine bazen sınıf üyeleri adı da verilir. Üç
+			türlü sınıf üyesi  ayırdedilebilir. Bunlar genel, özel ve ayrıcalıklı üyelerdir.
+		</p>
+		<p class="subheading" id="public">5.5.1 - Genel Üyeler</p>
+		<p class="indent">
+			Genel üyeler kamuya açık (public) olarak nitelendirilirler.
+			Bir üyenin genel olabilmesi için salt prototipe eklenmiş ve yapılandırıcı
+			fonksiyonda tanımlanmamış olması gerekir.Genel üyelere nesne yapılandırıcı 
+			fonksiyonu içinden veya dışından tüm program öğeleri erişebilirler. Genel bir 
+			üyenin değeri bir fonksiyonsa, buna genel metot adı verilir.  Örnek:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> hipotenüs<span 
+			class="op">(</span>a<span 
+			class="op">,</span> b<span 
+			class="op">) {</span>
+			<span class="keyw-50">return</span><span 
+			class="keyw"> Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span>a<span 
+			class="op">,</span> 2<span 
+			class="op">) + </span><span 
+			class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span>b<span 
+			class="op">,</span> 2<span 
+			class="op">);</span>
+<span class="op-25">}</span>
+<span class="pl-50">üçgen</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>hipotenüs<span 
+			class="op">;</span>
+		</pre>
+		<p class="subheading" id="private">15.5.2 - Özel Üyeler</p>
+		<p class="indent">
+			Bir nesne sınıfıının özel üyeleri (private members), yapılandırıcı 
+			fonksiyonun yerel değişkenleri ve parametreleridir. Örnek olarak, 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> NesneSınıfı<span 
+			class="op">(</span>parametre<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> _özelÜye <span 
+			class="op">=</span> 25<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>genelÜye <span 
+			class="op">=</span> parametre<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> that <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Yukarıdaki örnekte _özelÜye, parametre ve that, yapılandırıcı fonksiyonun
+			yerel değişkenleri, yani nesne sınıfının özel üyeleridir. Parametrler ve that
+			dışında kalan özel üyelerin tanıtıcıları konvansiyonel olarak bir alt bağlaç
+			(underscore) ile başlatılır. Özel üyelere genel metotlar erişemez. Bir kabul 
+			(konvansiyon) olarak, that özel üyesine <span class="keyw">this</span> saklı
+			sözcüğü atanır ve bu da  that değişkenini, genel metotlar için erişilebilir
+			kılar.
+		</p>
+		<p class="indent">
+			Özel üyelere genel metotlar erişemez, sadece özel metotlar adı verilen,
+			yapılandırıcı fonksiyonun  iç fonksiyonları erişebilir. Dış fonksiyon
+			görevini tamamlayıp program belleğini terketmiş olmasına karşın, hala bellekte
+			yaşamını sürdüren yerel değişkenlere erişim yapan iç fonksiyonların
+			olduğu sistemlere, kapalı devreler denildiğini biliyoruz. Kapalı devreler, 
+			<a href="../b2/b2s5.html#closures">bölüm 2.5.4</a> de ayrıntılı olarak incelenmiştir.
+			Özel metotlar, kapalı devre konumundadır. Özel bir metot örneği aşağıda
+			görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> NesneSınıfı<span 
+			class="op">(</span>parametre<span 
+			class="op">) {</span>
+<span class="keyw-50">var</span> _özelÜye <span 
+			class="op">=</span> 25<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>genelÜye <span 
+			class="op">=</span> parametre<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> that <span 
+			class="op">=</span> <span 
+			class="keyw">this</span><span 
+			class="op">;</span>
+<span class="keyw-50">function</span> değerDeğiştir<span 
+			class="op">() {</span>
+<span class="pl-75">_özelÜye</span> <span 
+			class="op">+=</span> 1<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Özel metotlar, genel metotlar tarafından çağrılamaz. Bu metotların işe
+			yarar olabilmeleri için bunları çağırabilen ayrıcalıklı metotların
+			yaratılması gerekir. 
+		</p>
+		<p class="subheading" id="privileged">	15.5.3 - Ayrıcalıklı Üyeler</p>
+		<p class="indent">
+			Ayrıcalıklı (privileged) üyeler, yapılandırıcı fonksiyon içinde <span class="keyw">this</span>
+			tanımı ile tanıtılmış özelliklerdir. Bu özelliklerin değeri bir fonksiyonsa, buna ayrıcalıklı metot
+			adı verilir.
+		</p>
+		<p class="indent" id="b15.5.3-uyg-1">
+			Ayrıcalıklı metotlar, genel metot olarak işlev görebildikten başka, özel üyelere de erişebilirler. 
+			Bu konuda örnek bir 
+			<a href="../uygulamalar/b15.5.3-uyg-1-js.html">JavaScript programı</a> ve bağlantılı olduğu 
+			<a href="../uygulamalar/b15.5.3-uyg-1.html">uygulama</a> sayfasında verdiği sonuç, aşağıda 
+			görülmektedir:
+		</p>
+				<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Yanıtla<span 
+			class="op">(</span>parametre<span 
+			class="op">) {</span>
+<span class="keyw-50">function</span> çağrı<span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(_</span>gizli <span 
+			class="op">&gt;</span> 0<span 
+			class="op">) {</span>
+<span class="pl-100">_gizli</span> <span 
+			class="op">-=</span> 1<span 
+			class="op">;</span>
+<span class="keyw-100">return true</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="keyw-100">return false</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">}</span>
+
+<span class="keyw-50">var</span> _gizli <span 
+			class="op">=</span> 2<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>genelÜye <span 
+			class="op">=</span> parametre<span 
+			class="op">;</span>
+<span class="keyw-50">var</span> that <span 
+			class="op">=</span> <span class="keyw">this</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>servis <span 
+			class="op">=</span> function<span 
+			class="op">() {</span>
+<span class="keyw-75">if</span> <span 
+			class="op">(</span>çağrı <span 
+			class="op">()</span><span 
+			class="op">) {</span>
+<span class="keyw-100">return</span> that<span 
+class="op">.</span>genelÜye<span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="keyw-75">else</span> <span 
+			class="op">{</span>
+<span class="keyw-100">return null</span><span
+			class="op">;</span>
+<span class="op-75">}</span>
+<span class="op-50">};</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">var</span> benimYanıtım <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Yanıtla<span 
+			class="op">(</span>35<span 
+			class="op">);</span> 
+<span class="pl-25">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'Yanıt = '</span><span 
+			class="op">,</span> benimYanıtım<span 
+			class="op">.</span>servis<span 
+			class="op">(),</span> <span 
+			class="str">'b15.5.3-uyg-1-sonuç-1'</span><span 
+			class="op">);
+</span><span class="keyw-50">...</span>
+		</pre>
+				<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.5.3-uyg-1-sonuç-1"></p>
+		<p class="indent">
+			Yukarıdaki <a href ="../uygulamalar/b15.5.3-uyg-1.html">uygulamada</a> _gizli
+			ve  parametre, özel üyeler, çağırma<span class="op">()</span> özel bir metot,
+			 servis<span class="op">()</span> ise, ayrıcaklı bir metottur. Yanıtla<span class="op">()</span>
+			nesne sınıfının herhangibir örneği 2 den fazla çağrılırsa, geriye <span 
+			class="keyw">null</span> değeri döndürecektir. Ayrıcalıklı servis<span class="op">()</span>
+			metodu, özel çağrı<span class="op">()</span> fonksiyonuna erişerek bu fonksiyonun,
+			kapalı devre halinde  eriştiği dış gizli adlı özel değişkenin değerini değiştirmesini
+			sağlamaktadır. Ayrıcalıklı servis<span class="op">()</span>
+			metodu, genel özelliklere erişebilir, genel özellikler de ayrıcalıklı servis<span class="op">()</span>
+			metodunu kullanabilirler, fakat servis<span class="op">()</span> metodu, doğrudan
+			özel üyelere erişim sağlamaz.
+		</p>
+		<p class="indent">
+			Genel, özel ve ayrıcaklı üyeler terminolojisi ve yukarıdaki <a href ="../uygulamalar/b15.5.3-uyg-1.html">uygulamanın</a> 
+			orijinal tasarımı, Yahoo çalışanı ve JavaScript uzmanı olan, 
+			<a href="http://www.crockford.com/javascript/privaye.html">Douglas Crocford</a> tarafından tasarlanmıştır. Kendisi
+			JavaScript üzerine yazdığı yorumlar, öğretim videoları ve ünlü fakat ne yazık ki türk alfabesindeki karakterlerin
+			tümünü desteklemeyen, <a href="http://www.jslint.com/">jslint</a> programının da yazarıdır. 
+		</p>
+		<p class="indent">
+			Özel üyelere erişebilen ayrıcalıklı metotların kapalı devre oluşturması, özellikle bu sınıfların çok sayıda
+			örneklerinin üretileceği programlarda, fazla program belleği bloke edebileceği ve program performansını 
+			azaltacağı özellikle, <a href="http://mckoss.com/jscript/object.htm">Mike Koss</a> tarafından öne sürülmüştür. 
+			Bu yazar, fazla bellek kullanımı eğiliminde olan bu uygulamaların, sınırlı bir kazanç sundukları bu nedenle 
+			vazgeçilemeyecek bir 	gereksinme olmadıkça ve özellikle veri yoğun uygulamalarda, aşırı şekilde kullanılmamasını 
+			sağlık vermektedir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p><a href="../index.html"><em>« Indeks</em></a></p>
+			</li>
+			<li id="denge"></li>
+			<li id="sayfa">
+				<p><a href="b15s5.html"><em>« Önceki</em></a>
+				</p>
+			</li>
+			<li id="denge1"></li>
+			<li id="kodlama">
+				<p><a href="b15s7.html"><em>Sonraki »</em></a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama"></li>
+	</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload"><img 
+					src="../images/valid-xhtml11.png"
+					 alt="Valid XHTML 1.1" height="31" width="88" /></a>
+		</p>
+		<!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.5.3-uyg-1.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s6.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:35 GMT -->
+</html><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

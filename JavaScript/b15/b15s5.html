@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr">
+	
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:34 GMT -->
+<head>
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/JavaScript/b15/b15s5.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+		<!-- Made with AC Meta Tag Generator ver. 1.5
+		at: http://www.ACJavascripts.com -->
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="tr" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+		<meta name="Title" content="WEBTECH JavaScript Turkish Tutorial" />
+		<meta name="Subject" content="JavaScript Turkish Tutorial" />
+		<meta name="Description" content="JavaScript Tutorial in Turkish Language" />
+		<meta name="Keywords" content="JavaScript Tutorial Turkish" />
+		<meta name="Language" content="tr" />
+		<meta name="Abstract" content="JavaScript Turkish Tutorial" />
+		<meta name="Publisher" content="Prof. Dr. Bedri Doğan Emir" />
+		<meta name="Distribution" content="Local" />
+		<meta name="Robots" content="Index" />
+		<link rel="stylesheet" type="text/css" href="../css/JSstyle.css" />
+		<title>b15s5</title>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Lütfen JavaScript Program Desteğini Açınız veya
+				JavaScript programlamasını destekleyen bir belge
+				çözümleyici kullanınız.
+				(örnek :MSIE 7 veya FireFox2)
+			</p>
+		</noscript>
+		<p>
+			<img src="../images/banner.png" class="banner" alt="Banner" />
+		</p>
+		<div class="navtop">
+			<p>
+				<a href="../index.html">
+					<img class="navpad" alt="index" src="../images/index.gif" id="img1" />
+				</a>
+				<a href="b15s4.html">
+					<img class="navpad" alt="previous" src="../images/previous.gif" id="img2" />
+				</a>
+				<a href="b15s6.html">
+					<img class="navpad" alt="next" src="../images/next.gif" id="img3" />
+				</a>
+			</p>
+		</div>
+		<p class="chapter">
+			JavaScript Temelleri
+		</p>
+		<p class="chapter">
+			Bölüm 15
+		</p>
+		<p class="chapter">
+			Kullanıcı Tanımlı Nesneler
+		</p>
+		<p class="pagenum">
+			Bölüm 15 Sayfa 5
+		</p>
+		<p class="subheading" id="prototypal">
+			15.4.2 - Prototip Transferinden Yararlanılarak Gerçekleştirilen
+			Üst Sınıf / Alt Sınıf Hiyerarşisi
+		</p>
+		<p class="indent">
+			Prototip transferinden yararlanılarak, gerçekleştirilen, üst sınıf / alt sınıf hiyerarşisinde, alt sınıf 
+			oluşturulması, tanımlanmış bir sınıfın örneğini, yeni bir prototipe atanması ile gerçekleşir. Örnek:
+		</p>
+		<pre>
+<span class="keyw-25">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">function</span><span 
+			class="op">() {};</span>
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			veya, 
+		</p>
+		<pre>
+<span class="keyw-25">function</span> a<span 
+			class="op">() {</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			veya,
+		</p>
+		<pre>
+<span class="keyw-25">var</span> a <span 
+			class="op">=</span> <span 
+			class="keyw">new Function</span><span 
+			class="op">();</span>
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			program adımlarının tümü, a sınfının üst sınıf, b sınıfının da alt sınıf olarak, 
+			hiyerarşik olarak yapılanmasını sağlar ve prototip zincirini başlatır. 
+		</p>
+		<p class="indent">
+			Prototip ilişkisinin kurulmasında, prototip transferinin, yapılandırıcı fonksiyonun tanımından 
+			önce veya sonra yapılmış olması farketmez. Ayrıca, programda önceden yaratılmış olan nesne 
+			örnekleri varsa, bu yeni yapı değişikliği onların yapısına da yansıyacaktır.
+		</p>
+		<p class="indent">
+			Prototip transferi yöntemi ile nesne hiyerarşisinin oluşturulması yönteminin 
+			açıklayıcı bir uygulaması için önce çok basit bir üst sınıf yapısı ile başlayalım:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> a(üstSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Budan sonraki adım, bir alt sınıf yapılandırıcı 
+			fonksiyonu tanımlanmasıdır:
+		</p>
+		<pre>
+<span class="keyw-25">function</span> b() <span 
+			class="op">{</span>
+<span class="op-25">}</span>
+		</pre>
+		<p class="indent">
+			Alt Nesne sınıfının yapılandırıcı fonksiyonu hiçbir
+			özgün veri alanını içermemektedir. Yani alt sınıfın tüm
+			veri alanları üst sınıftan kalıtım yolu ile aktarılacaktır.
+		</p>
+		<p class="indent">
+			Bundan sonraki aşama, üst ve alt sınıflar arasında 
+			prototip transferinin sağlanmasıdır. Bu da çok basit,
+			tek satırlık bir ifade ile gerçekleştirilebilecektir:
+		</p>
+		<pre>
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			Hepsi bu kadar! Bu anda tüm hiyerarşi zinciri oluşmuş 
+			ve a üst sınıfının tüm alanları, b alt sınıfının yapısına  
+			transfer olmuştur. Üstelik bu hiyerarşi, dinamik kalıtımı 
+			destekleyen en üst düzey hiyerarşi sistemidir. Fakat sadece  
+			bir tek üst sınıftan kalıtım sağlanabilmektedir. Salt prototip 
+			transferi ile çoklu kalıtım sağlanamaz. 
+		</p>
+		<p class="indent">
+			Bun dan sonra, bir b sınıfı nesne örneği yaratalım. Eğer kalıtım 
+			sağlanamazsa, bu nesne örneğinin hiçbir özelliği olmayacak, 
+			fakat eğer kalıtım sağlanabilirse, üst sınıfın tüm özellikleri
+			alt sınıfa aktarılmış olacaktır.
+		</p>
+		<pre>
+<span class="pl-25">bt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> b<span 
+			class="op">;</span>
+		</pre>
+		<p class="indent">
+			Bundan sonra üst sınıf a prototipine yeni bir özellik ekleyelim. Eğer,
+			kalıtım gerçekleşmişse bu yeni özellik hem alt sınıf protopine hem de
+			yaratılmış  olan alt sınıf nesne örneğinin yapısına aksedecektir.
+		</p>
+		<p class="indent" id="b15.4.2-uyg-1">
+			Prototip transferi yöntemi ile nesne hiyerarşisinin 
+			oluşmuş olduğunun kesin olarak saptanması için,  
+			b sınıfının tüm veri alanlarını sorgulayalım. Kalıtımın 
+			gerçekleşmiş olması halinde, a üst sınıfının tüm veri  
+			alanları ve varsayılan değerleri, kalıtımla b alt nesne 
+			sınıfına aktarılmış olacaktır. Tüm bu işlemler  
+			aşağıda verilen bir 
+			<a href="../uygulamalar/b15.4.2-uyg-1-js.html">
+				JavaScript programında
+			</a>
+			gerçekleştirilmiş ve bu programın bağlantılı olduğu uygulama
+			<a href="../uygulamalar/b15.4.2-uyg-1.html">
+				sayfasında
+			</a>
+			verdiği sonuç aşağıda gösterilmiştir:
+		</p>
+		<pre>
+<span class="comm-25">// Üst Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> a(üstSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		
+
+<span class="comm-25">// Alt Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> b() <span 
+			class="op">{</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Prototip Zincirinin Kurulması :</span>
+
+
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> a<span 
+			class="op">;</span>
+
+<span class="comm-25">//Üst Sınıfın Prototipine Yeni Bir Özellik Eklenmesi</span>:
+
+<span class="pl-25">a</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiC <span 
+			class="op">=</span> <span class="str">'üstSınıfVarsayılanDeğeriC'</span><span 
+			class="op">;</span>
+
+
+<span class="keyw-25">function</span> dinamikKalıtım1()<span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> bt <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="comm-50">// Bir Alt Sınıf Nesne Örneğinin Oluşturulması:</span>
+
+<span class="pl-50">bt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> b<span 
+			class="op">;</span>
+
+ <span class="comm-50">// Alt Sınıf Nesne Örneğinin Özelliklerinin ve Özellik Değerlerinin İncelenmesi </span>
+
+<span class="pl-50">özellikBelirleTüm(</span>bt <span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-1-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(dinamikKalıtım1)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="cursive-blue">
+			b Alt Sınıfından Bir Kaydın Veri Yapısı ve Veri Alanlarının Değerleri
+		</p>
+		<p class="cursive-green">
+			üstSınıfÖzelliğiZ = üstSınıfVarsayılanDeğeriZ 
+			<br/>
+			üstSınıfÖzelliğiY = üstSınıfVarsayılanDeğeriY 
+			<br/>
+			üstSınıfÖzelliğiX = üstSınıfVarsayılanDeğeriX 
+			<br/>
+			üstSınıfÖzelliğiC = üstSınıfVarsayılanDeğeriC
+		</p>
+		<p class="indent">
+			Sonuçlar, sınıf hiyerarşisinin kesinlikle gerçekleşmiş olduğunu ortaya koymaktadır. 
+			Burada, alt sınıfa aktarılan üst sınıf özellikleri, üst sınıfın varsayılan değerleri ile  
+			aktarılmaktadır. Varsayılan değerler, bir nesne örneğinin yaratılması sırasında, 
+			yapılandırıcı fonksiyon hiçbir argüman kullanılmadan çağrılırsa, yeni yaratılan
+			nesne örneğinin özelliklerinin değerleridir. Aynı sonuçlar, nesnelerin özelliklerinin
+			<span class="keyw">for..in</span>
+			döngüleri ile listelendiğinde, listelemenin 
+			özelliklerin alfabetik listesi ile verildiğini ve tanımlama sırasına uyulmadığını da 
+			belirtmektedir.
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.2-uyg-1.html">
+				uygulamada
+			</a>, 
+			prototip transferi için kullanılan 
+		</p>
+		<pre>
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">;</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi, başlangıç değerleri verilmeden bir yapılandırıcı fonksiyonun 
+			çağrılmasını öngörmekte ve prensip olarak, 
+		</p>
+		<pre>
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			ifadesi ile aynı sonucu vermektedir. 
+		</p>
+		<p class="indent" id="b15.4.2-uyg-2">
+			Alat sınıfa aktarılan üst sınıf özelliklerinin, alt sınıfta farklı varsayılan 
+			değerlerle başlaması isteniyorsa, alt sınıfa aktarılan özellik değerlerine  
+			bindirme (alt sınıfta değerlerini yeniden tanımlama) yapılması gerekir. 
+			Bunun için iki yöntem uygulanabilir. Bunlardan ilki, bir 
+			<a href ="../uygulamalar/b15.4.2-uyg-2-js.html">
+				JavaScript programında
+			</a>, 
+			uygulanmış ve bu uygulamanın  
+			bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.4.2-uyg-2-js.html">
+				sayfada, 
+			</a>
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">// Üst Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> a(üstSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+		
+
+<span class="comm-25">// Alt Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> b() <span 
+			class="op">{</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Prototip Zincirinin Kurulması ve Üst Sınıf Özellik Değerlerine Bindirilmesi :</span>
+
+
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new </span>a<span 
+			class="op">(</span><span 
+			class="str">'altSınıfBaşlangıçDeğeriX'</span><span 
+			class="op">,</span> <span 
+			class="str">'altSınıfBaşlangıçDeğeriY'</span><span 
+			class="op">,</span> <span 
+			class="str">'altSınıfBaşlangıçDeğeriZ'</span><span 
+			class="op">);
+
+</span><span class="comm-25">//Üst Sınıfın Prototipine Yeni Bir Özellik Eklenmesi</span>:
+
+<span class="pl-25">a</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiC <span 
+			class="op">=</span> <span class="str">'üstSınıfVarsayılanDeğeriC'</span><span 
+			class="op">;</span>
+
+
+<span class="keyw-25">function</span> dinamikKalıtım2()<span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> bt <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="comm-50">// Bir Alt Sınıf Nesne Örneğinin Oluşturulması:</span>
+
+<span class="pl-50">bt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> b<span 
+			class="op">;</span>
+
+ <span class="comm-50">// Alt Sınıf Nesne Örneğinin Özelliklerinin ve Özellik Değerlerinin İncelenmesi </span>
+
+<span class="pl-50">özellikBelirleTüm(</span>bt <span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-2-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(dinamikKalıtım2)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="cursive-blue">
+			b Alt Sınıfından Bir  Kaydın Veri Yapısı ve
+			Varsayılan Değerleri:
+		</p>
+		<p class="cursive-green">
+			üstSınıfÖzelliğiZ = altSınıfVarsayılanDeğeriZ 
+			<br/>
+			üstSınıfÖzelliğiY = altSınıfVarsayılanDeğeriY 
+			<br/>
+			üstSınıfÖzelliğiX = altSınıfVarsayılanDeğeriX 
+			<br/>
+			üstSınıfÖzelliğiC = üstSınıfVarsayılanDeğeriC
+		</p>
+		<p class="indent" id="b15.4.2-uyg-3">
+			Kalıtımla aktarılan özelliklere alt sınıfta farklı varsayılan değerlerin verilmesinin 
+			sağlanması için bir başka yöntem, bu özelliklerin alt sınıf prototipinde yeniden  
+			tanımlanmasıdır. Bu yöntem, bir 
+			<a href ="../uygulamalar/b15.4.2-uyg-3-js.html">
+				JavaScript programında, 
+			</a>
+			uygulanmış ve bu uygulamanın 
+			bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.4.2-uyg-3-js.html">
+				sayfada,
+			</a>
+			verdiği sonuç, aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="comm-25">// Üst Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> a(üstSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Alt Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> b() <span 
+			class="op">{</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Prototip Zincirinin Kurulması ve Üst Düzey Varsayılan Özellik Değerlerine Bindirilmesi :</span>
+
+
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> a<span 
+			class="op">();</span>
+
+<span class="pl-25">b</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="pl-25">b</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="pl-25">b</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+
+<span class="comm-25">//Üst Sınıfın Prototipine Yeni Bir Özellik Eklenmesi</span>:
+
+<span class="pl-25">a</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiC <span 
+			class="op">=</span> <span class="str">'üstSınıfVarsayılanDeğeriC'</span><span 
+			class="op">;</span>
+
+
+<span class="keyw-25">function</span> dinamikKalıtım3()<span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> bt <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="comm-50">// Bir Alt Sınıf Nesne Örneğinin Oluşturulması:</span>
+
+<span class="pl-50">bt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">(</span><span 
+			class="op">);</span>
+
+ <span class="comm-50">// Alt Sınıf Nesne Örneğinin Özelliklerinin ve Özellik Değerlerinin İncelenmesi </span>
+
+<span class="pl-50">özellikBelirleTüm(</span>at <span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-3-sonuç-1'</span>)<span 
+			class="op">;</span><span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(dinamikKalıtım3)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="cursive-blue">
+			b Alt Sınıfından Bir  Kaydın Veri Yapısı ve
+			Varsayılan Değerleri:
+		</p>
+		<p class="cursive-green">
+			üstSınıfÖzelliğiZ = altSınıfVarsayılanDeğeriZ 
+			<br/>
+			üstSınıfÖzelliğiY = altSınıfVarsayılanDeğeriY 
+			<br/>
+			üstSınıfÖzelliğiX = altSınıfVarsayılanDeğeriX 
+			<br/>
+			üstSınıfÖzelliğiC = üstSınıfVarsayılanDeğeriC
+		</p>
+		<p class="indent" id="b15.4.2-uyg-4">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.2-uyg-3.html">
+				son uygulamada
+			</a>
+			üst sınıf özelliklerinin alt sınıfta bindirildiği veya yeniden tanımlandığı
+			belii değildir. Aslında ikisi arasında hiçbir fark yoktur. Sonuçta, sistemde 
+			az özellik adı ile  çalışılmış olunmaktadır ve bu bir avantaj sayılabilir. 
+			Örnek olarak üstDüzeyÖzelliğiX, bir üst düzey nesne örneğinde başka , bir  
+			alt düzey nesne örneğinde başka, varsayılan değer ile oluşacaktır. Bu arada 
+			henüz b sınıfının özelliklerine başlangıç değerleri verebilen bir  yapılandırıcı  
+			fonksiyon henüz yoktur. Bu eksikliği tamamlayan bir 
+			<a href ="../uygulamalar/b15.4.2-uyg-4-js.html">
+				JavaScript programı, 
+			</a>
+			oluşturulmuş ve bu programın adımları ile 
+			bağlantılı olduğu 
+			<a href ="../uygulamalar/b15.4.2-uyg-4.html">
+				sayfada,
+			</a>
+			verdiği sonuç aşağıda verilmiştir.
+		</p>
+		<pre>
+<span class="comm-25">// Üst Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> a(üstSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> üstSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> üstSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'üstSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Alt Sınıf Yapılandırıcı Fonksiyonu :</span>
+
+<span class="keyw-25">function</span> b(altSınıfBaşlangıçDeğeriX<span 
+			class="op">,</span> altSınıfBaşlangıçDeğeriY<span 
+			class="op">,</span> altSınıfBaşlangıçDeğeriZ) <span 
+			class="op">{</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiX <span 
+			class="op">=</span> altSınıfBaşlangıçDeğeriX <span 
+			class="op">||</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriX'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiY <span 
+			class="op">=</span> altSınıfBaşlangıçDeğeriY <span 
+			class="op">||</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriY'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıfÖzelliğiZ <span 
+			class="op">=</span> altSınıfBaşlangıçDeğeriZ <span 
+			class="op">||</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriZ'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">// Prototip Zincirinin Kurulması :</span>
+
+
+<span class="pl-25">b</span><span 
+			class="op">.</span><span 
+			class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> a<span 
+			class="op">();</span>
+
+<span class="pl-25">b</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiC <span 
+			class="op">=</span> <span 
+			class="str">'altSınıfVarsayılanDeğeriC'</span><span 
+			class="op">;</span>
+
+<span class="comm-25">//Üst Sınıfın Prototipine Yeni Bir Özellik Eklenmesi</span>:
+
+<span class="pl-25">a</span><span 
+class="op">.</span><span class="keyw">prototype</span><span 
+class="op">.</span>üstSınıfÖzelliğiC <span 
+			class="op">=</span> <span class="str">'üstSınıfVarsayılanDeğeriC'</span><span 
+			class="op">;</span>
+
+
+<span class="keyw-25">function</span> dinamikKalıtım4()<span 
+			class="op">{</span>
+
+<span class="keyw-50">var</span> at <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">(),</span> bt <span 
+			class="op">=</span> <span 
+			class="keyw">new Object</span><span 
+			class="op">();</span>
+
+<span class="comm-50">// Bir Üst Sınıf Nesne Örneğinin Oluşturulması</span>:
+
+<span class="pl-50">at</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">(</span><span 
+			class="str">'üstSınıfBaşlangıçDeğeriX'</span><span 
+			class="op">,</span> <span 
+			class="str">'üstSınıfBaşlangıçDeğeriY'</span><span 
+			class="op">,</span> <span 
+			class="str">'üstSınıfBaşlangıçDeğeriZ'</span><span 
+			class="op">);</span> 
+
+<span class="comm-50">// Bir Alt Sınıf Nesne Örneğinin Oluşturulması:</span>
+
+<span class="pl-50">bt</span> <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> a<span 
+			class="op">(</span><span 
+			class="str">'altSınıfBaşlangıçDeğeriX'</span><span 
+			class="op">,</span> <span 
+			class="str">'altSınıfBaşlangıçDeğeriY'</span><span 
+			class="op">,</span> <span 
+			class="str">'altSınıfBaşlangıçDeğeriZ'</span><span 
+			class="op">);</span>
+
+ <span class="comm-50">// Nesne Örneklerinin Özelliklerinin ve Özellik Değerlerinin İncelenmesi </span>
+
+<span class="pl-50">özellikBelirleTüm(</span>at <span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-4-sonuç-1'</span>)<span 
+			class="op">;</span>
+
+<span class="pl-50">özellikBelirleTüm(</span>bt <span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-4-sonuç-2'</span>)<span 
+			class="op">;</span>
+
+<span class="op-25">}</span>
+
+<span class="pl-25">sayfaYüklendiktenSonraÇalıştır(dinamikKalıtım4)</span><span 
+			class="op">;</span>
+		</pre>
+		<p class="cursive-blue">
+			a Üst Sınıfından Bir  Kaydın Veri Yapısı ve
+			Özellik Değerleri:
+		</p>
+		<p class="pl-50" id="b15.4.2-uyg-4-sonuç-1">
+		</p>
+		<p class="cursive-blue">
+			b Alt Sınıfından Bir  Kaydın Veri Yapısı ve
+			Özellik Değerleri:
+		</p>
+		<p class="pl-50" id="b15.4.2-uyg-4-sonuç-2">
+		</p>
+		<p class="indent">
+			Yukarıdaki son dört uygulama biz salt prototipal hiyerarşi üzerine 
+			bilgiler sağlamaktadır. Her uygulama belirli bir çalışma şeklini 
+			açıklamaktadır. Dikkat edilecek konu, nesne örneklerinin
+			üst düzey değil kendi sınıflarının yapılandırıcı fonksiyonlarına göre 
+			yaratılması gereğidir. Çeşitli durumlarda varsayılan ve başlangıç 
+			değerlerinin nasıl oluştukları iyice özümsenmelidir. Bu örnekler  
+			temel alınarak yeni örnekler geliştirilmeli ve sonuçlar incelenmelidir. 
+			Tüm uygulamalarda iki nesne sınıfının aynı özellik adlarını paylaştıkları 
+			görülmektedir. Bu özellikler, aynı isimde olmalarına karşın her nesne
+			sınıfında karklı varsaılan ve başlangıç değerlerini almaktadırlar. Avantajlı
+			yönü, aynı hiyerarşik sistemdeki nesnelerin benzer özelliklerinin aynı
+			adla çağrılabilmesi ve kavram karışıklığından uzak durulabilmesidir.
+		</p>
+		<p class="indent">
+			Sadece yapılandırıcı fonksiyonların birbirlerini çağırması ile bile gerçekleşse, 
+			hiyerarşik nesne sınıfları yapılanmalarının prototip transferi ile de 
+			gerçekleştirilerek pekiştirilmesi sağlık verilir. Çünkü ancak bu şekilde, prototip
+			zinciri oluşmakta ve aktive edilmektedir. Prototip zinciri aktif durumda iken,
+			bir nesne örneğinin bir özelliğine erişim isteği önce, nesne sınfının özellikleri
+			taranarak yanıtlanmaya çalışılır, aranan özellik, nesne örneğininde bulunamazsa, 
+			bir üst düzey sınıfta aranır, yoksa, bir üst düzey sınıf kontrol edilerek, 
+			hiyerarşik düzenin en tepesine kadar gidilir. Aranan özellik, hiyerarşik yapılanma  
+			içindeki hiçbir nesne sınıfında bulunamazsa, özelliğin bulunmadığı yanıtı verilir. 
+			Bu açıdan, prototip zincrinin oluşmuş olması JavaScript yorumlayıcısının rahat 
+			çalışmasına katkı sağlayacaktır.
+		</p>
+		<p class="indent">
+			Prototip zinciri her sınıf için sadece bir tek üst sınıftan kalıtımı sağlayabilir, yani çoklu 
+			kalıtım (multiple inheritance) adı verilen hiyerarşik yapılanma, salt prototip transferi  
+			yöntemi ile gerçekleşmez, bunun için, prototip transferi ile birlikte yapılandırıcı fonksiyonların 
+			birbirini çağırması metodu birlikte kullanılmalıdır. 
+		</p>
+		<p class="indent">
+			Çoklu kalıtımın olduğu prototip zinciri aktif bir hiyerarşik yapılanmda,
+			prototip zinciri dışındaki  sınıfın prototipine yeni bir özellik
+			eklenirse, bu özellik alt sınıflara aktarılmaz. Özelliğin alt sınıflara
+			aktarılması için, bu sınıfın prototipine değil, yapılandırıcı fonksiyonuna
+			eklenmesi gerekir. Bu konuda, bir önceki bölümde yapılmış olan uygulamalar
+			yeniden incelenmelidir. Bu yöntemle gerçekleştirilen çoklu kalıtım
+			hiyerarşik yapılanmaları son derece iyi çalışır. Bir kez oluşturulmuş
+			hiyerarşik yapılanmalarda özellik değiştirilmesinin iyi bir fikir
+			olmadığı bir önceki bölümde net olarak açıklanmıştır. Bu açıklamanın
+			yeniden okunması yararlı olacaktır.
+		</p>
+		<p class="indent">
+			Alt sınıflarda değerleri yeniden tanımlanmış (bindirilmiş) özellik değerleri,
+			üst sınıflardan kalıtımla gelenlere göre öncelik taşırlar. Prototip zincirinde
+			en geçerli değer, en güncel değer, yani özelliğe en yakın düzeyde atanan değerdir.
+		</p>
+		<p class="indent" id="b15.4.2-uyg-5">
+			Aşağıda görülen
+			<a href="../uygulamalar/b15.4.2-uyg-5-js.html">
+				JavaScript programı
+			</a>, bir önceki 
+			bölümde örnek olarak incelenen çoklu kalıtım sisteminin, prototip zincirinden tam olarak  
+			yararlanılmış olan son halidir. Bu programın ilişkili olduğu, 
+			<a href="../uygulamalar/b15.4.2-uyg-5.html">
+				uygulama sayfasında 
+			</a>
+			verdiği sonuç, aşağıda
+			görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="keyw-25">function</span> Üretim<span 
+			class="op">(</span>nr<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> nr <span 
+			class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> Yapım<span 
+			class="op">(</span><span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuRengi <span 
+			class="op">=</span> <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Kare</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Yapım<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Kare<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> kenar<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>üstSınıf <span 
+			class="op">=</span> Üretim<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>üstSınıf<span 
+			class="op">(</span>seriNr<span 
+			class="op">);
+</span><span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuRengi <span 
+			class="op">=</span> renk || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> kenar || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'Kare'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return</span> <span 
+class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>en<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Dikdörtgen</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Kare<span 
+			class="op">;</span>
+
+<span class="keyw-25">function</span> Dikdörtgen<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> seriNr || 0<span 
+			class="op">;</span><span 
+			class="op">
+</span><span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuRengi <span 
+			class="op">=</span> renk || <span 
+			class="str">''</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> eni || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>boy <span 
+			class="op">=</span> boyu || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'DikDörtgen'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy <span 
+
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> çokluKalıtım<span 
+			class="op">() {</span>
+
+<span class="keyw-50">var</span> kutu24 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Kare<span 
+			class="op">(</span>34688<span 
+			class="op">,</span> <span 
+			class="str">'Karton'</span><span 
+			class="op">,</span> <span class="str">'Mavi'</span><span 
+			class="op">,</span> 12<span 
+			class="op">),</span> kutu25 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(</span>45786<span 
+			class="op">,</span> <span 
+			class="str">'Teneke'</span><span 
+			class="op">,</span> <span 
+			class="str">'Metalik Kırmızı'</span><span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">,</span> 10<span 
+			class="op">); </span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu24 Özellikleri =  '</span>, kutu24<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24.kutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu24<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.2-uyg-5-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu25 Özellikleri =  '</span>, kutu25<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25.KutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu25<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.2-uyg-5-sonuç-2'</span><span 
+			class="op">);</span>
+
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.24 Özellikleri : </span>
+			<span class="cursive-red">34688 Kare Karton Mavi 1728</span>
+		</p>
+		<p class="indent">
+			<span class="cursive-green">kutu.25 Özellikleri : </span>
+			<span class="cursive-red">45786 Dikdörtgen Teneke Metalik Kırmızı 1000</span>
+		</p>
+		<p class="indent">
+			Bu son 
+			<a href ="../uygulamalar/b15.4.2-uyg-5.html">
+				şekli ile
+			</a>
+			yazılımın hacmı azalmış ve ifadeler daha düzenli olmuştur. Yapım sınıfı
+			artık veri girilip örnek üretilen bir sınıf durumundan çıkararılabilmiş ve
+			sadece özelliklerin alt sınıflara varsyılan değerleri  ile aktaran bir üst
+			sınıf haline gelmiştir. Prototip zinciri, Yapım sınıfında başlamakta, Kare
+			 ve Dikdörtgen sınıfları ile devam etmektedir. Kare sınıfı hem prototip zinciri
+			içindeki Yapım  hem de prototip zinciri dışındaki Üretim sınıflarından kalıtım
+			sağlamaktadır. Bu optimize edilmiş  bir çoklu kalıtım uygulamasıdır ve bu
+			yapılanma ile daha fazla yazılım optimizasyonu  sağlanması olanağı yoktur.
+		</p>
+		<p class="indent">
+			Sistemin daha optimize dilmesi, bilinçli bir sistem incelenmesi ile gerçekleştirilebilecektir. 
+			Sisteme dikkatli bakıldığında, gerçek hiyerarşi gereksinmesinin sadece özellik değerlerine ve hacım  
+			metoduna bindirildiği, Kare ve Dikdörtgen sınıfları arasında olması gerektiği 
+			görülecektir. Sistemin hiyerarşik yapılanması için iki düzeylik bir prototip zincirinin  
+			oluşturulması yeterlidir. İlk düzey üst sınıf olarak tanımlanacak olan Kare sınıfı, ikinci düzey, 
+			bir alt sınıf olan Dikdörtgen sınfıdır. Temel hiyerarşik sistem, aşağıda görüldüğü kadar basit
+			olabilir:
+		</p>
+		<pre>
+<span class="comm-25">Hiyerarşik Sistem</span>
+
+<span class="keyw-25">function</span> Kare<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> kenar<span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>seriNumarası <span 
+			class="op">=</span> seriNr <span class="op">||</span> 0 <span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+class="op">.</span>üstSınıf<span 
+			class="op">(</span>seriNr<span 
+			class="op">);
+</span><span class="keyw-50">this</span><span 
+			class="op">.</span>malzeme <span 
+			class="op">=</span> materyel || <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuRengi <span 
+			class="op">=</span> renk || <span 
+			class="str">'Veri Girilmedi !'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>en <span 
+			class="op">=</span> kenar || 0<span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'Kare'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return</span> <span 
+class="keyw">Math</span><span 
+			class="op">.</span><span 
+			class="keyw">pow</span><span 
+			class="op">(</span><span 
+			class="keyw">this</span><span 
+			class="op">.</span>en<span 
+			class="op">,</span> 3<span 
+			class="op">);</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="pl-25">Dikdörtgen</span><span 
+class="op">.</span><span class="keyw">prototype</span> <span 
+			class="op">=</span> <span class="keyw">new</span> Kare<span 
+			class="op">;</span>
+		
+<span class="keyw-25">function</span> Dikdörtgen<span 
+			class="op">(</span><span class="op">) {</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>kutuŞekli <span 
+			class="op">=</span> <span 
+			class="str">'DikDörtgen'</span><span 
+			class="op">;</span>
+<span class="keyw-50">this</span><span 
+			class="op">.</span>hacım <span 
+			class="op">=</span><span 
+			class="keyw">function</span> <span 
+			class="op">() {</span>
+
+<span class="keyw-75">return this</span><span 
+			class="op">.</span>en <span 
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>boy <span 
+
+			class="op">*</span> <span 
+			class="keyw">this</span><span 
+			class="op">.</span>yükseklik<span 
+			class="op">;</span>
+<span class="op-50">}</span>
+<span class="op-25">}</span>
+
+<span class="comm-25">Hiyerarşik Sistem Sonu</span>
+		</pre>
+		<p class="indent">
+			Hiyerarşik sistem incelendiğinde, Dikdörtgen sınıfının tüm özelliklerini 
+			Kare sınfından kalıtımla varsayılan değerleri ile aldığı ve bu  
+			özelliklerden kutuŞekli özelliğinin varsayılan <span class="str">'Kare'</span>değerinine
+			bindirilerek<span class="str">'Dikdörtgen olarak değiştirildiği, '</span>
+			hacım<span class="op">()</span>
+			metodununa da Dikdörtgen geometrik şeklinin hacım değerini hesaplayabilecek
+			bir içerik yazılarak bindirildiği görülmektedir. Burada hiyerarşik yapılanma
+			tamamlanmakta ve  tek yapılacak şeyin, yeni Dikdörtgen nesne sınıfı örneklerine
+			özellik değerlerini  atayacak veri giriş fonksiyonları yazılımı olduğu söylenebilir.
+			Bu veri giriş fonksiyonları istenilen şekil ve istenilen sayıda yazılabilir.
+			Bu tip veri giriş fonksiyonu örnekleri aşağıda görülmektedir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="comm-25">Veri Giriş Fonksiyonları</span>
+
+<span class="keyw-25">function</span> yeniDikdörtgenNesneSınıfÖrneğiVeriGirişi1<span 
+			class="op">(</span>seriNr<span class="op">) {</span>
+<span class="keyw-50">var</span> yeniDikdörtgenNesneSınıfÖrneği <span 
+			class="op">=</span> <span class="keyw">new</span> Dikdörtgen<span 
+			class="op">();</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>seriNumarası <span 
+			class="op">=</span> seriNr<span 
+			class="op">;</span>
+<span class="keyw-50">return</span> yeniDikdörtgenNesneSınıfÖrneği<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> yeniDikdörtgenNesneSınıfÖrneğiVeriGirişiToplamVeriler<span 
+			class="op">(</span>seriNr<span 
+			class="op">,</span> materyel<span 
+			class="op">,</span> renk<span 
+			class="op">,</span> eni<span 
+			class="op">,</span> boyu<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="keyw-50">var</span> yeniDikdörtgenNesneSınıfÖrneği <span 
+			class="op">=</span> <span class="keyw">new</span> Dikdörtgen<span 
+			class="op">();</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>seriNumarası <span 
+			class="op">=</span> seriNr<span 
+			class="op">;</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>malzeme <span 
+			class="op">=</span> materyel<span 
+			class="op">;</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>kutuRengi <span 
+			class="op">=</span> renk<span 
+			class="op">;</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>en <span 
+			class="op">=</span> eni<span 
+			class="op">;</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>boy <span 
+			class="op">=</span> boyu<span 
+			class="op">;</span>
+<span class="pl-50">yeniDikdörtgenNesneSınıfÖrneği</span><span 
+class="op">.</span>yükseklik <span 
+			class="op">=</span> yüksekliği<span 
+			class="op">;</span>
+<span class="keyw-50">return</span> yeniDikdörtgenNesneSınıfÖrneği<span 
+			class="op">;</span>
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> seriNumarasıEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span> seriNr<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.seriNumarası <span 
+			class="op">=</span> seriNr;
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> malzemeEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span>materyel<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.seriNumarası <span 
+			class="op">=</span> malzeme;
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kutuRengiEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span> renk<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.kutuRengi <span 
+			class="op">=</span> renk;
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kutuEniEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span> eni<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.en <span 
+			class="op">=</span> eni;
+<span class="op-25">}</span>
+
+
+<span class="keyw-25">function</span> kutuBoyuEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span> boyu<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.boy <span 
+			class="op">=</span> boyu;
+<span class="op-25">}</span>
+
+<span class="keyw-25">function</span> kutuYüksekliğiEkle<span 
+			class="op">(</span>nesneSınıfÖrneği<span 
+			class="op">,</span> yüksekliği<span class="op">) {</span>
+<span class="pl-50"></span>nesneSınıfÖrneği.yükseklik <span 
+			class="op">=</span> yüksekliği;
+<span class="op-25">}</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="indent">
+			Yukarıda görülen veri giriş fonksiyonlarından ilk ikisi, hem yeni Dikdörtgen sınıfı 
+			nesne örneklerinin yaratılması, hem de yeni yaratılan nesne örneğine bazı özelliklerin  
+			girilmesi işlevini yapmaktadırlar. Sonuncu fonksiyon ise polimorf bir metottur ve 
+			Kare sınfından olsun, Dikdörtgen sınıfından olsun, sadece yaratılmış nesne örneklerine
+			seriNumarası özelliğinin değerini girmek için  kullanılabilecektir.
+		</p>
+		<p class="indent" id="b15.4.2-uyg-6">
+			Yukarıda geliştirilmiş olan sistemin bir uygulaması, yazılımı aşağıda görülen bir
+			<a href="../uygulamalar/b15.4.2-uyg-6-js.html">
+				JavaScript programı 
+			</a>
+			ile yapılmış 
+			ve bağlantılı olduğu 
+			<a href="../uygulamalar/b15.4.2-uyg-6.html">
+				sayfada
+			</a>
+			verdiği sonuçlar, aşağıda verilmiştir:
+		</p>
+		<pre>
+<span class="keyw-50">...</span>
+<span class="comm-25">Dikdörtgen nesne sınıfı örneğinin yaratılması</span>
+<span class="keyw-50">var</span> kutu18 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(),</span> kutu19 <span 
+			class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span 
+			class="op">(</span>34786<span 
+			class="op">,</span> <span 
+			class="str">'Alüminyum'</span><span 
+			class="op">,</span> <span 
+			class="str">'Sarı Eloksal'</span><span 
+class="op">, </span>21<span 
+class="op">, </span>33<span 
+class="op">, </span>50<span 
+			class="op">);</span>
+<span class="comm-25">Verilerin Girilmesi</span>
+<span class="pl-50">seriNumarasıEkle</span><span 
+			class="op">(</span>kutu18<span 
+			class="op">,</span> 34688<span 
+			class="op">);</span>
+<span class="comm-25">Sonuçların Yazılması</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu18 seri numarası : '</span>, kutu18<span 
+class="op">.</span>seriNumarası<span 
+			class="op">,</span> <span 
+			class="str">'b15.4.2-uyg-6-sonuç-1'</span><span 
+			class="op">);</span>
+<span class="pl-50">sonuçYaz</span><span 
+			class="op">(</span><span 
+			class="str">'kutu19 Özellikleri =  '</span>, kutu19<span 
+			class="op">.</span>seriNumarası<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu19<span 
+			class="op">.</span>kutuŞekli<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu19<span 
+			class="op">.</span>malzeme
+<span class="op-75"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu19.kutuRengi<span 
+			class="op"> + </span><span 
+			class="str">' '</span> <span 
+			class="op">+</span> kutu19<span 
+			class="op">.</span>hacım<span 
+			class="op">() </span>, <span 
+			class="str">'b15.4.2-uyg-6-sonuç-2'</span><span 
+			class="op">);</span>
+<span class="keyw-50">...</span>
+		</pre>
+		<p class="cursive-green">
+			Program Sonucu :
+		</p>
+		<p class="indent" id="b15.4.2-uyg-6-sonuç-1">
+		</p>
+		<p class="indent" id="b15.4.2-uyg-6-sonuç-2">
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.2-uyg-2-js.html">
+				JavaScript programındaki
+			</a>
+			veri girişi fonksiyonlarının incelenmesi yararlı olabilir. Veri giriş fonksiyonlarının bazılarının 
+			hem yeni nesne örneği ürettikleri, hem de bazı özellikleri atadığını görüyoruz. Bazıları da,  
+			yaratılmış nesne sınıf örneklerini argüman  olarak aldıkları ve bu argümanlarının belirli 
+			özelliklerinin değerlerine diğer argümanı atadığı görülmektedir. Nesneler, referansla aktarılırlar. 
+			Bir fonksiyona bir nesne argüman olarak atanırsa, ve o nesnesinin özellikleri fonksiyon
+			içinde değiştirilirse, değişiklik nesneye de yansır.
+		</p>
+		<p class="indent">
+			Yukarıdaki 
+			<a href ="../uygulamalar/b15.4.2-uyg-6-js.html">
+				JavaScript programında
+			</a>
+			Dikdörtgen sınfından bir nesne örneğinin üretilebilmesi için üç ayrı yöntem uygulanabilir. 
+			İlk yöntem bunun bir boş nesne örneği ile doğrudan 
+		</p>
+		<pre>
+<span class="pl-50">örnekX</span> <span 	class="op">=</span> <span 
+			class="keyw">new</span> Dikdörtgen<span class="op">();</span>
+		</pre>
+		<p class="nonindent">
+			şeklinde, kalıtımla aktarılan ve yapılandırıcı fonksiyonda belirlenen
+			varsayılan özellik değerleri ile yaratılmasıdır. Yaratılan nesne
+			örneğinin gerçek özellik değerleri, seriNumarasıEkle<span class="op">()</span>
+			gibi, veri giriş fonksiyonları kullanılarak atanabilir. 
+		</p>
+		<p class="indent">
+			İkinci yöntem, hem yeni nesne örneğinin  yaratılmasını sağlayan, hem de
+			seriNumarası özelliğini atayan dikdörtgenÖrneğiVeriGirişi1<span class="op">()</span>
+			fonksiyonun kullanılmasıdır. Burada yukarıdaki 
+			<a href ="../uygulamalar/b15.4.2-uyg-6.html">
+				uygulamada
+			</a>
+			olduğu, gibi, diğer
+			özellikler ilgili veri giriş fonksiyonlarından yararlanılarak gerçekleştirilebilir.
+		</p>
+		<p class="indent">
+			Sonuncu ve en gerçekçi yöntem, 
+			yeniDikdörtgenNesneSınıfÖrneğiVeriGirişiToplamVeriler<span class="op">()</span>
+			fonksiyonun kullanımı ile hem yeni bir nesne örneğinin yaratılması, hem
+			de tüm özelliklerine  güncel değerlerin atanmasıdır. Bu şekilde yaratılamış
+			olan nesne örneği, tam ve gerçek bir veri olacak ve disk dosyalarında saklanmak
+			için tamamlanmış olacaktır. Disk dosyalarında saklanılan verilere, listelemek,
+			değiştirmek veya silmek amacı ile her an erişilebilir.
+		</p>
+		<ul id="navbottom">
+			<li id="index">
+				<p>
+					<a href="../index.html">
+						<em>« Indeks</em>
+					</a>
+				</p>
+			</li>
+			<li id="denge">
+			</li>
+			<li id="sayfa">
+				<p>
+					<a href="b15s4.html">
+						<em>« Önceki</em>
+					</a>
+				</p>
+			</li>
+			<li id="denge1">
+			</li>
+			<li id="kodlama">
+				<p>
+					<a href="b15s6.html">
+						<em>Sonraki »</em>
+					</a>
+				</p>
+			</li>
+			<li id="navbottom-sonlama">
+			</li>
+		</ul>
+		<p class="indent pl-50">
+			<a href="http://validator.w3.org/#validate_by_upload">
+				<img src="../images/valid-xhtml11.png" alt="Valid XHTML 1.1" height="31" width="88" />
+			</a>
+		</p><!-- Script Yükleme Alanı Başlangıcı-->
+		<script type="text/javascript" src="../js/bdelib.js">
+		</script>
+		<script type="text/javascript" src="../js/lastmodified.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.4.2-uyg-4.js">
+		</script>
+		<script type="text/javascript" src="../js/b15.4.2-uyg-6.js">
+		</script>
+		<!-- Script Yükleme Alanı Sonu-->
+	</body>
+
+<!-- Mirrored from www.bedriemir.com/JavaScript/b15/b15s5.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:12:34 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

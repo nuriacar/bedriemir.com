@@ -1,0 +1,260 @@
+<html lang="tr">
+
+
+<!-- Mirrored from www.bedriemir.com/math/Dikotomik.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:16:00 GMT -->
+<head>
+    <meta name="description" content="Bir Fonksiyonun
+Dikotomik Arama Yöntemi ile">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/math/Dikotomik.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bir Fonksiyonun
+Dikotomik Arama Yöntemi ile
+Yaklaşık
+Kökünün</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title></title>
+  
+  <script language="javascript1.3">
+<!--
+
+//src=<A HREF="file://C:\My Documents\JavaScript\Developed Functions\Eval\Dikotomik Arama.htm">
+
+
+/* Modular Program To Evaluate
+
+Roots of a Function with Dichotomous Search
+
+Program Author : Bedri Dogan Emir*/
+
+function Half(a,b){
+	
+  return ((a+b)/2)
+  
+  }
+  
+  
+function ToZero(x){
+  
+return(eval(document.f.expr.value))
+ 
+  }
+
+
+function first_check(a,b){
+  var s=false,zero=null 
+  var low,high=null
+  low=ToZero(a)
+  high=ToZero(b)
+  
+  if (low*high<0) s=true
+  if(low===0){Alert("Alt Degerde Gerçek Köke Rastladınız !")
+                zero=0
+                return zero}
+  if(high===0){Alert("Ust Degerde Gerçek Köke Rastladınız !")
+				zero=true
+				return zero}
+  return s
+  }
+  
+  
+  function delta(x,y){
+  
+		var d=null
+		
+		d=(ToZero(y)-ToZero(x))
+  return d
+ } 
+  
+
+function root(alt,ust){
+
+// Yaklasık Kökün Bulunması
+
+  
+    /* eps DEGISKENINI KENDINIZ IÇIN
+    UYGUN OLAN BIR DEGER ILE DEGISTIREBILIRSINIZ*/
+
+    var eps=null
+    
+    eps=parseFloat(f.eps.value)
+
+ 
+    /* MAX DEGISKENINI KENDINIZ IÇIN
+    UYGUN OLAN BIR DEGER ILE DEGISTIREBILIRSINIZ*/
+  
+    var MAX=null
+    MAX=eval(f.max.value)
+    
+    // BU DEGERLERI DEGISTIRMEYINIZ !!! 
+    var x3=null;x4=null;Diff=100;iter=0
+   
+   
+  
+   
+    while(Diff>eps)
+    {
+     iter++
+          
+           x3=Half(ust,alt)
+        x=x3
+           
+           ortalama_degeri=eval(f.expr.value)
+        x=alt
+           
+           alt_degeri=eval(f.expr.value)
+           
+        x=ust
+           
+           ust_degeri=eval(f.expr.value)
+           
+        if(alt_degeri*ortalama_degeri>0)alt=x3
+                  else ust=x3
+        Diff=Math.abs((ust_degeri-alt_degeri)/ortalama_degeri*100)
+          
+           
+           //Infinity Check
+           
+           if (Diff===Infinity)break
+           
+           //Maximum Allowable Looping Check
+           
+           if(iter>MAX)break 
+           
+    }
+    x4=x3
+    x3=roundOff(x3, f.precision.value)
+     // Results of Calculations
+      
+     f.iter.value=iter  // NUMBER OF ITERATIONS OBSERVED
+     
+     f.Diff.value=Diff  // ATTAINED INTERVAL WIDTH
+   
+     f.root.value=x3  // COMPUTED APPROXIMATE ROOT
+}
+
+function roundOff(value, precision)
+{
+        value = "" + value //convert value to string
+        precision = parseInt(precision);
+
+        var whole = "" + Math.round(value * Math.pow(10, precision));
+
+        var decPoint = whole.length - precision;
+
+        if(decPoint != 0)
+        {
+                result = whole.substring(0, decPoint);
+                result += ".";
+                result += whole.substring(decPoint, whole.length);
+        }
+        else
+        {
+                result = whole;
+        }
+        return result;
+}
+
+function fullview(){
+
+}
+
+function compute(){
+
+// ANA Program
+ 
+  var s=false;alt_degeri=null;ortalama_degeri=null;
+  var ust_degeri=null ;alt=null ;ust=null
+  
+ // Alt ve Üst Limitlerin Algilanmasi
+  
+  alt=eval(f.Alt.value)
+  
+  ust=eval(f.Ust.value)
+
+				
+//Yaklasık Köklerin Aralıgının Uygunlugunun Denenmesi
+
+ var p=true;s=""
+      if(first_check(alt,ust)===false )
+	  { 
+	    alert("Kök verdiginiz sınırlar içinde bulunmuyor !")
+	    p=false
+	  }
+	
+	if (p===true )
+	  {
+	    s=root(alt,ust)
+	   
+	  }
+	  
+	 
+     //Ana Program Sonu
+
+}
+
+//-->
+</script>
+</head>
+
+<body bgcolor="lightgoldenrodyellow">
+
+<p align="Center"><font color="#ff0000" size="4" face="Verdana">Bir Fonksiyonun
+Dikotomik Arama Yöntemi ile</font></p>
+<p align="Center"><font color="#ff0000"><font color="#ff0000" size="4" face="Verdana">Yaklaşık
+Kökünün Bulunması</font></font></p>
+<form name="f">
+  <b><i><span style="font-variant: small-caps; "><em><font face="Verdana" size="4" color="#0066ff">Verİler
+  :</font></em></span></i></b>&nbsp;&nbsp; <b><i><em><font face="Verdana" size="4" color="#0066ff"><span style="font-variant: small-caps; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></font></em></i></b><font color="#ff00ff"><input type="text" name="T1" size="59" value="Not :  x*x*x gibi üstel ifadeler Math.pow(x,3) olarak girilebilir."></font>
+  <p>&nbsp; <b><em><span style="font-variant: small-caps; "><i><font face="Verdana" size="3" color="#008000">İncelenecek
+  Fonksİyon :</font></i><var><kbd><font face="Verdana" size="3" color="#008000">
+  &nbsp; </font></kbd></var></span></em></b><b><em><span style="font-variant: small-caps; "><var><kbd><font face="Verdana" size="3" color="#008000"></font></kbd></var></span></em></b><input id="text1" name="expr" value="Math.pow(x,3)-3000*x-300" style="Math.pow(x,3)-3000*x-300width: 382px; height: 23px; " size="42">
+  &nbsp;</p>
+  <p><font face="Verdana" size="2" color="#800080">Alt Sınır :</font><input id="text3" name="Alt" value="40" size="10">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font face="Verdana" size="2" color="#800080"><i>Üst
+  Sınır :</i></font><input id="text4" name="Ust" value="60" size="10" style="10font-size: 10pt; font-family: Verdana; ">
+  &nbsp;&nbsp;&nbsp;&nbsp; <i><font face="Verdana" size="2" color="#ff00ff">eps
+  :</font></i><input id="text7" name="eps" value="1e-2" size="10"></p>
+  <p><i><font face="Verdana" size="2" color="#666633">Maksimum İterasyon Sayisi
+  :</font><font face="Verdana" size="2" color="#800080"> </font></i><input id="text8" name="max" value="1000" size="10" style="10font-size: 10pt; font-family: Verdana; ">
+  &nbsp;</p>
+  <p><b><i><font face="Verdana" size="4" color="#0066ff"><em><span style="font-variant: small-caps; ">SONUÇLAR
+  :</span></em></font></i></b></p>
+  <p>&nbsp; <font face="Verdana" color="#ff0000"><b><i>Yaklaşık Kök = </i></b></font><input id="text2" name="root" size="20">&nbsp;&nbsp;&nbsp;
+  İstenilen Ondalık Sayısı = <input type="text" name="precision" size="4" value="2"></p>
+  <p><font face="Verdana" color="#666633"><b><i>Gerçekleşen İterasyon Sayısı
+  :</i></b></font><input id="text5" name="iter" size="10"></p>
+  <p><b><i><font face="Verdana" color="#008000">Son İterasyonda Alt ve Üst Sınırlar
+  Arasında</font></i></b></p>
+  <p><b><i><font face="Verdana" color="#008000">&nbsp;Gerçekleşen Bagıl Yüzde
+  Fark :</font></i></b><input id="text6" name="Diff" size="10">
+  &nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ff0000"><b><i>Hesaplara
+  Basla</i></b></font> <input type="button" id="bb1" name="bb1" value="Hesapla !" onclick="compute()" style="compute()font-weight: bold; font-size: 12pt; text-transform: capitalize; color: rgb(255,0,0); font-style: italic; font-family: Verdana; ">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input id="reset1" type="reset" value="Yenile !" name="reset1" style="reset1font-weight: bold; font-size: 12pt; text-transform: capitalize; color: rgb(0,0,255); font-style: italic; font-family: Verdana; " ,onclick="document.f.writeln(&amp;apos;Root=&amp;apos;,x3)"></p>
+  <p>&nbsp;</p>
+  <p><b><i>Notlar :</i></b></p>
+  <p>&nbsp;&nbsp; <font size="1"><font color="#800000" face="Verdana">1 - Bir
+  Fonksiyonun birden fazla yaklaşık kökü olabilir. Bu köklerin yaklaşık
+  değerleri ve bu köklerin dikotomik arama ( yarılama yöntemi) ile
+  belirlenmesinde uygulanacak&nbsp; alt ve üst sınırlarının değerlerinin
+  bulunmasinda, en iyi yöntemin bu fonksiyonun grafiğinin çizilmesidir. Bu
+  konuda MATHCAD 2000 çok iyi olanaklar sağlar. Asağida, bu fonksiyonun bu
+  program kullanılarak çizilmis bir grafiği görülmektedir.</font></font></p>
+  <p><img src="Dicho21.gif" border="0" width="508" height="335"></p>
+  <p><font color="#800000" face="Verdana" size="1">2- Yakınsama kriteri eps ne
+  kadar küçük olursa, yöntem o kadar zor yakınsayacak ve iterasyon sayısı
+  artacaktir. Her iki değer değiştirilerek, güç yakınsayan fonksiyonlar için
+  uygun hesaplama süreleri bulunabilir.</font></p>
+</form>
+
+</body>
+
+
+<!-- Mirrored from www.bedriemir.com/math/Dikotomik.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Feb 2018 03:16:00 GMT -->
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script><script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "http://np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>

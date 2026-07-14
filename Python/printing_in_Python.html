@@ -1,0 +1,2664 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta name="description" content="Extended Lecture for Python Tutorial 
+                Bedri Doğan Emir (Prof. Dr. Ret.)
+                
+                http://www.bedriemir.com">
+    <meta name="revised" content="2026-07-15">
+    <link rel="canonical" href="https://nuriacar.com/bedriemir.com/Python/printing_in_Python.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <title>new-print</title>
+        <meta content="Python 3 Programming Language Tutorial, in Turkish" name="description">
+        <meta content="Python 3 Tutorial, in Turkish" name="keywords">
+        <meta content="Prof. Dr. Bedri Doğan Emir" name="author">
+        <meta content="INDEX,FOLLOW" name="Robots">
+        <meta content="width=device-width; initial-scale=1.0" name="viewport">
+        <!--<link href="css/contentstyle.css" rel="stylesheet" type="text/css"> -->
+        <link href="css1.css" rel="stylesheet" type="text/css">
+        <link href="css2.css" rel="stylesheet" type="text/css">
+        <link href="../math/css/mathstyleSegoeUIReduced22.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1 class="Chapter">
+            <br/>            
+Python Programming Language
+        </h1>
+        <h2 class="Chapter">Printing Facilities </h2>
+        <p class="pagenum">         
+                Extended Lecture for Python Tutorial <br/>
+                Bedri Doğan Emir (Prof. Dr. Ret.)<br/>
+                <!-- Orijinal: http://www.bedriemir.com -->
+                <a href="../index.html">http://www.bedriemir.com</a>
+    </p>
+        <p class="c2">
+            <span class = " pl-50">Content </span>
+        </p>
+    <ul class="list">
+       <li class="position1"><span style ="font:22px;">
+           <a href="#Basic">1 - Basic Printing Procedures</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#defaults" style="color:#761D1F">1.1 - Python Printing Defaults</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#PrintingStrings" style="color:#008080">1.1.1 - Printing Strings</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#printingNumbers" style="color:#008080">1.1.2 - Printing Numbers</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#arithmetic" style="color:#008080">1.1.3 - Arithmetic Operations</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#nonDecimal" style="color:#008080">1.1.2 - Printing Binary, Octal and Hex Integers</a></span>
+        </li>
+       <li class="position1"><span style ="font:20px;">
+           <a href="#Latex">2 - Latex Printing in Python</a></span>
+        </li>
+       <li class="position1"><span style ="font:20px;">
+           <a href="#Dtc">3 - Data Type Conversion in Python</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#ConvStr" style="color:#761D1F">3.1 - Conversion to String</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#IS" style="color:#008080">3.1.1 - Integer to String</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#FS" style="color:#008080">3.1.2 - Float to String</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#ConvInt" style="color:#761D1F">3.2 - Conversion to Integer</a></span>
+        </li>
+       <li class="position3"><span style ="font:18px;">
+           <a href="#floatToInt" style="color:#008080">3.2.1 - Float to Integer</a></span>
+        </li>
+       <li class="position1"><span style ="font:19px;">
+           <a href="#StringFormatting">4 - String Formatting</a></span>
+        </li>
+       <li class="position2"><span style ="font:18px;">
+           <a href="#JS" style="color:#761D1F">4.1 - Justifying Strings</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#CN" style="color:#008080">4.1.1 - Centering</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#LAdj" style="color:#008080">4.1.2 - Left Adjustment</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#RAdj" style="color:#008080">4.1.3 - Right Adjustment</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#Zfill" style="color:#008080">4.1.4 - Zfill</a></span>
+        </li>
+       <li class="position1"><span style ="font:19px;">
+           <a href="#FormattedStrings">5 -Formatted Strings</a></span>
+        </li>
+       <li class="position1"><span style ="font:19px;">
+           <a href="#ClassicStyle">6 -Classic Style</a></span>
+        </li>
+       <li class="position2"><span style ="font:18px;">
+           <a href="#ES" style="color:#761D1F">6.1 - Exchanging with String Type Specifier</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#Truncating" style="color:#008080">6.1.1 - Truncating and Padding</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#StringTypes" style="color:#008080">6.1.2 - StringTypes</a></span>
+        </li>
+       <li class="position4"><span style ="font:16px;">
+           <a href="#IntToString" style="color:darkorange">6.1.2.1 - Integer To String</a></span>
+        </li>
+        <li class="position4"><span style ="font:16px;">
+           <a href="#flloatToStr" style="color:darkorange">6.1.2.2 - Float To String</a></span>
+        </li>
+        <li class="position4"><span style ="font:16px;">
+           <a href="#BinToStr" style="color:darkorange">6.1.2.3 - Binary To String</a></span>
+        </li>
+        <li class="position4"><span style ="font:16px;">
+           <a href="#OctToStr" style="color:darkorange">6.1.2.4 - Octal To String</a></span>
+        </li>
+        <li class="position4"><span style ="font:16px;">
+           <a href="#HexToStr" style="color:darkorange">6.1.2.5 - Hex To String</a></span>
+        </li>
+       <li class="position2"><span style ="font:18px;">
+           <a href="#Conc" style="color:#761D1F">6.2 - String Concatenation When Printing</a></span>
+        </li>
+       <li class="position2"><span style ="font:18px;">
+           <a href="#IntTypes" style="color:#761D1F">6.3 - Exchanging with Integer Type Specifier</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#FloatToInt" style="color:#008080">6.3.1 - Float to Integer</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#BinIntToStr" style="color:#008080">6.3.2 - From Binary Integer to String with Equivalent Decimal Numeric Content</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#OctIntToStr" style="color:#008080">6.3.3 - From Octal Integer to String with Equivalent Decimal Numeric Content</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#HexIntToStr" style="color:#008080">6.3.4 - From Hex Integer to String with Equivalent Decimal Numeric Content</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#StrDecToStrBin" style="color:#008080">6.3.5 - From String With Decimal Content to a String with Binary Equivalent Content</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#DecIntToOctalString" style="color:#008080">6.3.6 - From Decimal Integer to a String with Octal Equivalent Content</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#DecIntToHexString" style="color:#008080">6.3.7 - From Decimal Integer to a String with Hex Equivalent Content</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#FloatingPointTypes" style="color:#761D1F">6.4 - Floating Point Types </a></span>
+        </li>
+       <li class="position1"><span style ="font:20px;">
+           <a href="#MS">7 - Modern Style</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#IMS" style="color:#761D1F">7.1 - Introduction to Modern Style</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#AFF" style="color:#761D1F">7.2 - Arguments of the format() function</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#ACIS" style="color:#008080">7.2.1 - Accessing with the Intrinsic Sequential Order Indexes of the Arguments List</a></span></li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#ACES" style="color:#008080">7.2.2 - Accessing with the Explicit Sequential Order Indexes of the Arguments List</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#ACEN" style="color:#008080">7.2.3 - Accessing with the named elements of the Arguments List</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#EMOF" style="color:#761D1F">7.3 - Examples of Modern Output Formatting</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#NADJ" style="color:#008080">7.3.1 - Named Access with Default Justification</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;"> 
+           <a href="#SAV" style="color:#008080">7.3.2 - Sequential Access By Virtue of Intrinsic Indexes with Left Justification</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#AN" style="color:#761D1F">7.4 - Access by Variable Names</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#AL" style="color:#008080">7.4.1 - Access as the elements of a list</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#AL" style="color:#008080">7.4.2 - Access as the elements of a Tuple</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#AT" style="color:#008080">7.4.3 - Access as the elements of a Dict</a></span>
+        </li>
+       <li class="position3"><span style ="font:17px;">
+           <a href="#AT" style="color:#008080">7.4.4 - Access with the Return values of a Function</a></span>
+        </li>
+       <li class="position2"><span style ="font:19px;">
+           <a href="#DOCS" style="color:#761D1F">7.5 - Access Via Docstring</a></span>
+        </li>
+    </ul>
+        <p class="c2">
+            <a href= "#Litt">Literature</a>
+        </p>
+
+        <p class="Title" id="Basic">
+            1 - Basic Printing Procedures
+        </p>
+        <p class="Subtitle" id="defaults">
+            1.1 -Python Printing Defaults
+        </p>
+        <p class="Text">
+            Python is a very frequently applied moden style programming language 
+            and from version 2.7 it supports both classic and modern style printing 
+            facilities. This makes Python programming language having very large 
+            printing possibilities but brings also difficulties to master them. 
+            The purpose of this manuscript. is to present and explain 
+            these new facilities.
+        </p>
+        <p class="Text">
+            Printing capabilities of Python is outstanding and unmatched with other 
+            programming. Python supports common style of printing like Java, Perl, 
+            JavaScript and similar programming languages, in addition it has an 
+            unique modern formatting system which surpasses the classic formatting 
+            system supported by other programming languages.
+        </p>
+        <p class="Text">
+            First of all, we should have a knowledge about Pyton printing function
+            <span class="keyw">print</span><span class="op">()</span>, since we will 
+            always need this function for data visualising.
+        </p>
+        <p class="Text">
+            The <span class="keyw">print</span><span class="op">()</span> function 
+            of Python is defined with it's default values as :
+        </p>
+        <pre>
+
+               <span class="keyw">print</span><span class="op">(</span>value, ..., sep=' ', 
+                end='\n', file=sys.stdout, flush=False<span class="op">)</span>
+
+            Prints the values to a stream, or to sys.stdout by default. Optional keyword arguments: 
+                file: a file-like object (stream); defaults to the current sys.stdout. 
+                sep: string inserted between values, default a space. 
+                end: string appended after the last value, default a newline. 
+                flush: whether to forcibly flush the stream.
+                </pre>
+    <p class="Text">
+            We will begin with printing of simple singular objects 
+            for experiencing the default attitude of the print() function and opportunities 
+            to override the default values.
+        </p>
+        <p class="Subsubtitle" id= "PrintingStrings">
+            1.1.1 - Printing Strings  
+        </p>
+        <p class="Text">
+            First we will examine printing of a single string with default values.
+        </p>
+        <p class="pl-100">
+            <span class="keyw">print </span><span class="op">(</span><span class="str">&quot;Hello 
+            World !&quot;</span><span class="op">) </span>
+        </p>
+        <p class="Text">
+            <span class="pl-100">Hello World !</span>
+        </p>
+        <p class="Text">
+            The printout obtained, reflects exactly the given data. The total length 
+            of the string was 13 spaces in the data and it is exactly the same length 
+            in the printout. Would more spaces is defined in the data, we will obtain 
+            the same amount of spaces printed in the printout.
+        </p>
+        <p class="Text">
+            <span class="keyw-100">print </span><span class="op">(</span><span
+             class="str">&quot;Hello&nbsp;&nbsp;&nbsp;&nbsp;World 
+            ! !&quot;</span><span class="op">) </span>
+        </p>
+        <p class="Text">
+            <span class="pl-100">Hello&nbsp;&nbsp;&nbsp;&nbsp;World !</span>
+        </p>
+        <p class="Text">
+            Python <span class="keyw">print</span><span class="op">(</span><span
+             class="att">attributes</span><span class="op">)</span> 
+            function, receive his attributtes as a tuple, which is a comma separated 
+            list (CSV) of unchangeable items with same type as the data.
+        </p>
+        <pre class="pl-100">
+        a <span class="op">=</span> 10
+
+        <span class="keyw">print</span><span class="op">(</span>a<span 
+        class="op">,</span><span class="keyw">type</span><span 
+        class="op">(</span>a <span class="op">))</span></pre>
+        <pre class="pl-100"><code> <i>1</i><i>2</i><i>b</i><i>&lt;class= 'int'&gt;</i><i></i></code></pre>
+        <p class="Text">
+            There were no spaces between CSV data but in the printout, we got a printout 
+            where each item is separated with a single blank space. this is due 
+            to the default action of sep =&quot;&nbsp;&quot;. The item separator 
+            default to one single blank space for the separation between items to 
+            be printed. When printed with this default, there is no need to explicitly 
+            state sep=&quot;&nbsp;&quot;,but when overriding this default, we must 
+            explicitly indicate the new separator that we wish in the printout. 
+            Any character may be chosen as an item separator for the coming printing.
+        </p>
+        <pre class="pl-100">
+        a <span class="op">=</span> 10
+
+        <span class="keyw">print</span><span class="op">(</span>a<span 
+        class="op">,</span><span class="keyw">type</span><span 
+        class="op">(</span>a<span class="op">),</span> sep <span 
+        class="op">=</span>&quot;&nbsp;|&nbsp;&quot;<span class="op">)</span></pre>
+        <pre class="pl-100"><code> <i>1</i><i>2</i><i>&nbsp;|&nbsp;</i><i>class= 'int'&gt;</i><i></i></code></pre>
+        <p class="Text">
+            There is a possibility in Python, to indicate whether the next print 
+            will be printed in same line or to the next line. The argument managing 
+            the subsequent printing is the <span class="op">end =</span>
+            <span class="str">&quot;\n&quot;</span> (ecaped n) argument, where n 
+            stands for newline. This is the default behavior and there is no need 
+            to explicity state it, when the deafult is to be followed. But for overriding 
+            the default, one must explicitly state that the newline indicator is 
+            different from <span class="str">&quot;\n&quot;</span>. In the program 
+            below, the the next print will be displayed in the same line, without 
+            inserting an empty space between subsequent items to be printed, since 
+            the end point indicator end=&quot;&quot; suggest that no empty spaces 
+            should be inserted between two subsequent printed data.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello World !&quot; </span><span>end=""
+            </span><span class="op">) </span>
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot; What a Nice Day !&quot;</span><span class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            Hello World ! What a Nice Day !
+        </p>
+        <p class="Text">
+            The next printout will always occur according the decriptions of the 
+            previous <span class="keyw">print</span><span class="op">() </span>function. 
+            In the program below, it is stated that the next print will be at the 
+            same line and 6 empty spaces will be inserted between printed items.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello World !&quot; </span><span>end=&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;</span><span class="op">) </span>
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot; What a Nice Day !&quot;</span>
+            <span class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            Hello World !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What a Nice Day !
+        </p>
+        <p class="Text">
+            The next printout will always be at the same line as far as the (end 
+            =<span class="str">&quot;anything&quot;</span>) part of the
+            <span class="keyw">print</span><span class="op">() </span>function is 
+            explicitly stated.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Section&quot; </span>, end = &quot;/&quot;<span class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            Section/
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span 
+            class="str">&quot;SubSection;&quot;</span>, end = &quot;/&quot;<span 
+            class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            Section/SubSection/
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span
+             class="str">&quot;Content&quot;</span><span class="op">)
+            </span><span class="comm-150"># Default behavior is restored </span>
+        </p>
+        <p class="cursive-blue">
+            Section/SubSection/Content
+        </p>
+        <p class="Text">
+            Note that, unless it is expicitly stated as end=<span class="str">&quot;\n&quot;</span> 
+            any end = <span class="str">&quot; termination character&quot;</span> 
+            will not initialize a new line, but print the termination character 
+            (here a slash) and proceed to the next print statement in the same line 
+            without leaving any blank space between two subsequent prints.
+        </p>
+        <p class="Text">
+            The ending indicator of the <span class="keyw">print</span><span class="op">()</span> 
+            function when stated, is not permanent. If nothing is said about ending 
+            indicator, the <span class="keyw">print</span><span class="op">()</span> 
+            function restores its default behavior and the subsequent prints will 
+            be done in the subsequent lines. Just like the last
+            <span class="keyw">print</span><span class="op">()</span> function of 
+            the example given above.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;1 
+            - Introduction&quot;</span><span class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            1 - Introduction
+        </p>
+        <p class="Text">
+            Python prints any text by allowing enough spaces for the entire string 
+            so that nothing is lost.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello 
+            World !&quot;</span><span class="op">) </span>
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello 
+            World !&quot;</span><span class="op">) </span>
+        </p>
+        <p class="cursive-blue">
+            Hello World !
+        </p>
+        <p class="cursive-blue">
+            Hello World !
+        </p>
+    <p class="Text">
+        Notice the right justification of the strings in the printout. 
+    </p>
+        <p class="Text">
+            We can split long strings by a newline command(n), by escaping in the 
+            string as (\n) then the subsequent part of the string is printed to 
+            the next line.
+        </p>
+        <p class="Text">
+            Python programming language allows the insertion of two escaped characters 
+            \t and \n in the strings. The former indicates that there will be one 
+            tab length distance between two characters separated by \t and the later 
+            indicates that the next character after \n will be printed in the next 
+            line.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello 
+            luw, \t how's your mood? &quot;</span><span class="op">) </span>
+        </p>
+        <pre class="cursive-blue">
+                Hello luw,&nbsp;&nbsp;&nbsp;&nbsp;how's your mood? </pre>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Tea : \t 10 p.&quot;</span><span class="op">)</span>
+        </p>
+        <pre>
+                Tea : 	 10 p.</pre>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Instant Coffee :\t 15 p.&quot;</span><span class="op">)</span>
+        </p>
+        <pre>
+                Instant Coffee : 	 15 p. </pre>
+        <p class="Text">
+            No right alignment, only separation of one tab length.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Hello 
+            mate, \n how's going? &quot;</span><span class="op">) </span>
+        </p>
+        <pre class="cursive-blue">
+                Hello mate, 
+                    how's going?
+                </pre>
+        <p class="Text">
+            Note that the next line is a little intended in order to indicate that 
+            the line is the continuation of the same string.
+        </p>
+        <p class="Subsubtitle" id="printingNumbers">
+            1.1.2 - Printing Numbers 
+        </p>  
+        <p class="Text">
+            Working with numbers is somewhat detailed, because numbers may be integers 
+            or floating numbers. Also they may be signed or unsigned which make 
+            an additional case to be taken into account. As a default behavior, 
+            they are printed according to an internal procedure, so that no human 
+            intervention is required.
+        </p>
+        <p class="Text">
+            The type of the data is not changed when printed.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>24.89
+            <span class="op">,</span><span class="keyw"> type</span><span 
+            class="op">(</span>24.89<span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            24.89 &lt;class 'float'&gt;
+        </p>
+        <p class="Text">
+            Positive sign is not required, since any non- negative numbers are to 
+            be understood as positive. But negative numbers should be explicitly 
+            stated as negative.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>-16.18<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            -16.18
+        </p>
+        <p class="Text">
+            Python allows three type of representation of the floating point numbers. 
+            In science, S.I. system suggest that the numbers are stated in scientific 
+            format which is like 3.9E-2 or 3.9e-2 or 3.9*10**-2 . All are equivalent 
+            to 0.039 as it illustrated in the example below.
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span>3.9E-2 <span 
+        class="op">,</span> 3.9e-2 <span class="op">,</span> 3.9*10**-2 <span 
+        class="op">)</span></pre>
+        <pre class="pl-100">
+        0.039 0.039 0.039</pre>
+        <p class="Text">
+            Or within a loop mechanism :
+        </p>
+        <pre class="pl-100">
+        i=0
+        q=(25.25e-2 , 25.25E-2 , 25.25*10**-2)
+        for item in q:
+        i=i+1
+        print("item ", i  , ": ", item)</pre>
+        <pre class="pl-100"><span 
+        class="cursive-blue">
+        item  1 :  0.2525
+        item  2 :  0.2525
+        item  3 :  0.2525</span></pre>
+        
+        <p class="Subsubtitle" id = "arithmetic">
+            1.1.3 - Arithmetic Operations
+        </p>
+        <p class="Text">
+            In Python, <span class="keyw">print</span><span class="op">()</span> 
+            function can make some arithmetic before printing.
+        </p>
+        <p class="Text">
+            Addition :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;12 + 45.89 = &quot;</span> , 12
+            <span class="op">+</span> 45.89<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            12 + 45.89 = 57.89
+        </p>
+        <p class="Text">
+            Substraction :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;10 - 8 = &quot;</span> , 10 <span class="op">
+            -</span> 8<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            10 - 8 = 2
+        </p>
+        <p class="Text">
+            Multiplication :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot; 25 * 4 = &quot;</span> , 25
+            <span class="op">*</span> 4<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            25 * 4 = 100
+        </p>
+        <p class="Text">
+            Divsion :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;12 / 2 = &quot;</span> , 12 <span class="op">
+            /</span> 2<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            12 / 2 = 6
+        </p>
+        <p class="Text">
+            Modulus :
+        </p>
+        <p class="Text">
+            It is unfortunate that the modulus symbol % is the same with the formatting 
+            symbol %, but one can manage to have a modlus operation with the context 
+            of the statement.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;7 % 4 = &quot;</span> , 7 <span class="op">%</span> 
+            4<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            7 % 4 = 3
+        </p>
+        <p class="Text">
+            Exponentiation :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;2**3 = &quot;</span> , 2 <span class="op">**</span> 
+            3<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            8
+        </p>
+    <p class="Subsubtitle" id="nonDecimal">
+            1.1.4 - Printing Binary, Octal and Hex Integers
+    </p>
+        <p class="Text">
+            Python supports binary, octal and hex integers and allows to make addition, 
+            substraction and multiplication among them. Division and modulus is 
+            not permitted since these operations are not closed (i.e. the result 
+            may not be an integer) for the integer set.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Printing a binary number :&quot;</span> , 0b00100101 
+            , <span class="str">&quot; , type(0b00100101) : &quot;</span> ,
+            <span class="keyw">type</span><span class="op">(</span>0b00100101<span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Printing a binary number : 0b00100101= 37 , type(0b00100101) : &lt;class 
+            'int'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Printing a binary number &quot;</span> , 0b10101 
+            , <span class="str">&quot; , type(0b10101) : &quot;</span> ,
+            <span class="keyw">type</span><span class="op">(</span>0b10101<span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Printing a binary number 0b10101= 21 , type(0b10101) : &lt;class 'int'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Printing an addition of two binary numbers : &quot;</span> 
+            , 0b00100101 <span class="op">+</span> 0b10101 , <span class="str">&quot; 
+            , type(0b00100101+0b10101) : &quot;</span> , <span class="keyw">type</span><span
+             class="op">(</span>0b00100101<span class="op">+
+            </span>0b10101<span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Printing an addition of two binary numbers : 0b00100101 + 0b10101 = 
+            58 , type(0b00100101 + 0b10101) : &lt;class 'int'&gt;
+        </p>
+        <p class="Text">
+            Note that the values of the binary, octal and hex numbers are retained 
+            in the internal memory as decimal integers. That is why the results 
+            of the permitted arithmetic operations between them is displayed as 
+            decimal integers. For converting back to the binary system, one can 
+            use the converversion functions like bin(), oct() and hex(). The result 
+            of the conversion will be a string whose content will be converted to 
+            a binary, octal or hex number. No arithmetic operations with converted 
+            string types. We can only concatenate them.
+        </p>
+        <pre class="pl-100">
+            <span class="keyw">print</span> <span class="op">(</span><span 
+            class="str">&quot;Result : &quot;</span><span class="op">, </span><span 
+            class="keyw">bin</span> <span class="op">(</span>58<span class="op">) </span><span 
+            class="op">,</span><span class="str">&quot; , Type of the Result : &quot;</span><span 
+            class="op">,</span><span class="keyw">type</span> <span class="op">(</span><span 
+            class="keyw">bin</span> <span class="op">(</span>58<span class="op">)</span><span 
+            class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : 0b111010 , Type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;bin(0b00100101 + 0b10101) = &quot;</span> ,<span class="keyw"> 
+            bin</span> <span class="op">(</span>0b00100101 <span class="op">+</span> 
+            0b10101<span class="op">)</span> , <span class="str">&quot; , type(bin(0b00100101+0b10101)): &quot;</span> 
+            , <span class="keyw">type</span><span class="op">(<span 
+            class="keyw">bin</span></span><span class="op">(</span>0b00100101<span class="op">+
+            </span>0b10101<span class="op">)))</span>
+        </p>
+        <p class="cursive-blue">
+            bin(0b00100101 + 0b10101) = 0b111010 , type (bin(0b00100101 + 0b10101)) 
+            : &lt;class 'str'&gt;
+        </p>
+        <p class="Text">
+            Exactly two equal results with the same type.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Printing an octal number :&quot;</span>
+            <span class="op">,</span>0o237<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            Printing an octal number : 159
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Printing an hex number :&quot;</span>
+            <span class="op">,</span>0x825CD<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            Printing an hex number : 533965
+        </p>
+    <p class="Title" id="Latex">
+            2 - Latex Printing with Python
+        </p>
+    <p class="Text">
+        Yes, Latex printing is supported with Python. For achieving this,
+        we must implement the Latex infrastructure in our computer.
+        This is easily achived by following the steps described at the Internet.
+        First we must implement Ipython notebook infrastucture in our environment. 
+        This may be achieved easily by downloading and running Anaconda or Winpython 
+        frameworks in our computer. The problems begin after their implementation. 
+        Anaconda is invasive. I reverts the Pyton version used in the system to a 
+        version implement with Anaconda. This impose problems of course, because 
+        one will choose the work with the latest release of the Python interpreter 
+        rather than the one inserted with Anaconda. It gives real headache, 
+        but if you stand with the Anaconda release, no problems will be experienced. 
+        WinPython is more restrictive because it only affects its framework, i.e. the folder 
+        which is inserted. Then we should import display() and Math() functions from 
+        Ipython display as :
+    </p>
+    <pre class="pl-100">
+from IPython.display <span class="keyw">import </span>*
+    </pre>
+    <p class="Text">
+        or with less memory allocation,
+    </p>
+    <pre class="pl-100">
+from IPython.display <span class="keyw">import</span> display, Math
+    </pre>
+    <p class="Text">
+        The display() function acts like print() but only prints string data.
+    </p>
+    <pre class="pl-100">
+<span class="keyw">display</span><span class="op">(</span><span 
+class="str">&quot;88 + 2 = &quot;</span><span class="op"> + </span><span 
+class="keyw">str</span><span class="op">(</span>88 <span 
+class="op">+ </span>2<span class="op">))</span></pre>
+    <p class="cursive-blue">
+ '88 + 2 = 90'       
+    </p>
+    <p class="Text">
+        Just like the normal print() but the result is displayed between quotes. 
+        But Math() function  makes a better display and without quotes. 
+    </p>
+    <pre class="pl-100">
+<span class="keyw">display</span><span class="op">(</span><span 
+class="keyw">Math</span><span class="op">(</span><span 
+class="str">&quot;88 + 2 = &quot;</span><span class="op"> + </span><span 
+class="keyw">str</span><span class="op">(</span>88 <span 
+class="op">+ </span>2<span class="op">)))</span></pre>
+    <p class="Text">
+<img src="images/section2-image-1.png" alt="Pretty printing" />      
+    </p> 
+    <p class="Text">
+        But the real realm comes with Latex printing. One sholud not know
+        very deep latex. Here it is needed just matematical Latex notations
+        and it is very easy to use the in printed material. We have collected
+        the related section of the book of Latex of Wikipedia as a MSWord
+        document <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">
+        Mathematical Latex symbols collected from Wikipedia</a>. With that 
+        in hand it will be very easy to generate printed material in Latex style in Python.
+    </p>
+    <p>
+        <img src="images/Latex-1.png" alt="Latex Printing in Python"/>   
+</p>
+    <p class="Text">
+    we should not forget that it is used "escaped backslash" as "\\" for Latex printing.
+    </p>
+    <p class="Text">
+        Another way for obtention of pretty printed material is defined in
+        <a href="https://stackoverflow.com/questions/4028267/print-latex-formula-with-python">stackoverflow</a> :
+    </p>
+    <img src="images/LatexWithMathplotlib1.png" alt="image with Matplotlib"/>
+    <p class="Text">
+        This one is our interpretation based from the method above.
+    </p>
+    <pre class="pl-100">
+import matplotlib.pyplot as plt
+import math
+a = r'\sqrt{a}='+str(math.sqrt(2))
+ax=plt.subplot(111)
+ax.text(0.5,0.5,r"$%s$" %(a),fontsize=20,color="green")
+plt.show()
+    </pre>
+    <img src="images/LatexWithMathplotlib2.png" alt="image with Matplotlib"/>
+    <p class="Text">
+        Or, with more understandable code :
+    </p>
+    <pre class="pl-100">
+import matplotlib.pyplot as plt
+a = r'\frac{a}{b}'
+ax = plt.axes([0,0,0.3,0.3]) #left,bottom,width,height
+ax.set_xticks([])
+ax.set_yticks([])
+ax.axis('off')
+plt.text(0.4,0.4,'$%s$' %a,size=20,color="green")
+    </pre>
+    <img src="images/LatexWithMathplotlib3.png" alt="image with matplotlib" width="200" height="200"/> 
+    <p class="Text">
+        We will define this classic style very soon.
+    </p>
+    <p class="Text">
+        Importing Matplotlib is delicate. The best implementation is cloning from the Git :
+    </p>
+    <pre class="pl-100">
+git clone git://github.com/matplotlib/matplotlib.git
+    </pre>
+    <p class="Text">
+        and install it from the downloaded source :
+    </p>
+    <pre class="pl-100">
+cd matplotlib
+python -mpip install 
+    </pre>
+    <p class="Text">
+        Then we will have hassle free Matplotlib implementation (hopefully).
+    </p>
+    <p id="Dtc" class="Title">
+            3 - Data Type Conversion in Python
+        </p>
+        <p class="Text">
+            Python has large data conversion functions. Altough it is not directly 
+            related to printing, it is worth to have some knowledge about these 
+            functions.
+        </p>
+        <p id="ConvStr" class="Subtitle">
+            3.1 - Conversion to String
+        </p>
+        <p id="IS" class="Subsubtitle">
+            3.1.1- Integer to String
+        </p>
+        <p class="Text">
+            The function <span class="keyw">str</span><span class="op">(</span><span 
+            class="att">atrribute</span><span class="op">)</span> 
+            converts any attribute type to string.
+        </p>
+        <p class="Text">
+            After the conversion to string, no arithmetic operations are permitted. 
+            Only string concatenation (union of strings) is possible. Example :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span 
+            class="keyw">str</span><span class="op">(</span>23<span class="op">) 
+            + </span><span class="keyw">str</span><span class="op">(</span>16<span 
+            class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 2316
+        </p>
+        <p class="Text">
+            Note that altough the operation is defined with the addition operator, 
+            this is not an arithmetic operation. Only it concatenates two strings 
+            into one.
+        </p>
+        <p class="Text">
+            Binary, octal and hex values are integers by definition. Python does 
+            not support the floating point values of non-base-10 types.They can 
+            be converted to string as well.
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">str</span><span class="op">(</span>0b0101<span 
+ class="op">) , </span><span class="keyw">type</span><span 
+ class="op">(</span><span class="keyw">str</span><span 
+ class="op">(</span>0b0101<span class="op">)))</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">5 </span>&lt;class 'str'&gt;
+        </p>
+        <p class="Text">
+            Python interpreter take the decimal equivalent of binary , octal or 
+            hex numbers in his memory. When converted to string, original values 
+            of these converts can not be restored. One strnge way to convert to 
+            string and retain the original value is given below.
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="keyw">bin</span><span class="op">(</span>0b0101<span 
+class="op">) , </span><span class="keyw">type</span><span 
+class="op">(</span><span class="keyw">bin</span><span 
+class="op">(</span>0b0101<span class="op">)))</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">0b0101</span>&lt;class 'str'&gt;
+        </p>
+        <p class="Text">
+            A very strange way of course!!!
+        </p>
+        <p id="FS" class="Subsubtitle">
+            3.1.2 -Float to String
+        </p>
+        <pre class="pl-100">
+            nr_float<span class="op">=</span><span class="keyw">str</span><span
+             class="op">(</span>23.97<span class="op">)</span>
+            <span class="keyw">print</span><span class="op">(</span>nr_float <span 
+            class="op">, </span><span class="keyw">type</span><span 
+            class="op">(</span>nr_float<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">23.97 class&lt;'str'&gt;</span>
+        </p>
+        <p id="ConvInt" class="Subtitle">
+            3.2 - Conversion to Integer
+        </p>
+        <p class="Text">
+            The need for conversion to integer arises for two cases :
+        </p>
+    <ul class="list">
+            <li>Conversion from floating point to integer</li>
+            <li>Restitution of original values from the previously string converted 
+            values.</li>
+        </ul>
+        <p id="floatToInt" class="Subsubtitle">
+            3.2.1 - Float To Integer
+        </p>
+        <p class="Text">
+            Conversion of a floating point value to the integer is realised with 
+            the tranforming the floating point value to an integer. There is three 
+            ways to achieve thisk task :
+        </p>
+        <ul class="list">
+            <li>Truncating the decimal part. That is done with
+            <span class="keyw">int</span><span class="op">()</span></li>
+            <li>Reducing to the lowest and elevating to the highest value. The function
+            <span class="keyw">math</span><span class="op">.</span><span
+             class="keyw">ceil</span><span class="op">()</span> 
+            returns an integer, whose value equals to the highest value of the data, 
+            i.e added 1 and truncating the decimal part, <span class="keyw">math</span><span 
+            class="op">.</span><span class="keyw">floor</span><span class="op">()</span> 
+            returns an integer, whose value equals to the lowest value of the data. 
+            This the same as truncating the decimal part. For example math.ceil 
+            (43.16) will return 43 and <span class="keyw">math</span><span 
+            class="op">.</span><span class="keyw">floor</span><span 
+            class="op">(</span>43.16<span class="op">)</span> 
+            will return 44 as a result.</li>
+        </ul>
+        <p class="Text">
+            Example :
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">int</span><span class="op">(</span>12.5557<span
+  class="op">))</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">12</span>
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="keyw">math</span><span class="op">.</span><span
+class="keyw">floor</span><span class="op">(</span>12.5557<span 
+class="op">)</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">12</span>
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">math</span><span class="op">.</span><span
+  class="keyw">ceil</span><span class="op">(</span>12.5557<span 
+  class="op">)</span></pre>
+        <p class="cursive-blue">
+            <span class="pl-100">13</span>
+        </p>
+        <p class="Text">
+            Restitution of the data preconverted to string type is always possible via
+            <span class="keyw">int</span><span class="op">()</span> function.
+        </p>
+        <pre class="pl-100">
+t =16
+t=str(t)
+q=int(t)
+print(q ,type(q))
+print(q+2)</pre>
+        <p class="cursive-blue pl-100">
+        16 class&lt;'int'&gt;<br/>
+        18
+        </p>
+        <p class="Text">
+            First, we assign 16 to t. The value of the variable t is now integer. Then we
+            convert t to string. we restitute t again to integer. That is supported, verified by
+            type checking and realising an arithmetic operation.
+        </p>
+        <pre class="pl-100">
+w=0b0110101
+w=str(w)
+ws=int(w)
+print(ws ,type(ws))
+print(ws+2)
+print(bin(ws) ,type(bin(ws)))</pre>
+        <p class="cursive-blue pl-100">
+        53 class&lt;'int'&gt;<br/>
+        55 <br/>
+        0b0110101 class&lt;'str'&gt;    
+        </p>
+        <p class="Text">
+            Now, we have the same cycle, but this time our attribute is a non-decimal
+            integer. We could convert it to string and restore back, but this time the
+            restored value is not the original, but the decimal equivalent of the
+            original value. We could restitute the original value in the last line of the
+            code, but the restituted value is in &quot;string&quot; type and not suitable
+            to the arithmetic operations.
+        </p>        
+        
+    <p class="Title" id="StringFormatting">
+            4 - String Formatting
+        </p>
+    <p class="Text">
+        Some methods defined for string data type is mentioned in <a href="http://www.python-course-eu/python3_formatted_output.php">pyton-course-eu</a>. These methods are only supported in
+        Python versions up to 3.6. General methods of string formatting is found in official <a href="https://docs.python.org/3/library/string.html">Python documentation</a>. Many other
+        resources are given at the <a href="#Litt">bibliography</a> of this article.
+    </p>
+    <p class="Subtitle" id="JS">
+            4.1 - Justifying Strings
+    </p>
+    <p class="Text">
+        There is 4 methods for justifying of strings in a new versions of Python. These are,
+    </p><ul class="list">
+        <li>center(...)</li>
+        <li>ljust(...)</li>
+        <li>rjust(...)</li>
+        <li>zfill(..)</li>
+    </ul>
+    <p></p>
+    <p class="Subsubtitle" id="CN" style="color: #008080">
+            4.1.1 - Centering
+    </p>
+        <p class="Text">
+        Using center adjustment is as follows :
+    </p>
+    <p class="Text">
+        S being a string,
+    </p>
+    <p class="Text">
+        print(S.center(width[, fillchar])
+    </p>
+    <p class="Text">   
+       As seen from the definition width is compulsory and fillchar is optional. 
+    Default fillchar is an empty space. Otherwise any character may be chosen.
+    Padding is done with the centering of the length of the string in the middle
+    of the width specified and filling the both sides with the fillchar.
+    As an example,
+    </p>
+    <pre class="pl-100">
+S="Atatürk"
+print(S.center(20,"*"))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">******Atatürk*******</span>
+    </p>
+    <p class="Subsubtitle" id="LAdj">
+        4.1.2 - Left Adjustment 
+    </p>
+    <p class="Text">
+        Usage :
+    </p>
+    <p class="Text">
+        S.ljust(width[,fillchar]
+    </p>
+    <p class="Text">
+        Example: 
+    </p>
+    <pre class="pl-100">
+        myString="Lady Bird"
+        print(myString.ljust(16,"-"))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Lady Bird-------</span>
+    </p>
+    <p class="Subsubtitle" id="Radj">
+        4.1.3 - Right Adjustment 
+    </p>
+    <p class="Text">
+        Usage :
+    </p>
+    <p class="Text">
+        S.rjust(width[,fillchar]
+    </p>
+    <p class="Text">
+        Example: 
+    </p>
+    <pre class="pl-100">
+       hobby = "Cycling"
+       print("My best hobby : ", hobby.rjust(20,"."))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">My best hobby :  .............Cycling</span>
+    </p>
+    <p class="Subsubtitle" id="zfill">
+        4.1.4 - Zfill 
+    </p>
+    <p class="Text">
+        Usage :
+    </p>
+    <p class="Text">
+        S.zfill(width)
+    </p>
+    <p class="Text">
+        Zfill, fills the remaining places with 0 after right adjusted the string to a specified width.
+    </p>
+    <p class="Text">
+        Example: 
+    </p>
+    <pre class="pl-100">
+       myTicketNumber = "121346"
+       print("Number in the ticket : ", myTicketNumber.zfill(10))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Number in the ticket :  0000121346</span>
+    </p>
+    <p class="Text">
+        Zfill (Zero Fill) is   in fact, a replacement of rjust(...) and can be
+        replaced by this. As depicted in the example below :
+    </p>
+    <pre class="pl-100">
+       myTicketNumber = "121346"
+       print("Number in the ticket : ", myTicketNumber.rjust(10, &quot;0&quot;))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Number in the ticket :  0000121346</span>
+    </p>
+    <p class="Text">
+        The results are the same.
+    </p>
+        <p class="Title" id="FormattedStrings">
+            5 - Formatted Strings
+        </p>
+    <p class="Text">
+        Formatted strings came with Python 3.6 these are in fact replacement
+        methods and can also be arranged by classic and modern format() type
+        replacement printing. The advantage of this  method is that do not need
+        string data in the replacement. The usage of this method is best understood by
+        the examples below.
+    </p>
+    <pre class="pl-100">
+    BatchNumber = 237856
+    print(f"Team 16 produced the lots of the batch number {BatchNumber}")
+    print(f"Batch number {BatchNumber} is produced by team 16")
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Team 16 produced the lots of the batch number: 237856</span>
+    </p>
+    <p class="cursive-blue">
+        <span class="pl-100">Batch number 237856 is produced by team 16</span>
+    </p>
+    <p class="Text">
+        Some automation :
+    </p>
+    <pre class="pl-100">
+    production = "(Produced in Switzerland)"
+    for item in ["FMChain", "Front wheel", "Rear Glass"]:
+        print(item,f" {production}")
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">FMChain  (Produced in Switzerland)<br/></span>
+        <span class="pl-100">Front wheel  (Produced in Switzerland)<br/></span>
+        <span class="pl-100">Rear Glass  (Produced in Switzerland)</span>
+    </p>
+    <p class="Text">
+        This method is efficient in the automated printouts.
+    </p>          
+    <p class="Text">
+        These were the basic procedures of the usage of the
+        <span class="keyw">print</span> <span class="op">()</span> function 
+        of the Python.
+    </p>
+    <p class="Title" id="ClassicStyle">
+            6 - Classic Style
+        </p>
+        <p class="Text">
+            Priting with a classic style is in fact very efficient style of printing 
+            procedure shared with many computer programming languages, among them 
+            the most remarquable is the Python's newcoming rival Julia.
+        </p>
+        <p class="Text">
+            Classic style of printinting beneficies with the type specifiers, displayed 
+            with % and data providers displayed also with % sign. In general the 
+            usage is like,
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span 
+        class="str">&quot;<span class="Text">% [Flags] [Width] [.Precision] Type % [Flags] [Width] [.Precision] Type
+        </span>...&quot;</span> %(Data0 , Data1 , Data2 , ...)</pre>
+        <p class="Text">
+            Here,
+        </p>
+        <ul class="list">
+            <li>Flags stand for the adjustement of the output.</li>
+            <li>Width is the total number of spaces reserved for the entire output. 
+            including negative sign and the point (if are existing)</li>
+            <li>Precision is the number of spaces reserved for the decimal part 
+            of the data (if exists)</li>
+            <li>Type is the type specifier indicating the type which the data is 
+            to be converted.</li>
+        </ul>
+        <p class="Text">
+            Note that with type specifiers anything is optional except the type 
+            specifier. For data, the only restriction is to provide entries compatible 
+            with the type specifier in the sequence of application.
+        </p>
+        <p class="Text">
+            The type specifiers and the data in the (exchange/convert) queue is 
+            intrisically given an execution queue number, so that any type specifier 
+            meets the mutual data in the data sequence. But in classical way, these 
+            sequence numbers are not acessible for the user.
+        </p>
+        <p class="Text">
+            We will present the values supported by Python 3 interpreter for formatting 
+            data to printed. These are valid for either classical and for the modern 
+            way of printing data.
+        </p>
+        <table class="tbx">
+            <caption class="headline-1">
+                Flags
+            </caption>
+            <tr>
+                <th>Flag</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>#</td>
+                <td>When used with o,O,x and X specifiers, the value is followed 
+                by 0 , 0o , 00 , 0x , 0X</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>The result will be padded by zero's if there is some place left.</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>If there is not a minus sign, a blank space will be inserted 
+                between the message string and the result.</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Left adjusted.</td>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td>Minus or plus sign will be inserted instead of blank space.</td>
+            </tr>
+        </table>
+        <p class="verticalTab-10">&nbsp;
+    </p>
+        <table class="tbx">
+            <caption class="headline-1">
+                Most Used Type Specifiers
+            </caption>
+            <tr>
+                <th>Corvert to</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td>Total signed decimal integer digits.</td>
+            </tr>
+            <tr>
+                <td>o</td>
+                <td>Unsigned octal integer digits (lowercase).</td>
+            </tr>
+            <tr>
+                <td>O</td>
+                <td>Unsigned octal integer digits (uppercase).</td>
+            </tr>
+            <tr>
+                <td>x</td>
+                <td>Unsigned hex integer digits (lowercase).</td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>Unsigned octal integer digits (uppercase).</td>
+            </tr>
+            <tr>
+                <td>e</td>
+                <td>Floating number exponential format (lowercase).</td>
+            </tr>
+            <tr>
+                <td>E</td>
+                <td>Floating number exponential format (uppercase).</td>
+            </tr>
+            <tr>
+                <td>f or F</td>
+                <td>Floating number format.</td>
+            </tr>
+            <tr>
+                <td>s</td>
+                <td>Convert to string.</td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>No conversion.</td>
+            </tr>
+        </table>
+        <p class="Text">
+            There is also %r and %a converters defined in Python. But, they are 
+            not very common. The %r converter converts any data to string, equivalent 
+            of %s in basic formatting and %a converter return ASCII codes of the 
+            data characters.
+        </p>
+        <p class="Text">
+            We will exploit these printing possibilities by concrete examples and 
+            by analysinig the results obtained by examples.
+        </p>
+        <p class="Text">
+            First we will consider only the examples which deals with the exchange 
+            of the same type data then we will see the examples of type conversions 
+            via type specifiers.
+        </p>
+        <p class="Subtitle" id="ES">
+            6.1 - Exchanging with String Type Specifier
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span 
+        class="str">&quot;%s%s&quot;</span><span class="op">%</span><span 
+        class="op">(</span><span class="str">&quot;Paris&quot;</span><span 
+        class="op">,</span><span class="str">&quot;Rennes&quot;</span><span 
+        class="op">))</span></pre>
+        <pre class="pl-100"><code><i>P</i><i>a</i><i>r</i><i>i</i><i>s</i><i>R</i><i>e</i><i>n</i><i>n</i><i>e</i><i>s</i></code></pre>
+        <p class="Text">
+            Well, as the argument of the <span class="keyw">print</span><span class="op">()</span> 
+            function, there is a message string which includes type specifiers and 
+            the type specifier part in the parenthesis which follows a modulus operator.
+        </p>
+        <p class="Text">
+            Message string is responsible of the half of the printed result. Message 
+            string has his content, as a character or white spaces and type specifiers 
+            indicated with one ore more modulus operators. In this example message 
+            string suggest that there would be no white space between the city names 
+            and it is clearly reflected in the output string. Coming to other half, 
+            the format specifiers part does not preclude some blank spaces for the 
+            output string and nothing comes also from this half. In the output 
+            below, no separation spaces is observed in the output, but this is also 
+            is not a good style of viewing when printing any data with a computer 
+            program.
+        </p>
+        <p class="Text">
+            To remedy this, we have many ways to apply. One method is to arrange 
+            the message string so that one blank space separates two output items.
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span 
+        class="str">&quot;%s %s&quot;</span><span class="op">%</span><span
+         class="op">(</span><span class="str">&quot;Paris&quot;</span><span 
+         class="op">,</span><span class="str">&quot;Rennes&quot;</span><span 
+         class="op">))</span></pre>
+        <pre class="pl-100"><code><i>P</i><i>a</i><i>r</i><i>i</i><i>s</i><i>&nbsp;</i><i>R</i><i>e</i><i>n</i><i>n</i><i>e</i><i>s</i></code></pre>
+        <p class="Text">
+            The other way is to arrange the format specifier so that there is a 
+            predefined spaces for printing the data and aligning it with a specified 
+            style.
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;%-010s%s&quot;</span><span class="op">%</span><span class="op">(</span><span class="str">&quot;Paris&quot;</span><span class="op">,</span><span class="str">&quot;Rennes&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>P</i><i>a</i><i>r</i><i>i</i><i>s</i><i>&nbsp;</i><i>&nbsp;</i><i>&nbsp;</i><i>&nbsp;</i><i>&nbsp;</i><i>R</i><i>e</i><i>n</i><i>n</i><i>e</i><i>s</i></code></pre>
+        <p class="Text">
+            This means,
+        </p>
+        <ul class="list">
+            <li>prepare 10 blank spaces for the data,</li>
+            <li>read the data,</li>
+            <li>write the data left aligned,</li>
+            <li>fill the rest of the blank spaces with 0 (invisible).</li>
+        </ul>
+        <p class="Text">
+            This is clearly visible in the output. 10 blank spaces are reserved 
+            for the first item, and Paris is written in beginning with his own 5 
+            spaces, the remaining 5 spaces are filled with zero, but hey are invisible 
+            in the classic formatting. Then in the 11 th. space begin with R of 
+            Rennes, it will end with all the places needed for Rennes, since the 
+            two modula signs are juxtaposed with no spaces between them in the message 
+            string, second modula sign does not define any additional spaces and 
+            the data contains no additional spaces either.
+        </p>
+        <p class="Subsubtitle" id="Truncating">
+            6.1.1 - Truncating and padding :
+        </p>
+        <p class="Text">
+            With classic style, one can truncate long strings :
+        </p>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span 
+        class="str">&quot;%10.7s&quot;</span><span class="op">%</span><span 
+        class="op">(</span><span class="str">&quot;Turkmenistan</span><span 
+        class="op"></span><span class="str">&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>&nbsp;</i><i>&nbsp;</i><i>&nbsp;</i><i>T</i><i>u</i><i>r</i><i>k</i><i>m</i><i>e</i><i>n</i></code></pre>
+        <pre class="pl-100">
+        <span class="keyw">print</span><span class="op">(</span><span 
+        class="str">&quot;%-010.7s&quot;</span><span class="op">%</span><span 
+        class="op">(</span><span class="str">&quot;Turkmenistan</span><span 
+        class="op"></span><span class="str">&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>T</i><i>u</i><i>r</i><i>k</i><i>m</i><i>e</i><i>n</i><i>&nbsp;</i><i>&nbsp;</i><i>&nbsp;</i></code></pre>
+    <p class="Subsubtitle" id="StringTypes">
+        6.1.2 - String Types
+    </p>
+        <p class="Text">
+            String type identifier, converts any valid data to the string type.
+        </p>
+        <p class="Subsubsubtitle" id="IntToString">
+            6.1.2.1 - Integer To String
+        </p>
+        <pre class="pl-100">
+t = 86
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span 
+class="op"> , </span>end <span class="op">=</span> <span 
+class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+class="keyw">type</span><span class="op">(</span><span
+ class="str">&quot;%s&quot;</span>%t<span class="op">)</span></pre>
+        <pre class="cursive-blue">
+  Result : 86 type of the Result : &lt;class 'str'&gt;</pre>
+        <p class="Text">
+            All blank spaces are due to the message string, formatting does not 
+            play any role here.
+        </p>
+        <p class="Subsubsubtitle" id="flloatToStr">
+            6.1.2.2 - Float To String
+    </p>
+        <pre class="pl-100">
+t = 41.43
+&lt;<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span
+ class="op"> , </span>end <span class="op">=</span> <span 
+ class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span 
+class="keyw">type</span><span class="op">(</span><span 
+class="str">&quot;%s&quot;</span>%t<span class="op">)</span></pre>
+        <pre class="cursive-blue">
+  Result : 41.43 type of the Result : &lt;class 'str'&gt;</pre>
+        <pre class="pl-100">
+t = 23.3467E-3
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span 
+class="op"> , </span>end <span class="op">=</span> <span 
+class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span 
+ class="op">))</span> <span class="str">&quot;\t&quot;</span><span 
+ class="comm"># We may choose not formatting</span> </pre>
+        <pre class="cursive-blue">
+  Result : 0.0233467 type of the Result : &lt;class 'str'&gt;</pre>
+        <pre class="pl-100">
+t = 23.3467e-3
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span class="op"> , </span>end <span 
+class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <pre class="cursive-blue">
+  Result : 0.0233467 type of the Result : &lt;class 'str'&gt;</pre>
+        <p class="Subsubsubtitle" id="BinToStr">
+            6.1.2.3 - Binary To String
+    </p>
+        <pre class="pl-100">
+t = 0b011101001
+<span class="keyw">print</span><span class="op">(</span><span
+ class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+ class="op">%</span><span class="op"></span>t<span class="op"> , </span>end <span
+  class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <pre class="cursive-blue">
+  Result : 233 type of the Result : &lt;class 'str'&gt;</pre>
+        <p class="Subsubsubtitle" id="OctToStr">
+            6.1.2.4.- Octal To String
+    </p>
+        <pre class="pl-100">
+t = 0o74
+<span class="keyw">print</span><span class="op">(</span><span
+ class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+ class="op">%</span><span class="op"></span>t<span class="op"> , </span>end <span
+  class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <pre class="cursive-blue">
+  Result : 60 type of the Result : &lt;class 'str'&gt;</pre>
+        <p class="Subsubsubtitle" id="HexToStr">
+            6.1.2.5 - Hex To String
+    </p>
+        <pre class="pl-100">
+t = 0x234
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %s  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span
+ class="op"> , </span>end <span class="op">=</span> <span 
+ class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <pre class="cursive-blue">
+  Result : 564 type of the Result : &lt;class 'str'&gt;</pre>
+        <p class="Text">
+            Binary, octal or hex values are converted to string with their decimal 
+            counterparts actually stored in the internal memory. They can be returned 
+            back with appropriate classic (and modern) formatting methods which 
+            will be described sooner to their original values.
+        </p>
+        <p class="Subtitle" id ="Conc">
+            6.2 - String Concatenation When Printing  
+        </p>
+        <p class="Text">
+            Any string type data may be concatenated with other string type values.
+        </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;The common value of pi is used as&quot;<span 
+class="op">+</span> &quot;%s&quot;</span> % <span 
+class="str">&quot;3.1416&quot;</span><span class="op">)</span></pre>
+        <p class="cursive-blue">
+            The common value of pi is used as 3.1416
+        </p>
+        <p class="Text">
+            As opposed to :
+    </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;The common value of pi is used as <span 
+class="op"></span>%s&quot;</span> % <span 
+class="str">&quot;3.1416&quot;</span><span class="op">)</span></pre>
+    <p class="cursive-blue">
+            The common value of pi is used as 3.1416
+        </p>
+        <p class="Subtitle" id="IntTypes">
+            6.3 - Exchanging with Integer Type Specifier
+        </p>
+    <p class="Text">
+        Integers are described by %d in formatting style (d is used for invoking 
+        decimals, but it works for all integer compatible types). Only numeric data 
+        can be converted to an integer type. Strings may not be converted to 
+        the integer types with a style conversion and printing, even 
+        though they contain a numeric value.
+        </p>
+        <p class="Subsubtitle" id="FloatToInt">
+            6.3.1 - Float to Integer  
+    </p>
+        <p class="Text">
+            Floating point types can be converted to integers, but with the cost 
+            of truncation
+        </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span> <span 
+class="str">&quot;They'r about %d quids each.&quot;</span> % 3.34<span
+ class="op">)</span></pre>
+        <p class="cursive-blue">
+            They'r about 3 quids each.
+        </p>
+        <p class="Text">
+            Note that, there is no need to apply this printing style, because the 
+            same output can be exactly obtained from appropriate argumentation of 
+            the <span class="keyw">print</span><span class="op">()</span> function. 
+            That is why, that most experts believe that the classical style will 
+            sooner or later be deprecated in favor of the modern printing style 
+            introduced with the release of the version 2.6 of the Python.
+        </p>
+        <p class="Subsubtitle" id="BinIntToStr">
+            6.3.2 - From Binary Integer to String with Equivalent Decimal Numeric Content
+        </p>
+        <p class="Text">
+            This is very controversial, since attempting to convert to a decimal integer
+            any non-decimal integer, results the data is converted in fact to the decimal data
+            but not to the integer type, rather to a string whose content is the decimal
+            equivalent of the non-decimal data.
+        </p>
+        <pre class="pl-100">
+t <span class="op">=</span> 0b0100111
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %d  type of the result : &quot;</span><span
+ class="op">%</span><span class="op"></span>t<span 
+ class="op"> , </span>end <span class="op">=</span> <span
+  class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : 39 type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Subsubtitle" id="OctIntToStr">
+            6.3.3 - From Octal Integer to String with Equivalent Decimal Numeric Content
+    </p>
+        <pre class="pl-100">
+t <span class="op">=</span> 0o1223
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %d  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span class="op"> , </span>end <span 
+class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : 659 type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Subsubtitle" id="HexIntToStr">
+            6.3.4 -From Hex Integer to String with Equivalent Decimal Numeric Content
+    </p>
+        <pre class="pl-100">
+t <span class="op">=</span>0xccab
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %d  type of the result : &quot;</span><span
+ class="op">%</span><span class="op"></span>t<span 
+ class="op"> , </span>end <span class="op">=</span> <span
+  class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : 52395 type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Subsubtitle" id="StrDecToStrBin">
+            6.3.5 - From String With Decimal Content to a String with Binary Equivalent 
+            Content
+        </p>
+        <p class="Text">
+            In this case preconversion to binary decimal is necessary. 
+            After this conversion the decimal integer data is converted to a
+            string with a binary equivalent of the decimal data. Then it will be
+            required an %s instead of %d for only transfering to print the data
+            already transformed to a string type.
+    </p>
+        <pre class="pl-100">
+t <span class="op">=</span>39
+t <span class="op">=</span><span class="keyw">bin</span><span
+ class="op">(</span>t<span class="op">)</span><span class="keyw">
+print</span><span 
+ class="op">(</span><span class="str">&quot;Result : %s  type of the result : &quot;</span><span
+  class="op">%</span>t<span class="op"> , </span>end <span 
+  class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : 0b100111 type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Subsubtitle" id="DecIntToOctalString">
+            6.3.6 - From Decimal Integer to a String with Octal Equivalent Content
+        </p>
+        <pre class="pl-100">
+t <span class="op">=</span>659
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %o  type of the result : &quot;</span><span 
+class="op">%</span><span class="op"></span>t<span class="op"> , </span>end <span 
+class="op">=</span> <span class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result :1223 type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Subsubtitle" id="DecIntToHexString">
+            6.3.7 - From Decimal Integer to a String with Hex Equivalent Content
+        </p>
+        <pre class="pl-100">
+t <span class="op">=</span>52395
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Result : %x  type of the result : &quot;</span><span
+ class="op">%</span><span class="op"></span>t<span 
+ class="op"> , </span>end <span class="op">=</span> <span 
+ class="str">&quot; &quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span class="op">(</span><span
+ class="keyw">type</span><span class="op">(</span>t<span class="op">))</span></pre>
+        <p class="cursive-blue">
+            Result : ccab type of the Result : &lt;class 'str'&gt;
+        </p>
+    <p class="Text">
+        There is no need to apply style  here, since all these printouts may be
+        obtained from normal usage of the <span class="keyw">print</span><span class="op">()</span>function itself.
+    </p>
+        <p class="Text">
+            <span class="pl-100">
+            <span class="keyw">print</span> <span class="op">(</span><span 
+            class="str">&quot;Result : &quot;</span><span class="op">, </span><span 
+             class="keyw">oct</span><span class="op">(</span>267<span class="op">)</span><span 
+            class="op">,</span><span class="str">&quot; , Type of the Result : &quot;</span><span
+            class="op">,</span><span class="keyw">type</span><span class="op">(</span><span 
+            class="keyw">oct</span><span class="op">(</span>267<span class="op">)))</span></span>
+        </p>
+        <p class="cursive-blue">
+            Result : 0o413 Type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">(</span><span class="str">&quot;Result 
+            : &quot;</span><span class="op">, </span><span class="keyw">hex</span>
+            <span class="op">(</span>322<span class="op">) </span>
+            <span class="op">,</span><span class="str">&quot; , Type of the Result : &quot;</span>
+            <span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">hex</span>
+            <span class="op">(</span>322<span class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 0x142 Type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">(</span><span class="str">&quot;Result 
+            : &quot;</span><span class="op">, </span><span class="keyw">hex</span>
+            <span class="op">(</span>-0o166<span class="op">) </span>
+            <span class="op">,</span><span class="str">&quot; , Type of the Result : &quot;</span>
+            <span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">hex</span>
+            <span class="op">(</span>-0o166<span class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : -0x76 Type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Text">
+            String types with a numeric content can be converted to the apropriate 
+            numeric type.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">int</span> <span class="op">(</span><span 
+            class="str">&quot;3&quot;</span><span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">int</span>
+            <span class="op">(</span><span class="str">&quot;3&quot;</span><span 
+            class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3 , Type of the Result : &lt;class 'int'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">float</span> <span class="op">(</span><span 
+            class="str">&quot;3.12&quot;</span><span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">float</span>
+            <span class="op">(</span><span class="str">&quot;3.12&quot;</span><span
+             class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3.12 , Type of the Result : &lt;class 'float'&gt;
+        </p>
+        <p class="Subtitle" id="FloatingPointTypes">
+            6.4 - Floating Point Types
+        </p>
+        <p class="Text">
+            Working with floating point data needs a little more attention, since 
+            floating point data is composed with or without a sign and an integer 
+            part followed by a point and the number of places reserved for the decimal 
+            part. All these should be formatted properly.
+        </p>
+        <p class="Text">
+            A formatter for the floating point number consists,
+        </p>
+        <ul class="list">
+            <li>A total spaces number</li>
+            <li>A format designator (f or E or e) (f for normal decimals, E and 
+            e for exponential notation as 1.2E5 or 1.2e5</li>
+        </ul>
+        <p class="Text">
+            General scheme for floating points :
+        </p>
+        <p class="Text">
+            {Total number of spaces} (including algebraic sign, point and spaces 
+            reserved for floating part){.}{Number of spaces reserved}{format converter}
+        </p>
+        <p class="Text">
+            Let us say 6.2f , that means the number is represented as a normal decimal 
+            number with total 6 spaces and 2 decimals, then 2 places are reserved 
+            for decimals, one for the point, 3 for the integer part. If the number 
+            is a negative number, then one place will be added for the sign and we will have 
+            3 places for the integer part. But no worry! Python will provide 
+            extra spaces when there will be a less than the needed spaces in the format statement.
+            More, onthe f format in the section of the modern format method in this article.
+        </p>
+        <p class="Text">
+            We will make some examples with leading zero, so that one can understand 
+            the number of spaces used for the viewing the data. Normally one format 
+            without leading zero.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The price is : %06.2f&quot;</span> %(23.86)<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The price is : 023.86
+        </p>
+        <p class="Text">
+            Notice that there are six reserved places, 2 is used for the decimal 
+            part, one for the point and remaning three for the integer part. Since 
+            with 23.86 ve need for the integer part only two places, the place at 
+            the beginning is left blank, as may be clearly visible by the format 
+            06.2f. We will repeat the printing process with a format 6.2f.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The price is : %6.2f &#36;&quot;</span> %(23.86)<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The price is : 23.86 &#36;
+        </p>
+        <p class="Text">
+            This time, we do not have a leading zero in the numeric part of the 
+            output.
+        </p>
+        <p class="Text">
+            If the same number would have a negative sign as -23.86, then the assigned 
+            format specification will fit exacly this data.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The result is : %6.2f&quot;</span> %(-23.86)<span
+             class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The result is : -23.86
+        </p>
+        <p class="Text">
+            If the length of the decimal part exceeds the places reserved, then, 
+            Python interpreter will provide enough spaces as the decimal part is 
+            written always not to exceed the reserved places but he last number 
+            is adjusted to the nearest integer.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The result is : %6.2f&quot;</span> %(-23.86656)<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The result is : -23.87
+        </p>
+        <p class="Text">
+            When the actual length of integer part of the data exceeds the places 
+            indicted by format specifier, Python interpreter, will make necessary 
+            adjustement with extending the decimal places by its own, so that no 
+            any digits of the input are lost.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The result is : %6.2f&quot;</span> %(-44423.25)<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The result is : -44423.25
+        </p>
+        <p class="Text">
+            Looking to the results f format is outstanding flexible as interpreted 
+            by the Python interpreter. The only thing to be well defined is the 
+            number of digits of the decimal part. If we do not exceed the actual 
+            length of the data, 6.2f or 9.2f will result the same visualisation 
+            for -44423.25. If we exceed 9 digits for the format specification i.e. 
+            10.2f for -44423.25 then the result will shift one place to the right.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The result is : %9.2f&quot;</span> %(-44423.25)<span 
+            class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The result is : -44423.25
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The result is : %10.2f&quot;</span> %(-44423.25)<span
+             class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            The price is : &nbsp; -44423.25
+        </p>
+        <p class="Text">
+            X or x format is for formatting in exponential format. Since S.I system 
+            (Systeme International d'Unités) allows for one integer character followed 
+            by the decimal point and E or e followed by the decimal part, we will 
+            follow this specification.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Positive floating number, big E exponential 
+            format 1123456 : 1.6E+06&quot;</span> %(1123456)<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            Positive floating number, big E exponential format 1123456 : 1.123456E+06
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Positive floating number, small e exponential 
+            format 1123456 : 1.6e+06&quot;</span> %(1123456)<span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            Positive floating number, small e exponential format 1123456 : 1.123456e+06
+        </p>
+        <p class="Text">
+            Conversion to string :
+        </p>
+        <p class="Text">
+            Python can convert numeric types to string trough str() function. We 
+            can control the success of conversion by type() function.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">str</span> <span class="op">(</span>3<span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">str</span>
+            <span class="op">(</span> 3<span class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3 , Type of the Result : &lt;class 'str'&gt;
+        </p>
+        <p class="Text">
+            String types can only be concatenate but this will not produce an addition. 
+            By concatenation, the content of the two or more strings are put one 
+            after another in order to produce a single string.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span><span class="str">&quot;Result 
+            : &quot;</span><span class="op">,</span> <span class="str">&quot;23&quot;</span>
+            <span class="op">+</span> <span class="str">&quot;16&quot;</span>
+            <span class="op">)</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 2316
+        </p>
+        <p class="Text">
+            With strings, it is not possible to make any other arithmetic operations 
+            than the concatenation.
+        </p>
+        <p class="Text">
+            String types with a numeric content can be converted to the apropriate 
+            numeric type. But, in this case we should use an appropriate converter for this
+            purpose like int() for <span class="str">&quot;12&quot;</span> and float()
+            for <span class="str">&quot;28.6346&quot;</span>. The converted 
+            values are of numeric type and all the arithmetic operations are permitted.  
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">int</span> <span class="op">(</span><span 
+            class="str">&quot;3&quot;</span><span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">int</span>
+            <span class="op">(</span><span class="str">&quot;3&quot;</span><span 
+            class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3 , Type of the Result : &lt;class 'int'&gt;
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">float</span> <span class="op">(</span><span 
+            class="str">&quot;3.12&quot;</span><span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">float</span>
+            <span class="op">(</span><span class="str">&quot;3.12&quot;</span><span
+             class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3.12 , Type of the Result : &lt;class 'float'&gt;
+        </p>
+        <p class="Text">
+            Floating point types, are truncated when converted to the integer.
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span> <span class="op">( </span>
+            <span class="str">&quot;Result : &quot;</span><span class="op">,
+            </span><span class="keyw">int</span> <span class="op">(</span>3.8942<span class="op">)
+            </span><span class="op">,</span><span class="str">&quot; , Type of the Result 
+            : &quot;</span><span class="op">,</span><span class="keyw">type</span>
+            <span class="op">(</span><span class="keyw">int</span>
+            <span class="op">(</span>3.8942<span class="op">)</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            Result : 3 , Type of the Result : &lt;class 'int'&gt;
+        </p>
+        <p class="Text">
+            Some attractive printouts may be devised by this so called &ldquo;old 
+            style&rdquo;.
+        </p>
+        <p class="Text">
+            Making the lists :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The price of Tomatoes : %s pences per %s&quot;</span> 
+            %<span class="op">(</span><span class="str">&quot;16&quot;</span>,
+            <span class="str">&quot;pound&quot;</span><span class="op">))</span>
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The price of Potatoes : %s pences per %s&quot;</span> 
+            %<span class="op">(</span><span class="str">&quot;18&quot;</span>,
+            <span class="str">&quot;pound&quot;</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            The price of Tomatoes : 16 pences per pound
+        </p>
+        <p class="cursive-blue">
+            The price of Potatoes : 18 pences per pound
+        </p>
+    <p class="Text">
+        Some automation is always possible :
+    </p>
+        
+    <pre class="pl-100">
+class myClass (object):
+    def __repr__ (self):
+        return('Turquoise')
+
+print('%s ' % myClass())
+
+print(myClass())</pre>
+    <pre class="cursive-blue">
+Turquoise 
+Turquoise 
+    </pre>
+    <p class="Text">
+        As a result, classic style formatting has some advantages over the system's 
+        <span class="keyw">print</span><span class="op">()</span> function. But,
+        classic style will be soon or later be depcrecated in favor of the modern
+        <span class="keyw">format</span><span class="op">()</span> function.
+        That is why we should no longer rely to the classic style and concentrate ourselves to the
+        modern <span class="keyw">format</span><span class="op">()</span> style of
+        pretty print formatting.
+    </p>
+    <p class="Title" id="MS">
+            7 - Modern Style
+        </p>
+        <p class="Subtitle" id="IMS">
+            7.1 - Introduction to Modern Style
+        </p>
+        <p class="Text">
+            Modern style of the data visualising with python begun with the introduction 
+            of the version 2.6 ofPython. It is really a revolutionary procedure 
+            never seen before in any programming language. That is well but mastering 
+            with it may take time. Many programmers stick with the classic style 
+            for avoiding the steep learning curve of the modern way.
+        </p>
+        <p class="Text">
+            The modern printing procedure has an application scheme given below 
+            :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot; message&quot;</span><span class="op">.</span>
+            <span class="keyw">format</span> <span class="op">(</span>pos<sub>1</sub> 
+            , pos<sub>2</sub> , ..., pos<sub>n</sub> , kwarg<sub>1</sub> = value 
+            , kwarg<sub>2</sub> = value , ... , kwarg<sub>n</sub> = value<sub>n</sub><span class="op">))</span>
+        </p>
+        <p class="Text">
+            This template may seem enigmatic at the first sight, but it will be 
+            found quite simple after using continually in our applications
+        </p>
+        <p class="Text">
+            Format specifications :
+        </p>
+        <pre class="pl-100">
+format_spec     ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
+fill            ::=  &lt;any character&gt;
+align           ::=  "&lt;" | "&gt;" | "=" | "^"
+sign            ::=  "+" | "-" | " "
+width           ::=  digit+
+grouping_option ::=  "_" | ","
+precision       ::=  digit+
+type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
+    </pre>
+        <p class="Text">
+            It can be seen that all the format specifiers are in fact optional. 
+            But for obtaining some elegant printouts we should apply this 
+            modern <span class="keyw">format</span><span class="op">()</span> function.
+        </p>
+        <p class="Subtitle" id="AFF">
+            7.2 - Arguments of the <span class="keyw">format</span><span class="op">()</span> 
+            function
+        </p>
+        <p class="Text">
+            The <span class="keyw">format</span><span class="op">()</span> function 
+            may have as many arguments as the need arises. These arguments are for accessing data
+            from the message string with {[format specifier]}. Since format specifiers 
+            are optional, bringing the data to the message string can be achieved 
+            using three ways :
+        </p>
+        <ul class="list">
+            <li>Only as {} with the intrinsic indexes of occurence, beginining with 
+            zero.</li>
+            <li>{Number of explicit index of occurence, beginining with zero}</li>
+            <li>with names.</li>
+        </ul>
+        <p class="Subsubtitle" id="ACIS">
+            7.2.1 - Accessing with the Intrinsic Sequential Order Indexes of the Arguments List
+        </p>
+        <p class="Text">
+            In this case we use only {} in the message string. This is &quot;First 
+            Come, First Serve&quot; principle. First occurence of {} in the message 
+            string is indexed as zero. It will find his counterpart in the first argument of the 
+            <span class="keyw">format</span><span class="op">()</span> function and bring him to the message string at the exact place where 
+            it is called. Example :
+        </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The {} ! We have reached to the {}!&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span><span class="str">&quot;port&quot;</span>
+            <span class="op">,</span><span class="str">&quot;target&quot;</span>
+            <span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            The port ! We have reached to the target !
+        </p>
+        <p class="Text">
+            Well, an example is worth of millon words. We can see from the example 
+            above, the actual meaning of the format version of the 
+            <span class="keyw">print</span><span class="op">()</span>function.
+        </p>
+        <p class="Text">
+            The positional arguments are defined in curly parenthesis as {[0]} , 
+            {[1]} etc. They are indexed from 0 to n, their indexed usage is
+            in fact optional, but their usage with explicit indexes is always beneficial.
+    </p>
+        <p class="Text">
+            İn this example, the first format specifier {} (First from the left, 
+            after &quot;The&quot;) is intrinsically marked as zero. In the other 
+            part, the intrinsically zero indexed first argument from the left of the <span 
+            class="keyw">format</span><span class="op">()</span> 
+            function is &quot;port&quot;. The zero indexes, corresponds to each other 
+            and the argument with index zero is transported to the message string and
+            replaced the zero indexed format specifier {} which is in fact is {0} intrinsically. 
+            So proceed the subsequent arguments called with their indexes augmented 
+            intrinsically.. At the end, we have the message string reassembled reflected 
+            in the printout, just as the printout of the example shown above.
+    </p>
+        <p class="Text">
+            Counting from the left, the first positional argument is the one indexed 
+            0, his counterpart is <span class="str">&quot;port&quot;</span>, the 
+            counterpart of the second positional argument, i.e. the one that has index 
+            1 is <span class="str">&quot;target&quot;</span>. Note that they are 
+            all strings but only for this example. They might be in any data type without
+            restriction.
+    </p>
+    <p class="Subsubtitle" id="ACES">
+        7.2.2 - Accessing with the Explicit Sequential Order Indexes of the Arguments List 
+    </p>
+        <p class="Text">
+            The best is to show explicitly the indexes of the positional arguments.
+    </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The {0} ! We have reached to the {1}!&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span><span class="str">&quot;port&quot;</span>
+            <span class="op">,</span><span class="str">&quot;target&quot;</span>
+            <span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            The port ! We have reached to the target !
+        </p>
+        <p class="Text">
+            We can reverse the printing of the sequence of the counterparts by changing 
+            the place of the callers. That is why this is always a good 
+            practice to use them.
+    </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;The {1} ! We have reached to the {0}!&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span><span class="str">&quot;port&quot;</span>
+            <span class="op">,</span><span class="str">&quot;target&quot;</span>
+            <span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            The target ! We have reached to the port !
+        </p>
+        <p class="Text">
+            A surprising action, interesting in fact! But in reality one will seldom 
+            need it! This opens up a choice of not to show the positional indexes 
+            when they are not in immediate need.
+    </p>
+        <p class="Text">
+            In the positional arguments, one can also state the format specifiers for formatting the counterparts.
+        </p>
+    <p class="Text">
+        For the integer data, formatting is straightforward :
+    </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;Amount Ready For The Shipment : {0: 3d} {1}.</span><span class="str">&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span>128 , <span class="str">Parcels</span><span class="op">))</span>
+        </p>
+    <p class="cursive-blue">
+        <span class="pl-100">Amount Ready For The Shipment :  128 Parcels.</span>
+    </p>
+        <p class="Text">
+            In addition of these, there is also possibilities for the alignment 
+            of the printed data explained is the table above. We repeat for the sake of stressing again in the table below.
+        </p>
+        <div class="pagecenter">
+            <table class="CSS_Table_Example tablewidth90">
+                <caption class="captionred">
+                    Adjusting Symbols
+                </caption>
+                <tr>
+                    <td>Symbol</td>
+                    <td>Definition</td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>Left Aligned (Default for string types)</td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>Right aligned</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>Preceded with zeros</td>
+                </tr>
+                <tr>
+                    <td>,</td>
+                    <td>Thousands separator</td>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>Padding after the sign (if there is one) but before any 
+                    numeric character. Only with numeric data</td>
+                </tr>
+                <tr>
+                    <td>^</td>
+                    <td>Centering</td>
+                </tr>
+            </table>
+        </div>
+        <p class="Text">
+            Added these, there is also possibility to choose the padding character:
+        </p>
+        <p class="Text">
+            <span class="op">{:</span>alignmentCharacter<span class="op">+</span> 
+            paddingCharacter<span class="op">+</span>numberOfBlankSpaces<span 
+            class="op">+</span>TypeCharacter<span class="op">}</span>
+        </p>
+        <p class="Text">
+            like ,<span class="op">{:</span>&gt;b10s<span class="op">}</span>
+        </p>
+        <p class="Text">
+            As an example we take <span class="str">&quot;12&quot;</span> aligned 
+            to the right end to the allocated 6 blanks :
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot; {0:&gt;6s}&quot;</span><span class="op">.</span><span 
+class="keyw">format</span><span class="op">(</span><span 
+class="str">&quot;12&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>&nbsp;&nbsp;</i><i>&nbsp;&nbsp;</i><i>&nbsp;&nbsp;</i><i>&nbsp;&nbsp;</i><i>&nbsp;1</i><i>&nbsp;2</i></code></pre>
+        <p class="Text">
+            For better understanding what is going on, it may be helpful to illustrate 
+            with a padding character like (b). Any character will go but (b) is chosen 
+            only because it is the first character of (b)lank.
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot; {0:b&gt;6s}&quot;</span><span class="op">.</span><span 
+class="keyw">format</span><span class="op">(</span><span
+class="str">&quot;12&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>b</i><i>b</i><i>b</i><i>b</i><i>1</i><i>2</i></code></pre>
+        <p class="Text">
+            Here, we clearly see that 6 blank spaces are right justified as the statement 
+            indicates. So last two spaces are occupied with the data which only 
+            needs two spaces for printing. The rest is filled blank spaces.
+        </p>
+        <p class="Text">
+            Printing data is left aligned by default (in contrast to the classic 
+            style) and there might be no need to indicate an additional left alignment 
+            code when printing data as left aligned.
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span
+class="str">&quot; {0:b6s}&quot;</span><span class="op">.</span><span
+class="keyw">format</span><span class="op">(</span><span 
+class="str">&quot;12&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>1</i><i>2</i><i>b</i><i>b</i><i>b</i><i>b</i></code></pre>
+        <p class="Text">
+            That will be the same if we have inserted the left alignment character,
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot; {0:b&lt;6s}&quot;</span><span class="op">.</span><span 
+class="keyw">format</span><span class="op">(</span><span 
+class="str">&quot;12&quot;</span><span class="op">))</span></pre>
+        <pre class="pl-100"><code><i>1</i><i>2</i><i>b</i><i>b</i><i>b</i><i>b</i></code></pre>
+        <p class="Text">
+            Sometimes, blank characters may be extremely useful :
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span
+class="str">&quot;{0}   {1:-&gt;6s} {2}&quot;</span><span 
+class="op">.</span><span class="keyw">format</span><span 
+class="op">(</span><span class="str">&quot;Replacement Cartridge&quot;,&quot;12&quot;, &quot;US $ / per Item&quot;</span><span
+class="op">))</span></pre>
+        <pre class="pl-100"><code>Replacement Cartridge ----12 US $ / per Item </code></pre>
+        <p class="Text">
+            Here, the zero'th block, tells us nothing but the bare replacement of 
+            the first string data (<span class="str">&quot;Replacement Cartridge&quot;</span>) 
+            The first block, tells us taking the second text data (<span class="str">&quot;Replacement 
+            Cartridge&quot;</span>), reserve 6 blank spaces, align the data to the 
+            left, fill the rest of the reserved blank spaces with
+            <span class="str">&quot;-&quot;</span>. The third block is also a replacement 
+            block and brings the last string data (<span class="str">&quot;US $ 
+            / per Item&quot;</span>) just left aligned as being the default for 
+            format type formatting.
+        </p>
+        <p class="Text">
+            Alignment can also be made to the middle of the area whose length is 
+            specified for printing the data.
+        </p>
+        <pre class="pl-100">
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot; {0:b^6s}&quot;</span><span 
+class="op">.</span><span class="keyw">format</span><span 
+class="op">(</span><span class="str">&quot;12&quot;</span><span 
+class="op">))</span></pre>
+        <pre class="pl-100"><code><i>b</i><i>b</i><i>1</i><i>2</i><i>b</i><i>b</i></code></pre>   
+    <p class="Text">
+        For the floating point data, for an accurate format, we should state the format that we
+        are intending the display data. For example 2.2f, say that the floating point data would be
+        displayed with 2 integers, one point and 2 decimal numbers that makes 2+1+2 = 5 base length,
+        needing exactly 5 blank spaces to allocate the foreseen display. Any specification as 1.2f will
+        indicate the deficit in the reserved space, so Python interpreter will allocate the needed spaces
+        for the display regardless of the deficiency in the statement. This will go up to 5.2f which is the exact
+        specification for the data. When the spacification exceeds it like 6.2f, there will be a surplus for the allocation
+        spaces needed for the display of the actual data, nevertheless 6 spaces will be allocated by the Python interpreter. Data will right adjusted to this area 5 spaces will be filled by the data and
+        the remaing one blank space will be displayed in front of the data. For 7.2f there will be 2 blank spaces inserted in
+        front of the data and so on...
+    </p>
+    <p class="Text">
+        For the signed data as -12.20 the base length is 1 for the sign+ 5 for the unsigned data totalling
+        6 spaces. the exact specification for this data is 6.2f and less than that will indicate a deficit,
+        more than that will indicate, a surplus that will be reflacted to the display by adding blank spaces in front of the
+        data. The examples below will clarify the usage of floating point formatting.
+    </p>
+    <img src="images/format5.2f.png" width="768" height="755" alt="flaoting point formatting of 12.20 as 3f.2"/>
+    <p class="Text">
+        What if we do not know exact length of the data? if we wish to reflect the actual computer
+        generated data we can simply state f in the specification.
+    </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;12/5.89556 = {0:f} </span><span class="str">&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span><span class="str">12/5.89556</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            12/5.89556 = 2.035430
+        </p>
+    <p class="Text">
+        Or we do not know exact value of the data but we wish that it would be printed with only two decimals.
+    </p>
+        <p class="Text pl-100">
+            <span class="keyw">print</span><span class="op">(</span>
+            <span class="str">&quot;12/5.89556 = {0:0.2f} </span><span class="str">&quot;</span>
+            <span class="op">.</span> <span class="keyw">format</span>
+            <span class="op">(</span><span class="str">12/5.89556</span><span class="op">))</span>
+        </p>
+        <p class="cursive-blue">
+            12/5.89556 = 2.04
+        </p>
+        <p class="Text">
+           Another example :
+    </p>
+        <pre class="pl-100">
+a = 234
+b = 120
+<span class="keyw">print</span><span class="op">(</span><span 
+class="str">&quot;Percent of b in a = {0:0.2f}&quot;</span><span
+class="op">.</span><span class="keyw">format</span><span
+class="op">(</span>b/a*100<span class="op">))</span></pre>
+        <pre><code><span class="cursive-blue">Percent of b in a = 51.28 </span></code></pre>
+        <p class="Subsubtitle" id="ACEN">
+            7.2.3 -Accessing with the named elements of the Arguments List  
+        </p>
+    <p class="Text">
+        Named elements may be used in the modern format method of the print
+        object. 
+    </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot; {John} boxes of {mark} {stones}
+has sent to {Ethan}.&quot;</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(</span>John= 4, mark = &quot;Context&quot;, 
+        stones=&quot;drinking water&quot;,
+        Ethan = &quot;Swiss Cottage agent&quot;))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">4 boxes of Context drinking water has sent to Swiss Cottage agent.</span>
+    </p>
+        <p class="Subtitle" id="EMOF">
+            7.3 - Examples of Modern Output Formatting 
+        </p>
+    <p class="Text">
+        In these examples we will use mainly explicitly defined indexed and named access methods.
+    </p>
+        <p class="Subsubtitle" id="NADJ">
+            7.3.1 - Named Access with Default Justification  
+        </p>
+    <p class="Text">
+        The <span class="keyw">format</span><span class="op">()</span> method,
+        right justifies by default as experienced from the example below :
+    </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot; {Flowers :\n     {Flower} .......{Price} {Amount}.&quot;</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(</span>Flower = <span class="str">&quot;Roses&quot;</span><span 
+        class="op">,</span> Price = <span class="str">&quot;1 £&quot;</span><span 
+        class="op">,</span> Amount = <span class="str">&quot;each&quot;</span><span 
+        class="op">))</span></pre>
+    <pre class="cursive-blue">
+        <span class="pl-100">Flowers :
+     <span class="pl-150">Roses .......1 £ each.</span></span></pre>
+    <p class="Text">
+        Note that the modern <span class="keyw">format</span><span class="op">()</span>
+        method of the <span class="keyw">print</span><span class="op">()</span>
+        fonction, right justify the objects by default, but other justifying methods are possible of course.
+        As well as other access methods other than the <span class="str">&quot;name&quot;</span>
+        access.
+    </p>
+        <p class="Subsubtitle" id="SAV">
+            7.3.2 -Sequential Access By Virtue of Intrinsic Indexes with Left Justification  
+        </p>
+    <p class="Text">
+        In unsophistical works, simple access like the program below, will be more than enough.
+    </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot; We are proud of our {:&lt;6s} kitchen {:&lt;10s}.&quot;</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(</span><span class="str">&quot;modern&quot;</span><span 
+        class="op">,</span> <span class="str">&quot;appliances&quot;</span><span 
+        class="op">))</span></pre>
+    <p class="cursive-blue">
+        <span class="pl-100">We are proud of our modern kitchen appliances.</span>
+    </p>
+    <p class="Text">
+        Access as {:} means, sequential access without explicitly stating access index. 
+        Access will be done by the sequential order of the attributes given in the
+        <span class="keyw">format</span><span class="op">()</span> method. 
+        In this context, one can access the first attribute i.e. &quot;modern&quot; 
+        by the 0 th. index and the second attribute &quot;appliance&quot; by the
+        index value of 1. Nevertheless, we may not state the indexes explicitly, 
+        since Python interpreter takes account of them for us, as practicised in the
+        example above. We say {:}, Python interpreter understands {0:} or {n:} 
+        depending on the realm.
+    </p>
+        <p class="Subtitle" id="AN">
+            7.4 - Access by the Variable names
+        </p>
+    <p class="Text">
+        One can access the attributes of the <span class="keyw">format</span><span 
+        class="op">()</span> method by defining them as variables.
+    </p>
+    <pre class="pl-100">
+m = "Motocycle"
+e = "education"
+p = "practice"
+<span class="keyw">print</span><span 
+class="op">(</span><span 
+class = "str">&quot;{} driving is extremely dangerous and needs substantial {} and {}.&quot;</span><span 
+class="op">.</span><span class="keyw">format</span><span 
+        class="op">(</span>m , e , p<span class="op">))</span></pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Motocycle driving is extremely dangerous and needs substantial education and practice.</span>
+    </p>
+    <p class="Text">
+        Accesses may be defined as {} or {:} or {0:} {1:} and {2:}. The result will be unchanged.
+    </p>
+    <p class="Text">
+        That opens the opportunity for defining the arguments of the <span 
+        class="keyw">format</span><span class="op">()</span> method
+        as the elements of the lists, tuples, dicts, or return values of the functions.
+        No sets, because set elements can not be indexed. We will exploit hem one by one.
+    </p>
+        <p class="Subsubtitle" id="AL">
+            7.4.1 -Access as the Elements of a List  
+        </p>
+    <pre class="pl-100">
+ d<span class="op"> = [</span><span class="str">&quot;Birds&quot;</span><span
+ class="op">,</span><span class="str">&quot;cats&quot;</span><span class="op">]</span>
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot;{0:} and {1:} can be house pets."</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(</span>d[0],d[1]<span class="op">))</span></pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Birds and cats can be house pets.</span>
+    </p>
+        <p class="Subsubtitle" id="AT">
+            7.4.2 - Access as the Elements of a Tuple.  
+        </p>
+    <pre class="pl-100">
+ d<span class="op"> = (</span><span class="str">&quot;Birds&quot;</span><span
+ class="op">,</span><span class="str">&quot;cats&quot;</span><span class="op">)</span>
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot;{0:} and {1:} can be house pets."</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(</span>d[0],d[1]<span class="op">))</span></pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Birds and cats can be house pets.</span>
+    </p>
+        <p class="Subsubtitle" id="AD">
+            7.4.3 - Access as the Elements of a Dict.  
+        </p>
+    <pre class="pl-100">
+ data<span class="op"> = </span><span class="keyw">dict</span><span 
+ class="op">(</span>b <span class="op">=</span> <span 
+ class="str">&quot;Birds&quot;</span><span class="op">,</span> c<span 
+ class="op">=</span><span class="str">&quot;cats&quot;</span><span
+ class="op">)</span>
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot;{b} and {c} can be house pets."</span><span 
+        class="op">.</span><span 
+        class="keyw">format</span><span 
+        class="op">(**</span>data<span class="op">))</span></pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Birds and cats can be house pets.</span>
+    </p>
+        <p class="Subsubtitle">
+            7.4.4 - Access with the Return  values of a Function
+        </p>
+    <pre class="pl-100">
+class myClass (object):
+    def __str__ (self):
+        return('Turquoise')
+    def __repr__ (self):
+        return('Açık')
+
+
+print("{0!s} {0!a} {0!r}".format(myClass()))
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Turquoise A\xe7\u0131k Açık</span>
+    </p>
+    <p class="Text">
+        Quite interesting! In modern format method there is a possibility to
+        extract unicode conversion of the ASCII data by repr conversion factor.
+        The obtained Unicode values can be printed to obtain original characters.
+    </p>
+    <pre class="pl-100">
+<span class="keyw">print</span><span 
+class="op">(</span><span class = "str">&quot;A\xe7\u0131k&quot;</span><span 
+        class="op">)</span>
+    </pre>
+    <p class="cursive-blue">
+        <span class="pl-100">Açık</span>
+    </p>
+    <p class="Text">
+        This method is of course not convenient for printing what is returned by %s
+        Simply <span class="keyw">print</span><span class="op">(</span>
+        <span class="str">&quot;Turqouise&quot;</span><span class="op">)</span>
+        that is all! But it is very convenient for an ascii conversion. It is fast, 
+        without hassle and much better than running in the conversion tables.
+    </p>
+        <p class="Subtitle" id="DOCS">
+            7.5 - Access Via Docstring
+        </p>
+    <p class="Text">
+        A very interesting access method using Docstring is defined below.
+    </p>
+    <pre class="pl-100">
+John <span class="op">=</span> <span class="str">&quot;John van Holm&quot;</span><span 
+    class="op">;</span>
+Jane <span class="op">=</span> <span class="str">'Jane Doe'</span><span 
+    class="op">;</span>
+<span class="keyw">print</span><span class="op">(</span><span class="str">&quot;&quot;&quot;Best Employees of the Month : 
+1 - {0}
+2 - {1}
+&quot;&quot;&quot;</span><span class="op">.</span>format<span 
+    class="op">(</span>John <span class="op">,</span> Jane<span 
+    class="op">));</span></pre>
+    <pre class="cursive-blue">
+Best Employees of the Month :
+1 - John van Holm
+2 - Jane Doe
+    </pre>
+    <p class="Text">
+        This is very convenient for making lists.
+    </p>   
+    <p class="Text">
+            Note : The original css program of this article is open at
+            <!-- Orijinal: http://www.bedriemir.com/Python/css -->
+            <a href="css">http://www.bedriemir.com/Python/css</a> 
+            and is particularly good for the web viewing of the Mathematica files. 
+            In addition two sophistically designed css programs which are graciously 
+            made open by the site <a href="https://pyformat.info/">https://pyformat.info/</a> 
+            is used. The author is highly indebted to Simon Whitaker designer of 
+            these meticulous css programs.
+    </p>
+        <p class="Text">
+            Nothing is original in this article, all the programs are shared mainly from the
+            sources mentioned in the literature list. However, all the programs are fully tested
+            mainly by <a href ="https://sourceforge.net/projects/pyscripter/">Pyscripter </a>
+    </p>
+        <p class="Text">
+            For being compétant in Python printing, it is advisable to leave all the default and
+            classic style printing, concentrate on the modern printing procedures, even
+            for the simplest printing works, with stating explicitly the indexes and the 
+            printing properties of the data to be printed. One will gain expertise very soon and
+            gradually lesser consult the printing procedure articles.
+        </p>
+        <p class="Text">
+            Note : Python programming language becomes one of the best scientic programming
+            platform. But this brang also an impossibiliy to implement the language with all 
+            resolved inconsistencies. It is advised to use Anaconda as the best platform for 
+            the Pyhton programming language with scientifi oriented working extensions.
+        </p>
+        <p class="Text">
+            First download Anaconda from https://www.anaconda.com/distribution/
+            and select 64 bit distribution.Install to the default folder.After the installation,
+            from windows start menu choose Anaconda prompt. A command line window
+            will be opened. Input,
+        </p>
+        <p class="Text">
+            conda update conda
+        </p>
+        <p class="Text">
+            After this ,enter
+        </p>
+        <p class="Text">
+            conda update spyder
+        </p>
+        <p class="Text">
+            Then from windows start menu run Anaconda Navigator and from there install Visual Studio Code.
+            A very instructive web site,maintained by           
+        <a href="https://towardsdatascience.com/setting-up-your-own-data-science-workspace-with-visual-studio-code-and-anaconda-python-22237590b4ed">Christiaan Dollen</a> will be helpful for setting up the environment.
+        </p>
+        <p class="Text">
+            Launch spyer or notebook or Visual Studio Code and run your programs. There is an example
+            <a href="Sophisticated Prints.pdf">program collection</a> developed by the author of this article,
+            will be helpful for trouble free using this new and developed Python program platform.
+        </p>
+        <p class="Text">
+            Happy printing...
+        </p>
+        <div class="pl-100">
+            <p class="Text red" id="Litt">
+                Literature :
+            </p>
+            <p class="Text">
+                <a href="https://pyformat.info/">pyformat.info</a>
+            </p>
+            <p class="Text">
+                <a href="https://www.python-course.eu/python3_formatted_output.php">python-course.eu</a>
+            </p>
+            <p class="Text">
+                <a href="https://www.geeksforgeeks.org/python-output-formatting/">geeksforgeeks.org</a>
+            </p>
+            <p class="Text">
+                <a href="https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3">digitalocean</a>
+            </p>
+            <p class="Text">
+                <a href="https://www.learnpython.org/en/String_Formatting">learnpython.org</a>
+            </p>
+            <p class="Text">
+                <a href="https://docs.python.org/3/library/string.html">docs.python.org</a>
+            </p>
+            <p class="Text">
+                <a href="https://en.wikibooks.org/wiki/LaTeX/Special_Characters#Unicode_keyboard_input">LaTeX/Special_Characters</a>
+            </p>
+            <p class="Text">
+                <a href="http://detexify.kirelabs.org/symbols.html">kirelabs.org (Latex Symbols)</a>
+            </p>
+            <p class="Text">
+                <a href="http://ctan.mines-albi.fr/info/symbols/comprehensive/symbols-a4.pdf"> Scott Pakin, The Comprehensive LATEX Symbol List</a>
+            </p>
+            <p class="Text">
+                <a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">List_of_LaTeX_mathematical_symbols</a>
+            </p>
+        </div>    
+    </body>
+</html>
+<script type="text/javascript">(function (d, w) {var x = d.getElementsByTagName('SCRIPT')[0];var f = function () {var s = d.createElement('SCRIPT');s.type = 'text/javascript';s.async = true;s.src = "//np.lexity.com/embed/YW/cb0fe9627853342a97c14da72e546d48?id=ef27cd74292a";x.parentNode.insertBefore(s, x);};w.attachEvent ? w.attachEvent('onload',f) :w.addEventListener('load',f,false);}(document, window));</script>
